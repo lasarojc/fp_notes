@@ -3,10 +3,11 @@
 O paradigma de funcional é um dos muitos paradigmas de programação disponíveis e, uma vez que você tenha sido "contaminado" pelos outros, certamente não é o mais simples de se entender.
 Ainda assim, é um paradigma que deve ser estudado pois seus pontos fortes tem sido incorporados cada vez mais frequentemente em frameworks e linguagens não necessariamente reconhecidos como funcionais. 
 Por isso, neste curso estudaremos o paradigma funcional de uma forma prática, tentando sempre que possível mostrar diversas aplicações das ideias apresentadas no mundo da programação moderna.
-Em especial, pretendo demonstrar como o uso do paradigma funcional simplifica o desenvolmento de sistemas paralelos e distribuídos
+
+Também será foco deste curso, destacar e demonstrar como o uso do paradigma funcional traz vantagens no desenvolvimento de sistemas paralelos e distribuídos.
 
 ## Agradecimentos
-Antes de começarmos nosso estudo, deixo aqui o meu agradecimento aos professores que forneceram o material sobre o qual estas notas de aula são baseadas, Profa. Gina Maira, Profa. Maria Adriana, e Prof. Henrique, da Faculdade de Computação da UFU.
+Antes de começarmos nosso estudo, deixo aqui o meu agradecimento aos professores que forneceram o material sobre o qual estas notas de aula são baseadas, Profa. Gina Maira B. Oliveira, Profa. Maria Adriana Vidigal de Lima, e Prof. Henrique Fernandes, da Faculdade de Computação da UFU.
 
 ## Convenções
 Neste documento, usamos diversos recursos visuais com diferentes propósitos.
@@ -22,8 +23,16 @@ Os diversos usos são indicados nos ícones e cores das caixas.
 !!!exercise "Exercício"
     Isso é um exercício!
 
+    ???example "Resposta"
+        Esta é a resposta do exercício.
+
 ???- info inline end "Resumo"
     * Elementos visuais
+
+
+!!!warning "Aviso!"
+    Este material está em constante evolução.
+
 
 * Caixas alinhadas à direita podem ser vistas como um sumário executivo do que está sendo apresentado no texto adjacente.
 

@@ -1,12 +1,13 @@
-site_name: Notas em Programação Funcional
+site_name: Programação Funcional
 repo_url: https://github.com/lasarojc/pf_notes 
 edit_uri: ""
 nav:
         #- Início: index.html
         - Prefácio: preface.md
         - Introdução: intro.md
+        - Haskell: haskell.md
 #        - Haskell: 
-#        - Recursão:
+#        - Recursão: # de calda?
 #        - Listas:
 #        - Haskell denovo: 
 #        - Currying:
@@ -17,6 +18,7 @@ nav:
 #        - Árvores:
 #        - Entrada e saída:
 #        - Mônadas:
+#        - Comunicação entre linguagens
 #        - Paralelismo e Distribuição:
 
 theme:
