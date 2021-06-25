@@ -279,53 +279,10 @@ Vejamos estes outras pontos importantes do paradigma:
 * Funções de alta ordem: 
 
 
-<!--
-There are a number of concepts which are the main corner
-stones of functional programming, such as first-class and
-higher-order functions, pure functions, recursion, strict versus
-non-strict evaluation, and type systems.
-Higher-order functions can take other functions as
-arguments or return them as results. An example of a higherorder functions is an integrator or differential operator as it
-returns a function.
-Pure functions have no side effects (memory or I/O). This
-means that pure functions are very useful to optimize code.
-For example, if the result of a pure expression is not used, it
-can be removed without affecting the other expressions. If
-there is no data dependency between two pure expressions,
-then their order can be reversed or they can be performed in
-parallel and not interfere with each other. This means pure
-expressions are thread safe. To allow compilers to optimize
-code more easily in other languages, there is usually keywords
-you can add to tell the compiler the function is pure.
-Recursion functions invoke themselves, performing an
-operation multiple times unit the base case is reached.
-Common patterns of recursion can be re-factored using higher
-order functions. Some recursions require maintaining a stack
-but tail recursions can be optimized into the same code used to
-implement iteration in imperative languages. Functional
-programming that is limited to well-founded recursion with a
-few other constraints is called total functional programming
-[24].
-Strict versus non-strict evaluation is a concept that divides
-functional languages by whether they use strict (eager) or nonstrict (lazy) evaluation. Figure 8 presents an example.
-Under strict evaluation the entire term and function and
-evaluated, meaning if any term of the expression would fail,
-the whole expression would fail. Under non-strict evaluation,
-the length function will return the value 4 since evaluation it
-will not attempt to evaluate the terms making p the list. The
-usual implementation strategy for non-strict evaluation in
-functional languages is graph reduction [25].
-
--->
-
-
-???todo
-    Encapsulamento, herança, polimorfismo
-
-
 
 ## Escolha o seu veneno
-Como já ficou óbvio, há muitas, muitas linguagens de programação por aí.
+Como já ficou óbvio, há muitas, muitas linguagens de programação por aí e é possível escrever código bom em cada um delas, assim como é possível escrever código ruim em cada uma delas.
+Também é possível escrever usando orientação a objetos ou funcionalmente em cada uma delas, mas embora seja **possível**, há aquelas linguagens que suportam melhor cada um dos paradigmas.
 Dentre estas, há diversas opções de linguagens que podemos usar para estudar o paradigma funcional, por exemplo:
 
 * Scheme
@@ -335,13 +292,20 @@ Dentre estas, há diversas opções de linguagens que podemos usar para estudar 
 * Erlang
 * Elixir
 * Haskell
+* Clojure
 
 Neste curso, veremos princípios gerais e que, em teoria, poderiam ser aplicados em qualquer destas linguagens.
-Contudo, como a sintaxe pode variar muito de uma linguagem para outra, precisaremos nos focar em uma única linguagem, mesmo que, frequentemente, apresente exemplos em múltiplas linguagens.
+Contudo, como a sintaxe pode variar muito de uma linguagem para outra, precisaremos nos focar em uma única linguagem, mesmo que, frequentemente, apresente exemplos em outras.
 Assim, nosso foco aqui será em Haskell, uma linguagem funcional madura e estável.
 
 
+## Recomendações
 
+!!!note "Sobre a história das linguagens de programação"
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/wyABTfR9UTU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+!!!note "Sobre porquê PF não é mais comum"
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/QyJZzq0v7Z4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 [^comunicacao]: [Comunicação](https://www.dicio.com.br/comunicacao/)
 [^lp]: [Linguagem de Programação](https://pt.wikipedia.org/wiki/Linguagem_de_programa%C3%A7%C3%A3o)

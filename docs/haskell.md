@@ -1,69 +1,39 @@
-# Breve introdução a Haskell
+# Introdução
 
-A linguagem de programação Haskell, cujo nome é uma homenagem ao matemático e lógico **Haskell B. Curry**, é famosa por ser uma linguagem funcional **pura**, de **propósito geral** e características marcantes como **avaliação preguiçosa**, e tipagem **estática**, **forte** e por **inferência**.
+A primeira versão da linguagem Haskell, cujo nome é uma homenagem ao matemático e lógico **Haskell B. Curry**, apareceu em 1987 do esforço para se consolidar vários avanços propostos no paradigma funcional, 
+sendo famosa por ser uma linguagem funcional **pura**, de **propósito geral** e por ter características marcantes como **avaliação preguiçosa**, e tipagem **estática**, **forte** e por **inferência**, como discutiremos mais adiante.
 
-A primeira versão da linguagem Haskell apareceu em 1987 do esforço para se consolidar vários avanços propostos no paradigma funcional.
 Mais do que uma linguagem, Haskell era uma especificação, ou série de especificações, tendo tido várias implementações distintas.
-
-Haskell 98 foi um marco da linguagem, sendo uma versão considerada estável.
+A versão de 98 foi um marco da linguagem, sendo uma versão considerada estável.
 Nesta época surgiu o Glasgow Haskell Compiler (GHC), que se tornou o compilador Haskell "padrão".
-
 A versão seguinte da linguagem começou a ser especificada em 2006 e anunciada em 2009, a Haskell 2010. Dentre os principais avanços desta versão está a possibilidade de interagir com código escrito em outras linguagens, via the *foreign function interface* (FFI).
 
-Mas chega de história. Vejamos alguns exemplos simples da linguagem.
+Mas chega de história e vamos colocar a mão na massa vendo alguns exemplos extremamente simples da linguagem.
+Para exemplos mais complexos, você deverá instalar o compilador Haskell na sua máquina, seguindo as instruções específicas[^ghc],  mas para pequenos experimentos e exercícios, podendo usar o [Repl.It](https://replit.com/languages/haskell)[^repl]
+Do lado direito do sítio, na área marcada em vermelho, digite `ghci` seguido de ++enter++.
 
-## Exemplos simples
-Para começar, vejamos um trecho de código com uma iteração simples, calculando o somatório de 1 a 10, em linguagem C.
+[^repl]: REPL é o acrônimo para Read, Evaluate, Print, Loop.
 
-```c
-int total = 0;
-for (int i = 1; i < 11; i++)
-    total = total + i;
-```
+[^ghc]:  Instruções de como instalar o GHC são específicas para cada sistema operacional. Por isso, consulte o sítio https://www.haskell.org/platform/ para instalar o Haskell na sua máquina.
 
-Em Haskell, temos diversas opções para obter o mesmo resultado, por exemplo.
+![](images/replit.png)
+
+Agora digite as expressões a seguir.
 
 ```Haskell
-iteracao
+1 + 1
 
-total = sum [1...10]
+True && True
 
-fold
+100 / 10
+
+(10 + 4) * 50
+
+3 * (-2)
+
+2 * -1
 ```
 
 
-## Tipos básicos
-
-## Instalando o GHC
-
-
-
-
-
-
-
-
-
-
-
-
-Fortemente tipada: sem conversão automática
-Statically typed: em tempo de compilação.
-
-exemplo python e tipos mutantes
-
-
-inferência de tipos.
-tipos explícitos
-
-tipos especificados pelo usuário
-tipos primitivos
-
-
-Int
-Integer
-Double
-Float
-Bool
-Char
-String é lista de caracteres
+Estas expressões fazem uso de operadores comuns e se comportam exatamente como você esperaria, depois de ter aprendido a programar em qualquer linguagem, em qualquer paradigma.
+Operadores são **açúcar sintático** para funções, a alma da programação funcional.

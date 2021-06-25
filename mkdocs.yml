@@ -5,21 +5,10 @@ nav:
         #- Início: index.html
         - Prefácio: preface.md
         - Introdução: intro.md
-        - Haskell: haskell.md
-#        - Haskell: 
-#        - Recursão: # de calda?
-#        - Listas:
-#        - Haskell denovo: 
-#        - Currying:
-#        - Cálculo Lambda:
-#        - Funções de Alta Ordem:
-#        - Algoritmos de Ordenação:
-#        - Tipos algébricos:
-#        - Árvores:
-#        - Entrada e saída:
-#        - Mônadas:
-#        - Comunicação entre linguagens
-#        - Paralelismo e Distribuição:
+        - Haskell: 
+           - haskell.md
+           - Funções: haskell_functions.md
+           - Tipos: haskell_types.md
 
 theme:
         name: material
@@ -57,11 +46,10 @@ markdown_extensions:
         - pymdownx.caret
         - pymdownx.critic
         - pymdownx.details
+        - pymdownx.keys
         - pymdownx.emoji:
             emoji_index: !!python/name:materialx.emoji.twemoji
             emoji_generator: !!python/name:materialx.emoji.to_svg
-            #emoji_index: !!python/name:pymdownx.emoji.twemoji
-            #emoji_generator: !!python/name:pymdownx.emoji.to_svg
         - pymdownx.highlight:
              linenums: true
         - pymdownx.inlinehilite
@@ -77,6 +65,7 @@ markdown_extensions:
             custom_checkbox: true
         - pymdownx.tabbed
         - pymdownx.tilde
+        - pymdownx.tasklist
 
 extra_javascript:
         - https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js

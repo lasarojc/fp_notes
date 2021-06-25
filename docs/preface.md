@@ -37,11 +37,3 @@ Os diversos usos são indicados nos ícones e cores das caixas.
 * Caixas alinhadas à direita podem ser vistas como um sumário executivo do que está sendo apresentado no texto adjacente.
 
 [^foot]: Exemplo de nota de rodapé.
-
-
-
-
-
-## TODO
-* Ativar plugin bibtex
-
