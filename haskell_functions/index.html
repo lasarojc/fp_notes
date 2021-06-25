@@ -14,7 +14,7 @@
     
     
       
-        <title>Introdução - Programação Funcional</title>
+        <title>Funções - Programação Funcional</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introducao" class="md-skip">
+        <a href="#funcoes" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introdução
+              Funções
             
           </span>
         </div>
@@ -256,6 +256,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../haskell/" class="md-nav__link">
+        Introdução
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -268,21 +280,9 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Introdução
-      </a>
-      
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../haskell_functions/" class="md-nav__link">
         Funções
       </a>
+      
     </li>
   
 
@@ -345,54 +345,111 @@
 
 
   <!-- Content -->
-  <h1 id="introducao">Introdução</h1>
-<p>A primeira versão da linguagem Haskell, cujo nome é uma homenagem ao matemático e lógico <strong>Haskell B. Curry</strong>, apareceu em 1987 do esforço para se consolidar vários avanços propostos no paradigma funcional, 
-sendo famosa por ser uma linguagem funcional <strong>pura</strong>, de <strong>propósito geral</strong> e por ter características marcantes como <strong>avaliação preguiçosa</strong>, e tipagem <strong>estática</strong>, <strong>forte</strong> e por <strong>inferência</strong>, como discutiremos mais adiante.</p>
-<p>Mais do que uma linguagem, Haskell era uma especificação, ou série de especificações, tendo tido várias implementações distintas.
-A versão de 98 foi um marco da linguagem, sendo uma versão considerada estável.
-Nesta época surgiu o Glasgow Haskell Compiler (GHC), que se tornou o compilador Haskell "padrão".
-A versão seguinte da linguagem começou a ser especificada em 2006 e anunciada em 2009, a Haskell 2010. Dentre os principais avanços desta versão está a possibilidade de interagir com código escrito em outras linguagens, via the <em>foreign function interface</em> (FFI).</p>
-<p>Mas chega de história e vamos colocar a mão na massa vendo alguns exemplos extremamente simples da linguagem.
-Para exemplos mais complexos, você deverá instalar o compilador Haskell na sua máquina, seguindo as instruções específicas<sup id="fnref:ghc"><a class="footnote-ref" href="#fn:ghc">2</a></sup>,  mas para pequenos experimentos e exercícios, podendo usar o <a href="https://replit.com/languages/haskell">Repl.It</a><sup id="fnref:repl"><a class="footnote-ref" href="#fn:repl">1</a></sup>
-Do lado direito do sítio, na área marcada em vermelho, digite <code>ghci</code> seguido de <span class="keys"><kbd class="key-enter">Enter</kbd></span>.</p>
-<p><img alt="" src="../images/replit.png" /></p>
-<p>Agora digite as expressões a seguir.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+  <h1 id="funcoes">Funções</h1>
+<p>Agora que já vimos exemplos extremamente simples, vejamos alguns um pouco mais interessantes, como uma função que soma os números de <code>x</code> a <code>y</code>, inclusive.
+A título de comparação, vejamos primeiro a função em linguagem C.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">soma</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">total</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="kt">True</span> <span class="o">&amp;&amp;</span> <span class="kt">True</span>
-
-<span class="mi">100</span> <span class="o">/</span> <span class="mi">10</span>
-
-<span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="mi">50</span>
-
-<span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="mi">2</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">soma</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
-<p>Estas expressões fazem uso de operadores comuns e se comportam exatamente como você esperaria, depois de ter aprendido a programar em qualquer linguagem, em qualquer paradigma.
-Operadores são <strong>açúcar sintático</strong> para funções, a alma da programação funcional.</p>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:repl">
-<p>REPL é o acrônimo para Read, Evaluate, Print, Loop.&#160;<a class="footnote-backref" href="#fnref:repl" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:ghc">
-<p>Instruções de como instalar o GHC são específicas para cada sistema operacional. Por isso, consulte o sítio <a href="https://www.haskell.org/platform/">https://www.haskell.org/platform/</a> para instalar o Haskell na sua máquina.&#160;<a class="footnote-backref" href="#fnref:ghc" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-</ol>
+<p>Em Haskell, temos diversas opções para obter o mesmo resultado, por exemplo, usando uma função recursiva...</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">somadeate</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span>
+                <span class="kr">then</span> <span class="n">x</span> <span class="o">+</span> <span class="n">somadeate</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="n">y</span>
+                <span class="kr">else</span> <span class="n">x</span>
+
+<span class="nf">somadeate</span> <span class="mi">1</span> <span class="mi">10</span>
+</code></pre></div>
+</td></tr></table>
+<p>... ou a função já existente <code class="highlight"><span class="nf">sum</span></code>, que recebe uma lista de números, neste caso criada pelo operador <code class="highlight"><span class="o">..</span></code></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">sum</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+<p>Em ambos os casos, estamos usando funções que resolvem o problema sem se basear em nada além dos parâmetros passados e sem efeitos colaterais, inclusive no exemplo em C.
+Estes são exemplos de funções <strong>puras</strong>, frequentemente representadas como as seguintes "caixinhas", que recebem algumas entradas e calcula, <strong>exatamente</strong>, uma saída.</p>
+<p><img alt="Função" src="../drawings/function.drawio-0.svg" /></p>
+<p><img alt="Função" src="../drawings/function.drawio-1.svg" /></p>
+<h6>Uso</h6>
+<p>Observe que a <strong>sintaxe do uso</strong> das funções, contudo, é diferente; em Haskell, usa-se o nome da função, seguido dos parâmetros, com espaço os separando.</p>
+<h6>Definição</h6>
+<p>A definição de funções segue algumas estruturas básicas, sendo a mais simples a definição via <strong>equação</strong>.
+Por exemplo, consideremos uma função que soma dois números.</p>
+<p><img alt="Função" src="../drawings/function.drawio-3.svg" /></p>
+<p>Em Haskell, ela é definida simplesmente como <code class="highlight"><span class="nf">soma</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span></code> e usada como <code class="highlight"><span class="nf">soma</span> <span class="mi">3</span> <span class="mi">5</span></code>.</p>
+<div class="admonition exercise">
+<p class="admonition-title">Exercício: Soma</p>
+<ul>
+<li>Defina a função soma e a use, de acordo com a imagem.</li>
+</ul>
+<p><img alt="Exercício" src="../images/exe1.png" /></p>
 </div>
+<p>Como outro exemplo, definamos uma função que retorna o sucessor de um inteiro como <code class="highlight"><span class="nf">sucessor</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span></code>.
+Com estas duas funções, podemos inclusive compor funções, no melhor estilo <span class="arithmatex">\(g(f(x))\)</span>, por exemplo: <code class="highlight"><span class="nf">sucessor</span> <span class="p">(</span><span class="n">soma</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">)</span></code> ou <code class="highlight"><span class="nf">sucessor</span> <span class="p">(</span><span class="n">sucessor</span> <span class="p">(</span><span class="n">sucessor</span> <span class="mi">4</span><span class="p">))</span></code>.</p>
+<div class="admonition exercise">
+<p class="admonition-title">Exercício: Composição</p>
+<ul>
+<li>Defina uma função que multiplique 3 números, isto é, dados <span class="arithmatex">\(x\)</span>, <span class="arithmatex">\(y\)</span> e <span class="arithmatex">\(z\)</span>, calcule <span class="arithmatex">\(x*y*z\)</span>.</li>
+<li>Calcule <span class="arithmatex">\((1 + (3 * 2 * 3)) + (5 * 3 * 2)\)</span> usando as funções de soma e multiplicação definidas.</li>
+</ul>
+<details class="example"><summary>Resolução</summary><p>Defina as funções</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">soma</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="nf">mult3</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span>
+</code></pre></div>
+</td></tr></table>
+<p>Invoque <code class="highlight"><span class="nf">soma</span> <span class="p">(</span><span class="n">soma</span> <span class="mi">1</span> <span class="p">(</span><span class="n">mult3</span> <span class="mi">3</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">))</span> <span class="p">(</span><span class="n">mult</span> <span class="mi">5</span> <span class="mi">3</span> <span class="mi">2</span><span class="p">)</span></code>. Observe que os parênteses são necessários para delimitar os parâmetros de cada uma das invocações.</p>
+</details>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercício: média de 3 números</p>
+<ul>
+<li>Defina uma função que calcule a média de 3 números</li>
+</ul>
+<details class="example"><summary>Resolução</summary><ul>
+<li><code class="highlight"><span class="nf">media</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span></code></li>
+</ul>
+</details>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercício: área das figuras</p>
+<ul>
+<li>Defina uma função o cálculo da área de cada figura geométrica.</li>
+</ul>
+<p><img alt="figuras" src="../drawings/area.drawio-0.svg" /></p>
+<div class="admonition example">
+<p class="admonition-title">Resolução</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">areaQuad</span> <span class="n">a</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span>
+<span class="nf">areaRet</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+<span class="nf">areaCirc</span> <span class="n">r</span> <span class="ow">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span>
+<span class="nf">areaTri</span> <span class="n">a</span> <span class="n">h</span> <span class="ow">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">h</span> <span class="p">)</span><span class="o">/</span> <span class="mi">2</span>
+<span class="nf">areaTra</span> <span class="n">a</span> <span class="n">b</span> <span class="n">h</span> <span class="ow">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="n">h</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Note que você pode usar números inteiros, reais, ou uma mistura deles nas invocações destas funções, o que nos leva a perguntar como funcionam tipos no Haskell.</p>
 
   <!-- Last update of source file -->
 
@@ -413,7 +470,7 @@ Operadores são <strong>açúcar sintático</strong> para funções, a alma da p
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../intro/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../haskell/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -428,13 +485,13 @@ Operadores são <strong>açúcar sintático</strong> para funções, a alma da p
         </a>
       
       
-        <a href="../haskell_functions/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../haskell_types/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Funções
+              Tipos
             </div>
           </div>
           <div class="md-footer__button md-icon">

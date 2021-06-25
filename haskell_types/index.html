@@ -14,7 +14,7 @@
     
     
       
-        <title>Introdução - Programação Funcional</title>
+        <title>Tipos - Programação Funcional</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introducao" class="md-skip">
+        <a href="#tipos" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introdução
+              Tipos
             
           </span>
         </div>
@@ -256,21 +256,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../haskell/" class="md-nav__link">
         Introdução
       </a>
-      
     </li>
   
 
@@ -290,11 +280,65 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../haskell_types/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Tipos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Tipos
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-primitivos-e-operadores" class="md-nav__link">
+    Tipos Primitivos e Operadores
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-funcao-type" class="md-nav__link">
+    A função :type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prototipo-de-funcoes" class="md-nav__link">
+    Protótipo de funções
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -324,6 +368,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-primitivos-e-operadores" class="md-nav__link">
+    Tipos Primitivos e Operadores
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-funcao-type" class="md-nav__link">
+    A função :type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prototipo-de-funcoes" class="md-nav__link">
+    Protótipo de funções
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -345,51 +418,225 @@
 
 
   <!-- Content -->
-  <h1 id="introducao">Introdução</h1>
-<p>A primeira versão da linguagem Haskell, cujo nome é uma homenagem ao matemático e lógico <strong>Haskell B. Curry</strong>, apareceu em 1987 do esforço para se consolidar vários avanços propostos no paradigma funcional, 
-sendo famosa por ser uma linguagem funcional <strong>pura</strong>, de <strong>propósito geral</strong> e por ter características marcantes como <strong>avaliação preguiçosa</strong>, e tipagem <strong>estática</strong>, <strong>forte</strong> e por <strong>inferência</strong>, como discutiremos mais adiante.</p>
-<p>Mais do que uma linguagem, Haskell era uma especificação, ou série de especificações, tendo tido várias implementações distintas.
-A versão de 98 foi um marco da linguagem, sendo uma versão considerada estável.
-Nesta época surgiu o Glasgow Haskell Compiler (GHC), que se tornou o compilador Haskell "padrão".
-A versão seguinte da linguagem começou a ser especificada em 2006 e anunciada em 2009, a Haskell 2010. Dentre os principais avanços desta versão está a possibilidade de interagir com código escrito em outras linguagens, via the <em>foreign function interface</em> (FFI).</p>
-<p>Mas chega de história e vamos colocar a mão na massa vendo alguns exemplos extremamente simples da linguagem.
-Para exemplos mais complexos, você deverá instalar o compilador Haskell na sua máquina, seguindo as instruções específicas<sup id="fnref:ghc"><a class="footnote-ref" href="#fn:ghc">2</a></sup>,  mas para pequenos experimentos e exercícios, podendo usar o <a href="https://replit.com/languages/haskell">Repl.It</a><sup id="fnref:repl"><a class="footnote-ref" href="#fn:repl">1</a></sup>
-Do lado direito do sítio, na área marcada em vermelho, digite <code>ghci</code> seguido de <span class="keys"><kbd class="key-enter">Enter</kbd></span>.</p>
-<p><img alt="" src="../images/replit.png" /></p>
-<p>Agora digite as expressões a seguir.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+  <h1 id="tipos">Tipos</h1>
+<p>Em linguagens de programação, um tipo é um nome dado a uma coleção de valores que são tem um mesmo comportamento na linguagem.
+Na linguagem C, por exemplo, temos os tipos <code>int</code> e <code>short</code>, ambos associados a valores inteiros mas número de bits diferentes usados para representá-los.</p>
+<p>Algumas linguagens são denominadas fracamente tipadas, o que quer dizer que o uso de tipos é relaxado e pode até ser alterado em tempo de execução.
+Por exemplo, no seguinte código em Python a variável <code>x</code> assume três tipos diferentes.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;lala&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
-<span class="kt">True</span> <span class="o">&amp;&amp;</span> <span class="kt">True</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
-<span class="mi">100</span> <span class="o">/</span> <span class="mi">10</span>
-
-<span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="mi">50</span>
-
-<span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="mi">2</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </code></pre></div>
 </td></tr></table>
-<p>Estas expressões fazem uso de operadores comuns e se comportam exatamente como você esperaria, depois de ter aprendido a programar em qualquer linguagem, em qualquer paradigma.
-Operadores são <strong>açúcar sintático</strong> para funções, a alma da programação funcional.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>&lt;class <span class="s1">&#39;str&#39;</span>&gt;
+&lt;class <span class="s1">&#39;int&#39;</span>&gt;
+&lt;class <span class="s1">&#39;float&#39;</span>&gt;
+</code></pre></div>
+</td></tr></table>
+<p>Já a linguagem Haskell é o que chamamos de <strong>fortemente tipada</strong>, o que quer dizer que toda variável, constante ou função tem apenas um tipo e este sempre pode ser determinado.
+Além disso, Haskell é <strong>estaticamente tipada</strong>, ou seja, os tipos são determinados em tempo de compilação, em oposição a linguagens que determinam o tipo durante a execução do programa, denominadas dinamicamente tipadas.
+Finalmente, se olharmos novamente para os exemplos de funções anteriores, veremos que não foram definidos tipos em suas declarações; isto é possível porquê Haskell consegue <strong>inferir</strong> os tipos dos dados de forma muito eficiente, obrigando você a explicitá-los apenas em casos muito específicos.</p>
+<p>Haskell tem um número imenso de tipos pre-definidos, organizados hierarquicamente, e que podem ser usados para definir novos tipos pelo programador.
+Mas por enquanto, nos foquemos nos tipos mais simples.</p>
+<h2 id="tipos-primitivos-e-operadores">Tipos Primitivos e Operadores</h2>
+<p>Como toda linguagem de programação, Haskell tem tipos pré-definidos para representar números e caracteres, como mostra a seguinte tabela.</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Descrição</th>
+<th>Valores</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Int</code></td>
+<td>Inteiro de precisão finita</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Integer</code></td>
+<td>Inteiro de precisão arbitrária</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Float</code></td>
+<td>Ponto flutuante de precisão simples</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Double</code></td>
+<td>Ponto flutuante de precisão dupla</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Char</code></td>
+<td>Caractere</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Além do tipo <code>Char</code>, Haskell define também o tipo <code>String</code> como uma <strong>lista</strong> de <code>Char</code>.
+Como lista não é um tipo primitivo, ou melhor, mesmo que em Haskell listas sejam um tipo básicos, não as estudaremos agora. 
+Ainda assim, usaremos <code>String</code> em alguns exemplos, de forma bem descomplicada.</p>
+<p>Dados os tipos primários, o próximo passo é ver os operadores que os manipulam.</p>
+<table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Operação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+</code></td>
+<td>Adição</td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>Subtração</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>Multiplicação</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>Divisão</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>Exponenciação, e.g, <code>2^4 == 16</code></td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>Inversão de sinal, e.g, <code>- (-10) == 10</code><sup id="fnref2:negate"><a class="footnote-ref" href="#fn:negate">1</a></sup></td>
+</tr>
+<tr>
+<td><code>negate</code></td>
+<td>Inversão de sinal, e.g, <code>negate (-10) == 10</code><sup id="fnref:negate"><a class="footnote-ref" href="#fn:negate">1</a></sup></td>
+</tr>
+<tr>
+<td><code>quot</code></td>
+<td>Divisão inteira, truncado pro 0</td>
+</tr>
+<tr>
+<td><code>rem</code></td>
+<td>Resto da divisão inteira, tal que <code>(x `quot` y)*y + (x `rem` y) == x</code></td>
+</tr>
+<tr>
+<td><code>div</code></td>
+<td>Resto da divisão, truncado para baixo</td>
+</tr>
+<tr>
+<td><code>mod</code></td>
+<td>Módulo do inteiro, tal que  <code>(x `div` y)*y + (x `mod` y) == x</code></td>
+</tr>
+</tbody>
+</table>
+<p>Observe que alguns destes operadores são naturalmente infixos, e.g., <code>+</code>, e outros prefixos, e.g., <code>rem</code>.
+Contudo, ambos podem ser usados da outras forma, como mostrado nos seguintes exemplos.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="mi">10</span> <span class="o">+</span> <span class="mi">20</span>
+<span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">10</span> <span class="mi">20</span>
+<span class="nf">quot</span> <span class="mi">10</span> <span class="mi">3</span>
+<span class="mi">10</span> <span class="p">`</span><span class="n">quot</span><span class="p">`</span> <span class="mi">3</span>
+</code></pre></div>
+</td></tr></table>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Descrição</th>
+<th>Valores</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Bool</code></td>
+<td>Booleano</td>
+<td><code>True</code> ou <code>False</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Operação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&amp;&amp;</code></td>
+<td>E lógico</td>
+</tr>
+<tr>
+<td><code>||</code></td>
+<td>OU lógico</td>
+</tr>
+<tr>
+<td><code>not</code></td>
+<td>Negação</td>
+</tr>
+<tr>
+<td><code>==</code></td>
+<td>Igualdade</td>
+</tr>
+<tr>
+<td><code>/=</code></td>
+<td>Diferença</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition todo">
+<p class="admonition-title">Exercícios</p>
+<ul>
+<li>Usar todos os operadores</li>
+<li>Evidenciar diferenças entrem quot e div.</li>
+</ul>
+</div>
+<h2 id="a-funcao-type">A função <code>:type</code></h2>
+<h2 id="prototipo-de-funcoes">Protótipo de funções</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">nome_funcao</span> <span class="ow">::</span> <span class="n">tipo_arg1</span> <span class="ow">-&gt;</span> <span class="o">...</span> <span class="ow">-&gt;</span> <span class="n">tipo_argN</span> <span class="ow">-&gt;</span> <span class="n">tipo_saida</span>
+<span class="nf">nome_funcao</span> <span class="n">arg1</span> <span class="o">...</span> <span class="n">argN</span> <span class="ow">=</span> <span class="o">&lt;</span><span class="n">definicao</span><span class="o">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+<div class="admonition exercise">
+<p class="admonition-title">Exercício</p>
+<ul>
+<li>Defina o protótipo da função de conversão de Fahrenheit para Celsius <code class="highlight"><span class="nf">f2c</span> <span class="n">x</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">/</span><span class="mf">1.8</span></code></li>
+</ul>
+<details class="example"><summary>Resolução</summary><p><code class="highlight"><span class="nf">f2c</span> <span class="ow">::</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span></code></p>
+</details>
+<ul>
+<li>Defina o protótipo da função de media de dois números reais <code class="highlight"><span class="nf">m2n</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span></code></li>
+</ul>
+<details class="example"><summary>Resolução</summary><p><code class="highlight">:: Float -&gt; Float -&gt; Float</code></p>
+</details>
+</div>
 <div class="footnote">
 <hr />
 <ol>
-<li id="fn:repl">
-<p>REPL é o acrônimo para Read, Evaluate, Print, Loop.&#160;<a class="footnote-backref" href="#fnref:repl" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:ghc">
-<p>Instruções de como instalar o GHC são específicas para cada sistema operacional. Por isso, consulte o sítio <a href="https://www.haskell.org/platform/">https://www.haskell.org/platform/</a> para instalar o Haskell na sua máquina.&#160;<a class="footnote-backref" href="#fnref:ghc" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<li id="fn:negate">
+<p>Observe que o o <code>-10</code> está entre parênteses não porque o operador demanda, mas para deixar claro que o <code>-</code> faz parte do número.&#160;<a class="footnote-backref" href="#fnref:negate" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:negate" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -413,7 +660,7 @@ Operadores são <strong>açúcar sintático</strong> para funções, a alma da p
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../intro/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../haskell_functions/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -422,25 +669,11 @@ Operadores são <strong>açúcar sintático</strong> para funções, a alma da p
               <span class="md-footer__direction">
                 Anterior
               </span>
-              Introdução
-            </div>
-          </div>
-        </a>
-      
-      
-        <a href="../haskell_functions/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Próximo
-              </span>
               Funções
             </div>
           </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
         </a>
+      
       
     </nav>
   
