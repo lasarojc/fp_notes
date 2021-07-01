@@ -379,7 +379,7 @@
   
     <li class="md-nav__item">
       <a href="../haskell/" class="md-nav__link">
-        Introdução
+        Origem
       </a>
     </li>
   
@@ -390,7 +390,19 @@
   
   
     <li class="md-nav__item">
-      <a href="../haskell_functions/" class="md-nav__link">
+      <a href="../simple/" class="md-nav__link">
+        1 + 1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
         Funções
       </a>
     </li>
@@ -402,8 +414,56 @@
   
   
     <li class="md-nav__item">
-      <a href="../haskell_types/" class="md-nav__link">
+      <a href="../ifthenelse/" class="md-nav__link">
+        If Then Else
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guards/" class="md-nav__link">
+        Guardas
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_functions/" class="md-nav__link">
+        Casamento de Padrões
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../types/" class="md-nav__link">
         Tipos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prelude/" class="md-nav__link">
+        Prelude
       </a>
     </li>
   
@@ -411,6 +471,51 @@
           
         </ul>
       </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tuples/" class="md-nav__link">
+        Tuplas
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../haskell_cases.md" class="md-nav__link">
+        Casamento de Padrões
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lists.md" class="md-nav__link">
+        Listas
+      </a>
     </li>
   
 
@@ -746,8 +851,12 @@ Apesar do claro poder deste paradigma, o mesmo tem poucos representantes, como P
 <h3 id="funcional">Funcional</h3>
 <p>A programação, como indicado pelo nome, é focada na organização do processamento em termos de funções, mas de uma forma diferente da programação procedimental.
 De forma geral, <strong>funções</strong> são blocos de código criadas essencialmente para se obter <strong>reusabilidade</strong>: uma vez definidas, as funções podem ser invocadas repetidas vezes para executar a mesma tarefa sobre diferentes <strong>parâmetros</strong>, sempre retornando um resultado.<sup id="fnref:void"><a class="footnote-ref" href="#fn:void">4</a></sup>
-Mas enquanto na programação procedimental a invocação de uma função pode retornar diferentes resultados mesmo quando os parâmetros são os mesmos, na programação funcional, funções são como na matemática, isto é, mapeiam uma entrada para uma saída, sempre. 
-Não é a toa que outro nome usado para definir os blocos de código é <strong>procedimento</strong> em vez de função.</p>
+Mas enquanto na programação procedimental a invocação de uma função pode retornar diferentes resultados mesmo quando os parâmetros são os mesmos, na programação funcional, funções são como na matemática, isto é, mapeiam uma entrada para <strong>exatamente</strong> uma saída, sempre.
+Isto é, funções resolvem o problema sem se basear em nada além dos parâmetros passados e sem efeitos colaterais.</p>
+<p><img alt="Função" src="../drawings/function.drawio-0.svg" /></p>
+<p><img alt="Função" src="../drawings/function.drawio-1.svg" /></p>
+<p>Mas e as funções que tem efeitos colaterais?
+Estas não são funções "de verdade" e não é a toa que outro nome usado para os blocos de código é <strong>procedimento</strong> e que para discernir entre funções que tem efeitos colaterais e que não não, chamamos de <strong>puras</strong> as do segundo tipo.</p>
 <p>Vejamos alguns exemplos.
 As funções seguintes, definidas em Erlang, calculam <code>A+B</code>, <code>A*C</code> e <code>(A+B)*(A+B)</code>; independentemente de quantas vezes você o fizer, <code>add(2,3)</code> sempre retornará <code>5</code>.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -919,7 +1028,7 @@ Assim, nosso foco aqui será em Haskell, uma linguagem funcional madura e estáv
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Introdução
+              Origem
             </div>
           </div>
           <div class="md-footer__button md-icon">

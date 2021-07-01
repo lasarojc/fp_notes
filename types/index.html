@@ -1,0 +1,911 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.3">
+    
+    
+      
+        <title>Tipos - Programação Funcional</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.e35208c4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#546d78">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","G-PJX835H7DP","lasarojc.github.org/dsnotes"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tipos" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Programação Funcional" class="md-header__button md-logo" aria-label="Programação Funcional" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programação Funcional
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tipos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/lasarojc/pf_notes" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Programação Funcional" class="md-nav__button md-logo" aria-label="Programação Funcional" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Programação Funcional
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/lasarojc/pf_notes" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preface/" class="md-nav__link">
+        Prefácio
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        Introdução
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Haskell
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Haskell" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Haskell
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../haskell/" class="md-nav__link">
+        Origem
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../simple/" class="md-nav__link">
+        1 + 1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        Funções
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ifthenelse/" class="md-nav__link">
+        If Then Else
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guards/" class="md-nav__link">
+        Guardas
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_functions/" class="md-nav__link">
+        Casamento de Padrões
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Tipos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Tipos
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-primitivos-e-operadores" class="md-nav__link">
+    Tipos Primitivos e Operadores
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prototipo-de-funcoes" class="md-nav__link">
+    Protótipo de funções
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prelude/" class="md-nav__link">
+        Prelude
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tuples/" class="md-nav__link">
+        Tuplas
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../haskell_cases.md" class="md-nav__link">
+        Casamento de Padrões
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lists.md" class="md-nav__link">
+        Listas
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-primitivos-e-operadores" class="md-nav__link">
+    Tipos Primitivos e Operadores
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prototipo-de-funcoes" class="md-nav__link">
+    Protótipo de funções
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+<!-- Edit button -->
+
+
+  <!--
+       Hack: check whether the content contains a h1 headline. If it
+       doesn't, the page title (or respectively site name) is used
+       as the main headline.
+    -->
+
+
+  <!-- Content -->
+  <h1 id="tipos">Tipos</h1>
+<p>Seja a função <code>dias_mes</code> a função que calcula a quantidade de dias em um mês, dado o número do mês, definida assim:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">dias_mes</span> <span class="n">m</span>
+    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">3</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">5</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">7</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">8</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">10</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">12</span> <span class="ow">=</span> <span class="mi">31</span>
+    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">=</span> <span class="mi">28</span>
+    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="mi">30</span>
+</code></pre></div>
+</td></tr></table>
+<p>O que acontece se você passar 7.2 para a função? O resultado está correto? 
+Isso nos leva a perguntar como definir que uma função só é aplicável a números inteiros, do <strong>tipo</strong> inteiro.</p>
+<p>Em linguagens de programação, um tipo é um nome dado a uma coleção de valores que tem um mesmo comportamento na linguagem.
+Na linguagem C, por exemplo, temos os tipos <code>int</code> e <code>short</code>, ambos associados a valores inteiros mas com número de bits diferentes usados para representá-los.</p>
+<p>Algumas linguagens são denominadas fracamente tipadas, o que quer dizer que o uso de tipos é relaxado e pode até ser alterado em tempo de execução.
+Por exemplo, no seguinte código em Python a variável <code>x</code> assume três tipos diferentes em momentos diferentes da execução.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;lala&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</code></pre></div>
+</td></tr></table>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>&lt;class <span class="s1">&#39;str&#39;</span>&gt;
+&lt;class <span class="s1">&#39;int&#39;</span>&gt;
+&lt;class <span class="s1">&#39;float&#39;</span>&gt;
+</code></pre></div>
+</td></tr></table>
+<details class="sideslide"><summary>Tipagem"</summary><ul>
+<li>Forte</li>
+<li>Estática</li>
+<li>Inferência</li>
+</ul>
+</details>
+<p>Já a linguagem Haskell é o que chamamos de <strong>fortemente tipada</strong>, o que quer dizer que toda variável, constante ou função tem apenas um tipo e este sempre pode ser determinado.
+Além disso, Haskell é <strong>estaticamente tipada</strong>, ou seja, os tipos são determinados em tempo de compilação, em oposição a linguagens que determinam o tipo durante a execução do programa, denominadas dinamicamente tipadas.
+Assim como <code>type</code> em Python, Haskell tem a função <code class="highlight"><span class="kt">:</span><span class="kr">type</span></code> para verificar o tipo de uma variável. Por exemplo:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>   <span class="kt">:</span><span class="kr">type</span> <span class="mi">1</span>
+<span class="mi">1</span> <span class="ow">::</span> <span class="kt">Num</span> <span class="n">p</span> <span class="ow">=&gt;</span> <span class="n">p</span>
+   <span class="kt">:</span><span class="kr">type</span> <span class="mf">1.0</span>
+<span class="mf">1.0</span> <span class="ow">::</span> <span class="kt">Fractional</span> <span class="n">p</span> <span class="ow">=&gt;</span> <span class="n">p</span>
+   <span class="kt">:</span><span class="kr">type</span> <span class="s">&quot;Bom dia&quot;</span>
+<span class="s">&quot;Bom dia&quot;</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Char</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+<p>Finalmente, se olharmos novamente para os exemplos de funções anteriores, veremos que não foram definidos tipos em suas declarações; isto é possível porquê Haskell consegue <strong>inferir</strong> os tipos dos dados de forma muito eficiente, obrigando você a explicitá-los apenas em casos muito específicos.</p>
+<p>Haskell tem um número imenso de tipos pre-definidos, organizados hierarquicamente, e que podem ser usados para definir novos tipos pelo programador.
+Mas por enquanto, nos foquemos nos tipos mais simples.</p>
+<h2 id="tipos-primitivos-e-operadores">Tipos Primitivos e Operadores</h2>
+<h6>Tipos numéricos</h6>
+<p>Como toda linguagem de programação, Haskell tem vários tipos pré-definidos para representar números, como mostra a seguinte tabela.</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Descrição</th>
+<th>Valores</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Int</code></td>
+<td>Inteiro de precisão finita</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Integer</code></td>
+<td>Inteiro de precisão arbitrária</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Float</code></td>
+<td>Ponto flutuante de precisão simples</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Double</code></td>
+<td>Ponto flutuante de precisão dupla</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Dados os tipos primários, o próximo passo é ver os operadores que os manipulam.</p>
+<table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Operação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+</code></td>
+<td>Adição</td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>Subtração</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>Multiplicação</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>Divisão</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>Exponenciação, e.g, <code>2^4 == 16</code></td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>Inversão de sinal, e.g, <code>- (-10) == 10</code><sup id="fnref2:negate"><a class="footnote-ref" href="#fn:negate">1</a></sup></td>
+</tr>
+<tr>
+<td><code>negate</code></td>
+<td>Inversão de sinal, e.g, <code>negate (-10) == 10</code><sup id="fnref:negate"><a class="footnote-ref" href="#fn:negate">1</a></sup></td>
+</tr>
+<tr>
+<td><code>quot</code></td>
+<td>Divisão inteira, truncado pro 0</td>
+</tr>
+<tr>
+<td><code>rem</code></td>
+<td>Resto da divisão inteira, tal que <code>(x `quot` y)*y + (x `rem` y) == x</code></td>
+</tr>
+<tr>
+<td><code>div</code></td>
+<td>Resto da divisão, truncado para baixo</td>
+</tr>
+<tr>
+<td><code>mod</code></td>
+<td>Módulo do inteiro, tal que  <code>(x `div` y)*y + (x `mod` y) == x</code></td>
+</tr>
+</tbody>
+</table>
+<p>Observe que alguns destes operadores são naturalmente infixos, e.g., <code>+</code>, e outros prefixos, e.g., <code>rem</code>.
+Contudo, ambos podem ser usados da outras forma, como mostrado nos seguintes exemplos.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="mi">10</span> <span class="o">+</span> <span class="mi">20</span>
+<span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">10</span> <span class="mi">20</span>
+<span class="nf">quot</span> <span class="mi">10</span> <span class="mi">3</span>
+<span class="mi">10</span> <span class="p">`</span><span class="n">quot</span><span class="p">`</span> <span class="mi">3</span>
+</code></pre></div>
+</td></tr></table>
+<h6>Caracteres</h6>
+<p>Para a representação de caracteres individuais, Haskell usa o tipo <code>Char</code>, e para sequências de caracteres, usa o tipo <code>String</code>, que é um "apelido" para <strong>lista</strong> de <code>Char</code>.
+Como lista não é um tipo primitivo, ou melhor, mesmo que em Haskell listas sejam fundamentais, não as estudaremos agora.
+Ainda assim, usaremos <code>String</code> em alguns exemplos, mas sem entrar em detalhes da manipulação de listas.
+Exemplos dos dois tipos são apresentados na tabela a seguir.</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Descrição</th>
+<th>Valores</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Char</code></td>
+<td>Caractere</td>
+<td>'1'; 'a'; 'B'</td>
+</tr>
+<tr>
+<td><code>String</code></td>
+<td>Sequência de caracteres</td>
+<td>"Eu"; "Hello"; "Zabumba"</td>
+</tr>
+</tbody>
+</table>
+<p>Algumas funções úteis na manipulação de caracteres e strings são apresentadas na tabela.</p>
+<details class="todo"><summary>Funções</summary><p>tabela com "operadores"</p>
+</details>
+<h6>Booleanos</h6>
+<p>Finalmente, para representação de valores lógicos, Haskell define o tipo <code>bool</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Descrição</th>
+<th>Valores</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Bool</code></td>
+<td>Booleano</td>
+<td><code>True</code> ou <code>False</code></td>
+</tr>
+</tbody>
+</table>
+<p>Para este tipo, temos os seguintes operadores.</p>
+<table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Operação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&amp;&amp;</code></td>
+<td>E lógico</td>
+</tr>
+<tr>
+<td><code>||</code></td>
+<td>OU lógico</td>
+</tr>
+<tr>
+<td><code>not</code></td>
+<td>Negação</td>
+</tr>
+<tr>
+<td><code>==</code></td>
+<td>Igualdade</td>
+</tr>
+<tr>
+<td><code>/=</code></td>
+<td>Diferença</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition todo">
+<p class="admonition-title">Exercícios</p>
+<ul>
+<li>Usar todos os operadores</li>
+<li>Evidenciar diferenças entrem quot e div.</li>
+</ul>
+</div>
+<h2 id="prototipo-de-funcoes">Protótipo de funções</h2>
+<p>Agora que já conhecemos alguns tipos, podemos ver como usá-los na definição de funções.
+Para fazê-lo, devemos usar a seguinte sintaxe.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">nome_funcao</span> <span class="ow">::</span> <span class="n">tipo_arg1</span> <span class="ow">-&gt;</span> <span class="o">...</span> <span class="ow">-&gt;</span> <span class="n">tipo_argN</span> <span class="ow">-&gt;</span> <span class="n">tipo_saida</span>
+<span class="nf">nome_funcao</span> <span class="n">arg1</span> <span class="o">...</span> <span class="n">argN</span> <span class="ow">=</span> <span class="o">&lt;</span><span class="n">definicao</span><span class="o">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Por exemplo, o <strong>protótipo</strong> da função <code>dia_mes</code>, isto é, a definição dos tipos de entrada e saída da função, fica assim:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">dias_mes</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">dias_mes</span> <span class="n">m</span>
+    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">3</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">5</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">7</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">8</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">10</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">12</span> <span class="ow">=</span> <span class="mi">31</span>
+    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">=</span> <span class="mi">28</span>
+    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="mi">30</span>
+</code></pre></div>
+</td></tr></table>
+<div class="admonition exercise">
+<p class="admonition-title">Exercícios</p>
+<ul>
+<li>Defina o protótipo da função de conversão de Fahrenheit para Celsius <code class="highlight"><span class="nf">f2c</span> <span class="n">x</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">/</span><span class="mf">1.8</span></code></li>
+<li>Descubra a quanto 100f corresponde em Célsius</li>
+</ul>
+<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>hs f2c :: Float -&gt; Float`
+f2c x = (x - 32) /1.8
+</code></pre></div>
+</td></tr></table>
+</details>
+<ul>
+<li>Defina o protótipo da função de media de dois números reais <code class="highlight"><span class="nf">m2n</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span></code></li>
+</ul>
+<details class="example"><summary>Resolução</summary><p><code class="highlight">:: Float -&gt; Float -&gt; Float</code></p>
+</details>
+<ul>
+<li>Defina o protótipo da soma de dois números inteiros <code class="highlight"><span class="nf">soma2int</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span></code></li>
+<li>Aplique a função aos valores 2 e 3.</li>
+<li>Aplique a função aos valores 2.0 e 3.0.</li>
+</ul>
+<details class="example"><summary>Resolução</summary><p><code class="highlight">:: Int -&gt; Int -&gt; Int</code></p>
+</details>
+<ul>
+<li>Defina o protótipo da soma de dois números reais <code class="highlight"><span class="nf">soma2reais</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span></code></li>
+<li>Aplique a função aos valores 2.0 e 3.0.</li>
+<li>Aplique a função aos valores 2 e 3.</li>
+</ul>
+<details class="example"><summary>Resolução</summary><p><code class="highlight">:: Float -&gt; Float -&gt; Float</code></p>
+</details>
+<ul>
+<li>Explique a diferença de comportamento das duas últimas funções.</li>
+</ul>
+<details class="example"><summary>Resolução</summary><p>As funções se comportam diferentemente, sendo que a primeira mostra um erro quando aplicada a dois números reais, porquê <span class="arithmatex">\(Z \subset  R\)</span> mas <span class="arithmatex">\(R \not\subset Z\)</span>.</p>
+</details>
+</div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:negate">
+<p>Observe que o o <code>-10</code> está entre parênteses não porque o operador demanda, mas para deixar claro que o <code>-</code> faz parte do número.&#160;<a class="footnote-backref" href="#fnref:negate" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:negate" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+  <!-- Last update of source file -->
+
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../case_functions/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Casamento de Padrões
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../prelude/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              Prelude
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.4ea5477f.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../javascripts/mathjaxhelper.js"></script>
+      
+    
+  </body>
+</html>

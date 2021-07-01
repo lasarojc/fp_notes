@@ -14,7 +14,7 @@
     
     
       
-        <title>Funções - Programação Funcional</title>
+        <title>If Then Else - Programação Funcional</title>
       
     
     
@@ -68,11 +68,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#funcoes" class="md-skip">
-          Ir para o conteúdo
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -99,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Funções
+              If Then Else
             
           </span>
         </div>
@@ -259,7 +254,31 @@
   
     <li class="md-nav__item">
       <a href="../haskell/" class="md-nav__link">
-        Introdução
+        Origem
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../simple/" class="md-nav__link">
+        1 + 1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        Funções
       </a>
     </li>
   
@@ -276,11 +295,9 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
-        
-      
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Funções
+        If Then Else
       </a>
       
     </li>
@@ -292,8 +309,44 @@
   
   
     <li class="md-nav__item">
-      <a href="../haskell_types/" class="md-nav__link">
+      <a href="../guards/" class="md-nav__link">
+        Guardas
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_functions/" class="md-nav__link">
+        Casamento de Padrões
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../types/" class="md-nav__link">
         Tipos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prelude/" class="md-nav__link">
+        Prelude
       </a>
     </li>
   
@@ -305,29 +358,57 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tuples/" class="md-nav__link">
+        Tuplas
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../haskell_cases.md" class="md-nav__link">
+        Casamento de Padrões
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lists.md" class="md-nav__link">
+        Listas
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
                 </div>
               </div>
             
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary" aria-label="Índice">
-  
-  
-  
-    
-  
-  
-</nav>
-                  </div>
-                </div>
-              </div>
             
           
           <div class="md-content" data-md-component="content">
@@ -343,113 +424,66 @@
        as the main headline.
     -->
 
+  <h1>If Then Else</h1>
+
 
   <!-- Content -->
-  <h1 id="funcoes">Funções</h1>
-<p>Agora que já vimos exemplos extremamente simples, vejamos alguns um pouco mais interessantes, como uma função que soma os números de <code>x</code> a <code>y</code>, inclusive.
-A título de comparação, vejamos primeiro a função em linguagem C.</p>
+  <p>Você como saberia calcular o maior de dois números <span class="arithmatex">\(a\)</span> e <span class="arithmatex">\(b\)</span> sem usar um teste do tipo <strong>se então senão</strong>?
+É bem interessante; assuma <span class="arithmatex">\(M\)</span> maior e <span class="arithmatex">\(m\)</span> menor entre <span class="arithmatex">\(a\)</span> e <span class="arithmatex">\(b\)</span>.</p>
+<div class="arithmatex">\[\begin{eqnarray}
+M &amp;=&amp; (M + M)/2                  \nonumber \\
+    &amp;=&amp; (M + (m + (M-m)))/2      \nonumber \\
+    &amp;=&amp; (M + m + (M-n))/2        \nonumber \\
+    &amp;=&amp; (M + n + \|M-n\|)/2      \nonumber \\
+    &amp;=&amp; (a + b + \|a - b\|)/2    \nonumber
+\end{eqnarray}\]</div>
+<p>Logo, em Haskell, temos</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>   <span class="n">maior</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="p">(</span><span class="n">abs</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)))</span> <span class="o">/</span> <span class="mi">2</span>
+</code></pre></div>
+</td></tr></table>
+<p>Estou certo de que você concordará que calcular o maior entre dois números deveria ser muito mais simples que isso, especialmente porquê naquele <code>abs</code> provavelmente há um <code>if</code> escondido. </p>
+<div class="arithmatex">\[
+    f(a,b)= 
+\begin{cases}
+    a,&amp; \text{if } a\geq b\\
+    b,              &amp; \text{otherwise}
+\end{cases}
+\]</div>
+<p>Mas como fazê-lo em Haskell, isto é, como testar uma condição sobre os valores para decidir a forma correta de computar o resultado?
+Usando uma expressão de seleção, isto é, <code class="highlight"><span class="kr">if</span> <span class="o">...</span> <span class="kr">then</span> <span class="o">...</span> <span class="kr">else</span> <span class="o">...</span></code> Veja o exemplo da escolha do maior número.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>   <span class="n">maior</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="kr">then</span> <span class="n">x</span>
+                        <span class="kr">else</span> <span class="n">y</span>
+</code></pre></div>
+</td></tr></table>
+<p>Observe que, diferentemente de outras linguagens em que se pode usar o <code>if</code> para decidir entre fazer ou não uma computação, o <code>if</code> do Haskell serve para decidir entre duas computações. Isto é, o <code>if</code> deve sempre ser seguido do <code>then</code> <strong>e</strong> do <code>else</code>.</p>
+<p>Observe também que o <code>if</code> pode estar em qualquer parte da expressão. 
+Por exemplo, imagine que queira somar um número inteiro com o valor absoluto de outro número, sem usar o <code>abs</code>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">somaEstranha</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="kr">if</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="kr">then</span> <span class="o">-</span><span class="n">y</span> <span class="kr">else</span> <span class="n">y</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>Com esta definição, tanto <code>somaEstranha 1 2</code> quanto <code>somaEstranha 1 (-2)</code> resultam em 3. Mas este exemplo é muito estranho, então pensemos em um mais útil.</p>
+<div class="admonition exercise">
+<p class="admonition-title">Exercício</p>
+<p>Implemente uma função que calcule se um ano é bissexto sabendo que:</p>
+<ul>
+<li>Se o não é múltiplo de 4, não é bissexto.</li>
+<li>Se é múltiplo de 4 e não é múltiplo de 100, então é bissexto.</li>
+<li>Se é múltiplo de 100 e não é múltiplo de 400, então não é bissexto.</li>
+<li>Se é múltiplo de 400, então é bissexto.</li>
+</ul>
+<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">soma</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">i</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">total</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="n">soma</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">bissexto</span> <span class="n">x</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">mod</span> <span class="n">x</span> <span class="mi">4</span> <span class="o">/=</span> <span class="mi">0</span> <span class="kr">then</span> <span class="kt">False</span>
+                     <span class="kr">else</span> <span class="kr">if</span> <span class="n">mod</span> <span class="n">x</span> <span class="mi">100</span> <span class="o">/=</span> <span class="mi">0</span> <span class="kr">then</span> <span class="kt">True</span>
+                                            <span class="kr">else</span> <span class="kr">if</span> <span class="n">mod</span> <span class="n">x</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span> <span class="kr">then</span> <span class="kt">True</span>
+                                                                   <span class="kr">else</span> <span class="kt">False</span>
 </code></pre></div>
 </td></tr></table>
-<p>Em Haskell, temos diversas opções para obter o mesmo resultado, por exemplo, usando uma função recursiva...</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">somadeate</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span>
-                <span class="kr">then</span> <span class="n">x</span> <span class="o">+</span> <span class="n">somadeate</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="n">y</span>
-                <span class="kr">else</span> <span class="n">x</span>
-
-<span class="nf">somadeate</span> <span class="mi">1</span> <span class="mi">10</span>
-</code></pre></div>
-</td></tr></table>
-<p>... ou a função já existente <code class="highlight"><span class="nf">sum</span></code>, que recebe uma lista de números, neste caso criada pelo operador <code class="highlight"><span class="o">..</span></code></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">sum</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
-</code></pre></div>
-</td></tr></table>
-<p>Em ambos os casos, estamos usando funções que resolvem o problema sem se basear em nada além dos parâmetros passados e sem efeitos colaterais, inclusive no exemplo em C.
-Estes são exemplos de funções <strong>puras</strong>, frequentemente representadas como as seguintes "caixinhas", que recebem algumas entradas e calcula, <strong>exatamente</strong>, uma saída.</p>
-<p><img alt="Função" src="../drawings/function.drawio-0.svg" /></p>
-<p><img alt="Função" src="../drawings/function.drawio-1.svg" /></p>
-<h6>Uso</h6>
-<p>Observe que a <strong>sintaxe do uso</strong> das funções, contudo, é diferente; em Haskell, usa-se o nome da função, seguido dos parâmetros, com espaço os separando.</p>
-<h6>Definição</h6>
-<p>A definição de funções segue algumas estruturas básicas, sendo a mais simples a definição via <strong>equação</strong>.
-Por exemplo, consideremos uma função que soma dois números.</p>
-<p><img alt="Função" src="../drawings/function.drawio-3.svg" /></p>
-<p>Em Haskell, ela é definida simplesmente como <code class="highlight"><span class="nf">soma</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span></code> e usada como <code class="highlight"><span class="nf">soma</span> <span class="mi">3</span> <span class="mi">5</span></code>.</p>
-<div class="admonition exercise">
-<p class="admonition-title">Exercício: Soma</p>
-<ul>
-<li>Defina a função soma e a use, de acordo com a imagem.</li>
-</ul>
-<p><img alt="Exercício" src="../images/exe1.png" /></p>
-</div>
-<p>Como outro exemplo, definamos uma função que retorna o sucessor de um inteiro como <code class="highlight"><span class="nf">sucessor</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span></code>.
-Com estas duas funções, podemos inclusive compor funções, no melhor estilo <span class="arithmatex">\(g(f(x))\)</span>, por exemplo: <code class="highlight"><span class="nf">sucessor</span> <span class="p">(</span><span class="n">soma</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">)</span></code> ou <code class="highlight"><span class="nf">sucessor</span> <span class="p">(</span><span class="n">sucessor</span> <span class="p">(</span><span class="n">sucessor</span> <span class="mi">4</span><span class="p">))</span></code>.</p>
-<div class="admonition exercise">
-<p class="admonition-title">Exercício: Composição</p>
-<ul>
-<li>Defina uma função que multiplique 3 números, isto é, dados <span class="arithmatex">\(x\)</span>, <span class="arithmatex">\(y\)</span> e <span class="arithmatex">\(z\)</span>, calcule <span class="arithmatex">\(x*y*z\)</span>.</li>
-<li>Calcule <span class="arithmatex">\((1 + (3 * 2 * 3)) + (5 * 3 * 2)\)</span> usando as funções de soma e multiplicação definidas.</li>
-</ul>
-<details class="example"><summary>Resolução</summary><p>Defina as funções</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">soma</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-
-<span class="nf">mult3</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span>
-</code></pre></div>
-</td></tr></table>
-<p>Invoque <code class="highlight"><span class="nf">soma</span> <span class="p">(</span><span class="n">soma</span> <span class="mi">1</span> <span class="p">(</span><span class="n">mult3</span> <span class="mi">3</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">))</span> <span class="p">(</span><span class="n">mult</span> <span class="mi">5</span> <span class="mi">3</span> <span class="mi">2</span><span class="p">)</span></code>. Observe que os parênteses são necessários para delimitar os parâmetros de cada uma das invocações.</p>
 </details>
 </div>
-<div class="admonition exercise">
-<p class="admonition-title">Exercício: média de 3 números</p>
-<ul>
-<li>Defina uma função que calcule a média de 3 números</li>
-</ul>
-<details class="example"><summary>Resolução</summary><ul>
-<li><code class="highlight"><span class="nf">media</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span></code></li>
-</ul>
-</details>
-</div>
-<div class="admonition exercise">
-<p class="admonition-title">Exercício: área das figuras</p>
-<ul>
-<li>Defina uma função o cálculo da área de cada figura geométrica.</li>
-</ul>
-<p><img alt="figuras" src="../drawings/area.drawio-0.svg" /></p>
-<div class="admonition example">
-<p class="admonition-title">Resolução</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">areaQuad</span> <span class="n">a</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span>
-<span class="nf">areaRet</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
-<span class="nf">areaCirc</span> <span class="n">r</span> <span class="ow">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span>
-<span class="nf">areaTri</span> <span class="n">a</span> <span class="n">h</span> <span class="ow">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">h</span> <span class="p">)</span><span class="o">/</span> <span class="mi">2</span>
-<span class="nf">areaTra</span> <span class="n">a</span> <span class="n">b</span> <span class="n">h</span> <span class="ow">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="n">h</span>
-</code></pre></div>
-</td></tr></table>
-</div>
-</div>
-<p>Note que você pode usar números inteiros, reais, ou uma mistura deles nas invocações destas funções, o que nos leva a perguntar como funcionam tipos no Haskell.</p>
+<p>Aninhar <code>if</code> assim pode funcionar, mas leva a estruturas estranhas e difíceis de serem lidas. Há formas melhores de se lidar com múltiplas possibilidades de computação.</p>
 
   <!-- Last update of source file -->
 
@@ -470,7 +504,7 @@ Com estas duas funções, podemos inclusive compor funções, no melhor estilo <
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../haskell/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../functions/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -479,19 +513,19 @@ Com estas duas funções, podemos inclusive compor funções, no melhor estilo <
               <span class="md-footer__direction">
                 Anterior
               </span>
-              Introdução
+              Funções
             </div>
           </div>
         </a>
       
       
-        <a href="../haskell_types/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../guards/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Tipos
+              Guardas
             </div>
           </div>
           <div class="md-footer__button md-icon">

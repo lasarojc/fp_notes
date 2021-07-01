@@ -14,7 +14,7 @@
     
     
       
-        <title>Refs - Programação Funcional</title>
+        <title>Tuplas - Programação Funcional</title>
       
     
     
@@ -68,6 +68,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#tuplas" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -94,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Refs
+              Tuplas
             
           </span>
         </div>
@@ -354,11 +359,21 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../tuples/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Tuplas
       </a>
+      
     </li>
   
 
@@ -400,6 +415,23 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -414,16 +446,63 @@
        as the main headline.
     -->
 
-  <h1>Refs</h1>
-
 
   <!-- Content -->
-  <ul>
-<li>Tutorial completo de PF<ul>
-<li><a href="https://www.tutorialspoint.com/functional_programming/functional_programming_introduction.htm">https://www.tutorialspoint.com/functional_programming/functional_programming_introduction.htm</a></li>
-</ul>
-</li>
-</ul>
+  <h1 id="tuplas">Tuplas</h1>
+<p>Nas funções vistas até agora, todos os parâmetros eram de algum tipo simples. Por exemplo, vejamos a função <code>soma2n</code> que soma 2 números:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">soma2n</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">soma2n</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</code></pre></div>
+</td></tr></table>
+<p>Muitas vezes estes tipos simples precisam ser associados para significar algo de mais alto nível. Por exemplo, seja a função <code>soma2v</code> que soma as coordenadas <code>x</code> e <code>y</code> de 2 pontos representando dois vetores. Como poderíamos definir tal função, já que o resultado deve ter informação tanto sobre a coordenada <code>x</code> quanto <code>y</code> do resultado?</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">soma2v</span> <span class="n">x1</span> <span class="n">y1</span> <span class="n">x2</span> <span class="n">y2</span> <span class="ow">=</span> <span class="o">?</span>
+</code></pre></div>
+</td></tr></table>
+<p>A resposta está no uso de tipos estruturados que agreguem outros tipos.
+No caso, a solução ideal par ordenado na forma de uma <strong>tupla</strong> de dois elementos.
+Tuplas são geralmente representadas usando a sintaxe <code>(Elem1, Elem2, ... , Elemn)</code>, tanto em Haskell como em diversas outras linguagens.
+Assim, a função <code>soma2v</code> pode ser definida, incluindo o protótipo, como a seguir.
+Observe que a função define claramente quantos elementos a tupla terá e qual a variável associada a cada uma das coordenadas de cada ponto.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">soma2v</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Int</span><span class="p">)</span>
+<span class="nf">soma2v</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">)</span> <span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">)</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="o">+</span><span class="n">y2</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>Para usar a função, podemos invocá-la de duas formas, com o mesmo resultado</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">soma2v</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">`</span><span class="n">soma2v</span><span class="p">`</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>Outra forma de definir a mesma função, sem especificar o nome das variáveis, seria usando as funções <code class="highlight"><span class="nf">fst</span></code> e <code class="highlight"><span class="nf">snd</span></code> do <a href="https://hackage.haskell.org/package/base-4.15.0.0/docs/Prelude.html#g:3">Prelude</a>, abreviações para <em>first</em> e <em>second</em> e que retornam o primeiro e o segundo elemento de uma tupla de dois elementos, um par, respectivamente.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">soma2v&#39;</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Int</span><span class="p">)</span>
+<span class="nf">soma2v&#39;</span> <span class="n">p1</span> <span class="n">p2</span> <span class="ow">=</span> <span class="p">((</span><span class="n">fst</span> <span class="n">p1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">fst</span> <span class="n">p2</span><span class="p">),</span> <span class="p">(</span><span class="n">snd</span> <span class="n">p1</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">snd</span> <span class="n">p2</span><span class="p">))</span>
+</code></pre></div>
+</td></tr></table>
+<p>De forma simplificada, <code>fst</code> e <code>snd</code> são definidos assim:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fst</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="kr">_</span><span class="p">)</span> <span class="ow">=</span>  <span class="n">x</span>
+
+<span class="nf">snd</span> <span class="p">(</span><span class="kr">_</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="ow">=</span>  <span class="n">y</span>
+</code></pre></div>
+</td></tr></table>
+<div class="admonition exercise">
+<p class="admonition-title">Exercício</p>
+<p>Considerando uma tupla de 4 elementos, defina 4 funções que, aos moldes de <code>fst</code> e <code>snd</code>, extraiam cada um dos 4 elementos da tupla.</p>
+<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">prim</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">)</span> <span class="ow">=</span>  <span class="n">x</span>
+<span class="nf">segu</span> <span class="p">(</span><span class="kr">_</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">)</span> <span class="ow">=</span>  <span class="n">y</span>
+<span class="nf">terc</span> <span class="p">(</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="kr">_</span><span class="p">)</span> <span class="ow">=</span>  <span class="n">z</span>
+<span class="nf">quar</span> <span class="p">(</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">,</span><span class="n">w</span><span class="p">)</span> <span class="ow">=</span>  <span class="n">w</span>
+</code></pre></div>
+</td></tr></table>
+</details>
+</div>
 
   <!-- Last update of source file -->
 
@@ -441,6 +520,25 @@
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../prelude/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Prelude
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

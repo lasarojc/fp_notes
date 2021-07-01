@@ -14,7 +14,7 @@
     
     
       
-        <title>Refs - Programação Funcional</title>
+        <title>Guardas - Programação Funcional</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Refs
+              Guardas
             
           </span>
         </div>
@@ -228,12 +228,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       <label class="md-nav__link" for="__nav_3">
         Haskell
@@ -297,11 +299,19 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../guards/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Guardas
       </a>
+      
     </li>
   
 
@@ -414,16 +424,114 @@
        as the main headline.
     -->
 
-  <h1>Refs</h1>
+  <h1>Guardas</h1>
 
 
   <!-- Content -->
-  <ul>
-<li>Tutorial completo de PF<ul>
-<li><a href="https://www.tutorialspoint.com/functional_programming/functional_programming_introduction.htm">https://www.tutorialspoint.com/functional_programming/functional_programming_introduction.htm</a></li>
-</ul>
-</li>
-</ul>
+  <p>Vamos definir uma função que retorne o nome do mês, dado o seu número.
+Seria possível escreve esta função com <code>if</code> aninhados, assim.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">nome_mes</span> <span class="n">m</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span> <span class="kr">then</span> <span class="s">&quot;JAN&quot;</span>
+             <span class="kr">else</span> <span class="kr">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">2</span> <span class="kr">then</span> <span class="s">&quot;FEB&quot;</span>
+             <span class="kr">else</span> <span class="kr">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">3</span> <span class="kr">then</span> <span class="s">&quot;MAR&quot;</span>
+             <span class="o">...</span>
+             <span class="kr">else</span> <span class="kr">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">11</span> <span class="kr">then</span> <span class="s">&quot;NOV&quot;</span>
+             <span class="kr">else</span> <span class="s">&quot;DEZ&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Esta estrutura, contudo, pode ser simplificada com o uso <strong>guardas</strong>, uma opção que faz sentido quando os parâmetros de uma função podem ser classificados em grupos.
+Guardas tem a seguinte sintaxe, onde o <code>otherwise</code> é <strong>opcional</strong> e serve para cobrir <strong>todos os outros casos</strong>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">nome_funcao</span> <span class="n">arg1</span> <span class="o">...</span> <span class="n">argN</span>
+    <span class="o">|</span> <span class="o">&lt;</span><span class="n">condicao1</span><span class="o">&gt;</span> <span class="ow">=</span> <span class="o">&lt;</span><span class="n">definicao1</span><span class="o">&gt;</span>
+    <span class="o">|</span> <span class="o">&lt;</span><span class="n">condicao2</span><span class="o">&gt;</span> <span class="ow">=</span> <span class="o">&lt;</span><span class="n">definicao2</span><span class="o">&gt;</span>
+    <span class="o">...</span>
+    <span class="o">|</span> <span class="o">&lt;</span><span class="n">condicaoM</span><span class="o">&gt;</span> <span class="ow">=</span> <span class="o">&lt;</span><span class="n">definicaoM</span><span class="o">&gt;</span>
+    <span class="o">|</span> <span class="p">[</span><span class="n">otherwise</span><span class="p">]</span> <span class="ow">=</span> <span class="o">&lt;</span><span class="n">definicaoO</span><span class="o">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Especificamente, o exemplo do cálculo do nome dos meses ficaria assim:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">nome_mes</span> <span class="n">m</span>
+    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="s">&quot;JAN&quot;</span>
+    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">=</span> <span class="s">&quot;FEV&quot;</span>
+    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">=</span> <span class="s">&quot;MAR&quot;</span>
+    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">4</span> <span class="ow">=</span> <span class="s">&quot;ABR&quot;</span>
+    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">5</span> <span class="ow">=</span> <span class="s">&quot;MAI&quot;</span>
+    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">6</span> <span class="ow">=</span> <span class="s">&quot;JUN&quot;</span>
+    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">7</span> <span class="ow">=</span> <span class="s">&quot;JUL&quot;</span>
+    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">8</span> <span class="ow">=</span> <span class="s">&quot;AGO&quot;</span>
+    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">9</span> <span class="ow">=</span> <span class="s">&quot;SET&quot;</span>
+    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">10</span> <span class="ow">=</span> <span class="s">&quot;OUT&quot;</span>
+    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">11</span> <span class="ow">=</span> <span class="s">&quot;NOV&quot;</span>
+    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">12</span> <span class="ow">=</span> <span class="s">&quot;DEZ&quot;</span>
+    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">13</span> <span class="ow">=</span> <span class="s">&quot;ONZ&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Outras observações também são importantes. Primeiro, as condições podem ser mais complexas que um simples teste, podendo incluir múltiplos testes e computações; a única condição é que retorne um booleano.
+Vejamos uma função que calcula o maior entre três números.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">maior_de_tres</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span>
+  <span class="o">|</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">c</span>   <span class="ow">=</span> <span class="n">a</span>
+  <span class="o">|</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="n">c</span>             <span class="ow">=</span> <span class="n">b</span>
+  <span class="o">|</span> <span class="n">otherwise</span>          <span class="ow">=</span> <span class="n">c</span>
+</code></pre></div>
+</td></tr></table>
+<p>Segundo, as condições são testadas de cima para baixo e isso é importante porquê alguns parâmetros podem satisfazer mais de uma condição.
+Vejamos novamente o caso do cálculo de anos bissextos.</p>
+<div class="admonition exercise">
+<p class="admonition-title">Exercício</p>
+<p>Escreva uma função que receba um número representando um mês, um número de 1 a 12, e retorne a quantidade de dias no mês. 
+Assuma que fevereiro sempre tem 28 dias.</p>
+<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">dias_mes</span> <span class="n">m</span>
+    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">3</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">5</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">7</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">8</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">10</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">12</span> <span class="ow">=</span> <span class="mi">31</span>
+    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">=</span> <span class="mi">28</span>
+    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="mi">30</span>
+</code></pre></div>
+</td></tr></table>
+</details>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Índice de massa corporal</p>
+<p>O índice de massa corporal, IMC, é calculado como o peso dividido pelo quadrado da altura. Um IMC abaixo de 18,5, inclusive, é considerado baixo e acima de 30 é considerado alto; aqueles no intervalo são considerados normais. Defina uma função que, dados peso e altura, decida se o IMC correspondente é Baixo, Normal ou Alto.</p>
+<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">imc</span> <span class="n">p</span> <span class="n">a</span>
+    <span class="o">|</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mf">18.5</span> <span class="ow">=</span> <span class="s">&quot;Baixo&quot;</span>
+    <span class="o">|</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mf">25.0</span> <span class="ow">=</span> <span class="s">&quot;Normal&quot;</span>
+    <span class="o">|</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mf">30.0</span> <span class="ow">=</span> <span class="s">&quot;Alto&quot;</span>
+    <span class="o">|</span> <span class="n">otherwise</span>  
+</code></pre></div>
+</td></tr></table>
+</details>
+</div>
 
   <!-- Last update of source file -->
 
@@ -441,6 +549,39 @@
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../ifthenelse/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              If Then Else
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../case_functions/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              Casamento de Padrões
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
