@@ -29,20 +29,11 @@ somadeate 1 10
 sum [1..10]
 ```
 
-Em ambos os casos, estamos usando funções que resolvem o problema sem se basear em nada além dos parâmetros passados e sem efeitos colaterais, inclusive no exemplo em C.
-Estes são exemplos de funções **puras**, frequentemente representadas como as seguintes "caixinhas", que recebem algumas entradas e calcula, **exatamente**, uma saída.
-
-![Função](drawings/function.drawio#0)
-
-![Função](drawings/function.drawio#1)
-
-###### Uso
-
 Observe que a **sintaxe do uso** das funções, contudo, é diferente; em Haskell, usa-se o nome da função, seguido dos parâmetros, com espaço os separando.
+Já a definição de funções segue algumas estruturas básicas, sendo a mais simples a definição via **equação**.
 
-###### Definição
+### Equações
 
-A definição de funções segue algumas estruturas básicas, sendo a mais simples a definição via **equação**.
 Por exemplo, consideremos uma função que soma dois números.
 
 ![Função](drawings/function.drawio#3)
@@ -50,9 +41,12 @@ Por exemplo, consideremos uma função que soma dois números.
 Em Haskell, ela é definida simplesmente como `#!hs soma x y = x + y` e usada como `#!hs soma 3 5`.
 
 !!!exercise "Exercício: Soma"
-    * Defina a função soma e a use, de acordo com a imagem.
+    * Defina a função soma e a use, de acordo com a imagem.[^replit2]
 
     ![Exercício](images/exe1.png)
+
+[^replit2]: Se você se logar no Repl.it, poderá salvar seus arquivos online e editá-los de qualquer lugar, como no exemplo dado no exercício.
+
 
 Como outro exemplo, definamos uma função que retorna o sucessor de um inteiro como `#!hs sucessor x = x + 1`.
 Com estas duas funções, podemos inclusive compor funções, no melhor estilo $g(f(x))$, por exemplo: `#!hs sucessor (soma 3 4)` ou `#!hs sucessor (sucessor (sucessor 4))`.
@@ -84,7 +78,7 @@ Com estas duas funções, podemos inclusive compor funções, no melhor estilo $
 
     ![figuras](drawings/area.drawio)
 
-    !!!example "Resolução"
+    ???example "Resolução"
         ```hs
         areaQuad a = a * a
         areaRet a b = a * b
@@ -92,9 +86,3 @@ Com estas duas funções, podemos inclusive compor funções, no melhor estilo $
         areaTri a h = (a * h )/ 2
         areaTra a b h = (a + b)/2 * h
         ```
-
-
-
-
-
-Note que você pode usar números inteiros, reais, ou uma mistura deles nas invocações destas funções, o que nos leva a perguntar como funcionam tipos no Haskell.

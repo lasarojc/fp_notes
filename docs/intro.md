@@ -194,8 +194,15 @@ Apesar do claro poder deste paradigma, o mesmo tem poucos representantes, como P
 ### Funcional
 A programação, como indicado pelo nome, é focada na organização do processamento em termos de funções, mas de uma forma diferente da programação procedimental.
 De forma geral, **funções** são blocos de código criadas essencialmente para se obter **reusabilidade**: uma vez definidas, as funções podem ser invocadas repetidas vezes para executar a mesma tarefa sobre diferentes **parâmetros**, sempre retornando um resultado.[^void]
-Mas enquanto na programação procedimental a invocação de uma função pode retornar diferentes resultados mesmo quando os parâmetros são os mesmos, na programação funcional, funções são como na matemática, isto é, mapeiam uma entrada para uma saída, sempre. 
-Não é a toa que outro nome usado para definir os blocos de código é **procedimento** em vez de função.
+Mas enquanto na programação procedimental a invocação de uma função pode retornar diferentes resultados mesmo quando os parâmetros são os mesmos, na programação funcional, funções são como na matemática, isto é, mapeiam uma entrada para **exatamente** uma saída, sempre.
+Isto é, funções resolvem o problema sem se basear em nada além dos parâmetros passados e sem efeitos colaterais.
+
+![Função](drawings/function.drawio#0)
+
+![Função](drawings/function.drawio#1)
+
+Mas e as funções que tem efeitos colaterais?
+Estas não são funções "de verdade" e não é a toa que outro nome usado para os blocos de código é **procedimento** e que para discernir entre funções que tem efeitos colaterais e que não não, chamamos de **puras** as do segundo tipo.
 
 Vejamos alguns exemplos.
 As funções seguintes, definidas em Erlang, calculam `A+B`, `A*C` e `(A+B)*(A+B)`; independentemente de quantas vezes você o fizer, `add(2,3)` sempre retornará `5`.

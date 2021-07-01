@@ -3,12 +3,24 @@ repo_url: https://github.com/lasarojc/pf_notes
 edit_uri: ""
 nav:
         #- Início: index.html
-        - Prefácio: preface.md
-        - Introdução: intro.md
+        - Prefácio: preface.md #1 assinc
+        - Introdução: intro.md #1 sinc
+
         - Haskell: 
-           - haskell.md
-           - Funções: haskell_functions.md
-           - Tipos: haskell_types.md
+           - Origem: haskell.md #2 sinc
+           - 1 + 1: simple.md #2 sinc
+           - Funções: functions.md #2 sinc
+
+           - If Then Else: ifthenelse.md #2 sinc
+           - Guardas: guards.md
+           - Casamento de Padrões: case_functions.md
+
+           - Tipos: types.md
+           - Prelude: prelude.md #2 assinc
+
+        - Tuplas: tuples.md
+        - Casamento de Padrões: haskell_cases.md
+        - Listas: lists.md
 
 theme:
         name: material
