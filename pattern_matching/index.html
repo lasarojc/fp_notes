@@ -14,7 +14,7 @@
     
     
       
-        <title>Cases - Programação Funcional</title>
+        <title>Casamento de Padrões - Programação Funcional</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cases
+              Casamento de Padrões
             
           </span>
         </div>
@@ -229,36 +229,18 @@
   
   
   
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      <label class="md-nav__link" for="__nav_3">
-        Haskell
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Haskell" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          Haskell
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
     <li class="md-nav__item">
       <a href="../haskell/" class="md-nav__link">
-        Origem
+        Haskell
       </a>
     </li>
   
 
-          
-            
+    
+      
+      
+      
+
   
   
   
@@ -269,8 +251,11 @@
     </li>
   
 
-          
-            
+    
+      
+      
+      
+
   
   
   
@@ -281,8 +266,11 @@
     </li>
   
 
-          
-            
+    
+      
+      
+      
+
   
   
   
@@ -293,8 +281,11 @@
     </li>
   
 
-          
-            
+    
+      
+      
+      
+
   
   
   
@@ -305,20 +296,11 @@
     </li>
   
 
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../case_functions/" class="md-nav__link">
-        Casamento de Padrões
-      </a>
-    </li>
-  
+    
+      
+      
+      
 
-          
-            
   
   
   
@@ -329,21 +311,18 @@
     </li>
   
 
-          
-            
+    
+      
+      
+      
+
   
   
   
     <li class="md-nav__item">
-      <a href="../prelude/" class="md-nav__link">
-        Prelude
+      <a href="../packages/" class="md-nav__link">
+        Pacotes
       </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -369,10 +348,33 @@
 
   
   
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Casamento de Padrões
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
   
     <li class="md-nav__item">
-      <a href="../haskell_cases.md" class="md-nav__link">
-        Casamento de Padrões
+      <a href="../recursion.md" class="md-nav__link">
+        Recursão
       </a>
     </li>
   
@@ -414,12 +416,327 @@
        as the main headline.
     -->
 
-  <h1>Cases</h1>
+  <h1>Casamento de Padrões</h1>
 
 
   <!-- Content -->
-  <p>Quando a condição testada por um guarda é de igualdade dos parâmetros com algum valor, temos uma terceira forma de definir funções que precisam testar vários casos, além de usar <code>if</code>-<code>then</code>-<code>else</code> e guardas, usando <code>case</code>-<code>of</code>.
-Esta estrutura se assemelha ao <code>switch</code> de linguagens como C e Java, e tem a seguinte sintaxe:</p>
+  <p>Casamento de padrões</p>
+<p>padrao e expressao</p>
+<ul>
+<li>sucesso/falha</li>
+<li>mesmos tipos no padrao e na expressao</li>
+<li>
+<p>tipos</p>
+<ul>
+<li>
+<p>padrão constante</p>
+<ul>
+<li>casa se o valor for igual à constante   </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Padrão</th>
+<th>Valor</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>10</td>
+<td>Casa</td>
+</tr>
+<tr>
+<td>10</td>
+<td>20</td>
+<td>Não casa</td>
+</tr>
+<tr>
+<td>10</td>
+<td>'C'</td>
+<td>Erro</td>
+</tr>
+<tr>
+<td>True</td>
+<td>False</td>
+<td>Não casa</td>
+</tr>
+<tr>
+<td>False</td>
+<td>False</td>
+<td>Casa</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>padrão variável</p>
+<ul>
+<li>Sempre casa e a variável é associada ao valor</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Padrão</th>
+<th>Valor</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>10</td>
+<td>Casa, x == 10</td>
+</tr>
+<tr>
+<td>x</td>
+<td>20</td>
+<td>Casa, x == 20</td>
+</tr>
+<tr>
+<td>x</td>
+<td>'C'</td>
+<td>Casa, x == 'C'</td>
+</tr>
+<tr>
+<td>x</td>
+<td>False</td>
+<td>Casa, x == False</td>
+</tr>
+<tr>
+<td>x</td>
+<td>(1,2,3)</td>
+<td>Casa, x == (1,2,3)</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>padrão curinga</p>
+<ul>
+<li>Sempre casa e nenhuma associação de valor é feita</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Padrão</th>
+<th>Valor</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_</td>
+<td>10</td>
+<td>Casa</td>
+</tr>
+<tr>
+<td>_</td>
+<td>20</td>
+<td>Casa</td>
+</tr>
+<tr>
+<td>_</td>
+<td>'C'</td>
+<td>Casa</td>
+</tr>
+<tr>
+<td>_</td>
+<td>False</td>
+<td>Casa</td>
+</tr>
+<tr>
+<td>_</td>
+<td>(1,2,3)</td>
+<td>Casa</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>padrão tupla, ou melhor, uma tupla de padrões</p>
+<ul>
+<li>Casa se<ul>
+<li>a tupla de padrões tiver a mesma aridade que a tupla de valores <strong>e</strong></li>
+<li>cada elemento da tupla de padrões casa com o elemento correspondente da tupla de valores</li>
+</ul>
+</li>
+<li>Não casa se<ul>
+<li>a tupla de padrões tiver a mesma aridade que a tupla de valores <strong>e</strong></li>
+<li>algum elemento da tupla de padrões <strong>não</strong> casa com o elemento correspondente da tupla de valores</li>
+</ul>
+</li>
+<li>Resulta em um erro de tipo se <ul>
+<li>a tupla de padrões <strong>não</strong> tiver a mesma aridade que a tupla de valores <strong>ou</strong></li>
+<li>algum elemento da tupla de padrões resultar um erro de tipo no casamento com o elemento correspondente da tupla de valores</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Padrão</th>
+<th>Valor</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(x,y)</td>
+<td>(1,2)</td>
+<td>Casa, x == 1 e y == 2</td>
+</tr>
+<tr>
+<td>(1,y)</td>
+<td>(1,2)</td>
+<td>Casa, y == 2</td>
+</tr>
+<tr>
+<td>(_,y)</td>
+<td>(1,2)</td>
+<td>Casa, y == 2</td>
+</tr>
+<tr>
+<td>('X',y)</td>
+<td>('X',2)</td>
+<td>Casa, y == 2</td>
+</tr>
+<tr>
+<td>(x,y)</td>
+<td>(1,(2,3))</td>
+<td>Casa, x == 1 e y == (2,3)</td>
+</tr>
+<tr>
+<td>(_, (_,y))</td>
+<td>(1,(2,3))</td>
+<td>Casa, y == 3</td>
+</tr>
+<tr>
+<td>(x,y)</td>
+<td>(1,(2,3),3)</td>
+<td>Erro de tipo</td>
+</tr>
+<tr>
+<td>(1,y)</td>
+<td>('x',(2,3))</td>
+<td>Erro de tipo</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition todo">
+<p class="admonition-title">TODO</p>
+<p>Princípio da linearidade</p>
+</div>
+<p>Vejamos algumas aplicações de casamento de padrões.</p>
+<h6>Definição de Funções</h6>
+<p>Como mencionado <a href="../guards">anteriormente</a>, casamento de padrões pode ser usado na definição de funções para simplificar testes via <code>if-then-else</code> e guardas nos parâmetros da função.</p>
+<p>Neste caso, a função é definida como uma sequência de equações em que os parâmetros servem de padrões a serem casados com os valores da invocação.
+Na invocação da função, o resultado é dado pela <strong>primeira</strong> equação, na ordem da declaração, em que houver o casamento padrões/valores <strong>e</strong> todas as guardas forem satisfeitas.
+Se não houver casamento ou se as guardas não forem satisfeitas, ocorre um <strong>erro de execução</strong>.</p>
+<p>Para começar, vejamos uma definição sem guardas, revisitando a função <code>nomeMes</code>.
+Usando casamento de padrões, ela ficaria assim:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">nomeMes</span> <span class="mi">1</span> <span class="ow">=</span> <span class="s">&quot;JAN&quot;</span>
+<span class="nf">nomeMes</span> <span class="mi">2</span> <span class="ow">=</span> <span class="s">&quot;FEB&quot;</span>
+<span class="nf">nomeMes</span> <span class="mi">3</span> <span class="ow">=</span> <span class="s">&quot;MAR&quot;</span>
+    <span class="o">...</span>                <span class="c1">-- Isso não é válido em Haskell</span>
+<span class="nf">nomeMes</span> <span class="mi">11</span> <span class="ow">=</span> <span class="s">&quot;NOV&quot;</span>
+<span class="nf">nomeMes</span> <span class="mi">12</span> <span class="ow">=</span> <span class="s">&quot;DEZ&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Esta função funciona especificamente para valores na faixa [1,12] e retornará um erro para qualquer valor fora da mesma.
+É possível usar uma definição genérica <em>catch-all</em> para casar com valores não específicos. Por exemplo, a definição da função <code>fatorial</code> tem um tratamento especial para 0 e um caso genérico para qualquer outro número.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fatorial</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="nf">fatorial</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fatorial</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>Mas esta definição de <code>fatorial</code> tem um problema, que aparece se calcular o fatorial de números negativos, que são indefinidos.
+Neste caso, precisamos impedir que que números negativos sejam aceitos pela função.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fatorial</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="nf">fatorial</span> <span class="n">n</span> 
+    <span class="o">|</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fatorial</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="o">|</span><span class="n">otherwise</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;Indefinido&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<div class="admonition exercise">
+<p class="admonition-title">Exercício</p>
+<p>Defina 3 funções, usando <code>if</code>-<code>then</code>-<code>else</code>, guardas e casamento de padrões, que calculem os números da série de Fibonacci, a saber</p>
+<ul>
+<li>Fib(1) = 1</li>
+<li>Fib(2) = 1</li>
+<li>Fib(n) = Fib(n-1) + Fib(n-2)</li>
+</ul>
+<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>
+</code></pre></div>
+</td></tr></table>
+</details>
+</div>
+<p>Vejamos outros exemplos, do pacote prelude do Haskell.
+Primeiro, a função <code>not</code>, que nega o valor passado.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">not</span> <span class="ow">::</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="nf">not</span> <span class="kt">True</span> <span class="ow">=</span> <span class="kt">False</span>
+<span class="nf">not</span> <span class="kt">False</span> <span class="ow">=</span> <span class="kt">True</span>
+</code></pre></div>
+</td></tr></table>
+<p>Vejamos agora diferentes definições do operador <code class="highlight"><span class="o">&amp;&amp;</span></code>. Observe que como o operador é infixo, a definição das equações segue esta notação, mesmo que a definição do protótipo não siga.</p>
+<p>A primeira definição usa somente constantes como padrão.
+Esta definição está correta, mas é mais complexa do que o necessário, já que somente a primeira equação resulta em <code class="highlight"><span class="kt">True</span></code>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">(</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="kt">True</span> <span class="o">&amp;&amp;</span> <span class="kt">True</span> <span class="ow">=</span> <span class="kt">True</span>
+<span class="kt">True</span> <span class="o">&amp;&amp;</span> <span class="kt">False</span> <span class="ow">=</span> <span class="kt">False</span>
+<span class="kt">False</span> <span class="o">&amp;&amp;</span> <span class="kt">True</span> <span class="ow">=</span> <span class="kt">False</span>
+<span class="kt">False</span> <span class="o">&amp;&amp;</span> <span class="kt">False</span> <span class="ow">=</span> <span class="kt">False</span>
+</code></pre></div>
+</td></tr></table>
+<p>Uma versão simplificada pelo uso de padrões curinga, seria a seguinte.
+Observe como ela é mais legível.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">(</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="kt">True</span> <span class="o">&amp;&amp;</span> <span class="kt">True</span> <span class="ow">=</span> <span class="kt">True</span>
+<span class="kr">_</span> <span class="o">&amp;&amp;</span> <span class="kr">_</span> <span class="ow">=</span> <span class="kt">False</span>
+</code></pre></div>
+</td></tr></table>
+<p>Finalmente, uma terceira versão que usa um padrão variável e um curinga também poderia ser usada.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">(</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="kt">True</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">b</span>
+<span class="kt">False</span> <span class="o">&amp;&amp;</span> <span class="kr">_</span> <span class="ow">=</span> <span class="kt">False</span>
+</code></pre></div>
+</td></tr></table>
+<div class="admonition todo">
+<p class="admonition-title">TODO</p>
+<p>Rever fst e snd</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercício</p>
+<ul>
+<li>Seguindo os modes da definição do operador <code>&amp;&amp;</code>, defina o operador lógico ou <code>||</code> de três formas diferentes.</li>
+<li>Seguindo os modes da definição do operador <code>&amp;&amp;</code>, defina o operador lógico ou <code>||</code> de três formas diferentes.</li>
+</ul>
+</div>
+<h6><code class="highlight"><span class="kr">case</span><span class="o">-</span><span class="kr">of</span></code></h6>
+<p>Esta estrutura se assemelha ao <code>switch</code> de linguagens como C e Java, e tem a seguinte sintaxe:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">case</span> <span class="n">expression</span> <span class="kr">of</span> <span class="n">pattern</span> <span class="ow">-&gt;</span> <span class="n">result</span>  
@@ -489,6 +806,25 @@ Seria possível escreve esta função com <code>if</code> aninhados, assim.</p>
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../tuples/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Tuplas
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

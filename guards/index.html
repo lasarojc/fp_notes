@@ -228,39 +228,19 @@
 
   
   
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
-      
-      <label class="md-nav__link" for="__nav_3">
-        Haskell
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Haskell" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          Haskell
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
   
     <li class="md-nav__item">
       <a href="../haskell/" class="md-nav__link">
-        Origem
+        Haskell
       </a>
     </li>
   
 
-          
-            
+    
+      
+      
+      
+
   
   
   
@@ -271,8 +251,11 @@
     </li>
   
 
-          
-            
+    
+      
+      
+      
+
   
   
   
@@ -283,8 +266,11 @@
     </li>
   
 
-          
-            
+    
+      
+      
+      
+
   
   
   
@@ -295,8 +281,11 @@
     </li>
   
 
-          
-            
+    
+      
+      
+      
+
   
   
     
@@ -315,20 +304,11 @@
     </li>
   
 
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../case_functions/" class="md-nav__link">
-        Casamento de Padrões
-      </a>
-    </li>
-  
+    
+      
+      
+      
 
-          
-            
   
   
   
@@ -339,21 +319,18 @@
     </li>
   
 
-          
-            
+    
+      
+      
+      
+
   
   
   
     <li class="md-nav__item">
-      <a href="../prelude/" class="md-nav__link">
-        Prelude
+      <a href="../packages/" class="md-nav__link">
+        Pacotes
       </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -381,8 +358,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../haskell_cases.md" class="md-nav__link">
+      <a href="../pattern_matching/" class="md-nav__link">
         Casamento de Padrões
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recursion.md" class="md-nav__link">
+        Recursão
       </a>
     </li>
   
@@ -501,6 +493,54 @@ Vejamos uma função que calcula o maior entre três números.</p>
 </td></tr></table>
 <p>Segundo, as condições são testadas de cima para baixo e isso é importante porquê alguns parâmetros podem satisfazer mais de uma condição.
 Vejamos novamente o caso do cálculo de anos bissextos.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cm">{- </span>
+<span class="cm">&gt;&gt;&gt;bissexto 5</span>
+<span class="cm">False</span>
+
+<span class="cm">&gt;&gt;&gt;bissexto 200</span>
+<span class="cm">False</span>
+
+<span class="cm">&gt;&gt;&gt;bissexto 2000</span>
+<span class="cm">True</span>
+
+<span class="cm">&gt;&gt;&gt;bissexto 1996</span>
+<span class="cm">True</span>
+
+<span class="cm">&gt;&gt;&gt;bissexto 1900</span>
+<span class="cm">False</span>
+
+<span class="cm">-}</span>
+
+<span class="nf">bissexto</span> <span class="n">x</span>
+  <span class="o">|</span> <span class="n">mod</span> <span class="n">x</span> <span class="mi">4</span> <span class="o">/=</span> <span class="mi">0</span> <span class="ow">=</span> <span class="kt">False</span>       <span class="c1">-- Não divisíveis por 4</span>
+  <span class="o">|</span> <span class="n">mod</span> <span class="n">x</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">=</span> <span class="kt">True</span>      <span class="c1">-- Divisíveis por 4 e por 400</span>
+  <span class="o">|</span> <span class="n">mod</span> <span class="n">x</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">=</span> <span class="kt">False</span>     <span class="c1">-- Divisíveis por 4, não por 400, e por 100</span>
+  <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="kt">True</span>           <span class="c1">-- Divisíveis por 4, e não por 100</span>
+</code></pre></div>
+</td></tr></table>
+<p>Observe que se a terceira e segunda guardas fossem invertidas, o ano 1900 seria considerado bissexto, quando na verdade ele não é.</p>
 <div class="admonition exercise">
 <p class="admonition-title">Exercício</p>
 <p>Escreva uma função que receba um número representando um mês, um número de 1 a 12, e retorne a quantidade de dias no mês. 
@@ -532,6 +572,7 @@ Assuma que fevereiro sempre tem 28 dias.</p>
 </td></tr></table>
 </details>
 </div>
+<p>Quando a condição testada por um guarda é de igualdade dos parâmetros com algum valor, temos uma terceira forma de definir funções que precisam testar vários casos, além de usar <code>if</code>-<code>then</code>-<code>else</code> e guardas, que veremos na seção <a href="../pattern_matching">Casamento de padrões</a>.</p>
 
   <!-- Last update of source file -->
 
@@ -567,13 +608,13 @@ Assuma que fevereiro sempre tem 28 dias.</p>
         </a>
       
       
-        <a href="../case_functions/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../types/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Casamento de Padrões
+              Tipos
             </div>
           </div>
           <div class="md-footer__button md-icon">

@@ -14,7 +14,7 @@
     
     
       
-        <title>Casamento de Padrões - Programação Funcional</title>
+        <title>Pacotes - Programação Funcional</title>
       
     
     
@@ -68,6 +68,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#pacotes" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -94,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Casamento de Padrões
+              Pacotes
             
           </span>
         </div>
@@ -228,39 +233,19 @@
 
   
   
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
-      
-      <label class="md-nav__link" for="__nav_3">
-        Haskell
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Haskell" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          Haskell
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
   
     <li class="md-nav__item">
       <a href="../haskell/" class="md-nav__link">
-        Origem
+        Haskell
       </a>
     </li>
   
 
-          
-            
+    
+      
+      
+      
+
   
   
   
@@ -271,8 +256,11 @@
     </li>
   
 
-          
-            
+    
+      
+      
+      
+
   
   
   
@@ -283,8 +271,11 @@
     </li>
   
 
-          
-            
+    
+      
+      
+      
+
   
   
   
@@ -295,8 +286,11 @@
     </li>
   
 
-          
-            
+    
+      
+      
+      
+
   
   
   
@@ -307,28 +301,11 @@
     </li>
   
 
-          
-            
-  
-  
     
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
       
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Casamento de Padrões
-      </a>
-      
-    </li>
-  
 
-          
-            
   
   
   
@@ -339,21 +316,28 @@
     </li>
   
 
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../prelude/" class="md-nav__link">
-        Prelude
-      </a>
-    </li>
-  
+    
+      
+      
+      
 
-          
-        </ul>
-      </nav>
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Pacotes
+      </a>
+      
     </li>
   
 
@@ -381,8 +365,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../haskell_cases.md" class="md-nav__link">
+      <a href="../pattern_matching/" class="md-nav__link">
         Casamento de Padrões
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recursion.md" class="md-nav__link">
+        Recursão
       </a>
     </li>
   
@@ -410,6 +409,23 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -424,66 +440,75 @@
        as the main headline.
     -->
 
-  <h1>Casamento de Padrões</h1>
-
 
   <!-- Content -->
-  <p>Quando a condição testada por um guarda é de igualdade dos parâmetros com algum valor, temos uma terceira forma de definir funções que precisam testar vários casos, além de usar <code>if</code>-<code>then</code>-<code>else</code> e guardas, usando <strong>casamento de padrões</strong> na definição da função.
-Esta opção consiste e definir a função múltiplas vezes, para os diversos casos de entrada.
-Revisitando a função <code>nome_mes</code>, com esta estrutura ela ficaria assim:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">nome_mes</span> <span class="mi">1</span> <span class="ow">=</span> <span class="s">&quot;JAN&quot;</span>
-<span class="nf">nome_mes</span> <span class="mi">2</span> <span class="ow">=</span> <span class="s">&quot;FEB&quot;</span>
-<span class="nf">nome_mes</span> <span class="mi">3</span> <span class="ow">=</span> <span class="s">&quot;MAR&quot;</span>
-    <span class="o">...</span>
-<span class="nf">nome_mes</span> <span class="mi">11</span> <span class="ow">=</span> <span class="s">&quot;NOV&quot;</span>
-<span class="nf">nome_mes</span> <span class="mi">12</span> <span class="ow">=</span> <span class="s">&quot;DEZ&quot;</span>
-</code></pre></div>
-</td></tr></table>
-<p>Também que usar uma definição genérica para <em>catch-all</em>, como no exemplo da definição de <code>fatorial</code></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fatorial</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">1</span>  
-<span class="nf">fatorial</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> 
-</code></pre></div>
-</td></tr></table>
-<div class="admonition exercise">
-<p class="admonition-title">Exercício</p>
-<p>Defina 3 funções, usando <code>if</code>-<code>then</code>-<code>else</code>, guardas e casamento de padrões, que calculem os números da série de Fibonacci, a saber</p>
-<ul>
-<li>Fib(1) = 1</li>
-<li>Fib(2) = 1</li>
-<li>Fib(n) = Fib(n-1) + Fib(n-2)</li>
-</ul>
-<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fib_if</span> <span class="n">n</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="kr">then</span> <span class="mi">1</span>
-           <span class="kr">else</span> <span class="kr">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span> <span class="kr">then</span> <span class="mi">1</span>
-           <span class="kr">else</span> <span class="p">(</span><span class="n">fib_if</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="p">(</span><span class="n">fib_if</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
-
-<span class="nf">fib_guard</span> <span class="n">n</span>
-    <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="mi">1</span>
-    <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">=</span> <span class="mi">1</span>
-    <span class="o">|</span> <span class="n">otherwise</span> <span class="p">(</span><span class="n">fib_if</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="p">(</span><span class="n">fib_if</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
-
-<span class="nf">fib_pattern</span> <span class="mi">1</span> <span class="ow">=</span> <span class="mi">1</span>
-<span class="nf">fib_pattern</span> <span class="mi">2</span> <span class="ow">=</span> <span class="mi">1</span>
-<span class="nf">fib_pattern</span> <span class="mi">3</span> <span class="ow">=</span> <span class="p">(</span><span class="n">fib_if</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="p">(</span><span class="n">fib_if</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
-</code></pre></div>
-</td></tr></table>
-</details>
+  <h1 id="pacotes">Pacotes</h1>
+<p>Como em diversas outras linguagens, Haskell usa pacotes para organizar a definição de tipos e funções, colocando aquelas relacionadas no mesmo pacote.
+Por padrão, o pacote <strong>prelude</strong><sup id="fnref:prelude"><a class="footnote-ref" href="#fn:prelude">2</a></sup> é carregado a não ser que seja explicitamente indicado em contrário.
+Este pacote contém a definição dos tipos e operadores básicos vistos anteriormente, além de muitos outros.
+Uma pequena mas interessante amostra:</p>
+<table>
+<thead>
+<tr>
+<th>Nome</th>
+<th>Definição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>min</code></td>
+<td>Menor de 2 elementos ordenáveis</td>
+</tr>
+<tr>
+<td><code>max</code></td>
+<td>Maior de 2 elementos ordenáveis</td>
+</tr>
+<tr>
+<td><code>Semigroup</code></td>
+<td>Uma classe em que vale a associatividade</td>
+</tr>
+<tr>
+<td><code>Monoid</code></td>
+<td>Monóide em que há um elemento identidade</td>
+</tr>
+<tr>
+<td><code>putChar</code></td>
+<td>Escreve um caractere na saida padrão</td>
+</tr>
+<tr>
+<td><code>putString</code></td>
+<td>Escreve uma string na saida padrão</td>
+</tr>
+<tr>
+<td><code>getChar</code></td>
+<td>Lê um caractere da entrada padrão</td>
+</tr>
+<tr>
+<td><code>getString</code></td>
+<td>Lê uma string da entrada padrão</td>
+</tr>
+</tbody>
+</table>
+<p>Estes exemplos servem para mostrar como o pacote mais básico do Haskell é diverso e como a sua biblioteca é diversa.
+Além do Prelude, centenas de outros pacotes estão disponíveis na Web, de compiladores a geradores de gráficos 3D, de transformadas rápidas de Fourier a <em>message brokers</em>, em repositórios como o Hackage<sup id="fnref:hackage"><a class="footnote-ref" href="#fn:hackage">1</a></sup>.
+Contudo, é preciso ter cuidado com os pacotes que baixa.</p>
+<p>Com esta visita rápida ao prelude, encerramos esta introdução ao Haskell e rumamos para tópicos mais universais.
+Isto é, mesmo que os tópicos vistos até agora sejam obviamente associados à programação funcional, os mesmos estão fortemente relacionados à sintaxe do Haskell.
+Já nas próximas seções, veremos tópicos mais independentes, i.e., mesmo que as funções, tipos e construtos usados ainda sejam implementadas em Haskell, os conceitos por trás são mais universais.</p>
+<div class="admonition todo">
+<p class="admonition-title">TODO</p>
+<p>Explicar uso de <code class="highlight"><span class="kr">import</span></code></p>
+</div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:hackage">
+<p><a href="https://hackage.haskell.org/packages/browse">https://hackage.haskell.org/packages/browse</a>&#160;<a class="footnote-backref" href="#fnref:hackage" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:prelude">
+<p>Prelude: <a href="https://hackage.haskell.org/package/base-4.15.0.0/docs/Prelude.html">https://hackage.haskell.org/package/base-4.15.0.0/docs/Prelude.html</a>&#160;<a class="footnote-backref" href="#fnref:prelude" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
 </div>
 
   <!-- Last update of source file -->
@@ -505,7 +530,7 @@ Revisitando a função <code>nome_mes</code>, com esta estrutura ela ficaria ass
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../guards/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../types/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -514,19 +539,19 @@ Revisitando a função <code>nome_mes</code>, com esta estrutura ela ficaria ass
               <span class="md-footer__direction">
                 Anterior
               </span>
-              Guardas
+              Tipos
             </div>
           </div>
         </a>
       
       
-        <a href="../types/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../tuples/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Tipos
+              Tuplas
             </div>
           </div>
           <div class="md-footer__button md-icon">
