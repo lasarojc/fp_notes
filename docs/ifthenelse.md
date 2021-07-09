@@ -54,10 +54,9 @@ Com esta definição, tanto `somaEstranha 1 2` quanto `somaEstranha 1 (-2)` resu
 
     ???example "Resolução"
         ```hs
-        bissexto x = if mod x 4 /= 0 then False
-                             else if mod x 100 /= 0 then True
-                                                    else if mod x 400 == 0 then True
-                                                                           else False
+        --8<--
+        docs/code/leapyear.hs
+        --8<--
         ```
 
 Aninhar `if` assim pode funcionar, mas leva a estruturas estranhas e difíceis de serem lidas. Há formas melhores de se lidar com múltiplas possibilidades de computação.

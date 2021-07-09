@@ -11,13 +11,15 @@
     - [x] Inferência de tipos.
     - [x] Tipos explícitos
     - [ ] Tipos especificados pelo usuário
-    - [ ] Tipos estranhos
+    - [ ] Tipos algébricos
           ```hs
-          data  Maybe a     =  Nothing | Just a  deriving (Eq, Ord, Read, Show)  
+          data  Maybe a     =  Nothing | Just a  deriving (Eq, Ord, Read, Show)  https://www.youtube.com/watch?v=b9FagOVqxmI
           data  Either a b  =  Left a | Right b  deriving (Eq, Ord, Read, Show)  
           data  Ordering    =  LT | EQ | GT deriving  
                                   (Eq, Ord, Bounded, Enum, Read, Show)
           ```
+          - Árvores
+
 
 
 - [ ] Listas
@@ -51,14 +53,22 @@
      - [ ] Entrada e saída:
      - [ ] Mônadas:
 
-     - Cálculo Lambda:
-     - Algoritmos de Ordenação:
-     - Tipos algébricos:
-     - Árvores:
+- Cálculo Lambda:
+    - transparência referencial
+    - idempotência
+- Algoritmos de Ordenação:
 
+- quickcheck
 - Encapsulamento, herança, polimorfismo
-- transparência referencial
-- idempotência
-- f#
 - lazy
+- camelCase
 
+
+
+to import code
+
+```hs
+--8<--
+docs/code/fstsnd.hs
+--8<--
+```

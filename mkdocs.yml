@@ -6,20 +6,16 @@ nav:
         - Prefácio: preface.md #1 assinc
         - Introdução: intro.md #1 sinc
 
-        - Haskell: 
-           - Origem: haskell.md #2 sinc
-           - 1 + 1: simple.md #2 sinc
-           - Funções: functions.md #2 sinc
-
-           - If Then Else: ifthenelse.md #2 sinc
-           - Guardas: guards.md
-           - Casamento de Padrões: case_functions.md
-
-           - Tipos: types.md
-           - Prelude: prelude.md #2 assinc
-
+        - Haskell: haskell.md #2 sinc
+        - 1 + 1: simple.md #2 sinc
+        - Funções: functions.md #2 sinc
+        - If Then Else: ifthenelse.md #2 sinc
+        - Guardas: guards.md
+        - Tipos: types.md
+        - Pacotes: packages.md #2 assinc
         - Tuplas: tuples.md
-        - Casamento de Padrões: haskell_cases.md
+        - Casamento de Padrões: pattern_matching.md
+        - Recursão: recursion.md
         - Listas: lists.md
 
 theme:
@@ -78,6 +74,8 @@ markdown_extensions:
         - pymdownx.tabbed
         - pymdownx.tilde
         - pymdownx.tasklist
+        - pymdownx.snippets:
+            check_paths: true
 
 extra_javascript:
         - https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js

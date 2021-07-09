@@ -53,7 +53,7 @@ Assim como `type` em Python, Haskell tem a função `#!hs :type` para verificar 
 "Bom dia" :: [Char]
 ```
 
-Finalmente, se olharmos novamente para os exemplos de funções anteriores, veremos que não foram definidos tipos em suas declarações; isto é possível porquê Haskell consegue **inferir** os tipos dos dados de forma muito eficiente, obrigando você a explicitá-los apenas em casos muito específicos.
+Finalmente, se olharmos novamente para os exemplos de funções anteriores, veremos que não foram definidos tipos em suas declarações; isto é possível porquê Haskell consegue **inferir** os tipos dos dados de forma muito eficiente. Quando você explicita tipos, o faz apenas para facilitar a leitura do código e para indicar sua intenção ao compilador que, pode-se dizer, fará a inferência e testará se você está certo.
 
 Haskell tem um número imenso de tipos pre-definidos, organizados hierarquicamente, e que podem ser usados para definir novos tipos pelo programador.
 Mas por enquanto, nos foquemos nos tipos mais simples.

@@ -55,8 +55,13 @@ maior_de_tres a b c
 Segundo, as condições são testadas de cima para baixo e isso é importante porquê alguns parâmetros podem satisfazer mais de uma condição.
 Vejamos novamente o caso do cálculo de anos bissextos.
 
+```hs
+---8<---
+docs/code/leapyear1.hs
+---8<---
+```
 
-
+Observe que se a terceira e segunda guardas fossem invertidas, o ano 1900 seria considerado bissexto, quando na verdade ele não é.
 
 
 !!!exercise "Exercício"
@@ -83,3 +88,5 @@ Vejamos novamente o caso do cálculo de anos bissextos.
             | p / a ^ 2 <= 30.0 = "Alto"
             | otherwise  
         ```
+
+Quando a condição testada por um guarda é de igualdade dos parâmetros com algum valor, temos uma terceira forma de definir funções que precisam testar vários casos, além de usar `if`-`then`-`else` e guardas, que veremos na seção [Casamento de padrões](../pattern_matching).
