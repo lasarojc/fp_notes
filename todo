@@ -10,7 +10,7 @@
     - [x] Exemplo python e tipos mutantes
     - [x] Inferência de tipos.
     - [x] Tipos explícitos
-    - [ ] Tipos especificados pelo usuário
+    - [x] Tipos especificados pelo usuário
     - [ ] Tipos algébricos
           ```hs
           data  Maybe a     =  Nothing | Just a  deriving (Eq, Ord, Read, Show)  https://www.youtube.com/watch?v=b9FagOVqxmI
@@ -19,15 +19,18 @@
                                   (Eq, Ord, Bounded, Enum, Read, Show)
           ```
           - Árvores
+    - Type classes
 
 
 
 - [ ] Listas
-    - [ ] sao homogeneas
+    - [ ] sao homogêneas
     - [ ] range operator [1..10]
     - [ ] : cons
     - [ ] ++ append
     - [ ] !! get at index
+    - lazy - mostrar com listas infinitas
+
 
 - [ ] Tuplas
 
@@ -49,26 +52,16 @@
 - [ ] Mais Haskell
      - [ ] Comunicação entre linguagens
      - [ ] Paralelismo e Distribuição:
-        - actors
+        - [ ] actors
      - [ ] Entrada e saída:
      - [ ] Mônadas:
 
-- Cálculo Lambda:
-    - transparência referencial
-    - idempotência
-- Algoritmos de Ordenação:
+- [ ] Cálculo Lambda:
+    - [ ] transparência referencial
+    - [ ] idempotência
+- [ ] Algoritmos de Ordenação:
 
 - quickcheck
 - Encapsulamento, herança, polimorfismo
-- lazy
-- camelCase
 
 
-
-to import code
-
-```hs
---8<--
-docs/code/fstsnd.hs
---8<--
-```
