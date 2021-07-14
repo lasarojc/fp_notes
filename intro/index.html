@@ -888,7 +888,7 @@ Você pode optar por um <code>for</code> clássico ...</p>
 4
 5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">quads</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">lista</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
         <span class="n">lista</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">lista</span>
 </code></pre></div>
@@ -896,7 +896,7 @@ Você pode optar por um <code>for</code> clássico ...</p>
 <p>... ou uma <strong>compreensão de listas</strong>, como nos exemplos a seguir.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">quads2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">e</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">x</span><span class="p">)]</span>
 </code></pre></div>
 </td></tr></table>
 <p>Além disso, há linguagens funcionais que também se enquadram em outros paradigmas e que podem ser consideradas híbridas, ou multi-paradigma.</p>
@@ -935,7 +935,7 @@ Como desenvolvedores de tecnologia, nada mais justo que vocês conheçam todos o
 <p>Recursão de calda: alguns problemas podem ser descritos muito facilmente como uma recursão que com uma iteração, mas linguagens tradicionais tem um limite no tamanho das pilhas de função; linguagens funcionais conseguem, em certas condições, usar recursão infinita, contornando esta limitação.</p>
 </li>
 <li>
-<p>Funções de alta ordem: </p>
+<p>Funções de alta ordem: funções podem receber outras funções como parâmetro e com isso podemos compor funções, por exemplo para implementar orientação a objetos.</p>
 </li>
 </ul>
 <h2 id="escolha-o-seu-veneno">Escolha o seu veneno</h2>
