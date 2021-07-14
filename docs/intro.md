@@ -239,7 +239,7 @@ Você pode optar por um `for` clássico ...
 ```python
 def quads(x):
     lista = []
-    for i in range(1,10):
+    for i in range(1,x):
         lista.append(i*i)
     return lista
 ```
@@ -248,7 +248,7 @@ def quads(x):
 
 ```python
 def quads2(x):
-    return [x**2 for x in range(x)]
+    return [e**2 for e in range(1,x)]
 ```
 
 Além disso, há linguagens funcionais que também se enquadram em outros paradigmas e que podem ser consideradas híbridas, ou multi-paradigma.
@@ -283,7 +283,7 @@ Vejamos estes outras pontos importantes do paradigma:
 
 * Recursão de calda: alguns problemas podem ser descritos muito facilmente como uma recursão que com uma iteração, mas linguagens tradicionais tem um limite no tamanho das pilhas de função; linguagens funcionais conseguem, em certas condições, usar recursão infinita, contornando esta limitação.
 
-* Funções de alta ordem: 
+* Funções de alta ordem: funções podem receber outras funções como parâmetro e com isso podemos compor funções, por exemplo para implementar orientação a objetos.
 
 
 
