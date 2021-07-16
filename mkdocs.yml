@@ -6,8 +6,7 @@ nav:
         - Prefácio: preface.md #1 assinc
         - Introdução: intro.md #1 sinc
         
-        - Haskell: haskell.md #2 sinc
-        - 1 + 1: simple.md #2 sinc
+        - Haskell 1+1: haskell101.md #2 sinc
         - Funções: functions.md #2 sinc
         - If Then Else: ifthenelse.md #2 sinc
         - Guardas: guards.md
