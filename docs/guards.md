@@ -2,7 +2,7 @@ Vamos definir uma função que retorne o nome do mês, dado o seu número.
 Seria possível escreve esta função com `if` aninhados, assim.
 
 ```hs
-nome_mes m = if m == 1 then "JAN"
+nomeMes m = if m == 1 then "JAN"
              else if m == 2 then "FEB"
              else if m == 3 then "MAR"
              ...
@@ -14,7 +14,7 @@ Esta estrutura, contudo, pode ser simplificada com o uso **guardas**, uma opçã
 Guardas tem a seguinte sintaxe, onde o `otherwise` é **opcional** e serve para cobrir **todos os outros casos**.
 
 ```hs
-nome_funcao arg1 ... argN
+nomeFuncao arg1 ... argN
     | <condicao1> = <definicao1>
     | <condicao2> = <definicao2>
     ...
@@ -26,7 +26,7 @@ nome_funcao arg1 ... argN
 Especificamente, o exemplo do cálculo do nome dos meses ficaria assim:
 
 ```hs
-nome_mes m
+nomeMes m
     | m == 1 = "JAN"
     | m == 2 = "FEV"
     | m == 3 = "MAR"
@@ -46,7 +46,7 @@ Outras observações também são importantes. Primeiro, as condições podem se
 Vejamos uma função que calcula o maior entre três números.
 
 ```hs
-maior_de_tres a b c
+maiorDeTres a b c
   | a >= b && a >= c   = a
   | b >= c             = b
   | otherwise          = c
@@ -70,7 +70,7 @@ Observe que se a terceira e segunda guardas fossem invertidas, o ano 1900 seria 
 
     ???example "Resolução"
         ```hs
-        dias_mes m
+        diasMes m
             | m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12 = 31
             | m == 2 = 28
             | otherwise = 30

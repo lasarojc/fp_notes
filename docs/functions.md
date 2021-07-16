@@ -16,11 +16,11 @@ soma(1,10);
 Em Haskell, temos diversas opções para obter o mesmo resultado, por exemplo, usando uma função recursiva...
 
 ```Haskell
-somadeate x y = if x < y
-                then x + somadeate (x+1) y
+somaDeAte x y = if x < y
+                then x + somaDeAte (x+1) y
                 else x
 
-somadeate 1 10
+somaDeAte 1 10
 ```
 
 ... ou a função já existente `#!hs sum`, que recebe uma lista de números, neste caso criada pelo operador `#!hs ..`
