@@ -35,7 +35,7 @@ Usando uma expressão de seleção, isto é, `#!hs if ... then ... else ...` Vej
 
 Observe que, diferentemente de outras linguagens em que se pode usar o `if` para decidir entre fazer ou não uma computação, o `if` do Haskell serve para decidir entre duas computações. Isto é, o `if` deve sempre ser seguido do `then` **e** do `else`.
 
-Observe também que o `if` pode estar em qualquer parte da expressão. 
+Observe também que o `if` pode estar em qualquer parte da expressão, porquê este construto é também uma expressão.
 Por exemplo, imagine que queira somar um número inteiro com o valor absoluto de outro número, sem usar o `abs`.
 
 ```hs

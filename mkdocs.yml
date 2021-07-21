@@ -12,10 +12,20 @@ nav:
         - Guardas: guards.md
         - Tipos: types.md
         - Pacotes: packages.md #2 assinc
+        
         - Tuplas: tuples.md
+
         - Casamento de Padrões: pattern_matching.md
+
+        - Where and Let-In: where_let_in.md
+        
         - Recursão: recursion.md
+        
         - Listas: lists.md
+
+        - Classes de tipos: type_classes.md
+
+        - Entrada e Saída: io.md
 
 theme:
         name: material

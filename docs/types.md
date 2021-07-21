@@ -88,8 +88,10 @@ Dados os tipos primários, o próximo passo é ver os operadores que os manipula
 
 
 
-Observe que alguns destes operadores são naturalmente infixos, e.g., `+`, e outros prefixos, e.g., `rem`.
+Observe que alguns destes operadores são naturalmente infixos, e.g., `+`, e outros prefixos, e.g., `rem`.[^infix]
 Contudo, ambos podem ser usados da outras forma, como mostrado nos seguintes exemplos.
+
+[^infix]: Operadores são funções cujos nomes só contem caracteres especiais. Eles são naturalmente infixos.
 
 [^negate]: Observe que o o `-10` está entre parênteses não porque o operador demanda, mas para deixar claro que o `-` faz parte do número.
 
@@ -100,6 +102,7 @@ quot 10 3
 10 `quot` 3
 ```
 
+Caso você queira ou precise especificar um tipo para um número, pode sufixá-lo com o tipo, por exemplo, `#!hs 20 :: Int` ou  `#!hs 20 :: Double`.
 
 ###### Caracteres
 Para a representação de caracteres individuais, Haskell usa o tipo `Char`, e para sequências de caracteres, usa o tipo `String`, que é um "apelido" para **lista** de `Char`.

@@ -61,7 +61,7 @@ Com estas duas funções, podemos inclusive compor funções, no melhor estilo $
         ```hs
         soma x y = x + y
         
-        mult3 x y z = x + y + z
+        mult3 x y z = x * y * z
 
         ```
 

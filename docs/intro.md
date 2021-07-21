@@ -16,7 +16,7 @@ E a comunicação entre duas entidades só é possível se usarem uma linguagem 
 
 Quando humanos se comunicam, usam uma **linguagens naturais**, como o português, libras, ou cantonês.
 Linguagens naturais são altamente expressivas, cheias de nuances e dependências do contexto, o que lhes confere grande poder, mas também a grande fraqueza de permitirem a construção de mensagens ambíguas.
-A comunicação entre computadores ou computares e humanos, contudo, precisa ser feita de forma precisa, e por isso linguagens naturais não são boas neste contexto, apesar do grande esforço dispendido e da evolução do processamento de linguagens naturais, como as alexas e siris do mundo podem provar.
+A comunicação entre computadores ou computares e humanos, contudo, precisa ser feita de forma precisa, e por isso linguagens naturais não são boas neste contexto, apesar do grande esforço dispendido e da evolução do processamento de linguagens naturais, como as "alexas" e "siris" do mundo podem provar.
 
 A comunicação entre computadores é feita por um protocolo de comunicação, assunto para outro curso.
 Já a comunicação entre humanos e computadores, na programação do computador, é feita por meio de **linguagens de programação**, que são muito mais restritas que as linguagens naturais e, por isso, não ambíguas.
@@ -66,7 +66,7 @@ Estas primeiras linguagens eram todas **imperativas**, no sentido de que ditavam
 
 Este paradigma tem suas raízes no modelo computacional clássico de von Neumann e na máquina de Turing
 
-![[By Kapooht - Own work, CC BY-SA 3.0](https://commons.wikimedia.org/w/index.php?curid=25789639)](images/von_Neumann_Architecture.png)
+![[By Kapooht - Own work, CC BY-SA 3.0](https://commons.wikimedia.org/w/index.php?curid=25789639)](images/von_Neumann_Architecture.png){: style="max-width:500px"}
 
 
 Em contrapartida a este modelo, surgiram mais tarde linguagens **declarativas**, em que o programado diz **o quê** deve ser computado e o computador se encarrega de achar um "como".
@@ -205,7 +205,7 @@ Mas e as funções que tem efeitos colaterais?
 Estas não são funções "de verdade" e não é a toa que outro nome usado para os blocos de código é **procedimento** e que para discernir entre funções que tem efeitos colaterais e que não não, chamamos de **puras** as do segundo tipo.
 
 Vejamos alguns exemplos.
-As funções seguintes, definidas em Erlang, calculam `A+B`, `A*C` e `(A+B)*(A+B)`; independentemente de quantas vezes você o fizer, `add(2,3)` sempre retornará `5`.
+As funções seguintes, definidas em Erlang, calculam `#!er A+B`, `#!er A*C` e `#!er (A+B)*(A+B)` e, independentemente de quantas vezes você o fizer, `#!er add(2,3)` sempre retornará `5`.
 
 
 ```erlang
@@ -230,7 +230,7 @@ Acontece que devido à complexidade inerente do uso de programação funcional p
 A razão mais comum para efeitos colaterais é a realização de Entrada/Saída. Por exemplo, ao invocar `print` no Python, o terminal tem seu estado alterado, e cada nova invocação altera mais o estado.
 Assim, podemos dividir as linguagens e funcionais puras, funcionais não puras e não funcionais, mas mesmo dentro das não funcionais, há aquelas com elementos de programação funcional.
 
-#### "Funcionalidades"
+###### "Funcionalidades"
 Muitas linguagens modernas, como Python e JavaScript, embora não estritamente funcionais, tem diversos elementos de programação funcional, eu diretamente na linguagem ou via *frameworks*.
 Python, por exemplo, várias funcionalidades características do paradigma funcional, embora seja possível ignorá-las por completo.
 Por exemplo, imagine que você queira criar uma lista com o quadrado de todos os números de 1 a `x`.
