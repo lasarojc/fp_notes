@@ -14,7 +14,7 @@
     
     
       
-        <title>Funções - Programação Funcional</title>
+        <title>Recursão - Programação Funcional</title>
       
     
     
@@ -68,11 +68,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#funcoes" class="md-skip">
-          Ir para o conteúdo
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -99,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Funções
+              Recursão
             
           </span>
         </div>
@@ -248,51 +243,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Funções
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
         Funções
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Índice">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Índice
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#equacoes" class="md-nav__link">
-    Equações
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -408,11 +363,19 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../recursion/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Recursão
       </a>
+      
     </li>
   
 
@@ -469,38 +432,6 @@
               </div>
             
             
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary" aria-label="Índice">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Índice
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#equacoes" class="md-nav__link">
-    Equações
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -515,113 +446,22 @@
        as the main headline.
     -->
 
+  <h1>Recursão</h1>
+
 
   <!-- Content -->
-  <h1 id="funcoes">Funções</h1>
-<p>Agora que já vimos exemplos extremamente simples, vejamos alguns um pouco mais interessantes, como uma função que soma os números de <code>x</code> a <code>y</code>, inclusive.
-A título de comparação, vejamos primeiro a função em linguagem C.</p>
+  <p>Uma função é dita recursiva quando ela é <strong>definida em termos de si mesma</strong>.
+A matemática é rica em exemplo de funções recursivas, também conhecidas como <strong>recorrências</strong>.
+Alguns exemplos ...</p>
+<p>Nós já mostramos algumas destas funções, sem chamar a atenção para o fato de ser recursiva.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">soma</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">i</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">total</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="n">soma</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">maximum</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;lista vazia&quot;</span>  
+<span class="nf">maximum</span> <span class="p">[</span><span class="n">h</span><span class="p">]</span> <span class="ow">=</span> <span class="n">h</span>
+<span class="nf">maximum</span> <span class="p">(</span><span class="n">h</span><span class="kt">:</span><span class="n">t</span><span class="p">)</span> <span class="ow">=</span> <span class="n">max</span> <span class="n">h</span> <span class="p">(</span><span class="n">maximum</span> <span class="n">t</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<p>Em Haskell, temos diversas opções para obter o mesmo resultado, por exemplo, usando uma função recursiva...</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">somaDeAte</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span>
-                <span class="kr">then</span> <span class="n">x</span> <span class="o">+</span> <span class="n">somaDeAte</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="n">y</span>
-                <span class="kr">else</span> <span class="n">x</span>
-
-<span class="nf">somaDeAte</span> <span class="mi">1</span> <span class="mi">10</span>
-</code></pre></div>
-</td></tr></table>
-<p>... ou a função já existente <code class="highlight"><span class="nf">sum</span></code>, que recebe uma lista de números, neste caso criada pelo operador <code class="highlight"><span class="o">..</span></code></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">sum</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
-</code></pre></div>
-</td></tr></table>
-<p>Observe que a <strong>sintaxe do uso</strong> das funções, contudo, é diferente; em Haskell, usa-se o nome da função, seguido dos parâmetros, com espaço os separando.
-Já a definição de funções segue algumas estruturas básicas, sendo a mais simples a definição via <strong>equação</strong>.</p>
-<h3 id="equacoes">Equações</h3>
-<p>Por exemplo, consideremos uma função que soma dois números.</p>
-<p><img alt="Função" src="../drawings/function.drawio-3.svg" /></p>
-<p>Em Haskell, ela é definida simplesmente como <code class="highlight"><span class="nf">soma</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span></code> e usada como <code class="highlight"><span class="nf">soma</span> <span class="mi">3</span> <span class="mi">5</span></code>.</p>
-<div class="admonition exercise">
-<p class="admonition-title">Exercício: Soma</p>
-<ul>
-<li>Defina a função soma e a use, de acordo com a imagem.<sup id="fnref:replit2"><a class="footnote-ref" href="#fn:replit2">1</a></sup></li>
-</ul>
-<p><img alt="Exercício" src="../images/exe1.png" /></p>
-</div>
-<p>Como outro exemplo, definamos uma função que retorna o sucessor de um inteiro como <code class="highlight"><span class="nf">sucessor</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span></code>.
-Com estas duas funções, podemos inclusive compor funções, no melhor estilo <span class="arithmatex">\(g(f(x))\)</span>, por exemplo: <code class="highlight"><span class="nf">sucessor</span> <span class="p">(</span><span class="n">soma</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">)</span></code> ou <code class="highlight"><span class="nf">sucessor</span> <span class="p">(</span><span class="n">sucessor</span> <span class="p">(</span><span class="n">sucessor</span> <span class="mi">4</span><span class="p">))</span></code>.</p>
-<div class="admonition exercise">
-<p class="admonition-title">Exercício: Composição</p>
-<ul>
-<li>Defina uma função que multiplique 3 números, isto é, dados <span class="arithmatex">\(x\)</span>, <span class="arithmatex">\(y\)</span> e <span class="arithmatex">\(z\)</span>, calcule <span class="arithmatex">\(x*y*z\)</span>.</li>
-<li>Calcule <span class="arithmatex">\((1 + (3 * 2 * 3)) + (5 * 3 * 2)\)</span> usando as funções de soma e multiplicação definidas.</li>
-</ul>
-<details class="example"><summary>Resolução</summary><p>Defina as funções</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">soma</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-
-<span class="nf">mult3</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="o">*</span> <span class="n">z</span>
-</code></pre></div>
-</td></tr></table>
-<p>Invoque <code class="highlight"><span class="nf">soma</span> <span class="p">(</span><span class="n">soma</span> <span class="mi">1</span> <span class="p">(</span><span class="n">mult3</span> <span class="mi">3</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">))</span> <span class="p">(</span><span class="n">mult</span> <span class="mi">5</span> <span class="mi">3</span> <span class="mi">2</span><span class="p">)</span></code>. Observe que os parênteses são necessários para delimitar os parâmetros de cada uma das invocações.</p>
-</details>
-</div>
-<div class="admonition exercise">
-<p class="admonition-title">Exercício: média de 3 números</p>
-<ul>
-<li>Defina uma função que calcule a média de 3 números</li>
-</ul>
-<details class="example"><summary>Resolução</summary><ul>
-<li><code class="highlight"><span class="nf">media</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span></code></li>
-</ul>
-</details>
-</div>
-<div class="admonition exercise">
-<p class="admonition-title">Exercício: área das figuras</p>
-<ul>
-<li>Defina uma função o cálculo da área de cada figura geométrica.</li>
-</ul>
-<p><img alt="figuras" src="../drawings/area.drawio-0.svg" /></p>
-<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">areaQuad</span> <span class="n">a</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span>
-<span class="nf">areaRet</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
-<span class="nf">areaCirc</span> <span class="n">r</span> <span class="ow">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span>
-<span class="nf">areaTri</span> <span class="n">a</span> <span class="n">h</span> <span class="ow">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">h</span> <span class="p">)</span><span class="o">/</span> <span class="mi">2</span>
-<span class="nf">areaTra</span> <span class="n">a</span> <span class="n">b</span> <span class="n">h</span> <span class="ow">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="n">h</span>
-</code></pre></div>
-</td></tr></table>
-</details>
-</div>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:replit2">
-<p>Se você se logar no Repl.it, poderá salvar seus arquivos online e editá-los de qualquer lugar, como no exemplo dado no exercício.&#160;<a class="footnote-backref" href="#fnref:replit2" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+<p><span class="arithmatex">\(maximum~[1,2,3] = max~1 \left( maximum~[2,3] = max~2 \left( maximum~[3] = 3 \right)        \right)\)</span></p>
 
   <!-- Last update of source file -->
 
@@ -642,7 +482,7 @@ Com estas duas funções, podemos inclusive compor funções, no melhor estilo <
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../haskell101/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../pattern_matching/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -651,25 +491,11 @@ Com estas duas funções, podemos inclusive compor funções, no melhor estilo <
               <span class="md-footer__direction">
                 Anterior
               </span>
-              Haskell 1+1
+              Casamento de Padrões
             </div>
           </div>
         </a>
       
-      
-        <a href="../ifthenelse/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Próximo
-              </span>
-              If Then Else
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
       
     </nav>
   

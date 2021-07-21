@@ -293,19 +293,6 @@
     Funcional
   </a>
   
-    <nav class="md-nav" aria-label="Funcional">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#funcionalidades" class="md-nav__link">
-    "Funcionalidades"
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -477,7 +464,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../recursion.md" class="md-nav__link">
+      <a href="../where_let_in.md" class="md-nav__link">
+        Where and Let-In
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recursion/" class="md-nav__link">
         Recursão
       </a>
     </li>
@@ -494,6 +496,36 @@
     <li class="md-nav__item">
       <a href="../lists.md" class="md-nav__link">
         Listas
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../type_classes.md" class="md-nav__link">
+        Classes de tipos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io.md" class="md-nav__link">
+        Entrada e Saída
       </a>
     </li>
   
@@ -564,19 +596,6 @@
   <a href="#funcional" class="md-nav__link">
     Funcional
   </a>
-  
-    <nav class="md-nav" aria-label="Funcional">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#funcionalidades" class="md-nav__link">
-    "Funcionalidades"
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -652,7 +671,7 @@ E a comunicação entre duas entidades só é possível se usarem uma linguagem 
 </details>
 <p>Quando humanos se comunicam, usam uma <strong>linguagens naturais</strong>, como o português, libras, ou cantonês.
 Linguagens naturais são altamente expressivas, cheias de nuances e dependências do contexto, o que lhes confere grande poder, mas também a grande fraqueza de permitirem a construção de mensagens ambíguas.
-A comunicação entre computadores ou computares e humanos, contudo, precisa ser feita de forma precisa, e por isso linguagens naturais não são boas neste contexto, apesar do grande esforço dispendido e da evolução do processamento de linguagens naturais, como as alexas e siris do mundo podem provar.</p>
+A comunicação entre computadores ou computares e humanos, contudo, precisa ser feita de forma precisa, e por isso linguagens naturais não são boas neste contexto, apesar do grande esforço dispendido e da evolução do processamento de linguagens naturais, como as "alexas" e "siris" do mundo podem provar.</p>
 <p>A comunicação entre computadores é feita por um protocolo de comunicação, assunto para outro curso.
 Já a comunicação entre humanos e computadores, na programação do computador, é feita por meio de <strong>linguagens de programação</strong>, que são muito mais restritas que as linguagens naturais e, por isso, não ambíguas.</p>
 <div class="admonition note">
@@ -698,7 +717,7 @@ O próximo passo, foram computadores que interpretavam código escrito em uma li
 </ol>
 </div>
 <p>Este paradigma tem suas raízes no modelo computacional clássico de von Neumann e na máquina de Turing</p>
-<p><img alt="By Kapooht - Own work, CC BY-SA 3.0" src="../images/von_Neumann_Architecture.png" /></p>
+<p><img alt="By Kapooht - Own work, CC BY-SA 3.0" src="../images/von_Neumann_Architecture.png" style="max-width:500px" /></p>
 <p>Em contrapartida a este modelo, surgiram mais tarde linguagens <strong>declarativas</strong>, em que o programado diz <strong>o quê</strong> deve ser computado e o computador se encarrega de achar um "como".</p>
 <div class="admonition example">
 <p class="admonition-title">Descritivo</p>
@@ -837,7 +856,7 @@ Isto é, funções resolvem o problema sem se basear em nada além dos parâmetr
 <p>Mas e as funções que tem efeitos colaterais?
 Estas não são funções "de verdade" e não é a toa que outro nome usado para os blocos de código é <strong>procedimento</strong> e que para discernir entre funções que tem efeitos colaterais e que não não, chamamos de <strong>puras</strong> as do segundo tipo.</p>
 <p>Vejamos alguns exemplos.
-As funções seguintes, definidas em Erlang, calculam <code>A+B</code>, <code>A*C</code> e <code>(A+B)*(A+B)</code>; independentemente de quantas vezes você o fizer, <code>add(2,3)</code> sempre retornará <code>5</code>.</p>
+As funções seguintes, definidas em Erlang, calculam <code class="highlight">A+B</code>, <code class="highlight">A*C</code> e <code class="highlight">(A+B)*(A+B)</code> e, independentemente de quantas vezes você o fizer, <code class="highlight">add(2,3)</code> sempre retornará <code>5</code>.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -862,7 +881,7 @@ Pelo menos esta é a ideia de programação funcional pura, que é essencialment
 <p>Acontece que devido à complexidade inerente do uso de programação funcional pura, sem efeitos colaterais, i.e., sem mutação de estados, muitas linguagens não são puramente funcionais.
 A razão mais comum para efeitos colaterais é a realização de Entrada/Saída. Por exemplo, ao invocar <code>print</code> no Python, o terminal tem seu estado alterado, e cada nova invocação altera mais o estado.
 Assim, podemos dividir as linguagens e funcionais puras, funcionais não puras e não funcionais, mas mesmo dentro das não funcionais, há aquelas com elementos de programação funcional.</p>
-<h4 id="funcionalidades">"Funcionalidades"</h4>
+<h6>"Funcionalidades"</h6>
 <p>Muitas linguagens modernas, como Python e JavaScript, embora não estritamente funcionais, tem diversos elementos de programação funcional, eu diretamente na linguagem ou via <em>frameworks</em>.
 Python, por exemplo, várias funcionalidades características do paradigma funcional, embora seja possível ignorá-las por completo.
 Por exemplo, imagine que você queira criar uma lista com o quadrado de todos os números de 1 a <code>x</code>.

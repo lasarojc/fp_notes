@@ -10,6 +10,9 @@ Indefinido
 
 >>>show [1..(-3)]
 "[]"
+
+>>>fat 5
+120
 -}
 
 fat 0 = 1

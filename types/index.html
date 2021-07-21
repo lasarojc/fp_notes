@@ -402,7 +402,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../recursion.md" class="md-nav__link">
+      <a href="../where_let_in.md" class="md-nav__link">
+        Where and Let-In
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recursion/" class="md-nav__link">
         Recursão
       </a>
     </li>
@@ -419,6 +434,36 @@
     <li class="md-nav__item">
       <a href="../lists.md" class="md-nav__link">
         Listas
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../type_classes.md" class="md-nav__link">
+        Classes de tipos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io.md" class="md-nav__link">
+        Entrada e Saída
       </a>
     </li>
   
@@ -617,11 +662,11 @@ Mas por enquanto, nos foquemos nos tipos mais simples.</p>
 </tr>
 <tr>
 <td><code>-</code></td>
-<td>Inversão de sinal, e.g, <code>- (-10) == 10</code><sup id="fnref2:negate"><a class="footnote-ref" href="#fn:negate">1</a></sup></td>
+<td>Inversão de sinal, e.g, <code>- (-10) == 10</code><sup id="fnref2:negate"><a class="footnote-ref" href="#fn:negate">2</a></sup></td>
 </tr>
 <tr>
 <td><code>negate</code></td>
-<td>Inversão de sinal, e.g, <code>negate (-10) == 10</code><sup id="fnref:negate"><a class="footnote-ref" href="#fn:negate">1</a></sup></td>
+<td>Inversão de sinal, e.g, <code>negate (-10) == 10</code><sup id="fnref:negate"><a class="footnote-ref" href="#fn:negate">2</a></sup></td>
 </tr>
 <tr>
 <td><code>quot</code></td>
@@ -641,7 +686,7 @@ Mas por enquanto, nos foquemos nos tipos mais simples.</p>
 </tr>
 </tbody>
 </table>
-<p>Observe que alguns destes operadores são naturalmente infixos, e.g., <code>+</code>, e outros prefixos, e.g., <code>rem</code>.
+<p>Observe que alguns destes operadores são naturalmente infixos, e.g., <code>+</code>, e outros prefixos, e.g., <code>rem</code>.<sup id="fnref:infix"><a class="footnote-ref" href="#fn:infix">1</a></sup>
 Contudo, ambos podem ser usados da outras forma, como mostrado nos seguintes exemplos.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -652,6 +697,7 @@ Contudo, ambos podem ser usados da outras forma, como mostrado nos seguintes exe
 <span class="mi">10</span> <span class="p">`</span><span class="n">quot</span><span class="p">`</span> <span class="mi">3</span>
 </code></pre></div>
 </td></tr></table>
+<p>Caso você queira ou precise especificar um tipo para um número, pode sufixá-lo com o tipo, por exemplo, <code class="highlight"><span class="mi">20</span> <span class="ow">::</span> <span class="kt">Int</span></code> ou  <code class="highlight"><span class="mi">20</span> <span class="ow">::</span> <span class="kt">Double</span></code>.</p>
 <h6>Caracteres</h6>
 <p>Para a representação de caracteres individuais, Haskell usa o tipo <code>Char</code>, e para sequências de caracteres, usa o tipo <code>String</code>, que é um "apelido" para <strong>lista</strong> de <code>Char</code>.
 Como lista não é um tipo primitivo, ou melhor, mesmo que em Haskell listas sejam fundamentais, não as estudaremos agora.
@@ -797,8 +843,11 @@ f2c x = (x - 32) /1.8
 <div class="footnote">
 <hr />
 <ol>
+<li id="fn:infix">
+<p>Operadores são funções cujos nomes só contem caracteres especiais. Eles são naturalmente infixos.&#160;<a class="footnote-backref" href="#fnref:infix" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
 <li id="fn:negate">
-<p>Observe que o o <code>-10</code> está entre parênteses não porque o operador demanda, mas para deixar claro que o <code>-</code> faz parte do número.&#160;<a class="footnote-backref" href="#fnref:negate" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:negate" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>Observe que o o <code>-10</code> está entre parênteses não porque o operador demanda, mas para deixar claro que o <code>-</code> faz parte do número.&#160;<a class="footnote-backref" href="#fnref:negate" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:negate" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

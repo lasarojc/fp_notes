@@ -358,7 +358,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../recursion.md" class="md-nav__link">
+      <a href="../where_let_in.md" class="md-nav__link">
+        Where and Let-In
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recursion/" class="md-nav__link">
         Recursão
       </a>
     </li>
@@ -375,6 +390,36 @@
     <li class="md-nav__item">
       <a href="../lists.md" class="md-nav__link">
         Listas
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../type_classes.md" class="md-nav__link">
+        Classes de tipos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io.md" class="md-nav__link">
+        Entrada e Saída
       </a>
     </li>
   
@@ -434,7 +479,7 @@ Usando uma expressão de seleção, isto é, <code class="highlight"><span class
 </code></pre></div>
 </td></tr></table>
 <p>Observe que, diferentemente de outras linguagens em que se pode usar o <code>if</code> para decidir entre fazer ou não uma computação, o <code>if</code> do Haskell serve para decidir entre duas computações. Isto é, o <code>if</code> deve sempre ser seguido do <code>then</code> <strong>e</strong> do <code>else</code>.</p>
-<p>Observe também que o <code>if</code> pode estar em qualquer parte da expressão. 
+<p>Observe também que o <code>if</code> pode estar em qualquer parte da expressão, porquê este construto é também uma expressão.
 Por exemplo, imagine que queira somar um número inteiro com o valor absoluto de outro número, sem usar o <code>abs</code>.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">somaEstranha</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="kr">if</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="kr">then</span> <span class="o">-</span><span class="n">y</span> <span class="kr">else</span> <span class="n">y</span><span class="p">)</span>
 </code></pre></div>
