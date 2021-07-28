@@ -365,21 +365,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../where_let_in.md" class="md-nav__link">
-        Where and Let-In
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../recursion/" class="md-nav__link">
         Recursão
       </a>
@@ -395,8 +380,38 @@
   
   
     <li class="md-nav__item">
-      <a href="../lists.md" class="md-nav__link">
+      <a href="../lists/" class="md-nav__link">
         Listas
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickcheck/" class="md-nav__link">
+        QuickCheck
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../where_let_in.md" class="md-nav__link">
+        Where and Let-In
       </a>
     </li>
   
@@ -427,6 +442,21 @@
     <li class="md-nav__item">
       <a href="../io.md" class="md-nav__link">
         Entrada e Saída
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../observations/" class="md-nav__link">
+        Observações
       </a>
     </li>
   
@@ -521,14 +551,20 @@ Uma pequena mas interessante amostra:</p>
 </table>
 <p>Estes exemplos servem para mostrar como o pacote mais básico do Haskell é diverso e como a sua biblioteca é diversa.
 Além do Prelude, centenas de outros pacotes estão disponíveis na Web, de compiladores a geradores de gráficos 3D, de transformadas rápidas de Fourier a <em>message brokers</em>, em repositórios como o Hackage<sup id="fnref:hackage"><a class="footnote-ref" href="#fn:hackage">1</a></sup>.
-Contudo, é preciso ter cuidado com os pacotes que baixa.</p>
+Contudo, é preciso ter cuidado com os pacotes que baixa.
+Caso você encontre um pacote que queira usar, de nome <code>X</code>, bastar baixá-lo e usar o <code class="highlight"><span class="kr">import</span></code>. Por exemplo, para trabalhar com números complexos, voce pode usar o pacote <code class="highlight"><span class="kt">Data</span><span class="o">.</span><span class="kt">Complex</span></code> assim:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kr">import</span> <span class="nn">Data.Complex</span>
+<span class="kt">Prelude</span> <span class="kt">Data</span><span class="o">.</span><span class="kt">Complex</span><span class="o">&gt;</span> <span class="kr">let</span> <span class="n">x</span> <span class="ow">=</span> <span class="mf">1.0</span> <span class="kt">:+</span> <span class="mf">0.0</span>
+<span class="kt">Prelude</span> <span class="kt">Data</span><span class="o">.</span><span class="kt">Complex</span><span class="o">&gt;</span> <span class="n">x</span>
+<span class="mf">1.0</span> <span class="kt">:+</span> <span class="mf">0.0</span>
+</code></pre></div>
+</td></tr></table>
 <p>Com esta visita rápida ao prelude, encerramos esta introdução ao Haskell e rumamos para tópicos mais universais.
 Isto é, mesmo que os tópicos vistos até agora sejam obviamente associados à programação funcional, os mesmos estão fortemente relacionados à sintaxe do Haskell.
 Já nas próximas seções, veremos tópicos mais independentes, i.e., mesmo que as funções, tipos e construtos usados ainda sejam implementadas em Haskell, os conceitos por trás são mais universais.</p>
-<div class="admonition todo">
-<p class="admonition-title">TODO</p>
-<p>Explicar uso de <code class="highlight"><span class="kr">import</span></code></p>
-</div>
 <div class="footnote">
 <hr />
 <ol>

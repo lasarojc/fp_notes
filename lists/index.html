@@ -14,7 +14,7 @@
     
     
       
-        <title>Recursão - Programação Funcional</title>
+        <title>Listas - Programação Funcional</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Recursão
+              Listas
             
           </span>
         </div>
@@ -348,19 +348,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../recursion/" class="md-nav__link">
         Recursão
       </a>
-      
     </li>
   
 
@@ -371,11 +363,19 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../lists/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Listas
       </a>
+      
     </li>
   
 
@@ -476,31 +476,19 @@
        as the main headline.
     -->
 
-  <h1>Recursão</h1>
+  <h1>Listas</h1>
 
 
   <!-- Content -->
-  <p>Uma função é dita recursiva quando ela é <strong>definida em termos de si mesma</strong>.
-A matemática é rica em exemplo de funções recursivas, também conhecidas como <strong>recorrências</strong>.</p>
-<p>Dois exemplos bem conhecidos são o fatorial de um número...</p>
-<div class="arithmatex">\[
-n! =
-     \begin{cases}
-       1          &amp; \text{se } n = 0\\
-       n * (n-1)! &amp; \text{se } n &gt;= 0
-     \end{cases}
-\]</div>
-<p>... e a sequência de Fibonacci.</p>
-<div class="arithmatex">\[
-F_n =
-     \begin{cases}
-        1                    &amp; \text{se } n = 1\\
-        1                    &amp; \text{se } n = 2\\
-        F_{n-1} + F_{n_2}    &amp; \text{se } n &gt; 2
-     \end{cases}
-\]</div>
-<p>A recursão é muito importante na computação pois é uma estratégia de resolução de problemas, pois possibilita resolver um problema pouco a pouco.
-Mas além disso, ela é especialmente importante na programação funcional, onde não há instruções de iteração como <code class="highlight"><span class="k">for</span><span class="p">(;;)</span></code> e <code class="highlight"><span class="k">while</span><span class="p">()</span></code>, comuns nas linguagens imperativas.</p>
+  <h6>Recursão e Listas</h6>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">maximum</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;lista vazia&quot;</span>  
+<span class="nf">maximum</span> <span class="p">[</span><span class="n">h</span><span class="p">]</span> <span class="ow">=</span> <span class="n">h</span>
+<span class="nf">maximum</span> <span class="p">(</span><span class="n">h</span><span class="kt">:</span><span class="n">t</span><span class="p">)</span> <span class="ow">=</span> <span class="n">max</span> <span class="n">h</span> <span class="p">(</span><span class="n">maximum</span> <span class="n">t</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p><span class="arithmatex">\(maximum~[1,2,3] = max~1 \left( maximum~[2,3] = max~2 \left( maximum~[3] = 3 \right)        \right)\)</span></p>
 
   <!-- Last update of source file -->
 
@@ -521,7 +509,7 @@ Mas além disso, ela é especialmente importante na programação funcional, ond
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../pattern_matching/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../recursion/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -530,19 +518,19 @@ Mas além disso, ela é especialmente importante na programação funcional, ond
               <span class="md-footer__direction">
                 Anterior
               </span>
-              Casamento de Padrões
+              Recursão
             </div>
           </div>
         </a>
       
       
-        <a href="../lists/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../quickcheck/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Listas
+              QuickCheck
             </div>
           </div>
           <div class="md-footer__button md-icon">

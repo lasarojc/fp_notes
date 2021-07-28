@@ -402,21 +402,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../where_let_in.md" class="md-nav__link">
-        Where and Let-In
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../recursion/" class="md-nav__link">
         Recursão
       </a>
@@ -432,8 +417,38 @@
   
   
     <li class="md-nav__item">
-      <a href="../lists.md" class="md-nav__link">
+      <a href="../lists/" class="md-nav__link">
         Listas
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickcheck/" class="md-nav__link">
+        QuickCheck
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../where_let_in.md" class="md-nav__link">
+        Where and Let-In
       </a>
     </li>
   
@@ -464,6 +479,21 @@
     <li class="md-nav__item">
       <a href="../io.md" class="md-nav__link">
         Entrada e Saída
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../observations/" class="md-nav__link">
+        Observações
       </a>
     </li>
   
@@ -532,11 +562,11 @@
 
   <!-- Content -->
   <h1 id="tipos">Tipos</h1>
-<p>Seja a função <code>dias_mes</code> a função que calcula a quantidade de dias em um mês, dado o número do mês, definida assim:</p>
+<p>Seja a função <code>diasMes</code> a função que calcula a quantidade de dias em um mês, dado o número do mês, definida assim:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">dias_mes</span> <span class="n">m</span>
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">diasMes</span> <span class="n">m</span>
     <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">3</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">5</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">7</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">8</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">10</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">12</span> <span class="ow">=</span> <span class="mi">31</span>
     <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">=</span> <span class="mi">28</span>
     <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="mi">30</span>
@@ -546,7 +576,7 @@
 Isso nos leva a perguntar como definir que uma função só é aplicável a números inteiros, do <strong>tipo</strong> inteiro.</p>
 <p>Em linguagens de programação, um tipo é um nome dado a uma coleção de valores que tem um mesmo comportamento na linguagem.
 Na linguagem C, por exemplo, temos os tipos <code>int</code> e <code>short</code>, ambos associados a valores inteiros mas com número de bits diferentes usados para representá-los.</p>
-<p>Algumas linguagens são denominadas fracamente tipadas, o que quer dizer que o uso de tipos é relaxado e pode até ser alterado em tempo de execução.
+<p>Algumas linguagens são denominadas <strong>fracamente tipadas</strong>, o que quer dizer que o uso de tipos é relaxado e pode até ser alterado em tempo de execução.
 Por exemplo, no seguinte código em Python a variável <code>x</code> assume três tipos diferentes em momentos diferentes da execução.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -572,12 +602,6 @@ Por exemplo, no seguinte código em Python a variável <code>x</code> assume tr�
 &lt;class <span class="s1">&#39;float&#39;</span>&gt;
 </code></pre></div>
 </td></tr></table>
-<details class="sideslide"><summary>Tipagem"</summary><ul>
-<li>Forte</li>
-<li>Estática</li>
-<li>Inferência</li>
-</ul>
-</details>
 <p>Já a linguagem Haskell é o que chamamos de <strong>fortemente tipada</strong>, o que quer dizer que toda variável, constante ou função tem apenas um tipo e este sempre pode ser determinado.
 Além disso, Haskell é <strong>estaticamente tipada</strong>, ou seja, os tipos são determinados em tempo de compilação, em oposição a linguagens que determinam o tipo durante a execução do programa, denominadas dinamicamente tipadas.
 Assim como <code>type</code> em Python, Haskell tem a função <code class="highlight"><span class="kt">:</span><span class="kr">type</span></code> para verificar o tipo de uma variável. Por exemplo:</p>
@@ -586,14 +610,20 @@ Assim como <code>type</code> em Python, Haskell tem a função <code class="high
 3
 4
 5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>   <span class="kt">:</span><span class="kr">type</span> <span class="mi">1</span>
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kt">:</span><span class="kr">type</span> <span class="mi">1</span>
 <span class="mi">1</span> <span class="ow">::</span> <span class="kt">Num</span> <span class="n">p</span> <span class="ow">=&gt;</span> <span class="n">p</span>
-   <span class="kt">:</span><span class="kr">type</span> <span class="mf">1.0</span>
+<span class="o">&gt;</span> <span class="kt">:</span><span class="kr">type</span> <span class="mf">1.0</span>
 <span class="mf">1.0</span> <span class="ow">::</span> <span class="kt">Fractional</span> <span class="n">p</span> <span class="ow">=&gt;</span> <span class="n">p</span>
-   <span class="kt">:</span><span class="kr">type</span> <span class="s">&quot;Bom dia&quot;</span>
+<span class="o">&gt;</span> <span class="kt">:</span><span class="kr">type</span> <span class="s">&quot;Bom dia&quot;</span>
 <span class="s">&quot;Bom dia&quot;</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Char</span><span class="p">]</span>
 </code></pre></div>
 </td></tr></table>
+<details class="sideslide"><summary>Tipos em Haskell</summary><ul>
+<li>Forte</li>
+<li>Estáticos</li>
+<li>Por Inferência</li>
+</ul>
+</details>
 <p>Finalmente, se olharmos novamente para os exemplos de funções anteriores, veremos que não foram definidos tipos em suas declarações; isto é possível porquê Haskell consegue <strong>inferir</strong> os tipos dos dados de forma muito eficiente. Quando você explicita tipos, o faz apenas para facilitar a leitura do código e para indicar sua intenção ao compilador que, pode-se dizer, fará a inferência e testará se você está certo.</p>
 <p>Haskell tem um número imenso de tipos pre-definidos, organizados hierarquicamente, e que podem ser usados para definir novos tipos pelo programador.
 Mas por enquanto, nos foquemos nos tipos mais simples.</p>
@@ -612,26 +642,26 @@ Mas por enquanto, nos foquemos nos tipos mais simples.</p>
 <tr>
 <td><code>Int</code></td>
 <td>Inteiro de precisão finita</td>
-<td></td>
+<td>4, -14, 2147483647</td>
 </tr>
 <tr>
 <td><code>Integer</code></td>
 <td>Inteiro de precisão arbitrária</td>
-<td></td>
+<td>30414093201713378043612608166064768844377641568960512000000000000</td>
 </tr>
 <tr>
 <td><code>Float</code></td>
 <td>Ponto flutuante de precisão simples</td>
-<td></td>
+<td>25.132742</td>
 </tr>
 <tr>
 <td><code>Double</code></td>
 <td>Ponto flutuante de precisão dupla</td>
-<td></td>
+<td>25.132741228718345</td>
 </tr>
 </tbody>
 </table>
-<p>Dados os tipos primários, o próximo passo é ver os operadores que os manipulam.</p>
+<p>Dados os tipos numéricos primários, o próximo passo é ver alguns dos operadores que os manipulam.</p>
 <table>
 <thead>
 <tr>
@@ -670,7 +700,7 @@ Mas por enquanto, nos foquemos nos tipos mais simples.</p>
 </tr>
 <tr>
 <td><code>quot</code></td>
-<td>Divisão inteira, truncado pro 0</td>
+<td>Divisão inteira, truncado pro 0, i.e., <code>quot a b</code> é igual a <span class="arithmatex">\(\lfloor\frac{a}{b}\rfloor\)</span> se <span class="arithmatex">\(a&gt;0\)</span> e <span class="arithmatex">\(\lceil\frac{a}{b}\rceil\)</span> se <span class="arithmatex">\(a&lt;0\)</span>, e.g, <code>div 8 3 == 2</code> e <code>div (-8) 3 == -2</code></td>
 </tr>
 <tr>
 <td><code>rem</code></td>
@@ -678,16 +708,16 @@ Mas por enquanto, nos foquemos nos tipos mais simples.</p>
 </tr>
 <tr>
 <td><code>div</code></td>
-<td>Resto da divisão, truncado para baixo</td>
+<td>Resto da divisão, truncado para baixo, i.e., <code>div a b</code> é igual a <span class="arithmatex">\(\lfloor\frac{a}{b}\rfloor\)</span>, e.g, <code>div 8 3 == 2</code> e <code>div (-8) 3 == -3</code></td>
 </tr>
 <tr>
 <td><code>mod</code></td>
-<td>Módulo do inteiro, tal que  <code>(x `div` y)*y + (x `mod` y) == x</code></td>
+<td>Módulo do inteiro, tal que  <code class="highlight"><span class="p">(</span><span class="n">x</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span> <span class="p">`</span><span class="n">mod</span><span class="p">`</span> <span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="n">x</span></code></td>
 </tr>
 </tbody>
 </table>
-<p>Observe que alguns destes operadores são naturalmente infixos, e.g., <code>+</code>, e outros prefixos, e.g., <code>rem</code>.<sup id="fnref:infix"><a class="footnote-ref" href="#fn:infix">1</a></sup>
-Contudo, ambos podem ser usados da outras forma, como mostrado nos seguintes exemplos.</p>
+<p>Observe que alguns destes operadores são naturalmente infixos, e.g., <code>+</code>, e outros, prefixos, e.g., <code>rem</code>.<sup id="fnref:infix"><a class="footnote-ref" href="#fn:infix">1</a></sup>
+Contudo, ambos podem ser usados da outra forma, como mostrado nos seguintes exemplos.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -698,35 +728,13 @@ Contudo, ambos podem ser usados da outras forma, como mostrado nos seguintes exe
 </code></pre></div>
 </td></tr></table>
 <p>Caso você queira ou precise especificar um tipo para um número, pode sufixá-lo com o tipo, por exemplo, <code class="highlight"><span class="mi">20</span> <span class="ow">::</span> <span class="kt">Int</span></code> ou  <code class="highlight"><span class="mi">20</span> <span class="ow">::</span> <span class="kt">Double</span></code>.</p>
-<h6>Caracteres</h6>
-<p>Para a representação de caracteres individuais, Haskell usa o tipo <code>Char</code>, e para sequências de caracteres, usa o tipo <code>String</code>, que é um "apelido" para <strong>lista</strong> de <code>Char</code>.
-Como lista não é um tipo primitivo, ou melhor, mesmo que em Haskell listas sejam fundamentais, não as estudaremos agora.
-Ainda assim, usaremos <code>String</code> em alguns exemplos, mas sem entrar em detalhes da manipulação de listas.
-Exemplos dos dois tipos são apresentados na tabela a seguir.</p>
-<table>
-<thead>
-<tr>
-<th>Tipo</th>
-<th>Descrição</th>
-<th>Valores</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Char</code></td>
-<td>Caractere</td>
-<td>'1'; 'a'; 'B'</td>
-</tr>
-<tr>
-<td><code>String</code></td>
-<td>Sequência de caracteres</td>
-<td>"Eu"; "Hello"; "Zabumba"</td>
-</tr>
-</tbody>
-</table>
-<p>Algumas funções úteis na manipulação de caracteres e strings são apresentadas na tabela.</p>
-<details class="todo"><summary>Funções</summary><p>tabela com "operadores"</p>
-</details>
+<div class="admonition todo">
+<p class="admonition-title">Exercícios</p>
+<ul>
+<li>Usar todos os operadores</li>
+<li>Evidenciar diferenças entrem quot/rem e div/mod.</li>
+</ul>
+</div>
 <h6>Booleanos</h6>
 <p>Finalmente, para representação de valores lógicos, Haskell define o tipo <code>bool</code>.</p>
 <table>
@@ -776,28 +784,97 @@ Exemplos dos dois tipos são apresentados na tabela a seguir.</p>
 </tr>
 </tbody>
 </table>
-<div class="admonition todo">
+<h6>Caracteres</h6>
+<p>Para a representação de caracteres individuais, Haskell usa o tipo <code>Char</code>, e para sequências de caracteres, usa o tipo <code>String</code>, que é um "apelido" para <strong>lista</strong> de <code>Char</code>.<sup id="fnref:text"><a class="footnote-ref" href="#fn:text">3</a></sup>
+Como lista não é um tipo primitivo, ou melhor, mesmo que em Haskell listas sejam fundamentais, não as estudaremos agora.
+Ainda assim, usaremos <code>String</code> em alguns exemplos, mas sem entrar em detalhes da manipulação de listas.
+Exemplos dos dois tipos são apresentados na tabela a seguir.</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Descrição</th>
+<th>Valores</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Char</code></td>
+<td>Caractere</td>
+<td>'1'; 'a'; 'B'</td>
+</tr>
+<tr>
+<td><code>String</code></td>
+<td>Sequência de caracteres</td>
+<td>"Eu"; "Hello"; "Zabumba"</td>
+</tr>
+</tbody>
+</table>
+<p>Algumas funções úteis na manipulação de caracteres e strings são apresentadas na tabela.</p>
+<table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Operação</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>++</code></td>
+<td>Concatenação</td>
+<td><code class="highlight"><span class="s">&quot;foo&quot;</span> <span class="o">++</span> <span class="s">&quot;bar&quot;</span> <span class="ow">-&gt;</span> <span class="s">&quot;foobar&quot;</span></code></td>
+</tr>
+<tr>
+<td><code>!!</code></td>
+<td>Caractere no índice</td>
+<td><code>#@hs "foo bar" !! 2 -&gt; 'o'</code></td>
+</tr>
+<tr>
+<td><code>take</code></td>
+<td>Substring iniciando em 0</td>
+<td><code>#@hs take 3 "foo bar" -&gt; "foo"</code></td>
+</tr>
+<tr>
+<td><code>reverse</code></td>
+<td>String ao contrário</td>
+<td><code>#@hs reverse "foo bar" -&gt; "rab oof"</code></td>
+</tr>
+</tbody>
+</table>
+<p>Nós voltaremos a falar sobre Strings uma vez que estudarmos listas.</p>
+<div class="admonition exercise">
 <p class="admonition-title">Exercícios</p>
 <ul>
-<li>Usar todos os operadores</li>
-<li>Evidenciar diferenças entrem quot e div.</li>
+<li>Defina função que retorne substring de <code>t</code> elementos começando na posição <code>i</code><ul>
+<li><code class="highlight"><span class="nf">minhaFuncao</span> <span class="s">&quot;entrada1&quot;</span> <span class="mi">2</span> <span class="mi">2</span></code> retorna <code class="highlight"><span class="s">&quot;tr&quot;</span></code></li>
+</ul>
+</li>
+<li>Defina função que retorne substring com os últimos <code>u</code> elementos<ul>
+<li><code class="highlight"><span class="nf">minhaFuncao</span> <span class="s">&quot;entrada1&quot;</span> <span class="mi">2</span></code> retorna <code class="highlight"><span class="s">&quot;a1&quot;</span></code></li>
+</ul>
+</li>
+<li>Defina função que receba duas strings e retorne a resultado da concatenação das substrings de <code>t</code> elementos começando na posição <code>i</code><ul>
+<li><code class="highlight"><span class="nf">minhaFuncao</span> <span class="s">&quot;entrada1&quot;</span> <span class="s">&quot;entrada2&quot;</span> <span class="mi">2</span> <span class="mi">2</span></code> retorna <code class="highlight"><span class="s">&quot;trtr&quot;</span></code></li>
+</ul>
+</li>
 </ul>
 </div>
 <h2 id="prototipo-de-funcoes">Protótipo de funções</h2>
 <p>Agora que já conhecemos alguns tipos, podemos ver como usá-los na definição de funções.
-Para fazê-lo, devemos usar a seguinte sintaxe.</p>
+Para fazê-lo, devemos usar a seguinte sintaxe:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">nome_funcao</span> <span class="ow">::</span> <span class="n">tipo_arg1</span> <span class="ow">-&gt;</span> <span class="o">...</span> <span class="ow">-&gt;</span> <span class="n">tipo_argN</span> <span class="ow">-&gt;</span> <span class="n">tipo_saida</span>
-<span class="nf">nome_funcao</span> <span class="n">arg1</span> <span class="o">...</span> <span class="n">argN</span> <span class="ow">=</span> <span class="o">&lt;</span><span class="n">definicao</span><span class="o">&gt;</span>
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">nomeFuncao</span> <span class="ow">::</span> <span class="n">tipo_arg1</span> <span class="ow">-&gt;</span> <span class="o">...</span> <span class="ow">-&gt;</span> <span class="n">tipo_argN</span> <span class="ow">-&gt;</span> <span class="n">tipo_saida</span>
+<span class="nf">nomeFuncao</span> <span class="n">arg1</span> <span class="o">...</span> <span class="n">argN</span> <span class="ow">=</span> <span class="o">&lt;</span><span class="n">definicao</span><span class="o">&gt;</span>
 </code></pre></div>
 </td></tr></table>
-<p>Por exemplo, o <strong>protótipo</strong> da função <code>dia_mes</code>, isto é, a definição dos tipos de entrada e saída da função, fica assim:</p>
+<p>Por exemplo, o <strong>protótipo</strong> da função <code>diaMes</code>, isto é, a definição dos tipos de entrada e saída da função, fica assim:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">dias_mes</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
-<span class="nf">dias_mes</span> <span class="n">m</span>
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">diasMes</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">diasMes</span> <span class="n">m</span>
     <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">3</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">5</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">7</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">8</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">10</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">12</span> <span class="ow">=</span> <span class="mi">31</span>
     <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">=</span> <span class="mi">28</span>
     <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="mi">30</span>
@@ -810,29 +887,39 @@ Para fazê-lo, devemos usar a seguinte sintaxe.</p>
 <li>Descubra a quanto 100f corresponde em Célsius</li>
 </ul>
 <details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>hs f2c :: Float -&gt; Float`
-f2c x = (x - 32) /1.8
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">f2c</span> <span class="ow">::</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span><span class="p">`</span>
+<span class="nf">f2c</span> <span class="n">x</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">/</span><span class="mf">1.8</span>
 </code></pre></div>
 </td></tr></table>
 </details>
 <ul>
 <li>Defina o protótipo da função de media de dois números reais <code class="highlight"><span class="nf">m2n</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span></code></li>
 </ul>
-<details class="example"><summary>Resolução</summary><p><code class="highlight">:: Float -&gt; Float -&gt; Float</code></p>
+<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">m2n</span> <span class="ow">::</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span>
+<span class="nf">m2n</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+</code></pre></div>
+</td></tr></table>
 </details>
 <ul>
 <li>Defina o protótipo da soma de dois números inteiros <code class="highlight"><span class="nf">soma2int</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span></code></li>
 <li>Aplique a função aos valores 2 e 3.</li>
 <li>Aplique a função aos valores 2.0 e 3.0.</li>
 </ul>
-<details class="example"><summary>Resolução</summary><p><code class="highlight">:: Int -&gt; Int -&gt; Int</code></p>
+<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">soma2int</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">soma2int</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</code></pre></div>
+</td></tr></table>
 </details>
 <ul>
 <li>Defina o protótipo da soma de dois números reais <code class="highlight"><span class="nf">soma2reais</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span></code></li>
 <li>Aplique a função aos valores 2.0 e 3.0.</li>
 <li>Aplique a função aos valores 2 e 3.</li>
 </ul>
-<details class="example"><summary>Resolução</summary><p><code class="highlight">:: Float -&gt; Float -&gt; Float</code></p>
+<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">soma2reais</span> <span class="ow">::</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span>
+</code></pre></div>
+</td></tr></table>
 </details>
 <ul>
 <li>Explique a diferença de comportamento das duas últimas funções.</li>
@@ -848,6 +935,9 @@ f2c x = (x - 32) /1.8
 </li>
 <li id="fn:negate">
 <p>Observe que o o <code>-10</code> está entre parênteses não porque o operador demanda, mas para deixar claro que o <code>-</code> faz parte do número.&#160;<a class="footnote-backref" href="#fnref:negate" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:negate" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:text">
+<p>Haskell define também o tipo Text, uma forma mais moderna de manipular texto, mas não discutiremos Text aqui.&#160;<a class="footnote-backref" href="#fnref:text" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

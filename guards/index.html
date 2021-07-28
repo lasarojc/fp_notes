@@ -358,21 +358,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../where_let_in.md" class="md-nav__link">
-        Where and Let-In
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../recursion/" class="md-nav__link">
         Recursão
       </a>
@@ -388,8 +373,38 @@
   
   
     <li class="md-nav__item">
-      <a href="../lists.md" class="md-nav__link">
+      <a href="../lists/" class="md-nav__link">
         Listas
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickcheck/" class="md-nav__link">
+        QuickCheck
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../where_let_in.md" class="md-nav__link">
+        Where and Let-In
       </a>
     </li>
   
@@ -420,6 +435,21 @@
     <li class="md-nav__item">
       <a href="../io.md" class="md-nav__link">
         Entrada e Saída
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../observations/" class="md-nav__link">
+        Observações
       </a>
     </li>
   
@@ -602,7 +632,29 @@ Assuma que fevereiro sempre tem 28 dias.</p>
 </td></tr></table>
 </details>
 </div>
-<p>Quando a condição testada por um guarda é de igualdade dos parâmetros com algum valor, temos uma terceira forma de definir funções que precisam testar vários casos, além de usar <code>if</code>-<code>then</code>-<code>else</code> e guardas, que veremos na seção <a href="../pattern_matching">Casamento de padrões</a>.</p>
+<h6><code>otherwise</code> é verdade</h6>
+<p>Uma curiosidade sobre o uso de guardas é que o caso final, que pega todas as outras opções, poderia ser definido como um guarda em que a condição é sempre verdadeira, como no seguinte exemplo:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">maiorDeTres</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span>
+  <span class="o">|</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">c</span>   <span class="ow">=</span> <span class="n">a</span>
+  <span class="o">|</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="n">c</span>             <span class="ow">=</span> <span class="n">b</span>
+  <span class="o">|</span> <span class="kt">True</span>               <span class="ow">=</span> <span class="n">c</span>
+</code></pre></div>
+</td></tr></table>
+<p>De fato, se usarmos o ghci para obtermos mais informações sobre <code>otherwise</code>, veremos que é uma constante, cujo valor é <code class="highlight"><span class="kt">True</span></code>.
+Isso serve para ilustrar o poder da linguagem, que tem um conjunto reduzido de palavras chave que é estendida usando suas funcionalidades básicas.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Prelude&gt; :i otherwise
+otherwise :: Bool   -- Defined in ‘GHC.Base’
+Prelude&gt; otherwise
+True
+</code></pre></div>
+</td></tr></table>
+<p>Ainda sobre guardas, quando a condição testada é de igualdade dos parâmetros com algum valor, temos uma terceira forma de definir funções que precisam testar vários casos, além de usar <code>if</code>-<code>then</code>-<code>else</code> e guardas: <a href="../pattern_matching">Casamento de padrões</a>.</p>
 
   <!-- Last update of source file -->
 

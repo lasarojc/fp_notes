@@ -365,21 +365,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../where_let_in.md" class="md-nav__link">
-        Where and Let-In
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../recursion/" class="md-nav__link">
         Recursão
       </a>
@@ -395,8 +380,38 @@
   
   
     <li class="md-nav__item">
-      <a href="../lists.md" class="md-nav__link">
+      <a href="../lists/" class="md-nav__link">
         Listas
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickcheck/" class="md-nav__link">
+        QuickCheck
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../where_let_in.md" class="md-nav__link">
+        Where and Let-In
       </a>
     </li>
   
@@ -427,6 +442,21 @@
     <li class="md-nav__item">
       <a href="../io.md" class="md-nav__link">
         Entrada e Saída
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../observations/" class="md-nav__link">
+        Observações
       </a>
     </li>
   
@@ -540,7 +570,8 @@ O GHC consegue otimizar o código para não gastar recursos com mesma.</p>
 </td></tr></table>
 <div class="admonition exercise">
 <p class="admonition-title">Exercício</p>
-<p>Considerando uma tupla de 4 elementos, defina 4 funções que, aos moldes de <code>fst</code> e <code>snd</code>, extraiam cada um dos 4 elementos da tupla.</p>
+<p>Considerando uma tupla de 4 elementos, defina 4 funções que, aos moldes de <code>fst</code> e <code>snd</code>, extraiam cada um dos 4 elementos da tupla.
+Não defina um protótipo.</p>
 <details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -552,7 +583,18 @@ O GHC consegue otimizar o código para não gastar recursos com mesma.</p>
 </td></tr></table>
 </details>
 </div>
-<p>Tuplas são usadas como estruturas em outras linguagens. Por exemplo, imagine que se queira armazenar os dados nome, telefone, CPF e endereço de uma pessoa. 
+<div class="admonition exercise">
+<p class="admonition-title">Exercício</p>
+<p>Escreva uma função que receba um inteiro como parâmetro e retorne uma tupla como resultado onde o primeiro elemento é um booleano que indica se o número é negativo, e o segundo elemento é o valor absoluto do número.</p>
+<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">éNeg</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Bool</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span>
+<span class="nf">éNeg</span> <span class="n">x</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">abs</span> <span class="n">x</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+</details>
+</div>
+<p>Tuplas são usadas como estruturas em outras linguagens. 
+Por exemplo, imagine que se queira armazenar os dados nome, telefone, CPF e endereço de uma pessoa. 
 Poderíamos convencionar que seria usado uma tupla em que cada posição corresponderia a um dos dados.
 Neste caso, alguns exemplos de funções úteis são mostrados a seguir.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1

@@ -14,7 +14,7 @@
     
     
       
-        <title>Recursão - Programação Funcional</title>
+        <title>Observações - Programação Funcional</title>
       
     
     
@@ -68,6 +68,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#observacoes" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -94,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Recursão
+              Observações
             
           </span>
         </div>
@@ -348,19 +353,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../recursion/" class="md-nav__link">
         Recursão
       </a>
-      
     </li>
   
 
@@ -446,11 +443,58 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../observations/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Observações
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Observações
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    Cheat sheet
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicios-da-semana-2" class="md-nav__link">
+    Exercícios da Semana 2
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -461,6 +505,45 @@
                 </div>
               </div>
             
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    Cheat sheet
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicios-da-semana-2" class="md-nav__link">
+    Exercícios da Semana 2
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
             
           
           <div class="md-content" data-md-component="content">
@@ -476,31 +559,92 @@
        as the main headline.
     -->
 
-  <h1>Recursão</h1>
-
 
   <!-- Content -->
-  <p>Uma função é dita recursiva quando ela é <strong>definida em termos de si mesma</strong>.
-A matemática é rica em exemplo de funções recursivas, também conhecidas como <strong>recorrências</strong>.</p>
-<p>Dois exemplos bem conhecidos são o fatorial de um número...</p>
-<div class="arithmatex">\[
-n! =
-     \begin{cases}
-       1          &amp; \text{se } n = 0\\
-       n * (n-1)! &amp; \text{se } n &gt;= 0
-     \end{cases}
-\]</div>
-<p>... e a sequência de Fibonacci.</p>
-<div class="arithmatex">\[
-F_n =
-     \begin{cases}
-        1                    &amp; \text{se } n = 1\\
-        1                    &amp; \text{se } n = 2\\
-        F_{n-1} + F_{n_2}    &amp; \text{se } n &gt; 2
-     \end{cases}
-\]</div>
-<p>A recursão é muito importante na computação pois é uma estratégia de resolução de problemas, pois possibilita resolver um problema pouco a pouco.
-Mas além disso, ela é especialmente importante na programação funcional, onde não há instruções de iteração como <code class="highlight"><span class="k">for</span><span class="p">(;;)</span></code> e <code class="highlight"><span class="k">while</span><span class="p">()</span></code>, comuns nas linguagens imperativas.</p>
+  <h1 id="observacoes">Observações</h1>
+<h2 id="cheat-sheet">Cheat sheet</h2>
+<p><a href="https://hackage.haskell.org/package/CheatSheet-1.7/src/CheatSheet.pdf">https://hackage.haskell.org/package/CheatSheet-1.7/src/CheatSheet.pdf</a></p>
+<h2 id="exercicios-da-semana-2">Exercícios da Semana 2</h2>
+<h6>Parênteses desnecessários</h6>
+<ul>
+<li><code>((b1+b2)/2) * h</code> -&gt; <code>(b1+b2)/2 * h</code><ul>
+<li>não há dúvida para o compilador que a divisão deve ocorrer primeiro, pois os operadores tem a mesma precedência e ambos são associativos à esquerda.</li>
+</ul>
+</li>
+<li>
+<p><code>sqrt ((b*b)+ (c*c))</code>-&gt; sqrt (b*b + c*c)</p>
+<ul>
+<li>não há dúvida para o compilador que a divisão deve ocorrer primeiro, pois os operadores tem precedências diferentes.</li>
+</ul>
+</li>
+<li>
+<p>Informação sobre precedência e associatividade pode ser derivadas via <code class="highlight"><span class="kt">:</span><span class="n">info</span></code>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">info</span> <span class="o">*</span>
+<span class="kr">type</span> <span class="kt">Num</span> <span class="ow">::</span> <span class="o">*</span> <span class="ow">-&gt;</span> <span class="kt">Constraint</span>
+<span class="kr">class</span> <span class="kt">Num</span> <span class="n">a</span> <span class="kr">where</span>
+<span class="o">...</span>
+<span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="o">...</span>
+<span class="kr">infixl</span> <span class="mi">7</span> <span class="o">*</span>                              <span class="c1">-- Infixo com associatividade a esquerda (l) e Precedência 7.</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">info</span> <span class="o">/</span>
+<span class="kr">type</span> <span class="kt">Fractional</span> <span class="ow">::</span> <span class="o">*</span> <span class="ow">-&gt;</span> <span class="kt">Constraint</span>
+<span class="kr">class</span> <span class="kt">Num</span> <span class="n">a</span> <span class="ow">=&gt;</span> <span class="kt">Fractional</span> <span class="n">a</span> <span class="kr">where</span>
+<span class="p">(</span><span class="o">/</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="o">...</span>
+<span class="kr">infixl</span> <span class="mi">7</span> <span class="o">/</span>                              <span class="c1">-- Infixo com associatividade a esquerda (l) e Precedência 7.</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">info</span> <span class="o">+</span>
+<span class="kr">type</span> <span class="kt">Num</span> <span class="ow">::</span> <span class="o">*</span> <span class="ow">-&gt;</span> <span class="kt">Constraint</span>
+<span class="kr">class</span> <span class="kt">Num</span> <span class="n">a</span> <span class="kr">where</span>
+<span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="o">...</span>
+<span class="kr">infixl</span> <span class="mi">6</span> <span class="o">+</span>                              <span class="c1">-- Infixo com associatividade a esquerda (l) e Precedência 6.</span>
+</code></pre></div>
+</td></tr></table>
+</li>
+<li>
+<p><code class="highlight"><span class="nf">maiorDeTres</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">c</span> <span class="kr">then</span> <span class="n">a</span> <span class="kr">else</span> <span class="kr">if</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">a</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span> <span class="kr">then</span> <span class="n">b</span> <span class="kr">else</span> <span class="n">c</span></code></p>
+<ul>
+<li>Difícil leitura.</li>
+<li>Quebrar linhas.</li>
+</ul>
+</li>
+<li>
+<p><code class="highlight"><span class="nf">estaoOrdenados</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="ow">=</span> <span class="kr">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span><span class="p">)</span> <span class="kr">then</span> <span class="kt">True</span> <span class="kr">else</span> <span class="kt">False</span></code></p>
+<ul>
+<li><code class="highlight"><span class="kr">if</span> <span class="o">&lt;</span><span class="n">cond</span><span class="o">&gt;</span> <span class="kr">then</span> <span class="kt">True</span> <span class="kr">else</span> <span class="kt">False</span></code> -&gt; <code class="highlight"><span class="o">&lt;</span><span class="n">cond</span><span class="o">&gt;</span></code></li>
+<li><code class="highlight"><span class="nf">estaoOrdenados</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span></code></li>
+</ul>
+</li>
+<li>
+<p><code class="highlight"><span class="nf">sqrt</span><span class="p">((</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span></code></p>
+<ul>
+<li>Funções e parâmetros são separados por espaço. O parêntese só é necessário para deixar explícito o que é parâmetro.</li>
+<li>Funções tem precedência sobre operadores.</li>
+<li><code class="highlight"><span class="nf">sqrt</span><span class="p">((</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span></code></li>
+<li><code class="highlight"><span class="nf">sqrt</span> <span class="n">a</span><span class="o">^</span><span class="mi">2</span></code></li>
+<li><code class="highlight"><span class="nf">sqrt</span> <span class="n">a</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">^</span><span class="mi">2</span></code></li>
+<li><code class="highlight"><span class="nf">sqrt</span> <span class="p">(</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span></code></li>
+</ul>
+</li>
+</ul>
 
   <!-- Last update of source file -->
 
@@ -521,7 +665,7 @@ Mas além disso, ela é especialmente importante na programação funcional, ond
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../pattern_matching/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../quickcheck/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -530,25 +674,11 @@ Mas além disso, ela é especialmente importante na programação funcional, ond
               <span class="md-footer__direction">
                 Anterior
               </span>
-              Casamento de Padrões
+              QuickCheck
             </div>
           </div>
         </a>
       
-      
-        <a href="../lists/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Próximo
-              </span>
-              Listas
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
