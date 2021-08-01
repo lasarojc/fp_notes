@@ -9,5 +9,11 @@ pegaNome (nome, _, _, _) = nome
 pegaTelefone :: Pessoa -> String
 pegaTelefone (_, telefone, _, _) = telefone
 
+pegaCPF :: Pessoa -> String
+pegaCPF (_, _, c, _) = c
+
+pegaEndereço :: Pessoa -> String
+pegaEndereço (_, _, _, e) = e
+
 trocaTelefone :: Pessoa -> String-> Pessoa
-trocaTelefone (n, _t, c, e) novoTelefone = (n, novoTelefone, c, e)
+trocaTelefone p novoTelefone = fazPessoa (pegaNome p) novoTelefone (pegaCPF p) (pegaEndereço p)

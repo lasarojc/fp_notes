@@ -567,7 +567,42 @@
 <h2 id="exercicios-da-semana-2">Exercícios da Semana 2</h2>
 <h6>Parênteses desnecessários</h6>
 <ul>
-<li><code>((b1+b2)/2) * h</code> -&gt; <code>(b1+b2)/2 * h</code><ul>
+<li>
+<p>Todo <code>if</code> em um <code>then</code> e um <code>else</code></p>
+<ul>
+<li>Diferentemente de outras linguagens, onde o <code>if</code> é usado para determinar <strong>se</strong> uma computação deve acontecer e o <code>else</code> é um atalho para quando há duas opções, e portanto o <code>else</code> não é necessário, em Haskell o <code>if</code> é usado para determinar <strong>qual</strong> computação deve acontecer, ou seja, <strong>sempre há duas opções</strong>.</li>
+</ul>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">C</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span>              <span class="c1">//If sem else: compila.</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;maior&quot;</span><span class="p">;</span>        <span class="c1">//Se x &lt;= 3, y continua com o valor anterior, seja qual for.</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Haskell</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">let</span> <span class="n">y</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">3</span> 
+    <span class="kr">then</span> <span class="s">&quot;maior&quot;</span>  <span class="c1">-- If sem else: não compila! Qual o valor de `y` se `x &lt;= 3`?</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Por isso o <code>if</code> do Haskell deve ser comparado ao operador ternário do C, não com o <code>if</code>.</p>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">C</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="o">?</span> <span class="s">&quot;maior&quot;</span><span class="o">:</span> <span class="s">&quot;menor&quot;</span><span class="p">;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Haskell</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">let</span> <span class="n">y</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="kr">then</span> <span class="s">&quot;maior&quot;</span> <span class="kr">else</span> <span class="s">&quot;menor&quot;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+</li>
+<li>
+<p><code>((b1+b2)/2) * h</code> -&gt; <code>(b1+b2)/2 * h</code></p>
+<ul>
 <li>não há dúvida para o compilador que a divisão deve ocorrer primeiro, pois os operadores tem a mesma precedência e ambos são associativos à esquerda.</li>
 </ul>
 </li>

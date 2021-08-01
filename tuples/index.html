@@ -530,15 +530,7 @@ Observe que a função define claramente quantos elementos a tupla terá e qual 
 </code></pre></div>
 </td></tr></table>
 <p>Outra forma de definir a mesma função, sem especificar o nome das variáveis, seria usando as funções <code class="highlight"><span class="nf">fst</span></code> e <code class="highlight"><span class="nf">snd</span></code> do <a href="https://hackage.haskell.org/package/base-4.15.0.0/docs/Prelude.html#g:3">Prelude</a>, abreviações para <em>first</em> e <em>second</em> e que retornam o primeiro e o segundo elemento de uma tupla de dois elementos, um par, respectivamente.
-De forma simplificada, <code>fst</code> e <code>snd</code> são definidos assim:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fst</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="kr">_</span><span class="p">)</span> <span class="ow">=</span>  <span class="n">x</span>
-
-<span class="nf">snd</span> <span class="p">(</span><span class="kr">_</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="ow">=</span>  <span class="n">y</span>
-</code></pre></div>
-</td></tr></table>
-<p>Logo, </p>
+Logo, </p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -558,6 +550,22 @@ De forma simplificada, <code>fst</code> e <code>snd</code> são definidos assim:
 <span class="mi">4</span>
 
 <span class="o">&gt;</span> <span class="n">fst</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">&lt;==</span> <span class="kt">Erro</span><span class="o">!</span>
+</code></pre></div>
+</td></tr></table>
+<p>De forma simplificada, <code>fst</code> e <code>snd</code> poderiam ser definidos assim:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fst</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="ow">=</span>  <span class="n">x</span>
+
+<span class="nf">snd</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="ow">=</span>  <span class="n">y</span>
+</code></pre></div>
+</td></tr></table>
+<p>Mas na prática, ainda de forma simplificada, são definidos assim</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fst</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="kr">_</span><span class="p">)</span> <span class="ow">=</span>  <span class="n">x</span>
+
+<span class="nf">snd</span> <span class="p">(</span><span class="kr">_</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="ow">=</span>  <span class="n">y</span>
 </code></pre></div>
 </td></tr></table>
 <p>Observe que o <code>_</code> é usado em substituição a um nome para <strong>variáveis com as quais não nos importamos</strong>, isto que, que não serão usadas no dado escopo.
@@ -587,13 +595,19 @@ Não defina um protótipo.</p>
 <p class="admonition-title">Exercício</p>
 <p>Escreva uma função que receba um inteiro como parâmetro e retorne uma tupla como resultado onde o primeiro elemento é um booleano que indica se o número é negativo, e o segundo elemento é o valor absoluto do número.</p>
 <details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">éNeg</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Bool</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span>
-<span class="nf">éNeg</span> <span class="n">x</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">abs</span> <span class="n">x</span><span class="p">)</span>
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">éNeg</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Bool</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span>
+<span class="nf">éNeg</span> <span class="n">x</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="kr">then</span> <span class="p">(</span><span class="kt">True</span><span class="p">,</span> <span class="n">abs</span> <span class="n">x</span><span class="p">)</span> <span class="kr">else</span> <span class="p">(</span><span class="kt">False</span><span class="p">,</span> <span class="n">abs</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="nf">éNeg&#39;</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Bool</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span>
+<span class="nf">éNeg&#39;</span> <span class="n">x</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">abs</span> <span class="n">x</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 </details>
 </div>
-<p>Tuplas são usadas como estruturas em outras linguagens. 
+<p>Tuplas estão para Haskell assim como estruturas estão para outras linguagens. 
 Por exemplo, imagine que se queira armazenar os dados nome, telefone, CPF e endereço de uma pessoa. 
 Poderíamos convencionar que seria usado uma tupla em que cada posição corresponderia a um dos dados.
 Neste caso, alguns exemplos de funções úteis são mostrados a seguir.</p>
@@ -634,7 +648,7 @@ Neste caso, alguns exemplos de funções úteis são mostrados a seguir.</p>
 <span class="ow">=&gt;</span> <span class="p">(</span><span class="s">&quot;jose da silva&quot;</span><span class="p">,</span><span class="s">&quot;12345&quot;</span><span class="p">,</span><span class="s">&quot;0003003093&quot;</span><span class="p">,</span><span class="s">&quot;Av das Couves, 14&quot;</span><span class="p">)</span>
 <span class="o">&gt;</span> <span class="n">pegaNome</span> <span class="n">x</span>
 <span class="ow">=&gt;</span> <span class="s">&quot;jose da silva&quot;</span>
-<span class="o">&gt;</span> <span class="n">pega_telefone</span> <span class="n">x</span>
+<span class="o">&gt;</span> <span class="n">pegaTelefone</span> <span class="n">x</span>
 <span class="ow">=&gt;</span> <span class="s">&quot;12345&quot;</span>
 <span class="o">&gt;</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">trocaTelefone</span> <span class="n">x</span> <span class="s">&quot;54321&quot;</span>
 <span class="o">&gt;</span> <span class="n">y</span>
@@ -645,7 +659,7 @@ Neste caso, alguns exemplos de funções úteis são mostrados a seguir.</p>
 Outra observação é que mesmo com o uso <code>_t</code>, o código fica rapidamente difícil de se ler, pois o desenvolvedor deve manter em mente qual posição corresponde a qual dado de uma pessoa; imagine estruturas mais complexas, contendo outros dados de cada pessoa, e várias outras estruturas semelhantes, como ordens de serviço, descrição de inventários, cadastro de vendedores, etc.
 Uma forma de simplificar o código é definir tipos associados a cada estrutura.</p>
 <h6><code>type</code></h6>
-<p>A palavra chave <code class="highlight"><span class="kr">type</span></code> permite que definamos <strong>apelidos</strong> para tipos no Haskell. Por exemplo, podemos usar para definir o que é uma <strong>Pessoa</strong> e ajustar as funções definidas anteriormente assim.</p>
+<p>A palavra reservada <code class="highlight"><span class="kr">type</span></code> permite que definamos <strong>apelidos</strong> para tipos no Haskell. Por exemplo, podemos usar para definir o que é uma <strong>Pessoa</strong> e ajustar as funções definidas anteriormente assim.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -658,7 +672,13 @@ Uma forma de simplificar o código é definir tipos associados a cada estrutura.
 10
 11
 12
-13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">type</span> <span class="kt">Pessoa</span> <span class="ow">=</span> <span class="p">(</span><span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="p">)</span>
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">type</span> <span class="kt">Pessoa</span> <span class="ow">=</span> <span class="p">(</span><span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="p">)</span>
 
 <span class="nf">fazPessoa</span> <span class="ow">::</span> <span class="kt">String</span> <span class="ow">-&gt;</span> <span class="kt">String</span> <span class="ow">-&gt;</span> <span class="kt">String</span> <span class="ow">-&gt;</span> <span class="kt">String</span> <span class="ow">-&gt;</span> <span class="kt">Pessoa</span> <span class="c1">-- (1) Definição da função.</span>
 <span class="nf">fazPessoa</span> <span class="n">nome</span> <span class="n">telefone</span> <span class="n">cpf</span> <span class="n">endereço</span> <span class="ow">=</span> <span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">telefone</span><span class="p">,</span> <span class="n">cpf</span><span class="p">,</span> <span class="n">endereço</span><span class="p">)</span>
@@ -669,8 +689,14 @@ Uma forma de simplificar o código é definir tipos associados a cada estrutura.
 <span class="nf">pegaTelefone</span> <span class="ow">::</span> <span class="kt">Pessoa</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
 <span class="nf">pegaTelefone</span> <span class="p">(</span><span class="kr">_</span><span class="p">,</span> <span class="n">telefone</span><span class="p">,</span> <span class="kr">_</span><span class="p">,</span> <span class="kr">_</span><span class="p">)</span> <span class="ow">=</span> <span class="n">telefone</span>
 
+<span class="nf">pegaCPF</span> <span class="ow">::</span> <span class="kt">Pessoa</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<span class="nf">pegaCPF</span> <span class="p">(</span><span class="kr">_</span><span class="p">,</span> <span class="kr">_</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="kr">_</span><span class="p">)</span> <span class="ow">=</span> <span class="n">c</span>
+
+<span class="nf">pegaEndereço</span> <span class="ow">::</span> <span class="kt">Pessoa</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<span class="nf">pegaEndereço</span> <span class="p">(</span><span class="kr">_</span><span class="p">,</span> <span class="kr">_</span><span class="p">,</span> <span class="kr">_</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span> <span class="ow">=</span> <span class="n">e</span>
+
 <span class="nf">trocaTelefone</span> <span class="ow">::</span> <span class="kt">Pessoa</span> <span class="ow">-&gt;</span> <span class="kt">String</span><span class="ow">-&gt;</span> <span class="kt">Pessoa</span>
-<span class="nf">trocaTelefone</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">_t</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span> <span class="n">novoTelefone</span> <span class="ow">=</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">novoTelefone</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+<span class="nf">trocaTelefone</span> <span class="n">p</span> <span class="n">novoTelefone</span> <span class="ow">=</span> <span class="n">fazPessoa</span> <span class="p">(</span><span class="n">pegaNome</span> <span class="n">p</span><span class="p">)</span> <span class="n">novoTelefone</span> <span class="p">(</span><span class="n">pegaCPF</span> <span class="n">p</span><span class="p">)</span> <span class="p">(</span><span class="n">pegaEndereço</span> <span class="n">p</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <p>Se perguntarmos ao Haskell qual o tipo da tupla gerada pela função <code class="highlight"><span class="nf">fazPessoa</span></code>, ele responderá <code class="highlight"><span class="kt">Pessoa</span></code>.</p>
@@ -745,13 +771,27 @@ Uma forma de simplificar o código é definir tipos associados a cada estrutura.
 </td></tr></table>
 <p>Vejamos outro exemplo; sejam datas, tuplas de 3 inteiros: dia, mês e ano. Assim, 25 de dezembro de 1999 é <code class="highlight"><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1999</span><span class="p">)</span></code>.
 Dado duas datas válidas, uma operação interessante é testar se uma data é menor que outra.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">type</span> <span class="kt">Data</span> <span class="ow">=</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Int</span><span class="p">,</span> <span class="kt">Int</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">type</span> <span class="kt">Data</span> <span class="ow">=</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Int</span><span class="p">,</span> <span class="kt">Int</span><span class="p">)</span>
 
 <span class="nf">dataEhMenor</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Int</span><span class="p">,</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Int</span><span class="p">,</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
 <span class="nf">dataEhMenor</span> <span class="p">(</span><span class="n">de</span><span class="p">,</span><span class="n">me</span><span class="p">,</span><span class="n">ae</span><span class="p">)</span> <span class="p">(</span><span class="n">dd</span><span class="p">,</span><span class="n">md</span><span class="p">,</span><span class="n">ad</span><span class="p">)</span> <span class="ow">=</span> <span class="p">(</span><span class="n">ae</span> <span class="o">&lt;</span> <span class="n">ad</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">ae</span> <span class="o">==</span> <span class="n">ad</span> <span class="o">&amp;&amp;</span> <span class="n">me</span> <span class="o">&lt;</span> <span class="n">md</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">ae</span> <span class="o">==</span> <span class="n">ad</span> <span class="o">&amp;&amp;</span> <span class="n">me</span> <span class="o">==</span> <span class="n">md</span> <span class="o">&amp;&amp;</span> <span class="n">de</span> <span class="o">&lt;</span> <span class="n">dd</span><span class="p">)</span>
+
+
+<span class="nf">dataEhMenor&#39;</span> <span class="ow">::</span> <span class="kt">Data</span> <span class="ow">-&gt;</span> <span class="kt">Data</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="nf">dataEhMenor&#39;</span> <span class="p">(</span><span class="n">de</span><span class="p">,</span><span class="n">me</span><span class="p">,</span><span class="n">ae</span><span class="p">)</span> <span class="p">(</span><span class="n">dd</span><span class="p">,</span><span class="n">md</span><span class="p">,</span><span class="n">ad</span><span class="p">)</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">ae</span> <span class="o">&lt;</span> <span class="n">ad</span> <span class="kr">then</span> <span class="kt">True</span>
+                                                <span class="kr">else</span> <span class="kr">if</span> <span class="n">me</span> <span class="o">&lt;</span> <span class="n">md</span> <span class="kr">then</span> <span class="kt">True</span> 
+                                                                <span class="kr">else</span> <span class="kr">if</span> <span class="n">de</span> <span class="o">&lt;</span> <span class="n">dd</span> <span class="kr">then</span> <span class="kt">True</span>
+                                                                                <span class="kr">else</span> <span class="kt">False</span>
 </code></pre></div>
 </td></tr></table>
 <p>Mas esta função pode ser descartada com a escolha da definição de data, pois tuplas são naturalmente ordenáveis.</p>

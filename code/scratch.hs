@@ -16,7 +16,7 @@ Indefinido
 -}
 
 fat 0 = 1
-fat n 
+fat n
     |n > 0 = n * fat (n-1)
     |otherwise = error "Indefinido"
 
@@ -55,3 +55,24 @@ diasMes m
 minhaFunção :: String -> Int -> Int -> String
 minhaFunção s t n = reverse (take n (reverse (take (t + n) s)))
 
+
+
+{-
+>>>éNeg' (-3)
+(True,3)
+
+>>>éNeg' 3
+(False,3)
+
+-}
+
+éNeg' :: Int -> (Bool,Int)
+éNeg' x = (x < 0, abs x)
+
+
+
+
+
+
+testaNegativo :: Int -> (Bool, Int)
+testaNegativo i = (i < 0, abs i)
