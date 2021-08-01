@@ -3,12 +3,13 @@ Você como saberia calcular o maior de dois números $a$ e $b$ sem usar um teste
 
 $$\begin{eqnarray}
 M &=& (M + M)/2                  \nonumber \\
-    &=& (M + (m + (M-m)))/2      \nonumber \\
-    &=& (M + m + (M-n))/2        \nonumber \\
-    &=& (M + n + \|M-n\|)/2      \nonumber \\
+    &=& (M + m + M - m)/2      \nonumber \\
+    &=& (M + m + (M-m))/2        \nonumber \\
+    &=& (M + n + \|M-m\|)/2      \nonumber \\
     &=& (a + b + \|a - b\|)/2    \nonumber
 \end{eqnarray}$$
 
+Em outras palavras, o maior entre dois números $a$ e $b$ é igual à média dos números $a$ e $b$, mais a metade da diferença entre $a$ e $b$.
 Logo, em Haskell, temos
 
 ```hs

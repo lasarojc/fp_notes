@@ -204,6 +204,8 @@ Isto é, funções resolvem o problema sem se basear em nada além dos parâmetr
 Mas e as funções que tem efeitos colaterais?
 Estas não são funções "de verdade" e não é a toa que outro nome usado para os blocos de código é **procedimento** e que para discernir entre funções que tem efeitos colaterais e que não não, chamamos de **puras** as do segundo tipo.
 
+[![](https://imgs.xkcd.com/comics/haskell.png)](https://xkcd.com/1312/)
+
 Vejamos alguns exemplos.
 As funções seguintes, definidas em Erlang, calculam `#!er A+B`, `#!er A*C` e `#!er (A+B)*(A+B)` e, independentemente de quantas vezes você o fizer, `#!er add(2,3)` sempre retornará `5`.
 

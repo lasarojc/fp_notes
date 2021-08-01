@@ -89,4 +89,27 @@ Observe que se a terceira e segunda guardas fossem invertidas, o ano 1900 seria 
             | otherwise  
         ```
 
-Quando a condição testada por um guarda é de igualdade dos parâmetros com algum valor, temos uma terceira forma de definir funções que precisam testar vários casos, além de usar `if`-`then`-`else` e guardas, que veremos na seção [Casamento de padrões](../pattern_matching).
+###### `otherwise` é verdade
+
+Uma curiosidade sobre o uso de guardas é que o caso final, que pega todas as outras opções, poderia ser definido como um guarda em que a condição é sempre verdadeira, como no seguinte exemplo:
+
+```hs
+maiorDeTres a b c
+  | a >= b && a >= c   = a
+  | b >= c             = b
+  | True               = c
+```
+
+De fato, se usarmos o ghci para obtermos mais informações sobre `otherwise`, veremos que é uma constante, cujo valor é `#!hs True`.
+Isso serve para ilustrar o poder da linguagem, que tem um conjunto reduzido de palavras chave que é estendida usando suas funcionalidades básicas.
+
+```
+Prelude> :i otherwise
+otherwise :: Bool 	-- Defined in ‘GHC.Base’
+Prelude> otherwise
+True
+```
+
+Ainda sobre guardas, quando a condição testada é de igualdade dos parâmetros com algum valor, temos uma terceira forma de definir funções que precisam testar vários casos, além de usar `if`-`then`-`else` e guardas: [Casamento de padrões](../pattern_matching).
+
+

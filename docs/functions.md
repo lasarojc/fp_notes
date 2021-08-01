@@ -65,7 +65,7 @@ Com estas duas funções, podemos inclusive compor funções, no melhor estilo $
 
         ```
 
-        Invoque `#!hs soma (soma 1 (mult3 3 2 3)) (mult 5 3 2)`. Observe que os parênteses são necessários para delimitar os parâmetros de cada uma das invocações.
+        Invoque `#!hs soma (soma 1 (mult3 3 2 3)) (mult3 5 3 2)`. Observe que os parênteses são necessários para delimitar os parâmetros de cada uma das invocações.
 
 !!!exercise "Exercício: média de 3 números"
     * Defina uma função que calcule a média de 3 números

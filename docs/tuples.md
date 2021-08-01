@@ -31,14 +31,6 @@ soma2v (3,4) (5,4)
 ```
 
 Outra forma de definir a mesma função, sem especificar o nome das variáveis, seria usando as funções `#!hs fst` e `#!hs snd` do [Prelude](https://hackage.haskell.org/package/base-4.15.0.0/docs/Prelude.html#g:3), abreviações para *first* e *second* e que retornam o primeiro e o segundo elemento de uma tupla de dois elementos, um par, respectivamente.
-De forma simplificada, `fst` e `snd` são definidos assim:
-
-```hs
-fst (x,_) =  x
-
-snd (_,y) =  y
-```
-
 Logo, 
 
 ```hs
@@ -53,6 +45,24 @@ Logo,
 
 > fst (1,2,3) <== Erro!
 ```
+
+
+De forma simplificada, `fst` e `snd` poderiam ser definidos assim:
+
+```hs
+fst (x,y) =  x
+
+snd (x,y) =  y
+```
+
+Mas na prática, ainda de forma simplificada, são definidos assim
+
+```hs
+fst (x,_) =  x
+
+snd (_,y) =  y
+```
+
 
 Observe que o `_` é usado em substituição a um nome para **variáveis com as quais não nos importamos**, isto que, que não serão usadas no dado escopo.
 O GHC consegue otimizar o código para não gastar recursos com mesma.
@@ -72,6 +82,7 @@ soma2v' p1 p2 = ((fst p1) + (fst p2), (snd p1)+(snd p2))
 
 !!!exercise "Exercício"
     Considerando uma tupla de 4 elementos, defina 4 funções que, aos moldes de `fst` e `snd`, extraiam cada um dos 4 elementos da tupla.
+    Não defina um protótipo.
 
     ???example "Resolução"
 
@@ -82,7 +93,24 @@ soma2v' p1 p2 = ((fst p1) + (fst p2), (snd p1)+(snd p2))
         quar (_,_,_,w) =  w
         ```
 
-Tuplas são usadas como estruturas em outras linguagens. Por exemplo, imagine que se queira armazenar os dados nome, telefone, CPF e endereço de uma pessoa. 
+!!!exercise "Exercício"
+    Escreva uma função que receba um inteiro como parâmetro e retorne uma tupla como resultado onde o primeiro elemento é um booleano que indica se o número é negativo, e o segundo elemento é o valor absoluto do número.
+
+
+    ???example "Resolução"
+
+        ```hs
+        éNeg :: Int -> (Bool,Int)
+        éNeg x = if x < 0 then (True, abs x) else (False, abs x)
+
+        éNeg' :: Int -> (Bool,Int)
+        éNeg' x = (x < 0, abs x)
+
+        ```
+
+
+Tuplas estão para Haskell assim como estruturas estão para outras linguagens. 
+Por exemplo, imagine que se queira armazenar os dados nome, telefone, CPF e endereço de uma pessoa. 
 Poderíamos convencionar que seria usado uma tupla em que cada posição corresponderia a um dos dados.
 Neste caso, alguns exemplos de funções úteis são mostrados a seguir.
 
@@ -99,7 +127,7 @@ docs/code/pessoa.hs
 => ("jose da silva","12345","0003003093","Av das Couves, 14")
 > pegaNome x
 => "jose da silva"
-> pega_telefone x
+> pegaTelefone x
 => "12345"
 > y = trocaTelefone x "54321"
 > y
@@ -112,7 +140,7 @@ Uma forma de simplificar o código é definir tipos associados a cada estrutura.
 
 ###### `type`
 
-A palavra chave `#!hs type` permite que definamos **apelidos** para tipos no Haskell. Por exemplo, podemos usar para definir o que é uma **Pessoa** e ajustar as funções definidas anteriormente assim.
+A palavra reservada `#!hs type` permite que definamos **apelidos** para tipos no Haskell. Por exemplo, podemos usar para definir o que é uma **Pessoa** e ajustar as funções definidas anteriormente assim.
 
 ```hs
 --8<--

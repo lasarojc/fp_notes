@@ -15,16 +15,22 @@ Uma pequena mas interessante amostra:
 |`getChar`| Lê um caractere da entrada padrão |
 |`getString`| Lê uma string da entrada padrão |
 
-Estes exemplos servem para mostrar como o pacote mais básico do Haskell é diverso e como a sua biblioteca é diversa.
-Além do Prelude, centenas de outros pacotes estão disponíveis na Web, de compiladores a geradores de gráficos 3D, de transformadas rápidas de Fourier a *message brokers*, em repositórios como o Hackage[^hackage].
+Estes exemplos servem para mostrar como o pacote mais básico do Haskell é diverso e como a sua biblioteca é mais diversa ainda.
+Além do Prelude, centenas de outros pacotes estão disponíveis na Web, de compiladores a geradores de gráficos 3D, de transformadas rápidas de Fourier a *message brokers*, em repositórios como o Hackage.[^hackage]
 Contudo, é preciso ter cuidado com os pacotes que baixa.
+Caso você encontre um pacote que queira usar, de nome `X`, bastar baixá-lo e usar o `#!hs import`. Por exemplo, para trabalhar com números complexos, voce pode usar o pacote `#!hs Data.Complex` assim:
+
+```hs
+Prelude> import Data.Complex
+Prelude Data.Complex> let x = 1.0 :+ 0.0
+Prelude Data.Complex> x
+1.0 :+ 0.0
+```
 
 Com esta visita rápida ao prelude, encerramos esta introdução ao Haskell e rumamos para tópicos mais universais.
 Isto é, mesmo que os tópicos vistos até agora sejam obviamente associados à programação funcional, os mesmos estão fortemente relacionados à sintaxe do Haskell.
 Já nas próximas seções, veremos tópicos mais independentes, i.e., mesmo que as funções, tipos e construtos usados ainda sejam implementadas em Haskell, os conceitos por trás são mais universais.
 
-!!!todo "TODO"
-    Explicar uso de `#!hs import`
 
 [^hackage]: https://hackage.haskell.org/packages/browse
 [^prelude]: Prelude: https://hackage.haskell.org/package/base-4.15.0.0/docs/Prelude.html
