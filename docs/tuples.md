@@ -138,9 +138,10 @@ Uma observação a ser feita é que, na última função, nomear a variável com
 Outra observação é que mesmo com o uso `_t`, o código fica rapidamente difícil de se ler, pois o desenvolvedor deve manter em mente qual posição corresponde a qual dado de uma pessoa; imagine estruturas mais complexas, contendo outros dados de cada pessoa, e várias outras estruturas semelhantes, como ordens de serviço, descrição de inventários, cadastro de vendedores, etc.
 Uma forma de simplificar o código é definir tipos associados a cada estrutura.
 
-###### `type`
+## Tuplas como tipos
 
-A palavra reservada `#!hs type` permite que definamos **apelidos** para tipos no Haskell. Por exemplo, podemos usar para definir o que é uma **Pessoa** e ajustar as funções definidas anteriormente assim.
+Como visto anteriormente, a palavra reservada `#!hs type` permite que definamos **apelidos** para tipos no Haskell.
+Pois tuplas também podem ser associadas a tipos, por exemplo, podemos definir que **Pessoa** é o tipo definido na seção anterior, i.e., uma tupla dos campos nome, telefone, CPF e endereço.
 
 ```hs
 --8<--
@@ -207,7 +208,7 @@ Mas esta função pode ser descartada com a escolha da definição de data, pois
         --8<--
         ```
 
-###### Ordem entre tuplas
+## Ordem entre tuplas
 Dado duas tuplas com mesmo tipo e, obviamente, **de mesmo tamanho**, elas podem se comparadas lexicográficamente.
 Isto quer dizer que uma tupla $t_1$ é menor que uma tupla $t_2$ se, considerando posições da direita para a esquerda:
 
@@ -244,6 +245,6 @@ docs/code/dates3.hs
 --8<--
 ```
 
-###### A tupla vazia
+## A tupla vazia
 Por completude, é preciso mencionar que tuplas podem ter qualquer aridade, inclusive zero.
 Isto é, `#!hs ()` é uma tupla válida e a única instância de tuplas de aridade zero.

@@ -219,3 +219,124 @@ diasMes m
 
     ???example "Resolução"
         As funções se comportam diferentemente, sendo que a primeira mostra um erro quando aplicada a dois números reais, porquê $Z \subset  R$ mas $R \not\subset Z$.
+
+
+## Definição de novos tipos
+
+A palavra reservada `#!hs type` permite que definamos **apelidos** para tipos no Haskell, tornando o código mais legível.
+Por exemplo, podemos definir um tipo `#!hs Inteiro` similar ao tipo `#!hs Int` e funções associadas ao tipo.
+
+```hs
+type Inteiro = Int
+
+somaInteiros :: Inteiro -> Inteiro -> Inteiro
+somaInteiros a b = a + b
+```
+
+O uso da função é como esperado.
+
+```hs
+*Main> somaInteiros 1 2
+3
+*Main> somaInteiros (1::Inteiro) (2::Inteiro)
+3
+```
+
+## :type e :info
+
+O GHC é uma ferramenta poderosa no aprendizado da linguagem Haskell por possuir uma série de comandos que permitem extrair informações sobre tipos e funções definidas.
+Usando o comando `#!hs :info` (ou simplesmente `#!hs :i`), por exemplo, podemos perguntar ao ghci o que ele sabe sobre o tipo `#!hs Inteiro`, ao que será respondido que é o tipo inteiro é um apelido para `Int`, definido no arquivo scratch.hs, no meu caso.
+
+```hs
+*Main> :i Inteiro
+type Inteiro :: *
+type Inteiro = Int
+        -- Defined at scratch.hs:82:1        
+```
+
+Já o comando `#!hs :type` (ou `#!hs :t`) pode ser usado para identificar o tipo de funções, por exemplo:
+
+```hs
+*Main> somaInteiros 1 2
+3
+*Main> :i somaInteiros
+somaInteiros :: Inteiro -> Inteiro -> Inteiro
+*Main> :t 1::Inteiro
+1::Inteiro :: Inteiro
+```
+
+Estes comandos podem ser aplicados a quaisquer definições, não somente às suas. Por exemplo, podemos solicitar informações sobre o tipo `#!hs Num`, com seguinte resultado.
+
+```hs
+*Main> :i Num
+type Num :: * -> Constraint
+class Num a where
+  (+) :: a -> a -> a
+  (-) :: a -> a -> a
+  (*) :: a -> a -> a
+  negate :: a -> a
+  abs :: a -> a
+  signum :: a -> a
+  fromInteger :: Integer -> a
+  {-# MINIMAL (+), (*), abs, signum, fromInteger, (negate | (-)) #-}
+        -- Defined in ‘GHC.Num’
+instance Num Word -- Defined in ‘GHC.Num’
+instance Num Integer -- Defined in ‘GHC.Num’
+instance Num Int -- Defined in ‘GHC.Num’
+instance Num Float -- Defined in ‘GHC.Float’
+instance Num Double -- Defined in ‘GHC.Float’
+```
+
+Algumas das informações apresentadas podem ainda não fazer sentido para você, mas de forma geral podemos resumí-las como implicando que algumas operações, como `+`, `-` e `abs` se aplicam ao tipo `Num`, e que outros tipos, como `#!hs Float` e `#!hs Integer` são instâncias de `Num`.
+
+Se aplicarmos o mesmo comando ao operador `+`, descobriremos que ele é uma função infixa por padrão (`INFIXl`), associativo à esquerda (`infixL`), e com prioridade 6.
+
+```hs
+*Main> :i (+)
+type Num :: * -> Constraint
+class Num a where
+  (+) :: a -> a -> a
+  ...
+        -- Defined in ‘GHC.Num’
+infixl 6 +
+
+```
+
+Também vemos que o estas definições são parde do GHC.Num, mas o que é o GHC.Num?
+
+## Módulos
+Como em diversas outras linguagens, Haskell usa módulos para organizar a definição de tipos e funções, colocando aquelas relacionadas no mesmo módulo.
+Por padrão, o módulo **prelude**[^prelude] é carregado toda vez que executa o ghci ou compila um programa, a não ser que seja explicitamente indicado em contrário.
+Este módulo contém a definição dos tipos e operadores básicos vistos anteriormente, além de muitos outros, e o GHC.Num é parte do Prelude.
+Uma pequena mas interessante amostra de outros tipos incluídos:
+
+| Nome | Definição |
+|------|-----------|
+|`min` | Menor de 2 elementos ordenáveis|
+|`max` | Maior de 2 elementos ordenáveis|
+|`Semigroup` | Uma classe em que vale a associatividade |
+|`Monoid`| Monóide em que há um elemento identidade |
+|`putChar`| Escreve um caractere na saida padrão |
+|`putString`| Escreve uma string na saida padrão |
+|`getChar`| Lê um caractere da entrada padrão |
+|`getString`| Lê uma string da entrada padrão |
+
+Estes exemplos servem para mostrar como o módulo mais básico do Haskell é diverso e como a sua biblioteca é mais diversa ainda.
+Além do Prelude, centenas de outros módulos estão disponíveis na Web, de compiladores a geradores de gráficos 3D, de transformadas rápidas de Fourier a *message brokers*, em repositórios como o Hackage.[^hackage]
+Contudo, é preciso ter cuidado com os módulos que baixa.
+Caso você encontre um módulo que queira usar, de nome `X`, bastar baixá-lo e usar o `#!hs import`. Por exemplo, para trabalhar com números complexos, voce pode usar o módulo `#!hs Data.Complex` assim:
+
+```hs
+Prelude> import Data.Complex
+Prelude Data.Complex> let x = 1.0 :+ 0.0
+Prelude Data.Complex> x
+1.0 :+ 0.0
+```
+
+Com esta visita rápida ao Prelude, encerramos esta introdução ao Haskell e rumamos para tópicos mais universais.
+Isto é, mesmo que os tópicos vistos até agora sejam obviamente associados à programação funcional, os mesmos estão fortemente relacionados à sintaxe do Haskell.
+Já nas próximas seções, veremos tópicos mais independentes, i.e., mesmo que as funções, tipos e construtos usados ainda sejam implementadas em Haskell, os conceitos por trás são mais universais.
+
+
+[^hackage]: https://hackage.haskell.org/packages/browse
+[^prelude]: Prelude: https://hackage.haskell.org/package/base-4.15.0.0/docs/Prelude.html

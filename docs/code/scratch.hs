@@ -76,3 +76,10 @@ minhaFunção s t n = reverse (take n (reverse (take (t + n) s)))
 
 testaNegativo :: Int -> (Bool, Int)
 testaNegativo i = (i < 0, abs i)
+
+
+
+type Inteiro = Int
+
+somaInteiros :: Inteiro -> Inteiro -> Inteiro
+somaInteiros a b = a + b

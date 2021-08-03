@@ -1,4 +1,9 @@
+# Listas
+Anteriormente nós discutimos tuplas como uma forma de agregar múltiplas informações em um único valor.
+Por exemplo, definimos o tipo `Data` como sendo a agregação de um dia, um mês e um ano.
 
+```hs
+type Data :: (Int, Int Int)
 
 
 
