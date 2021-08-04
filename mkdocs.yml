@@ -14,7 +14,7 @@ nav:
         
         - Tuplas: tuples.md
 
-        - Casamento de Padrões: pattern_matching.md
+        - Padrões: pattern_matching.md
 
         - Recursão: recursion.md
 

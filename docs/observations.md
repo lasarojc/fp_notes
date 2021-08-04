@@ -72,9 +72,13 @@ https://hackage.haskell.org/package/CheatSheet-1.7/src/CheatSheet.pdf
     * `#!hs estaoOrdenados a b c = a > b && b > c`
 
 * `#!hs sqrt((a^2) + (b^2))`
-    * Funções e parâmetros são separados por espaço. O parêntese só é necessário para deixar explícito o que é parâmetro.
-    * Funções tem precedência sobre operadores.
+    * Parênteses só são necessários para deixar explícito o que é parâmetro.
     * `#!hs sqrt((a^2) + (b^2))`
-    * `#!hs sqrt a^2`
+        * Funções e parâmetros são separados por espaço. 
+        * `#!hs sqrt ((a^2) + (b^2))`
+    * `#!hs sqrt ((a^2) + (b^2))`
+        * Operadores tem precedências; potência tem precedência maior que adição
+        * `#!hs sqrt (a^2 + b^2)`
     * `#!hs sqrt a^2 + b^2`
-    * `#!hs sqrt (a^2 + b^2)`
+        * Funções tem precedência sobre operadores.
+        * `#!hs sqrt a^2 + b^2 == (sqrt a^2) + b^2`

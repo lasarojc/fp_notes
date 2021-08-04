@@ -142,7 +142,10 @@ Algumas funções úteis na manipulação de caracteres e strings são apresenta
 | `++` | Concatenação | `#!hs "foo" ++ "bar" -> "foobar"`|
 | `!!` | Caractere no índice| `#!hs "foo bar" !! 2 -> 'o'` |
 | `take` | Substring iniciando em 0 | `#!hs take 3 "foo bar" -> "foo"` |
+| `drop` | Substring começando em um índice| `#!hs drop 3 "foo bar" -> " bar"` |
 | `reverse` | String ao contrário | `#!hs reverse "foo bar" -> "rab oof"` |
+| `length` | Comprimento da string | `#!hs length "foo bar" -> 7` |
+
 
 Nós voltaremos a falar sobre Strings uma vez que estudarmos listas.
 
