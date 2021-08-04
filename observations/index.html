@@ -310,21 +310,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../packages/" class="md-nav__link">
-        Pacotes
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../tuples/" class="md-nav__link">
         Tuplas
       </a>
@@ -341,7 +326,7 @@
   
     <li class="md-nav__item">
       <a href="../pattern_matching/" class="md-nav__link">
-        Casamento de Padrões
+        Padrões
       </a>
     </li>
   
@@ -671,12 +656,22 @@
 <li>
 <p><code class="highlight"><span class="nf">sqrt</span><span class="p">((</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span></code></p>
 <ul>
-<li>Funções e parâmetros são separados por espaço. O parêntese só é necessário para deixar explícito o que é parâmetro.</li>
-<li>Funções tem precedência sobre operadores.</li>
-<li><code class="highlight"><span class="nf">sqrt</span><span class="p">((</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span></code></li>
-<li><code class="highlight"><span class="nf">sqrt</span> <span class="n">a</span><span class="o">^</span><span class="mi">2</span></code></li>
-<li><code class="highlight"><span class="nf">sqrt</span> <span class="n">a</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">^</span><span class="mi">2</span></code></li>
+<li>Parênteses só são necessários para deixar explícito o que é parâmetro.</li>
+<li><code class="highlight"><span class="nf">sqrt</span><span class="p">((</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span></code><ul>
+<li>Funções e parâmetros são separados por espaço. </li>
+<li><code class="highlight"><span class="nf">sqrt</span> <span class="p">((</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span></code></li>
+</ul>
+</li>
+<li><code class="highlight"><span class="nf">sqrt</span> <span class="p">((</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span></code><ul>
+<li>Operadores tem precedências; potência tem precedência maior que adição</li>
 <li><code class="highlight"><span class="nf">sqrt</span> <span class="p">(</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span></code></li>
+</ul>
+</li>
+<li><code class="highlight"><span class="nf">sqrt</span> <span class="n">a</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">^</span><span class="mi">2</span></code><ul>
+<li>Funções tem precedência sobre operadores.</li>
+<li><code class="highlight"><span class="nf">sqrt</span> <span class="n">a</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">^</span><span class="mi">2</span> <span class="o">==</span> <span class="p">(</span><span class="n">sqrt</span> <span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span><span class="o">^</span><span class="mi">2</span></code></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

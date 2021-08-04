@@ -341,25 +341,31 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#definicao-de-novos-tipos" class="md-nav__link">
+    Definição de novos tipos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-e-info" class="md-nav__link">
+    :type e :info
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulos" class="md-nav__link">
+    Módulos
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../packages/" class="md-nav__link">
-        Pacotes
-      </a>
     </li>
   
 
@@ -388,7 +394,7 @@
   
     <li class="md-nav__item">
       <a href="../pattern_matching/" class="md-nav__link">
-        Casamento de Padrões
+        Padrões
       </a>
     </li>
   
@@ -534,6 +540,27 @@
         <li class="md-nav__item">
   <a href="#prototipo-de-funcoes" class="md-nav__link">
     Protótipo de funções
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definicao-de-novos-tipos" class="md-nav__link">
+    Definição de novos tipos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-e-info" class="md-nav__link">
+    :type e :info
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulos" class="md-nav__link">
+    Módulos
   </a>
   
 </li>
@@ -836,9 +863,19 @@ Exemplos dos dois tipos são apresentados na tabela a seguir.</p>
 <td><code class="highlight"><span class="nf">take</span> <span class="mi">3</span> <span class="s">&quot;foo bar&quot;</span> <span class="ow">-&gt;</span> <span class="s">&quot;foo&quot;</span></code></td>
 </tr>
 <tr>
+<td><code>drop</code></td>
+<td>Substring começando em um índice</td>
+<td><code class="highlight"><span class="nf">drop</span> <span class="mi">3</span> <span class="s">&quot;foo bar&quot;</span> <span class="ow">-&gt;</span> <span class="s">&quot; bar&quot;</span></code></td>
+</tr>
+<tr>
 <td><code>reverse</code></td>
 <td>String ao contrário</td>
 <td><code class="highlight"><span class="nf">reverse</span> <span class="s">&quot;foo bar&quot;</span> <span class="ow">-&gt;</span> <span class="s">&quot;rab oof&quot;</span></code></td>
+</tr>
+<tr>
+<td><code>length</code></td>
+<td>Comprimento da string</td>
+<td><code class="highlight"><span class="nf">length</span> <span class="s">&quot;foo bar&quot;</span> <span class="ow">-&gt;</span> <span class="mi">7</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -927,6 +964,171 @@ Para fazê-lo, devemos usar a seguinte sintaxe:</p>
 <details class="example"><summary>Resolução</summary><p>As funções se comportam diferentemente, sendo que a primeira mostra um erro quando aplicada a dois números reais, porquê <span class="arithmatex">\(Z \subset  R\)</span> mas <span class="arithmatex">\(R \not\subset Z\)</span>.</p>
 </details>
 </div>
+<h2 id="definicao-de-novos-tipos">Definição de novos tipos</h2>
+<p>A palavra reservada <code class="highlight"><span class="kr">type</span></code> permite que definamos <strong>apelidos</strong> para tipos no Haskell, tornando o código mais legível.
+Por exemplo, podemos definir um tipo <code class="highlight"><span class="kt">Inteiro</span></code> similar ao tipo <code class="highlight"><span class="kt">Int</span></code> e funções associadas ao tipo.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">type</span> <span class="kt">Inteiro</span> <span class="ow">=</span> <span class="kt">Int</span>
+
+<span class="nf">somaInteiros</span> <span class="ow">::</span> <span class="kt">Inteiro</span> <span class="ow">-&gt;</span> <span class="kt">Inteiro</span> <span class="ow">-&gt;</span> <span class="kt">Inteiro</span>
+<span class="nf">somaInteiros</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</code></pre></div>
+</td></tr></table>
+<p>O uso da função é como esperado.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">somaInteiros</span> <span class="mi">1</span> <span class="mi">2</span>
+<span class="mi">3</span>
+<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">somaInteiros</span> <span class="p">(</span><span class="mi">1</span><span class="ow">::</span><span class="kt">Inteiro</span><span class="p">)</span> <span class="p">(</span><span class="mi">2</span><span class="ow">::</span><span class="kt">Inteiro</span><span class="p">)</span>
+<span class="mi">3</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="type-e-info">:type e :info</h2>
+<p>O GHC é uma ferramenta poderosa no aprendizado da linguagem Haskell por possuir uma série de comandos que permitem extrair informações sobre tipos e funções definidas.
+Usando o comando <code class="highlight"><span class="kt">:</span><span class="n">info</span></code> (ou simplesmente <code class="highlight"><span class="kt">:</span><span class="n">i</span></code>), por exemplo, podemos perguntar ao ghci o que ele sabe sobre o tipo <code class="highlight"><span class="kt">Inteiro</span></code>, ao que será respondido que é o tipo inteiro é um apelido para <code>Int</code>, definido no arquivo scratch.hs, no meu caso.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Inteiro</span>
+<span class="kr">type</span> <span class="kt">Inteiro</span> <span class="ow">::</span> <span class="o">*</span>
+<span class="kr">type</span> <span class="kt">Inteiro</span> <span class="ow">=</span> <span class="kt">Int</span>
+        <span class="c1">-- Defined at scratch.hs:82:1        </span>
+</code></pre></div>
+</td></tr></table>
+<p>Já o comando <code class="highlight"><span class="kt">:</span><span class="kr">type</span></code> (ou <code class="highlight"><span class="kt">:</span><span class="n">t</span></code>) pode ser usado para identificar o tipo de funções, por exemplo:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">somaInteiros</span> <span class="mi">1</span> <span class="mi">2</span>
+<span class="mi">3</span>
+<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="n">somaInteiros</span>
+<span class="nf">somaInteiros</span> <span class="ow">::</span> <span class="kt">Inteiro</span> <span class="ow">-&gt;</span> <span class="kt">Inteiro</span> <span class="ow">-&gt;</span> <span class="kt">Inteiro</span>
+<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="mi">1</span><span class="ow">::</span><span class="kt">Inteiro</span>
+<span class="mi">1</span><span class="ow">::</span><span class="kt">Inteiro</span> <span class="ow">::</span> <span class="kt">Inteiro</span>
+</code></pre></div>
+</td></tr></table>
+<p>Estes comandos podem ser aplicados a quaisquer definições, não somente às suas. Por exemplo, podemos solicitar informações sobre o tipo <code class="highlight"><span class="kt">Num</span></code>, com seguinte resultado.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Num</span>
+<span class="kr">type</span> <span class="kt">Num</span> <span class="ow">::</span> <span class="o">*</span> <span class="ow">-&gt;</span> <span class="kt">Constraint</span>
+<span class="kr">class</span> <span class="kt">Num</span> <span class="n">a</span> <span class="kr">where</span>
+  <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+  <span class="p">(</span><span class="o">-</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+  <span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+  <span class="n">negate</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+  <span class="n">abs</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+  <span class="n">signum</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+  <span class="n">fromInteger</span> <span class="ow">::</span> <span class="kt">Integer</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+  <span class="cm">{-# MINIMAL (+), (*), abs, signum, fromInteger, (negate | (-)) #-}</span>
+        <span class="c1">-- Defined in ‘GHC.Num’</span>
+<span class="kr">instance</span> <span class="kt">Num</span> <span class="kt">Word</span> <span class="c1">-- Defined in ‘GHC.Num’</span>
+<span class="kr">instance</span> <span class="kt">Num</span> <span class="kt">Integer</span> <span class="c1">-- Defined in ‘GHC.Num’</span>
+<span class="kr">instance</span> <span class="kt">Num</span> <span class="kt">Int</span> <span class="c1">-- Defined in ‘GHC.Num’</span>
+<span class="kr">instance</span> <span class="kt">Num</span> <span class="kt">Float</span> <span class="c1">-- Defined in ‘GHC.Float’</span>
+<span class="kr">instance</span> <span class="kt">Num</span> <span class="kt">Double</span> <span class="c1">-- Defined in ‘GHC.Float’</span>
+</code></pre></div>
+</td></tr></table>
+<p>Algumas das informações apresentadas podem ainda não fazer sentido para você, mas de forma geral podemos resumí-las como implicando que algumas operações, como <code>+</code>, <code>-</code> e <code>abs</code> se aplicam ao tipo <code>Num</code>, e que outros tipos, como <code class="highlight"><span class="kt">Float</span></code> e <code class="highlight"><span class="kt">Integer</span></code> são instâncias de <code>Num</code>.</p>
+<p>Se aplicarmos o mesmo comando ao operador <code>+</code>, descobriremos que ele é uma função infixa por padrão (<code>INFIXl</code>), associativo à esquerda (<code>infixL</code>), e com prioridade 6.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span>
+<span class="kr">type</span> <span class="kt">Num</span> <span class="ow">::</span> <span class="o">*</span> <span class="ow">-&gt;</span> <span class="kt">Constraint</span>
+<span class="kr">class</span> <span class="kt">Num</span> <span class="n">a</span> <span class="kr">where</span>
+  <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+  <span class="o">...</span>
+        <span class="c1">-- Defined in ‘GHC.Num’</span>
+<span class="kr">infixl</span> <span class="mi">6</span> <span class="o">+</span>
+</code></pre></div>
+</td></tr></table>
+<p>Também vemos que o estas definições são parde do GHC.Num, mas o que é o GHC.Num?</p>
+<h2 id="modulos">Módulos</h2>
+<p>Como em diversas outras linguagens, Haskell usa módulos para organizar a definição de tipos e funções, colocando aquelas relacionadas no mesmo módulo.
+Por padrão, o módulo <strong>prelude</strong><sup id="fnref:prelude"><a class="footnote-ref" href="#fn:prelude">5</a></sup> é carregado toda vez que executa o ghci ou compila um programa, a não ser que seja explicitamente indicado em contrário.
+Este módulo contém a definição dos tipos e operadores básicos vistos anteriormente, além de muitos outros, e o GHC.Num é parte do Prelude.
+Uma pequena mas interessante amostra de outros tipos incluídos:</p>
+<table>
+<thead>
+<tr>
+<th>Nome</th>
+<th>Definição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>min</code></td>
+<td>Menor de 2 elementos ordenáveis</td>
+</tr>
+<tr>
+<td><code>max</code></td>
+<td>Maior de 2 elementos ordenáveis</td>
+</tr>
+<tr>
+<td><code>Semigroup</code></td>
+<td>Uma classe em que vale a associatividade</td>
+</tr>
+<tr>
+<td><code>Monoid</code></td>
+<td>Monóide em que há um elemento identidade</td>
+</tr>
+<tr>
+<td><code>putChar</code></td>
+<td>Escreve um caractere na saida padrão</td>
+</tr>
+<tr>
+<td><code>putString</code></td>
+<td>Escreve uma string na saida padrão</td>
+</tr>
+<tr>
+<td><code>getChar</code></td>
+<td>Lê um caractere da entrada padrão</td>
+</tr>
+<tr>
+<td><code>getString</code></td>
+<td>Lê uma string da entrada padrão</td>
+</tr>
+</tbody>
+</table>
+<p>Estes exemplos servem para mostrar como o módulo mais básico do Haskell é diverso e como a sua biblioteca é mais diversa ainda.
+Além do Prelude, centenas de outros módulos estão disponíveis na Web, de compiladores a geradores de gráficos 3D, de transformadas rápidas de Fourier a <em>message brokers</em>, em repositórios como o Hackage.<sup id="fnref:hackage"><a class="footnote-ref" href="#fn:hackage">4</a></sup>
+Contudo, é preciso ter cuidado com os módulos que baixa.
+Caso você encontre um módulo que queira usar, de nome <code>X</code>, bastar baixá-lo e usar o <code class="highlight"><span class="kr">import</span></code>. Por exemplo, para trabalhar com números complexos, voce pode usar o módulo <code class="highlight"><span class="kt">Data</span><span class="o">.</span><span class="kt">Complex</span></code> assim:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kr">import</span> <span class="nn">Data.Complex</span>
+<span class="kt">Prelude</span> <span class="kt">Data</span><span class="o">.</span><span class="kt">Complex</span><span class="o">&gt;</span> <span class="kr">let</span> <span class="n">x</span> <span class="ow">=</span> <span class="mf">1.0</span> <span class="kt">:+</span> <span class="mf">0.0</span>
+<span class="kt">Prelude</span> <span class="kt">Data</span><span class="o">.</span><span class="kt">Complex</span><span class="o">&gt;</span> <span class="n">x</span>
+<span class="mf">1.0</span> <span class="kt">:+</span> <span class="mf">0.0</span>
+</code></pre></div>
+</td></tr></table>
+<p>Com esta visita rápida ao Prelude, encerramos esta introdução ao Haskell e rumamos para tópicos mais universais.
+Isto é, mesmo que os tópicos vistos até agora sejam obviamente associados à programação funcional, os mesmos estão fortemente relacionados à sintaxe do Haskell.
+Já nas próximas seções, veremos tópicos mais independentes, i.e., mesmo que as funções, tipos e construtos usados ainda sejam implementadas em Haskell, os conceitos por trás são mais universais.</p>
 <div class="footnote">
 <hr />
 <ol>
@@ -938,6 +1140,12 @@ Para fazê-lo, devemos usar a seguinte sintaxe:</p>
 </li>
 <li id="fn:text">
 <p>Haskell define também o tipo Text, uma forma mais moderna de manipular texto, mas não discutiremos Text aqui.&#160;<a class="footnote-backref" href="#fnref:text" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:hackage">
+<p><a href="https://hackage.haskell.org/packages/browse">https://hackage.haskell.org/packages/browse</a>&#160;<a class="footnote-backref" href="#fnref:hackage" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:prelude">
+<p>Prelude: <a href="https://hackage.haskell.org/package/base-4.15.0.0/docs/Prelude.html">https://hackage.haskell.org/package/base-4.15.0.0/docs/Prelude.html</a>&#160;<a class="footnote-backref" href="#fnref:prelude" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -976,13 +1184,13 @@ Para fazê-lo, devemos usar a seguinte sintaxe:</p>
         </a>
       
       
-        <a href="../packages/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../tuples/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Pacotes
+              Tuplas
             </div>
           </div>
           <div class="md-footer__button md-icon">
