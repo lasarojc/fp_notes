@@ -40,7 +40,7 @@
     - lazy - mostrar com listas infinitas
 
 
-- [ ] Tuplas
+- [x] Tuplas
 
 - [ ] Funções
      - [x] Guarda
@@ -81,7 +81,8 @@
     - [ ] idempotência
 - [ ] Algoritmos de Ordenação:
 
-- quickcheck
+- [ ] quickcheck
+    - [ ] com Hspec https://hspec.github.io/quickcheck.html
 - Encapsulamento, herança
 
 
@@ -90,22 +91,23 @@
 
 Exercicios
 
-- Tuplas
+https://www.cantab.net/users/antoni.diller/haskell/questions/quest07.pdf
+
+- [x] Tipos
+    - [x] Pedra tesoura papel - usando strings
+    - [x] Pedra tesoura papel - usando tipos definidos pelo usuario
+
+- Tipos algebricos
+    - Pedra tesoura papel - usando tipos algebricos
     - cartas
         - teste se bateu em algum jogo
         - ordene as cartas
 
-- Tipos
-    - Pedra tesoura papel - usando strings
-    - Pedra tesoura papel - usando tipos definidos pelo usuario
-
-- Tipos algebricos
-    - Pedra tesoura papel - usando tipos algebricos
-
+- [ ] Funcoes
+    - [ ] preco com desconto
+        - quanto mais compra, mais barato o próximo sai, até que saia por zero e daí começa novamente.
 
 - Recursao
-    - preco com desconto
-        - quanto mais compra, mais barato o próximo sai, até que saia por zero e daí começa novamente.
     - http://www.cse.chalmers.se/edu/year/2018/course/TDA555/ex-week1.html
         Think of an whole number greater than one. If its even, divide it by two, otherwise multiply it by three and add one. Stop if the resulting number is one, otherwise repeat the procedure.
         As example, we start width 10.
