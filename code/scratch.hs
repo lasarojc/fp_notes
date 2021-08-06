@@ -109,6 +109,15 @@ fatorial' n
     |n < 0 = error "Indefinido"
 
 
+{-
+>>>nomeMes 10
+"OUT"
+
+>>>nomeMes 13
+Nao deu
+
+-}
+
 nomeMes 1 = "JAN"
 nomeMes 2 = "FEB"
 nomeMes 3 = "ABR"
@@ -121,3 +130,117 @@ nomeMes 9 = "SET"
 nomeMes 10 = "OUT"
 nomeMes 11 = "NOV"
 nomeMes 12 = "DEZ"
+nomeMes x = error "Nao deu"
+
+
+
+{-
+>>>mult 0 1
+0
+
+>>>mult 1 0
+0
+
+>>>mult 1 2
+2
+
+>>>mult 'c' 3
+Couldn't match expected type ‘Int’ with actual type ‘Char’
+-}
+
+mult :: Int -> Int -> Int
+mult _ 0 = 0
+mult 0 _ = 0
+mult x y = x * y
+
+
+
+not :: Bool -> Bool
+not True = False
+not _ = True
+
+
+e :: Bool -> Bool -> Bool
+e True True = True
+e _ _ = False
+
+
+
+type Nome = (String, String, String)
+type Telefone = (String, String)
+type CPF = String
+type Endereço = (String, String, String)
+type Pessoa = (Nome, Telefone, CPF, Endereço)
+
+fazPessoa :: Nome -> Telefone -> CPF -> Endereço -> Pessoa -- (1) Definição da função.
+fazPessoa nome telefone cpf endereço = (nome, telefone, cpf, endereço)
+
+pegaNome :: Pessoa -> Nome
+pegaNome (nome, _, _, _) = nome
+
+pegaTelefone :: Pessoa -> Telefone
+pegaTelefone (_, telefone, _, _) = telefone
+
+trocaTelefone :: Pessoa -> Telefone -> Pessoa
+trocaTelefone (n, _t, c, e) novoTelefone = (n, novoTelefone, c, e)
+
+pegaSobreNomeDeNome :: Nome -> String 
+pegaSobreNomeDeNome (primeiro,segundo,sobre) = sobre
+
+{-
+>>>pegaSobrenome (fazPessoa ("Joao","Jose", "Maria") ("lala","llala") "CPF" ("lala", "lele", "ili"))
+"Maria"
+
+>>>pegaSobreNome (fazPessoa ("Joao","Jose", "Maria") ("lala","llala") "CPF" ("lala", "lele", "ili"))
+"Maria"
+ -}
+
+pegaSobrenome :: Pessoa -> String 
+pegaSobrenome p = pegaSobreNomeDeNome (pegaNome p)
+
+
+pegaSobreNome :: Pessoa -> String
+pegaSobreNome ((_,_,sobre), _, _, _) = sobre
+
+
+{-
+>>>próximos3'' 0 'd'
+(-1,0,1)
+
+>>>próximos3' 0 'd'
+(-1,0,1)
+
+>>>próximos3'' 0 'x'
+(-1,0,1)
+
+>>>próximos3' 0 'x'
+/Users/lasarocamargos/ufu/fp_notes/docs/code/scratch.hs:(234,24)-(237,107): Non-exhaustive patterns in case
+
+-}
+
+
+próximos3'' :: Int -> Char -> (Int,Int,Int)
+próximos3'' 0 _ = (-1,0,1)
+próximos3'' n 'd'
+    | n > 0 = (n-1,n-2,n-3)
+    | n < 0 = (n+1,n+2,n+3)
+
+próximos3'' n 'a'
+    | n < 0 = (n-1,n-2,n-3)
+    | n > 0 = (n+1,n+2,n+3)
+
+próximos3'' _ _ = error "Use d ou a"
+
+
+próximos3' :: Int -> Char -> (Int,Int,Int)
+próximos3' n direcao = case direcao of 'd' -> case n of 0 -> (-1,0,1)
+                                                        _ -> if n > 0 then (n-1,n-2,n-3) else (n+1,n+2,n+3)
+                                       'a' -> case n of 0 -> (-1,0,1)
+                                                        _ -> if n < 0 then (n-1,n-2,n-3) else (n+1,n+2,n+3)
+
+
+próximos3''' :: Int -> Char -> (Int,Int,Int)
+próximos3''' n dir = case n of 0 -> (-1,0,1)
+                               _ -> case dir of 'd' -> if n > 0 then (n-1,n-2,n-3) else (n+1,n+2,n+3)
+                                                'a' -> if n < 0 then (n-1,n-2,n-3) else (n+1,n+2,n+3)
+                                                _   -> error "Use d ou a"

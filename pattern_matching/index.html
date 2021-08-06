@@ -554,7 +554,7 @@ Por exemplo, considere a seguinte definição de uma função que soma dois pont
 </td></tr></table>
 <p>e sua invocação.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">soma</span> <span class="mi">3</span> <span class="mi">4</span>
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">soma2n</span> <span class="mi">3</span> <span class="mi">4</span>
 <span class="mi">7</span>
 </code></pre></div>
 </td></tr></table>
@@ -784,8 +784,20 @@ O casamento de tuplas no valor e no padrão pode levar aos seguintes resultados,
 <td>y = 2</td>
 </tr>
 <tr>
+<td>(1,y)</td>
+<td>(2,2)</td>
+<td>Fracasso</td>
+<td></td>
+</tr>
+<tr>
 <td>(_,y)</td>
 <td>(1,2)</td>
+<td>Sucesso</td>
+<td>y = 2</td>
+</tr>
+<tr>
+<td>(_,y)</td>
+<td>(10,2)</td>
 <td>Sucesso</td>
 <td>y = 2</td>
 </tr>
@@ -943,7 +955,7 @@ Você consegue determinar o que a função faz?</p>
     <span class="o">|</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
     <span class="o">|</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
 
-<span class="nf">próximos3</span> <span class="n">n</span> <span class="kr">_</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;Use d ou a&quot;</span>
+<span class="nf">próximos3</span> <span class="kr">_</span> <span class="kr">_</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;Use d ou a&quot;</span>
 </code></pre></div>
 </td></tr></table>
 <p>Vejamos outros exemplos, do módulo prelude do Haskell.
@@ -1037,12 +1049,14 @@ Neste caso, como ficaria uma função que extraísse apenas o sobrenome de uma p
 <li>Seguindo os moldes da definição do operador <code>&amp;&amp;</code>, defina o operador lógico ou <code>||</code> de três formas diferentes.</li>
 <li>Seguindo os moldes da definição do operador <code>&amp;&amp;</code>, defina o operador lógico ou <code>||</code> de três formas diferentes.</li>
 <li>
+<p>Defina 3 funções, usando <code>if</code>-<code>then</code>-<code>else</code>, guardas e casamento de padrões, que calculem os números da série de Fibonacci, a saber</p>
 <ul>
-<li>Fib(1) = 1</li>
+<li>Fib(1) = 1<ul>
 <li>Fib(2) = 1</li>
 <li>Fib(n) = Fib(n-1) + Fib(n-2)</li>
 </ul>
-<p>Defina 3 funções, usando <code>if</code>-<code>then</code>-<code>else</code>, guardas e casamento de padrões, que calculem os números da série de Fibonacci, a saber</p>
+</li>
+</ul>
 <details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>```hs
@@ -1055,7 +1069,7 @@ Surprise!
 </ul>
 </div>
 <h6><code class="highlight"><span class="kr">case</span><span class="o">-</span><span class="kr">of</span></code></h6>
-<p>Esta estrutura se assemelha ao <code>switch</code> de linguagens como C e Java, e tem a seguinte sintaxe:</p>
+<p>Esta estrutura se assemelha ao <code>switch</code> de linguagens como C e Java, e tem a seguinte sintaxe, onde os padrões devem estar perfeitamente alinhados.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">case</span> <span class="n">expression</span> <span class="kr">of</span> <span class="n">pattern</span> <span class="ow">-&gt;</span> <span class="n">result</span>  
@@ -1100,12 +1114,26 @@ Seria possível escreve esta função com <code>if</code> aninhados, assim.</p>
 3
 4
 5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">nome_mes</span> <span class="n">m</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">m</span> <span class="kr">of</span> <span class="mi">1</span> <span class="ow">-&gt;</span> <span class="s">&quot;JAN&quot;</span>
-                  <span class="n">m</span> <span class="kr">of</span> <span class="mi">2</span> <span class="ow">-&gt;</span>  <span class="s">&quot;FEB&quot;</span>
-                  <span class="n">m</span> <span class="kr">of</span> <span class="mi">3</span> <span class="ow">-&gt;</span> <span class="s">&quot;MAR&quot;</span>
-                  <span class="o">...</span>
-                  <span class="n">m</span> <span class="kr">of</span> <span class="mi">11</span> <span class="ow">-&gt;</span> <span class="s">&quot;NOV&quot;</span>
-                  <span class="n">m</span> <span class="kr">of</span> <span class="mi">12</span> <span class="ow">-&gt;</span> <span class="s">&quot;DEZ&quot;</span>
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">nomeMes</span> <span class="n">m</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">m</span> <span class="kr">of</span> <span class="mi">1</span> <span class="ow">-&gt;</span> <span class="s">&quot;JAN&quot;</span>
+                 <span class="n">m</span> <span class="kr">of</span> <span class="mi">2</span> <span class="ow">-&gt;</span>  <span class="s">&quot;FEB&quot;</span>
+                 <span class="n">m</span> <span class="kr">of</span> <span class="mi">3</span> <span class="ow">-&gt;</span> <span class="s">&quot;MAR&quot;</span>
+                 <span class="o">...</span>
+                 <span class="n">m</span> <span class="kr">of</span> <span class="mi">11</span> <span class="ow">-&gt;</span> <span class="s">&quot;NOV&quot;</span>
+                 <span class="n">m</span> <span class="kr">of</span> <span class="mi">12</span> <span class="ow">-&gt;</span> <span class="s">&quot;DEZ&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<p>É importante notar que é possível aninhar <code>case-of</code>.
+A função <code class="highlight"><span class="nf">próximos3</span></code> poderia ser reescrita assim.
+Observe o alinhamento dentro do segundo case.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">próximos3&#39;&#39;&#39;</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Char</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span>
+<span class="nf">próximos3&#39;&#39;&#39;</span> <span class="n">n</span> <span class="n">dir</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">n</span> <span class="kr">of</span> <span class="mi">0</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+                               <span class="kr">_</span> <span class="ow">-&gt;</span> <span class="kr">case</span> <span class="n">dir</span> <span class="kr">of</span> <span class="sc">&#39;d&#39;</span> <span class="ow">-&gt;</span> <span class="kr">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="kr">else</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+                                                <span class="sc">&#39;a&#39;</span> <span class="ow">-&gt;</span> <span class="kr">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="kr">then</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="kr">else</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+                                                <span class="kr">_</span>   <span class="ow">-&gt;</span> <span class="ne">error</span> <span class="s">&quot;Use d ou a&quot;</span>
 </code></pre></div>
 </td></tr></table>
 <div class="footnote">
