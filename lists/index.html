@@ -364,9 +364,53 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Listas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Listas
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recursao" class="md-nav__link">
+    Recursão
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compreensao-de-listas" class="md-nav__link">
+    Compreensão de Listas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ..
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -466,6 +510,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recursao" class="md-nav__link">
+    Recursão
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compreensao-de-listas" class="md-nav__link">
+    Compreensão de Listas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ..
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -488,34 +561,79 @@
 
   <!-- Content -->
   <h1 id="listas">Listas</h1>
-<p>Anteriormente nós discutimos tuplas como uma forma de agregar múltiplas informações em um único valor.
-Por exemplo, definimos o tipo <code>Data</code> como sendo a agregação de um dia, um mês e um ano.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">type</span> <span class="kt">Data</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Int</span> <span class="kt">Int</span><span class="p">)</span>
-
-
-
-
-
-<span class="o">######</span> <span class="kt">Recursão</span> <span class="n">e</span> <span class="kt">Listas</span>
-
-<span class="p">```</span><span class="n">hs</span>
-<span class="nf">maximum</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;lista vazia&quot;</span>  
+<p>Além das tuplas, discutidas anteriormente, listas também são uma forma de agregar múltiplas informações em um único valor.
+Mas o que é uma lista? É uma coleção ordenada de elementos, por exemplo, <code class="highlight"><span class="p">[</span><span class="s">&quot;Eu&quot;</span><span class="p">,</span><span class="s">&quot;amo&quot;</span><span class="p">,</span><span class="s">&quot;programação&quot;</span><span class="p">,</span><span class="s">&quot;funcional&quot;</span><span class="p">]</span></code> é coleção de quatro strings, em que o primeiro elemento é "Eu", o segundo "amo", e assim por diante. Já <code class="highlight"><span class="kt">String</span></code> e <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">12</span><span class="p">]</span></code> é uma lista de cinco elementos do tipo <code class="highlight"><span class="kt">Num</span></code>, que é um supertipo de números inteiros e de ponto flutuante.</p>
+<p>Listas tem duas particularidades que as diferenciam de tuplas.
+Primeiro, enquanto as tuplas <code class="highlight"><span class="p">(</span><span class="mi">1</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">2</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">3</span><span class="ow">::</span><span class="kt">Int</span><span class="p">)</span></code> e <code class="highlight"><span class="p">(</span><span class="mi">1</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">2</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">3</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">4</span><span class="ow">::</span><span class="kt">Int</span><span class="p">)</span></code> tem tipos diferentes, isto é, uma é uma tupla de <strong>três</strong> inteiros e a outra uma tupla de <strong>quatro</strong> inteiros, as listas <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">2</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">3</span><span class="ow">::</span><span class="kt">Int</span><span class="p">]</span></code> e <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">2</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">3</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">4</span><span class="ow">::</span><span class="kt">Int</span><span class="p">]</span></code> tem exatamente o mesmo tipo, lista de inteiro, ou mais especificamente, <code class="highlight"><span class="p">[</span><span class="kt">Int</span><span class="p">]</span></code>.
+Ou seja, listas com cardinalidades diferentes, mas com elementos do mesmo tipo, são do mesmo tipo.</p>
+<p>Segundo, enquanto uma tupla pode ter elementos de tipos diferentes, todos os elementos de uma lista devem ser do mesmo tipo.
+Por exemplo, <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mf">4.2</span><span class="p">]</span></code> é uma lista de <code class="highlight"><span class="kt">Fractional</span></code>, que é um supertipo dos números de ponto flutuante.
+De fato, quando defino este lista, o Haskell automaticamente faz o boxing dos cinco primeiros para ponto flutuante.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">z</span> <span class="ow">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mf">4.2</span><span class="p">]</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">z</span>
+<span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">3.0</span><span class="p">,</span><span class="mf">4.0</span><span class="p">,</span><span class="mf">17.0</span><span class="p">,</span><span class="mf">4.2</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+<h6>Strings</h6>
+<p>Açúcar sintático par <code>[Char]</code></p>
+<h6>[] e :</h6>
+<ul>
+<li><code>[]</code><ul>
+<li>Lista vazia</li>
+<li><code>:t []</code> - [a]</li>
+</ul>
+</li>
+<li><code>:</code><ul>
+<li><code>1:[]</code> é igual a <code>[1]</code></li>
+<li><code>2:1:[]</code> é igual a <code>[2,1]</code></li>
+</ul>
+</li>
+</ul>
+<h6>Casamento de padrões</h6>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">resumo</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="s">&quot;String&quot;</span>
+<span class="nf">resumo</span> <span class="kt">[]</span> <span class="ow">-&gt;</span> <span class="s">&quot;Nada&quot;</span>
+<span class="nf">resumo</span> <span class="p">[</span><span class="kr">_</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="s">&quot;Um&quot;</span>
+<span class="nf">resumo</span> <span class="p">[</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="s">&quot;Dois&quot;</span>
+<span class="nf">resumo</span> <span class="kr">_</span> <span class="ow">-&gt;</span> <span class="s">&quot;Muitos&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="recursao">Recursão</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">resumo</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="s">&quot;String&quot;</span>
+<span class="nf">resumo</span> <span class="kt">[]</span> <span class="ow">-&gt;</span> <span class="s">&quot;Nada&quot;</span>
+<span class="nf">resumo</span> <span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="s">&quot;Só &quot;</span> <span class="o">++</span> <span class="n">e</span>
+<span class="nf">resumo</span> <span class="p">[</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="n">e1</span> <span class="o">++</span> <span class="s">&quot; e &quot;</span> <span class="o">++</span> <span class="n">e2</span>
+<span class="nf">resumo</span> <span class="p">(</span><span class="n">e1</span><span class="kt">:</span><span class="n">resto</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">e1</span> <span class="o">++</span> 
+                    <span class="s">&quot; um monte de coisas, terminando com &quot;</span> <span class="o">++</span> 
+                    <span class="n">last</span> <span class="n">rest</span>
+</code></pre></div>
+</td></tr></table>
+<p><span class="arithmatex">\(maximum~[1,2,3] = max~1 \left( maximum~[2,3] = max~2 \left( maximum~[3] = 3 \right)        \right)\)</span></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">maximum</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;lista vazia&quot;</span>  
 <span class="nf">maximum</span> <span class="p">[</span><span class="n">h</span><span class="p">]</span> <span class="ow">=</span> <span class="n">h</span>
 <span class="nf">maximum</span> <span class="p">(</span><span class="n">h</span><span class="kt">:</span><span class="n">t</span><span class="p">)</span> <span class="ow">=</span> <span class="n">max</span> <span class="n">h</span> <span class="p">(</span><span class="n">maximum</span> <span class="n">t</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<p><span class="arithmatex">\(maximum~[1,2,3] = max~1 \left( maximum~[2,3] = max~2 \left( maximum~[3] = 3 \right)        \right)\)</span></p>
+<p>comprimento</p>
+<p>último</p>
+<p>inverso</p>
+<h2 id="compreensao-de-listas">Compreensão de Listas</h2>
+<h2 id="_1"><code>..</code></h2>
+<p>enumerações</p>
+<p>umADez = [1..10]</p>
 
   <!-- Last update of source file -->
 

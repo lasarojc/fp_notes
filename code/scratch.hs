@@ -18,7 +18,7 @@ Indefinido
 fat 0 = 1
 fat n
     |n > 0 = n * fat (n-1)
-    |otherwise = error "Indefinido"
+fat _ = error "Indefinido"
 
 
 
@@ -83,3 +83,41 @@ type Inteiro = Int
 
 somaInteiros :: Inteiro -> Inteiro -> Inteiro
 somaInteiros a b = a + b
+
+
+minhaFunção' 10 = "Deu certo"
+
+minhaFunção'' (a,b) ((c,d),_,f) g = a + b + c + d + f + fst g + snd g
+
+
+próximos3 :: Int -> Char -> (Int,Int,Int)
+próximos3 0 _ = (-1,0,1)
+próximos3 n 'd'
+    | n > 0 = (n-1,n-2,n-3)
+    | n < 0 = (n+1,n+2,n+3)
+
+próximos3 n 'a'
+    | n < 0 = (n-1,n-2,n-3)
+    | n > 0 = (n+1,n+2,n+3)
+
+próximos3 n _ = error "Use d ou a"
+
+fatorial' 0 = 1
+fatorial' n 
+    |n > 0 = n * fatorial' (n-1)
+fatorial' n 
+    |n < 0 = error "Indefinido"
+
+
+nomeMes 1 = "JAN"
+nomeMes 2 = "FEB"
+nomeMes 3 = "ABR"
+nomeMes 4 = "MAR"
+nomeMes 5 = "MAI"
+nomeMes 6 = "JUN"
+nomeMes 7 = "JUL"
+nomeMes 8 = "AGO"
+nomeMes 9 = "SET"
+nomeMes 10 = "OUT"
+nomeMes 11 = "NOV"
+nomeMes 12 = "DEZ"
