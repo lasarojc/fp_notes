@@ -10,7 +10,7 @@ soma2n x y = x + y
 e sua invocação.
 
 ```hs
-> soma 3 4
+> soma2n 3 4
 7
 ```
 
@@ -143,7 +143,9 @@ O casamento de tuplas no valor e no padrão pode levar aos seguintes resultados,
 |--------|-------|-----------|-------|
 | (x,y) | (1,2) | Sucesso | x = 1 e y = 2 |
 | (1,y) | (1,2) | Sucesso | y = 2 |
+| (1,y) | (2,2) | Fracasso | |
 | (_,y) | (1,2) | Sucesso | y = 2 |
+| (_,y) | (10,2) | Sucesso | y = 2 |
 | ('X',y) | ('X',2) | Sucesso | y = 2 |
 | (x,y) | (1,(2,3)) | Sucesso | x = 1; y = (2,3) |
 | (\_, (\_,y)) | (1,(2,3)) | Sucesso | y = 3 |
@@ -252,7 +254,7 @@ próximos3 n 'a'
     | n < 0 = (n-1,n-2,n-3)
     | n > 0 = (n+1,n+2,n+3)
 
-próximos3 n _ = error "Use d ou a"
+próximos3 _ _ = error "Use d ou a"
 ```
 
 
@@ -318,6 +320,7 @@ docs/code/pessoa3.hs
     * Seguindo os moldes da definição do operador `&&`, defina o operador lógico ou `||` de três formas diferentes.
     * Seguindo os moldes da definição do operador `&&`, defina o operador lógico ou `||` de três formas diferentes.
     * Defina 3 funções, usando `if`-`then`-`else`, guardas e casamento de padrões, que calculem os números da série de Fibonacci, a saber
+
         * Fib(1) = 1
         * Fib(2) = 1
         * Fib(n) = Fib(n-1) + Fib(n-2)
@@ -343,7 +346,7 @@ docs/code/pessoa3.hs
 ###### `#!hs case-of`
 
 
-Esta estrutura se assemelha ao `switch` de linguagens como C e Java, e tem a seguinte sintaxe:
+Esta estrutura se assemelha ao `switch` de linguagens como C e Java, e tem a seguinte sintaxe, onde os padrões devem estar perfeitamente alinhados.
 
 ```hs
 case expression of pattern -> result  
@@ -378,10 +381,23 @@ nome_mes m
 Usando `case`-`of`, a
 
 ```hs
-nome_mes m = case m of 1 -> "JAN"
-                  m of 2 ->  "FEB"
-                  m of 3 -> "MAR"
-                  ...
-                  m of 11 -> "NOV"
-                  m of 12 -> "DEZ"
+nomeMes m = case m of 1 -> "JAN"
+                 m of 2 ->  "FEB"
+                 m of 3 -> "MAR"
+                 ...
+                 m of 11 -> "NOV"
+                 m of 12 -> "DEZ"
+```
+
+
+É importante notar que é possível aninhar `case-of`.
+A função `#!hs próximos3` poderia ser reescrita assim.
+Observe o alinhamento dentro do segundo case.
+
+```hs
+próximos3''' :: Int -> Char -> (Int,Int,Int)
+próximos3''' n dir = case n of 0 -> (-1,0,1)
+                               _ -> case dir of 'd' -> if n > 0 then (n-1,n-2,n-3) else (n+1,n+2,n+3)
+                                                'a' -> if n < 0 then (n-1,n-2,n-3) else (n+1,n+2,n+3)
+                                                _   -> error "Use d ou a"
 ```
