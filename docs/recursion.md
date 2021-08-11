@@ -12,7 +12,7 @@ $$
 n! =
      \begin{cases}
      1          & \text{se } n = 0\\
-     n * (n-1)! & \text{se } n >= 0
+     n * (n-1)! & \text{se } n > 0
      \end{cases}
 $$
 
@@ -67,7 +67,7 @@ fatorialPM n = n * fatorialPM (n-1)
 ```
 
 Considerando as duas definições da função, considere o que acontece se as mesmas forem invocadas com um número negativo como parâmetro. 
-O que acontece? A recursão simplesmente "nunca" termina, continuando com $n$ indo para o infinito.
+O que acontece? A recursão simplesmente "nunca" termina, continuando com $n$ indo para o - infinito.
 Acontece que não é definido o fatorial de números negativos e, por isso, precisamos que um erro seja lançado quando uma tentativa de invocação deste tipo ocorrer.
 Há diferentes formas de se lançar um erro, sendo a primeira simplesmente limitar os valores válidos para os parâmetros.
 
@@ -95,19 +95,16 @@ fatorialGuardas'' n
      * Caso base - Limita recursão.
      * Caso geral - Faz chamada recursiva para problema "**menor**"
 
-Note que em ambas as formas, temos algumas definições simples, os **casos base**, que não fazem recursão, e os casos recursivos, envolvem recursão.
+Note que em ambas as formas, temos algumas definições simples, os **casos base**, que não fazem recursão, e os **casos recursivos**, envolvem recursão.
 Este padrão se repetirá praticamente sempre nas definições recursivas, o que não quer dizer que a definição será óbvia. 
-Vejamos outros exemplos.
 
 ###### Máximo Divisor Comum
-O máximo divisor de dois números é, bem, o maior dentre os divisores comuns :smile:
-Por exemplo, considere os números 18 e 12: o maior dentre os divisores comuns é 6, isto é, o mdc(18,12) = 6, já que os seguintes são os seus divisores.
-
-* 18: 18, 9, 6, 3, 2, 1
-* 12: 12, 6, 4, 3, 2, 1
+O máximo divisor comum de dois números é, bem, o maior dentre os divisores comuns.
+Por exemplo, considere os números 18 e 12: já que o 18 tem como divisores {18, 9, 6, 3, 2, 1} e o 12 tem {12, 6, 4, 3, 2, 1}, 
+o maior dentre os divisores comuns é 6, isto é, o mdc(18,12) = 6.
 
 Logo, se quisermos implementar uma função que calcule o mdc, podemos começar por encontrar o conjunto de divisores, usando uma recursão, e então iterar pelos conjuntos para identificar o maior comum, com outra recursão.
-Enquanto esta abordagem é um bom exercício de manipulação de listas, se o objetivo é calcular o mdc de forma recursiva, há uma abordagem melhor, conhecida como o algoritmo de Euclides.
+Enquanto esta abordagem é um bom exercício de manipulação de listas, se o objetivo é calcular o mdc de forma recursiva, há uma abordagem melhor, conhecida como o [algoritmo de Euclides](https://pt.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm).
 De forma direta, este algoritmo pode ser expresso como a seguinte função recursiva, onde $a >= b$
 
 $$
@@ -118,10 +115,7 @@ mdc(a,b) =
      \end{cases}
 $$
 
-
-???todo "TODO"
-     Explicar o algoritmo: https://pt.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
-
+Em Haskell, a definição fica assim.
 
 ```hs
 mdc :: Integer -> Integer -> Integer
@@ -131,35 +125,25 @@ mdc a b
 ```
 
 ###### Fibonacci
-Considere a função que retorna um termo da sequência de Fibonacci, sabendo que os dois primeiros termos são 1 e todos os outros termos são iguais à soma dos termos anteriores.
+Considere a função que retorna um termo da sequência de Fibonacci, em que os dois primeiros termos são 1 e todos os outros termos são iguais à soma dos dois termos anteriores.
 
 $$
 F(n) =
      \begin{cases}
      1                    & \text{se } n = 1\\
      1                    & \text{se } n = 2\\
-     F(n-1) + F(n_2)    & \text{se } n > 2
+     F(n-1) + F(n - 2)    & \text{se } n > 2
      \end{cases}
 $$
 
 A mesma tradução direta da definição matemática para Haskell também pode ser feita aqui, sendo a única diferença o fato de que duas invocações recursivas são feitas a cada passo.
+Há, contudo, diversas possibilidades de tradução.
 
 ```hs
 --8<--
 docs/code/fib.hs
 --8<--
 ```
-
-???todo "TODO"
-     Fibonacci pra cima)
-
-     ```hs
-     --8<--
-     docs/code/fib1.hs
-     --8<--
-     ```
-
-
 
 
 
@@ -193,20 +177,23 @@ O que você acha de testar alguns valores para tentar identificar há ou não um
 Em C, poderíamos fazer o seguinte:
 
 ```C
-int f(int n, int i){
+int collatz(int n, int i){
      if (i == 1)
           return n;
      else {
-          int f_n_i_menos_1 = f(n, i-1);
+          int f_n_i_menos_1 = collatz(n, i-1);
           if (f_n_i_menos_1 % 2 == 0)
                return f_n_i_menos_1 /2;
           else
                f_n_i_menos_1 * 3 + 1;
 }
 
-bool convergiu = false;
-for (int i = 0; !convergiu; i++)
-     convergiu = f(n,i) == 1;
+bool converge(int n) {
+     bool convergiu = false;
+     for (int i = 0; !convergiu; i++)
+          convergiu = collatz(n,i) == 1;
+     return convergiu;
+}
 ```
 
 Por mais ineficiente que seja, este código em C funciona e pode servir de base para uma versão em Haskell, mas como escrever a iteração?
@@ -225,10 +212,15 @@ Vejamos alguns exemplos.
 16
 *Main> collatz 7 17
 1
-*Main> converge 7 15
+*Main> converge 7
 True
-*Main> converge 7 1
+*Main> converge 12
 True
+*Main> convergeInterna 7 15
+True
+*Main> convergeInterna 7 1
+True
+
 ```
 
 Tente executar a função para o número 27, cuja sequência calculada acima tem 111 passos.
@@ -236,7 +228,7 @@ Quando seu computador começar a se desesperar ou você cansar de esperar, apert
 Mas por quê esta função tão simples ficou tão pesada? Por quê para calcular se a sequência converge, primeiro a função testou o primeiro termo, 27, e viu que não era igual 1; calculou então o segundo termo, para isto calculando o primeiro termo novamente, e testando se igual a 1; calculou então o terceiro termo, para isso calculando o segundo termo, para isso calculando o primeiro, e assim por diante. 
 Além disso, no cálculo de cada termo, há um teste para ver se o termo anterior é ímpar ou par, o que por si só calcula o termo anterior.
 
-Mais tarde veremos como tornar esta função muito mais eficiente, mas por enquanto pensemos em como podemos limitar o número de passos nesta iteração.
+Mais tarde veremos como tornar esta função muito mais eficiente, como na versão em C, em que o termo anterior só é calculado uma vez, mas por enquanto pensemos em como podemos limitar o número de passos nesta iteração.
 
 !!!exercise "Exercício"
     * Modifique a definição da função converge para impedir que execute *ad eternum*.

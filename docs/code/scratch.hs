@@ -264,3 +264,40 @@ True
 
 data Naipe = Copas | Espada | Ouro | Paus deriving (Ord,Eq)
 
+
+
+
+fatorialPM 0 = 1
+fatorialPM n = n * fatorialPM (n-1)
+
+fatorialGuardas n
+     | n == 0 = 1
+     | n > 0 = n * fatorialGuardas (n-1)
+
+fatorialGuardas' n
+     | n == 0 = 1
+     | n > 0 = n * fatorialGuardas' (n-1)
+     | otherwise = error "Não se pode calcular o fatorial de números negativos"
+
+fatorialGuardas'' n
+     | n == 0 = 1
+     | otherwise = if n > 0 then n * fatorialGuardas'' (n-1) 
+                            else error "Não se pode calcular o fatorial de números negativos"
+
+
+
+mdc :: Integer -> Integer -> Integer
+mdc a b | b == 0     = a
+        | otherwise  = mdc b (a `mod` b)
+
+mdc' :: Integer -> Integer -> Integer
+mdc' a 0 = a
+mdc' a b = mdc' b (a `mod` b)
+
+mdc'' :: Integral t => t -> t -> t
+mdc'' a b = case b of 0 -> a
+                      _ -> mdc'' b (a `mod` b)
+
+mdc''' :: Integral t => t -> t -> t
+mdc''' a b = if b == 0 then a
+                       else mdc''' b (a `mod` b)
