@@ -439,7 +439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../where_let_in.md" class="md-nav__link">
+      <a href="../where_let_in/" class="md-nav__link">
         Where and Let-In
       </a>
     </li>
@@ -592,6 +592,27 @@ De fato, quando defino este lista, o Haskell automaticamente faz o boxing dos ci
 </li>
 </ul>
 <h6>Casamento de padrões</h6>
+<p>Toda lista é ou uma lista vazia, ou um elemento como cabeça e uma lista como cauda.
+Assim, se cobrir estes dois casos em uma definição por casamento de padrões, terá coberto todos os casos.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">oQueHáNaCabeça</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Show</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<span class="nf">oQueHáNaCabeça</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="s">&quot;Nada&quot;</span>
+<span class="nf">oQueHáNaCabeça</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="s">&quot;Há &quot;</span> <span class="o">++</span> <span class="n">x</span>
+</code></pre></div>
+</td></tr></table>
+<p>Isso não quer dizer que não possa ser mais específico no padrão e usar o casamento de padrões para extrair mais elementos do início da lista.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">oQueHáNaLista</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Show</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<span class="nf">oQueHáNaLista</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="s">&quot;Nada&quot;</span>
+<span class="nf">oQueHáNaLista</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="ow">=</span> <span class="s">&quot;Só &quot;</span> <span class="o">++</span> <span class="n">x</span>
+<span class="nf">oQueHáNaLista</span> <span class="p">[</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">]</span> <span class="ow">=</span> <span class="s">&quot;Há &quot;</span> <span class="o">++</span> <span class="n">x1</span> <span class="o">++</span> <span class="s">&quot; e &quot;</span> <span class="o">++</span> <span class="n">x2</span>
+<span class="nf">oQueHáNaLista</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="s">&quot;Há &quot;</span> <span class="o">++</span> <span class="n">x</span> <span class="o">++</span> <span class="s">&quot; e mais um monte de coisas&quot;</span> 
+</code></pre></div>
+</td></tr></table>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -628,8 +649,31 @@ De fato, quando defino este lista, o Haskell automaticamente faz o boxing dos ci
 </code></pre></div>
 </td></tr></table>
 <p>comprimento</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">comprimento</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">comprimento</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="mi">0</span>
+<span class="nf">comprimento</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">len</span> <span class="n">xs</span>
+</code></pre></div>
+</td></tr></table>
 <p>último</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">último</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="nf">último</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;List is empty&quot;</span>
+<span class="nf">último</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="ow">=</span> <span class="n">x</span>
+<span class="nf">último</span> <span class="p">(</span><span class="kr">_</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">last</span> <span class="n">xs</span>
+</code></pre></div>
+</td></tr></table>
 <p>inverso</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">inverso</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="nf">inverso</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="kt">[]</span>
+<span class="nf">inverso</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">inverso</span> <span class="n">xs</span> <span class="o">++</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
 <h2 id="compreensao-de-listas">Compreensão de Listas</h2>
 <h2 id="_1"><code>..</code></h2>
 <p>enumerações</p>

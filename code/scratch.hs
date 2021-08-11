@@ -244,3 +244,23 @@ próximos3''' n dir = case n of 0 -> (-1,0,1)
                                _ -> case dir of 'd' -> if n > 0 then (n-1,n-2,n-3) else (n+1,n+2,n+3)
                                                 'a' -> if n < 0 then (n-1,n-2,n-3) else (n+1,n+2,n+3)
                                                 _   -> error "Use d ou a"
+
+
+
+{-
+Assim como Bool pode assumir os valores True e False, o tipo Naipe pode assumir um dos valores Copas, Espada, Ouro e Paus, tal que
+Copas < Espada < Ouro < Paus
+
+>>>Copas > Espada
+False
+
+>>> Espada > Ouro
+False
+
+>>> Paus > Copas
+True
+-}
+
+
+data Naipe = Copas | Espada | Ouro | Paus deriving (Ord,Eq)
+
