@@ -348,6 +348,29 @@
 
   
   
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Where and Let-In
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
   
     <li class="md-nav__item">
       <a href="../lists/" class="md-nav__link">
@@ -368,29 +391,6 @@
       <a href="../quickcheck/" class="md-nav__link">
         QuickCheck
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Where and Let-In
-      </a>
-      
     </li>
   
 
@@ -467,6 +467,21 @@
   <!-- Content -->
   <p>where é usado em  fib2.hs</p>
 <p>let?</p>
+<p>Fibonacci pra cima</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fibUp</span> <span class="ow">::</span> <span class="kt">Integer</span>  <span class="ow">-&gt;</span> <span class="kt">Integer</span> 
+<span class="nf">fibUp</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">0</span>
+<span class="nf">fibUp</span> <span class="mi">1</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="nf">fibUp</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">fibUpTo</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="n">n</span>
+    <span class="kr">where</span> <span class="n">fibUpTo</span> <span class="n">prevPrev</span> <span class="n">prev</span> <span class="n">prevCount</span> <span class="n">limit</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">prevCount</span> <span class="o">==</span> <span class="n">limit</span> <span class="kr">then</span> <span class="n">prev</span> <span class="o">+</span> <span class="n">prevPrev</span>
+                                                                        <span class="kr">else</span> <span class="n">fibUpTo</span> <span class="n">prev</span> <span class="p">(</span><span class="n">prev</span> <span class="o">+</span> <span class="n">prevPrev</span><span class="p">)</span> <span class="p">(</span><span class="n">prevCount</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="n">limit</span>
+</code></pre></div>
+</td></tr></table>
+<p>Collatz</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -492,6 +507,19 @@
     <span class="kr">where</span> <span class="n">termo</span> <span class="ow">=</span> <span class="n">collatz</span> <span class="n">n</span> <span class="n">passo</span>
 </code></pre></div>
 </td></tr></table>
+<ul>
+<li>bmi é calculado só uma vez. mais fácil de atualizar os testes. <a href="http://learnyouahaskell.com/syntax-in-functions">http://learnyouahaskell.com/syntax-in-functions</a>
+        bmiTell :: (RealFloat a) =&gt; a -&gt; a -&gt; String<br />
+        bmiTell weight height<br />
+            | bmi &lt;= skinny = "You're underweight, you emo, you!"<br />
+            | bmi &lt;= normal = "You're supposedly normal. Pffft, I bet you're ugly!"<br />
+            | bmi &lt;= fat    = "You're fat! Lose some weight, fatty!"<br />
+            | otherwise     = "You're a whale, congratulations!"<br />
+            where bmi = weight / height ^ 2<br />
+                  skinny = 18.5<br />
+                  normal = 25.0<br />
+                  fat = 30.0  </li>
+</ul>
 
   <!-- Last update of source file -->
 
@@ -512,7 +540,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../quickcheck/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../recursion/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -521,19 +549,19 @@
               <span class="md-footer__direction">
                 Anterior
               </span>
-              QuickCheck
+              Recursão
             </div>
           </div>
         </a>
       
       
-        <a href="../observations/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../lists/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Observações
+              Listas
             </div>
           </div>
           <div class="md-footer__button md-icon">

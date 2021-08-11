@@ -24,6 +24,7 @@
             - `head :: [a] -> a`
             - `swap :: (a,b) -> (b,a)
     - [ ] Type classes
+        - data
         - `(==) :: (Eq a) => a -> a -> Bool ` -- O tipo a está restrito à classe Eq, isto é, a pertence à classe Eq, que define a interface para teste de igualdade.
         - `(>) :: (Ord a) => a -> a -> Bool ` --  Ord > < >= <=
         - `compare` retorna um Ordering, que pode ser GT LT ou EQ
@@ -47,24 +48,15 @@
 - [ ] Funções
     - [x] Equações simples
     - [x] Guarda
-    - [ ] where - bmi é calculado só uma vez. mais fácil de atualizar os testes. http://learnyouahaskell.com/syntax-in-functions
-        bmiTell :: (RealFloat a) => a -> a -> String  
-        bmiTell weight height  
-            | bmi <= skinny = "You're underweight, you emo, you!"  
-            | bmi <= normal = "You're supposedly normal. Pffft, I bet you're ugly!"  
-            | bmi <= fat    = "You're fat! Lose some weight, fatty!"  
-            | otherwise     = "You're a whale, congratulations!"  
-            where bmi = weight / height ^ 2  
-                  skinny = 18.5  
-                  normal = 25.0  
-                  fat = 30.0  
-     - [ ] let in 
+    - [ ] where 
+    - [ ] let in 
 
-     - [ ] Recursão: 
-        - de calda
-        - de estruturas
-     - [ ] Currying:
-     - [ ] Funções de Alta Ordem:
+    - [ ] Recursão
+        - [x] funções recursivas
+        - [ ] de calda
+        - [ ] de estruturas
+    - [ ] Currying:
+    - [ ] Funções de Alta Ordem:
         na intro
 
         There are a number of concepts which are the main corner stones of functional programming, such as first-class and higher-order functions, pure functions, recursion, strict versus non-strict evaluation, and type systems. Higher-order functions can take other functions as arguments or return them as results. An example of a higherorder functions is an integrator or differential operator as it returns a function. Pure functions have no side effects (memory or I/O). This means that pure functions are very useful to optimize code. For example, if the result of a pure expression is not used, it can be removed without affecting the other expressions. If there is no data dependency between two pure expressions, then their order can be reversed or they can be performed in parallel and not interfere with each other. This means pure expressions are thread safe. To allow compilers to optimize code more easily in other languages, there is usually keywords you can add to tell the compiler the function is pure. Recursion functions invoke themselves, performing an operation multiple times unit the base case is reached. Common patterns of recursion can be re-factored using higher order functions. Some recursions require maintaining a stack but tail recursions can be optimized into the same code used to implement iteration in imperative languages. Functional programming that is limited to well-founded recursion with a few other constraints is called total functional programming [24].
@@ -127,35 +119,17 @@ Exercícios/Provas
     - [x] Pedra tesoura papel - usando tipos definidos pelo usuário
 
 - Tipos algébricos
-    - Pedra tesoura papel - usando tipos algebricos
+    - Pedra tesoura papel - usando tipos algébricos
     - cartas
         - teste se bateu em algum jogo
         - ordene as cartas
-
-- Recursão
-    - http://www.cse.chalmers.se/edu/year/2018/course/TDA555/ex-week1.html
-        Think of an whole number greater than one. If its even, divide it by two, otherwise multiply it by three and add one. Stop if the resulting number is one, otherwise repeat the procedure.
-        As example, we start width 10.
-        10 is even, so the next number is: 10/2 = 5
-        5 is odd so the next number is: 3*5+1=16
-        16 is even, so the next number is: 16/2 = 8
-        8 is even, so the next number is: 8/2 = 4
-        4 is even, so the next number is: 4/2 = 2
-        2 is even, so the next number is: 1.
-        If we start with 7 we get: (Check this!)
-        7, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1.
-
-        We are interested in the question: Given a number n, how many numbers are there in the sequence? For n=10, we get 7 numbers (10, 5, 16, 8, 4, 2, 1). For n=7 we get 17 numbers (See above).
-        Note that we include both the number n we start with and the final number 1.
-        How can ghci help us to answer the question? We start with defining a function next that given a number computes the next number in the sequence.
-
 
 Trabalho
 
 - Tabuleiro
     - Versão 1, tuplas e strings
-        - Tabuleiro é uma tupla com 8 Linha.
-        - Linha é uma tupla com 8 Célula.
+        - Tabuleiro é uma tupla com 8 Linha.  type Tabuleiro = (Linha,Linha,...., Linha)
+        - Linha é uma tupla com 8 Célula.     type Linha = (Celula, ..., Celula)
         - Célula é uma tupla com 4 Item
             - Interprete a célula como uma pilha em que o primeiro elemento está na base.
             - Na célula, "sobre" quer dizer imediatamente subsequente na pilha.
@@ -171,7 +145,6 @@ Trabalho
     - identificador - Char
     - localização - é uma tupla com coordenadas X e Y do tipo Int
     - direção - é um caractere que indica para onde on jogador está olhando. Pode assumir um dos valores 'N', 'S', 'L' e 'O'
-
     - capacidades - é uma tupla com 3 elementos com um dos seguintes valores
         - "" (nada)
         - "patins"

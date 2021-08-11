@@ -409,6 +409,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../where_let_in/" class="md-nav__link">
+        Where and Let-In
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../lists/" class="md-nav__link">
         Listas
       </a>
@@ -426,21 +441,6 @@
     <li class="md-nav__item">
       <a href="../quickcheck/" class="md-nav__link">
         QuickCheck
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../where_let_in/" class="md-nav__link">
-        Where and Let-In
       </a>
     </li>
   
@@ -570,7 +570,7 @@ Considere a seguinte definição.</p>
 n! =
      \begin{cases}
      1          &amp; \text{se } n = 0\\
-     n * (n-1)! &amp; \text{se } n &gt;= 0
+     n * (n-1)! &amp; \text{se } n &gt; 0
      \end{cases}
 \]</div>
 <p>Por esta definição, podemos calcular o fatorial de 4, por exemplo, assim.</p>
@@ -613,7 +613,7 @@ Pictograficamente, <span class="arithmatex">\(n\)</span> só é visível dentro 
 </code></pre></div>
 </td></tr></table>
 <p>Considerando as duas definições da função, considere o que acontece se as mesmas forem invocadas com um número negativo como parâmetro. 
-O que acontece? A recursão simplesmente "nunca" termina, continuando com <span class="arithmatex">\(n\)</span> indo para o infinito.
+O que acontece? A recursão simplesmente "nunca" termina, continuando com <span class="arithmatex">\(n\)</span> indo para o - infinito.
 Acontece que não é definido o fatorial de números negativos e, por isso, precisamos que um erro seja lançado quando uma tentativa de invocação deste tipo ocorrer.
 Há diferentes formas de se lançar um erro, sendo a primeira simplesmente limitar os valores válidos para os parâmetros.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -650,18 +650,14 @@ Há diferentes formas de se lançar um erro, sendo a primeira simplesmente limit
 <li>Caso geral - Faz chamada recursiva para problema "<strong>menor</strong>"</li>
 </ul>
 </div>
-<p>Note que em ambas as formas, temos algumas definições simples, os <strong>casos base</strong>, que não fazem recursão, e os casos recursivos, envolvem recursão.
-Este padrão se repetirá praticamente sempre nas definições recursivas, o que não quer dizer que a definição será óbvia. 
-Vejamos outros exemplos.</p>
+<p>Note que em ambas as formas, temos algumas definições simples, os <strong>casos base</strong>, que não fazem recursão, e os <strong>casos recursivos</strong>, envolvem recursão.
+Este padrão se repetirá praticamente sempre nas definições recursivas, o que não quer dizer que a definição será óbvia. </p>
 <h6>Máximo Divisor Comum</h6>
-<p>O máximo divisor de dois números é, bem, o maior dentre os divisores comuns <img alt="😄" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f604.svg" title=":smile:" />
-Por exemplo, considere os números 18 e 12: o maior dentre os divisores comuns é 6, isto é, o mdc(18,12) = 6, já que os seguintes são os seus divisores.</p>
-<ul>
-<li>18: 18, 9, 6, 3, 2, 1</li>
-<li>12: 12, 6, 4, 3, 2, 1</li>
-</ul>
+<p>O máximo divisor comum de dois números é, bem, o maior dentre os divisores comuns.
+Por exemplo, considere os números 18 e 12: já que o 18 tem como divisores {18, 9, 6, 3, 2, 1} e o 12 tem {12, 6, 4, 3, 2, 1}, 
+o maior dentre os divisores comuns é 6, isto é, o mdc(18,12) = 6.</p>
 <p>Logo, se quisermos implementar uma função que calcule o mdc, podemos começar por encontrar o conjunto de divisores, usando uma recursão, e então iterar pelos conjuntos para identificar o maior comum, com outra recursão.
-Enquanto esta abordagem é um bom exercício de manipulação de listas, se o objetivo é calcular o mdc de forma recursiva, há uma abordagem melhor, conhecida como o algoritmo de Euclides.
+Enquanto esta abordagem é um bom exercício de manipulação de listas, se o objetivo é calcular o mdc de forma recursiva, há uma abordagem melhor, conhecida como o <a href="https://pt.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm">algoritmo de Euclides</a>.
 De forma direta, este algoritmo pode ser expresso como a seguinte função recursiva, onde <span class="arithmatex">\(a &gt;= b\)</span></p>
 <div class="arithmatex">\[
 mdc(a,b) =
@@ -670,8 +666,7 @@ mdc(a,b) =
      \text{mdc}(b, a \text{ mod } b)    &amp; \text{caso contrário }
      \end{cases}
 \]</div>
-<details class="todo"><summary>TODO</summary><p>Explicar o algoritmo: <a href="https://pt.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm">https://pt.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm</a></p>
-</details>
+<p>Em Haskell, a definição fica assim.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -682,16 +677,17 @@ mdc(a,b) =
 </code></pre></div>
 </td></tr></table>
 <h6>Fibonacci</h6>
-<p>Considere a função que retorna um termo da sequência de Fibonacci, sabendo que os dois primeiros termos são 1 e todos os outros termos são iguais à soma dos termos anteriores.</p>
+<p>Considere a função que retorna um termo da sequência de Fibonacci, em que os dois primeiros termos são 1 e todos os outros termos são iguais à soma dos dois termos anteriores.</p>
 <div class="arithmatex">\[
 F(n) =
      \begin{cases}
      1                    &amp; \text{se } n = 1\\
      1                    &amp; \text{se } n = 2\\
-     F(n-1) + F(n_2)    &amp; \text{se } n &gt; 2
+     F(n-1) + F(n - 2)    &amp; \text{se } n &gt; 2
      \end{cases}
 \]</div>
-<p>A mesma tradução direta da definição matemática para Haskell também pode ser feita aqui, sendo a única diferença o fato de que duas invocações recursivas são feitas a cada passo.</p>
+<p>A mesma tradução direta da definição matemática para Haskell também pode ser feita aqui, sendo a única diferença o fato de que duas invocações recursivas são feitas a cada passo.
+Há, contudo, diversas possibilidades de tradução.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -725,21 +721,6 @@ F(n) =
                       <span class="n">n</span> <span class="ow">-&gt;</span> <span class="n">fibCase</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibCase</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<details class="todo"><summary>TODO</summary><p>Fibonacci pra cima)</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fibUp</span> <span class="ow">::</span> <span class="kt">Integer</span>  <span class="ow">-&gt;</span> <span class="kt">Integer</span> 
-<span class="nf">fibUp</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">0</span>
-<span class="nf">fibUp</span> <span class="mi">1</span> <span class="ow">=</span> <span class="mi">1</span>
-<span class="nf">fibUp</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">fibUpTo</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="n">n</span>
-    <span class="kr">where</span> <span class="n">fibUpTo</span> <span class="n">prevPrev</span> <span class="n">prev</span> <span class="n">prevCount</span> <span class="n">limit</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">prevCount</span> <span class="o">==</span> <span class="n">limit</span> <span class="kr">then</span> <span class="n">prev</span> <span class="o">+</span> <span class="n">prevPrev</span>
-                                                                        <span class="kr">else</span> <span class="n">fibUpTo</span> <span class="n">prev</span> <span class="p">(</span><span class="n">prev</span> <span class="o">+</span> <span class="n">prevPrev</span><span class="p">)</span> <span class="p">(</span><span class="n">prevCount</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="n">limit</span>
-</code></pre></div>
-</td></tr></table>
-</details>
 <h6>Conjectura de Collatz</h6>
 <p>Considere a seguinte função para construir uma sequência de números usando <span class="arithmatex">\(n\)</span> como base.</p>
 <div class="arithmatex">\[
@@ -778,20 +759,26 @@ Em C, poderíamos fazer o seguinte:</p>
 11
 12
 13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i</span><span class="p">){</span>
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">collatz</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i</span><span class="p">){</span>
      <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
           <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
      <span class="k">else</span> <span class="p">{</span>
-          <span class="kt">int</span> <span class="n">f_n_i_menos_1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">i</span><span class="mi">-1</span><span class="p">);</span>
+          <span class="kt">int</span> <span class="n">f_n_i_menos_1</span> <span class="o">=</span> <span class="n">collatz</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">i</span><span class="mi">-1</span><span class="p">);</span>
           <span class="k">if</span> <span class="p">(</span><span class="n">f_n_i_menos_1</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
                <span class="k">return</span> <span class="n">f_n_i_menos_1</span> <span class="o">/</span><span class="mi">2</span><span class="p">;</span>
           <span class="k">else</span>
                <span class="n">f_n_i_menos_1</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">bool</span> <span class="n">convergiu</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="o">!</span><span class="n">convergiu</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-     <span class="n">convergiu</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">bool</span> <span class="n">converge</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+     <span class="kt">bool</span> <span class="n">convergiu</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="o">!</span><span class="n">convergiu</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+          <span class="n">convergiu</span> <span class="o">=</span> <span class="n">collatz</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">;</span>
+     <span class="k">return</span> <span class="n">convergiu</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 <p>Por mais ineficiente que seja, este código em C funciona e pode servir de base para uma versão em Haskell, mas como escrever a iteração?
@@ -805,33 +792,51 @@ Como dito anteriormente, a iteração pode ser feita por meio de outra recursão
  7
  8
  9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">collatz</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">collatz</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
 <span class="nf">collatz</span> <span class="n">n</span> <span class="n">i</span>
     <span class="o">|</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="n">n</span>
     <span class="o">|</span> <span class="n">even</span> <span class="p">(</span><span class="n">collatz</span> <span class="n">n</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="ow">=</span> <span class="n">collatz</span> <span class="n">n</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">2</span>
     <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">collatz</span> <span class="n">n</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span>
 
-<span class="nf">converge</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
-<span class="nf">converge</span> <span class="n">n</span> <span class="n">passo</span>
+
+<span class="nf">converge</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="nf">converge</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">convergeInterna</span> <span class="n">n</span> <span class="mi">1</span>
+
+
+<span class="nf">convergeInterna</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="nf">convergeInterna</span> <span class="n">n</span> <span class="n">passo</span>
     <span class="o">|</span> <span class="n">collatz</span> <span class="n">n</span> <span class="n">passo</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="kt">True</span>
-    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">converge</span> <span class="n">n</span> <span class="p">(</span><span class="n">passo</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">convergeInterna</span> <span class="n">n</span> <span class="p">(</span><span class="n">passo</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <p>Vejamos alguns exemplos.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">collatz</span> <span class="mi">7</span> <span class="mi">13</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">collatz</span> <span class="mi">7</span> <span class="mi">13</span>
 <span class="mi">16</span>
 <span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">collatz</span> <span class="mi">7</span> <span class="mi">17</span>
 <span class="mi">1</span>
-<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">converge</span> <span class="mi">7</span> <span class="mi">15</span>
+<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">converge</span> <span class="mi">7</span>
 <span class="kt">True</span>
-<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">converge</span> <span class="mi">7</span> <span class="mi">1</span>
+<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">converge</span> <span class="mi">12</span>
+<span class="kt">True</span>
+<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">convergeInterna</span> <span class="mi">7</span> <span class="mi">15</span>
+<span class="kt">True</span>
+<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">convergeInterna</span> <span class="mi">7</span> <span class="mi">1</span>
 <span class="kt">True</span>
 </code></pre></div>
 </td></tr></table>
@@ -839,7 +844,7 @@ Como dito anteriormente, a iteração pode ser feita por meio de outra recursão
 Quando seu computador começar a se desesperar ou você cansar de esperar, aperte <span class="keys"><kbd class="key-control">Ctrl</kbd></span> + <span class="keys"><kbd class="key-c">C</kbd></span>.
 Mas por quê esta função tão simples ficou tão pesada? Por quê para calcular se a sequência converge, primeiro a função testou o primeiro termo, 27, e viu que não era igual 1; calculou então o segundo termo, para isto calculando o primeiro termo novamente, e testando se igual a 1; calculou então o terceiro termo, para isso calculando o segundo termo, para isso calculando o primeiro, e assim por diante. 
 Além disso, no cálculo de cada termo, há um teste para ver se o termo anterior é ímpar ou par, o que por si só calcula o termo anterior.</p>
-<p>Mais tarde veremos como tornar esta função muito mais eficiente, mas por enquanto pensemos em como podemos limitar o número de passos nesta iteração.</p>
+<p>Mais tarde veremos como tornar esta função muito mais eficiente, como na versão em C, em que o termo anterior só é calculado uma vez, mas por enquanto pensemos em como podemos limitar o número de passos nesta iteração.</p>
 <div class="admonition exercise">
 <p class="admonition-title">Exercício</p>
 <ul>
@@ -933,13 +938,13 @@ Esta técnica será explorada no futuro, uma vez que já estejam confortáveis c
         </a>
       
       
-        <a href="../lists/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../where_let_in/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Listas
+              Where and Let-In
             </div>
           </div>
           <div class="md-footer__button md-icon">
