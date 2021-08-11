@@ -18,11 +18,11 @@ nav:
 
         - Recursão: recursion.md
 
+        - Where and Let-In: where_let_in.md
+
         - Listas: lists.md
 
         - QuickCheck: quickcheck.md
-
-        - Where and Let-In: where_let_in.md        
 
         - Classes de tipos: type_classes.md
 
