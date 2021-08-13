@@ -410,7 +410,7 @@
   
     <li class="md-nav__item">
       <a href="../where_let_in/" class="md-nav__link">
-        Where and Let-In
+        Where e Let-In
       </a>
     </li>
   
@@ -469,7 +469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../io.md" class="md-nav__link">
+      <a href="../io/" class="md-nav__link">
         Entrada e Saída
       </a>
     </li>
@@ -486,6 +486,21 @@
     <li class="md-nav__item">
       <a href="../observations/" class="md-nav__link">
         Observações
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project/" class="md-nav__link">
+        Projeto
       </a>
     </li>
   
@@ -883,21 +898,23 @@ Além disso, no cálculo de cada termo, há um teste para ver se o termo anterio
 </details>
 </div>
 <h6>Binomial</h6>
-<details class="todo"><summary>TODO</summary><p>
-<script type="math/tex; mode=display"> 
- \binom{n}{k} = 
-      \begin{cases}
-      \text{indefinido}   & \text{se} k > n\\
-      1                    & \text{se } k = 0\\
-      1                   & \text{se } k = n\\
-      \binom{n-1}{k} + \binom{n-1}{k-1} & \text{caso contrário }
-      \end{cases}
- </script>
-</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">binomial</span> <span class="n">n</span> <span class="n">n</span> <span class="ow">=</span> <span class="mi">0</span>
-</code></pre></div>
-</td></tr></table>
+<p>Há várias maneiras de se calcular o número de combinações que se pode obter com <span class="arithmatex">\(k\)</span> elementos de um conjunto de <span class="arithmatex">\(n\)</span> elementos.
+Uma destas formas é via a seguinte recorrência.</p>
+<div class="arithmatex">\[
+\binom{n}{k} = 
+     \begin{cases}
+     \text{indefinido}   &amp; \text{se} k &gt; n\\
+     1                   &amp; \text{se } k = 0\\
+     1                   &amp; \text{se } k = n\\
+     \binom{n-1}{k} + \binom{n-1}{k-1} &amp; \text{caso contrário }
+     \end{cases}
+\]</div>
+<div class="admonition exercise">
+<p class="admonition-title">Binomial</p>
+<p>Implemente uma função recursiva que calcule <span class="arithmatex">\(\binom{n}{k}\)</span></p>
+<details class="example"><summary>Resolução</summary><p>A ser implementado</p>
 </details>
+</div>
 <h2 id="recursao-e-listas">Recursão e Listas</h2>
 <p>Funções recursivas são particularmente importantes na manipulação listas, como veremos adiante.</p>
 <h2 id="recursao-de-cauda">Recursão de Cauda</h2>
@@ -944,7 +961,7 @@ Esta técnica será explorada no futuro, uma vez que já estejam confortáveis c
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Where and Let-In
+              Where e Let-In
             </div>
           </div>
           <div class="md-footer__button md-icon">

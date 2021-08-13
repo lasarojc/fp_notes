@@ -356,7 +356,7 @@
   
     <li class="md-nav__item">
       <a href="../where_let_in/" class="md-nav__link">
-        Where and Let-In
+        Where e Let-In
       </a>
     </li>
   
@@ -401,6 +401,27 @@
       Índice
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#estrutura" class="md-nav__link">
+    Estrutura
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-uteis" class="md-nav__link">
+    Funções úteis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#casamento-de-padroes" class="md-nav__link">
+    Casamento de padrões
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#recursao" class="md-nav__link">
@@ -469,7 +490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../io.md" class="md-nav__link">
+      <a href="../io/" class="md-nav__link">
         Entrada e Saída
       </a>
     </li>
@@ -486,6 +507,21 @@
     <li class="md-nav__item">
       <a href="../observations/" class="md-nav__link">
         Observações
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project/" class="md-nav__link">
+        Projeto
       </a>
     </li>
   
@@ -515,6 +551,27 @@
       Índice
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#estrutura" class="md-nav__link">
+    Estrutura
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-uteis" class="md-nav__link">
+    Funções úteis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#casamento-de-padroes" class="md-nav__link">
+    Casamento de padrões
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#recursao" class="md-nav__link">
@@ -561,14 +618,17 @@
 
   <!-- Content -->
   <h1 id="listas">Listas</h1>
-<p>Além das tuplas, discutidas anteriormente, listas também são uma forma de agregar múltiplas informações em um único valor.
-Mas o que é uma lista? É uma coleção ordenada de elementos, por exemplo, <code class="highlight"><span class="p">[</span><span class="s">&quot;Eu&quot;</span><span class="p">,</span><span class="s">&quot;amo&quot;</span><span class="p">,</span><span class="s">&quot;programação&quot;</span><span class="p">,</span><span class="s">&quot;funcional&quot;</span><span class="p">]</span></code> é coleção de quatro strings, em que o primeiro elemento é "Eu", o segundo "amo", e assim por diante. Já <code class="highlight"><span class="kt">String</span></code> e <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">12</span><span class="p">]</span></code> é uma lista de cinco elementos do tipo <code class="highlight"><span class="kt">Num</span></code>, que é um supertipo de números inteiros e de ponto flutuante.</p>
+<p>Vamos agora estudar listas, peças fundamentais no desenvolvimento de programas usando o paradigma funcional, por serem estruturas de dados que permitem agregar várias informações na forma de uma coleção ordenada de elementos.
+Por exemplo, <code class="highlight"><span class="p">[</span><span class="s">&quot;Eu&quot;</span><span class="p">,</span><span class="s">&quot;amo&quot;</span><span class="p">,</span><span class="s">&quot;programação&quot;</span><span class="p">,</span><span class="s">&quot;funcional&quot;</span><span class="p">]</span></code> é a coleção de quatro strings em que o primeiro elemento é "Eu", o segundo "amo", o terceiro "programação" e o quarto e último "funcional".
+Já <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">2</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">3</span><span class="ow">::</span><span class="kt">Int</span><span class="p">]</span></code> é uma lista de 3 elementos do tipo <code class="highlight"><span class="kt">Int</span></code>, onde o primeiro elemento é 1, o segundo 2, e o terceiro 3.
+"Mas e as tuplas?", você pergunta, "Não são exatamente isto?"</p>
+<h6>Listas x Tuplas</h6>
 <p>Listas tem duas particularidades que as diferenciam de tuplas.
-Primeiro, enquanto as tuplas <code class="highlight"><span class="p">(</span><span class="mi">1</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">2</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">3</span><span class="ow">::</span><span class="kt">Int</span><span class="p">)</span></code> e <code class="highlight"><span class="p">(</span><span class="mi">1</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">2</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">3</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">4</span><span class="ow">::</span><span class="kt">Int</span><span class="p">)</span></code> tem tipos diferentes, isto é, uma é uma tupla de <strong>três</strong> inteiros e a outra uma tupla de <strong>quatro</strong> inteiros, as listas <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">2</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">3</span><span class="ow">::</span><span class="kt">Int</span><span class="p">]</span></code> e <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">2</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">3</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">4</span><span class="ow">::</span><span class="kt">Int</span><span class="p">]</span></code> tem exatamente o mesmo tipo, lista de inteiro, ou mais especificamente, <code class="highlight"><span class="p">[</span><span class="kt">Int</span><span class="p">]</span></code>.
-Ou seja, listas com cardinalidades diferentes, mas com elementos do mesmo tipo, são do mesmo tipo.</p>
+Primeiro, enquanto as tuplas <code class="highlight"><span class="p">(</span><span class="mi">1</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">2</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">3</span><span class="ow">::</span><span class="kt">Int</span><span class="p">)</span></code> e <code class="highlight"><span class="p">(</span><span class="mi">1</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">2</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">3</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">4</span><span class="ow">::</span><span class="kt">Int</span><span class="p">)</span></code> tem tipos diferentes, isto é, uma é uma tupla de <strong>três</strong> inteiros e a outra uma tupla de <strong>quatro</strong> inteiros, as listas <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">2</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">3</span><span class="ow">::</span><span class="kt">Int</span><span class="p">]</span></code> e <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">2</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">3</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">4</span><span class="ow">::</span><span class="kt">Int</span><span class="p">]</span></code> tem exatamente o mesmo tipo, lista de inteiros, ou mais especificamente, <code class="highlight"><span class="p">[</span><span class="kt">Int</span><span class="p">]</span></code>.
+Listas, listas com cardinalidades diferentes, mas com elementos do mesmo tipo, são do mesmo tipo.</p>
 <p>Segundo, enquanto uma tupla pode ter elementos de tipos diferentes, todos os elementos de uma lista devem ser do mesmo tipo.
 Por exemplo, <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mf">4.2</span><span class="p">]</span></code> é uma lista de <code class="highlight"><span class="kt">Fractional</span></code>, que é um supertipo dos números de ponto flutuante.
-De fato, quando defino este lista, o Haskell automaticamente faz o boxing dos cinco primeiros para ponto flutuante.</p>
+De fato, quando defino este lista, o Haskell automaticamente faz o boxing dos cinco primeiros valores para ponto flutuante.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">z</span> <span class="ow">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mf">4.2</span><span class="p">]</span>
@@ -576,22 +636,101 @@ De fato, quando defino este lista, o Haskell automaticamente faz o boxing dos ci
 <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">3.0</span><span class="p">,</span><span class="mf">4.0</span><span class="p">,</span><span class="mf">17.0</span><span class="p">,</span><span class="mf">4.2</span><span class="p">]</span>
 </code></pre></div>
 </td></tr></table>
-<h6>Strings</h6>
-<p>Açúcar sintático par <code>[Char]</code></p>
-<h6>[] e :</h6>
+<p>Já a tupla <code class="highlight"><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mf">4.2</span><span class="p">)</span></code> tem elementos com tipos diferentes.<sup id="fnref:edicao"><a class="footnote-ref" href="#fn:edicao">1</a></sup></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="n">t</span>
+<span class="nf">t</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Num</span><span class="p">,</span> <span class="kt">Num</span><span class="p">,</span> <span class="kt">Num</span><span class="p">,</span> <span class="kt">Num</span><span class="p">,</span> <span class="kt">Num</span><span class="p">,</span> <span class="kt">Fractional</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>Uma vez diferenciadas das tuplas, estamos livres para explorar outros aspectos das listas, iniciando por como são construídas.</p>
+<h2 id="estrutura">Estrutura</h2>
+<p>Dado uma lista qualquer, de qualquer tipo, ela pode ser ou <strong>vazia</strong> ou não vazia, sendo que a lista vazia é representada em Haskell como <code class="highlight"><span class="kt">[]</span></code>.
+Listas não vazias são representadas como a concatenação do primeiro elemento da lista, com uma lista com os demais elementos da lista, usando o operador de concatenação <code class="highlight"><span class="kt">:</span></code>, ou <strong>cons</strong>.</p>
+<p>Por exemplo, a lista dos números 1, 2 e 3 nesta ordem é representada como <code class="highlight"><span class="mi">1</span><span class="kt">:</span><span class="mi">2</span><span class="kt">:</span><span class="mi">3</span><span class="kt">:[]</span></code>; observe que o como o 3 é o último elemento da lista, a lista que vem depois do cons, com os demais elementos da lista, é a lista vazia.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">x</span> <span class="ow">=</span> <span class="mi">1</span><span class="kt">:</span><span class="mi">2</span><span class="kt">:</span><span class="mi">3</span><span class="kt">:[]</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">x</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+<h6>Cabeça e Calda</h6>
+<p>Esta divisão de uma lista entre primeiro elemento e restante é o que chamamos de cabeça (<em>head</em>) e calda (<em>tail</em>) da lista.
+No exemplo anterior, <code class="highlight"><span class="mi">1</span><span class="kt">:</span><span class="mi">2</span><span class="kt">:</span><span class="mi">3</span><span class="kt">:[]</span></code>, 1 é a cabeça e <code class="highlight"><span class="mi">2</span><span class="kt">:</span><span class="mi">3</span><span class="kt">:[]</span></code> a calda.
+Haskell inclusive define funções para recuperar estas partes de uma lista qualquer.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">head</span> <span class="n">x</span>
+<span class="mi">1</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">tail</span> <span class="n">x</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+<p>A cabeça de uma lista de elementos de um tipo <span class="arithmatex">\(a\)</span> qualquer é um elemento do tipo <span class="arithmatex">\(a\)</span>.
+Já a calda desta lista é também uma lista de elementos do tipo <span class="arithmatex">\(a\)</span>.
+Logo, podemos subdividí-la também em uma cabeça e uma cauda, no exemplo, 2 e <code class="highlight"><span class="mi">3</span><span class="kt">:[]</span></code>. </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">head</span> <span class="p">(</span><span class="n">tail</span> <span class="n">x</span><span class="p">)</span>
+<span class="mi">2</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">tail</span> <span class="p">(</span><span class="n">tail</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+<p>Podemos aplicar esta head e tail mais uma vez na lista, obtendo 3 e <code class="highlight"><span class="kt">[]</span></code> como resultado.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">head</span> <span class="p">(</span><span class="n">tail</span> <span class="p">(</span><span class="n">tail</span> <span class="n">x</span><span class="p">))</span>
+<span class="mi">3</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">tail</span> <span class="p">(</span><span class="n">tail</span> <span class="p">(</span><span class="n">tail</span> <span class="n">x</span><span class="p">))</span>
+<span class="kt">[]</span>
+</code></pre></div>
+</td></tr></table>
+<p>Mas e se formos além? Neste caso estaríamos tentando identificar o primeiro elemento da lista, mas sendo a lista vazia, isto não é possível.
+Tampouco podemos extrair a lista após a cabeça. </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">head</span> <span class="kt">[]</span>
+<span class="o">***</span> <span class="kt">Exception:</span> <span class="kt">Prelude</span><span class="o">.</span><span class="n">head</span><span class="kt">:</span> <span class="n">empty</span> <span class="n">list</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">tail</span> <span class="kt">[]</span>
+<span class="o">***</span> <span class="kt">Exception:</span> <span class="kt">Prelude</span><span class="o">.</span><span class="n">tail</span><span class="kt">:</span> <span class="n">empty</span> <span class="n">list</span>
+</code></pre></div>
+</td></tr></table>
+<p>Logo, qualquer iteração nos elementos de uma lista, geralmente especificada por uma recursão que extrai a cabeça da lista a cada passo, precisa tomar cuidado para não tentar extrair a cabeça da lista vazia, como veremos na sessão sobre recursão aplicada a listas.</p>
+<h6>Um pouco de açúcar sintático</h6>
+<p>A especificação manual de uma lista usando o operador cons é não é muito utilizada na prática, sendo a especificação usando colchetes e vírgulas mais comum, como feito nos primeiros exemplos deste capítulo, e como o próprio Haskell exibe as listas.
+O efeito final é o mesmo, ficando para você a decisão qual construção usar.</p>
 <ul>
-<li><code>[]</code><ul>
-<li>Lista vazia</li>
-<li><code>:t []</code> - [a]</li>
+<li><code class="highlight"><span class="mi">1</span><span class="kt">:[]</span></code> é igual a <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="p">]</span></code></li>
+<li><code class="highlight"><span class="mi">2</span><span class="kt">:</span><span class="mi">1</span><span class="kt">:[]</span></code> é igual a <code class="highlight"><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span></code></li>
 </ul>
-</li>
-<li><code>:</code><ul>
-<li><code>1:[]</code> é igual a <code>[1]</code></li>
-<li><code>2:1:[]</code> é igual a <code>[2,1]</code></li>
-</ul>
-</li>
-</ul>
-<h6>Casamento de padrões</h6>
+<h6>Strings</h6>
+<p>Se o açúcar sintático dos colchetes representa nenhuma economia em termos de digitação de listas em geral, quando falamos em listas de caracteres a economia é clara e o resultado muito mais agradável. Isto por que para listas de caracteres, como <code class="highlight"><span class="p">[</span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="sc">&#39;b&#39;</span><span class="p">,</span><span class="sc">&#39;c&#39;</span><span class="p">]</span></code>, podemos escrever simplesmente <code class="highlight"><span class="s">&quot;abc&quot;</span></code>, com exatamente o mesmo efeito.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">minhaLista</span> <span class="ow">=</span> <span class="p">[</span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="sc">&#39;b&#39;</span><span class="p">,</span><span class="sc">&#39;c&#39;</span><span class="p">]</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">minhaLista</span>
+<span class="s">&quot;abc&quot;</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">minhaOutraLista</span> <span class="ow">=</span> <span class="s">&quot;abc&quot;</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">minhaOutraLista</span> 
+<span class="s">&quot;abc&quot;</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">minhaLista</span> <span class="o">==</span> <span class="n">minhaOutraLista</span> 
+<span class="kt">True</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="funcoes-uteis">Funções úteis</h2>
+<p>as de string
+outras</p>
+<h2 id="casamento-de-padroes">Casamento de padrões</h2>
 <p>Toda lista é ou uma lista vazia, ou um elemento como cabeça e uma lista como cauda.
 Assim, se cobrir estes dois casos em uma definição por casamento de padrões, terá coberto todos os casos.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -678,6 +817,14 @@ Assim, se cobrir estes dois casos em uma definição por casamento de padrões, 
 <h2 id="_1"><code>..</code></h2>
 <p>enumerações</p>
 <p>umADez = [1..10]</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:edicao">
+<p>Foi feita uma pequena edição na saída do comando <code class="highlight"><span class="kt">:</span><span class="n">t</span></code> para claridade, pois o resultado real envolvia supertipos, a serem vistos mais adiante.&#160;<a class="footnote-backref" href="#fnref:edicao" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
   <!-- Last update of source file -->
 
@@ -707,7 +854,7 @@ Assim, se cobrir estes dois casos em uma definição por casamento de padrões, 
               <span class="md-footer__direction">
                 Anterior
               </span>
-              Where and Let-In
+              Where e Let-In
             </div>
           </div>
         </a>

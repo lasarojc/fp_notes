@@ -14,7 +14,7 @@
     
     
       
-        <title>Where and Let-In - Programação Funcional</title>
+        <title>Where e Let-In - Programação Funcional</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Where and Let-In
+              Where e Let-In
             
           </span>
         </div>
@@ -358,7 +358,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Where and Let-In
+        Where e Let-In
       </a>
       
     </li>
@@ -418,7 +418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../io.md" class="md-nav__link">
+      <a href="../io/" class="md-nav__link">
         Entrada e Saída
       </a>
     </li>
@@ -435,6 +435,21 @@
     <li class="md-nav__item">
       <a href="../observations/" class="md-nav__link">
         Observações
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project/" class="md-nav__link">
+        Projeto
       </a>
     </li>
   
@@ -461,13 +476,56 @@
        as the main headline.
     -->
 
-  <h1>Where and Let-In</h1>
+  <h1>Where e Let-In</h1>
 
 
   <!-- Content -->
-  <p>where é usado em  fib2.hs</p>
+  <p>Frequentemente em nossas funções, precisamos usar mais de uma vez um valor calculado por outra função.
+No cálculo do índice de massa corporal a seguir, por exemplo, o valor do índice é a cada guarda, ou seja, pode ser calculado até 3 vezes.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">imc</span> <span class="n">p</span> <span class="n">a</span>
+    <span class="o">|</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mf">18.5</span> <span class="ow">=</span> <span class="s">&quot;Baixo&quot;</span>
+    <span class="o">|</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mf">25.0</span> <span class="ow">=</span> <span class="s">&quot;Normal&quot;</span>
+    <span class="o">|</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mf">30.0</span> <span class="ow">=</span> <span class="s">&quot;Alto&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Para estes casos, Haskell nos dá o construto <code>where</code>, que permite fazer definições "locais" à função.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">imc</span> <span class="n">p</span> <span class="n">a</span>
+    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="mf">18.5</span> <span class="ow">=</span> <span class="s">&quot;Baixo&quot;</span>
+    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="mf">25.0</span> <span class="ow">=</span> <span class="s">&quot;Normal&quot;</span>
+    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="mf">30.0</span> <span class="ow">=</span> <span class="s">&quot;Alto&quot;</span>
+    <span class="kr">where</span> <span class="n">imc&#39;</span> <span class="ow">=</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span>
+</code></pre></div>
+</td></tr></table>
+<p>Observe que múltiplas definições podem ser feitas no <code>where</code>, desde que estejam todas perfeitamente indentadas.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">imc</span> <span class="n">p</span> <span class="n">a</span>
+    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="n">baixo</span> <span class="ow">=</span> <span class="s">&quot;Baixo&quot;</span>
+    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="n">normal</span> <span class="ow">=</span> <span class="s">&quot;Normal&quot;</span>
+    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="n">alto</span> <span class="ow">=</span> <span class="s">&quot;Alto&quot;</span>
+    <span class="kr">where</span> <span class="n">imc&#39;</span> <span class="ow">=</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span>
+          <span class="n">baixo</span> <span class="ow">=</span> <span class="mf">18.5</span>  
+          <span class="n">normal</span> <span class="ow">=</span> <span class="mf">25.0</span>
+          <span class="n">alto</span> <span class="ow">=</span> <span class="mf">30.0</span>
+</code></pre></div>
+</td></tr></table>
+<p>where é usado em  fib2.hs</p>
 <p>let?</p>
-<p>Fibonacci pra cima</p>
+<ul>
+<li>Fibonacci pra cima</li>
+</ul>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -507,19 +565,6 @@
     <span class="kr">where</span> <span class="n">termo</span> <span class="ow">=</span> <span class="n">collatz</span> <span class="n">n</span> <span class="n">passo</span>
 </code></pre></div>
 </td></tr></table>
-<ul>
-<li>bmi é calculado só uma vez. mais fácil de atualizar os testes. <a href="http://learnyouahaskell.com/syntax-in-functions">http://learnyouahaskell.com/syntax-in-functions</a>
-        bmiTell :: (RealFloat a) =&gt; a -&gt; a -&gt; String<br />
-        bmiTell weight height<br />
-            | bmi &lt;= skinny = "You're underweight, you emo, you!"<br />
-            | bmi &lt;= normal = "You're supposedly normal. Pffft, I bet you're ugly!"<br />
-            | bmi &lt;= fat    = "You're fat! Lose some weight, fatty!"<br />
-            | otherwise     = "You're a whale, congratulations!"<br />
-            where bmi = weight / height ^ 2<br />
-                  skinny = 18.5<br />
-                  normal = 25.0<br />
-                  fat = 30.0  </li>
-</ul>
 
   <!-- Last update of source file -->
 
