@@ -18,7 +18,7 @@ nav:
 
         - Recursão: recursion.md
 
-        - Where and Let-In: where_let_in.md
+        - Where e Let-In: where_let_in.md
 
         - Listas: lists.md
 
@@ -29,6 +29,8 @@ nav:
         - Entrada e Saída: io.md
 
         - Observações: observations.md
+
+        - Projeto: project.md
 
 theme:
         name: material
