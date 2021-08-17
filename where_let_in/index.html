@@ -373,8 +373,38 @@
   
   
     <li class="md-nav__item">
+      <a href="../lazy/" class="md-nav__link">
+        Preguiça
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../lists/" class="md-nav__link">
         Listas
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recursion2.md" class="md-nav__link">
+        Recursão, denovo
       </a>
     </li>
   
@@ -481,7 +511,7 @@
 
   <!-- Content -->
   <p>Frequentemente em nossas funções, precisamos usar mais de uma vez um valor calculado por outra função.
-No cálculo do índice de massa corporal a seguir, por exemplo, o valor do índice é a cada guarda, ou seja, pode ser calculado até 3 vezes.</p>
+No cálculo do índice de massa corporal a seguir, por exemplo, o valor do índice é recalculado a cada guarda, ou seja, pode ser calculado até 3 vezes.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -492,6 +522,7 @@ No cálculo do índice de massa corporal a seguir, por exemplo, o valor do índi
 </code></pre></div>
 </td></tr></table>
 <p>Para estes casos, Haskell nos dá o construto <code>where</code>, que permite fazer definições "locais" à função.</p>
+<h6>Where</h6>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -503,7 +534,9 @@ No cálculo do índice de massa corporal a seguir, por exemplo, o valor do índi
     <span class="kr">where</span> <span class="n">imc&#39;</span> <span class="ow">=</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span>
 </code></pre></div>
 </td></tr></table>
-<p>Observe que múltiplas definições podem ser feitas no <code>where</code>, desde que estejam todas perfeitamente indentadas.</p>
+<p>O código fica muito mais legível desta forma.
+O where pode ser até usado múltiplas vezes, bastando que todas as definições estejam perfeitamente indentadas.
+No exemplo a seguir, fica fácil localizar e modificar as definições dos vários níveis de IMC. Ponto para a manutenabilidade!</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -516,30 +549,37 @@ No cálculo do índice de massa corporal a seguir, por exemplo, o valor do índi
     <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="n">normal</span> <span class="ow">=</span> <span class="s">&quot;Normal&quot;</span>
     <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="n">alto</span> <span class="ow">=</span> <span class="s">&quot;Alto&quot;</span>
     <span class="kr">where</span> <span class="n">imc&#39;</span> <span class="ow">=</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span>
-          <span class="n">baixo</span> <span class="ow">=</span> <span class="mf">18.5</span>  
+          <span class="n">baixo</span> <span class="ow">=</span> <span class="mf">18.5</span>
           <span class="n">normal</span> <span class="ow">=</span> <span class="mf">25.0</span>
           <span class="n">alto</span> <span class="ow">=</span> <span class="mf">30.0</span>
 </code></pre></div>
 </td></tr></table>
-<p>where é usado em  fib2.hs</p>
-<p>let?</p>
-<ul>
-<li>Fibonacci pra cima</li>
-</ul>
+<p><code>where</code> é especialmente útil na definição de funções recursivas, pois permite nomear as invocações, como por exemplo na definição da função que calcula os termos da sequência de Fibonacci, com e sem o uso do construto.</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Sem Where</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fib</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">0</span>
+<span class="nf">fib</span> <span class="mi">1</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="nf">fib</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">fib</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Com Where</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fibUp</span> <span class="ow">::</span> <span class="kt">Integer</span>  <span class="ow">-&gt;</span> <span class="kt">Integer</span> 
-<span class="nf">fibUp</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">0</span>
-<span class="nf">fibUp</span> <span class="mi">1</span> <span class="ow">=</span> <span class="mi">1</span>
-<span class="nf">fibUp</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">fibUpTo</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="n">n</span>
-    <span class="kr">where</span> <span class="n">fibUpTo</span> <span class="n">prevPrev</span> <span class="n">prev</span> <span class="n">prevCount</span> <span class="n">limit</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">prevCount</span> <span class="o">==</span> <span class="n">limit</span> <span class="kr">then</span> <span class="n">prev</span> <span class="o">+</span> <span class="n">prevPrev</span>
-                                                                        <span class="kr">else</span> <span class="n">fibUpTo</span> <span class="n">prev</span> <span class="p">(</span><span class="n">prev</span> <span class="o">+</span> <span class="n">prevPrev</span><span class="p">)</span> <span class="p">(</span><span class="n">prevCount</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="n">limit</span>
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fib</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">0</span>
+<span class="nf">fib</span> <span class="mi">1</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="nf">fib</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">prev</span> <span class="o">+</span> <span class="n">prevPrev</span>
+    <span class="kr">where</span> <span class="n">prev</span>     <span class="ow">=</span> <span class="n">fib</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> 
+          <span class="n">prevPrev</span> <span class="ow">=</span> <span class="n">fib</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<p>Collatz</p>
+</div>
+</div>
+<p>Neste caso pode-se argumentar que não houve ganhos com o mudança, dado que a função é muito simples.
+Em funções mais complexas, contudo, os benefícios em termos de legibilidade aumentam, como na função a seguir.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -563,6 +603,63 @@ No cálculo do índice de massa corporal a seguir, por exemplo, o valor do índi
     <span class="o">|</span> <span class="n">termo</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="kt">True</span>
     <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">converge</span> <span class="n">n</span> <span class="p">(</span><span class="n">passo</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
     <span class="kr">where</span> <span class="n">termo</span> <span class="ow">=</span> <span class="n">collatz</span> <span class="n">n</span> <span class="n">passo</span>
+</code></pre></div>
+</td></tr></table>
+<h6>let-in</h6>
+<p>Um outro construto interessante e com funcionalidade parecida é o <code class="highlight"><span class="kr">let</span> <span class="kr">in</span></code>, em que se pode fazer algumas definições no <code class="highlight"><span class="kr">let</span></code> e que serão visíveis no <code class="highlight"><span class="kr">in</span></code>. Por exemplo, nas seguintes definições.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="n">fib</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">0</span>
+    <span class="n">fib</span> <span class="mi">1</span> <span class="ow">=</span> <span class="mi">1</span>
+    <span class="n">fib</span> <span class="n">n</span> <span class="ow">=</span> <span class="kr">let</span> <span class="n">prev</span>     <span class="ow">=</span> <span class="n">fib</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> 
+                <span class="n">prevPrev</span> <span class="ow">=</span> <span class="n">fib</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="kr">in</span> <span class="n">prev</span> <span class="o">+</span> <span class="n">prevPrev</span>
+
+<span class="nf">areaCilindro</span> <span class="n">r</span> <span class="n">a</span> <span class="ow">=</span> 
+    <span class="kr">let</span> <span class="n">areaLateral</span> <span class="ow">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">a</span>
+        <span class="n">areaTopo</span> <span class="ow">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">r</span><span class="o">^</span><span class="mi">2</span>  
+    <span class="kr">in</span>  <span class="n">areaLateral</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">areaTopo</span>
+</code></pre></div>
+</td></tr></table>
+<p>Nestes exemplos, parece que <code class="highlight"><span class="kr">where</span></code> e <code class="highlight"><span class="kr">let</span> <span class="kr">in</span></code> são apenas sintaxes diferentes para o mesmo fim, criar definições locais.
+Isso é verdade, mas há algumas diferenças fundamentais.
+Primeiro, enquanto o as definições feitas no <code class="highlight"><span class="kr">where</span></code> são amarradas ao contexto da função em que estão colocadas, podendo ser vistas em quaisquer outras partes da função, por exemplo guardas, as definições feitas no <code class="highlight"><span class="kr">let</span></code> são muito mais localizadas, válidas apenas dentro do <code class="highlight"><span class="kr">in</span></code> correspondente. 
+Segundo, <code class="highlight"><span class="kr">let</span> <span class="kr">in</span></code> são expressões e podem aparecer em qualquer lugar onde uma expressão é esperada.
+Por exemplo, eles podem ser usados para definir constantes ou funções</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="kr">let</span> <span class="n">um</span> <span class="ow">=</span> <span class="mi">1</span> <span class="kr">in</span> <span class="n">um</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="mi">3</span>
+<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kr">let</span> <span class="n">quadrado</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="kr">in</span> <span class="n">quadrado</span> <span class="mi">3</span>
+<span class="mi">9</span>
+</code></pre></div>
+</td></tr></table>
+<p>Em alguns contextos em que o escopo é muito claro, podemos omitir o <code class="highlight"><span class="kr">in</span></code> da definição. No GHCI, por exemplo, o fizermos, então a definição feita será válida por toda a execução do REPL, ou até que seja sobrescrita.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kr">let</span> <span class="n">quadrado</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="kr">in</span> <span class="n">quadrado</span> <span class="mi">3</span>
+<span class="mi">9</span>
+<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">quadrado</span> <span class="mi">3</span>
+
+<span class="o">&lt;</span><span class="n">interactive</span><span class="o">&gt;:</span><span class="mi">25</span><span class="kt">:</span><span class="mi">1</span><span class="kt">:</span> <span class="ne">error</span><span class="kt">:</span>
+    <span class="kt">Variable</span> <span class="n">not</span> <span class="kr">in</span> <span class="n">scope</span><span class="kt">:</span> <span class="n">quadrado</span> <span class="ow">::</span> <span class="n">t0</span> <span class="ow">-&gt;</span> <span class="n">t</span>
+<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kr">let</span> <span class="n">quadrado</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
+<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">quadrado</span> <span class="mi">3</span>
+<span class="mi">9</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -600,13 +697,13 @@ No cálculo do índice de massa corporal a seguir, por exemplo, o valor do índi
         </a>
       
       
-        <a href="../lists/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../lazy/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Listas
+              Preguiça
             </div>
           </div>
           <div class="md-footer__button md-icon">

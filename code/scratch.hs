@@ -1,3 +1,7 @@
+import Debug.Trace(trace)
+
+
+
 {- 
 >>>fat 0
 1
@@ -670,3 +674,26 @@ mãoGanhadora (c1, c2, c3) (c4, c5, c6)
             | éJogo c1 c2 c3 == True && éJogo c4 c5 c6 == True && maiorMão (c1, c2, c3) (c4, c5, c6) == (c1, c2, c3) = (c1, c2, c3)
             | éJogo c1 c2 c3 == False && éJogo c4 c5 c6 == False && maiorMão (c1, c2, c3) (c4, c5, c6) == (c1, c2, c3) = (c1, c2, c3)
             | otherwise = (c4, c5, c6)
+
+
+
+{-
+>>>imc 70 1.8
+-}
+imc :: Double -> Double -> String
+imc p a
+    | imc' <= baixo = "Baixo"
+    | imc' <= normal = "Normal"
+    | imc' <= alto = "Alto"
+    where imc' = trace "hmmm... " (p / a ^ 2)
+          baixo = trace "b" (18.5)
+          normal = trace "n" (25.0)
+          alto = trace "a" (30.0)
+
+
+fib:: Integer -> Integer 
+fib 0 = 0
+fib 1 = 1
+fib n = let prev     = fib (n - 1) 
+            prevPrev = fib (n - 2)
+        in prev + prevPrev
