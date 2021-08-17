@@ -19,8 +19,12 @@ nav:
         - Recursão: recursion.md
 
         - Where e Let-In: where_let_in.md
+        
+        - Preguiça: lazy.md
 
         - Listas: lists.md
+
+        - Recursão, denovo: recursion2.md
 
         - QuickCheck: quickcheck.md
 

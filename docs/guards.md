@@ -86,7 +86,7 @@ Observe que se a terceira e segunda guardas fossem invertidas, o ano 1900 seria 
             | p / a ^ 2 <= 18.5 = "Baixo"
             | p / a ^ 2 <= 25.0 = "Normal"
             | p / a ^ 2 <= 30.0 = "Alto"
-            | otherwise  
+            | otherwise = error "Não sei o que dizer"
         ```
 
 ###### `otherwise` é verdade

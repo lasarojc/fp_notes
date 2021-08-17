@@ -246,21 +246,25 @@ Mais tarde veremos como tornar esta função muito mais eficiente, como na vers�
           ```
 
 ###### Binomial
+Há várias maneiras de se calcular o número de combinações que se pode obter com $k$ elementos de um conjunto de $n$ elementos.
+Uma destas formas é via a seguinte recorrência.
 
-???todo "TODO"
-     $$ 
-     \binom{n}{k} = 
-          \begin{cases}
-          \text{indefinido}   & \text{se} k > n\\
-          1                    & \text{se } k = 0\\
-          1                   & \text{se } k = n\\
-          \binom{n-1}{k} + \binom{n-1}{k-1} & \text{caso contrário }
-          \end{cases}
-     $$
+$$
+\binom{n}{k} = 
+     \begin{cases}
+     \text{indefinido}   & \text{se} k > n\\
+     1                   & \text{se } k = 0\\
+     1                   & \text{se } k = n\\
+     \binom{n-1}{k} + \binom{n-1}{k-1} & \text{caso contrário }
+     \end{cases}
+$$
 
-     ```hs
-     Main> binomial n n = 0
-     ```
+!!!exercise "Binomial"
+    Implemente uma função recursiva que calcule $\binom{n}{k}$
+
+    ???example "Resolução"
+        A ser implementado
+
 ## Recursão e Listas
 Funções recursivas são particularmente importantes na manipulação listas, como veremos adiante.
 
