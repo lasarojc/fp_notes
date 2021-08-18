@@ -7,12 +7,13 @@ Já `#!hs [1::Int,2::Int,3::Int]` é uma lista de 3 elementos do tipo `#!hs Int`
 
 ###### Listas x Tuplas
 Listas tem duas particularidades que as diferenciam de tuplas.
-Primeiro, enquanto as tuplas `#!hs (1::Int,2::Int,3::Int)` e `#!hs (1::Int,2::Int,3::Int,4::Int)` tem tipos diferentes, isto é, uma é uma tupla de **três** inteiros e a outra uma tupla de **quatro** inteiros, as listas `#!hs [1::Int,2::Int,3::Int]` e `#!hs [1::Int,2::Int,3::Int,4::Int]` tem exatamente o mesmo tipo, lista de inteiros, ou mais especificamente, `#!hs [Int]`. Ou seja, listas com cardinalidades diferentes, mas com elementos do mesmo tipo, são do mesmo tipo.
+Primeiro, enquanto as tuplas `#!hs (1::Int,2::Int,3::Int)` e `#!hs (1::Int,2::Int,3::Int,4::Int)` tem tipos diferentes, isto é, uma é uma tupla de **três** inteiros e a outra uma tupla de **quatro** inteiros, as listas `#!hs [1::Int,2::Int,3::Int]` e `#!hs [1::Int,2::Int,3::Int,4::Int]`tem exatamente o mesmo tipo, lista de inteiros, ou mais especificamente, `#!hs [Int]`.
+Ou seja, listas com cardinalidades diferentes, mas com elementos do mesmo tipo, são do mesmo tipo.
+Aliás, outra forma de escrever estas listas, enquanto especificando seus tipos, é `#!hs [1,2,3]::[Int]` e `#!hs [1,2,3,4]::[Int]`. 
 
 Segundo, enquanto uma tupla pode ter elementos de tipos diferentes, todos os elementos de uma lista devem ser do mesmo tipo.
-Ou seja, enquanto é possível definir `#!hs x = ("Joao", 14, True")`, não é possível definir `#!hs x = ["Joao", 14, True"`.
-É preciso observer contudo que é possível fazer `#!hs [1,2,3,4,17,4.2]`, com 2 sendo um número inteiro e 4.2 sendo ponto flutuante.
-Isto por que quando esta lista é definida, o Haskell procura um tipo que de onde todos os elementos da lista sejam derivados, no caso, `#!hs Fractional`.
+Ou seja, enquanto é possível definir `#!hs x = ("Joao", 14, True")`, não é possível definir `#!hs x = ["Joao", 14, True"]`.
+É preciso observer contudo que é possível construir uma lista `#!hs [1,2,3,4,17,4.2]`, mas mas isto só é possível porquê existe um tipo do qual todos os elementos da lista são derivados, no caso, `#!hs Fractional`.
 De fato, quando defino este lista, o Haskell automaticamente faz o boxing dos cinco primeiros valores para ponto flutuante.
 
 ```hs
@@ -31,6 +32,7 @@ Já a tupla `#!hs (1,2,3,4,17,4.2)` tem elementos com tipos diferentes.[^edicao]
 Prelude> :t t
 t :: (Num, Num, Num, Num, Num, Fractional)
 ```
+
 
 Uma vez diferenciadas das tuplas, estamos livres para explorar outros aspectos das listas, iniciando por como são construídas.
 
@@ -98,103 +100,153 @@ O efeito final é o mesmo, ficando para você a decisão qual construção usar.
 * `#!hs 1:[]` é igual a `#!hs [1]`
 * `#!hs 2:1:[]` é igual a `#!hs [2,1]`
 
+As duas notações podem até ser misturadas, como em `#!hs 1:2:[3,4,5]`, que é equivalente `#!hs [1,2,3,4,5]`.
+
+
 ###### Strings
-Se o açúcar sintático dos colchetes representa nenhuma economia em termos de digitação de listas em geral, quando falamos em listas de caracteres a economia é clara e o resultado muito mais agradável. Isto por que para listas de caracteres, como `#!hs ['a','b','c']`, podemos escrever simplesmente `#!hs "abc"`, com exatamente o mesmo efeito.
+Se o açúcar sintático dos colchetes não representa economia em termos de digitação de listas em geral, quando falamos em listas de caracteres a economia é clara e o resultado muito mais agradável. 
+Isto por que para listas de caracteres, como `#!hs ['a','b','c']`, podemos escrever simplesmente `#!hs "abc"`, com exatamente o mesmo efeito, e até misturar com o uso de cons.
 
 ```hs
-Prelude> minhaLista = ['a','b','c']
-Prelude> minhaLista
+Prelude> "abc"
 "abc"
-Prelude> minhaOutraLista = "abc"
-Prelude> minhaOutraLista 
+Prelude> ['a','b','c']
 "abc"
-Prelude> minhaLista == minhaOutraLista 
-True
+Prelude> 'a':['b','c']
+"abc"
+Prelude> 'a':"bc"
+"abc"
 ```
+
+###### [qualquer coisa]
+Uma lista pode conter elementos de qualquer tipo, desde que todos os elementos sejam do mesmo tipo.
+Logo, uma lista pode conter tipos primitivos, mas também tipos complexos, como tuplas e outras listas.
+Vejamos alguns exemplos:
+
+* `#!hs [1,2,3]::[Int]` - Lista de inteiros.
+* `#!hs [[1,2,3]]::[[Int]]` - Lista de listas de inteiros de inteiros.
+* `#!hs [[1,2,3],[],[3,4,5,6,7,8,9]]::[[Int]]` - Lista de listas de inteiros de inteiros.
+* `#!hs [(1,2,3),(3,4,5)]::[(Int,Int,Int)]` - Lista de triplas de inteiros.
+* `#!hs ("lala",['l','a'],'l':'ã':'o':[])` - Tripla de listas de Char.
+* `#!hs [True,False,True]::[Bool]` - Lista de booleanos.
+* `#!hs [(4,Ouro),(5,Paus)]::[Carta]` - Lista de cartas.
+* `#!hs [(1,2,3),(3)]` - Um bug
+
 
 ## Funções úteis
-as de string
-outras
+Em uma seção anterior, apresentamos algumas funções como úteis na manipulação de String.
+Na verdade, todas aquelas funções são definidas em termos de listas, e por isso as revisitaremos aqui, juntamente com mais algumas.
 
-## Casamento de padrões
-Toda lista é ou uma lista vazia, ou um elemento como cabeça e uma lista como cauda.
-Assim, se cobrir estes dois casos em uma definição por casamento de padrões, terá coberto todos os casos.
 
+|Operador|Operação| Exemplo |
+|----|----|----|
+| `++` | Concatenação de listas| `#!hs > "foo" ++ "bar"` <br> `#!hs "foobar"`|
+| `!!` | Elemento no índice| `#!hs >[1,2,3,4] !! 2 -> 3` |
+| `reverse` | Lista ao contrário | `#!hs >reverse [1,2,3,4] ` <br> ` [4,3,2,1]` |
+| `length` | Comprimento da string | `#!hs >length "foo bar" ` <br> ` 7` |
+| `last` | Último elemento da lista | `#!hs >last "foo bar"` <br> ` r`|
+| `concat` | Retorna a concatenação das listas dentro de uma lista | `#!hs >concat [[1,2,3,4],[5,6,7,8]]` <br> `[1,2,3,4,5,6,7,8]` <br> `#!hs >concat [[[1,2,3]],[[4,5,6]]]` <br> `#!hs [[1,2,3],[4,5,6]]` |
+| `elem`   | Verifica se o parâmetro é um elemento da lista | `#!hs >elem o "foo bar"` <br> `#!hs True`|
+| `null`   | Verifica se a lista é vazia | `#!hs >null ""` <br> `True`<br> `#!hs >null []` <br> `True` <br> `#!hs >null [1,2]` <br> `#!hs False`|
+| `replicate`   | Constrói uma lista pela replicação de um elemento | `#!hs >replicate 4 (1,2)` <br> `#!hs [(1,2),(1,2),(1,2),(1,2)]`|
+| `take` | Sublista iniciando em 0 | `#!hs >take 3 1:2:3:4:5:[] ` <br> `#!hs [1,2,3]` |
+| `drop` | Sublista começando em um índice| `#!hs >drop 3 ['f','o','o',' ','b','a','r'] ` <br> `#!hs " bar"` |
+| `takeWhile` | Sublista iniciando em 0 e até o primeiro elemento que não satisfaz ao critério, exclusive| `#!hs >takeWhile (<4) [1,2,3,4,5,6]` <br> `#!hs [1,2,3]` |
+| `dropWhile` | Sublista começando no primeiro elemento que não satisfaz ao critério, inclusive| `#!hs >dropWhile (<4) [1,2,3,4,5,6]` <br> `#!hs 4,5,6` |
+| `splitAt` | Dupla das sublistas geradas pela divisão no índice especificado| `#!hs >splitAt 3 [1,2,3,4,5,6]` <br> `#!hs ([1,2,3],[4,5,6])` |
+| `zip` | Lista de pares com os elementos das duas listas passadas como parâmetro| `#!hs >zip [1,2,3] [4,5,6]` <br> `#!hs [(1,4),(2,5),(3,6)]` |
+| `sum` | Somatório dos elementos da lista| `#!hs >sum [1,2,3,4,5,6]` <br> `#!hs 16` |
+| `product` | Produtório dos elementos da lista| `#!hs >product [1,2,3,4,5,6]` <br> `#!hs 720` |
+| `maximum` | Maior dos elemento lista| `#!hs >maximum [1,2,3,4,5,6]` <br> `#!hs 6` |
+| `minimum` | Menor dos elementos da lista| `#!hs >minimum [1,2,3,4,5,6]` <br> `#!hs 1` |
+
+
+!!!exercise "Exercícios"
+    * Zip de listas de tipos diferentes.
+    * Mínimo e máximo de lista de tuplas.
+
+
+## Enumeração
+Para facilitar a vida dos desenvolvedores, o Haskell permite a construção de listas por enumeração, bastando para isso o especificar o primeiro elemento da lista, opcionalmente o segundo, e o último elemento.
+Por exemplo
 ```hs
-oQueHáNaCabeça :: (Show a) => [a] -> String
-oQueHáNaCabeça [] = "Nada"
-oQueHáNaCabeça (x:xs) = "Há " ++ x
+Prelude> [11,13..23]
+[11,13,15,17,19,21,23]
+
+Prelude> [-15,-13..14]
+[-15,-13,-11,-9,-7,-5,-3,-1,1,3,5,7,9,11,13]
 ```
 
-Isso não quer dizer que não possa ser mais específico no padrão e usar o casamento de padrões para extrair mais elementos do início da lista.
+Observe que o Haskell determinou um passo de incremento igual a $13-11 = 2$ no primeiro exemplo e $-15 - -13 = 2$ no segundo exemplo, e usou estes passos para gerar as lista.
+
+Também é possível definir um passo negativo, como no próximo exemplo.
 
 ```hs
-oQueHáNaLista :: (Show a) => [a] -> String
-oQueHáNaLista [] = "Nada"
-oQueHáNaLista [x] = "Só " ++ x
-oQueHáNaLista [x1,x2] = "Há " ++ x1 ++ " e " ++ x2
-oQueHáNaLista (x:xs) = "Há " ++ x ++ " e mais um monte de coisas" 
+Prelude> [11,9..0]
+[11,9,7,5,3,1]
+```
+
+Como mencionado, o segundo elemento é opcional na enumeração e caso não especificado, o Haskell assume que seja $1$, como no exemplo a seguir.
+
+```hs
+Prelude> [11..23]
+[11,12,13,14,15,16,17,18,19,20,21,22,23]
+Prelude> [3.5..10]
+[3.5,4.5,5.5,6.5,7.5,8.5,9.5,10.5]
+```
+
+Contudo, não é possível omitir o segundo elemento se a intenção gerar uma lista com valores decrescentes.
+
+```hs
+Prelude> [11..0]
+[]
+```
+
+A enumeração pode ser feita para outros tipos que não sejam numéricos, bastando que exista uma relação de ordem entre os elementos para que o Haskell consiga "incrementar" a cada passo.
+Isso existe, por exemplo, entre os caracteres, mas também para tipos definidos pelo desenvolvedor.[^espaco]
+
+[^espaco]: No exemplo, observe o espaço entre `Copas` e `..`.
+
+```hs
+Prelude> ['a'..'m']
+"abcdefghijklm"
+
+Prelude> data Naipe = Copas | Espada | Ouro | Paus deriving (Ord,Eq,Enum,Show)
+Prelude> [Copas ..Ouro]
+[Copas,Espada,Ouro]
 ```
 
 
-```hs
-resumo :: [a] -> "String"
-resumo [] -> "Nada"
-resumo [_] -> "Um"
-resumo [_,_] -> "Dois"
-resumo _ -> "Muitos"
-```
+!!!exercise "Exercício"
+    * Defina uma função que dado um número inteiro x, gere uma lista de 1 a x e de volta a 1.
 
-## Recursão
+    ???example "Resolução"
+        ```hs
+        vaiEVolta n = lista ++ drop 1 (reverse lista)
+            where lista = [1..n]
+        ```
 
-```hs
-resumo :: [String] -> "String"
-resumo [] -> "Nada"
-resumo [e] -> "Só " ++ e
-resumo [e1,e2] -> e1 ++ " e " ++ e2
-resumo (e1:resto) -> e1 ++ 
-                    " um monte de coisas, terminando com " ++ 
-                    last rest
-```
+        ```hs
+        *Main> vaiEVolta 3
+        [1,2,3,2,1]
+        ```
+    * Defina uma função que dado uma String, verifique se ela é um palíndromo.
 
+    ???example "Resolução"
+        ```hs
+        éPalíndromo s = s == reverse s
+        ```
 
-$maximum~[1,2,3] = max~1 \left( maximum~[2,3] = max~2 \left( maximum~[3] = 3 \right)        \right)$
+        ```hs
+        *Main> éPalíndromo "aba"
+        True
+        *Main> éPalíndromo "abac"
+        False
+        ```
 
+    * Defina uma função que calcule o fatorial e um número n, usando `product` e listas por enumeração.
 
-```hs
-maximum [] = error "lista vazia"  
-maximum [h] = h
-maximum (h:t) = max h (maximum t)
-```
-
-comprimento
-
-```hs
-comprimento :: [a] -> Int
-comprimento [] = 0
-comprimento (x:xs) = 1 + len xs
-```
-
-último
-
-```hs
-último :: [a] -> a
-último [] = error "List is empty"
-último [x] = x
-último (_:xs) = last xs
-``` 
-
-inverso
-
-```hs
-inverso :: [a] -> [a]
-inverso [] = []
-inverso (x:xs) = inverso xs ++ [x]
-```
-
-## Compreensão de Listas
-
-## `..`
-enumerações
-
-umADez = [1..10]
+    ???example "Resolução"
+    ```hs
+    fatorial n = product [1..n]
+    ```

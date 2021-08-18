@@ -69,11 +69,11 @@ docs/code/collatz3.hs
 Um outro construto interessante e com funcionalidade parecida é o `#!hs let in`, em que se pode fazer algumas definições no `#!hs let` e que serão visíveis no `#!hs in`. Por exemplo, nas seguintes definições.
 
 ```hs
-    fib 0 = 0
-    fib 1 = 1
-    fib n = let prev     = fib (n - 1) 
-                prevPrev = fib (n - 2)
-            in prev + prevPrev
+fib 0 = 0
+fib 1 = 1
+fib n = let prev     = fib (n - 1) 
+            prevPrev = fib (n - 2)
+        in prev + prevPrev
 
 areaCilindro r a = 
     let areaLateral = 2 * pi * r * a

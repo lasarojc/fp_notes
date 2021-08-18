@@ -36,21 +36,24 @@
 
 
 - [ ] Listas
-    - [ ] sao homogêneas
+    - [x] sao homogêneas
     - [ ] range operator [1..10]
-    - [ ] : cons
-    - [ ] ++ append
-    - [ ] !! get at index
-    - [ ] lazy - mostrar com listas infinitas
+    - [x] : cons
+    - [x] ++ append
+    - [x] !! get at index
     - [ ] Pattern matching
     - [ ] Compreensão de listas
+        - [ ] lazy - mostrar com listas infinitas
+        - [ ] a função cycle
 
 - [x] Tuplas
 
 - [ ] Funções
     - [x] Equações simples
     - [x] Guarda
-    - [ ] where 
+    - [ ] where
+        - https://stackoverflow.com/questions/32562614/is-something-in-the-where-clause-in-haskell-only-calculated-once
+        - https://takenobu-hs.github.io/downloads/haskell_lazy_evaluation.pdf
     - [ ] let in 
 
     - [ ] Recursão
@@ -89,7 +92,7 @@
 - [ ] Cálculo Lambda: 
     - https://crypto.stanford.edu/~blynn/lambda/
     - https://youtu.be/3VQ382QG-y4
-    - [ ] transparência referencial
+    - [ ] transparência referencial - https://takenobu-hs.github.io/downloads/haskell_lazy_evaluation.pdf
     - [ ] idempotência
 
 - [ ] Algoritmos de Ordenação:
@@ -125,47 +128,3 @@ Exercícios/Provas
     - cartas
         - teste se bateu em algum jogo
         - ordene as cartas
-
-Trabalho
-
-- Tabuleiro
-    - Versão 1, tuplas e strings
-        - Tabuleiro é uma tupla com 8 Linha.  type Tabuleiro = (Linha,Linha,...., Linha)
-        - Linha é uma tupla com 8 Célula.     type Linha = (Celula, ..., Celula)
-        - Célula é uma tupla com 4 Item
-            - Interprete a célula como uma pilha em que o primeiro elemento está na base.
-            - Na célula, "sobre" quer dizer imediatamente subsequente na pilha.
-            - Na célula, "acima" quer dizer em qualquer posição subsequente na pilha.
-        - Item é uma string com um dos seguintes valores 
-            - "" (nada) - se presente na tupla, só pode estar sobre outros nada
-            - "grama" - se presente na tupla, deve ser o primeiro elemento
-            - "presente" - se presente na tupla, deve estar sobre "grama"
-            - "pedra" - se presente na tupla, pode ser o primeiro elemento, estar sobre grama ou sobre um presente.
-            - "bomba" - se presente na tupla, deve estar sobre grama
-            - "jogador X" - se presente na tupla, deve estar sobre grama; X identifica o jogador
-- Jogador é uma tupla com os seguintes elementos
-    - identificador - Char
-    - localização - é uma tupla com coordenadas X e Y do tipo Int
-    - direção - é um caractere que indica para onde on jogador está olhando. Pode assumir um dos valores 'N', 'S', 'L' e 'O'
-    - capacidades - é uma tupla com 3 elementos com um dos seguintes valores
-        - "" (nada)
-        - "patins"
-        - "bomba"
-        - "arremesso"
-- Funções de manipulação
-    - Criação de um tabuleiro
-    - Movimentação de um jogador em qualquer dos sentidos
-        - Deslocamento
-        - Coleta de presente - teste de capacidade
-        - Queda em buraco
-        - Impossibilidade de movimento
-    - Arremesso
-        - Teste de capacidade
-        - Teste de direção
-    - Explosão
-        - Direção
-        - Capacidade
-        - Eliminação de presentes
-        - Eliminação de pedra
-        - Eliminação de jogador
-    - Detecção de fim de jogo

@@ -150,5 +150,5 @@ Em vez de uma função custosa como a Fibonacci recursiva, se construirmos uma l
 
 Sem a avaliação preguiçosa, teríamos uma lista de 100 inteiros, sendo o maior 401, que cabe facilmente em um array de bytes.
 Contudo, com a avaliação preguiçosa, temos uma lista de expressões que indicam duas multiplicações e duas somas, certamente mais espaçosas que a alternativa anterior.
-A principal consequência disto é que embora leve à economia de computação, às vezes a avaliação preguiçosa leva ao uso exagerado de espaço.
+A principal consequência disto é que, embora leve à economia de computação, às vezes a avaliação preguiçosa leva ao uso exagerado de espaço.
 Além disso, computações pesadas invocadas em um período de pouca atividade no sistema podem ser executadas mais tarde, quando o sistema está sobrecarregado, aumentando a variabilidade do tempo de execução e dificultando a previsão de término da computação.

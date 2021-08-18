@@ -6,11 +6,14 @@ Ainda assim, o projeto não é trivial e por isso vamos dividí-lo em etapas par
 De forma geral, podemos dividir o projeto em duas etapas:
 
 * Etapa 1
-    * Estruturas de dados para representação dos elementos do jogo usando **tuplas**
+    * Estruturas de dados para representação dos elementos do jogo usando **listas**
+    * Uso de tipos primitivos para representação do estado e dos elementos do jogo.
+        * Uso de `type`
     * Funções de manipulação das estruturas
 * Etapa 2
-    * Definição de tipos para representação dos elementos do jogo.
-    * Estruturas de dados para representação dos elementos do jogo usando **listas**
+    * Uso de tipos definidos pelo usuário para representação do estado e dos elementos do jogo.
+        * Uso de data
+        * Tipos algébricos
     * Funções de manipulação das estruturas
     * Visualização do tabuleiro
     * Movimentação de (pelo menos) um bomberman pelo tabuleiro usando o teclado
@@ -20,7 +23,6 @@ De forma geral, podemos dividir o projeto em duas etapas:
 Um tabuleiro de bomberman pode ser visto como uma matriz em que cada célula é uma pilha de elementos.
 Em nosso protótipo, os seguintes elementos podem estar presentes na célula:
 
-- buraco
 - grama
 - presente_patins
 - presente_arremesso
@@ -29,13 +31,12 @@ Em nosso protótipo, os seguintes elementos podem estar presentes na célula:
 
 Algumas regras devem ser respeitadas pela pilha, onde "sobre" quer dizer imediatamente subsequente acima na pilha.
 
-- buraco é sempre o primeiro elemento.
-- um buraco só pode estar sobre outro buraco
-- grama só pode estar sobre buraco
+- uma pilha vazia é um buraco no tabuleiro
+- grama só pode estar na base da pilha
 - presente só pode estar sobre grama
-- pedra só pode estar sobre buraco, grama ou presente
+- pedra só pode estar na base da pilha, sobre grama ou sobre presente
 - bomba só pode estar sobre grama
-- jogador só pode estar sobre buraco, grama ou presente
+- jogador só pode estar sobre grama
 
 Para representar a matriz do tabuleiro, usaremos uma tupla de tuplas. 
 Assim, defina as seguintes estruturas de dados.
@@ -43,10 +44,7 @@ Assim, defina as seguintes estruturas de dados.
 - Tabuleiro é uma tupla com 8 Linha.
 - Linha é uma tupla com 8 Célula.
 - Célula é uma pilha com 4 Item
-    - Use uma tupla para representar pilha
-    - Use buracos para preencher espaços na tupla
-        - Por exemplo, uma célula vazia é uma tupla com 8 buracos
-        - Uma célula com grama e um jogador é uma tupla com 2 buracos, uma grama e um jogador.
+    - Use uma lista para representar a pilha
 
 Para cada jogador, você precisa manter algumas informações extra como
 
@@ -65,11 +63,15 @@ Nesta primeira etapa, você desenvolverá as funções que permitirão criar e m
 - Criação de um tabuleiro
 - Movimentação de um jogador em qualquer dos sentidos
     - Deslocamento
-    - Coleta de presente - teste de capacidade
-    - Queda em buraco
-    - Impossibilidade de movimento
+        - Jogador só pode se deslocar para célula adjacente que não tenha pedra ou bomba
+        - Pode ser impossível ao jogador se delocar
+        - Ao se deslocar para uma célula vazia, cai no buraco
+        - Ao se deslocar para uma célula com um presente, o coleta
+    - Coleta de presente
+        - Ao coletar um presente, incrementa a posição correspondente ao presente nas suas capacidades
 - Arremesso
     - Teste de capacidade
+        - Se estiver adjacente, olhando para uma bomba, e tiver a capacidade "arremesso", o jogador arremessa a bomba uma distância proporcional à capacidade.
     - Teste de direção
 - Explosão
     - Direção

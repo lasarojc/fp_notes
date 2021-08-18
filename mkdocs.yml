@@ -20,9 +20,9 @@ nav:
 
         - Where e Let-In: where_let_in.md
         
-        - Preguiça: lazy.md
+        - Listas: lists.md # mais listas
 
-        - Listas: lists.md
+        - Preguiça: lazy.md
 
         - Recursão, denovo: recursion2.md
 

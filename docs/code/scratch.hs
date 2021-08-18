@@ -266,7 +266,7 @@ True
 -}
 
 
-data Naipe = Copas | Espada | Ouro | Paus deriving (Ord,Eq)
+data Naipe = Copas | Espada | Ouro | Paus deriving (Ord,Eq,Enum,Show)
 
 
 
@@ -697,3 +697,99 @@ fib 1 = 1
 fib n = let prev     = fib (n - 1) 
             prevPrev = fib (n - 2)
         in prev + prevPrev
+
+
+vaiEVolta n = lista ++ drop 1 (reverse lista)
+    where lista = [1..n]
+
+
+éPalíndromo s = s == reverse s
+
+
+
+imc'' p a
+      | imcDeVerdade <= 18.5 = "Baixo"
+      | imcDeVerdade <= 25.0 = "Normal"
+      | imcDeVerdade <= 30.0 = "Alto"
+      where imcDeVerdade = p / a^2
+
+
+teste :: Int -> Int -> Double
+teste x y =  xD / yD
+    where xD = fromIntegral x ::Double
+          yD = fromIntegral y ::Double
+
+
+x = 0
+soma y
+ | y == 0 = 0
+ | y > 0 = y + soma(y-1)  -- .... queria tambem mudar o valor do meu x, fazer tipo um x += 2
+
+{-
+ soma 3 = 3 + soma 2
+        = 3 + (2 + soma 1)
+        = 3 + (2 + (1 + soma 0))
+        = 3 + (2 + (1 + 0))
+        = 3 + (2 + 1)
+        = 3 + 3
+        = 6
+-}
+
+{-
+Defina uma função que arredonde um número Real pra um Integer de forma que se for maior que 0, arredonde para baixo e se for menor que zero arredonde para cima.
+Dica: use floor e ceiling
+
+>>>arredonda0 (-2.5)
+-2
+>>>arredonda0 (2.5)
+2
+
+Defina uma função que arredonde um número Real pra um Integer de forma que se for maior que 0, arredonde para cima e se for menor que zero arredonde para baixo
+
+>>>arredondaInf (-1.5)
+Variable not in scope: arredondaInf :: t0 -> t
+>>>arredondaInf (1.5)
+Variable not in scope: arredondaInf :: t0 -> t
+
+-}
+
+arredonda0 :: Float -> Int
+arredonda0 x
+    | menorQueZero = cima
+    | maiorQueZero = baixo
+    | otherwise = 0
+    where cima = ceiling x
+          baixo = floor x
+          maiorQueZero = x > 0
+          menorQueZero = x < 0
+
+arredonda0let :: Float -> Int
+arredonda0let x
+    | menorQueZero = let cima = ceiling x in cima
+    | maiorQueZero = let baixo = floor x in baixo
+    | otherwise = 0
+    where maiorQueZero = x > 0
+          menorQueZero = x < 0
+
+arredonda0let' :: Float -> Int
+arredonda0let' x
+    | x > 0  = let cima = ceiling x in cima
+    | x <= 0 = let baixo = floor x in baixo
+    | otherwise = 0
+
+
+{- 
+Reescreva a função acima usando let-in em vez de where
+-}
+
+arredonda :: Float -> Int
+arredonda x = let maior = x >= 0
+                  menor = x < 0
+                  cima = ceiling x
+                  baixo = floor x
+              in if maior then baixo
+                          else cima
+
+arredonda0' :: Float -> Int
+arredonda0' x = if x >= 0 then let cima = floor x in cima
+                          else let baixo = ceiling x in baixo
