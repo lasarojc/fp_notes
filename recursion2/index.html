@@ -14,7 +14,7 @@
     
     
       
-        <title>Refs - Programação Funcional</title>
+        <title>Recursão, denovo - Programação Funcional</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Refs
+              Recursão, denovo
             
           </span>
         </div>
@@ -393,11 +393,19 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../recursion2/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Recursão, denovo
       </a>
+      
     </li>
   
 
@@ -498,21 +506,26 @@
        as the main headline.
     -->
 
-  <h1>Refs</h1>
+  <h1>Recursão, denovo</h1>
 
 
   <!-- Content -->
   <ul>
-<li>
-<p>Tutorial completo de PF</p>
-<ul>
-<li><a href="https://www.tutorialspoint.com/functional_programming/functional_programming_introduction.htm">https://www.tutorialspoint.com/functional_programming/functional_programming_introduction.htm</a></li>
+<li>Fibonacci pra cima</li>
 </ul>
-</li>
-<li>
-<p><a href="https://www.cse.chalmers.se/edu/year/2018/course/TDA555/lectures.html">https://www.cse.chalmers.se/edu/year/2018/course/TDA555/lectures.html</a></p>
-</li>
-</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fibUp</span> <span class="ow">::</span> <span class="kt">Integer</span>  <span class="ow">-&gt;</span> <span class="kt">Integer</span> 
+<span class="nf">fibUp</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">0</span>
+<span class="nf">fibUp</span> <span class="mi">1</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="nf">fibUp</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">fibUpTo</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="n">n</span>
+    <span class="kr">where</span> <span class="n">fibUpTo</span> <span class="n">prevPrev</span> <span class="n">prev</span> <span class="n">prevCount</span> <span class="n">limit</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">prevCount</span> <span class="o">==</span> <span class="n">limit</span> <span class="kr">then</span> <span class="n">prev</span> <span class="o">+</span> <span class="n">prevPrev</span>
+                                                                        <span class="kr">else</span> <span class="n">fibUpTo</span> <span class="n">prev</span> <span class="p">(</span><span class="n">prev</span> <span class="o">+</span> <span class="n">prevPrev</span><span class="p">)</span> <span class="p">(</span><span class="n">prevCount</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="n">limit</span>
+</code></pre></div>
+</td></tr></table>
 
   <!-- Last update of source file -->
 
@@ -530,6 +543,39 @@
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../lazy/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Preguiça
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../quickcheck/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              QuickCheck
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

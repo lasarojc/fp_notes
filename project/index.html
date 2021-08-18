@@ -370,21 +370,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../lazy/" class="md-nav__link">
-        Preguiça
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../lists/" class="md-nav__link">
         Listas
       </a>
@@ -400,7 +385,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../recursion2.md" class="md-nav__link">
+      <a href="../lazy/" class="md-nav__link">
+        Preguiça
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recursion2/" class="md-nav__link">
         Recursão, denovo
       </a>
     </li>
@@ -580,13 +580,20 @@ Ainda assim, o projeto não é trivial e por isso vamos dividí-lo em etapas par
 De forma geral, podemos dividir o projeto em duas etapas:</p>
 <ul>
 <li>Etapa 1<ul>
-<li>Estruturas de dados para representação dos elementos do jogo usando <strong>tuplas</strong></li>
+<li>Estruturas de dados para representação dos elementos do jogo usando <strong>listas</strong></li>
+<li>Uso de tipos primitivos para representação do estado e dos elementos do jogo.<ul>
+<li>Uso de <code>type</code></li>
+</ul>
+</li>
 <li>Funções de manipulação das estruturas</li>
 </ul>
 </li>
 <li>Etapa 2<ul>
-<li>Definição de tipos para representação dos elementos do jogo.</li>
-<li>Estruturas de dados para representação dos elementos do jogo usando <strong>listas</strong></li>
+<li>Uso de tipos definidos pelo usuário para representação do estado e dos elementos do jogo.<ul>
+<li>Uso de data</li>
+<li>Tipos algébricos</li>
+</ul>
+</li>
 <li>Funções de manipulação das estruturas</li>
 <li>Visualização do tabuleiro</li>
 <li>Movimentação de (pelo menos) um bomberman pelo tabuleiro usando o teclado</li>
@@ -597,7 +604,6 @@ De forma geral, podemos dividir o projeto em duas etapas:</p>
 <p>Um tabuleiro de bomberman pode ser visto como uma matriz em que cada célula é uma pilha de elementos.
 Em nosso protótipo, os seguintes elementos podem estar presentes na célula:</p>
 <ul>
-<li>buraco</li>
 <li>grama</li>
 <li>presente_patins</li>
 <li>presente_arremesso</li>
@@ -606,13 +612,12 @@ Em nosso protótipo, os seguintes elementos podem estar presentes na célula:</p
 </ul>
 <p>Algumas regras devem ser respeitadas pela pilha, onde "sobre" quer dizer imediatamente subsequente acima na pilha.</p>
 <ul>
-<li>buraco é sempre o primeiro elemento.</li>
-<li>um buraco só pode estar sobre outro buraco</li>
-<li>grama só pode estar sobre buraco</li>
+<li>uma pilha vazia é um buraco no tabuleiro</li>
+<li>grama só pode estar na base da pilha</li>
 <li>presente só pode estar sobre grama</li>
-<li>pedra só pode estar sobre buraco, grama ou presente</li>
+<li>pedra só pode estar na base da pilha, sobre grama ou sobre presente</li>
 <li>bomba só pode estar sobre grama</li>
-<li>jogador só pode estar sobre buraco, grama ou presente</li>
+<li>jogador só pode estar sobre grama</li>
 </ul>
 <p>Para representar a matriz do tabuleiro, usaremos uma tupla de tuplas. 
 Assim, defina as seguintes estruturas de dados.</p>
@@ -620,12 +625,7 @@ Assim, defina as seguintes estruturas de dados.</p>
 <li>Tabuleiro é uma tupla com 8 Linha.</li>
 <li>Linha é uma tupla com 8 Célula.</li>
 <li>Célula é uma pilha com 4 Item<ul>
-<li>Use uma tupla para representar pilha</li>
-<li>Use buracos para preencher espaços na tupla<ul>
-<li>Por exemplo, uma célula vazia é uma tupla com 8 buracos</li>
-<li>Uma célula com grama e um jogador é uma tupla com 2 buracos, uma grama e um jogador.</li>
-</ul>
-</li>
+<li>Use uma lista para representar a pilha</li>
 </ul>
 </li>
 </ul>
@@ -649,14 +649,24 @@ Nesta primeira etapa, você desenvolverá as funções que permitirão criar e m
 <ul>
 <li>Criação de um tabuleiro</li>
 <li>Movimentação de um jogador em qualquer dos sentidos<ul>
-<li>Deslocamento</li>
-<li>Coleta de presente - teste de capacidade</li>
-<li>Queda em buraco</li>
-<li>Impossibilidade de movimento</li>
+<li>Deslocamento<ul>
+<li>Jogador só pode se deslocar para célula adjacente que não tenha pedra ou bomba</li>
+<li>Pode ser impossível ao jogador se delocar</li>
+<li>Ao se deslocar para uma célula vazia, cai no buraco</li>
+<li>Ao se deslocar para uma célula com um presente, o coleta</li>
+</ul>
+</li>
+<li>Coleta de presente<ul>
+<li>Ao coletar um presente, incrementa a posição correspondente ao presente nas suas capacidades</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>Arremesso<ul>
-<li>Teste de capacidade</li>
+<li>Teste de capacidade<ul>
+<li>Se estiver adjacente, olhando para uma bomba, e tiver a capacidade "arremesso", o jogador arremessa a bomba uma distância proporcional à capacidade.</li>
+</ul>
+</li>
 <li>Teste de direção</li>
 </ul>
 </li>
