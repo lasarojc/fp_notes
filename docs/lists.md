@@ -12,8 +12,8 @@ Ou seja, listas com cardinalidades diferentes, mas com elementos do mesmo tipo, 
 Aliás, outra forma de escrever estas listas, enquanto especificando seus tipos, é `#!hs [1,2,3]::[Int]` e `#!hs [1,2,3,4]::[Int]`. 
 
 Segundo, enquanto uma tupla pode ter elementos de tipos diferentes, todos os elementos de uma lista devem ser do mesmo tipo.
-Ou seja, enquanto é possível definir `#!hs x = ("Joao", 14, True")`, não é possível definir `#!hs x = ["Joao", 14, True"]`.
-É preciso observer contudo que é possível construir uma lista `#!hs [1,2,3,4,17,4.2]`, mas mas isto só é possível porquê existe um tipo do qual todos os elementos da lista são derivados, no caso, `#!hs Fractional`.
+Ou seja, enquanto é possível definir `#!hs x = ("Joao", 14, True)`, não é possível definir `#!hs x = ["Joao", 14, True]`.
+É preciso observar contudo que é possível construir uma lista `#!hs [1,2,3,4,17,4.2]`, mas mas isto só é possível porquê existe um tipo do qual todos os elementos da lista são derivados, no caso, `#!hs Fractional`.
 De fato, quando defino este lista, o Haskell automaticamente faz o boxing dos cinco primeiros valores para ponto flutuante.
 
 ```hs
@@ -48,9 +48,9 @@ Prelude> x
 [1,2,3]
 ```
 
-###### Cabeça e Calda
-Esta divisão de uma lista entre primeiro elemento e restante é o que chamamos de cabeça (*head*) e calda (*tail*) da lista.
-No exemplo anterior, `#!hs 1:2:3:[]`, 1 é a cabeça e `#!hs 2:3:[]` a calda.
+###### Cabeça e Cauda
+Esta divisão de uma lista entre primeiro elemento e restante é o que chamamos de cabeça (*head*) e cauda (*tail*) da lista.
+No exemplo anterior, `#!hs 1:2:3:[]`, 1 é a cabeça e `#!hs 2:3:[]` a cauda.
 Haskell inclusive define funções para recuperar estas partes de uma lista qualquer.
 
 ```hs
@@ -61,7 +61,7 @@ Prelude> tail x
 ```
 
 A cabeça de uma lista de elementos de um tipo $a$ qualquer é um elemento do tipo $a$.
-Já a calda desta lista é também uma lista de elementos do tipo $a$.
+Já a cauda desta lista é também uma lista de elementos do tipo $a$.
 Logo, podemos subdividí-la também em uma cabeça e uma cauda, no exemplo, 2 e `#!hs 3:[]`. 
 
 ```hs
@@ -128,6 +128,7 @@ Vejamos alguns exemplos:
 * `#!hs [[1,2,3],[],[3,4,5,6,7,8,9]]::[[Int]]` - Lista de listas de inteiros de inteiros.
 * `#!hs [(1,2,3),(3,4,5)]::[(Int,Int,Int)]` - Lista de triplas de inteiros.
 * `#!hs ("lala",['l','a'],'l':'ã':'o':[])` - Tripla de listas de Char.
+* `#!hs ["lala",['l','a'],'l':'ã':'o':[]]` - Lista de listas de Char.
 * `#!hs [True,False,True]::[Bool]` - Lista de booleanos.
 * `#!hs [(4,Ouro),(5,Paus)]::[Carta]` - Lista de cartas.
 * `#!hs [(1,2,3),(3)]` - Um bug
@@ -141,12 +142,12 @@ Na verdade, todas aquelas funções são definidas em termos de listas, e por is
 |Operador|Operação| Exemplo |
 |----|----|----|
 | `++` | Concatenação de listas| `#!hs > "foo" ++ "bar"` <br> `#!hs "foobar"`|
-| `!!` | Elemento no índice| `#!hs >[1,2,3,4] !! 2 -> 3` |
+| `!!` | Elemento no índice| `#!hs >[1,2,3,4] !! 2` <br> `3` |
 | `reverse` | Lista ao contrário | `#!hs >reverse [1,2,3,4] ` <br> ` [4,3,2,1]` |
 | `length` | Comprimento da string | `#!hs >length "foo bar" ` <br> ` 7` |
 | `last` | Último elemento da lista | `#!hs >last "foo bar"` <br> ` r`|
 | `concat` | Retorna a concatenação das listas dentro de uma lista | `#!hs >concat [[1,2,3,4],[5,6,7,8]]` <br> `[1,2,3,4,5,6,7,8]` <br> `#!hs >concat [[[1,2,3]],[[4,5,6]]]` <br> `#!hs [[1,2,3],[4,5,6]]` |
-| `elem`   | Verifica se o parâmetro é um elemento da lista | `#!hs >elem o "foo bar"` <br> `#!hs True`|
+| `elem`   | Verifica se o parâmetro é um elemento da lista | `#!hs >elem 'o' "foo bar"` <br> `#!hs True`|
 | `null`   | Verifica se a lista é vazia | `#!hs >null ""` <br> `True`<br> `#!hs >null []` <br> `True` <br> `#!hs >null [1,2]` <br> `#!hs False`|
 | `replicate`   | Constrói uma lista pela replicação de um elemento | `#!hs >replicate 4 (1,2)` <br> `#!hs [(1,2),(1,2),(1,2),(1,2)]`|
 | `take` | Sublista iniciando em 0 | `#!hs >take 3 1:2:3:4:5:[] ` <br> `#!hs [1,2,3]` |
@@ -266,7 +267,7 @@ oQueHáNaCabeça (x:xs) = "Há " ++ x
 
 * Linha 1: não se preocupe esta linha; ela apenas implica que a lista deve ser de valores convertíveis a String
 * Linha 2: esta linha usa um padrão constante para testar se a lista é vazia, isto é, `#!hs []` e, neste caso, retornar a string `#!hs "Nada"` como resultado.
-* Linha 3: este o caso mais interessante, pois usa um padrão que define uma em que `#!hs x` é a cabeça, concatenada por `#!hs :` a uma calda `#!hs xs`, e retorna `#!hs "Há "` seguido do valor casado com `#!hs x`.
+* Linha 3: este o caso mais interessante, pois usa um padrão que define uma em que `#!hs x` é a cabeça, concatenada por `#!hs :` a uma cauda `#!hs xs`, e retorna `#!hs "Há "` seguido do valor casado com `#!hs x`.
 
 Observe que foram usados parênteses na linha 3 para especificar padrão, e não apenas `#!hs x:xs` como seria de se esperar.
 A verdade é que o padrão é `#!hs x:xs` e os parêntesis são usados apenas para impedir que o Haskell primeiro avalie `#!hs oQueHáNaCabeça x` antes de avaliar o operador `#!hs :` e o seu segundo operando.
