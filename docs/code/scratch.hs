@@ -107,9 +107,9 @@ próximos3 n 'a'
 próximos3 n _ = error "Use d ou a"
 
 fatorial' 0 = 1
-fatorial' n 
+fatorial' n
     |n > 0 = n * fatorial' (n-1)
-fatorial' n 
+fatorial' n
     |n < 0 = error "Indefinido"
 
 
@@ -188,7 +188,7 @@ pegaTelefone (_, telefone, _, _) = telefone
 trocaTelefone :: Pessoa -> Telefone -> Pessoa
 trocaTelefone (n, _t, c, e) novoTelefone = (n, novoTelefone, c, e)
 
-pegaSobreNomeDeNome :: Nome -> String 
+pegaSobreNomeDeNome :: Nome -> String
 pegaSobreNomeDeNome (primeiro,segundo,sobre) = sobre
 
 {-
@@ -199,7 +199,7 @@ pegaSobreNomeDeNome (primeiro,segundo,sobre) = sobre
 "Maria"
  -}
 
-pegaSobrenome :: Pessoa -> String 
+pegaSobrenome :: Pessoa -> String
 pegaSobrenome p = pegaSobreNomeDeNome (pegaNome p)
 
 
@@ -285,7 +285,7 @@ fatorialGuardas' n
 
 fatorialGuardas'' n
      | n == 0 = 1
-     | otherwise = if n > 0 then n * fatorialGuardas'' (n-1) 
+     | otherwise = if n > 0 then n * fatorialGuardas'' (n-1)
                             else error "Não se pode calcular o fatorial de números negativos"
 
 
@@ -396,7 +396,7 @@ False
 False
 -}
 eLógico :: Bool -> Bool -> Bool
-eLógico p1 p2 
+eLógico p1 p2
              | p1 == True && p2 == True = True
              |otherwise = False
 
@@ -416,7 +416,7 @@ True
 False
 -}
 ouLógico :: Bool -> Bool -> Bool
-ouLógico p1 p2 
+ouLógico p1 p2
              | p1 == False && p2 == False = False
              |otherwise = True
 
@@ -491,7 +491,7 @@ Resultado: naipe da carta
 
 -}
 naipe :: Carta -> String
-naipe (_, np) = np 
+naipe (_, np) = np
 
 {-
 Uma função que receba uma carta retorne seu valor.
@@ -627,7 +627,7 @@ m3 c1 c2 c3
 
 
 éJogo :: Carta -> Carta -> Carta -> Bool
-éJogo c1 c2 c3 
+éJogo c1 c2 c3
               | naipe (m1 c1 c2 c3) == naipe (m2 c1 c2 c3) &&
               naipe (m1 c1 c2 c3) == naipe (m3 c1 c2 c3) &&
               naipe (m2 c1 c2 c3) == naipe (m3 c1 c2 c3) &&
@@ -641,7 +641,7 @@ m3 c1 c2 c3
               valor (m1 c1 c2 c3) == valor (m3 c1 c2 c3) &&
               valor (m2 c1 c2 c3) == valor (m3 c1 c2 c3) = True
               | otherwise = False
-                
+
 
 {-
 Defina uma função que receba duas tuplas de 3 cartas, onde a primeira carta é maior ou igual à segunda, que é maior ou igual à terceira, 
@@ -691,10 +691,10 @@ imc p a
           alto = trace "a" (30.0)
 
 
-fib:: Integer -> Integer 
+fib:: Integer -> Integer
 fib 0 = 0
 fib 1 = 1
-fib n = let prev     = fib (n - 1) 
+fib n = let prev     = fib (n - 1)
             prevPrev = fib (n - 2)
         in prev + prevPrev
 
@@ -793,3 +793,23 @@ arredonda x = let maior = x >= 0
 arredonda0' :: Float -> Int
 arredonda0' x = if x >= 0 then let cima = floor x in cima
                           else let baixo = ceiling x in baixo
+
+
+
+teste' [] = []
+teste' (x:y:z:es) = [x, y, z]
+teste' (x:_) = [x]
+
+
+oQueHáNaLista :: (Show a) => [a] -> String
+oQueHáNaLista [] = "Nada"
+oQueHáNaLista (x:[]) = "Só " ++ (show x)
+oQueHáNaLista (x1:x2:[]) = "Há " ++ (show x1) ++ " e " ++ (show x2)
+oQueHáNaLista (x:xs) = "Há " ++ (show x) ++ " e mais um monte de coisas" 
+
+
+iniciais :: [String] -> [Char]
+iniciais [] = []
+iniciais [(x:_)] = [x]
+iniciais [(x:_),(y:_)] = [x,y]
+iniciais ((x:_):(y:_):(z:_):_) = [x,y,z]
