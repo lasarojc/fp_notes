@@ -630,8 +630,8 @@ Primeiro, enquanto as tuplas <code class="highlight"><span class="p">(</span><sp
 Ou seja, listas com cardinalidades diferentes, mas com elementos do mesmo tipo, são do mesmo tipo.
 Aliás, outra forma de escrever estas listas, enquanto especificando seus tipos, é <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="ow">::</span><span class="p">[</span><span class="kt">Int</span><span class="p">]</span></code> e <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span><span class="ow">::</span><span class="p">[</span><span class="kt">Int</span><span class="p">]</span></code>. </p>
 <p>Segundo, enquanto uma tupla pode ter elementos de tipos diferentes, todos os elementos de uma lista devem ser do mesmo tipo.
-Ou seja, enquanto é possível definir <code class="highlight"><span class="nf">x</span> <span class="ow">=</span> <span class="p">(</span><span class="s">&quot;Joao&quot;</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="kt">True</span><span class="s">&quot;)</span></code>, não é possível definir <code class="highlight"><span class="nf">x</span> <span class="ow">=</span> <span class="p">[</span><span class="s">&quot;Joao&quot;</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="kt">True</span><span class="s">&quot;]</span></code>.
-É preciso observer contudo que é possível construir uma lista <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mf">4.2</span><span class="p">]</span></code>, mas mas isto só é possível porquê existe um tipo do qual todos os elementos da lista são derivados, no caso, <code class="highlight"><span class="kt">Fractional</span></code>.
+Ou seja, enquanto é possível definir <code class="highlight"><span class="nf">x</span> <span class="ow">=</span> <span class="p">(</span><span class="s">&quot;Joao&quot;</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="kt">True</span><span class="p">)</span></code>, não é possível definir <code class="highlight"><span class="nf">x</span> <span class="ow">=</span> <span class="p">[</span><span class="s">&quot;Joao&quot;</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="kt">True</span><span class="p">]</span></code>.
+É preciso observar contudo que é possível construir uma lista <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mf">4.2</span><span class="p">]</span></code>, mas mas isto só é possível porquê existe um tipo do qual todos os elementos da lista são derivados, no caso, <code class="highlight"><span class="kt">Fractional</span></code>.
 De fato, quando defino este lista, o Haskell automaticamente faz o boxing dos cinco primeiros valores para ponto flutuante.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -662,9 +662,9 @@ Listas não vazias são representadas como a concatenação do primeiro elemento
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 </code></pre></div>
 </td></tr></table>
-<h6>Cabeça e Calda</h6>
-<p>Esta divisão de uma lista entre primeiro elemento e restante é o que chamamos de cabeça (<em>head</em>) e calda (<em>tail</em>) da lista.
-No exemplo anterior, <code class="highlight"><span class="mi">1</span><span class="kt">:</span><span class="mi">2</span><span class="kt">:</span><span class="mi">3</span><span class="kt">:[]</span></code>, 1 é a cabeça e <code class="highlight"><span class="mi">2</span><span class="kt">:</span><span class="mi">3</span><span class="kt">:[]</span></code> a calda.
+<h6>Cabeça e Cauda</h6>
+<p>Esta divisão de uma lista entre primeiro elemento e restante é o que chamamos de cabeça (<em>head</em>) e cauda (<em>tail</em>) da lista.
+No exemplo anterior, <code class="highlight"><span class="mi">1</span><span class="kt">:</span><span class="mi">2</span><span class="kt">:</span><span class="mi">3</span><span class="kt">:[]</span></code>, 1 é a cabeça e <code class="highlight"><span class="mi">2</span><span class="kt">:</span><span class="mi">3</span><span class="kt">:[]</span></code> a cauda.
 Haskell inclusive define funções para recuperar estas partes de uma lista qualquer.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -676,7 +676,7 @@ Haskell inclusive define funções para recuperar estas partes de uma lista qual
 </code></pre></div>
 </td></tr></table>
 <p>A cabeça de uma lista de elementos de um tipo <span class="arithmatex">\(a\)</span> qualquer é um elemento do tipo <span class="arithmatex">\(a\)</span>.
-Já a calda desta lista é também uma lista de elementos do tipo <span class="arithmatex">\(a\)</span>.
+Já a cauda desta lista é também uma lista de elementos do tipo <span class="arithmatex">\(a\)</span>.
 Logo, podemos subdividí-la também em uma cabeça e uma cauda, no exemplo, 2 e <code class="highlight"><span class="mi">3</span><span class="kt">:[]</span></code>. </p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -747,6 +747,7 @@ Vejamos alguns exemplos:</p>
 <li><code class="highlight"><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="kt">[]</span><span class="p">,[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]]</span><span class="ow">::</span><span class="p">[[</span><span class="kt">Int</span><span class="p">]]</span></code> - Lista de listas de inteiros de inteiros.</li>
 <li><code class="highlight"><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)]</span><span class="ow">::</span><span class="p">[(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)]</span></code> - Lista de triplas de inteiros.</li>
 <li><code class="highlight"><span class="p">(</span><span class="s">&quot;lala&quot;</span><span class="p">,[</span><span class="sc">&#39;l&#39;</span><span class="p">,</span><span class="sc">&#39;a&#39;</span><span class="p">],</span><span class="sc">&#39;l&#39;</span><span class="kt">:</span><span class="sc">&#39;ã&#39;</span><span class="kt">:</span><span class="sc">&#39;o&#39;</span><span class="kt">:[]</span><span class="p">)</span></code> - Tripla de listas de Char.</li>
+<li><code class="highlight"><span class="p">[</span><span class="s">&quot;lala&quot;</span><span class="p">,[</span><span class="sc">&#39;l&#39;</span><span class="p">,</span><span class="sc">&#39;a&#39;</span><span class="p">],</span><span class="sc">&#39;l&#39;</span><span class="kt">:</span><span class="sc">&#39;ã&#39;</span><span class="kt">:</span><span class="sc">&#39;o&#39;</span><span class="kt">:[]</span><span class="p">]</span></code> - Lista de listas de Char.</li>
 <li><code class="highlight"><span class="p">[</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">]</span><span class="ow">::</span><span class="p">[</span><span class="kt">Bool</span><span class="p">]</span></code> - Lista de booleanos.</li>
 <li><code class="highlight"><span class="p">[(</span><span class="mi">4</span><span class="p">,</span><span class="kt">Ouro</span><span class="p">),(</span><span class="mi">5</span><span class="p">,</span><span class="kt">Paus</span><span class="p">)]</span><span class="ow">::</span><span class="p">[</span><span class="kt">Carta</span><span class="p">]</span></code> - Lista de cartas.</li>
 <li><code class="highlight"><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">3</span><span class="p">)]</span></code> - Um bug</li>
@@ -771,7 +772,7 @@ Na verdade, todas aquelas funções são definidas em termos de listas, e por is
 <tr>
 <td><code>!!</code></td>
 <td>Elemento no índice</td>
-<td><code class="highlight"><span class="o">&gt;</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="o">!!</span> <span class="mi">2</span> <span class="ow">-&gt;</span> <span class="mi">3</span></code></td>
+<td><code class="highlight"><span class="o">&gt;</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="o">!!</span> <span class="mi">2</span></code> <br> <code>3</code></td>
 </tr>
 <tr>
 <td><code>reverse</code></td>
@@ -796,7 +797,7 @@ Na verdade, todas aquelas funções são definidas em termos de listas, e por is
 <tr>
 <td><code>elem</code></td>
 <td>Verifica se o parâmetro é um elemento da lista</td>
-<td><code class="highlight"><span class="o">&gt;</span><span class="n">elem</span> <span class="n">o</span> <span class="s">&quot;foo bar&quot;</span></code> <br> <code class="highlight"><span class="kt">True</span></code></td>
+<td><code class="highlight"><span class="o">&gt;</span><span class="n">elem</span> <span class="sc">&#39;o&#39;</span> <span class="s">&quot;foo bar&quot;</span></code> <br> <code class="highlight"><span class="kt">True</span></code></td>
 </tr>
 <tr>
 <td><code>null</code></td>
@@ -973,7 +974,7 @@ Mas como? Vejamos um exemplo.</p>
 <ul>
 <li>Linha 1: não se preocupe esta linha; ela apenas implica que a lista deve ser de valores convertíveis a String</li>
 <li>Linha 2: esta linha usa um padrão constante para testar se a lista é vazia, isto é, <code class="highlight"><span class="kt">[]</span></code> e, neste caso, retornar a string <code class="highlight"><span class="s">&quot;Nada&quot;</span></code> como resultado.</li>
-<li>Linha 3: este o caso mais interessante, pois usa um padrão que define uma em que <code class="highlight"><span class="nf">x</span></code> é a cabeça, concatenada por <code class="highlight"><span class="kt">:</span></code> a uma calda <code class="highlight"><span class="nf">xs</span></code>, e retorna <code class="highlight"><span class="s">&quot;Há &quot;</span></code> seguido do valor casado com <code class="highlight"><span class="nf">x</span></code>.</li>
+<li>Linha 3: este o caso mais interessante, pois usa um padrão que define uma em que <code class="highlight"><span class="nf">x</span></code> é a cabeça, concatenada por <code class="highlight"><span class="kt">:</span></code> a uma cauda <code class="highlight"><span class="nf">xs</span></code>, e retorna <code class="highlight"><span class="s">&quot;Há &quot;</span></code> seguido do valor casado com <code class="highlight"><span class="nf">x</span></code>.</li>
 </ul>
 <p>Observe que foram usados parênteses na linha 3 para especificar padrão, e não apenas <code class="highlight"><span class="nf">x</span><span class="kt">:</span><span class="n">xs</span></code> como seria de se esperar.
 A verdade é que o padrão é <code class="highlight"><span class="nf">x</span><span class="kt">:</span><span class="n">xs</span></code> e os parêntesis são usados apenas para impedir que o Haskell primeiro avalie <code class="highlight"><span class="nf">oQueHáNaCabeça</span> <span class="n">x</span></code> antes de avaliar o operador <code class="highlight"><span class="kt">:</span></code> e o seu segundo operando.
