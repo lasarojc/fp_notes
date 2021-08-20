@@ -423,6 +423,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#casamento-de-padroes" class="md-nav__link">
+    Casamento de padrões
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -582,6 +589,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#casamento-de-padroes" class="md-nav__link">
+    Casamento de padrões
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -638,7 +652,7 @@ De fato, quando defino este lista, o Haskell automaticamente faz o boxing dos ci
 </td></tr></table>
 <p>Uma vez diferenciadas das tuplas, estamos livres para explorar outros aspectos das listas, iniciando por como são construídas.</p>
 <h2 id="estrutura">Estrutura</h2>
-<p>Dado uma lista qualquer, de qualquer tipo, ela pode ser ou <strong>vazia</strong> ou não vazia, sendo que a lista vazia é construída em Haskell como <code class="highlight"><span class="kt">[]</span></code>.
+<p>Dado uma lista qualquer, de qualquer tipo, ela pode ser ou <strong>vazia</strong> ou não vazia, sendo que a lista vazia é representada em Haskell por <code class="highlight"><span class="kt">[]</span></code>.
 Listas não vazias são representadas como a concatenação do primeiro elemento da lista com uma lista com os demais elementos, usando o operador de concatenação <code class="highlight"><span class="kt">:</span></code>, ou <strong>cons</strong>.</p>
 <p>Por exemplo, a lista dos números 1, 2 e 3 nesta ordem é construída como <code class="highlight"><span class="mi">1</span><span class="kt">:</span><span class="mi">2</span><span class="kt">:</span><span class="mi">3</span><span class="kt">:[]</span></code>; observe que como o 3 é o último elemento da lista, a lista que vem depois do cons, com os demais elementos, é a lista vazia.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -945,6 +959,81 @@ Isso existe, por exemplo, entre os caracteres, mas também para tipos definidos 
 </code></pre></div>
 </td></tr></table>
 </div>
+<h2 id="casamento-de-padroes">Casamento de padrões</h2>
+<p>Toda lista é ou uma lista vazia, ou um elemento como cabeça e uma lista como cauda.
+Assim, se cobrir estes dois casos em uma definição por casamento de padrões, terá coberto "todos" os casos!
+Mas como? Vejamos um exemplo.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">oQueHáNaCabeça</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Show</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<span class="nf">oQueHáNaCabeça</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="s">&quot;Nada&quot;</span>
+<span class="nf">oQueHáNaCabeça</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="s">&quot;Há &quot;</span> <span class="o">++</span> <span class="n">x</span>
+</code></pre></div>
+</td></tr></table>
+<ul>
+<li>Linha 1: não se preocupe esta linha; ela apenas implica que a lista deve ser de valores convertíveis a String</li>
+<li>Linha 2: esta linha usa um padrão constante para testar se a lista é vazia, isto é, <code class="highlight"><span class="kt">[]</span></code> e, neste caso, retornar a string <code class="highlight"><span class="s">&quot;Nada&quot;</span></code> como resultado.</li>
+<li>Linha 3: este o caso mais interessante, pois usa um padrão que define uma em que <code class="highlight"><span class="nf">x</span></code> é a cabeça, concatenada por <code class="highlight"><span class="kt">:</span></code> a uma calda <code class="highlight"><span class="nf">xs</span></code>, e retorna <code class="highlight"><span class="s">&quot;Há &quot;</span></code> seguido do valor casado com <code class="highlight"><span class="nf">x</span></code>.</li>
+</ul>
+<p>Observe que foram usados parênteses na linha 3 para especificar padrão, e não apenas <code class="highlight"><span class="nf">x</span><span class="kt">:</span><span class="n">xs</span></code> como seria de se esperar.
+A verdade é que o padrão é <code class="highlight"><span class="nf">x</span><span class="kt">:</span><span class="n">xs</span></code> e os parêntesis são usados apenas para impedir que o Haskell primeiro avalie <code class="highlight"><span class="nf">oQueHáNaCabeça</span> <span class="n">x</span></code> antes de avaliar o operador <code class="highlight"><span class="kt">:</span></code> e o seu segundo operando.
+Esta é uma idiossincrasias do Haskell com a qual você simplesmente terá que aprender a conviver para dividir listas entre cabeça e cauda em um casamento de padrões.</p>
+<p>Embora estes dois padrões, isto é, lista vazia e cabeça seguida de cauda, cubram todas as possibilidades de listas, não quer dizer que não haja melhores opções, dependendo do que precise extrair da lista.
+Por exemplo, na próxima função há 4 casos de casamento de padrões distintos:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">oQueHáNaLista</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Show</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<span class="nf">oQueHáNaLista</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="s">&quot;Nada&quot;</span>
+<span class="nf">oQueHáNaLista</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="ow">=</span> <span class="s">&quot;Só &quot;</span> <span class="o">++</span> <span class="p">(</span><span class="n">show</span> <span class="n">x</span><span class="p">)</span>
+<span class="nf">oQueHáNaLista</span> <span class="p">[</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">]</span> <span class="ow">=</span> <span class="s">&quot;Há &quot;</span> <span class="o">++</span> <span class="p">(</span><span class="n">show</span> <span class="n">x1</span><span class="p">)</span> <span class="o">++</span> <span class="s">&quot; e &quot;</span> <span class="o">++</span> <span class="p">(</span><span class="n">show</span> <span class="n">x2</span><span class="p">)</span>
+<span class="nf">oQueHáNaLista</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="s">&quot;Há &quot;</span> <span class="o">++</span> <span class="p">(</span><span class="n">show</span> <span class="n">x</span><span class="p">)</span> <span class="o">++</span> <span class="s">&quot; e mais um monte de coisas&quot;</span> 
+</code></pre></div>
+</td></tr></table>
+<ul>
+<li>Linha 2: lista vazia;</li>
+<li>Linha 3: lista com exatamente um elemento, casado com <code class="highlight"><span class="nf">x</span></code>.</li>
+<li>Linha 4: lista com exatamente 2 elementos, casados com <code class="highlight"><span class="nf">x1</span></code> e <code class="highlight"><span class="nf">x2</span></code>.</li>
+<li>Linha 5: lista com mais de 2 elementos, em que a cabeça é casada com <code class="highlight"><span class="nf">x</span></code> e a cauda com <code class="highlight"><span class="nf">xs</span></code>.</li>
+</ul>
+<p>Outra forma de obter exatamente o mesmo resultado, usando mais o operador <code class="highlight"><span class="nf">cons</span></code>,  seria a seguinte.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">oQueHáNaLista</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Show</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<span class="nf">oQueHáNaLista</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="s">&quot;Nada&quot;</span>
+<span class="nf">oQueHáNaLista</span> <span class="p">(</span><span class="n">x</span><span class="kt">:[]</span><span class="p">)</span> <span class="ow">=</span> <span class="s">&quot;Só &quot;</span> <span class="o">++</span> <span class="p">(</span><span class="n">show</span> <span class="n">x</span><span class="p">)</span>
+<span class="nf">oQueHáNaLista</span> <span class="p">(</span><span class="n">x1</span><span class="kt">:</span><span class="n">x2</span><span class="kt">:[]</span><span class="p">)</span> <span class="ow">=</span> <span class="s">&quot;Há &quot;</span> <span class="o">++</span> <span class="p">(</span><span class="n">show</span> <span class="n">x1</span><span class="p">)</span> <span class="o">++</span> <span class="s">&quot; e &quot;</span> <span class="o">++</span> <span class="p">(</span><span class="n">show</span> <span class="n">x2</span><span class="p">)</span>
+<span class="nf">oQueHáNaLista</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="s">&quot;Há &quot;</span> <span class="o">++</span> <span class="p">(</span><span class="n">show</span> <span class="n">x</span><span class="p">)</span> <span class="o">++</span> <span class="s">&quot; e mais um monte de coisas&quot;</span> 
+</code></pre></div>
+</td></tr></table>
+<p>Dado que strings são apenas listas de Char, estas também podem ser decompostas por casamentos de padrões.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">resumo</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="s">&quot;String&quot;</span>
+<span class="nf">resumo</span> <span class="kt">[]</span> <span class="ow">-&gt;</span> <span class="s">&quot;Nada&quot;</span>
+<span class="nf">resumo</span> <span class="p">[</span><span class="kr">_</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="s">&quot;Um&quot;</span>
+<span class="nf">resumo</span> <span class="p">[</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="s">&quot;Dois&quot;</span>
+<span class="nf">resumo</span> <span class="kr">_</span> <span class="ow">-&gt;</span> <span class="s">&quot;Muitos&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Assim como listas podem ter elementos mais complexos que tipos primitivos, por exemplo tuplas e listas, também os casamentos de padrões aplicados a estas listas serão mais complexos.
+Por exemplo, considere uma lista de três ou mais String, isto é, uma lista de lista de Char; é possível, por exemplo, selecionar a primeira letra de cada uma das três primeiras strings com a seguinte função.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">iniciais</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Char</span><span class="p">]</span>
+<span class="nf">iniciais</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="kt">[]</span>
+<span class="nf">iniciais</span> <span class="p">[(</span><span class="n">x</span><span class="kt">:</span><span class="kr">_</span><span class="p">)]</span> <span class="ow">=</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>
+<span class="nf">iniciais</span> <span class="p">[(</span><span class="n">x</span><span class="kt">:</span><span class="kr">_</span><span class="p">),(</span><span class="n">y</span><span class="kt">:</span><span class="kr">_</span><span class="p">)]</span> <span class="ow">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">]</span>
+<span class="nf">iniciais</span> <span class="p">((</span><span class="n">x</span><span class="kt">:</span><span class="kr">_</span><span class="p">)</span><span class="kt">:</span><span class="p">(</span><span class="n">y</span><span class="kt">:</span><span class="kr">_</span><span class="p">)</span><span class="kt">:</span><span class="p">(</span><span class="n">z</span><span class="kt">:</span><span class="kr">_</span><span class="p">)</span><span class="kt">:</span><span class="kr">_</span><span class="p">)</span> <span class="ow">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
 <div class="footnote">
 <hr />
 <ol>
