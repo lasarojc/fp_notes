@@ -1,15 +1,15 @@
 site_name: Programação Funcional
-repo_url: https://github.com/lasarojc/pf_notes 
+repo_url: https://github.com/lasarojc/fp_notes 
 edit_uri: ""
 nav:
         #- Início: index.html
         - Prefácio: preface.md #1 assinc
         - Introdução: intro.md #1 sinc
         
-        - Haskell 1+1: haskell101.md #2 sinc
-        - Funções: functions.md #2 sinc
-        - If Then Else: ifthenelse.md #2 sinc
-        - Guardas: guards.md
+        - 1+1: haskell101.md #2 sinc
+        - Primeiras funções: functions.md #2 sinc
+        - Se então, senão: ifthenelse.md #2 sinc
+        - Guardas!: guards.md
         - Tipos: types.md
         
         - Tuplas: tuples.md
@@ -22,11 +22,11 @@ nav:
         
         - Listas: lists.md # mais listas
 
-        - Preguiça: lazy.md
+        - Que preguiça: lazy.md
 
         - Recursão, denovo: recursion2.md
 
-        - QuickCheck: quickcheck.md
+        - Quick, Check!: quickcheck.md
 
         - Classes de tipos: type_classes.md
 
