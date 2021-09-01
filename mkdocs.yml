@@ -20,17 +20,21 @@ nav:
 
         - Where e Let-In: where_let_in.md
         
-        - Listas: lists.md # mais listas
+        - Listas: lists.md
 
-        - Que preguiça: lazy.md
-
-        - Recursão, denovo: recursion2.md
+        - Recursão (2): recursion2.md
 
         - Quick, Check!: quickcheck.md
 
         - Classes de tipos: type_classes.md
 
+        - Funções de alta ordem: highorder.md
+
         - Entrada e Saída: io.md
+
+        - Cálculo Lambda: lambda.md
+
+        - Que preguiça: lazy.md
 
         - Observações: observations.md
 

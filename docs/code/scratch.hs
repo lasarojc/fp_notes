@@ -813,3 +813,203 @@ iniciais [] = []
 iniciais [(x:_)] = [x]
 iniciais [(x:_),(y:_)] = [x,y]
 iniciais ((x:_):(y:_):(z:_):_) = [x,y,z]
+
+
+
+
+{-
+>>>divideEmN 3 "lasfadafdsafsfdasdfasdfasdfasdf"
+["las","fad","afd","saf","sfd","asd","fas","dfa","sdf","asd","f"]
+-}
+
+divideEmN :: Int -> String -> [String]
+divideEmN n l = if null l
+                then []
+                else primeiraParte : divideEmN n segundaParte
+        where (primeiraParte, segundaParte) = splitAt n l
+
+
+divideEmC :: Char -> String -> [String]
+divideEmC c l = if null l
+                then []
+                else primeiraParte : divideEmC c segundaParte
+        where 
+            achaIndice = error "implementar"
+            n = achaIndice c l
+            (primeiraParte, segundaParte) = splitAt n l
+
+
+{-
+>>>divideEmC' 'x' "asdfasdfaxASDAFSDAF"
+
+-}
+divideEmC' :: Char -> String -> [String]
+divideEmC' c l =
+    let primeiraParte = takeWhile (/=c) l
+        segundaParte = if null resultadoDoDrop then []
+                                               else tail resultadoDoDrop
+            where resultadoDoDrop = dropWhile (/=c) l
+    in if null l
+        then []
+        else primeiraParte : divideEmC' c segundaParte
+
+segundaParte c l = if null resultadoDoDrop then []
+                                        else tail resultadoDoDrop
+            where resultadoDoDrop = dropWhile (/=c) l
+
+
+{-
+>>>compacte [[1,1],[12],[2,2],[3,3,3],[4,4,4],[3,3,3]]
+[(1,2),(12,1),(2,2),(3,3),(4,3),(3,3)]
+-}
+
+compacte :: [[a]] -> [(a, Int)]
+compacte l = if null l then []
+             else (head(head l), length (head l))  : compacte (tail l)
+
+
+
+
+
+{-
+
+(:) :: a -> [a] -> [a]
+>>> 1 : []
+[1]
+>>> 1 : [2,3]
+[1,2,3]
+
+>>> 1 : 2 : 3 : 4:[]
+[1,2,3,4]
+
+>>>"aaaa" : "bbbb" : []
+["aaaa","bbbb"]
+
+>>>['a','a'] : "bbbb" : []
+["aa","bbbb"]
+
+>>>[1,2,3]: [4,5,6]: [7,8] : []
+[[1,2,3],[4,5,6],[7,8]]
+
+>>>reverse [1,2,3] : reverse [4,5,6] : [7,8] : []
+[[3,2,1],[6,5,4],[7,8]]
+
+(++) :: [a] -> [a] -> [a]
+>>> [1] ++ []
+[1]
+>>> [1] ++ [2,3]
+[1,2,3]
+
+>>> [1,2,10] ++ [3] ++ [4]
+[1,2,10,3,4]
+
+>>>["aaaa"] ++ ["bbbb"]
+["aaaa","bbbb"]
+>>>"aaaa" ++ "bbbb"
+"aaaabbbb"
+
+>>>['a','a'] ++ "bbbb"
+"aabbbb"
+
+>>>[1,2,3] ++ [4,5,6] ++ [7,8] ++ []
+[1,2,3,4,5,6,7,8]
+
+>>>reverse [1,2,3] ++ reverse [4,5,6] ++ [7,8] ++ []
+[3,2,1,6,5,4,7,8]
+
+concat :: [[a]] -> [a]
+
+>>>concat [[1,2,3],[4,5,6],[7,8],[]]
+[1,2,3,4,5,6,7,8]
+
+>>>concat [reverse [1,2,3], reverse [4,5,6], [7,8]]
+[3,2,1,6,5,4,7,8]
+-}
+
+
+
+{-
+>>>split 3 [1,2,3,4,5,6]
+[1,2,3,6,5,4]
+>>>split 4 [1,2,3,4,5,6,7,8]
+[1,2,3,4,8,7,6,5]
+-}
+split :: Int -> [a] -> [a]
+split n l = take n l ++ reverse(drop n l)
+
+{-
+>>>descombinaMetades' [(1,4),(2,5),(3,6)] 
+[1,2,3,4,5,6]
+>>>descombinaMetades' [(1,5),(2,6),(3,7),(4,8)]
+[1,2,3,4,5,6,7,8]
+-}
+
+descombinaMetades :: [(a,a)] -> [a]
+descombinaMetades l = split (length lista `div` 2) lista
+    where lista = descombinaMetades' l
+          descombinaMetades' :: [(a,a)] -> [a]
+          descombinaMetades' [] = []
+          descombinaMetades' l = [fst (head l)] ++ descombinaMetades' (tail l) ++ [snd (head l)]
+
+
+
+
+descombinaMetades'' :: [(a,a)] -> [a]
+descombinaMetades'' l = primeiros l ++ segundos l
+
+{-
+>>>primeiros [(10,5),(2,6),(3,7),(4,8)]
+[10,2,3,4]
+
+>>>segundos [(10,5),(2,6),(3,7),(4,8)]
+[5,6,7,8]
+-}
+
+primeiros lst = if null lst then [] else fst (head lst) : primeiros (tail lst)
+segundos lst = if null lst then [] else snd (head lst) : segundos (tail lst)
+
+
+
+
+dm :: [(a,a)] -> [a]
+dm l = dm' l [] []
+
+
+{-
+>>> dm' [] [] [] 
+Ambiguous type variable ‘a0’ arising from a use of ‘evalPrint’
+prevents the constraint ‘(Show a0)’ from being solved.
+Probable fix: use a type annotation to specify what ‘a0’ should be.
+These potential instances exist:
+  instance Show OpenModule -- Defined in ‘Distribution.Backpack’
+  instance Show OpenUnitId -- Defined in ‘Distribution.Backpack’
+  instance Show FullUnitId
+    -- Defined in ‘Distribution.Backpack.FullUnitId’
+  ...plus 569 others
+  (use -fprint-potential-instances to see them all)
+
+>>> dm' [(1,5)] [] [] 
+[1,5]
+
+>>>dm' [(1,5),(2,6)] [] []
+[1,2,5,6]
+-}
+
+dm' l ps ss = if null l then ps ++ ss
+                        else dm' cauda (ps ++ [prim]) (ss ++ [segu])
+    where cabeca = head l
+          cauda = tail l
+          prim = fst cabeca
+          segu = snd cabeca
+
+
+
+
+compacte' :: [[a]] -> [(a, Int)]
+compacte' l 
+    | null l = []
+    | otherwise = tupla : sublista
+        where tupla = (char, num)
+              char = head (head l)
+              num = length (head l)
+              sublista = compacte' (tail l)

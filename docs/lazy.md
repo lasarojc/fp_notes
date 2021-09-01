@@ -1,4 +1,4 @@
-# Avaliação Preguiçosa.
+# Avaliação Preguiçosa
 
 Considere o seguinte código novamente.
 
@@ -10,7 +10,7 @@ imc p a
     where imc' = p / a ^ 2
 ```
 
-O uso de `#!hs where` na definição, além de melhorar a legibilidade do código, dá ao compilador Haskell a oportunidade de usar uma de suas mais importantes funcionalidades, a **avaliaçãp preguiçosa**.
+O uso de `#!hs where` na definição, além de melhorar a legibilidade do código, dá ao compilador Haskell a oportunidade de usar uma de suas mais importantes funcionalidades, a **avaliação preguiçosa**.
 Quando a função `#!hs imc` é invocada, `#!hs imc'` não é calculada até que a primeira guarda seja testada.
 Isso acontece porquê pela avaliação preguiçosa do Haskell, a avaliação acontece **apenas quando necessária**.
 Para demonstrar esta funcionalidade, vamos usar a função `#!hs trace`, que imprime uma mensagem na tela a cada computação de `#!hs imc'`
@@ -152,3 +152,35 @@ Sem a avaliação preguiçosa, teríamos uma lista de 100 inteiros, sendo o maio
 Contudo, com a avaliação preguiçosa, temos uma lista de expressões que indicam duas multiplicações e duas somas, certamente mais espaçosas que a alternativa anterior.
 A principal consequência disto é que, embora leve à economia de computação, às vezes a avaliação preguiçosa leva ao uso exagerado de espaço.
 Além disso, computações pesadas invocadas em um período de pouca atividade no sistema podem ser executadas mais tarde, quando o sistema está sobrecarregado, aumentando a variabilidade do tempo de execução e dificultando a previsão de término da computação.
+
+
+## Como funciona
+A computação de uma função em Haskell pode ser entendida em termos da **reescrita** de expressões, da **ordem de reescrita** e do **compartilhamento** de resultados prévios.
+É também baseado nestes mecanismos que a avaliação preguiçosa se torna possível.
+
+### Reescrita
+Há diferentes tipos de reescrita em Haskell.
+O tipo mais simples é a **redução** em que uma expressão é substituída por outra, equivalente, mas mais simples. Por exemplo, a expressão `#!hs 2+2` pode ser **reescrita** como `#hs 4`.
+
+Outra forma de reescrita é o **desdobramento** (*unfolding*), em que o lado esquerdo de uma equação é substituído pelo lado direito. Por exemplo, quando invocamos `#!hs 1 + head [1,2,3]`, Haskell tenta achar uma definição da função `#!hs head` que case com a invocação. Suponha que exista uma definição `#!hs head (x:_) = x`; neste caso, `#!hs head (x:_) = x` é reescrito como `1` e `#!hs head [1,2,3]` é reescrito como 1, levando a expressão inicial a ser reduzida a `#!hs 1 + 1`, onde uma redução é aplicada, levando a `#!hs 2`.
+
+### Ordem de reescrita
+Uma vez entendido que expressões podem ser reescritas, surge a dúvida do que substituir primeiro, quando houver múltiplas opções.
+Por exemplo, se temos a seguinte invocação `#!hs head ((1+1):(2+2):[])` então podemos reduzir 
+
+* `#!hs 1+1` para 1, ou 
+* `#!hs 2+2` para 4, ou 
+* `#!hs head ((1+1):(2+2):[])` para `#!hs (1+1)`.
+
+Haskell escolhe sempre a redução mais "externa" (*outermost reduction* ou avaliação *call-by-name* ), no caso, a terceira opção acima.
+Isso faz com que `#!hs 2+2` nunca seja reduzido, economizando recursos.
+Esta abordagem não é muito comum, nem mesmo entre outras linguagens funcionais, que usam uma avaliação **gulosa** (*call-by-value* ou *eager*).
+
+### Compartilhamento
+Outro aspecto importante no processo de redução é o fato de que Haskell identifica expressões repetidas e compartilha o resultado da avaliação de uma instância com as outras.
+Por exemplo, a seguinte expressão aparece no seu código, `#!hs (head x) : (head y) : (head x) : []`, então Haskell sabe que as duas aparições de `#!hs head x` levarão ao mesmo valor, graças à ausência de efeitos colaterais. 
+As expressões são substituídas por uma referência para a expressão, que uma vez resolvida, é substituída na expressão original.
+
+A avaliação preguiçosa pode ser entendida como a combinação da reescrita do tipo *call-by-name* com o compartilhamento, sendo também conhecida como *call-by-need*.
+
+

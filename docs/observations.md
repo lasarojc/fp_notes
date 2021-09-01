@@ -82,3 +82,10 @@ https://hackage.haskell.org/package/CheatSheet-1.7/src/CheatSheet.pdf
     * `#!hs sqrt a^2 + b^2`
         * Funções tem precedência sobre operadores.
         * `#!hs sqrt a^2 + b^2 == (sqrt a^2) + b^2`
+
+
+
+## Exercícios da semana 3
+
+### Erros
+Para indicar uma condição de erro, use "error". Por exemplo, em uma solução eu encontrei o seguinte  `#!hs  | otherwise = (99, "error")` mas o ideal seria `#!hs |otherwise = error "mensagem de erro"`.

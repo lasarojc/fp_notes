@@ -19,8 +19,10 @@
           data  Ordering    =  LT | EQ | GT deriving  
                                   (Eq, Ord, Bounded, Enum, Read, Show)
           ```
+        * https://mmhaskell.com/blog/2017/12/24/haskell-data-types-in-5-steps
         * Casamento de padrões          
         - Árvores
+        * Estruturas infinitas.
     - [ ] Polimorfismo - funções que se aplicam a vários tipos - generics
             - type variables
             - `head :: [a] -> a`
@@ -37,7 +39,7 @@
 
 - [ ] Listas
     - [x] sao homogêneas
-    - [ ] range operator [1..10]
+    - [x] range operator [1..10]
     - [x] : cons
     - [x] ++ append
     - [x] !! get at index
@@ -51,10 +53,10 @@
 - [ ] Funções
     - [x] Equações simples
     - [x] Guarda
-    - [ ] where
+    - [x] where
         - https://stackoverflow.com/questions/32562614/is-something-in-the-where-clause-in-haskell-only-calculated-once
         - https://takenobu-hs.github.io/downloads/haskell_lazy_evaluation.pdf
-    - [ ] let in 
+    - [x] let in 
 
     - [ ] Recursão
         - [x] funções recursivas
