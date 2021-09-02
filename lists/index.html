@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.3">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
     
     
       
@@ -18,10 +18,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.e35208c4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.be71726b.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -44,10 +44,19 @@
     
     
       
-        
-<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","G-PJX835H7DP","lasarojc.github.org/dsnotes"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
+  
+
+
+
+  
+  
+
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-PJX835H7DP"),document.addEventListener("DOMContentLoaded",function(){"undefined"!=typeof location$&&location$.subscribe(function(t){gtag("config","G-PJX835H7DP",{page_path:t.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PJX835H7DP"></script>
+
+
     
     
   </head>
@@ -79,7 +88,7 @@
     </div>
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
     <a href=".." title="Programação Funcional" class="md-header__button md-logo" aria-label="Programação Funcional" data-md-component="logo">
       
   
@@ -116,20 +125,24 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            Inicializando a pesquisa
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -171,7 +184,7 @@
                     
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Programação Funcional" class="md-nav__button md-logo" aria-label="Programação Funcional" data-md-component="logo">
       
@@ -424,8 +437,22 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#compreensao-de-listas" class="md-nav__link">
+    Compreensão de Listas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#casamento-de-padroes" class="md-nav__link">
     Casamento de padrões
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursao" class="md-nav__link">
+    Recursão
   </a>
   
 </li>
@@ -446,23 +473,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../lazy/" class="md-nav__link">
-        Que preguiça
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../recursion2/" class="md-nav__link">
-        Recursão, denovo
+        Recursão (2)
       </a>
     </li>
   
@@ -506,8 +518,53 @@
   
   
     <li class="md-nav__item">
+      <a href="../highorder/" class="md-nav__link">
+        Funções de alta ordem
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../io/" class="md-nav__link">
         Entrada e Saída
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lambda.md" class="md-nav__link">
+        Cálculo Lambda
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lazy/" class="md-nav__link">
+        Que preguiça
       </a>
     </li>
   
@@ -590,8 +647,22 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#compreensao-de-listas" class="md-nav__link">
+    Compreensão de Listas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#casamento-de-padroes" class="md-nav__link">
     Casamento de padrões
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursao" class="md-nav__link">
+    Recursão
   </a>
   
 </li>
@@ -955,11 +1026,200 @@ Isso existe, por exemplo, entre os caracteres, mas também para tipos definidos 
 <ul>
 <li>Defina uma função que calcule o fatorial e um número n, usando <code>product</code> e listas por enumeração.</li>
 </ul>
-<details class="example"><summary>Resolução</summary></details>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fatorial</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">product</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="n">n</span><span class="p">]</span>
+<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fatorial</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">product</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="n">n</span><span class="p">]</span>
 </code></pre></div>
 </td></tr></table>
+</details>
+<ul>
+<li>Um pangrama é uma frase que contem todas as letras do alfabeto. Escreva uma função que, dado uma String, verifique se é um pangrama.</li>
+</ul>
+<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">module</span> <span class="nn">Pangram</span> <span class="p">(</span><span class="nf">isPangram</span><span class="p">)</span> <span class="kr">where</span>
+
+<span class="kr">import</span> <span class="nn">Data.Char</span> <span class="p">(</span><span class="nf">toLower</span><span class="p">)</span>
+
+<span class="nf">isPangram</span> <span class="ow">::</span> <span class="kt">String</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="nf">isPangram</span> <span class="n">text</span> <span class="ow">=</span> <span class="n">all</span> <span class="p">(`</span><span class="n">elem</span><span class="p">`</span> <span class="p">(</span><span class="n">map</span> <span class="n">toLower</span> <span class="n">text</span><span class="p">))</span> <span class="p">[</span><span class="sc">&#39;a&#39;</span><span class="o">..</span><span class="sc">&#39;z&#39;</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+</details>
 </div>
+<h2 id="compreensao-de-listas">Compreensão de Listas</h2>
+<p>A compreensão de listas é uma forma de construir listas pela definição de uma regra de construção, e é muito comum nas linguagens funcionais, incluindo Haskell.</p>
+<h6>Definição em função de outra lista</h6>
+<p>Suponha que tenha uma lista de números e que gostaria de gerar uma nova lista em que cada valor da lista original é acrescido de 30%.
+Com compreensão de listas, isto pode ser feito muito facilmente usando a compreensão de listas <code class="highlight"><span class="p">[</span><span class="n">e</span><span class="o">*</span><span class="mf">1.3</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="n">lista</span><span class="p">]</span></code>.
+Esta compreensão diz que será construída uma lista cujos elementos serão da forma <code class="highlight"><span class="nf">e</span><span class="o">*</span><span class="mf">1.3</span></code>, onde <code>e</code> são os elementos da lista original.
+Veja o exemplo de execução.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">lista</span> <span class="ow">=</span> <span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">lista</span> <span class="ow">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
+<span class="o">&gt;</span> <span class="p">[</span><span class="n">e</span><span class="o">*</span><span class="mf">1.3</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="n">lista</span><span class="p">]</span>
+<span class="p">[</span><span class="mf">13.0</span><span class="p">,</span><span class="mf">26.0</span><span class="p">,</span><span class="mf">39.0</span><span class="p">,</span><span class="mf">52.0</span><span class="p">,</span><span class="mf">130.0</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+<h6>Sintaxe</h6>
+<p>A compreensão de listas é baseada na compreensão de conjuntos, da teoria de conjuntos da matemática.
+A seguinte compreensão de conjuntos pode ser lida como o conjunto <span class="arithmatex">\(A\)</span> formado pela aplicação da função <span class="arithmatex">\(f\)</span> a todos os valores <span class="arithmatex">\(x\)</span> <strong>tal que</strong> <span class="arithmatex">\(x\)</span> pertence ao conjunto <span class="arithmatex">\(C\)</span> e para os quais valem os predicados <span class="arithmatex">\(P_i, 1\leq i \leq n\)</span>.</p>
+<p><span class="arithmatex">\(A = \{ f(x) | x \in C \land P_1(x) \land \ldots \land P_n(x)\}\)</span></p>
+<p>A compreensão de listas é similar</p>
+<p><code class="highlight"><span class="nf">a</span> <span class="ow">=</span> <span class="p">[</span> <span class="n">f</span> <span class="n">x</span> <span class="o">|</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">c</span><span class="p">,</span> <span class="n">p1</span> <span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span>  <span class="n">pn</span> <span class="n">x</span><span class="p">]</span></code></p>
+<p>Uma diferença importante é que enquanto não há ordem nos conjuntos, há ordem nas listas e a construção é feita na ordem da lista original.</p>
+<h6>Listas infinitas</h6>
+<p>Assim como é possível expressar um conjunto infinito usando compreensão de conjuntos, por exemplo o conjunto dos quadrados de todos os número naturais <span class="arithmatex">\(Nq = \{e^2 | e \in \mathcal{N} \}\)</span>, podemos expressar listas infinitas usando enumeração e compreensão de listas como <code class="highlight"><span class="nf">lq</span> <span class="ow">=</span> <span class="p">[</span><span class="n">e</span><span class="o">**</span><span class="mi">2</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="p">]]</span></code>.</p>
+<p>"Mas como é possível?", você me pergunta, afinal, a memória do computador é finita e portanto não poderia armazenar uma lista infinita.
+Esta é uma das mágicas do Haskell, conhecida como avaliação preguiçosa, e será vista em detalhes mais adiante.
+Por enquanto, basta acreditar que, desde que você não tente enumerar todos os elementos, uma lista infinita pode se representada no Haskell.
+Podemos, inclusive, consultar alguns elementos da lista infinita construída acima para, por exemplo, verificar se um certo número é um quadrado perfeito!</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">lq</span> <span class="ow">=</span> <span class="p">[</span><span class="n">e</span><span class="o">**</span><span class="mi">2</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="p">]]</span>
+<span class="o">&gt;</span> <span class="n">elem</span> <span class="mi">4</span> <span class="n">lq</span>
+<span class="kt">True</span>
+<span class="o">&gt;</span> <span class="n">elem</span> <span class="mi">16</span> <span class="n">lq</span>
+<span class="kt">True</span>
+<span class="o">&gt;</span> <span class="n">elem</span> <span class="mi">3</span> <span class="n">lq</span>
+<span class="o">^</span><span class="kt">CInterrupted</span><span class="o">.</span>
+</code></pre></div>
+</td></tr></table>
+<p>Observe, contudo, que se um elemento não estiver na lista, a função nunca retornará!</p>
+<div class="admonition exercise">
+<p class="admonition-title">Exercício</p>
+<ul>
+<li>Modifique o exemplo acima para limitar a quantidade de elementos que serão buscados na lista de quadrados.</li>
+</ul>
+<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">elem</span> <span class="mi">16</span> <span class="p">(</span><span class="n">take</span> <span class="mi">100</span> <span class="n">lq</span><span class="p">)</span>
+<span class="kt">True</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">elem</span> <span class="mi">20</span> <span class="p">(</span><span class="n">take</span> <span class="mi">100</span> <span class="n">lq</span><span class="p">)</span>
+<span class="kt">False</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">elem</span> <span class="mi">64</span> <span class="p">(</span><span class="n">take</span> <span class="mi">5</span> <span class="n">lq</span><span class="p">)</span>
+<span class="kt">False</span>
+</code></pre></div>
+</td></tr></table>
+</details>
+</div>
+<h6>A função geradora</h6>
+<p>Sabendo que a função <code>ord</code> do módulo <code>Data.Char</code> converte um caractere para seu valor na tabela ASCII, imagine que você queira converter uma String para uma lista dos valores ASCII correspondente.
+Isso pode ser feito trivialmente com compreensão de listas.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kr">import</span> <span class="nn">Data.Char</span> <span class="p">(</span><span class="nf">ord</span><span class="p">)</span>
+<span class="kt">Prelude</span> <span class="kt">Data</span><span class="o">.</span><span class="kt">Char</span><span class="o">&gt;</span> <span class="p">[</span> <span class="n">ord</span> <span class="n">e</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="s">&quot;abcd,&#39;dasdfa;lkqwoiur&quot;</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">97</span><span class="p">,</span><span class="mi">98</span><span class="p">,</span><span class="mi">99</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">97</span><span class="p">,</span><span class="mi">115</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">102</span><span class="p">,</span><span class="mi">97</span><span class="p">,</span><span class="mi">59</span><span class="p">,</span><span class="mi">108</span><span class="p">,</span><span class="mi">107</span><span class="p">,</span><span class="mi">113</span><span class="p">,</span><span class="mi">119</span><span class="p">,</span><span class="mi">111</span><span class="p">,</span><span class="mi">105</span><span class="p">,</span><span class="mi">117</span><span class="p">,</span><span class="mi">114</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+<p>Isto demonstra que a função geradora da lista pode ser usada para converte tipos, o que é bem útil.
+Também pode ser usada para aplicar uma função a todos os elementos de um "conjunto", por exemplo para mudar a capitalização de uma String</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span> <span class="kt">Data</span><span class="o">.</span><span class="kt">Char</span><span class="o">&gt;</span> <span class="kr">import</span> <span class="nn">Data.Char</span> <span class="p">(</span><span class="nf">ord</span><span class="p">,</span><span class="nf">toLower</span><span class="p">,</span> <span class="nf">toUpper</span><span class="p">)</span>
+<span class="kt">Prelude</span> <span class="kt">Data</span><span class="o">.</span><span class="kt">Char</span><span class="o">&gt;</span> <span class="p">[</span> <span class="n">toUpper</span> <span class="n">e</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="s">&quot;abcd,&#39;dasdfa;lkqwoiur&quot;</span><span class="p">]</span>
+<span class="s">&quot;ABCD,&#39;DASDFA;LKQWOIUR&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<p>No exemplo seguinte, a função retorna uma tupla com a letra em minúscula e em maiúscula.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span> <span class="kt">Data</span><span class="o">.</span><span class="kt">Char</span><span class="o">&gt;</span> <span class="p">[</span> <span class="p">(</span><span class="n">toUpper</span> <span class="n">e</span><span class="p">,</span><span class="n">toLower</span> <span class="n">e</span><span class="p">)</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="s">&quot;abCD&quot;</span><span class="p">]</span>
+<span class="p">[(</span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="sc">&#39;a&#39;</span><span class="p">),(</span><span class="sc">&#39;B&#39;</span><span class="p">,</span><span class="sc">&#39;b&#39;</span><span class="p">),(</span><span class="sc">&#39;C&#39;</span><span class="p">,</span><span class="sc">&#39;c&#39;</span><span class="p">),(</span><span class="sc">&#39;D&#39;</span><span class="p">,</span><span class="sc">&#39;d&#39;</span><span class="p">)]</span>
+</code></pre></div>
+</td></tr></table>
+<div class="admonition exercise">
+<p class="admonition-title">Exercício</p>
+</div>
+<ul>
+<li>Explique <code class="highlight"><span class="p">[</span> <span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">chr</span> <span class="p">((</span><span class="n">ord</span> <span class="n">e</span> <span class="o">-</span> <span class="n">ord</span> <span class="sc">&#39;a&#39;</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span></code>mod<code>26 + (ord 'a'))) | e &lt;- ['a'..'z']]</code></li>
+</ul>
+<p>!!!example "Resolução"
+       Retorna uma lista de tuplas em que os primeiros elementos são letras e seus pares são letras 10 posições adiante no alfabeto, módulo 26. </p>
+<h6>Predicados</h6>
+<p>Imagine agora que você queira construir uma lista com os quadrados dos números naturais múltiplos de 3 e menores que 100.
+Neste caso, podemos adicionar um teste aos elementos sendo aplicados na construção da lista</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="p">[</span><span class="n">e</span><span class="o">^</span><span class="mi">2</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">100</span><span class="p">],</span> <span class="n">e</span> <span class="p">`</span><span class="n">mod</span><span class="p">`</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">81</span><span class="p">,</span><span class="mi">144</span><span class="p">,</span><span class="mi">225</span><span class="p">,</span><span class="mi">324</span><span class="p">,</span><span class="mi">441</span><span class="p">,</span><span class="mi">576</span><span class="p">,</span><span class="mi">729</span><span class="p">,</span><span class="mi">900</span><span class="p">,</span><span class="mi">1089</span><span class="p">,</span><span class="mi">1296</span><span class="p">,</span><span class="mi">1521</span><span class="p">,</span><span class="mi">1764</span><span class="p">,</span><span class="mi">2025</span><span class="p">,</span><span class="mi">2304</span><span class="p">,</span><span class="mi">2601</span><span class="p">,</span><span class="mi">2916</span><span class="p">,</span><span class="mi">3249</span><span class="p">,</span><span class="mi">3600</span><span class="p">,</span><span class="mi">3969</span><span class="p">,</span><span class="mi">4356</span><span class="p">,</span><span class="mi">4761</span><span class="p">,</span><span class="mi">5184</span><span class="p">,</span><span class="mi">5625</span><span class="p">,</span><span class="mi">6084</span><span class="p">,</span><span class="mi">6561</span><span class="p">,</span><span class="mi">7056</span><span class="p">,</span><span class="mi">7569</span><span class="p">,</span><span class="mi">8100</span><span class="p">,</span><span class="mi">8649</span><span class="p">,</span><span class="mi">9216</span><span class="p">,</span><span class="mi">9801</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+<p>Observe que os predicados em si podem ser tão complexos quanto se queira.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span> <span class="kt">Data</span><span class="o">.</span><span class="kt">Char</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">e</span><span class="o">^</span><span class="mi">2</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">100</span><span class="p">],</span> <span class="n">e</span> <span class="p">`</span><span class="n">mod</span><span class="p">`</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">e</span><span class="o">^</span><span class="mi">2</span> <span class="p">`</span><span class="n">mod</span><span class="p">`</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">36</span><span class="p">,</span><span class="mi">144</span><span class="p">,</span><span class="mi">324</span><span class="p">,</span><span class="mi">576</span><span class="p">,</span><span class="mi">900</span><span class="p">,</span><span class="mi">1296</span><span class="p">,</span><span class="mi">1764</span><span class="p">,</span><span class="mi">2304</span><span class="p">,</span><span class="mi">2916</span><span class="p">,</span><span class="mi">3600</span><span class="p">,</span><span class="mi">4356</span><span class="p">,</span><span class="mi">5184</span><span class="p">,</span><span class="mi">6084</span><span class="p">,</span><span class="mi">7056</span><span class="p">,</span><span class="mi">8100</span><span class="p">,</span><span class="mi">9216</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+<div class="admonition exercise">
+<p class="admonition-title">Exercício</p>
+<ul>
+<li>Usando compreensão de listas, defina uma função que gera a lista dos divisores de um número.</li>
+</ul>
+<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">divisores</span> <span class="n">x</span> <span class="ow">=</span> <span class="p">[</span><span class="n">e</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="n">x</span><span class="p">],</span> <span class="n">x</span> <span class="p">`</span><span class="n">mod</span><span class="p">`</span> <span class="n">e</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="o">&gt;</span> <span class="n">divisores</span> <span class="mi">10</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+</details>
+<ul>
+<li>Usando a função definida acima, defina uma função que teste se um número é primo.</li>
+</ul>
+<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">divisores</span> <span class="n">x</span> <span class="ow">=</span> <span class="p">[</span><span class="n">e</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="n">x</span><span class="p">],</span> <span class="n">x</span> <span class="p">`</span><span class="n">mod</span><span class="p">`</span> <span class="n">e</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="o">&gt;</span> <span class="n">primo</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">divisores</span> <span class="n">x</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">x</span><span class="p">]</span>
+<span class="o">&gt;</span> <span class="n">primo</span> <span class="mi">7</span>
+<span class="kt">True</span>
+<span class="o">&gt;</span> <span class="n">primo</span> <span class="mi">45</span>
+<span class="kt">False</span>
+</code></pre></div>
+</td></tr></table>
+</details>
+</div>
+<h6>Múltiplos geradores</h6>
+<p>Uma compreensão de listas pode ter mais de um gerador, isto é, <code>&lt;-</code>, o que faz com que todos as combinações dos elementos gerados sejam aplicadas à função.
+Por exemplo, </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="p">[</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">|</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">4</span><span class="p">],</span> <span class="n">y</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">4</span><span class="p">]]</span>
+<span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)]</span>
+</code></pre></div>
+</td></tr></table>
+<p>Veja que predicados podem ser normalmente aplicados a múltiplos geradores, por exemplo.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="p">[</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">|</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">4</span><span class="p">],</span> <span class="n">y</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">4</span><span class="p">],</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">]</span>
+<span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)]</span>
+</code></pre></div>
+</td></tr></table>
+<p>É importante observar que a ordem dos geradores altera a ordem dos elementos da lista gerada, pois para cada elemento gerado pelo primeiro gerador, será combinado cada elemento gerado pelo segundo.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="p">[</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">|</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">4</span><span class="p">],</span> <span class="n">y</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="sc">&#39;a&#39;</span><span class="o">..</span><span class="sc">&#39;d&#39;</span><span class="p">]]</span>
+<span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="sc">&#39;a&#39;</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="sc">&#39;b&#39;</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="sc">&#39;c&#39;</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="sc">&#39;d&#39;</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="sc">&#39;a&#39;</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="sc">&#39;b&#39;</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="sc">&#39;c&#39;</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="sc">&#39;d&#39;</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="sc">&#39;a&#39;</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="sc">&#39;b&#39;</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="sc">&#39;c&#39;</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="sc">&#39;d&#39;</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="sc">&#39;a&#39;</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="sc">&#39;b&#39;</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="sc">&#39;c&#39;</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="sc">&#39;d&#39;</span><span class="p">)]</span>
+<span class="o">&gt;</span> <span class="p">[</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">|</span>  <span class="n">y</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="sc">&#39;a&#39;</span><span class="o">..</span><span class="sc">&#39;d&#39;</span><span class="p">],</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">4</span><span class="p">]]</span>
+<span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="sc">&#39;a&#39;</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="sc">&#39;a&#39;</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="sc">&#39;a&#39;</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="sc">&#39;a&#39;</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="sc">&#39;b&#39;</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="sc">&#39;b&#39;</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="sc">&#39;b&#39;</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="sc">&#39;b&#39;</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="sc">&#39;c&#39;</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="sc">&#39;c&#39;</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="sc">&#39;c&#39;</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="sc">&#39;c&#39;</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="sc">&#39;d&#39;</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="sc">&#39;d&#39;</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="sc">&#39;d&#39;</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="sc">&#39;d&#39;</span><span class="p">)]</span>
+</code></pre></div>
+</td></tr></table>
+<p>Além disso, é possível definir um gerador em termos dos geradores anteriores. Por exemplo</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="p">[</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">|</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">4</span><span class="p">],</span> <span class="n">y</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="n">x</span><span class="p">]]</span>
+<span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)]</span>
+</code></pre></div>
+</td></tr></table>
+<p>Este construto é deveras poderoso, pois geradores podem ser aplicados eles próprios a compreensão de listas.</p>
 <h2 id="casamento-de-padroes">Casamento de padrões</h2>
 <p>Toda lista é ou uma lista vazia, ou um elemento como cabeça e uma lista como cauda.
 Assim, se cobrir estes dois casos em uma definição por casamento de padrões, terá coberto "todos" os casos!
@@ -1035,6 +1295,56 @@ Por exemplo, considere uma lista de três ou mais String, isto é, uma lista de 
 <span class="nf">iniciais</span> <span class="p">((</span><span class="n">x</span><span class="kt">:</span><span class="kr">_</span><span class="p">)</span><span class="kt">:</span><span class="p">(</span><span class="n">y</span><span class="kt">:</span><span class="kr">_</span><span class="p">)</span><span class="kt">:</span><span class="p">(</span><span class="n">z</span><span class="kt">:</span><span class="kr">_</span><span class="p">)</span><span class="kt">:</span><span class="kr">_</span><span class="p">)</span> <span class="ow">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">]</span>
 </code></pre></div>
 </td></tr></table>
+<h2 id="recursao">Recursão</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">resumo</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="s">&quot;String&quot;</span>
+<span class="nf">resumo</span> <span class="kt">[]</span> <span class="ow">-&gt;</span> <span class="s">&quot;Nada&quot;</span>
+<span class="nf">resumo</span> <span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="s">&quot;Só &quot;</span> <span class="o">++</span> <span class="n">e</span>
+<span class="nf">resumo</span> <span class="p">[</span><span class="n">e1</span><span class="p">,</span><span class="n">e2</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="n">e1</span> <span class="o">++</span> <span class="s">&quot; e &quot;</span> <span class="o">++</span> <span class="n">e2</span>
+<span class="nf">resumo</span> <span class="p">(</span><span class="n">e1</span><span class="kt">:</span><span class="n">resto</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">e1</span> <span class="o">++</span> 
+                    <span class="s">&quot; um monte de coisas, terminando com &quot;</span> <span class="o">++</span> 
+                    <span class="n">last</span> <span class="n">rest</span>
+</code></pre></div>
+</td></tr></table>
+<p><span class="arithmatex">\(maximum~[1,2,3] = max~1 \left( maximum~[2,3] = max~2 \left( maximum~[3] = 3 \right)        \right)\)</span></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">maximum</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;lista vazia&quot;</span>  
+<span class="nf">maximum</span> <span class="p">[</span><span class="n">h</span><span class="p">]</span> <span class="ow">=</span> <span class="n">h</span>
+<span class="nf">maximum</span> <span class="p">(</span><span class="n">h</span><span class="kt">:</span><span class="n">t</span><span class="p">)</span> <span class="ow">=</span> <span class="n">max</span> <span class="n">h</span> <span class="p">(</span><span class="n">maximum</span> <span class="n">t</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>comprimento</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">comprimento</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">comprimento</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="mi">0</span>
+<span class="nf">comprimento</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">len</span> <span class="n">xs</span>
+</code></pre></div>
+</td></tr></table>
+<p>último</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">último</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="nf">último</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;List is empty&quot;</span>
+<span class="nf">último</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="ow">=</span> <span class="n">x</span>
+<span class="nf">último</span> <span class="p">(</span><span class="kr">_</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">last</span> <span class="n">xs</span>
+</code></pre></div>
+</td></tr></table>
+<p>inverso</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">inverso</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="nf">inverso</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="kt">[]</span>
+<span class="nf">inverso</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">inverso</span> <span class="n">xs</span> <span class="o">++</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
 <div class="footnote">
 <hr />
 <ol>
@@ -1064,9 +1374,10 @@ Por exemplo, considere uma lista de três ou mais String, isto é, uma lista de 
         
 <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
+    <nav class="md-footer__inner md-grid" aria-label="Rodapé">
       
-        <a href="../where_let_in/" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../where_let_in/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Where e Let-In" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1081,13 +1392,14 @@ Por exemplo, considere uma lista de três ou mais String, isto é, uma lista de 
         </a>
       
       
-        <a href="../lazy/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../recursion2/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Recursão (2)" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Que preguiça
+              Recursão (2)
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1116,10 +1428,10 @@ Por exemplo, considere uma lista de três ou mais String, isto é, uma lista de 
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.4ea5477f.min.js"></script>
+      <script src="../assets/javascripts/bundle.56a63758.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       
