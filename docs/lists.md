@@ -248,9 +248,190 @@ Prelude> [Copas ..Ouro]
     * Defina uma função que calcule o fatorial e um número n, usando `product` e listas por enumeração.
 
     ???example "Resolução"
-    ```hs
-    fatorial n = product [1..n]
-    ```
+        ```hs
+        fatorial n = product [1..n]
+        ```
+
+    * Um pangrama é uma frase que contem todas as letras do alfabeto. Escreva uma função que, dado uma String, verifique se é um pangrama.
+
+    ???example "Resolução"
+        ```hs
+        module Pangram (isPangram) where
+
+        import Data.Char (toLower)
+
+        isPangram :: String -> Bool
+        isPangram text = all (`elem` (map toLower text)) ['a'..'z']
+        ```
+
+
+## Compreensão de Listas
+A compreensão de listas é uma forma de construir listas pela definição de uma regra de construção, e é muito comum nas linguagens funcionais, incluindo Haskell.
+
+
+###### Definição em função de outra lista
+Suponha que tenha uma lista de números e que gostaria de gerar uma nova lista em que cada valor da lista original é acrescido de 30%.
+Com compreensão de listas, isto pode ser feito muito facilmente usando a compreensão de listas `#!hs [e*1.3 | e <- lista]`.
+Esta compreensão diz que será construída uma lista cujos elementos serão da forma `#!hs e*1.3`, onde `e` são os elementos da lista original.
+Veja o exemplo de execução.
+
+```hs
+> lista = Prelude> lista = [10,20,30,40,100]
+> [e*1.3 | e <- lista]
+[13.0,26.0,39.0,52.0,130.0]
+```
+
+###### Sintaxe
+A compreensão de listas é baseada na compreensão de conjuntos, da teoria de conjuntos da matemática.
+A seguinte compreensão de conjuntos pode ser lida como o conjunto $A$ formado pela aplicação da função $f$ a todos os valores $x$ **tal que** $x$ pertence ao conjunto $C$ e para os quais valem os predicados $P_i, 1\leq i \leq n$.
+
+$A = \{ f(x) | x \in C \land P_1(x) \land \ldots \land P_n(x)\}$
+
+A compreensão de listas é similar
+
+`#!hs a = [ f x | x <- c, p1 x, ...,  pn x]`
+
+Uma diferença importante é que enquanto não há ordem nos conjuntos, há ordem nas listas e a construção é feita na ordem da lista original.
+
+###### Listas infinitas
+Assim como é possível expressar um conjunto infinito usando compreensão de conjuntos, por exemplo o conjunto dos quadrados de todos os número naturais $Nq = \{e^2 | e \in \mathcal{N} \}$, podemos expressar listas infinitas usando enumeração e compreensão de listas como `#!hs lq = [e**2 | e <- [1..]]`.
+
+"Mas como é possível?", você me pergunta, afinal, a memória do computador é finita e portanto não poderia armazenar uma lista infinita.
+Esta é uma das mágicas do Haskell, conhecida como avaliação preguiçosa, e será vista em detalhes mais adiante.
+Por enquanto, basta acreditar que, desde que você não tente enumerar todos os elementos, uma lista infinita pode se representada no Haskell.
+Podemos, inclusive, consultar alguns elementos da lista infinita construída acima para, por exemplo, verificar se um certo número é um quadrado perfeito!
+
+```hs
+> lq = [e**2 | e <- [1..]]
+> elem 4 lq
+True
+> elem 16 lq
+True
+> elem 3 lq
+^CInterrupted.
+```
+
+Observe, contudo, que se um elemento não estiver na lista, a função nunca retornará!
+
+!!!exercise "Exercício"
+    * Modifique o exemplo acima para limitar a quantidade de elementos que serão buscados na lista de quadrados.
+
+    ???example "Resolução"
+        ```hs
+        Prelude> elem 16 (take 100 lq)
+        True
+        Prelude> elem 20 (take 100 lq)
+        False
+        Prelude> elem 64 (take 5 lq)
+        False
+        ```
+
+###### A função geradora
+Sabendo que a função `ord` do módulo `Data.Char` converte um caractere para seu valor na tabela ASCII, imagine que você queira converter uma String para uma lista dos valores ASCII correspondente.
+Isso pode ser feito trivialmente com compreensão de listas.
+
+```hs
+Prelude> import Data.Char (ord)
+Prelude Data.Char> [ ord e | e <- "abcd,'dasdfa;lkqwoiur"]
+[97,98,99,100,44,39,100,97,115,100,102,97,59,108,107,113,119,111,105,117,114]
+```
+
+Isto demonstra que a função geradora da lista pode ser usada para converte tipos, o que é bem útil.
+Também pode ser usada para aplicar uma função a todos os elementos de um "conjunto", por exemplo para mudar a capitalização de uma String
+
+```hs
+Prelude Data.Char> import Data.Char (ord,toLower, toUpper)
+Prelude Data.Char> [ toUpper e | e <- "abcd,'dasdfa;lkqwoiur"]
+"ABCD,'DASDFA;LKQWOIUR"
+```
+
+No exemplo seguinte, a função retorna uma tupla com a letra em minúscula e em maiúscula.
+
+```hs
+Prelude Data.Char> [ (toUpper e,toLower e) | e <- "abCD"]
+[('A','a'),('B','b'),('C','c'),('D','d')]
+```
+
+!!!exercise "Exercício"
+   * Explique `#!hs [ (e, chr ((ord e - ord 'a' + 10) `mod` 26 + (ord 'a'))) | e <- ['a'..'z']]`
+
+   !!!example "Resolução"
+       Retorna uma lista de tuplas em que os primeiros elementos são letras e seus pares são letras 10 posições adiante no alfabeto, módulo 26. 
+
+###### Predicados
+Imagine agora que você queira construir uma lista com os quadrados dos números naturais múltiplos de 3 e menores que 100.
+Neste caso, podemos adicionar um teste aos elementos sendo aplicados na construção da lista
+
+```hs
+> [e^2 | e <- [1..100], e `mod` 3 == 0]
+[9,36,81,144,225,324,441,576,729,900,1089,1296,1521,1764,2025,2304,2601,2916,3249,3600,3969,4356,4761,5184,5625,6084,6561,7056,7569,8100,8649,9216,9801]
+```
+
+Observe que os predicados em si podem ser tão complexos quanto se queira.
+
+```hs
+Prelude Data.Char> [e^2 | e <- [1..100], e `mod` 3 == 0, e^2 `mod` 4 == 0]
+[36,144,324,576,900,1296,1764,2304,2916,3600,4356,5184,6084,7056,8100,9216]
+```
+
+!!!exercise "Exercício"
+    * Usando compreensão de listas, defina uma função que gera a lista dos divisores de um número.
+
+    ???example "Resolução"
+        ```hs
+        > divisores x = [e | e <- [1..x], x `mod` e == 0]
+        > divisores 10
+        [1,2,5,10]
+        ```
+    * Usando a função definida acima, defina uma função que teste se um número é primo.
+
+    ???example "Resolução"
+        ```hs
+        > divisores x = [e | e <- [1..x], x `mod` e == 0]
+        > primo x = divisores x == [1,x]
+        > primo 7
+        True
+        > primo 45
+        False
+        ```
+
+
+###### Múltiplos geradores
+Uma compreensão de listas pode ter mais de um gerador, isto é, `#! <-`, o que faz com que todos as combinações dos elementos gerados sejam aplicadas à função.
+Por exemplo, 
+
+```hs
+> [ (x,y) | x <- [1..4], y <- [1..4]]
+[(1,1),(1,2),(1,3),(1,4),(2,1),(2,2),(2,3),(2,4),(3,1),(3,2),(3,3),(3,4),(4,1),(4,2),(4,3),(4,4)]
+```
+
+Veja que predicados podem ser normalmente aplicados a múltiplos geradores, por exemplo.
+
+```hs
+> [ (x,y) | x <- [1..4], y <- [1..4], x < y]
+[(1,2),(1,3),(1,4),(2,3),(2,4),(3,4)]
+```
+
+É importante observar que a ordem dos geradores altera a ordem dos elementos da lista gerada, pois para cada elemento gerado pelo primeiro gerador, será combinado cada elemento gerado pelo segundo.
+
+```hs
+> [ (x,y) | x <- [1..4], y <- ['a'..'d']]
+[(1,'a'),(1,'b'),(1,'c'),(1,'d'),(2,'a'),(2,'b'),(2,'c'),(2,'d'),(3,'a'),(3,'b'),(3,'c'),(3,'d'),(4,'a'),(4,'b'),(4,'c'),(4,'d')]
+> [ (x,y) |  y <- ['a'..'d'], x <- [1..4]]
+[(1,'a'),(2,'a'),(3,'a'),(4,'a'),(1,'b'),(2,'b'),(3,'b'),(4,'b'),(1,'c'),(2,'c'),(3,'c'),(4,'c'),(1,'d'),(2,'d'),(3,'d'),(4,'d')]
+```
+
+Além disso, é possível definir um gerador em termos dos geradores anteriores. Por exemplo
+
+```hs
+> [ (x,y) | x <- [1..4], y <- [1..x]]
+[(1,1),(2,1),(2,2),(3,1),(3,2),(3,3),(4,1),(4,2),(4,3),(4,4)]
+```
+
+
+
+
+Este construto é deveras poderoso, pois geradores podem ser aplicados eles próprios a compreensão de listas.
 
 
 
@@ -319,4 +500,60 @@ iniciais [(x:_)] = [x]
 iniciais [(x:_),(y:_)] = [x,y]
 iniciais ((x:_):(y:_):(z:_):_) = [x,y,z]
 ```
+
+
+
+
+
+
+
+## Recursão
+
+```hs
+resumo :: [String] -> "String"
+resumo [] -> "Nada"
+resumo [e] -> "Só " ++ e
+resumo [e1,e2] -> e1 ++ " e " ++ e2
+resumo (e1:resto) -> e1 ++ 
+                    " um monte de coisas, terminando com " ++ 
+                    last rest
+```
+
+
+$maximum~[1,2,3] = max~1 \left( maximum~[2,3] = max~2 \left( maximum~[3] = 3 \right)        \right)$
+
+
+```hs
+maximum [] = error "lista vazia"  
+maximum [h] = h
+maximum (h:t) = max h (maximum t)
+```
+
+comprimento
+
+```hs
+comprimento :: [a] -> Int
+comprimento [] = 0
+comprimento (x:xs) = 1 + len xs
+```
+
+último
+
+```hs
+último :: [a] -> a
+último [] = error "List is empty"
+último [x] = x
+último (_:xs) = last xs
+``` 
+
+inverso
+
+```hs
+inverso :: [a] -> [a]
+inverso [] = []
+inverso (x:xs) = inverso xs ++ [x]
+```
+
+
+
 

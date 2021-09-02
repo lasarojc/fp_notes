@@ -89,3 +89,29 @@ https://hackage.haskell.org/package/CheatSheet-1.7/src/CheatSheet.pdf
 
 ### Erros
 Para indicar uma condição de erro, use "error". Por exemplo, em uma solução eu encontrei o seguinte  `#!hs  | otherwise = (99, "error")` mas o ideal seria `#!hs |otherwise = error "mensagem de erro"`.
+
+
+
+## Prova 1
+### Máximo
+* Toda recursão deve ter um caso base, senão a recursão não para.
+
+* No seguinte trecho, só temos dois casos. Um `if-then-else` me parece mais legível.
+```#!hs
+máximo (x:xs) | (x > máximo xs) = x
+              | otherwise = máximo xs
+```
+
+### Raízes
+* 
+```#!hs
+Prelude> 4/2*2
+4.0
+Prelude> 4/(2*2)
+1.0
+```
+
+### ValorFinal
+* A idade precisa levar mês e dia em consideração.
+
+
