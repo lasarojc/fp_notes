@@ -805,7 +805,7 @@ oQueHáNaLista :: (Show a) => [a] -> String
 oQueHáNaLista [] = "Nada"
 oQueHáNaLista (x:[]) = "Só " ++ (show x)
 oQueHáNaLista (x1:x2:[]) = "Há " ++ (show x1) ++ " e " ++ (show x2)
-oQueHáNaLista (x:xs) = "Há " ++ (show x) ++ " e mais um monte de coisas" 
+oQueHáNaLista (x:xs) = "Há " ++ (show x) ++ " e mais um monte de coisas"
 
 
 iniciais :: [String] -> [Char]
@@ -833,7 +833,7 @@ divideEmC :: Char -> String -> [String]
 divideEmC c l = if null l
                 then []
                 else primeiraParte : divideEmC c segundaParte
-        where 
+        where
             achaIndice = error "implementar"
             n = achaIndice c l
             (primeiraParte, segundaParte) = splitAt n l
@@ -1006,10 +1006,56 @@ dm' l ps ss = if null l then ps ++ ss
 
 
 compacte' :: [[a]] -> [(a, Int)]
-compacte' l 
+compacte' l
     | null l = []
     | otherwise = tupla : sublista
         where tupla = (char, num)
               char = head (head l)
               num = length (head l)
               sublista = compacte' (tail l)
+
+
+
+{-
+>>>partitions [1,2,3]
+[[1,2,3],[1,2],[1,3],[1],[2,3],[2],[3],[]]
+
+-}
+partitions [] = [[]]
+partitions (x:xs) = [ x:e | e <- partitions xs] ++ partitions xs
+
+
+
+{-
+>>>partitions' 1
+No instance for (Show (Int -> [[Int]]))
+  arising from a use of ‘evalPrint’
+  (maybe you haven't applied a function to enough arguments?)
+
+
+-}
+partitions'' :: Int -> [[Int]]
+partitions'' n = partitions' n n
+
+partitions' :: Int -> Int -> [[Int]]
+partitions' _ 0  = [[]]
+partitions' x y = [ h:t | h <- [1..x], t <- partitions' x (y-1)]
+
+
+
+{-
+>>>delta (1,2,3)
+
+-}
+
+delta :: (Float, Float, Float) -> Float
+delta (a,b,c) = b^2 - 4*a*c
+
+raízes :: (Float,Float, Float) -> [Float]
+raízes (a,b,c)
+  | d > 0 = [raiz1,raiz2]
+  | d == 0 = [raiz1]
+  | otherwise  = []
+  where d = delta (a,b,c)
+        raiz1 =  (negate b + sqrt d)/(2*a)
+        raiz2 =  (negate b - sqrt d)/(2*a)
