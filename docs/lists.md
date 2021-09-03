@@ -14,7 +14,7 @@ Aliás, outra forma de escrever estas listas, enquanto especificando seus tipos,
 Segundo, enquanto uma tupla pode ter elementos de tipos diferentes, todos os elementos de uma lista devem ser do mesmo tipo.
 Ou seja, enquanto é possível definir `#!hs x = ("Joao", 14, True)`, não é possível definir `#!hs x = ["Joao", 14, True]`.
 É preciso observar contudo que é possível construir uma lista `#!hs [1,2,3,4,17,4.2]`, mas mas isto só é possível porquê existe um tipo do qual todos os elementos da lista são derivados, no caso, `#!hs Fractional`.
-De fato, quando defino este lista, o Haskell automaticamente faz o boxing dos cinco primeiros valores para ponto flutuante.
+De fato, quando defino este lista, Haskell automaticamente faz o boxing dos cinco primeiros valores para ponto flutuante.
 
 ```hs
 *Main> z = [1,2,3,4,17,4.2]
@@ -134,41 +134,8 @@ Vejamos alguns exemplos:
 * `#!hs [(1,2,3),(3)]` - Um bug
 
 
-## Funções úteis
-Em uma seção anterior, apresentamos algumas funções como úteis na manipulação de String.
-Na verdade, todas aquelas funções são definidas em termos de listas, e por isso as revisitaremos aqui, juntamente com mais algumas.
-
-
-|Operador|Operação| Exemplo |
-|----|----|----|
-| `++` | Concatenação de listas| `#!hs > "foo" ++ "bar"` <br> `#!hs "foobar"`|
-| `!!` | Elemento no índice| `#!hs >[1,2,3,4] !! 2` <br> `3` |
-| `reverse` | Lista ao contrário | `#!hs >reverse [1,2,3,4] ` <br> ` [4,3,2,1]` |
-| `length` | Comprimento da string | `#!hs >length "foo bar" ` <br> ` 7` |
-| `last` | Último elemento da lista | `#!hs >last "foo bar"` <br> ` r`|
-| `concat` | Retorna a concatenação das listas dentro de uma lista | `#!hs >concat [[1,2,3,4],[5,6,7,8]]` <br> `[1,2,3,4,5,6,7,8]` <br> `#!hs >concat [[[1,2,3]],[[4,5,6]]]` <br> `#!hs [[1,2,3],[4,5,6]]` |
-| `elem`   | Verifica se o parâmetro é um elemento da lista | `#!hs >elem 'o' "foo bar"` <br> `#!hs True`|
-| `null`   | Verifica se a lista é vazia | `#!hs >null ""` <br> `True`<br> `#!hs >null []` <br> `True` <br> `#!hs >null [1,2]` <br> `#!hs False`|
-| `replicate`   | Constrói uma lista pela replicação de um elemento | `#!hs >replicate 4 (1,2)` <br> `#!hs [(1,2),(1,2),(1,2),(1,2)]`|
-| `take` | Sublista iniciando em 0 | `#!hs >take 3 1:2:3:4:5:[] ` <br> `#!hs [1,2,3]` |
-| `drop` | Sublista começando em um índice| `#!hs >drop 3 ['f','o','o',' ','b','a','r'] ` <br> `#!hs " bar"` |
-| `takeWhile` | Sublista iniciando em 0 e até o primeiro elemento que não satisfaz ao critério, exclusive| `#!hs >takeWhile (<4) [1,2,3,4,5,6]` <br> `#!hs [1,2,3]` |
-| `dropWhile` | Sublista começando no primeiro elemento que não satisfaz ao critério, inclusive| `#!hs >dropWhile (<4) [1,2,3,4,5,6]` <br> `#!hs 4,5,6` |
-| `splitAt` | Dupla das sublistas geradas pela divisão no índice especificado| `#!hs >splitAt 3 [1,2,3,4,5,6]` <br> `#!hs ([1,2,3],[4,5,6])` |
-| `zip` | Lista de pares com os elementos das duas listas passadas como parâmetro| `#!hs >zip [1,2,3] [4,5,6]` <br> `#!hs [(1,4),(2,5),(3,6)]` |
-| `sum` | Somatório dos elementos da lista| `#!hs >sum [1,2,3,4,5,6]` <br> `#!hs 16` |
-| `product` | Produtório dos elementos da lista| `#!hs >product [1,2,3,4,5,6]` <br> `#!hs 720` |
-| `maximum` | Maior dos elemento lista| `#!hs >maximum [1,2,3,4,5,6]` <br> `#!hs 6` |
-| `minimum` | Menor dos elementos da lista| `#!hs >minimum [1,2,3,4,5,6]` <br> `#!hs 1` |
-
-
-!!!exercise "Exercícios"
-    * Zip de listas de tipos diferentes.
-    * Mínimo e máximo de lista de tuplas.
-
-
 ## Enumeração
-Para facilitar a vida dos desenvolvedores, o Haskell permite a construção de listas por enumeração, bastando para isso o especificar o primeiro elemento da lista, opcionalmente o segundo, e o último elemento.
+Para facilitar a vida dos desenvolvedores, Haskell permite a construção de listas por enumeração, bastando para isso o especificar o primeiro elemento da lista, opcionalmente o segundo, e o último elemento.
 Por exemplo
 ```hs
 Prelude> [11,13..23]
@@ -178,7 +145,7 @@ Prelude> [-15,-13..14]
 [-15,-13,-11,-9,-7,-5,-3,-1,1,3,5,7,9,11,13]
 ```
 
-Observe que o Haskell determinou um passo de incremento igual a $13-11 = 2$ no primeiro exemplo e $-15 - -13 = 2$ no segundo exemplo, e usou estes passos para gerar as lista.
+Observe que Haskell determinou um passo de incremento igual a $13-11 = 2$ no primeiro exemplo e $-15 - -13 = 2$ no segundo exemplo, e usou estes passos para gerar as lista.
 
 Também é possível definir um passo negativo, como no próximo exemplo.
 
@@ -187,7 +154,7 @@ Prelude> [11,9..0]
 [11,9,7,5,3,1]
 ```
 
-Como mencionado, o segundo elemento é opcional na enumeração e caso não especificado, o Haskell assume que seja $1$, como no exemplo a seguir.
+Como mencionado, o segundo elemento é opcional na enumeração e caso não especificado, Haskell assume que seja $1$, como no exemplo a seguir.
 
 ```hs
 Prelude> [11..23]
@@ -196,14 +163,14 @@ Prelude> [3.5..10]
 [3.5,4.5,5.5,6.5,7.5,8.5,9.5,10.5]
 ```
 
-Contudo, não é possível omitir o segundo elemento se a intenção gerar uma lista com valores decrescentes.
+Contudo, não é possível omitir o segundo elemento se a intenção for gerar uma lista com valores decrescentes.
 
 ```hs
 Prelude> [11..0]
 []
 ```
 
-A enumeração pode ser feita para outros tipos que não sejam numéricos, bastando que exista uma relação de ordem entre os elementos para que o Haskell consiga "incrementar" a cada passo.
+A enumeração pode ser feita para outros tipos que não sejam numéricos, bastando que exista uma relação de ordem entre os elementos para que Haskell consiga "incrementar" a cada passo.
 Isso existe, por exemplo, entre os caracteres, mas também para tipos definidos pelo desenvolvedor.[^espaco]
 
 [^espaco]: No exemplo, observe o espaço entre `Copas` e `..`.
@@ -264,7 +231,6 @@ Prelude> [Copas ..Ouro]
         isPangram text = all (`elem` (map toLower text)) ['a'..'z']
         ```
 
-
 ## Compreensão de Listas
 A compreensão de listas é uma forma de construir listas pela definição de uma regra de construção, e é muito comum nas linguagens funcionais, incluindo Haskell.
 
@@ -294,11 +260,11 @@ A compreensão de listas é similar
 Uma diferença importante é que enquanto não há ordem nos conjuntos, há ordem nas listas e a construção é feita na ordem da lista original.
 
 ###### Listas infinitas
-Assim como é possível expressar um conjunto infinito usando compreensão de conjuntos, por exemplo o conjunto dos quadrados de todos os número naturais $Nq = \{e^2 | e \in \mathcal{N} \}$, podemos expressar listas infinitas usando enumeração e compreensão de listas como `#!hs lq = [e**2 | e <- [1..]]`.
+Assim como é possível expressar um conjunto infinito usando compreensão de conjuntos, por exemplo o conjunto dos quadrados de todos os números naturais $S = \{e^2 | e \in \mathcal{N} \}$, podemos expressar listas infinitas usando enumeração e compreensão de listas como `#!hs lq = [e**2 | e <- [1..]]`.
 
 "Mas como é possível?", você me pergunta, afinal, a memória do computador é finita e portanto não poderia armazenar uma lista infinita.
-Esta é uma das mágicas do Haskell, conhecida como avaliação preguiçosa, e será vista em detalhes mais adiante.
-Por enquanto, basta acreditar que, desde que você não tente enumerar todos os elementos, uma lista infinita pode se representada no Haskell.
+Esta é uma das mágicas de Haskell, conhecida como avaliação preguiçosa, e será vista em detalhes mais adiante.
+Por enquanto, basta acreditar que, desde que você não tente enumerar todos os elementos, uma lista infinita pode se representada em Haskell.
 Podemos, inclusive, consultar alguns elementos da lista infinita construída acima para, por exemplo, verificar se um certo número é um quadrado perfeito!
 
 ```hs
@@ -307,11 +273,14 @@ Podemos, inclusive, consultar alguns elementos da lista infinita construída aci
 True
 > elem 16 lq
 True
-> elem 3 lq
-^CInterrupted.
 ```
 
 Observe, contudo, que se um elemento não estiver na lista, a função nunca retornará!
+
+```hs
+> elem 3 lq
+^CInterrupted.
+```
 
 !!!exercise "Exercício"
     * Modifique o exemplo acima para limitar a quantidade de elementos que serão buscados na lista de quadrados.
@@ -326,8 +295,8 @@ Observe, contudo, que se um elemento não estiver na lista, a função nunca ret
         False
         ```
 
-###### A função geradora
-Sabendo que a função `ord` do módulo `Data.Char` converte um caractere para seu valor na tabela ASCII, imagine que você queira converter uma String para uma lista dos valores ASCII correspondente.
+###### Compreensão como uma iteração
+Sabendo que a função `ord` do módulo `Data.Char` converte um caractere para seu valor na tabela ASCII, imagine que você queira converter uma String para uma lista dos valores ASCII correspondentes.
 Isso pode ser feito trivialmente com compreensão de listas.
 
 ```hs
@@ -336,16 +305,15 @@ Prelude Data.Char> [ ord e | e <- "abcd,'dasdfa;lkqwoiur"]
 [97,98,99,100,44,39,100,97,115,100,102,97,59,108,107,113,119,111,105,117,114]
 ```
 
-Isto demonstra que a função geradora da lista pode ser usada para converte tipos, o que é bem útil.
-Também pode ser usada para aplicar uma função a todos os elementos de um "conjunto", por exemplo para mudar a capitalização de uma String
+Isto demonstra que a construção da lista pode ser usada aplicar uma função a todos os elementos de um "conjunto". No próximo exemplo, usamos esta habilidade para capitalizar de uma String.
 
 ```hs
-Prelude Data.Char> import Data.Char (ord,toLower, toUpper)
+Prelude Data.Char> import Data.Char (toUpper)
 Prelude Data.Char> [ toUpper e | e <- "abcd,'dasdfa;lkqwoiur"]
 "ABCD,'DASDFA;LKQWOIUR"
 ```
 
-No exemplo seguinte, a função retorna uma tupla com a letra em minúscula e em maiúscula.
+A lista resultante pode tem tipos complexos como elementos, como no exemplo seguinte, em que compreensão gera uma com tuplas com as versões minúscula e em maiúscula de cada letra encontrada na entrada.
 
 ```hs
 Prelude Data.Char> [ (toUpper e,toLower e) | e <- "abCD"]
@@ -353,10 +321,10 @@ Prelude Data.Char> [ (toUpper e,toLower e) | e <- "abCD"]
 ```
 
 !!!exercise "Exercício"
-   * Explique `#!hs [ (e, chr ((ord e - ord 'a' + 10) `mod` 26 + (ord 'a'))) | e <- ['a'..'z']]`
+    * Explique `#!hs [ (e, chr ((ord e - ord 'a' + 10) `mod` 26 + (ord 'a'))) | e <- ['a'..'z']]`
 
-   !!!example "Resolução"
-       Retorna uma lista de tuplas em que os primeiros elementos são letras e seus pares são letras 10 posições adiante no alfabeto, módulo 26. 
+    ???example "Resolução"
+        Retorna uma lista de tuplas em que os primeiros elementos são letras e seus pares são letras 10 posições adiante no alfabeto, módulo 26. 
 
 ###### Predicados
 Imagine agora que você queira construir uma lista com os quadrados dos números naturais múltiplos de 3 e menores que 100.
@@ -397,22 +365,22 @@ Prelude Data.Char> [e^2 | e <- [1..100], e `mod` 3 == 0, e^2 `mod` 4 == 0]
 
 
 ###### Múltiplos geradores
-Uma compreensão de listas pode ter mais de um gerador, isto é, `#! <-`, o que faz com que todos as combinações dos elementos gerados sejam aplicadas à função.
-Por exemplo, 
+Uma compreensão de listas pode ter mais de um gerador (`#! <-`), o que faz com que todas as combinações dos elementos gerados sejam aplicadas à função.
+Por exemplo, a seguinte compreensão combina todos os números de 1 a 4 com todos os números de 1 a 4 na construção de uma tupla de dois inteiros.
 
 ```hs
-> [ (x,y) | x <- [1..4], y <- [1..4]]
+> [(x,y) | x <- [1..4], y <- [1..4]]
 [(1,1),(1,2),(1,3),(1,4),(2,1),(2,2),(2,3),(2,4),(3,1),(3,2),(3,3),(3,4),(4,1),(4,2),(4,3),(4,4)]
 ```
 
-Veja que predicados podem ser normalmente aplicados a múltiplos geradores, por exemplo.
+Veja que predicados podem ser normalmente aplicados a múltiplos geradores, como no seguinte exemplo, em que somente as combinações onde $x,y$ são usadas.
 
 ```hs
-> [ (x,y) | x <- [1..4], y <- [1..4], x < y]
+> [(x,y) | x <- [1..4], y <- [1..4], x < y]
 [(1,2),(1,3),(1,4),(2,3),(2,4),(3,4)]
 ```
 
-É importante observar que a ordem dos geradores altera a ordem dos elementos da lista gerada, pois para cada elemento gerado pelo primeiro gerador, será combinado cada elemento gerado pelo segundo.
+É importante observar que a ordem dos geradores altera a ordem dos elementos da lista gerada, pois para cada elemento gerado pelo primeiro gerador, será combinado a cada elemento gerado pelo segundo.
 
 ```hs
 > [ (x,y) | x <- [1..4], y <- ['a'..'d']]
@@ -428,15 +396,19 @@ Além disso, é possível definir um gerador em termos dos geradores anteriores.
 [(1,1),(2,1),(2,2),(3,1),(3,2),(3,3),(4,1),(4,2),(4,3),(4,4)]
 ```
 
-
-
-
 Este construto é deveras poderoso, pois geradores podem ser aplicados eles próprios a compreensão de listas.
+Outra possibilidade é a aplicação recursiva, como no seguinte código.
 
+```hs
+partitions [] = [[]]
+partitions (x:xs) = [ x:e | e <- partitions xs] ++ partitions xs
+```
 
+!!!exercise "Exercício"
+    * Explique o que a função acima faz, com um exemplo.
 
 ## Casamento de padrões
-Toda lista é ou uma lista vazia, ou um elemento como cabeça e uma lista como cauda.
+Toda lista é **ou** uma lista vazia **ou** ou um elemento cabeça seguido por uma lista cauda.
 Assim, se cobrir estes dois casos em uma definição por casamento de padrões, terá coberto "todos" os casos!
 Mas como? Vejamos um exemplo.
 
@@ -448,11 +420,11 @@ oQueHáNaCabeça (x:xs) = "Há " ++ x
 
 * Linha 1: não se preocupe esta linha; ela apenas implica que a lista deve ser de valores convertíveis a String
 * Linha 2: esta linha usa um padrão constante para testar se a lista é vazia, isto é, `#!hs []` e, neste caso, retornar a string `#!hs "Nada"` como resultado.
-* Linha 3: este o caso mais interessante, pois usa um padrão que define uma em que `#!hs x` é a cabeça, concatenada por `#!hs :` a uma cauda `#!hs xs`, e retorna `#!hs "Há "` seguido do valor casado com `#!hs x`.
+* Linha 3: este é o caso mais interessante, pois usa um padrão que define uma lista em que `#!hs x` é a cabeça, concatenada por `#!hs :` a uma cauda `#!hs xs`, e retorna `#!hs "Há "` seguido do valor casado com `#!hs x`.
 
-Observe que foram usados parênteses na linha 3 para especificar padrão, e não apenas `#!hs x:xs` como seria de se esperar.
-A verdade é que o padrão é `#!hs x:xs` e os parêntesis são usados apenas para impedir que o Haskell primeiro avalie `#!hs oQueHáNaCabeça x` antes de avaliar o operador `#!hs :` e o seu segundo operando.
-Esta é uma idiossincrasias do Haskell com a qual você simplesmente terá que aprender a conviver para dividir listas entre cabeça e cauda em um casamento de padrões.
+Observe que foram usados parênteses na linha 3 para especificar o padrão, e não apenas `#!hs x:xs` como seria de se esperar.
+A verdade é que o padrão é `#!hs x:xs` e os parêntesis são usados apenas para impedir que Haskell primeiro avalie `#!hs oQueHáNaCabeça x` antes de avaliar o operador `#!hs :` e o seu segundo operando.
+Esta é uma das idiossincrasias de Haskell com a qual você simplesmente terá que aprender a conviver para dividir listas entre cabeça e cauda em um casamento de padrões.
 
 Embora estes dois padrões, isto é, lista vazia e cabeça seguida de cauda, cubram todas as possibilidades de listas, não quer dizer que não haja melhores opções, dependendo do que precise extrair da lista.
 Por exemplo, na próxima função há 4 casos de casamento de padrões distintos:
@@ -503,57 +475,88 @@ iniciais ((x:_):(y:_):(z:_):_) = [x,y,z]
 
 
 
+## Funções úteis
+Em uma seção anterior, apresentamos algumas funções como úteis na manipulação de String.
+Na verdade, todas aquelas funções são definidas em termos de listas, e por isso as revisitaremos aqui, juntamente com mais algumas.
 
+
+|Operador|Operação| Exemplo |
+|----|----|----|
+| `++` | Concatenação de listas| `#!hs > "foo" ++ "bar"` <br> `#!hs "foobar"`|
+| `!!` | Elemento no índice| `#!hs >[1,2,3,4] !! 2` <br> `3` |
+| `reverse` | Lista ao contrário | `#!hs >reverse [1,2,3,4] ` <br> ` [4,3,2,1]` |
+| `length` | Comprimento da string | `#!hs >length "foo bar" ` <br> ` 7` |
+| `last` | Último elemento da lista | `#!hs >last "foo bar"` <br> ` r`|
+| `concat` | Retorna a concatenação das listas dentro de uma lista | `#!hs >concat [[1,2,3,4],[5,6,7,8]]` <br> `[1,2,3,4,5,6,7,8]` <br> `#!hs >concat [[[1,2,3]],[[4,5,6]]]` <br> `#!hs [[1,2,3],[4,5,6]]` |
+| `elem`   | Verifica se o parâmetro é um elemento da lista | `#!hs >elem 'o' "foo bar"` <br> `#!hs True`|
+| `null`   | Verifica se a lista é vazia | `#!hs >null ""` <br> `True`<br> `#!hs >null []` <br> `True` <br> `#!hs >null [1,2]` <br> `#!hs False`|
+| `replicate`   | Constrói uma lista pela replicação de um elemento | `#!hs >replicate 4 (1,2)` <br> `#!hs [(1,2),(1,2),(1,2),(1,2)]`|
+| `take` | Sublista iniciando em 0 | `#!hs >take 3 1:2:3:4:5:[] ` <br> `#!hs [1,2,3]` |
+| `drop` | Sublista começando em um índice| `#!hs >drop 3 ['f','o','o',' ','b','a','r'] ` <br> `#!hs " bar"` |
+| `takeWhile` | Sublista iniciando em 0 e até o primeiro elemento que não satisfaz ao critério, exclusive| `#!hs >takeWhile (<4) [1,2,3,4,5,6]` <br> `#!hs [1,2,3]` |
+| `dropWhile` | Sublista começando no primeiro elemento que não satisfaz ao critério, inclusive| `#!hs >dropWhile (<4) [1,2,3,4,5,6]` <br> `#!hs 4,5,6` |
+| `splitAt` | Dupla das sublistas geradas pela divisão no índice especificado| `#!hs >splitAt 3 [1,2,3,4,5,6]` <br> `#!hs ([1,2,3],[4,5,6])` |
+| `zip` | Lista de pares com os elementos das duas listas passadas como parâmetro| `#!hs >zip [1,2,3] [4,5,6]` <br> `#!hs [(1,4),(2,5),(3,6)]` |
+| `sum` | Somatório dos elementos da lista| `#!hs >sum [1,2,3,4,5,6]` <br> `#!hs 16` |
+| `product` | Produtório dos elementos da lista| `#!hs >product [1,2,3,4,5,6]` <br> `#!hs 720` |
+| `maximum` | Maior dos elemento lista| `#!hs >maximum [1,2,3,4,5,6]` <br> `#!hs 6` |
+| `minimum` | Menor dos elementos da lista| `#!hs >minimum [1,2,3,4,5,6]` <br> `#!hs 1` |
 
 
 
 ## Recursão
-
-```hs
-resumo :: [String] -> "String"
-resumo [] -> "Nada"
-resumo [e] -> "Só " ++ e
-resumo [e1,e2] -> e1 ++ " e " ++ e2
-resumo (e1:resto) -> e1 ++ 
-                    " um monte de coisas, terminando com " ++ 
-                    last rest
-```
-
+A recursão é essencial no processamento de listas e, de fato, muitas das funções listadas na seção anterior podem e são definidas recursivamente, como a função `maximum`:
 
 $maximum~[1,2,3] = max~1 \left( maximum~[2,3] = max~2 \left( maximum~[3] = 3 \right)        \right)$
 
+Vejamos algumas definições.[^alt]
 
-```hs
-maximum [] = error "lista vazia"  
-maximum [h] = h
-maximum (h:t) = max h (maximum t)
-```
+[^alt]: Todas as funções definidas a seguir tem nome terminado em `\`` para evitar colisão com as funções padrão.
 
-comprimento
+!!!example "maximum"
+    ```hs
+    maximum' [] = error "lista vazia"  
+    maximum' [h] = h
+    maximum' (h:t) = max h (maximum' t)
+    ```
 
-```hs
-comprimento :: [a] -> Int
-comprimento [] = 0
-comprimento (x:xs) = 1 + len xs
-```
+!!!example "length"
+    ```hs
+    length' :: [a] -> Int
+    length' [] = 0
+    length' (x:xs) = 1 + length' xs
+    ```
 
-último
+!!!example "last"
+    ```hs
+    last' :: [a] -> a
+    last' [] = error "List is empty"
+    last' [x] = x
+    last' (_:xs) = last' xs
+    ``` 
 
-```hs
-último :: [a] -> a
-último [] = error "List is empty"
-último [x] = x
-último (_:xs) = last xs
-``` 
+!!!example "reverse"
+    ```hs
+    reverse' :: [a] -> [a]
+    reverse' [] = []
+    reverse' (x:xs) = reverse' xs ++ [x]
+    ```
 
-inverso
+!!!example "replicate"
+    ```hs
+    replicate' 0 e = []
+    replicate' x e = e:replicate' (x-1) e
+    ```
 
-```hs
-inverso :: [a] -> [a]
-inverso [] = []
-inverso (x:xs) = inverso xs ++ [x]
-```
+!!!example "zip"
+    ```hs
+    zip' [] _ = []
+    zip' _ [] = []
+    zip' (x:xs) (y:ys) = (x,y) : zip' xs ys
+    ```
 
-
-
-
+!!!example "elem"
+    ```hs
+    elem' _ [] = False
+    elem' e (x:xs) = e == x || elem' e xs
+    ```

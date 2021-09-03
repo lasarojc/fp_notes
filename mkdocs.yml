@@ -22,9 +22,7 @@ nav:
         
         - Listas: lists.md
 
-        - Recursão (2): recursion2.md
-
-        - Quick, Check!: quickcheck.md
+        - Recursão de Cauda: tail_recursion.md
 
         - Classes de tipos: type_classes.md
 
@@ -37,6 +35,8 @@ nav:
         - Que preguiça: lazy.md
 
         - Observações: observations.md
+
+        - Quick, Check!: quickcheck.md
 
         - Projeto: project.md
 

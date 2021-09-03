@@ -38,13 +38,13 @@
 
 
 
-- [ ] Listas
+- [x] Listas
     - [x] sao homogêneas
     - [x] range operator [1..10]
     - [x] : cons
     - [x] ++ append
     - [x] !! get at index
-    - [ ] Pattern matching
+    - [x] Pattern matching
     - [x] Compreensão de listas
     - [x] Listas infinitas
 
@@ -64,6 +64,8 @@
     - [x] let in 
 
     - [ ] Recursão
+        - [x] simples
+        - [ ] em listas
         - [ ] de cauda
     - [ ] Currying:
     - [ ] Alta Ordem:
