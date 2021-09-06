@@ -24,21 +24,23 @@ nav:
 
         - Recursão de Cauda: tail_recursion.md
 
+        - Polimorfismo: polymorphism.md
+
         - Classes de tipos: type_classes.md
+
+        - Cálculo λ: lambda.md
 
         - Funções de alta ordem: highorder.md
 
         - Entrada e Saída: io.md
 
-        - Cálculo Lambda: lambda.md
-
         - Que preguiça: lazy.md
-
-        - Observações: observations.md
 
         - Quick, Check!: quickcheck.md
 
         - Projeto: project.md
+
+        - Common Mistakes: comments.md
 
 theme:
         name: material

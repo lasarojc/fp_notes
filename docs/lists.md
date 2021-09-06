@@ -560,3 +560,17 @@ Vejamos algumas definições.[^alt]
     elem' _ [] = False
     elem' e (x:xs) = e == x || elem' e xs
     ```
+
+!!!example "++"
+    ```hs
+    maisMais :: [a] -> [a] -> [a]
+    maisMais [] [] = []
+    maisMais [] (y:ys) = y : maisMais [] ys
+    maisMais (x:xs) y = x : maisMais xs y
+    ```
+
+!!!exercise "Exercício"
+     * Defina a função `take`
+     * Defina a função `drop`
+     * Defina a função `união` que recebe duas listas sem repetições retorna a concatenação das listas, sem repetições, usando recursividade.
+     * Defina a função `união` que recebe duas listas sem repetições retorna a concatenação das listas, sem repetições, usando compreensão de listas.

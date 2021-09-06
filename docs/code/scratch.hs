@@ -1045,7 +1045,16 @@ partitions' x y = [ h:t | h <- [1..x], t <- partitions' x (y-1)]
 
 {-
 >>>delta (1,2,3)
+-8.0
 
+>>>4/2*2
+4.0
+
+>>>4/(2*2)
+1.0
+
+>>>raízes (1,12,-13)
+[1.0,-13.0]
 -}
 
 delta :: (Float, Float, Float) -> Float
@@ -1059,3 +1068,23 @@ raízes (a,b,c)
   where d = delta (a,b,c)
         raiz1 =  (negate b + sqrt d)/(2*a)
         raiz2 =  (negate b - sqrt d)/(2*a)
+
+
+{-
+>>>maisMais [1,2,3] [4,5]
+[1,2,3,4,5]
+
+>>>maisMais [1,2] [4,5,6]
+[1,2,4,5,6]
+
+>>>maisMais [] [4,5]
+[4,5]
+
+>>>maisMais [1,2,3] []
+[1,2,3]
+-}
+
+maisMais :: [a] -> [a] -> [a]
+maisMais [] [] = []
+maisMais [] (y:ys) = y : maisMais [] ys
+maisMais (x:xs) y = x : maisMais xs y
