@@ -71,11 +71,12 @@ Para cada jogador, você precisa manter algumas informações extra como:
 
 ###### Funções
 O jogo só tem graça se tiver alguma coisa acontecendo nele.
-Nesta primeira etapa, você desenvolverá as funções que permitirão criar e manipular os elementos do jogo, de acordo com algumas regras.
+Nesta primeira etapa, você desenvolverá as funções que permitirão criar e manipular os elementos do jogo, de acordo com algumas regras, para as seguintes funcionalidades:
 
 - Criação de um tabuleiro
+    - Função receba uma lista de listas de items e constrói um tabuleiro válido.
 - Movimentação de um jogador em qualquer dos sentidos
-    - Deslocamento
+    - Função que receba um tabuleiro e uma instrução de movimentação de um jogador e retorne um novo tabuleiro, com o jogador na nova posição.
         - Jogador só pode se deslocar para célula adjacente que não tenha pedra ou bomba
         - Pode ser impossível ao jogador se deslocar
         - Ao se deslocar para uma célula vazia, cai no buraco
@@ -83,8 +84,7 @@ Nesta primeira etapa, você desenvolverá as funções que permitirão criar e m
     - Coleta de presente
         - Ao coletar um presente, incrementa a posição correspondente ao presente nas suas capacidades
 - Arremesso
-    - Teste de capacidade
-        - Se estiver adjacente, olhando para uma bomba, e tiver a capacidade "arremesso", o jogador arremessa a bomba uma distância proporcional à capacidade.
+    - Se estiver adjacente, olhando para uma bomba, e tiver a capacidade "arremesso", o jogador arremessa a bomba uma distância proporcional à capacidade.
     - Teste de direção
 - Explosão
     - Direção
@@ -93,3 +93,6 @@ Nesta primeira etapa, você desenvolverá as funções que permitirão criar e m
     - Eliminação de pedra
     - Eliminação de jogador
 - Detecção de fim de jogo
+
+Vocês são livres para preencher as lacunas da especificação de forma razoável.
+Na dúvida, me pergunte.
