@@ -413,8 +413,38 @@
   
   
     <li class="md-nav__item">
+      <a href="../polymorphism.md" class="md-nav__link">
+        Polimorfismo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../type_classes.md" class="md-nav__link">
         Classes de tipos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lambda/" class="md-nav__link">
+        Cálculo λ
       </a>
     </li>
   
@@ -458,38 +488,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../lambda.md" class="md-nav__link">
-        Cálculo Lambda
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../lazy/" class="md-nav__link">
         Que preguiça
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../observations/" class="md-nav__link">
-        Observações
       </a>
     </li>
   
@@ -561,6 +561,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comments/" class="md-nav__link">
+        Common Mistakes
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -617,7 +632,7 @@
 
   <!-- Content -->
   <p>Nada melhor que um bom projeto para fixar e colocar à prova o que estamos aprendendo, e nada melhor que unir o útil ao agradável na hora de escolher um projeto.</p>
-<p>Neste semestre, o projeto que desenvolverão é um clone de um clássico dos jogos de computadores, Bomberman!
+<p>Neste semestre, o projeto que desenvolverão é um clone de um clássico dos jogos de computadores, <a href="https://www.techtudo.com.br/listas/noticia/2016/03/lembra-de-bomberman-confira-curiosidades-da-famosa-franquia.html">Bomberman</a>!
 Bom, não exatamente um clone, mas os rudimentos de um clone.
 Ainda assim, o projeto não é trivial e por isso vamos dividí-lo em etapas para gerenciar a complexidade.
 De forma geral, podemos dividir o projeto em duas etapas:</p>
@@ -644,8 +659,23 @@ De forma geral, podemos dividir o projeto em duas etapas:</p>
 </li>
 </ul>
 <h2 id="etapa-1">Etapa 1</h2>
+<p>O jogo bomberman acontece em um "tabuleiro" onde os vários jogadores, bombermen de diversas cores, tentam explodir os seus competidores até serem os únicos restantes no jogo.</p>
+<p><img alt="https://www.techtudo.com.br/listas/noticia/2016/03/lembra-de-bomberman-confira-curiosidades-da-famosa-franquia.html" src="http://s2.glbimg.com/MtaQW2mgrUh6P_nEn_sbplH67jE=/695x0/s.glbimg.com/po/tt2/f/original/2016/03/17/curiosidades-bomberman.jpg" /></p>
+<p>No processo, os competidores se movimentam pelo tabuleiro explodindo barreiras e coletando presentes que lhes conferem habilidades, como aumentar a quantidade de bombas que cada um pode colocar no tabuleiro concorrentemente, aumentar a velocidade de deslocamento, arremessar bombas em posições adjacentes no mapa, ou aumentar o alcance das explosões.
+Uma explosão seguem em linha reta nas quatro direções (norte, sul, leste e oeste) até que encontre algum obstáculo, que pode ou não ser destruído pela explosão.</p>
+<h6>Tabuleiro</h6>
 <p>Um tabuleiro de bomberman pode ser visto como uma matriz em que cada célula é uma pilha de elementos.
-Em nosso protótipo, os seguintes elementos podem estar presentes na célula:</p>
+Para representar a matriz do tabuleiro, usaremos uma tupla de tuplas.
+Assim, defina as seguintes estruturas de dados.</p>
+<ul>
+<li>Tabuleiro é uma tupla com 8 Linha.</li>
+<li>Linha é uma tupla com 8 Célula.</li>
+<li>Célula é uma pilha com 4 Item</li>
+</ul>
+<h6>Célula e Items</h6>
+<p>Cada posição do tabuleiro é uma célula e contem uma pilha de itens.
+Use uma lista para representar a pilha.
+Em nosso protótipo, os seguintes items podem estar presentes na célula:</p>
 <ul>
 <li>grama</li>
 <li>presente_patins</li>
@@ -658,21 +688,13 @@ Em nosso protótipo, os seguintes elementos podem estar presentes na célula:</p
 <li>uma pilha vazia é um buraco no tabuleiro</li>
 <li>grama só pode estar na base da pilha</li>
 <li>presente só pode estar sobre grama</li>
-<li>pedra só pode estar na base da pilha, sobre grama ou sobre presente</li>
+<li>parede só pode estar na base da pilha, sobre grama ou sobre presente</li>
+<li>pedra só pode estar na base da pilha</li>
 <li>bomba só pode estar sobre grama</li>
 <li>jogador só pode estar sobre grama</li>
 </ul>
-<p>Para representar a matriz do tabuleiro, usaremos uma tupla de tuplas. 
-Assim, defina as seguintes estruturas de dados.</p>
-<ul>
-<li>Tabuleiro é uma tupla com 8 Linha.</li>
-<li>Linha é uma tupla com 8 Célula.</li>
-<li>Célula é uma pilha com 4 Item<ul>
-<li>Use uma lista para representar a pilha</li>
-</ul>
-</li>
-</ul>
-<p>Para cada jogador, você precisa manter algumas informações extra como</p>
+<h6>Jogador</h6>
+<p>Para cada jogador, você precisa manter algumas informações extra como:</p>
 <ul>
 <li>identificador (o X que aparece no Item jogador_X)</li>
 <li>localização - é uma tupla com coordenadas X e Y do tipo Int que representam a linha e coluna em o item jogador_X correspondente está.</li>
@@ -687,14 +709,18 @@ Assim, defina as seguintes estruturas de dados.</p>
 </ul>
 </li>
 </ul>
+<h6>Funções</h6>
 <p>O jogo só tem graça se tiver alguma coisa acontecendo nele.
-Nesta primeira etapa, você desenvolverá as funções que permitirão criar e manipular os elementos do jogo, de acordo com algumas regras.</p>
+Nesta primeira etapa, você desenvolverá as funções que permitirão criar e manipular os elementos do jogo, de acordo com algumas regras, para as seguintes funcionalidades:</p>
 <ul>
-<li>Criação de um tabuleiro</li>
+<li>Criação de um tabuleiro<ul>
+<li>Função receba uma lista de listas de items e constrói um tabuleiro válido.</li>
+</ul>
+</li>
 <li>Movimentação de um jogador em qualquer dos sentidos<ul>
-<li>Deslocamento<ul>
+<li>Função que receba um tabuleiro e uma instrução de movimentação de um jogador e retorne um novo tabuleiro, com o jogador na nova posição.<ul>
 <li>Jogador só pode se deslocar para célula adjacente que não tenha pedra ou bomba</li>
-<li>Pode ser impossível ao jogador se delocar</li>
+<li>Pode ser impossível ao jogador se deslocar</li>
 <li>Ao se deslocar para uma célula vazia, cai no buraco</li>
 <li>Ao se deslocar para uma célula com um presente, o coleta</li>
 </ul>
@@ -706,10 +732,7 @@ Nesta primeira etapa, você desenvolverá as funções que permitirão criar e m
 </ul>
 </li>
 <li>Arremesso<ul>
-<li>Teste de capacidade<ul>
 <li>Se estiver adjacente, olhando para uma bomba, e tiver a capacidade "arremesso", o jogador arremessa a bomba uma distância proporcional à capacidade.</li>
-</ul>
-</li>
 <li>Teste de direção</li>
 </ul>
 </li>
@@ -723,6 +746,8 @@ Nesta primeira etapa, você desenvolverá as funções que permitirão criar e m
 </li>
 <li>Detecção de fim de jogo</li>
 </ul>
+<p>Vocês são livres para preencher as lacunas da especificação de forma razoável.
+Na dúvida, me pergunte.</p>
 
   <!-- Last update of source file -->
 
@@ -758,6 +783,21 @@ Nesta primeira etapa, você desenvolverá as funções que permitirão criar e m
           </div>
         </a>
       
+      
+        
+        <a href="../comments/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Common Mistakes" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              Common Mistakes
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   
