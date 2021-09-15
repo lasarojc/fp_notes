@@ -1088,3 +1088,199 @@ maisMais :: [a] -> [a] -> [a]
 maisMais [] [] = []
 maisMais [] (y:ys) = y : maisMais [] ys
 maisMais (x:xs) y = x : maisMais xs y
+
+
+
+
+{-
+Escreva uma função **recursiva**  que calculo a soma dos quadrados dos números inteiros entre os parâmetros passados, inclusive.
+
+Entrada:
+    - i - Inteiro
+    - n - Inteiro
+Resultado
+    - i^2 + (i+1)^2 + ... + n^2
+
+>>>somaDosQuadrados 1 3
+14
+
+>>>somaDosQuadrados 3 6
+86
+
+>>>somaDosQuadrados 5 2
+54
+
+>>>somaDosQuadrados 3 (-2)
+19
+
+-}
+
+somaDosQuadrados :: Int -> Int -> Int
+somaDosQuadrados i n
+    | i == n = i^2
+    | i > n = somaDosQuadrados n i
+    | otherwise = i*i + somaDosQuadrados (i+1) n
+
+
+
+{-
+Dado um período, escreva uma função que decida se é uma afirmação, interrogação, exclamação, ou nenhum.
+
+Entrada:
+    - periodo - String
+
+Resultado:
+    - "afirmacao", se período termina com ., ou "exclamacao" se período termina com !, ou "interrogacao" se período
+    termina  com ?, ou "nada", caso contrário.
+    Ignorar espaços no fim do período.
+
+>>>tipoPeríodo "Oi."
+"afirmacao"
+
+>>>tipoPeríodo "Oi?"
+"interrogacao"
+
+>>>tipoPeríodo "Oi!"
+"exclamacao"
+
+>>>tipoPeríodo "Oi"
+"nada"
+
+>>>tipoPeríodo "Oi^"
+"nada"
+
+>>>tipoPeríodo "Oi."
+"afirmacao"
+
+>>>tipoPeríodo "Oi?     "
+"interrogacao"
+
+-}
+
+tipoPeríodo :: String -> String
+tipoPeríodo período = case last períodoTrimmed of '.' -> "afirmacao"
+                                                  '?' -> "interrogacao"
+                                                  '!' -> "exclamacao"
+                                                  _   -> "nada"
+                      where períodoTrimmed = [c | c <- período, c /= ' ']
+
+
+
+{-
+Defina uma função que remova as primeiras duplicatas de uma lista de inteiros.
+
+Entrada:
+    - l - lista de inteiros.
+
+Resultado:
+    - lista em que as primeiras ocorrências repetidas de qualquer valor foram removidas.
+
+>>>removeDuplicatas [1,2,3,4,5,3,7,8,3]
+[1,2,4,5,7,8,3]
+
+-}
+
+removeDuplicatas :: [Int] -> [Int]
+removeDuplicatas [] = []
+removeDuplicatas (x:xs) | x `elem` xs = removeDuplicatas xs
+                        | otherwise   = x:removeDuplicatas xs
+
+
+
+{-
+Defina uma função que remova as últimas duplicatas de uma lista de inteiros.
+
+Entrada:
+    - l - lista de inteiros.
+
+Resultado:
+    - lista em que as primeiras ocorrências repetidas de qualquer valor foram removidas.
+
+>>>removeDuplicatas2 [1,2,3,4,5,3,7,8,3]
+[1,2,3,4,5,7,8]
+
+-}
+
+removeDuplicatas2 :: [Int] -> [Int]
+removeDuplicatas2 l = reverse (removeDuplicatas (reverse l))
+
+
+
+{-
+Mastermind 1.
+
+Dado uma lista com 4 de 8 possíveis cores, determinar se a lista é válida.
+
+Entrada:
+    - l - Lista de inteiro, onde cada inteiro vai de 1 a 8 e representa uma cor.
+
+Resultado:
+    - True se não há repetições e tem tamanho 4
+    - False se há repetições ou tamanho diferente de 4
+
+>>>mmVálido [1,2,3,4]
+True
+
+>>>mmVálido [1,2,3,9]
+False
+
+>>>mmVálido [1,2,3,4,5]
+False
+
+>>>mmVálido [1,2,4,4]
+False
+
+-}
+
+mmVálido :: [Int] -> Bool
+mmVálido l = length l == 4 && removeDuplicatas l == l && coresVálidas l
+    
+coresVálidas l = all (>0) l && all (<9) l
+
+{-
+Mastermind 2
+
+Dado duas listas, se alguma não é válida, lançar uma exceção (use error).
+Se as duas são válidas, retornar uma tupla com a quantidade de acertos bons e ótimos da jogada.
+
+Entrada
+    - config - lista de inteiro
+    - jogada - lista de inteiro
+
+Resultado
+    - tupla (o,b) onde o é um inteiro com a quantidade de cores em jogada e que aparecem na mesma posição em config
+    e b é quantidade de cores em jogada e que aparecem em posições diferentes em config.
+
+
+>>>tentativa [1,2,3,4] [5,6,7,8]
+(0,0)
+
+>>>tentativa [1,2,3,4] [1,2,3,4]
+(4,0)
+
+>>>tentativa [1,2,3,4] [4,3,2,1]
+(0,4)
+
+>>>tentativa [1,2,3,4] [2,1,3,4]
+(2,2)
+
+>>>tentativa [1,2,3,4,5] [2,1,3,4]
+não válido
+-}
+
+tentativa :: [Int] -> [Int] -> (Int,Int)
+tentativa config jogada
+    | mmVálido config && mmVálido jogada = (otimos, bons - otimos)
+    | otherwise = error "não válido"
+    where otimos = contaÓtimo config jogada
+          bons = contaBom config jogada
+
+contaÓtimo :: [Int] -> [Int] -> Int
+contaÓtimo [] _ = 0
+contaÓtimo _ [] = 0
+contaÓtimo (x:xs) (y:ys) = (if x == y then 1 else 0) + contaÓtimo xs ys
+
+contaBom :: [Int] -> [Int] -> Int
+contaBom [] _ = 0
+contaBom _ [] = 0
+contaBom (x:xs) y = (if x `elem` y then 1 else 0) + contaBom xs y

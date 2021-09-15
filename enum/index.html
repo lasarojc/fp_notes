@@ -1,0 +1,931 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
+    
+    
+      
+        <title>Tipos algébricos - Programação Funcional</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.be71726b.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#546d78">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    
+      
+  
+
+
+
+  
+  
+
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-PJX835H7DP"),document.addEventListener("DOMContentLoaded",function(){"undefined"!=typeof location$&&location$.subscribe(function(t){gtag("config","G-PJX835H7DP",{page_path:t.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PJX835H7DP"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tipos-de-dados-algebricos" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Programação Funcional" class="md-header__button md-logo" aria-label="Programação Funcional" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programação Funcional
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tipos algébricos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/lasarojc/fp_notes" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Programação Funcional" class="md-nav__button md-logo" aria-label="Programação Funcional" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Programação Funcional
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/lasarojc/fp_notes" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preface/" class="md-nav__link">
+        Prefácio
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        Introdução
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../haskell101/" class="md-nav__link">
+        1+1
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        Primeiras funções
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ifthenelse/" class="md-nav__link">
+        Se então, senão
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guards/" class="md-nav__link">
+        Guardas!
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../types/" class="md-nav__link">
+        Tipos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tuples/" class="md-nav__link">
+        Tuplas
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pattern_matching/" class="md-nav__link">
+        Padrões
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recursion/" class="md-nav__link">
+        Recursão
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../where_let_in/" class="md-nav__link">
+        Where e Let-In
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lists/" class="md-nav__link">
+        Listas
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Tipos algébricos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Tipos algébricos
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data" class="md-nav__link">
+    data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes-de-tipo" class="md-nav__link">
+    Classes de tipo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-mais-complexos" class="md-nav__link">
+    Tipos mais complexos
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../polymorphism.md" class="md-nav__link">
+        Polimorfismo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../type_classes.md" class="md-nav__link">
+        Classes de tipos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lambda/" class="md-nav__link">
+        Cálculo λ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../highorder/" class="md-nav__link">
+        Funções de alta ordem
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io/" class="md-nav__link">
+        Entrada e Saída
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lazy/" class="md-nav__link">
+        Que preguiça
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tail_recursion/" class="md-nav__link">
+        Recursão de Cauda
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickcheck/" class="md-nav__link">
+        Quick, Check!
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project/" class="md-nav__link">
+        Projeto
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comments/" class="md-nav__link">
+        Common Mistakes
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data" class="md-nav__link">
+    data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes-de-tipo" class="md-nav__link">
+    Classes de tipo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-mais-complexos" class="md-nav__link">
+    Tipos mais complexos
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+<!-- Edit button -->
+
+
+  <!--
+       Hack: check whether the content contains a h1 headline. If it
+       doesn't, the page title (or respectively site name) is used
+       as the main headline.
+    -->
+
+
+  <!-- Content -->
+  <h1 id="tipos-de-dados-algebricos">Tipos de dados algébricos</h1>
+<p>Em seções anteriores, vimos que Haskell define diversos <a href="../types/">tipos</a> de dados, como inteiros, booleanos e strings.</p>
+<p>Embora possamos usar os tipos básicos para resolver problemas, pode ser mais fácil usar um vocabulário específico do problema, por exemplo data, nome, direção, etc.
+Neste caso, podemos criar <a href="../types/">"apelidos"</a> para tipos básicos, usando <code class="highlight"><span class="kr">type</span></code>.
+Mas Haskell é mais poderoso que isso e permite que defina tipos novos a partir do zero.<sup id="fnref:davesands"><a class="footnote-ref" href="#fn:davesands">1</a></sup>
+Por exemplo, lembre-se do problemas discutidos que lidavam com cartas de baralho e como usamos uma dupla de String e Int para representar seus naipes e valores.
+Com <code class="highlight"><span class="kr">data</span></code> é possível fazer algo melhor.</p>
+<h2 id="data"><code class="highlight"><span class="kr">data</span></code></h2>
+<p>Com a palavra reservada <code class="highlight"><span class="kr">data</span></code> é possível definir um novo tipo de dados (por isso, <code>data</code>).
+Use-mo-la para definir um tipo para os naipes das cartas de um baralho.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span>
+</code></pre></div>
+</td></tr></table>
+<p>Pela equação seguinte, definimos o tipo de dados <code class="highlight"><span class="kt">Naipe</span></code> (lado esquerdo) como sendo igual a <strong>um dos</strong> valores do lado direito, dado que o lado direito é uma disjunção.
+É comum dizer que <code class="highlight"><span class="kt">Naipe</span></code> é uma <strong>enumeração</strong> dos valores à direita da equação.</p>
+<p>Uma vez definido tipo, podemos perguntar ao Haskell como ele é interpretado.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span> 
+<span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Naipe</span>
+<span class="kr">type</span> <span class="kt">Naipe</span> <span class="ow">::</span> <span class="o">*</span>
+<span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span>
+        <span class="c1">-- Defined at &lt;interactive&gt;:1:1</span>
+<span class="nf">relude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Copas</span>
+<span class="kr">type</span> <span class="kt">Naipe</span> <span class="ow">::</span> <span class="o">*</span>
+<span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="o">...</span>
+        <span class="c1">-- Defined at &lt;interactive&gt;:1:14</span>
+<span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="kt">Copas</span>
+<span class="kt">Copas</span> <span class="ow">::</span> <span class="kt">Naipe</span>
+<span class="o">&gt;</span> 
+</code></pre></div>
+</td></tr></table>
+<p>Observe o tipo booleano foi definido da mesma forma, exceto por algumas informações extra que aparecem quando <code class="highlight"><span class="kt">Bool</span></code> é descrito.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Bool</span>
+<span class="kr">type</span> <span class="kt">Bool</span> <span class="ow">::</span> <span class="o">*</span>
+<span class="kr">data</span> <span class="kt">Bool</span> <span class="ow">=</span> <span class="kt">False</span> <span class="o">|</span> <span class="kt">True</span>
+        <span class="c1">-- Defined in ‘GHC.Types’</span>
+<span class="kr">instance</span> <span class="kt">Eq</span> <span class="kt">Bool</span> <span class="c1">-- Defined in ‘GHC.Classes’</span>
+<span class="kr">instance</span> <span class="kt">Ord</span> <span class="kt">Bool</span> <span class="c1">-- Defined in ‘GHC.Classes’</span>
+<span class="kr">instance</span> <span class="kt">Enum</span> <span class="kt">Bool</span> <span class="c1">-- Defined in ‘GHC.Enum’</span>
+<span class="kr">instance</span> <span class="kt">Show</span> <span class="kt">Bool</span> <span class="c1">-- Defined in ‘GHC.Show’</span>
+<span class="kr">instance</span> <span class="kt">Read</span> <span class="kt">Bool</span> <span class="c1">-- Defined in ‘GHC.Read’</span>
+<span class="kr">instance</span> <span class="kt">Bounded</span> <span class="kt">Bool</span> <span class="c1">-- Defined in ‘GHC.Enum’</span>
+</code></pre></div>
+</td></tr></table>
+<p>Mas o que são estas informações extra? Façamos um teste, simplesmente avaliando um dos valores de <code class="highlight"><span class="kt">Bool</span></code> e de <code class="highlight"><span class="kt">Naipe</span></code>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kt">True</span>
+<span class="kt">True</span>
+<span class="o">&gt;</span> <span class="kt">Copas</span>
+
+<span class="o">&lt;</span><span class="n">interactive</span><span class="o">&gt;:</span><span class="mi">9</span><span class="kt">:</span><span class="mi">1</span><span class="kt">:</span> <span class="ne">error</span><span class="kt">:</span>
+    <span class="err">•</span> <span class="kt">No</span> <span class="kr">instance</span> <span class="n">for</span> <span class="p">(</span><span class="kt">Show</span> <span class="kt">Naipe</span><span class="p">)</span> <span class="n">arising</span> <span class="n">from</span> <span class="n">a</span> <span class="n">use</span> <span class="kr">of</span> <span class="err">‘</span><span class="n">print</span><span class="err">’</span>
+    <span class="err">•</span> <span class="kt">In</span> <span class="n">a</span> <span class="n">stmt</span> <span class="kr">of</span> <span class="n">an</span> <span class="n">interactive</span> <span class="kt">GHCi</span> <span class="n">command</span><span class="kt">:</span> <span class="n">print</span> <span class="n">it</span>
+</code></pre></div>
+</td></tr></table>
+<p>O erro aparece porquê quando a avaliação é feita, o GHCi tenta imprimir o resultado na tela, e para imprimir o resultado ele tenta obter sua representação como <code class="highlight"><span class="kt">String</span></code> usando a função <code class="highlight"><span class="nf">show</span></code>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">show</span> <span class="kt">True</span>
+<span class="s">&quot;True&quot;</span>
+<span class="o">&gt;</span> <span class="n">show</span> <span class="kt">Copas</span>
+
+<span class="o">&lt;</span><span class="n">interactive</span><span class="o">&gt;:</span><span class="mi">11</span><span class="kt">:</span><span class="mi">1</span><span class="kt">:</span> <span class="ne">error</span><span class="kt">:</span>
+    <span class="err">•</span> <span class="kt">No</span> <span class="kr">instance</span> <span class="n">for</span> <span class="p">(</span><span class="kt">Show</span> <span class="kt">Naipe</span><span class="p">)</span> <span class="n">arising</span> <span class="n">from</span> <span class="n">a</span> <span class="n">use</span> <span class="kr">of</span> <span class="err">‘</span><span class="n">show</span><span class="err">’</span>
+    <span class="err">•</span> <span class="kt">In</span> <span class="n">the</span> <span class="n">expression</span><span class="kt">:</span> <span class="n">show</span> <span class="kt">Copas</span>
+      <span class="kt">In</span> <span class="n">an</span> <span class="n">equation</span> <span class="n">for</span> <span class="err">‘</span><span class="n">it</span><span class="err">’</span><span class="kt">:</span> <span class="n">it</span> <span class="ow">=</span> <span class="n">show</span> <span class="kt">Copas</span>
+</code></pre></div>
+</td></tr></table>
+<p>No caso do valor booleano, a função funciona, mas no caso do naipe não!</p>
+<h2 id="classes-de-tipo">Classes de tipo</h2>
+<p>Volte no trecho acima onde descrevemos o valor verdadeiro.
+Uma das diferenças para o naipe era a presença da linha <code class="highlight"><span class="kr">instance</span> <span class="kt">Show</span> <span class="kt">Bool</span> <span class="c1">-- Defined in ‘GHC.Show’</span></code> que basicamente dizia que <code class="highlight"><span class="kt">Bool</span></code> faz parte da <strong>classe de tipos</strong> <code class="highlight"><span class="kt">Show</span></code>, a classe dos tipos que podem ser passados como parâmetro para função <code class="highlight"><span class="nf">show</span></code>.
+Há várias classes de tipo em Haskell, e você ainda pode criar as suas próprias.</p>
+<p>No caso do exemplo anterior, é possível incluir o tipo naipe na classe em questão de uma forma manual definindo uma série de funções necessárias ao <code class="highlight"><span class="kt">Show</span></code> (<code class="highlight"><span class="kt">:</span><span class="n">i</span> <span class="kt">Show</span></code>).
+Mas há um atalho que diz que todas as funções necessárias devem ser construídas segundo um padrão, que neste caso basicamente quer dizer que o valor em <code class="highlight"><span class="kt">String</span></code> é simplesmente o texto usado na declaração.
+Para fazer isso, basta modificar a definição da seguinte forma.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span>
+    <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Show</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>Assim, podemos refazer as consultas e testes feitas anteriormente.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span> <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Show</span><span class="p">)</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Naipe</span>
+<span class="kr">type</span> <span class="kt">Naipe</span> <span class="ow">::</span> <span class="o">*</span>
+<span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span>
+        <span class="c1">-- Defined at &lt;interactive&gt;:12:1</span>
+<span class="kr">instance</span> <span class="p">[</span><span class="n">safe</span><span class="p">]</span> <span class="kt">Show</span> <span class="kt">Naipe</span> <span class="c1">-- Defined at &lt;interactive&gt;:12:54</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">show</span> <span class="kt">Copas</span>
+<span class="s">&quot;Copas&quot;</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">Copas</span>
+<span class="kt">Copas</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="tipos-mais-complexos">Tipos mais complexos</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">data</span> <span class="kt">Rank</span> <span class="ow">=</span> <span class="kt">Ás</span> <span class="o">|</span> <span class="kt">Número1</span> <span class="o">|</span> <span class="kt">Número2</span> <span class="o">|</span> <span class="o">...</span> <span class="o">|</span> <span class="kt">Número10</span> <span class="o">|</span> <span class="kt">Valete</span> <span class="o">|</span> <span class="kt">Dama</span> <span class="o">|</span> <span class="kt">Rei</span>
+</code></pre></div>
+</td></tr></table>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">data</span> <span class="kt">Rank</span> <span class="ow">=</span> <span class="kt">Ás</span> <span class="o">|</span> <span class="kt">Número</span> <span class="kt">Int</span> <span class="o">|</span> <span class="kt">Valete</span> <span class="o">|</span> <span class="kt">Dama</span> <span class="o">|</span> <span class="kt">Rei</span>
+</code></pre></div>
+</td></tr></table>
+<p>Vamos definir outra enumeração, que represente a cor do naipe.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">data</span> <span class="kt">Cor</span> <span class="ow">=</span> <span class="kt">Vermelho</span> <span class="o">|</span> <span class="kt">Preto</span>
+    <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Show</span><span class="p">)</span>
+
+<span class="nf">cor</span> <span class="n">naipe</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">naipe</span> <span class="kr">of</span> 
+        <span class="kt">Copas</span> <span class="ow">-&gt;</span> <span class="kt">Vermelho</span>
+        <span class="kt">Ouro</span> <span class="ow">-&gt;</span> <span class="kt">Vermelho</span>
+        <span class="kt">Paus</span> <span class="ow">-&gt;</span> <span class="kt">Preto</span>
+        <span class="kt">Espada</span> <span class="ow">-&gt;</span> <span class="kt">Preto</span>
+</code></pre></div>
+</td></tr></table>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:davesands">
+<p>Esta aula é fortemente inspirada na video aula <a href="https://youtu.be/pfQVVbKyNwE">Enumeration Types, Show</a> de Dave Sands.&#160;<a class="footnote-backref" href="#fnref:davesands" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+  <!-- Last update of source file -->
+
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Rodapé">
+      
+        
+        <a href="../lists/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Listas" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Listas
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../lambda/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Cálculo λ" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              Cálculo λ
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.56a63758.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../javascripts/mathjaxhelper.js"></script>
+      
+    
+  </body>
+</html>

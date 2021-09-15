@@ -396,21 +396,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Recursão de Cauda
+    <li class="md-nav__item">
+      <a href="../enum/" class="md-nav__link">
+        Tipos algébricos
       </a>
-      
     </li>
   
 
@@ -511,6 +501,31 @@
 
   
   
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Recursão de Cauda
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
   
     <li class="md-nav__item">
       <a href="../quickcheck/" class="md-nav__link">
@@ -591,9 +606,78 @@
 
   <!-- Content -->
   <h1 id="recursao-de-cauda">Recursão de cauda</h1>
+<p>Considere a seguinte função, que calcula o somatório dos elementos em uma lista.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">soma</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="mi">0</span>
+<span class="nf">soma</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">soma</span> <span class="n">xs</span>
+</code></pre></div>
+</td></tr></table>
+<p>Não há nada de errado com esta definição, não é mesmo?
+Veja como funciona perfeitamente.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">soma</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+<span class="mi">55</span>
+<span class="o">&gt;</span> <span class="n">soma</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10000</span><span class="p">]</span>
+<span class="mi">50005000</span>
+<span class="o">&gt;</span> 
+</code></pre></div>
+</td></tr></table>
+<p>Mas testemos com uma lista "um pouco" maior e teremos uma desagradável surpresa.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">soma</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">100000000</span><span class="p">]</span>
+<span class="o">***</span> <span class="kt">Exception:</span> <span class="n">stack</span> <span class="n">overflow</span>
+</code></pre></div>
+</td></tr></table>
+<p>Para entender o que aconteceu aqui, precisamos entender como a invocação é tratada pelo computador.
+Por exemplo, no caso para resolver <code class="highlight"><span class="nf">soma</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span></code>, o seguinte acontece:</p>
 <ul>
-<li>Fibonacci pra cima</li>
+<li>para calcular <code class="highlight"><span class="nf">soma</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span></code>, primeiro é necessário calcular <code class="highlight"><span class="nf">soma</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span></code>, então a invocação recursiva é feita e somente após levar a uma resposta, a pergunta original é respondida;</li>
+<li>mas, para calcular <code class="highlight"><span class="nf">soma</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span></code>primeiro é necessário calcular <code class="highlight"><span class="nf">soma</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span></code>, e a invocação recursiva é feita, e assim por diante;</li>
+<li>as informações que permitem ao programa continuar a execução de uma invocação <strong>depois</strong> da chamada recursiva retornar, isto é, o valor da cabeça da lista na invocação atual, são "empilhadas" na memória;</li>
 </ul>
+<p><img alt="" src="../drawings/tail_recursion.drawio-0.svg" /></p>
+<p>Acontece que se a pilha (<em>stack</em>) cresce muito, como é o caso quando fazemos uma invocação <code class="highlight"><span class="nf">soma</span> <span class="p">[</span><span class="mi">100000000</span><span class="p">]</span></code>, ela extrapola a capacidade do processo de crescer a pilha e "derrama" (<em>overflow</em>), que é o erro visto no exemplo anterior.
+Acontece que Haskell é inteligente o suficiente para perceber se a função não tiver pendências e, neste caso, não colocar na pilha.</p>
+<p>Para não deixar pendências, a chamada recursiva deve receber toda a informação que seja necessária para o cálculo do resultado final da função.
+Esta técnica é conhecida como recursão de cauda, pois a chamada recursiva é a última coisa feita na função e, por isso, não deixa pendências.
+Em outras palavra <strong>o resultado da chamada recursiva é o resultado da chamada</strong>.
+No exemplo da soma, podemos reescrever a função assim:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">soma</span> <span class="mi">0</span> <span class="n">acc</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">acc</span>
+<span class="nf">soma</span> <span class="n">acc</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">soma</span> <span class="p">(</span><span class="n">acc</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span> <span class="n">xs</span>
+</code></pre></div>
+</td></tr></table>
+<p>Como não há pilha, é possível calcular somatórios bem maiores, pois nada fica para trás, correto? </p>
+<p><img alt="" src="../drawings/tail_recursion.drawio-1.svg" /></p>
+<p>A verdade é que o Haskell é muito preguiçoso, e não avalia o <code>+</code> enquanto não for necessário, então a computação fica na verdade assim.</p>
+<p><img alt="" src="../drawings/tail_recursion.drawio-2.svg" /></p>
+<p>Haskell nos dá, contudo, a opção de forçar o cálculo do acumulador antes de passá-lo como parâmetro para a chamada recursiva usando a função <code class="highlight"><span class="nf">seq</span></code>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">soma</span> <span class="mi">0</span> <span class="n">acc</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">acc</span>
+<span class="nf">soma</span> <span class="n">acc</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">seq</span> <span class="n">acc</span> <span class="n">soma</span> <span class="p">(</span><span class="n">acc</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span> <span class="n">xs</span>
+</code></pre></div>
+</td></tr></table>
+<p>O que a segunda linha do código faz é dizer ao Haskell que "primeiro avalie <code class="highlight"><span class="nf">acc</span></code> e <strong>na sequência</strong> avalie <code class="highlight"><span class="nf">soma</span> <span class="p">(</span><span class="n">acc</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span> <span class="n">xs</span></code>.
+Outra forma, mais idiomática de escrever o mesmo código é usando <code class="highlight"><span class="nf">seq</span></code> de forma infixa.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">soma</span> <span class="mi">0</span> <span class="n">acc</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">acc</span>
+<span class="nf">soma</span> <span class="n">acc</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">acc</span> <span class="p">`</span><span class="n">seq</span><span class="p">`</span> <span class="n">soma</span> <span class="p">(</span><span class="n">acc</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span> <span class="n">xs</span>
+</code></pre></div>
+</td></tr></table>
+<p>Felizmente você quase nunca precisará usar <code>#hs seq</code> manualmente quando estiver escrevendo código que vá entrar em produção, isto é, que será compilado, pois poderá usar a flag <code>-O</code> para dizer ao compilador que tente encontrar onde o uso de <code class="highlight"><span class="nf">seq</span></code> seria apropriado, e o compilador faz um excelente trabalho neste sentido.</p>
+<p>A técnica de passar um acumulador ou acumuladores na invocação recursiva é muito comum e deve estar sempre em sua mente.
+E se você não quiser "poluir" a API com um parâmetro que só faz sentido por causa da recursão, você pode usar funções auxiliares, como a seguir.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">soma</span> <span class="n">l</span> <span class="ow">=</span> <span class="n">soma&#39;</span> <span class="mi">0</span> <span class="n">l</span>
+   <span class="kr">where</span> <span class="n">soma&#39;</span> <span class="mi">0</span> <span class="n">acc</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">acc</span>
+         <span class="n">soma&#39;</span> <span class="n">acc</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">soma&#39;</span> <span class="p">(</span><span class="n">acc</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span> <span class="n">xs</span>
+</code></pre></div>
+</td></tr></table>
+<p>Vejamos um outro exemplo do uso de recursão de cauda, desta vez para calcular os números da sequência de Fibonacci "de baixo para cima".</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -628,7 +712,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Rodapé">
       
         
-        <a href="../lists/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Listas" rel="prev">
+        <a href="../lazy/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Que preguiça" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -637,20 +721,20 @@
               <span class="md-footer__direction">
                 Anterior
               </span>
-              Listas
+              Que preguiça
             </div>
           </div>
         </a>
       
       
         
-        <a href="../lambda/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Cálculo λ" rel="next">
+        <a href="../quickcheck/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Quick, Check!" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Cálculo λ
+              Quick, Check!
             </div>
           </div>
           <div class="md-footer__button md-icon">
