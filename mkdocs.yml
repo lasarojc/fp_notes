@@ -22,7 +22,7 @@ nav:
         
         - Listas: lists.md
 
-        - Recursão de Cauda: tail_recursion.md
+        - Tipos algébricos: enum.md
 
         - Polimorfismo: polymorphism.md
 
@@ -35,6 +35,8 @@ nav:
         - Entrada e Saída: io.md
 
         - Que preguiça: lazy.md
+
+        - Recursão de Cauda: tail_recursion.md
 
         - Quick, Check!: quickcheck.md
 
