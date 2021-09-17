@@ -26,8 +26,6 @@ nav:
 
         - Polimorfismo: polymorphism.md
 
-        - Classes de tipos: type_classes.md
-
         - Cálculo λ: lambda.md
 
         - Funções de alta ordem: highorder.md

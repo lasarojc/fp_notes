@@ -20,18 +20,19 @@ De forma geral, podemos dividir o projeto em duas etapas:
     
 
 ## Etapa 1
-O jogo bomberman acontece em um "tabuleiro" onde os vários jogadores, bombermen de diversas cores, tentam explodir os seus competidores até serem os únicos restantes no jogo.
+O jogo *bomberman* acontece em um "tabuleiro" onde os vários jogadores, *bombermen* de diversas cores, tentam explodir os seus competidores até serem os únicos restantes no jogo.
 
 ![https://www.techtudo.com.br/listas/noticia/2016/03/lembra-de-bomberman-confira-curiosidades-da-famosa-franquia.html](http://s2.glbimg.com/MtaQW2mgrUh6P_nEn_sbplH67jE=/695x0/s.glbimg.com/po/tt2/f/original/2016/03/17/curiosidades-bomberman.jpg)
 
 No processo, os competidores se movimentam pelo tabuleiro explodindo barreiras e coletando presentes que lhes conferem habilidades, como aumentar a quantidade de bombas que cada um pode colocar no tabuleiro concorrentemente, aumentar a velocidade de deslocamento, arremessar bombas em posições adjacentes no mapa, ou aumentar o alcance das explosões.
-Uma explosão seguem em linha reta nas quatro direções (norte, sul, leste e oeste) até que encontre algum obstáculo, que pode ou não ser destruído pela explosão.
+
+Uma explosão segue em linha reta nas quatro direções (norte, sul, leste e oeste) até que encontre algum obstáculo, que pode ou não ser destruído pela explosão.
 
 ###### Tabuleiro
-Um tabuleiro de bomberman pode ser visto como uma matriz em que cada célula é uma pilha de elementos.
+Um tabuleiro de pode ser visto como uma matriz em que cada célula é uma pilha de elementos.
 Para representar a matriz do tabuleiro, usaremos uma tupla de tuplas.
 Assim, defina as seguintes estruturas de dados.
-    
+
 - Tabuleiro é uma tupla com 8 Linha.
 - Linha é uma tupla com 8 Célula.
 - Célula é uma pilha com 4 Item

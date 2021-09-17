@@ -134,6 +134,35 @@ Vejamos alguns exemplos:
 * `#!hs [(1,2,3),(3)]` - Um bug
 
 
+## Funções úteis
+Em uma seção anterior, apresentamos algumas funções como úteis na manipulação de String.
+Na verdade, todas aquelas funções são definidas em termos de listas e, por isso, as revisitaremos aqui juntamente com mais algumas.
+
+
+|Operador|Operação| Exemplo |
+|----|----|----|
+| `++` | Concatenação de listas| `#!hs > "foo" ++ "bar"` <br> `#!hs "foobar"`|
+| `!!` | Elemento no índice| `#!hs >[1,2,3,4] !! 2` <br> `3` |
+| `reverse` | Lista ao contrário | `#!hs >reverse [1,2,3,4] ` <br> ` [4,3,2,1]` |
+| `length` | Comprimento da string | `#!hs >length "foo bar" ` <br> ` 7` |
+| `last` | Último elemento da lista | `#!hs >last "foo bar"` <br> ` r`|
+| `concat` | Retorna a concatenação das listas dentro de uma lista | `#!hs >concat [[1,2,3,4],[5,6,7,8]]` <br> `[1,2,3,4,5,6,7,8]` <br> `#!hs >concat [[[1,2,3]],[[4,5,6]]]` <br> `#!hs [[1,2,3],[4,5,6]]` |
+| `elem`   | Verifica se o parâmetro é um elemento da lista | `#!hs >elem 'o' "foo bar"` <br> `#!hs True`|
+| `null`   | Verifica se a lista é vazia | `#!hs >null ""` <br> `True`<br> `#!hs >null []` <br> `True` <br> `#!hs >null [1,2]` <br> `#!hs False`|
+| `replicate`   | Constrói uma lista pela replicação de um elemento | `#!hs >replicate 4 (1,2)` <br> `#!hs [(1,2),(1,2),(1,2),(1,2)]`|
+| `take` | Sublista iniciando em 0 | `#!hs >take 3 1:2:3:4:5:[] ` <br> `#!hs [1,2,3]` |
+| `drop` | Sublista começando em um índice| `#!hs >drop 3 ['f','o','o',' ','b','a','r'] ` <br> `#!hs " bar"` |
+| `takeWhile` | Sublista iniciando em 0 e até o primeiro elemento que não satisfaz ao critério, exclusive| `#!hs >takeWhile (<4) [1,2,3,4,5,6]` <br> `#!hs [1,2,3]` |
+| `dropWhile` | Sublista começando no primeiro elemento que não satisfaz ao critério, inclusive| `#!hs >dropWhile (<4) [1,2,3,4,5,6]` <br> `#!hs 4,5,6` |
+| `splitAt` | Dupla das sublistas geradas pela divisão no índice especificado| `#!hs >splitAt 3 [1,2,3,4,5,6]` <br> `#!hs ([1,2,3],[4,5,6])` |
+| `zip` | Lista de pares com os elementos das duas listas passadas como parâmetro| `#!hs >zip [1,2,3] [4,5,6]` <br> `#!hs [(1,4),(2,5),(3,6)]` |
+| `sum` | Somatório dos elementos da lista| `#!hs >sum [1,2,3,4,5,6]` <br> `#!hs 16` |
+| `product` | Produtório dos elementos da lista| `#!hs >product [1,2,3,4,5,6]` <br> `#!hs 720` |
+| `maximum` | Maior dos elemento lista| `#!hs >maximum [1,2,3,4,5,6]` <br> `#!hs 6` |
+| `minimum` | Menor dos elementos da lista| `#!hs >minimum [1,2,3,4,5,6]` <br> `#!hs 1` |
+
+
+
 ## Enumeração
 Para facilitar a vida dos desenvolvedores, Haskell permite a construção de listas por enumeração, bastando para isso o especificar o primeiro elemento da lista, opcionalmente o segundo, e o último elemento.
 Por exemplo
@@ -198,37 +227,12 @@ Prelude> [Copas ..Ouro]
         *Main> vaiEVolta 3
         [1,2,3,2,1]
         ```
-    * Defina uma função que dado uma String, verifique se ela é um palíndromo.
-
-    ???example "Resolução"
-        ```hs
-        éPalíndromo s = s == reverse s
-        ```
-
-        ```hs
-        *Main> éPalíndromo "aba"
-        True
-        *Main> éPalíndromo "abac"
-        False
-        ```
 
     * Defina uma função que calcule o fatorial e um número n, usando `product` e listas por enumeração.
 
     ???example "Resolução"
         ```hs
         fatorial n = product [1..n]
-        ```
-
-    * Um pangrama é uma frase que contem todas as letras do alfabeto. Escreva uma função que, dado uma String, verifique se é um pangrama.
-
-    ???example "Resolução"
-        ```hs
-        module Pangram (isPangram) where
-
-        import Data.Char (toLower)
-
-        isPangram :: String -> Bool
-        isPangram text = all (`elem` (map toLower text)) ['a'..'z']
         ```
 
 ## Compreensão de Listas
@@ -242,7 +246,7 @@ Esta compreensão diz que será construída uma lista cujos elementos serão da 
 Veja o exemplo de execução.
 
 ```hs
-> lista = Prelude> lista = [10,20,30,40,100]
+> lista = [10,20,30,40,100]
 > [e*1.3 | e <- lista]
 [13.0,26.0,39.0,52.0,130.0]
 ```
@@ -455,7 +459,7 @@ oQueHáNaLista (x:xs) = "Há " ++ (show x) ++ " e mais um monte de coisas"
 Dado que strings são apenas listas de Char, estas também podem ser decompostas por casamentos de padrões.
 
 ```hs
-resumo :: [a] -> "String"
+resumo :: String -> String
 resumo [] -> "Nada"
 resumo [_] -> "Um"
 resumo [_,_] -> "Dois"
@@ -472,36 +476,6 @@ iniciais [(x:_)] = [x]
 iniciais [(x:_),(y:_)] = [x,y]
 iniciais ((x:_):(y:_):(z:_):_) = [x,y,z]
 ```
-
-
-
-## Funções úteis
-Em uma seção anterior, apresentamos algumas funções como úteis na manipulação de String.
-Na verdade, todas aquelas funções são definidas em termos de listas, e por isso as revisitaremos aqui, juntamente com mais algumas.
-
-
-|Operador|Operação| Exemplo |
-|----|----|----|
-| `++` | Concatenação de listas| `#!hs > "foo" ++ "bar"` <br> `#!hs "foobar"`|
-| `!!` | Elemento no índice| `#!hs >[1,2,3,4] !! 2` <br> `3` |
-| `reverse` | Lista ao contrário | `#!hs >reverse [1,2,3,4] ` <br> ` [4,3,2,1]` |
-| `length` | Comprimento da string | `#!hs >length "foo bar" ` <br> ` 7` |
-| `last` | Último elemento da lista | `#!hs >last "foo bar"` <br> ` r`|
-| `concat` | Retorna a concatenação das listas dentro de uma lista | `#!hs >concat [[1,2,3,4],[5,6,7,8]]` <br> `[1,2,3,4,5,6,7,8]` <br> `#!hs >concat [[[1,2,3]],[[4,5,6]]]` <br> `#!hs [[1,2,3],[4,5,6]]` |
-| `elem`   | Verifica se o parâmetro é um elemento da lista | `#!hs >elem 'o' "foo bar"` <br> `#!hs True`|
-| `null`   | Verifica se a lista é vazia | `#!hs >null ""` <br> `True`<br> `#!hs >null []` <br> `True` <br> `#!hs >null [1,2]` <br> `#!hs False`|
-| `replicate`   | Constrói uma lista pela replicação de um elemento | `#!hs >replicate 4 (1,2)` <br> `#!hs [(1,2),(1,2),(1,2),(1,2)]`|
-| `take` | Sublista iniciando em 0 | `#!hs >take 3 1:2:3:4:5:[] ` <br> `#!hs [1,2,3]` |
-| `drop` | Sublista começando em um índice| `#!hs >drop 3 ['f','o','o',' ','b','a','r'] ` <br> `#!hs " bar"` |
-| `takeWhile` | Sublista iniciando em 0 e até o primeiro elemento que não satisfaz ao critério, exclusive| `#!hs >takeWhile (<4) [1,2,3,4,5,6]` <br> `#!hs [1,2,3]` |
-| `dropWhile` | Sublista começando no primeiro elemento que não satisfaz ao critério, inclusive| `#!hs >dropWhile (<4) [1,2,3,4,5,6]` <br> `#!hs 4,5,6` |
-| `splitAt` | Dupla das sublistas geradas pela divisão no índice especificado| `#!hs >splitAt 3 [1,2,3,4,5,6]` <br> `#!hs ([1,2,3],[4,5,6])` |
-| `zip` | Lista de pares com os elementos das duas listas passadas como parâmetro| `#!hs >zip [1,2,3] [4,5,6]` <br> `#!hs [(1,4),(2,5),(3,6)]` |
-| `sum` | Somatório dos elementos da lista| `#!hs >sum [1,2,3,4,5,6]` <br> `#!hs 16` |
-| `product` | Produtório dos elementos da lista| `#!hs >product [1,2,3,4,5,6]` <br> `#!hs 720` |
-| `maximum` | Maior dos elemento lista| `#!hs >maximum [1,2,3,4,5,6]` <br> `#!hs 6` |
-| `minimum` | Menor dos elementos da lista| `#!hs >minimum [1,2,3,4,5,6]` <br> `#!hs 1` |
-
 
 
 ## Recursão
@@ -565,7 +539,7 @@ Vejamos algumas definições.[^alt]
     ```hs
     maisMais :: [a] -> [a] -> [a]
     maisMais [] [] = []
-    maisMais [] (y:ys) = y : maisMais [] ys
+    maisMais [] y = y
     maisMais (x:xs) y = x : maisMais xs y
     ```
 

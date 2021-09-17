@@ -33,11 +33,11 @@ Por exemplo, no caso para resolver `#!hs soma [1,2,3,4,5]`, o seguinte acontece:
 
 ![](drawings/tail_recursion.drawio#0)
 
-Acontece que se a pilha (*stack*) cresce muito, como é o caso quando fazemos uma invocação `#!hs soma [100000000]`, ela extrapola a capacidade do processo de crescer a pilha e "derrama" (*overflow*), que é o erro visto no exemplo anterior.
+Acontece que se a pilha (*stack*) cresce muito, como é o caso quando fazemos uma invocação `#!hs soma [100000000]`, ela extrapola a capacidade do processo de crescer a pilha e "transborda" (*overflow*) o espaço reservado para a pilha, que é o erro visto no exemplo anterior.
 Acontece que Haskell é inteligente o suficiente para perceber se a função não tiver pendências e, neste caso, não colocar na pilha.
 
 Para não deixar pendências, a chamada recursiva deve receber toda a informação que seja necessária para o cálculo do resultado final da função.
-Esta técnica é conhecida como recursão de cauda, pois a chamada recursiva é a última coisa feita na função e, por isso, não deixa pendências.
+Esta técnica é conhecida como **recursão de cauda**, pois a chamada recursiva é a última coisa feita na função e, por isso, não deixa pendências.
 Em outras palavra **o resultado da chamada recursiva é o resultado da chamada**.
 No exemplo da soma, podemos reescrever a função assim:
 
@@ -69,7 +69,7 @@ soma 0 acc [] = acc
 soma acc (x:xs) = acc `seq` soma (acc + x) xs
 ```
 
-Felizmente você quase nunca precisará usar `#hs seq` manualmente quando estiver escrevendo código que vá entrar em produção, isto é, que será compilado, pois poderá usar a flag `-O` para dizer ao compilador que tente encontrar onde o uso de `#!hs seq` seria apropriado, e o compilador faz um excelente trabalho neste sentido.
+Felizmente você quase nunca precisará usar `#!hs seq` manualmente quando estiver escrevendo código que vá entrar em produção, isto é, que será compilado, pois poderá usar a flag `-O` para dizer ao compilador que tente encontrar onde o uso de `#!hs seq` seria apropriado, e o compilador faz um excelente trabalho neste sentido.
 
 
 A técnica de passar um acumulador ou acumuladores na invocação recursiva é muito comum e deve estar sempre em sua mente.
