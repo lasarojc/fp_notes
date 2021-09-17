@@ -135,3 +135,32 @@ Exercícios/Provas
     - cartas
         - teste se bateu em algum jogo
         - ordene as cartas
+
+
+
+* Exercícios
+    * Defina uma função que dado uma String, verifique se ela é um palíndromo.
+
+    ???example "Resolução"
+        ```hs
+        éPalíndromo s = s == reverse s
+        ```
+
+        ```hs
+        *Main> éPalíndromo "aba"
+        True
+        *Main> éPalíndromo "abac"
+        False
+        ```
+
+    * Um pangrama é uma frase que contem todas as letras do alfabeto. Escreva uma função que, dado uma String, verifique se é um pangrama.
+
+    ???example "Resolução"
+        ```hs
+        module Pangram (isPangram) where
+
+        import Data.Char (toLower)
+
+        isPangram :: String -> Bool
+        isPangram text = all (`elem` (map toLower text)) ['a'..'z']
+        ```

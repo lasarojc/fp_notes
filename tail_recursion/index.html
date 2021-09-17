@@ -428,21 +428,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../type_classes.md" class="md-nav__link">
-        Classes de tipos
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../lambda/" class="md-nav__link">
         Cálculo λ
       </a>
@@ -639,10 +624,10 @@ Por exemplo, no caso para resolver <code class="highlight"><span class="nf">soma
 <li>as informações que permitem ao programa continuar a execução de uma invocação <strong>depois</strong> da chamada recursiva retornar, isto é, o valor da cabeça da lista na invocação atual, são "empilhadas" na memória;</li>
 </ul>
 <p><img alt="" src="../drawings/tail_recursion.drawio-0.svg" /></p>
-<p>Acontece que se a pilha (<em>stack</em>) cresce muito, como é o caso quando fazemos uma invocação <code class="highlight"><span class="nf">soma</span> <span class="p">[</span><span class="mi">100000000</span><span class="p">]</span></code>, ela extrapola a capacidade do processo de crescer a pilha e "derrama" (<em>overflow</em>), que é o erro visto no exemplo anterior.
+<p>Acontece que se a pilha (<em>stack</em>) cresce muito, como é o caso quando fazemos uma invocação <code class="highlight"><span class="nf">soma</span> <span class="p">[</span><span class="mi">100000000</span><span class="p">]</span></code>, ela extrapola a capacidade do processo de crescer a pilha e "transborda" (<em>overflow</em>) o espaço reservado para a pilha, que é o erro visto no exemplo anterior.
 Acontece que Haskell é inteligente o suficiente para perceber se a função não tiver pendências e, neste caso, não colocar na pilha.</p>
 <p>Para não deixar pendências, a chamada recursiva deve receber toda a informação que seja necessária para o cálculo do resultado final da função.
-Esta técnica é conhecida como recursão de cauda, pois a chamada recursiva é a última coisa feita na função e, por isso, não deixa pendências.
+Esta técnica é conhecida como <strong>recursão de cauda</strong>, pois a chamada recursiva é a última coisa feita na função e, por isso, não deixa pendências.
 Em outras palavra <strong>o resultado da chamada recursiva é o resultado da chamada</strong>.
 No exemplo da soma, podemos reescrever a função assim:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -667,7 +652,7 @@ Outra forma, mais idiomática de escrever o mesmo código é usando <code class=
 <span class="nf">soma</span> <span class="n">acc</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">acc</span> <span class="p">`</span><span class="n">seq</span><span class="p">`</span> <span class="n">soma</span> <span class="p">(</span><span class="n">acc</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span> <span class="n">xs</span>
 </code></pre></div>
 </td></tr></table>
-<p>Felizmente você quase nunca precisará usar <code>#hs seq</code> manualmente quando estiver escrevendo código que vá entrar em produção, isto é, que será compilado, pois poderá usar a flag <code>-O</code> para dizer ao compilador que tente encontrar onde o uso de <code class="highlight"><span class="nf">seq</span></code> seria apropriado, e o compilador faz um excelente trabalho neste sentido.</p>
+<p>Felizmente você quase nunca precisará usar <code class="highlight"><span class="nf">seq</span></code> manualmente quando estiver escrevendo código que vá entrar em produção, isto é, que será compilado, pois poderá usar a flag <code>-O</code> para dizer ao compilador que tente encontrar onde o uso de <code class="highlight"><span class="nf">seq</span></code> seria apropriado, e o compilador faz um excelente trabalho neste sentido.</p>
 <p>A técnica de passar um acumulador ou acumuladores na invocação recursiva é muito comum e deve estar sempre em sua mente.
 E se você não quiser "poluir" a API com um parâmetro que só faz sentido por causa da recursão, você pode usar funções auxiliares, como a seguir.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1

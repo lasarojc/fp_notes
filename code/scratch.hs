@@ -266,7 +266,7 @@ True
 -}
 
 
-data Naipe = Copas | Espada | Ouro | Paus deriving (Ord,Eq,Enum,Show)
+data Naipe = Copas | Espada | Ouro | Paus --deriving (Ord,Eq,Enum,Show)
 
 
 
@@ -1284,3 +1284,97 @@ contaBom :: [Int] -> [Int] -> Int
 contaBom [] _ = 0
 contaBom _ [] = 0
 contaBom (x:xs) y = (if x `elem` y then 1 else 0) + contaBom xs y
+
+
+
+
+corDoNaipe :: Naipe -> String
+corDoNaipe Copas = "Vermelho"
+corDoNaipe Ouro = "Vermelho"
+corDoNaipe Paus = "Preto"
+corDoNaipe Espada = "Preto"
+
+corDoNaipe' :: Naipe -> String
+corDoNaipe' n = case n of 
+        Copas -> "Vermelho"
+        Ouro -> "Vermelho"
+        Paus -> "Preto"
+        Espada -> "Preto"
+
+{-
+>>>corDoNaipe Copas
+"Vermelho"
+
+>>>corDoNaipe' Copas
+"Vermelho"
+
+-}
+
+
+{-
+>>>maisMais' [1,2,3] [4,5,6]
+[1,2,3,4,5,6]
+-}
+
+maisMais' :: [a] -> [a] -> [a]
+maisMais' [] [] = []
+maisMais' [] y = y
+maisMais' (x:xs) y = x : maisMais' xs y
+
+
+
+take' :: Int -> [a] -> [a]
+take' _ [] = []
+take' n (x:xs) = if n <= 0 
+                 then [] 
+                 else x : take' (n-1) xs
+
+
+
+drop' :: Int -> [a] -> [a]
+drop' _ [] = []
+drop' n l@(_:xs)
+    | n <= 0 = l
+    | otherwise = drop' (n-1) xs
+
+
+{-
+>>>união [1..4] [2..6]
+>>>união [1..4] [5..6]
+>>>união [1,1,2] [2,3,5]
+[1,2,3,4,5,6]
+[1,2,3,4,5,6]
+[1,2,3,5]
+-}
+
+união :: [Int] -> [Int] -> [Int]
+união [] [] = []
+união [] (y:ys) = if y `elem` ys
+                  then união [] ys
+                  else y : união [] ys 
+união (x:xs) y = if x `elem` y || x `elem` xs
+                 then união xs y
+                 else x : união xs y
+
+
+{-
+>>>união' [1..4] [2..6]
+>>>união' [1..4] [5..6]
+>>>união' [1,1,2,4] [2,3,5]
+[1,2,3,4,5,6]
+[1,5,6]
+[2,3,5]
+
+-}
+
+união' :: [Int] -> [Int] -> [Int]
+união' l1 l2 = [e | e <- l11, e `notElem` l22] ++ l22
+    where l11 = unique l1
+          l22 = unique l2
+
+
+unique :: (Eq a) => [a] -> [a]
+unique [] = []
+unique (x:xs)
+    | x `elem` xs = unique xs
+    | otherwise = x : unique xs

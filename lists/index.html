@@ -423,6 +423,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#funcoes-uteis" class="md-nav__link">
+    Funções úteis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#enumeracao" class="md-nav__link">
     Enumeração
   </a>
@@ -439,13 +446,6 @@
         <li class="md-nav__item">
   <a href="#casamento-de-padroes" class="md-nav__link">
     Casamento de padrões
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#funcoes-uteis" class="md-nav__link">
-    Funções úteis
   </a>
   
 </li>
@@ -490,21 +490,6 @@
     <li class="md-nav__item">
       <a href="../polymorphism.md" class="md-nav__link">
         Polimorfismo
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../type_classes.md" class="md-nav__link">
-        Classes de tipos
       </a>
     </li>
   
@@ -663,6 +648,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#funcoes-uteis" class="md-nav__link">
+    Funções úteis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#enumeracao" class="md-nav__link">
     Enumeração
   </a>
@@ -679,13 +671,6 @@
         <li class="md-nav__item">
   <a href="#casamento-de-padroes" class="md-nav__link">
     Casamento de padrões
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#funcoes-uteis" class="md-nav__link">
-    Funções úteis
   </a>
   
 </li>
@@ -853,6 +838,115 @@ Vejamos alguns exemplos:</p>
 <li><code class="highlight"><span class="p">[(</span><span class="mi">4</span><span class="p">,</span><span class="kt">Ouro</span><span class="p">),(</span><span class="mi">5</span><span class="p">,</span><span class="kt">Paus</span><span class="p">)]</span><span class="ow">::</span><span class="p">[</span><span class="kt">Carta</span><span class="p">]</span></code> - Lista de cartas.</li>
 <li><code class="highlight"><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">3</span><span class="p">)]</span></code> - Um bug</li>
 </ul>
+<h2 id="funcoes-uteis">Funções úteis</h2>
+<p>Em uma seção anterior, apresentamos algumas funções como úteis na manipulação de String.
+Na verdade, todas aquelas funções são definidas em termos de listas e, por isso, as revisitaremos aqui juntamente com mais algumas.</p>
+<table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Operação</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>++</code></td>
+<td>Concatenação de listas</td>
+<td><code class="highlight"><span class="o">&gt;</span> <span class="s">&quot;foo&quot;</span> <span class="o">++</span> <span class="s">&quot;bar&quot;</span></code> <br> <code class="highlight"><span class="s">&quot;foobar&quot;</span></code></td>
+</tr>
+<tr>
+<td><code>!!</code></td>
+<td>Elemento no índice</td>
+<td><code class="highlight"><span class="o">&gt;</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="o">!!</span> <span class="mi">2</span></code> <br> <code>3</code></td>
+</tr>
+<tr>
+<td><code>reverse</code></td>
+<td>Lista ao contrário</td>
+<td><code class="highlight"><span class="o">&gt;</span><span class="n">reverse</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span></code> <br> <code>[4,3,2,1]</code></td>
+</tr>
+<tr>
+<td><code>length</code></td>
+<td>Comprimento da string</td>
+<td><code class="highlight"><span class="o">&gt;</span><span class="n">length</span> <span class="s">&quot;foo bar&quot;</span></code> <br> <code>7</code></td>
+</tr>
+<tr>
+<td><code>last</code></td>
+<td>Último elemento da lista</td>
+<td><code class="highlight"><span class="o">&gt;</span><span class="n">last</span> <span class="s">&quot;foo bar&quot;</span></code> <br> <code>r</code></td>
+</tr>
+<tr>
+<td><code>concat</code></td>
+<td>Retorna a concatenação das listas dentro de uma lista</td>
+<td><code class="highlight"><span class="o">&gt;</span><span class="n">concat</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]]</span></code> <br> <code>[1,2,3,4,5,6,7,8]</code> <br> <code class="highlight"><span class="o">&gt;</span><span class="n">concat</span> <span class="p">[[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]],[[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]]]</span></code> <br> <code class="highlight"><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]]</span></code></td>
+</tr>
+<tr>
+<td><code>elem</code></td>
+<td>Verifica se o parâmetro é um elemento da lista</td>
+<td><code class="highlight"><span class="o">&gt;</span><span class="n">elem</span> <span class="sc">&#39;o&#39;</span> <span class="s">&quot;foo bar&quot;</span></code> <br> <code class="highlight"><span class="kt">True</span></code></td>
+</tr>
+<tr>
+<td><code>null</code></td>
+<td>Verifica se a lista é vazia</td>
+<td><code class="highlight"><span class="o">&gt;</span><span class="n">null</span> <span class="s">&quot;&quot;</span></code> <br> <code>True</code><br> <code class="highlight"><span class="o">&gt;</span><span class="n">null</span> <span class="kt">[]</span></code> <br> <code>True</code> <br> <code class="highlight"><span class="o">&gt;</span><span class="n">null</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span></code> <br> <code class="highlight"><span class="kt">False</span></code></td>
+</tr>
+<tr>
+<td><code>replicate</code></td>
+<td>Constrói uma lista pela replicação de um elemento</td>
+<td><code class="highlight"><span class="o">&gt;</span><span class="n">replicate</span> <span class="mi">4</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span></code> <br> <code class="highlight"><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span></code></td>
+</tr>
+<tr>
+<td><code>take</code></td>
+<td>Sublista iniciando em 0</td>
+<td><code class="highlight"><span class="o">&gt;</span><span class="n">take</span> <span class="mi">3</span> <span class="mi">1</span><span class="kt">:</span><span class="mi">2</span><span class="kt">:</span><span class="mi">3</span><span class="kt">:</span><span class="mi">4</span><span class="kt">:</span><span class="mi">5</span><span class="kt">:[]</span></code> <br> <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span></code></td>
+</tr>
+<tr>
+<td><code>drop</code></td>
+<td>Sublista começando em um índice</td>
+<td><code class="highlight"><span class="o">&gt;</span><span class="n">drop</span> <span class="mi">3</span> <span class="p">[</span><span class="sc">&#39;f&#39;</span><span class="p">,</span><span class="sc">&#39;o&#39;</span><span class="p">,</span><span class="sc">&#39;o&#39;</span><span class="p">,</span><span class="sc">&#39; &#39;</span><span class="p">,</span><span class="sc">&#39;b&#39;</span><span class="p">,</span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="sc">&#39;r&#39;</span><span class="p">]</span></code> <br> <code class="highlight"><span class="s">&quot; bar&quot;</span></code></td>
+</tr>
+<tr>
+<td><code>takeWhile</code></td>
+<td>Sublista iniciando em 0 e até o primeiro elemento que não satisfaz ao critério, exclusive</td>
+<td><code class="highlight"><span class="o">&gt;</span><span class="n">takeWhile</span> <span class="p">(</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span></code> <br> <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span></code></td>
+</tr>
+<tr>
+<td><code>dropWhile</code></td>
+<td>Sublista começando no primeiro elemento que não satisfaz ao critério, inclusive</td>
+<td><code class="highlight"><span class="o">&gt;</span><span class="n">dropWhile</span> <span class="p">(</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span></code> <br> <code class="highlight"><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span></code></td>
+</tr>
+<tr>
+<td><code>splitAt</code></td>
+<td>Dupla das sublistas geradas pela divisão no índice especificado</td>
+<td><code class="highlight"><span class="o">&gt;</span><span class="n">splitAt</span> <span class="mi">3</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span></code> <br> <code class="highlight"><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span></code></td>
+</tr>
+<tr>
+<td><code>zip</code></td>
+<td>Lista de pares com os elementos das duas listas passadas como parâmetro</td>
+<td><code class="highlight"><span class="o">&gt;</span><span class="n">zip</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span></code> <br> <code class="highlight"><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">)]</span></code></td>
+</tr>
+<tr>
+<td><code>sum</code></td>
+<td>Somatório dos elementos da lista</td>
+<td><code class="highlight"><span class="o">&gt;</span><span class="n">sum</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span></code> <br> <code class="highlight"><span class="mi">16</span></code></td>
+</tr>
+<tr>
+<td><code>product</code></td>
+<td>Produtório dos elementos da lista</td>
+<td><code class="highlight"><span class="o">&gt;</span><span class="n">product</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span></code> <br> <code class="highlight"><span class="mi">720</span></code></td>
+</tr>
+<tr>
+<td><code>maximum</code></td>
+<td>Maior dos elemento lista</td>
+<td><code class="highlight"><span class="o">&gt;</span><span class="n">maximum</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span></code> <br> <code class="highlight"><span class="mi">6</span></code></td>
+</tr>
+<tr>
+<td><code>minimum</code></td>
+<td>Menor dos elementos da lista</td>
+<td><code class="highlight"><span class="o">&gt;</span><span class="n">minimum</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span></code> <br> <code class="highlight"><span class="mi">1</span></code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="enumeracao">Enumeração</h2>
 <p>Para facilitar a vida dos desenvolvedores, Haskell permite a construção de listas por enumeração, bastando para isso o especificar o primeiro elemento da lista, opcionalmente o segundo, e o último elemento.
 Por exemplo
@@ -922,42 +1016,9 @@ Isso existe, por exemplo, entre os caracteres, mas também para tipos definidos 
 </td></tr></table>
 </details>
 <ul>
-<li>Defina uma função que dado uma String, verifique se ela é um palíndromo.</li>
-</ul>
-<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">éPalíndromo</span> <span class="n">s</span> <span class="ow">=</span> <span class="n">s</span> <span class="o">==</span> <span class="n">reverse</span> <span class="n">s</span>
-</code></pre></div>
-</td></tr></table>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">éPalíndromo</span> <span class="s">&quot;aba&quot;</span>
-<span class="kt">True</span>
-<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">éPalíndromo</span> <span class="s">&quot;abac&quot;</span>
-<span class="kt">False</span>
-</code></pre></div>
-</td></tr></table>
-</details>
-<ul>
 <li>Defina uma função que calcule o fatorial e um número n, usando <code>product</code> e listas por enumeração.</li>
 </ul>
 <details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fatorial</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">product</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="n">n</span><span class="p">]</span>
-</code></pre></div>
-</td></tr></table>
-</details>
-<ul>
-<li>Um pangrama é uma frase que contem todas as letras do alfabeto. Escreva uma função que, dado uma String, verifique se é um pangrama.</li>
-</ul>
-<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">module</span> <span class="nn">Pangram</span> <span class="p">(</span><span class="nf">isPangram</span><span class="p">)</span> <span class="kr">where</span>
-
-<span class="kr">import</span> <span class="nn">Data.Char</span> <span class="p">(</span><span class="nf">toLower</span><span class="p">)</span>
-
-<span class="nf">isPangram</span> <span class="ow">::</span> <span class="kt">String</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
-<span class="nf">isPangram</span> <span class="n">text</span> <span class="ow">=</span> <span class="n">all</span> <span class="p">(`</span><span class="n">elem</span><span class="p">`</span> <span class="p">(</span><span class="n">map</span> <span class="n">toLower</span> <span class="n">text</span><span class="p">))</span> <span class="p">[</span><span class="sc">&#39;a&#39;</span><span class="o">..</span><span class="sc">&#39;z&#39;</span><span class="p">]</span>
 </code></pre></div>
 </td></tr></table>
 </details>
@@ -971,7 +1032,7 @@ Esta compreensão diz que será construída uma lista cujos elementos serão da 
 Veja o exemplo de execução.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">lista</span> <span class="ow">=</span> <span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">lista</span> <span class="ow">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">lista</span> <span class="ow">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
 <span class="o">&gt;</span> <span class="p">[</span><span class="n">e</span><span class="o">*</span><span class="mf">1.3</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="n">lista</span><span class="p">]</span>
 <span class="p">[</span><span class="mf">13.0</span><span class="p">,</span><span class="mf">26.0</span><span class="p">,</span><span class="mf">39.0</span><span class="p">,</span><span class="mf">52.0</span><span class="p">,</span><span class="mf">130.0</span><span class="p">]</span>
 </code></pre></div>
@@ -1201,7 +1262,7 @@ Por exemplo, na próxima função há 4 casos de casamento de padrões distintos
 2
 3
 4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">resumo</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="s">&quot;String&quot;</span>
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">resumo</span> <span class="ow">::</span> <span class="kt">String</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
 <span class="nf">resumo</span> <span class="kt">[]</span> <span class="ow">-&gt;</span> <span class="s">&quot;Nada&quot;</span>
 <span class="nf">resumo</span> <span class="p">[</span><span class="kr">_</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="s">&quot;Um&quot;</span>
 <span class="nf">resumo</span> <span class="p">[</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="s">&quot;Dois&quot;</span>
@@ -1221,115 +1282,6 @@ Por exemplo, considere uma lista de três ou mais String, isto é, uma lista de 
 <span class="nf">iniciais</span> <span class="p">((</span><span class="n">x</span><span class="kt">:</span><span class="kr">_</span><span class="p">)</span><span class="kt">:</span><span class="p">(</span><span class="n">y</span><span class="kt">:</span><span class="kr">_</span><span class="p">)</span><span class="kt">:</span><span class="p">(</span><span class="n">z</span><span class="kt">:</span><span class="kr">_</span><span class="p">)</span><span class="kt">:</span><span class="kr">_</span><span class="p">)</span> <span class="ow">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">]</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="funcoes-uteis">Funções úteis</h2>
-<p>Em uma seção anterior, apresentamos algumas funções como úteis na manipulação de String.
-Na verdade, todas aquelas funções são definidas em termos de listas, e por isso as revisitaremos aqui, juntamente com mais algumas.</p>
-<table>
-<thead>
-<tr>
-<th>Operador</th>
-<th>Operação</th>
-<th>Exemplo</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>++</code></td>
-<td>Concatenação de listas</td>
-<td><code class="highlight"><span class="o">&gt;</span> <span class="s">&quot;foo&quot;</span> <span class="o">++</span> <span class="s">&quot;bar&quot;</span></code> <br> <code class="highlight"><span class="s">&quot;foobar&quot;</span></code></td>
-</tr>
-<tr>
-<td><code>!!</code></td>
-<td>Elemento no índice</td>
-<td><code class="highlight"><span class="o">&gt;</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="o">!!</span> <span class="mi">2</span></code> <br> <code>3</code></td>
-</tr>
-<tr>
-<td><code>reverse</code></td>
-<td>Lista ao contrário</td>
-<td><code class="highlight"><span class="o">&gt;</span><span class="n">reverse</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span></code> <br> <code>[4,3,2,1]</code></td>
-</tr>
-<tr>
-<td><code>length</code></td>
-<td>Comprimento da string</td>
-<td><code class="highlight"><span class="o">&gt;</span><span class="n">length</span> <span class="s">&quot;foo bar&quot;</span></code> <br> <code>7</code></td>
-</tr>
-<tr>
-<td><code>last</code></td>
-<td>Último elemento da lista</td>
-<td><code class="highlight"><span class="o">&gt;</span><span class="n">last</span> <span class="s">&quot;foo bar&quot;</span></code> <br> <code>r</code></td>
-</tr>
-<tr>
-<td><code>concat</code></td>
-<td>Retorna a concatenação das listas dentro de uma lista</td>
-<td><code class="highlight"><span class="o">&gt;</span><span class="n">concat</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]]</span></code> <br> <code>[1,2,3,4,5,6,7,8]</code> <br> <code class="highlight"><span class="o">&gt;</span><span class="n">concat</span> <span class="p">[[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]],[[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]]]</span></code> <br> <code class="highlight"><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]]</span></code></td>
-</tr>
-<tr>
-<td><code>elem</code></td>
-<td>Verifica se o parâmetro é um elemento da lista</td>
-<td><code class="highlight"><span class="o">&gt;</span><span class="n">elem</span> <span class="sc">&#39;o&#39;</span> <span class="s">&quot;foo bar&quot;</span></code> <br> <code class="highlight"><span class="kt">True</span></code></td>
-</tr>
-<tr>
-<td><code>null</code></td>
-<td>Verifica se a lista é vazia</td>
-<td><code class="highlight"><span class="o">&gt;</span><span class="n">null</span> <span class="s">&quot;&quot;</span></code> <br> <code>True</code><br> <code class="highlight"><span class="o">&gt;</span><span class="n">null</span> <span class="kt">[]</span></code> <br> <code>True</code> <br> <code class="highlight"><span class="o">&gt;</span><span class="n">null</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span></code> <br> <code class="highlight"><span class="kt">False</span></code></td>
-</tr>
-<tr>
-<td><code>replicate</code></td>
-<td>Constrói uma lista pela replicação de um elemento</td>
-<td><code class="highlight"><span class="o">&gt;</span><span class="n">replicate</span> <span class="mi">4</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span></code> <br> <code class="highlight"><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span></code></td>
-</tr>
-<tr>
-<td><code>take</code></td>
-<td>Sublista iniciando em 0</td>
-<td><code class="highlight"><span class="o">&gt;</span><span class="n">take</span> <span class="mi">3</span> <span class="mi">1</span><span class="kt">:</span><span class="mi">2</span><span class="kt">:</span><span class="mi">3</span><span class="kt">:</span><span class="mi">4</span><span class="kt">:</span><span class="mi">5</span><span class="kt">:[]</span></code> <br> <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span></code></td>
-</tr>
-<tr>
-<td><code>drop</code></td>
-<td>Sublista começando em um índice</td>
-<td><code class="highlight"><span class="o">&gt;</span><span class="n">drop</span> <span class="mi">3</span> <span class="p">[</span><span class="sc">&#39;f&#39;</span><span class="p">,</span><span class="sc">&#39;o&#39;</span><span class="p">,</span><span class="sc">&#39;o&#39;</span><span class="p">,</span><span class="sc">&#39; &#39;</span><span class="p">,</span><span class="sc">&#39;b&#39;</span><span class="p">,</span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="sc">&#39;r&#39;</span><span class="p">]</span></code> <br> <code class="highlight"><span class="s">&quot; bar&quot;</span></code></td>
-</tr>
-<tr>
-<td><code>takeWhile</code></td>
-<td>Sublista iniciando em 0 e até o primeiro elemento que não satisfaz ao critério, exclusive</td>
-<td><code class="highlight"><span class="o">&gt;</span><span class="n">takeWhile</span> <span class="p">(</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span></code> <br> <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span></code></td>
-</tr>
-<tr>
-<td><code>dropWhile</code></td>
-<td>Sublista começando no primeiro elemento que não satisfaz ao critério, inclusive</td>
-<td><code class="highlight"><span class="o">&gt;</span><span class="n">dropWhile</span> <span class="p">(</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span></code> <br> <code class="highlight"><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span></code></td>
-</tr>
-<tr>
-<td><code>splitAt</code></td>
-<td>Dupla das sublistas geradas pela divisão no índice especificado</td>
-<td><code class="highlight"><span class="o">&gt;</span><span class="n">splitAt</span> <span class="mi">3</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span></code> <br> <code class="highlight"><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span></code></td>
-</tr>
-<tr>
-<td><code>zip</code></td>
-<td>Lista de pares com os elementos das duas listas passadas como parâmetro</td>
-<td><code class="highlight"><span class="o">&gt;</span><span class="n">zip</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span></code> <br> <code class="highlight"><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">)]</span></code></td>
-</tr>
-<tr>
-<td><code>sum</code></td>
-<td>Somatório dos elementos da lista</td>
-<td><code class="highlight"><span class="o">&gt;</span><span class="n">sum</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span></code> <br> <code class="highlight"><span class="mi">16</span></code></td>
-</tr>
-<tr>
-<td><code>product</code></td>
-<td>Produtório dos elementos da lista</td>
-<td><code class="highlight"><span class="o">&gt;</span><span class="n">product</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span></code> <br> <code class="highlight"><span class="mi">720</span></code></td>
-</tr>
-<tr>
-<td><code>maximum</code></td>
-<td>Maior dos elemento lista</td>
-<td><code class="highlight"><span class="o">&gt;</span><span class="n">maximum</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span></code> <br> <code class="highlight"><span class="mi">6</span></code></td>
-</tr>
-<tr>
-<td><code>minimum</code></td>
-<td>Menor dos elementos da lista</td>
-<td><code class="highlight"><span class="o">&gt;</span><span class="n">minimum</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span></code> <br> <code class="highlight"><span class="mi">1</span></code></td>
-</tr>
-</tbody>
-</table>
 <h2 id="recursao">Recursão</h2>
 <p>A recursão é essencial no processamento de listas e, de fato, muitas das funções listadas na seção anterior podem e são definidas recursivamente, como a função <code>maximum</code>:</p>
 <p><span class="arithmatex">\(maximum~[1,2,3] = max~1 \left( maximum~[2,3] = max~2 \left( maximum~[3] = 3 \right)        \right)\)</span></p>
@@ -1409,7 +1361,7 @@ Na verdade, todas aquelas funções são definidas em termos de listas, e por is
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">maisMais</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
 <span class="nf">maisMais</span> <span class="kt">[]</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="kt">[]</span>
-<span class="nf">maisMais</span> <span class="kt">[]</span> <span class="p">(</span><span class="n">y</span><span class="kt">:</span><span class="n">ys</span><span class="p">)</span> <span class="ow">=</span> <span class="n">y</span> <span class="kt">:</span> <span class="n">maisMais</span> <span class="kt">[]</span> <span class="n">ys</span>
+<span class="nf">maisMais</span> <span class="kt">[]</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">y</span>
 <span class="nf">maisMais</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="kt">:</span> <span class="n">maisMais</span> <span class="n">xs</span> <span class="n">y</span>
 </code></pre></div>
 </td></tr></table>

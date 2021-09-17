@@ -438,8 +438,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#classes-de-tipo" class="md-nav__link">
-    Classes de tipo
+  <a href="#classes-de-tipos" class="md-nav__link">
+    Classes de tipos
   </a>
   
 </li>
@@ -469,21 +469,6 @@
     <li class="md-nav__item">
       <a href="../polymorphism.md" class="md-nav__link">
         Polimorfismo
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../type_classes.md" class="md-nav__link">
-        Classes de tipos
       </a>
     </li>
   
@@ -642,8 +627,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#classes-de-tipo" class="md-nav__link">
-    Classes de tipo
+  <a href="#classes-de-tipos" class="md-nav__link">
+    Classes de tipos
   </a>
   
 </li>
@@ -686,14 +671,14 @@ Mas Haskell é mais poderoso que isso e permite que defina tipos novos a partir 
 Por exemplo, lembre-se do problemas discutidos que lidavam com cartas de baralho e como usamos uma dupla de String e Int para representar seus naipes e valores.
 Com <code class="highlight"><span class="kr">data</span></code> é possível fazer algo melhor.</p>
 <h2 id="data"><code class="highlight"><span class="kr">data</span></code></h2>
-<p>Com a palavra reservada <code class="highlight"><span class="kr">data</span></code> é possível definir um novo tipo de dados (por isso, <code>data</code>).
-Use-mo-la para definir um tipo para os naipes das cartas de um baralho.</p>
+<p>Com a palavra reservada <code class="highlight"><span class="kr">data</span></code> é possível definir um novo tipo de dados (em inglês, <em>data</em>).
+O seguinte uso define um tipo para os naipes das cartas de um baralho.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span>
 </code></pre></div>
 </td></tr></table>
 <p>Pela equação seguinte, definimos o tipo de dados <code class="highlight"><span class="kt">Naipe</span></code> (lado esquerdo) como sendo igual a <strong>um dos</strong> valores do lado direito, dado que o lado direito é uma disjunção.
 É comum dizer que <code class="highlight"><span class="kt">Naipe</span></code> é uma <strong>enumeração</strong> dos valores à direita da equação.</p>
-<p>Uma vez definido tipo, podemos perguntar ao Haskell como ele é interpretado.</p>
+<p>Uma vez definido o tipo, podemos perguntar ao Haskell como ele é interpretado.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -710,7 +695,7 @@ Use-mo-la para definir um tipo para os naipes das cartas de um baralho.</p>
 <span class="kr">type</span> <span class="kt">Naipe</span> <span class="ow">::</span> <span class="o">*</span>
 <span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span>
         <span class="c1">-- Defined at &lt;interactive&gt;:1:1</span>
-<span class="nf">relude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Copas</span>
+<span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Copas</span>
 <span class="kr">type</span> <span class="kt">Naipe</span> <span class="ow">::</span> <span class="o">*</span>
 <span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="o">...</span>
         <span class="c1">-- Defined at &lt;interactive&gt;:1:14</span>
@@ -719,7 +704,72 @@ Use-mo-la para definir um tipo para os naipes das cartas de um baralho.</p>
 <span class="o">&gt;</span> 
 </code></pre></div>
 </td></tr></table>
-<p>Observe o tipo booleano foi definido da mesma forma, exceto por algumas informações extra que aparecem quando <code class="highlight"><span class="kt">Bool</span></code> é descrito.</p>
+<p>Você também já pode usar o tipo em sua definições, por exemplo:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">corDoNaipe</span> <span class="ow">::</span> <span class="kt">Naipe</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<span class="nf">corDoNaipe</span> <span class="kt">Copas</span> <span class="ow">=</span> <span class="s">&quot;Vermelho&quot;</span>
+<span class="nf">corDoNaipe</span> <span class="kt">Ouro</span> <span class="ow">=</span> <span class="s">&quot;Vermelho&quot;</span>
+<span class="nf">corDoNaipe</span> <span class="kt">Paus</span> <span class="ow">=</span> <span class="s">&quot;Preto&quot;</span>
+<span class="nf">corDoNaipe</span> <span class="kt">Espada</span> <span class="ow">=</span> <span class="s">&quot;Preto&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Ou, equivalentemente, no seguinte exemplo.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">corDoNaipe</span> <span class="ow">::</span> <span class="kt">Naipe</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<span class="nf">corDoNaipe</span> <span class="n">n</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">n</span> <span class="kr">of</span> 
+        <span class="kt">Copas</span> <span class="ow">-&gt;</span> <span class="s">&quot;Vermelho&quot;</span>
+        <span class="kt">Ouro</span> <span class="ow">-&gt;</span> <span class="s">&quot;Vermelho&quot;</span>
+        <span class="kt">Paus</span> <span class="ow">-&gt;</span> <span class="s">&quot;Preto&quot;</span>
+        <span class="kt">Espada</span> <span class="ow">-&gt;</span> <span class="s">&quot;Preto&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Mas e o seguinte código?</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">corDoNaipe&#39;&#39;</span> <span class="ow">::</span> <span class="kt">Naipe</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<span class="nf">corDoNaipe&#39;&#39;</span> <span class="n">n</span>
+    <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="kt">Copas</span> <span class="ow">=</span> <span class="s">&quot;Vermelho&quot;</span>
+    <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="kt">Ouro</span> <span class="ow">=</span> <span class="s">&quot;Vermelho&quot;</span>
+    <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="kt">Paus</span> <span class="ow">=</span> <span class="s">&quot;Preto&quot;</span>
+    <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="kt">Espada</span> <span class="ow">=</span> <span class="s">&quot;Preto&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Se testá-lo, verá que não funciona. Um efeito semelhante é observado quando fazemos lgo mais simples ainda.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espada</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">Copas</span> <span class="o">==</span> <span class="kt">Copas</span>
+
+<span class="o">&lt;</span><span class="n">interactive</span><span class="o">&gt;:</span><span class="mi">2</span><span class="kt">:</span><span class="mi">1</span><span class="kt">:</span> <span class="ne">error</span><span class="kt">:</span>
+    <span class="err">•</span> <span class="kt">No</span> <span class="kr">instance</span> <span class="n">for</span> <span class="p">(</span><span class="kt">Eq</span> <span class="kt">Naipe</span><span class="p">)</span> <span class="n">arising</span> <span class="n">from</span> <span class="n">a</span> <span class="n">use</span> <span class="kr">of</span> <span class="err">‘</span><span class="o">==</span><span class="err">’</span>
+    <span class="err">•</span> <span class="kt">In</span> <span class="n">the</span> <span class="n">expression</span><span class="kt">:</span> <span class="kt">Copas</span> <span class="o">==</span> <span class="kt">Copas</span>
+      <span class="kt">In</span> <span class="n">an</span> <span class="n">equation</span> <span class="n">for</span> <span class="err">‘</span><span class="n">it</span><span class="err">’</span><span class="kt">:</span> <span class="n">it</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">==</span> <span class="kt">Copas</span>
+</code></pre></div>
+</td></tr></table>
+<p>O problema é que Haskell não sabe como testar se dois naipes são iguais!
+Agora teste o seguinte.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">True</span> <span class="o">==</span> <span class="kt">True</span>
+<span class="kt">True</span>
+</code></pre></div>
+</td></tr></table>
+<p>Qual a diferença?</p>
+<h2 id="classes-de-tipos">Classes de tipos</h2>
+<p>Observe que o tipo <code class="highlight"><span class="kt">Bool</span></code> foi definido da mesma forma, exceto por algumas informações extra que aparecem quando o tipo é descrito.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -776,10 +826,10 @@ Use-mo-la para definir um tipo para os naipes das cartas de um baralho.</p>
 </code></pre></div>
 </td></tr></table>
 <p>No caso do valor booleano, a função funciona, mas no caso do naipe não!</p>
-<h2 id="classes-de-tipo">Classes de tipo</h2>
 <p>Volte no trecho acima onde descrevemos o valor verdadeiro.
 Uma das diferenças para o naipe era a presença da linha <code class="highlight"><span class="kr">instance</span> <span class="kt">Show</span> <span class="kt">Bool</span> <span class="c1">-- Defined in ‘GHC.Show’</span></code> que basicamente dizia que <code class="highlight"><span class="kt">Bool</span></code> faz parte da <strong>classe de tipos</strong> <code class="highlight"><span class="kt">Show</span></code>, a classe dos tipos que podem ser passados como parâmetro para função <code class="highlight"><span class="nf">show</span></code>.
 Há várias classes de tipo em Haskell, e você ainda pode criar as suas próprias.</p>
+<h6>Show</h6>
 <p>No caso do exemplo anterior, é possível incluir o tipo naipe na classe em questão de uma forma manual definindo uma série de funções necessárias ao <code class="highlight"><span class="kt">Show</span></code> (<code class="highlight"><span class="kt">:</span><span class="n">i</span> <span class="kt">Show</span></code>).
 Mas há um atalho que diz que todas as funções necessárias devem ser construídas segundo um padrão, que neste caso basicamente quer dizer que o valor em <code class="highlight"><span class="kt">String</span></code> é simplesmente o texto usado na declaração.
 Para fazer isso, basta modificar a definição da seguinte forma.</p>
@@ -810,13 +860,18 @@ Para fazer isso, basta modificar a definição da seguinte forma.</p>
 <span class="kt">Copas</span>
 </code></pre></div>
 </td></tr></table>
+<h6>Eq</h6>
+<h6>Ord</h6>
 <h2 id="tipos-mais-complexos">Tipos mais complexos</h2>
+<p>Definir valores</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">data</span> <span class="kt">Rank</span> <span class="ow">=</span> <span class="kt">Ás</span> <span class="o">|</span> <span class="kt">Número1</span> <span class="o">|</span> <span class="kt">Número2</span> <span class="o">|</span> <span class="o">...</span> <span class="o">|</span> <span class="kt">Número10</span> <span class="o">|</span> <span class="kt">Valete</span> <span class="o">|</span> <span class="kt">Dama</span> <span class="o">|</span> <span class="kt">Rei</span>
 </code></pre></div>
 </td></tr></table>
+<p>Definicao automática</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">data</span> <span class="kt">Rank</span> <span class="ow">=</span> <span class="kt">Ás</span> <span class="o">|</span> <span class="kt">Número</span> <span class="kt">Int</span> <span class="o">|</span> <span class="kt">Valete</span> <span class="o">|</span> <span class="kt">Dama</span> <span class="o">|</span> <span class="kt">Rei</span>
 </code></pre></div>
 </td></tr></table>
+<h6>Ord e Eq</h6>
 <p>Vamos definir outra enumeração, que represente a cor do naipe.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
