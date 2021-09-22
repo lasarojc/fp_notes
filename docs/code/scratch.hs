@@ -1362,8 +1362,8 @@ união (x:xs) y = if x `elem` y || x `elem` xs
 >>>união' [1..4] [5..6]
 >>>união' [1,1,2,4] [2,3,5]
 [1,2,3,4,5,6]
-[1,5,6]
-[2,3,5]
+[1,2,3,4,5,6]
+[1,4,2,3,5]
 
 -}
 
@@ -1378,3 +1378,23 @@ unique [] = []
 unique (x:xs)
     | x `elem` xs = unique xs
     | otherwise = x : unique xs
+
+
+
+type Item = Char
+type Celula = [Item]
+type Linha = (Celula, Celula)
+type Tabuleiro = (Linha, Linha)
+
+
+tab = ((['g','b'],[]),(['g','b','1'],('g','2')))
+
+
+movimenta j d tab
+    let (x,y) = ondeEstaJogador j tab
+        (x1,y1) = desejado (x,y) d
+        direcao (x,y) 'c' = if possivel (x,y-1) then (x,y-1) else (x,y)
+    in
+        movimentaDeVerdade 
+
+direcao (x,y) 'c' = if possivel (x,y-1) then (x,y-1) else (x,y)
