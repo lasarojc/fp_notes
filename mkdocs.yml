@@ -129,7 +129,7 @@ nav:
         
         - Listas: lists.md
 
-        - Tipos algébricos: enum.md
+        - Tipos algébricos: algebraicdatatypes.md
 
         - Polimorfismo: polymorphism.md
 
