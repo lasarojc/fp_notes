@@ -548,3 +548,21 @@ Vejamos algumas definições.[^alt]
      * Defina a função `drop`
      * Defina a função `união` que recebe duas listas sem repetições retorna a concatenação das listas, sem repetições, usando recursividade.
      * Defina a função `união` que recebe duas listas sem repetições retorna a concatenação das listas, sem repetições, usando compreensão de listas.
+
+!!!exercise "Ordenação"
+    * Selection-sort (https://www.youtube.com/embed/Ns4TPTC8whw)
+        * Defina uma função `fr` que receba um inteiro `i` e uma lista de inteiros `l` e retorne a lista `l` sem a primeira ocorrência de `i` em `l`.
+        * Defina uma função `fm` que receba uma lista de inteiros `l` e retorne o menor inteiro da lista.
+        * Defina uma função `fs` que receba uma lista de inteiros `l`, escolha o menor inteiro `m` de `l` e retorne `m` concatenado a cabeça da lista gerada por `fs (fr m l)`
+
+    * Merge-Sort (https://www.youtube.com/embed/XaqR3G_NVoo)
+        * Defina uma função `fd` que receba uma lista e retorne suas duas metades em uma dupla: `#!hs metade [1..11] = ([1,2,3,4,5],[6,7,8,9,10,11])`
+        * Defina uma função `fu` que receba duas listas ordenadas e retorne uma lista ordenada com a união das listas `#!hs união [1,3,5,7] [2,4,6,7] = [1,2,3,5,6,7,7]`
+        * Defina uma função `fm` que receba uma lista, divida-a na metade usando `fd`, aplique `fm` recursivamente em cada metade, e calcule a união das listas resultantes usando `fu`.
+
+    * Quick-sort
+        * Defina uma função `fp` que receba uma lista `l` de inteiros e retorne retorne uma tripla `(p,m1,m2)` em que 
+            * `p` é o primeiro elemento da lista `l`
+            * `m1` é a lista dos elementos em `l` menores ou iguais a `p`, exclusive
+            * `m2` é a lista dos elementos em `l` maiores que `p`
+        * Defina uma função `fq` que recebe uma lista `l`, calcule `(p,m1,m2) = fp l` e retorne `fq m1` concatenado a `p` concatenado a `fq m2`.

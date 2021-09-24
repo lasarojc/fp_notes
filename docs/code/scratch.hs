@@ -1,4 +1,5 @@
 import Debug.Trace(trace)
+import Data.List (delete)
 
 
 
@@ -1234,7 +1235,7 @@ False
 
 mmVálido :: [Int] -> Bool
 mmVálido l = length l == 4 && removeDuplicatas l == l && coresVálidas l
-    
+
 coresVálidas l = all (>0) l && all (<9) l
 
 {-
@@ -1295,7 +1296,7 @@ corDoNaipe Paus = "Preto"
 corDoNaipe Espada = "Preto"
 
 corDoNaipe' :: Naipe -> String
-corDoNaipe' n = case n of 
+corDoNaipe' n = case n of
         Copas -> "Vermelho"
         Ouro -> "Vermelho"
         Paus -> "Preto"
@@ -1325,8 +1326,8 @@ maisMais' (x:xs) y = x : maisMais' xs y
 
 take' :: Int -> [a] -> [a]
 take' _ [] = []
-take' n (x:xs) = if n <= 0 
-                 then [] 
+take' n (x:xs) = if n <= 0
+                 then []
                  else x : take' (n-1) xs
 
 
@@ -1351,7 +1352,7 @@ união :: [Int] -> [Int] -> [Int]
 união [] [] = []
 união [] (y:ys) = if y `elem` ys
                   then união [] ys
-                  else y : união [] ys 
+                  else y : união [] ys
 união (x:xs) y = if x `elem` y || x `elem` xs
                  then união xs y
                  else x : união xs y
@@ -1381,20 +1382,170 @@ unique (x:xs)
 
 
 
-type Item = Char
-type Celula = [Item]
-type Linha = (Celula, Celula)
-type Tabuleiro = (Linha, Linha)
+data Valor = Ás | Número Int | Valete | Dama | Rei | Letra Char
+    deriving (Eq,Show, Ord)
+
+{-
+>>>prop_valor (Número 3)
+True
+
+>>>prop_valor (Número 23)
+False
+
+>>>prop_valor Rei
+True
+
+-}
+
+prop_valor (Número n) =  n > 1 && n < 11
+prop_valor _ = True
 
 
-tab = ((['g','b'],[]),(['g','b','1'],('g','2')))
+{-
+>>> remove 1 [2,3,1,4,1,5,1]
+[2,3,4,1,5,1]
+
+>>> bubble [2,3,1,4,1,5,1]
+[1,1,1,2,3,4,5]
+-}
 
 
-movimenta j d tab
-    let (x,y) = ondeEstaJogador j tab
-        (x1,y1) = desejado (x,y) d
-        direcao (x,y) 'c' = if possivel (x,y-1) then (x,y-1) else (x,y)
-    in
-        movimentaDeVerdade 
 
-direcao (x,y) 'c' = if possivel (x,y-1) then (x,y-1) else (x,y)
+remove :: Int -> [Int] -> [Int]
+remove e [] = []
+remove e (x:xs) | e == x = xs
+                | otherwise = x:remove e xs
+
+selection :: [Int] -> [Int]
+selection [] = []
+selection l = menor : selection restante
+    where menor = minimum l
+          restante = remove menor l
+
+
+
+
+
+
+{-
+>>>fr 1 [1,2,3]
+[2,3]
+
+>>>fr 1 [5,1,2,3]
+[5,2,3]
+
+>>>fr 1 [2,3,1]
+[2,3]
+
+>>>fr 1 []
+[]
+
+>>>fr 1 [2,3]
+[2,3]
+
+-}
+
+fr :: Int -> [Int] -> [Int]
+fr i []     = []
+fr i (x:xs) = if i == x then xs
+                        else x:fr i xs
+
+{-
+>>>fm [1,2,3]
+1
+
+>>>fm [2,1,3]
+1
+
+
+
+>>>fm [2,3,1]
+fm [2,3,1] = min 2 (fm [3,1])
+           = min 2 (min 3 (fm [1]))
+           = min 2 (min 3 (1))
+           = min 2 (1)
+           = 1
+1
+
+>>>fm []
+Lista vazia
+-}
+
+fm :: [Int] -> Int
+fm []     = error "Lista vazia"
+fm [x]    = x
+fm (x:xs) = min x (fm xs)
+
+
+{-
+>>>fs [3,1,2]
+[1,2,3]
+
+-}
+
+
+fs :: [Int] -> [Int]
+fs [] = []
+fs l = 
+    let m = fm l
+        r = fr m l
+    in m:fs r 
+
+
+
+fs' :: [Int] -> [Int]
+fs' [] = []
+fs' l  = let m = minimum l
+             r = delete m l
+         in m:fs r
+
+{-
+>>>fd []
+([],[])
+
+>>>fd [1]
+([],[1])
+
+>>>fd [1..5]
+([1,2],[3,4,5])
+
+>>>fd [1..6]
+([1,2,3],[4,5,6])
+
+-}
+fd :: [Int] -> ([Int],[Int])
+fd l = fd' (length l `div` 2) l
+    where   fd' _ []     = ([],[])
+            fd' 0 l        = ([],l)
+            fd' tle (x:xs) = (x:le, ld) 
+                where (le,ld) = fd' (tle -1) xs
+
+
+
+-- >>>f [1,3..30]
+-- ([1,3,5,7,9,11,13],[15,17,19,21,23,25,27,29])
+f l = (take (length l `div` 2) l, drop (length l `div` 2) l)
+
+{-
+>>>fu [1..10] [1..10]
+[1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10]
+
+-}
+
+fu :: [Int] -> [Int] -> [Int]
+fu x [] = x
+fu [] x = x
+fu lx@(x:xs) ly@(y:ys)
+  | x <= y    = x : fu xs ly
+  | otherwise = y : fu lx ys
+
+{-
+>>>fms [10,9..(-10)]
+ProgressCancelledException
+-}
+
+fms :: [Int] -> [Int]
+fms [] = []
+fms [e] = [e]
+fms l = let (le,ld) = fd l
+        in fu (fms le) (fms ld)

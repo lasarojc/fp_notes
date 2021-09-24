@@ -129,7 +129,7 @@ nav:
         
         - Listas: lists.md
 
-        - Tipos algébricos: algebraicdatatypes.md
+        - Tipos algébricos: algebraic_data_types.md
 
         - Polimorfismo: polymorphism.md
 
@@ -138,6 +138,8 @@ nav:
         - Funções de alta ordem: highorder.md
 
         - Entrada e Saída: io.md
+
+        - Tudo junto e misturado: main.md
 
         - Que preguiça: lazy.md
 

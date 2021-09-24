@@ -165,7 +165,7 @@ Copas
 ```
 
 ###### Eq
-Assim como `#!hs Show`, `#!hs Ea` é uma classe de tipo que define que todos os membros da class devem ter definidas algumas operações, em específico, os operadores `#!hs (==)` e `#!hs (/=)`, como 
+Assim como `#!hs Show`, `#!hs Eq` é uma classe de tipo que define que todos os membros da class devem ter definidas algumas operações, em específico, os operadores `#!hs (==)` e `#!hs (/=)`, como 
 `#!hs :i Eq` mostra:
 
 ```hs
@@ -217,6 +217,7 @@ class Enum a where
 ```
 
 ###### Definição completa
+Definindo o tipo para o naipe com todas estas classes de tipo, teremos um tipo bem interessante, que pode ser impresso na tela, comparado e usado para gerar listas por enumeração.
 
 ```hs
 > data Naipe = Copas | Espadas | Ouro | Paus deriving (Show,Eq,Enum,Ord)
@@ -224,46 +225,101 @@ class Enum a where
 [Copas,Espadas,Ouro,Paus]
 > pred Ouro
 Espadas
+```
+
+Contudo, há limitações para o que se pode fazer com esta definição, como demonstrado pelo próximo exemplo.
+
+```hs
 > pred Copas
 *** Exception: pred{Naipe}: tried to take `pred' of first tag in enumeration
 CallStack (from HasCallStack):
   error, called at <interactive>:9:62 in interactive:Ghci1
-
-
-## Tipos mais complexos
-
-Definir valores
-
-```hs
-data Valor = Ás | Número1 | Número2 | ... | Número10 | Valete | Dama | Rei
 ```
 
-Definicao automática
+## Tipos mais complexos
+Mas e se quisermos definir um tipo para representar o valor de uma carta?
+
+```hs
+data Valor = Ás | Número1 | Número2 | Número3 | Número4 | Número5 | Número6 | Número7 | Número8 | Número9 | Número10 | Valete | Dama | Rei
+  deriving (Eq,Show,Ord,Enum)
+```
+
+Com esta definição é possível, por exemplo, comparar os valores das cartas.
+Mas, convenhamos, é uma definição horrível.
+Haskell to the rescue!
+É possível definir um valor que seja baseado em outro tipo, como no seguinte exemplo.
 
 ```hs
 data Valor = Ás | Número Int | Valete | Dama | Rei
 ```
 
+`#!hs Número Int` define que qualquer combinação de `#!hs Número`, denominado o **construtor**, combinado com um valor do tipo `#hs Int`, é um valor do tipo `#!hs Valor`.
+
+```hs
+> data Valor = Ás | Número Int | Valete | Dama | Rei deriving (Eq,Show, Ord)
+> as = Ás
+> valete = Valete
+> nove = Número 9
+> as
+Ás
+> valete
+Valete
+> nove
+Número 9
+```
+
+Assim como `#!hs Naipe` pode ser usado em um casamento de padrões, também a definição de `#!hs Valor` pode, como no seguinte exemplo.
+
+```hs
+éFigura :: Valor -> Bool
+éFigura (Número _) -> False
+éFigura Ás -> True  -- Esta definição é desnecessária e usada só pra demonstração.
+éFigura _ -> True
+```
+
+
 ###### Ord e Eq
+
+Como na definição de `#!hs Valor` tanto `#!hs Ord` e `#!hs Eq` foram usados, Haskell deve ser capaz de comparar todas as possibilidades de valores.
+Assim, por exemplo, `#!hs Ás` é menor que qualquer número, que é menor que qualquer outra figura.
+Também quaisquer dois números podem ser comparados, sendo resultado determinado pela comparação dos respectivos inteiros.
+
+```hs
+> data Valor = Ás | Número Int | Valete | Dama | Rei      deriving (Eq,Show,Ord)
+> Número 3 < Número 4
+True
+> Número 3 == Número 4
+False
+> Ás < Número 10
+True
+> Ás < Rei
+True
+```
+
+Observe que a definição não inclui `#!hs Enum`, para entender porquê, tente determinar qual seria o sucessor de `#!hs Ás` e o antecessor de `#!hs Valete`.
+Como não é possível determinar estes valores, o compilador nem permite que `#!hs Enum` seja usado.
+
+```hs
+> data Valor = Ás | Número Int | Valete | Dama | Rei      deriving (Eq,Show,Ord,Enum)
+
+<interactive>:21:79: error:
+    • Can't make a derived instance of ‘Enum Valor’:
+        ‘Valor’ must be an enumeration type
+        (an enumeration consists of one or more nullary, non-GADT constructors)
+    • In the data declaration for ‘Valor’
+```
+
+
+## Tipos mais complexos ainda
+Combinemos agora os tipos `#!hs Naipe` e `#!hs Valor` em um único tipo que representa uma carta de baralho.
+A instanciação é feita usando-se o construtor.
 
 
 ```hs
 > data Valor = Ás | Número Int | Valete | Dama | Rei      deriving (Eq,Show,Ord)
-```
+> data Naipe = Copas | Espadas | Ouro | Paus              deriving (Show,Eq,Enum,Ord)
+> data CartaT = Carta Naipe Valor                         deriving (Eq,Show,Ord)
 
-
-
-
-Observe que não incluí `#!hs Enum`, para entender porquê, tente imaginar qual seria o antecessor de `#!hs Valete`.
-
-
-
-
-## Tipos mais complexos ainda
-
-
-```hs
-> data CartaT = Carta Naipe Valor deriving (Eq,Show,Ord)
 > Carta Paus Rei
 Carta Paus Rei
 > Carta Paus (Número 3)
@@ -272,10 +328,84 @@ Carta Paus (Número 3)
 True
 > Carta Paus (Número 3) < Carta Ouro Rei
 False
+
+> k = Carta Paus Rei
+> k
+Carta Paus Rei
+> :t k
+k :: CartaT
+> :i k
+k :: CartaT 	-- Defined at <interactive>:28:1
+```
+
+Veja que do lado esquerdo da equação temos a definição de um tipo `#!hs CartaT` e do lado direito temos a definição de um construtor `#!hs Carta` para o tipo `#!hs CartaT`.
+É possível solicitar mais informações do Haskell tanto sobre o construtor quanto o tipo, mas nem todas as solicitações fazem sentido.
+Quanto ao tipo, `#!hs CartaT`, é possível pedir informações sobre a definição, mas não o tipo da definição.
+
+```hs
+> :i CartaT
+type CartaT :: *
+data CartaT = Carta Naipe Valor
+  	-- Defined at <interactive>:26:1
+instance [safe] Ord CartaT -- Defined at <interactive>:26:75
+instance [safe] Show CartaT -- Defined at <interactive>:26:70
+instance [safe] Eq CartaT -- Defined at <interactive>:26:67
+
+> :t CartaT
+<interactive>:1:1: error:
+    • Data constructor not in scope: CartaT
+    • Perhaps you meant ‘Carta’ (line 26)
+```
+
+Quanto ao construtor, `#!hs Carta`, é possível perguntar as duas coisas.
+
+```hs
+> :i Carta
+type CartaT :: *
+data CartaT = Carta Naipe Valor
+  	-- Defined at <interactive>:26:15
+
+> :t Carta
+Carta :: Naipe -> Valor -> CartaT
+```
+
+Veja que quanto perguntamos o tipo do construtor, a resposta é que é uma função que recebe `#!hs Naipe` e `#!hs Valor` e que retorna uma instância do tipo `#!hs CartaT`.
+
+###### Punning
+Uma vez que esteja claro que tipo e construtores são coisas diferentes, é preciso dizer que seus contextos geralmente são diferentes e que, por isso, é possível que ambos tenham o mesmo nome.
+De fato, esta é uma abordagem comum na definição de tipos algébricos em Haskell, denominada *punning*.
+
+```hs
+> data Carta = Carta Naipe Valor                         deriving (Eq,Show,Ord)
+Prelude> a = Carta Copas Ás
+Prelude> :i a
+a :: Carta 	-- Defined at <interactive>:39:1
+Prelude> :t a
+a :: Carta
+Prelude> :i Carta
+type Carta :: *
+data Carta = Carta Naipe Valor
+  	-- Defined at <interactive>:38:1
+instance [safe] Ord Carta -- Defined at <interactive>:38:74
+instance [safe] Show Carta -- Defined at <interactive>:38:69
+instance [safe] Eq Carta -- Defined at <interactive>:38:66
+Prelude> :t Carta
+Carta :: Naipe -> Valor -> Carta
 ```
 
 
 ## Casamento de Padrões
+Para que estes tipos sejam úteis, precisamos usá-los em funções, que é direto e óbvio para os tipos mais simples, como visto anteriormente.
+
+```hs
+corDoNaipe :: Naipe -> String
+corDoNaipe Copas = "Vermelho"
+corDoNaipe Ouro = "Vermelho"
+corDoNaipe Paus = "Preto"
+corDoNaipe Espada = "Preto"
+```
+
+Já para tipos que usam construtores, os padrões devem incluir o construtor, como mostram as funções a seguir.
 
 ```hs
 naipe :: CartaT -> Naipe
@@ -283,7 +413,38 @@ naipe (Carta n _) = n
 
 valor :: CartaT -> Valor
 valor (Carta _ v) = v
+
+valorNumérico :: Valor -> Int
+valorNumérico Ás = 1
+valorNumérico (Número i) = i
+valorNumérico Valete = 11
+valorNumérico Dama = 12
+valorNumérico Rei = 13
+
+> valorNumérico (Número 4)
+4
+> valorNumérico Rei
+13
 ```
 
+!!!exercise "Exercícios"
+    * Usando tipos algébricos, defina os seguintes tipos e funções relacionados a jogos de cartas
+        * Naipe
+        * Valor
+        * Carta
+        * Jogo - lista de cartas (apelido, não tipo algébrico)
+        * `éCanastra l` - função que `True` se `l` é uma sequência (possivelmente desordenada) de 7 cartas.
+        * `temCanastra l` - função que `True` se `l` contem uma sub-lista que `éCanastra`
+
+    * Usando tipos algébricos, defina as seguintes funções e tipos
+        * Temperatura - tipo que pode conter um Tipo (Celsius, Kelvin, Farenheit) e um valor real.
+        * tempInCelsius - função que recebe uma temperatura qualquer e retorna uma Temperatura em Celsius.
+        * Item para outras temperaturas.
 
 ## Notação tipo "record"
+???todo "TODO"
+   Records
+
+## Tipos recursivos
+???todo "TODO"
+   Tipos recursivos

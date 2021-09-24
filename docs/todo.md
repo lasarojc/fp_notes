@@ -1,42 +1,37 @@
 
 ## TODO
 
-- [ ] Sítio
-    - [ ] Ativar plugin bibtex
+- [ ] Ativar plugin bibtex
+
+(https://en.wikibooks.org/wiki/Haskell)
+
 
 - [x] Tipos
-    - [x] Fortemente tipada: sem conversão automática
-    - [x] Statically typed: em tempo de compilação.
-    - [x] Exemplo python e tipos mutantes
-    - [x] Inferência de tipos.
-    - [x] Tipos explícitos
-    - [x] Tipos especificados pelo usuário
-    - [ ] Tipos algébricos
-        *
-          ```hs
-          data  Maybe a     =  Nothing | Just a  deriving (Eq, Ord, Read, Show)  https://www.youtube.com/watch?v=b9FagOVqxmI
-          data  Either a b  =  Left a | Right b  deriving (Eq, Ord, Read, Show)  
-          data  Ordering    =  LT | EQ | GT deriving  
-                                  (Eq, Ord, Bounded, Enum, Read, Show)
-          ```
-        * https://mmhaskell.com/blog/2017/12/24/haskell-data-types-in-5-steps
-        * Casamento de padrões          
-        - Árvores
-        * Estruturas infinitas / tipos recusivos
+    - [x] Haskell
+        * é Fortemente tipada: sem conversão automática
+        * é Statically typed: em tempo de compilação.
+            * Exemplo python e tipos mutantes
+    - [x] Protótipos
+        - [x] Inferência de tipos.
+        - [x] Especificação manual
 
-    - [ ] Polimorfismo - funções que se aplicam a vários tipos - generics
-            - type variables
-            - `head :: [a] -> a`
-            - `swap :: (a,b) -> (b,a)
     - [ ] Type classes
-        - data
-        - `(==) :: (Eq a) => a -> a -> Bool ` -- O tipo a está restrito à classe Eq, isto é, a pertence à classe Eq, que define a interface para teste de igualdade.
-        - `(>) :: (Ord a) => a -> a -> Bool ` --  Ord > < >= <=
-        - `compare` retorna um Ordering, que pode ser GT LT ou EQ
-        - Ord está contido em Eq
-        - http://learnyouahaskell.com/types-and-typeclasses#believe-the-type
-
-
+        - Comuns
+            - [x] Eq
+            - [x] Ord
+            - [x] Enum
+            - [x] Show
+            - [ ] Read
+            - [ ] Bounded: minBound maxBound
+    - [] ] Definição
+            ```hs
+            class Eq a where  
+            (==) :: a -> a -> Bool  
+            (/=) :: a -> a -> Bool  
+            x == y = not (x /= y)  
+            x /= y = not (x == y) 
+            ```
+- [x] Tuplas
 
 - [x] Listas
     - [x] sao homogêneas
@@ -48,13 +43,42 @@
     - [x] Compreensão de listas
     - [x] Listas infinitas
 
-- [ ] Avaliação preguiçosa
-    - [ ] mostrar com listas infinitas
-        - [ ] a função cycle
-    - [ ] Where - let in
-        - https://takenobu-hs.github.io/downloads/haskell_lazy_evaluation.pdf
+- [ ] Polimorfismo - funções que se aplicam a vários tipos - generics () http://learnyouahaskell.com/types-and-typeclasses)
+    - [ ] type variables - http://www.decom.ufop.br/romildo/2014-1/bcc222/practices/p06-polimorfismo.pdf
+    - `head :: [a] -> a`
+    - `swap :: (a,b) -> (b,a)
 
-- [x] Tuplas
+
+- [x] Tipos especificados pelo usuário
+        - [ ] apelidos - type
+            - [x] não parametrizado
+            - [ ] parametrizado (http://learnyouahaskell.com/making-our-own-types-and-typeclasses#algebraic-data-types)
+        - [ ] Tipos algébricos -  data 
+            * [x] Definição (https://mmhaskell.com/blog/2017/12/24/haskell-data-types-in-5-steps) (https://en.wikibooks.org/wiki/Haskell/GADT#Extending_the_language)
+                - [x] não parametrizado
+                - [ ] parametrizado
+                - [ ] produto x soma
+            * [x] Casamento de padrões
+            * Exemplos
+                * [ ] Maybe
+                    * https://www.youtube.com/watch?v=b9FagOVqxmI
+                    ```hs
+                    data  Maybe a     =  Nothing | Just a  deriving (Eq, Ord, Read, Show)  
+                    data  Either a b  =  Left a | Right b  deriving (Eq, Ord, Read, Show)  
+                    ```
+                * [ ] Either
+
+            * [ ] Tipos recursivos
+                - [ ] Listas
+                    - [ ] quick-sort
+                    - [ ] Merge-sort
+                - [ ] Árvores
+
+- [x] Pattern matching
+    - [x] case-of
+    - [x] Declaração de funções
+    - [x] as pattern - `@`
+
 
 - [ ] Funções
     - [x] Equações simples
@@ -65,7 +89,7 @@
 
     - [ ] Recursão
         - [x] simples
-        - [ ] em listas
+        - [x] em listas
         - [ ] de cauda
     - [ ] Currying:
     - [ ] Alta Ordem:
@@ -73,25 +97,19 @@
         - .
         - $
 
+- [ ] Avaliação preguiçosa
+    - [ ] mostrar com listas infinitas
+        - [ ] a função cycle
+    - [ ] Where - let in
+        - https://takenobu-hs.github.io/downloads/haskell_lazy_evaluation.pdf
 
-- [ ] Pattern matching
-    - [x] case-of
-    - [x] Declaração de funções
-    - [ ] as pattern - `@`
-        ```hs
-        takeWhere _ [] = []
-        takeWhere w list@(x:xs)
-            | w < 0 = drop 1 (reverse list)
-            | w == 0 = list
-            | otherwise = xs
-        ```
 
 - [ ] Entrada e saída:
     - [ ] Show
     - [ ] Read
     - [ ] Monads
 
-- [ ] Mais Haskell
+- [ ] Haskell em produção
     - [ ] Comunicação entre linguagens
     - [ ] Paralelismo e Distribuição:
         - [ ] actors
@@ -102,18 +120,11 @@
     - [ ] transparência referencial - https://takenobu-hs.github.io/downloads/haskell_lazy_evaluation.pdf
     - [ ] idempotência
 
-- [ ] Algoritmos de Ordenação:
-    - [ ] Ord e Eq
-    - [ ] quick-sort
-    - [ ] Merge-sort
 
 - [ ] Test
     - [ ] HSpec
     - [ ] quickcheck
     - [ ] quickcheck + Hspec https://hspec.github.io/quickcheck.html
-
-- Encapsulamento, herança
-
 
 
 
