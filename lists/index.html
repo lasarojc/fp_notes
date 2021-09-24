@@ -503,7 +503,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../algebraicdatatypes/" class="md-nav__link">
+      <a href="../algebraic_data_types/" class="md-nav__link">
         Tipos algébricos
       </a>
     </li>
@@ -565,6 +565,21 @@
     <li class="md-nav__item">
       <a href="../io/" class="md-nav__link">
         Entrada e Saída
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../main.md" class="md-nav__link">
+        Tudo junto e misturado
       </a>
     </li>
   
@@ -1405,6 +1420,39 @@ Por exemplo, considere uma lista de três ou mais String, isto é, uma lista de 
 <li>Defina a função <code>união</code> que recebe duas listas sem repetições retorna a concatenação das listas, sem repetições, usando compreensão de listas.</li>
 </ul>
 </div>
+<div class="admonition exercise">
+<p class="admonition-title">Ordenação</p>
+<ul>
+<li>
+<p>Selection-sort (<a href="https://www.youtube.com/embed/Ns4TPTC8whw">https://www.youtube.com/embed/Ns4TPTC8whw</a>)</p>
+<ul>
+<li>Defina uma função que receba um inteiro <code>i</code> e uma lista de inteiros <code>l</code> e retorne a lista <code>l</code> sem a primeira ocorrência de <code>i</code> em <code>l</code>.</li>
+<li>Defina uma função <code>fr</code> que receba uma lista de inteiros <code>l</code> e retorne o menor inteiro da lista.</li>
+<li>Defina uma função <code>fo</code> que receba uma lista de inteiros <code>l</code>, escolha o menor inteiro <code>m</code> de de <code>l</code> e retorne <code>m</code> concatenado a cabeça da lista gerada por <code>fo (fr m l)</code></li>
+</ul>
+</li>
+<li>
+<p>Merge-Sort (<a href="https://www.youtube.com/embed/XaqR3G_NVoo">https://www.youtube.com/embed/XaqR3G_NVoo</a>)</p>
+<ul>
+<li>Defina uma função <code>fd</code> que receba uma lista e retorne suas duas metades em uma dupla: <code class="highlight"><span class="nf">metade</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">11</span><span class="p">]</span> <span class="ow">=</span> <span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">]</span></code></li>
+<li>Defina uma função <code>fu</code> que receba duas listas ordenadas e retorne uma lista ordenada com a união das listas <code class="highlight"><span class="nf">união</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span> <span class="ow">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span></code></li>
+<li>Defina uma função <code>fm</code> que receba uma lista, divida-a na metade usando <code>fd</code>, aplique <code>fm</code> recursivamente em cada metade, e calcule a união das listas resultantes usando <code>fu</code>.</li>
+</ul>
+</li>
+<li>
+<p>Quick-sort</p>
+<ul>
+<li>Defina uma função <code>fp</code> que receba uma lista <code>l</code> de inteiros e retorne retorne uma tripla <code>(p,m1,m2)</code> em que <ul>
+<li><code>p</code> é o primeiro elemento da lista <code>l</code></li>
+<li><code>m1</code> é a lista dos elementos em <code>l</code> menores ou iguais a <code>p</code>, exclusive</li>
+<li><code>m2</code> é a lista dos elementos em <code>l</code> maiores que <code>p</code></li>
+</ul>
+</li>
+<li>Defina uma função <code>fq</code> que recebe uma lista <code>l</code>, calcule <code>(p,m1,m2) = fp l</code> e retorne <code>fq m1</code> concatenado a <code>p</code> concatenado a <code>fq m2</code>.</li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="footnote">
 <hr />
 <ol>
@@ -1456,7 +1504,7 @@ Por exemplo, considere uma lista de três ou mais String, isto é, uma lista de 
       
       
         
-        <a href="../algebraicdatatypes/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Tipos algébricos" rel="next">
+        <a href="../algebraic_data_types/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Tipos algébricos" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">

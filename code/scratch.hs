@@ -1234,7 +1234,7 @@ False
 
 mmVálido :: [Int] -> Bool
 mmVálido l = length l == 4 && removeDuplicatas l == l && coresVálidas l
-    
+
 coresVálidas l = all (>0) l && all (<9) l
 
 {-
@@ -1295,7 +1295,7 @@ corDoNaipe Paus = "Preto"
 corDoNaipe Espada = "Preto"
 
 corDoNaipe' :: Naipe -> String
-corDoNaipe' n = case n of 
+corDoNaipe' n = case n of
         Copas -> "Vermelho"
         Ouro -> "Vermelho"
         Paus -> "Preto"
@@ -1325,8 +1325,8 @@ maisMais' (x:xs) y = x : maisMais' xs y
 
 take' :: Int -> [a] -> [a]
 take' _ [] = []
-take' n (x:xs) = if n <= 0 
-                 then [] 
+take' n (x:xs) = if n <= 0
+                 then []
                  else x : take' (n-1) xs
 
 
@@ -1351,7 +1351,7 @@ união :: [Int] -> [Int] -> [Int]
 união [] [] = []
 união [] (y:ys) = if y `elem` ys
                   then união [] ys
-                  else y : união [] ys 
+                  else y : união [] ys
 união (x:xs) y = if x `elem` y || x `elem` xs
                  then união xs y
                  else x : união xs y
@@ -1381,20 +1381,42 @@ unique (x:xs)
 
 
 
-type Item = Char
-type Celula = [Item]
-type Linha = (Celula, Celula)
-type Tabuleiro = (Linha, Linha)
+data Valor = Ás | Número Int | Valete | Dama | Rei | Letra Char
+    deriving (Eq,Show, Ord)
+
+{-
+>>>prop_valor (Número 3)
+True
+
+>>>prop_valor (Número 23)
+False
+
+>>>prop_valor Rei
+True
+
+-}
+
+prop_valor (Número n) =  n > 1 && n < 11
+prop_valor _ = True
 
 
-tab = ((['g','b'],[]),(['g','b','1'],('g','2')))
+{-
+>>> remove 1 [2,3,1,4,1,5,1]
+[2,3,4,1,5,1]
+
+>>> bubble [2,3,1,4,1,5,1]
+[1,1,1,2,3,4,5]
+-}
 
 
-movimenta j d tab
-    let (x,y) = ondeEstaJogador j tab
-        (x1,y1) = desejado (x,y) d
-        direcao (x,y) 'c' = if possivel (x,y-1) then (x,y-1) else (x,y)
-    in
-        movimentaDeVerdade 
 
-direcao (x,y) 'c' = if possivel (x,y-1) then (x,y-1) else (x,y)
+remove :: Int -> [Int] -> [Int]
+remove e [] = []
+remove e (x:xs) | e == x = xs
+                | otherwise = x:remove e xs
+
+selection :: [Int] -> [Int]
+selection [] = []
+selection l = menor : selection restante
+    where menor = minimum l
+          restante = remove menor l
