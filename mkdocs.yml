@@ -131,7 +131,7 @@ nav:
 
         - Tipos algébricos: algebraic_data_types.md
 
-        - Polimorfismo: polymorphism.md
+        - Polimorfismo: type_variables.md
 
         - Cálculo λ: lambda.md
 

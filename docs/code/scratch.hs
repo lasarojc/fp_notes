@@ -2,7 +2,6 @@ import Debug.Trace(trace)
 import Data.List (delete)
 
 
-
 {- 
 >>>fat 0
 1
@@ -1541,7 +1540,7 @@ fu lx@(x:xs) ly@(y:ys)
 
 {-
 >>>fms [10,9..(-10)]
-ProgressCancelledException
+[-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9,10]
 -}
 
 fms :: [Int] -> [Int]
@@ -1549,3 +1548,41 @@ fms [] = []
 fms [e] = [e]
 fms l = let (le,ld) = fd l
         in fu (fms le) (fms ld)
+
+
+
+data Pressão = Psi Float | Bar Float
+
+converteParaBar :: Pressão -> Pressão
+converteParaBar v@(Bar _)  = v
+converteParaBar v@(Psi vp) = Bar (vp * 1.6)
+
+-- >>> vempsi = Psi 30
+
+-- >>> vembar = Bar 45
+
+-- >>> qsort [10,9..1]
+-- [9,8,7,6,5,4,3,2,1,10]
+
+qsort :: Ord a => [a] -> [a]
+qsort [] = []
+qsort (x:xs) = qsort (filter (<= x) xs) ++ [x] ++ qsort (filter (> x) xs)
+
+sortAndPrint :: (Show a, Ord a) => [a] -> [String]
+sortAndPrint l = map show (qsort l)
+
+-- >>> sortAndPrint [10,9..1]
+-- ["9","8","7","6","5","4","3","2","1","10"]
+
+-- ["9","8","7","6","5","4","3","2","1","10"]
+-- <BLANKLINE>
+-- ByteCodeLink.lookupCE
+-- During interactive linking, GHCi couldn't find the following symbol:
+--   interactive_Ghci1_evalPrint_closure
+-- This may be due to you not asking GHCi to load extra object files,
+-- archives or DLLs needed by your current session.  Restart GHCi, specifying
+-- the missing library using the -L/path/to/object/dir and -lmissinglibname
+-- flags, or simply by naming the relevant files on the GHCi command line.
+-- Alternatively, this link failure might indicate a bug in GHCi.
+-- If you suspect the latter, please report this as a GHC bug:
+--   https://www.haskell.org/ghc/reportabug

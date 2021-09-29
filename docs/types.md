@@ -343,3 +343,4 @@ Já nas próximas seções, veremos tópicos mais independentes, i.e., mesmo que
 
 [^hackage]: https://hackage.haskell.org/packages/browse
 [^prelude]: Prelude: https://hackage.haskell.org/package/base-4.15.0.0/docs/Prelude.html
+[^typeconversion] https://andrew.gibiansky.com/blog/haskell/haskell-typeclasses/#_read

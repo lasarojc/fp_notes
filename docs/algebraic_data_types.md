@@ -216,6 +216,11 @@ class Enum a where
   ...
 ```
 
+###### Read
+
+???todo "TODO
+     `#!hs read "100" :: Int`
+
 ###### Definição completa
 Definindo o tipo para o naipe com todas estas classes de tipo, teremos um tipo bem interessante, que pode ser impresso na tela, comparado e usado para gerar listas por enumeração.
 
@@ -445,6 +450,100 @@ valorNumérico Rei = 13
 ???todo "TODO"
    Records
 
+
+## Maybe
+
+`#!hs Read` é uma classe de tipo útil por permitir que strings sejam usadas lidas e interpretadas como o tipo.
+O tipo `#!hs Int` e outros números, por exemplo, pertencem a esta classe, o que nos diz que podemos fazer o seguinte:
+
+```hs
+> x = read "100" :: Int
+> x
+100
+> x = read "100" :: Float
+> x
+100.0
+```
+
+Acontece que nem sempre a função será bem sucedida em interpretar a string, por exemplo:
+
+```hs
+> x = read "Bolhufas" :: Int
+> x
+*** Exception: Prelude.read: no parse
+```
+
+Esta é apenas uma de muitas situações em que uma exceção pode ser causada por uma falha na execução de alguma função.
+Outros exemplos são falhas de alocação de memória, de abertura de um arquivo no disco, de comunicação com outro processo via uma rede de computadores, etc.
+Nestas situações, é comum o uso do tipo `#!hs Maybe a` definido como se segue:
+
+```hs
+> import Text.Read
+
+> :i Maybe
+data Maybe a = Nothing | Just a
+...
+```
+
+Este tipo permite que a função indique um erro ao retornar `#!hs Nothing` ou que um valor x foi recuperado da string usando ao retornar `#!hs Just x`.
+
+```hs
+> x = readMaybe "Bolhufas" :: Maybe Int
+> x
+Nothing
+> x = readMaybe "100" :: Maybe Int
+> x
+Just 100
+```
+
+
+
 ## Tipos recursivos
-???todo "TODO"
-   Tipos recursivos
+Como pode ver até agora, tipos algébricos tem muitos usos, a agora veremos um dos mais interessantes, na definição de tipos recursivos.
+Considere uma lista, como definida pelo operador cons, `#!hs :`: uma lista é a concatenação de um elemento, a cabeça da lista, com uma outra lista, a cauda.
+Usando tipos algébricos, conseguimos representar listas da seguinte forma:
+
+```hs
+data Lista a = Vazio | Elemento a (Lista a) deriving (Show)
+
+busca :: a -> Lista a -> Bool
+busca _ Vazio = False
+busca e (Elemento x xs)
+  | e == x = True
+  | busca e xs
+
+busca' :: a -> Lista a -> Bool
+busca' _ Vazio = False
+busca' e (Elemento x xs) = e == x || busca e xs
+
+
+> lV = Vazio
+> l1 = Elemento 1 (Vazio)
+> l2 = Elemento 2 (Elemento 1 Vazio)
+> lV
+Vazio
+> l1
+Elemento 1 Vazio
+> l2
+Elemento 2 (Elemento 1 Vazio)
+
+> busca' 1 lV
+False
+> busca' 1 l1
+True
+> busca' 1 l2
+True
+> busca' 2 l1
+False
+``` 
+
+Para outro exemplo, considere uma árvore binária, uma estrutura de dados formada por nós que armazenam algum dado e apontam para outros dois nós, denominados filhos à esquerda e à direita.
+
+```hs
+---8<---
+docs/code/tree.hs
+---8<---
+```
+
+!!!exercise "Exercício"
+    Implemente uma impressão "em ordem" dos nós da árvore.
