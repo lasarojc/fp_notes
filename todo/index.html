@@ -443,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../polymorphism.md" class="md-nav__link">
+      <a href="../type_variables/" class="md-nav__link">
         Polimorfismo
       </a>
     </li>
@@ -642,9 +642,10 @@
   <!-- Content -->
   <h2 id="todo">TODO</h2>
 <ul class="task-list">
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Ativar plugin bibtex</p>
-</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Ativar plugin bibtex</li>
+</ul>
+<p>(<a href="https://en.wikibooks.org/wiki/Haskell">https://en.wikibooks.org/wiki/Haskell</a>)</p>
+<ul class="task-list">
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Tipos</p>
 <ul class="task-list">
@@ -703,6 +704,12 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Pattern matching</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Compreensão de listas</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Listas infinitas</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ordenação<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> selection-sort</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> quick-sort</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Merge-sort</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="task-list-item">
@@ -735,12 +742,8 @@
                 * [ ] Either</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    * [ ] Tipos recursivos
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    * [ ] Tipos recursivos
         - [ ] Listas
-            - [ ] quick-sort
-            - [ ] Merge-sort
         - [ ] Árvores
 </code></pre></div>
 </td></tr></table>
@@ -774,8 +777,11 @@
 </ul>
 </li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Currying:</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Alta Ordem:<ul>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Alta Ordem:<ul class="task-list">
 <li>There are a number of concepts which are the main corner stones of functional programming, such as first-class and higher-order functions, pure functions, recursion, strict versus non-strict evaluation, and type systems. Higher-order functions can take other functions as arguments or return them as results. An example of a higherorder functions is an integrator or differential operator as it returns a function. Pure functions have no side effects (memory or I/O). This means that pure functions are very useful to optimize code. For example, if the result of a pure expression is not used, it can be removed without affecting the other expressions. If there is no data dependency between two pure expressions, then their order can be reversed or they can be performed in parallel and not interfere with each other. This means pure expressions are thread safe. To allow compilers to optimize code more easily in other languages, there is usually keywords you can add to tell the compiler the function is pure. Recursion functions invoke themselves, performing an operation multiple times unit the base case is reached. Common patterns of recursion can be re-factored using higher order functions. Some recursions require maintaining a stack but tail recursions can be optimized into the same code used to implement iteration in imperative languages. Functional programming that is limited to well-founded recursion with a few other constraints is called total functional programming [24]. Strict versus non-strict evaluation is a concept that divides functional languages by whether they use strict (eager) or nonstrict (lazy) evaluation. Figure 8 presents an example. Under strict evaluation the entire term and function and evaluated, meaning if any term of the expression would fail, the whole expression would fail. Under non-strict evaluation, the length function will return the value 4 since evaluation it will not attempt to evaluate the terms making p the list. The usual implementation strategy for non-strict evaluation in functional languages is graph reduction [25].</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> fold</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> filter</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> map</li>
 <li>.</li>
 <li>$</li>
 </ul>

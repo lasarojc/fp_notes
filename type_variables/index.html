@@ -16,7 +16,7 @@
     
     
       
-        <title>Erros comuns - Notas de Aula em Programação Funcional</title>
+        <title>Polimorfismo - Notas de Aula em Programação Funcional</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#observacoes" class="md-skip">
+        <a href="#polimorfismo" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Erros comuns
+              Polimorfismo
             
           </span>
         </div>
@@ -441,11 +441,21 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../type_variables/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Polimorfismo
       </a>
+      
     </li>
   
 
@@ -576,105 +586,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Erros comuns
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../comments/" class="md-nav__link">
         Erros comuns
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Índice">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Índice
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#cheat-sheet" class="md-nav__link">
-    Cheat sheet
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercicios-da-semana-2" class="md-nav__link">
-    Exercícios da Semana 2
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercicios-da-semana-3" class="md-nav__link">
-    Exercícios da semana 3
-  </a>
-  
-    <nav class="md-nav" aria-label="Exercícios da semana 3">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#erros" class="md-nav__link">
-    Erros
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prova-1" class="md-nav__link">
-    Prova 1
-  </a>
-  
-    <nav class="md-nav" aria-label="Prova 1">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#maximo" class="md-nav__link">
-    Máximo
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#valorfinal" class="md-nav__link">
-    ValorFinal
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -698,75 +614,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Índice
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#cheat-sheet" class="md-nav__link">
-    Cheat sheet
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercicios-da-semana-2" class="md-nav__link">
-    Exercícios da Semana 2
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercicios-da-semana-3" class="md-nav__link">
-    Exercícios da semana 3
-  </a>
-  
-    <nav class="md-nav" aria-label="Exercícios da semana 3">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#erros" class="md-nav__link">
-    Erros
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prova-1" class="md-nav__link">
-    Prova 1
-  </a>
-  
-    <nav class="md-nav" aria-label="Prova 1">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#maximo" class="md-nav__link">
-    Máximo
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#valorfinal" class="md-nav__link">
-    ValorFinal
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -788,59 +635,34 @@
 
 
   <!-- Content -->
-  <h1 id="observacoes">Observações</h1>
-<h2 id="cheat-sheet">Cheat sheet</h2>
-<p><a href="https://hackage.haskell.org/package/CheatSheet-1.7/src/CheatSheet.pdf">https://hackage.haskell.org/package/CheatSheet-1.7/src/CheatSheet.pdf</a></p>
-<h2 id="exercicios-da-semana-2">Exercícios da Semana 2</h2>
-<h6>Parênteses desnecessários</h6>
-<ul>
-<li>
-<p>Todo <code>if</code> em um <code>then</code> e um <code>else</code></p>
-<ul>
-<li>Diferentemente de outras linguagens, onde o <code>if</code> é usado para determinar <strong>se</strong> uma computação deve acontecer e o <code>else</code> é um atalho para quando há duas opções, e portanto o <code>else</code> não é necessário, em Haskell o <code>if</code> é usado para determinar <strong>qual</strong> computação deve acontecer, ou seja, <strong>sempre há duas opções</strong>.</li>
-</ul>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">C</label><div class="tabbed-content">
+  <h1 id="polimorfismo">Polimorfismo</h1>
+<p>Observe o funcionamento da função <code class="highlight"><span class="nf">head</span></code> nos seguintes exemplos.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span>              <span class="c1">//If sem else: compila.</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;maior&quot;</span><span class="p">;</span>        <span class="c1">//Se x &lt;= 3, y continua com o valor anterior, seja qual for.</span>
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">head</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)]</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">head</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="mi">1</span>
+<span class="o">&gt;</span> <span class="n">head</span> <span class="s">&quot;abcd&quot;</span>
+<span class="sc">&#39;a&#39;</span>
 </code></pre></div>
 </td></tr></table>
-</div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Haskell</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">let</span> <span class="n">y</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">3</span> 
-    <span class="kr">then</span> <span class="s">&quot;maior&quot;</span>  <span class="c1">-- If sem else: não compila! Qual o valor de `y` se `x &lt;= 3`?</span>
-</code></pre></div>
-</td></tr></table>
-</div>
-</div>
-<p>Por isso o <code>if</code> do Haskell deve ser comparado ao operador ternário do C, não com o <code>if</code>.</p>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">C</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="o">?</span> <span class="s">&quot;maior&quot;</span><span class="o">:</span> <span class="s">&quot;menor&quot;</span><span class="p">;</span>
-</code></pre></div>
-</td></tr></table>
-</div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Haskell</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">let</span> <span class="n">y</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="kr">then</span> <span class="s">&quot;maior&quot;</span> <span class="kr">else</span> <span class="s">&quot;menor&quot;</span>
-</code></pre></div>
-</td></tr></table>
-</div>
-</div>
-</li>
-<li>
-<p><code>((b1+b2)/2) * h</code> -&gt; <code>(b1+b2)/2 * h</code></p>
-<ul>
-<li>não há dúvida para o compilador que a divisão deve ocorrer primeiro, pois os operadores tem a mesma precedência e ambos são associativos à esquerda.</li>
-</ul>
-</li>
-<li>
-<p><code>sqrt ((b*b)+ (c*c))</code>-&gt; sqrt (b*b + c*c)</p>
-<ul>
-<li>não há dúvida para o compilador que a divisão deve ocorrer primeiro, pois os operadores tem precedências diferentes.</li>
-</ul>
-</li>
-<li>
-<p>Informação sobre precedência e associatividade pode ser derivadas via <code class="highlight"><span class="kt">:</span><span class="n">info</span></code>.</p>
+<p>Independentemente do tipo dos elementos da lista e, portanto, da lista, <code class="highlight"><span class="nf">head</span></code> consistentemente retorna o primeiro elemento da lista passada como parâmetro.
+Isso acontece porquê a função <code class="highlight"><span class="nf">head</span></code> é o que chamamos de <strong>polimórfica</strong>, literalmente, com muitos formas, e pode atuar sobre listas de diversos tipos.</p>
+<p>Funções polimórficas são declaradas usando <strong>variáveis de tipo</strong> em vez de tipos específicos para os parâmetros, como fizemos até agora.
+A função <code class="highlight"><span class="nf">head</span></code>, por exemplo, tem declaração de tipo <code class="highlight"><span class="nf">head</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="n">a</span></code>,<sup id="fnref:parametric"><a class="footnote-ref" href="#fn:parametric">1</a></sup> onde <code class="highlight"><span class="nf">a</span></code> é a variável de tipo.
+Esta declaração implica que a função recebe como parâmetro uma lista de elementos de um tipo qualquer <code class="highlight"><span class="nf">a</span></code> e que retorna um elemento <strong>do mesmo tipo</strong> <code class="highlight"><span class="nf">a</span></code>.</p>
+<p>Várias variáveis de tipos podem aparecer em uma mesma declaração, como em <code class="highlight"><span class="nf">snd</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">b</span></code>, que define que o resultado da função é do mesmo tipo do segundo elemento da dupla passada como parâmetros, ou <code class="highlight"><span class="nf">zip</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)]</span></code>, que combina o tipo dos parâmetros de entrada em uma tupla dos mesmos tipos no resultado da função.
+Observe que variáveis de tipo <strong>devem começar com uma letra minúscula</strong> e, geralmente, são recebem nomes <code class="highlight"><span class="nf">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="o">...</span></code>, mas fora isso, podem ter qualquer nome, o que literalmente permite que funções tenham uma infinitude de nomes.</p>
+<p>Declarações também podem misturar variáveis de tipo com tipos normais, como em <code class="highlight"><span class="nf">length</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span></code>, que define que o comprimento de uma lista de qualquer tipo será sempre do tipo <code class="highlight"><span class="kt">Int</span></code>, e <code class="highlight"><span class="nf">take</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span></code>.</p>
+<p>Enquanto algumas funções tem variáveis de tipo completamente livres, isto é, podem ser instanciadas com qualquer tipo, outras impõem certas restrições nos tipos na forma de <strong>classes de tipo</strong>.</p>
+<p>Por exemplo, a função <code class="highlight"><span class="nf">sort</span></code> recebe uma lista de dados e retorna uma lista com os mesmos dados, ordenados.
+Para implementar a ordenação, é preciso que os elementos da lista possam ser comparados uns com os outros, o que é determinado pela pertinência do tipo à classe de tipos <code class="highlight"><span class="kt">Ord</span></code>. 
+A declaração da função fica então assim: <code class="highlight"><span class="nf">sort</span> <span class="ow">::</span> <span class="kt">Ord</span> <span class="n">a</span> <span class="ow">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span></code>.<sup id="fnref:adhoc"><a class="footnote-ref" href="#fn:adhoc">2</a></sup></p>
+<p>Uma mesma variável de tipo pode pertencer a múltiplas classes e diferentes variáveis podem pertencer a classes diferentes, como nas seguintes declarações:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -852,106 +674,31 @@
  9
 10
 11
-12
-13
-14
-15
-16
-17
-18
-19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">info</span> <span class="o">*</span>
-<span class="kr">type</span> <span class="kt">Num</span> <span class="ow">::</span> <span class="o">*</span> <span class="ow">-&gt;</span> <span class="kt">Constraint</span>
-<span class="kr">class</span> <span class="kt">Num</span> <span class="n">a</span> <span class="kr">where</span>
-<span class="o">...</span>
-<span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
-<span class="o">...</span>
-<span class="kr">infixl</span> <span class="mi">7</span> <span class="o">*</span>                              <span class="c1">-- Infixo com associatividade a esquerda (l) e Precedência 7.</span>
-<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">info</span> <span class="o">/</span>
-<span class="kr">type</span> <span class="kt">Fractional</span> <span class="ow">::</span> <span class="o">*</span> <span class="ow">-&gt;</span> <span class="kt">Constraint</span>
-<span class="kr">class</span> <span class="kt">Num</span> <span class="n">a</span> <span class="ow">=&gt;</span> <span class="kt">Fractional</span> <span class="n">a</span> <span class="kr">where</span>
-<span class="p">(</span><span class="o">/</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
-<span class="o">...</span>
-<span class="kr">infixl</span> <span class="mi">7</span> <span class="o">/</span>                              <span class="c1">-- Infixo com associatividade a esquerda (l) e Precedência 7.</span>
-<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">info</span> <span class="o">+</span>
-<span class="kr">type</span> <span class="kt">Num</span> <span class="ow">::</span> <span class="o">*</span> <span class="ow">-&gt;</span> <span class="kt">Constraint</span>
-<span class="kr">class</span> <span class="kt">Num</span> <span class="n">a</span> <span class="kr">where</span>
-<span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
-<span class="o">...</span>
-<span class="kr">infixl</span> <span class="mi">6</span> <span class="o">+</span>                              <span class="c1">-- Infixo com associatividade a esquerda (l) e Precedência 6.</span>
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">quickSort</span> <span class="ow">::</span> <span class="kt">Ord</span> <span class="n">a</span> <span class="ow">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="nf">quickSort</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="kt">[]</span>
+<span class="nf">quickSort</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">quickSort</span> <span class="p">(</span><span class="n">filter</span> <span class="p">(</span><span class="o">&lt;=</span> <span class="n">x</span><span class="p">)</span> <span class="n">xs</span><span class="p">)</span> <span class="o">++</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">++</span> <span class="n">quickSort</span> <span class="p">(</span><span class="n">filter</span> <span class="p">(</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">)</span> <span class="n">xs</span><span class="p">)</span>
+
+<span class="nf">sortAndPrint</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Show</span> <span class="n">a</span><span class="p">,</span> <span class="kt">Ord</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span>
+<span class="nf">sortAndPrint</span> <span class="n">l</span> <span class="ow">=</span> <span class="n">map</span> <span class="n">show</span> <span class="p">(</span><span class="n">quickSort</span> <span class="n">l</span><span class="p">)</span>
+
+
+<span class="o">&gt;</span> <span class="n">quickSort</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">9</span><span class="o">..</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="o">&gt;</span> <span class="n">sortAndPrint</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">9</span><span class="o">..</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">[</span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="s">&quot;2&quot;</span><span class="p">,</span><span class="s">&quot;3&quot;</span><span class="p">,</span><span class="s">&quot;4&quot;</span><span class="p">,</span><span class="s">&quot;5&quot;</span><span class="p">,</span><span class="s">&quot;6&quot;</span><span class="p">,</span><span class="s">&quot;7&quot;</span><span class="p">,</span><span class="s">&quot;8&quot;</span><span class="p">,</span><span class="s">&quot;9&quot;</span><span class="p">,</span><span class="s">&quot;10&quot;</span><span class="p">]</span>
 </code></pre></div>
 </td></tr></table>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:parametric">
+<p>Este tipo de polimorfismo, em que o tipo não tem qualquer restrição, é denominado <strong>paramétrico</strong>.&#160;<a class="footnote-backref" href="#fnref:parametric" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
-<li>
-<p><code class="highlight"><span class="nf">maiorDeTres</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">c</span> <span class="kr">then</span> <span class="n">a</span> <span class="kr">else</span> <span class="kr">if</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">a</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span> <span class="kr">then</span> <span class="n">b</span> <span class="kr">else</span> <span class="n">c</span></code></p>
-<ul>
-<li>Difícil leitura.</li>
-<li>Quebrar linhas.</li>
-</ul>
+<li id="fn:adhoc">
+<p>Este tipo de polimorfismo é denominado <em>ad-hoc</em>.&#160;<a class="footnote-backref" href="#fnref:adhoc" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
-<li>
-<p><code class="highlight"><span class="nf">estaoOrdenados</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="ow">=</span> <span class="kr">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span><span class="p">)</span> <span class="kr">then</span> <span class="kt">True</span> <span class="kr">else</span> <span class="kt">False</span></code></p>
-<ul>
-<li><code class="highlight"><span class="kr">if</span> <span class="o">&lt;</span><span class="n">cond</span><span class="o">&gt;</span> <span class="kr">then</span> <span class="kt">True</span> <span class="kr">else</span> <span class="kt">False</span></code> -&gt; <code class="highlight"><span class="o">&lt;</span><span class="n">cond</span><span class="o">&gt;</span></code></li>
-<li><code class="highlight"><span class="nf">estaoOrdenados</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span></code></li>
-</ul>
-</li>
-<li>
-<p><code class="highlight"><span class="nf">sqrt</span><span class="p">((</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span></code></p>
-<ul>
-<li>Parênteses só são necessários para deixar explícito o que é parâmetro.</li>
-<li><code class="highlight"><span class="nf">sqrt</span><span class="p">((</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span></code><ul>
-<li>Funções e parâmetros são separados por espaço. </li>
-<li><code class="highlight"><span class="nf">sqrt</span> <span class="p">((</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span></code></li>
-</ul>
-</li>
-<li><code class="highlight"><span class="nf">sqrt</span> <span class="p">((</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span></code><ul>
-<li>Operadores tem precedências; potência tem precedência maior que adição</li>
-<li><code class="highlight"><span class="nf">sqrt</span> <span class="p">(</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span></code></li>
-</ul>
-</li>
-<li><code class="highlight"><span class="nf">sqrt</span> <span class="n">a</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">^</span><span class="mi">2</span></code><ul>
-<li>Funções tem precedência sobre operadores.</li>
-<li><code class="highlight"><span class="nf">sqrt</span> <span class="n">a</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">^</span><span class="mi">2</span> <span class="o">==</span> <span class="p">(</span><span class="n">sqrt</span> <span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span><span class="o">^</span><span class="mi">2</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="exercicios-da-semana-3">Exercícios da semana 3</h2>
-<h3 id="erros">Erros</h3>
-<p>Para indicar uma condição de erro, use "error". Por exemplo, em uma solução eu encontrei o seguinte  <code class="highlight"><span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="p">(</span><span class="mi">99</span><span class="p">,</span> <span class="s">&quot;error&quot;</span><span class="p">)</span></code> mas o ideal seria <code class="highlight"><span class="o">|</span><span class="n">otherwise</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;mensagem de erro&quot;</span></code>.</p>
-<h2 id="prova-1">Prova 1</h2>
-<h3 id="maximo">Máximo</h3>
-<ul>
-<li>
-<p>Toda recursão deve ter um caso base, senão a recursão não para.</p>
-</li>
-<li>
-<p>No seguinte trecho, só temos dois casos. Um <code>if-then-else</code> me parece mais legível.
-```#!hs
-máximo (x:xs) | (x &gt; máximo xs) = x
-              | otherwise = máximo xs
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>### Raízes
-* 
-```#!hs
-Prelude&gt; 4/2*2
-4.0
-Prelude&gt; 4/(2*2)
-1.0
-</code></pre></div>
-</td></tr></table></p>
-</li>
-</ul>
-<h3 id="valorfinal">ValorFinal</h3>
-<ul>
-<li>A idade precisa levar mês e dia em consideração.</li>
-</ul>
+</ol>
+</div>
 
   <!-- Last update of source file -->
 
@@ -973,7 +720,7 @@ Prelude&gt; 4/(2*2)
     <nav class="md-footer__inner md-grid" aria-label="Rodapé">
       
         
-        <a href="../project/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Projeto" rel="prev">
+        <a href="../algebraic_data_types/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Tipos algébricos" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -982,11 +729,26 @@ Prelude&gt; 4/(2*2)
               <span class="md-footer__direction">
                 Anterior
               </span>
-              Projeto
+              Tipos algébricos
             </div>
           </div>
         </a>
       
+      
+        
+        <a href="../lambda/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Cálculo λ" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              Cálculo λ
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   

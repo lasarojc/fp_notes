@@ -518,7 +518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../polymorphism.md" class="md-nav__link">
+      <a href="../type_variables/" class="md-nav__link">
         Polimorfismo
       </a>
     </li>
@@ -1426,15 +1426,15 @@ Por exemplo, considere uma lista de três ou mais String, isto é, uma lista de 
 <li>
 <p>Selection-sort (<a href="https://www.youtube.com/embed/Ns4TPTC8whw">https://www.youtube.com/embed/Ns4TPTC8whw</a>)</p>
 <ul>
-<li>Defina uma função que receba um inteiro <code>i</code> e uma lista de inteiros <code>l</code> e retorne a lista <code>l</code> sem a primeira ocorrência de <code>i</code> em <code>l</code>.</li>
-<li>Defina uma função <code>fr</code> que receba uma lista de inteiros <code>l</code> e retorne o menor inteiro da lista.</li>
-<li>Defina uma função <code>fo</code> que receba uma lista de inteiros <code>l</code>, escolha o menor inteiro <code>m</code> de de <code>l</code> e retorne <code>m</code> concatenado a cabeça da lista gerada por <code>fo (fr m l)</code></li>
+<li>Defina uma função <code>fr</code> que receba um inteiro <code>i</code> e uma lista de inteiros <code>l</code> e retorne a lista <code>l</code> sem a primeira ocorrência de <code>i</code> em <code>l</code>.</li>
+<li>Defina uma função <code>fm</code> que receba uma lista de inteiros <code>l</code> e retorne o menor inteiro da lista.</li>
+<li>Defina uma função <code>fs</code> que receba uma lista de inteiros <code>l</code>, escolha o menor inteiro <code>m</code> de <code>l</code> e retorne <code>m</code> concatenado a cabeça da lista gerada por <code>fs (fr m l)</code></li>
 </ul>
 </li>
 <li>
 <p>Merge-Sort (<a href="https://www.youtube.com/embed/XaqR3G_NVoo">https://www.youtube.com/embed/XaqR3G_NVoo</a>)</p>
 <ul>
-<li>Defina uma função <code>fd</code> que receba uma lista e retorne suas duas metades em uma dupla: <code class="highlight"><span class="nf">metade</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">11</span><span class="p">]</span> <span class="ow">=</span> <span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">]</span></code></li>
+<li>Defina uma função <code>fd</code> que receba uma lista e retorne suas duas metades em uma dupla: <code class="highlight"><span class="nf">metade</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">11</span><span class="p">]</span> <span class="ow">=</span> <span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">])</span></code></li>
 <li>Defina uma função <code>fu</code> que receba duas listas ordenadas e retorne uma lista ordenada com a união das listas <code class="highlight"><span class="nf">união</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span> <span class="ow">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span></code></li>
 <li>Defina uma função <code>fm</code> que receba uma lista, divida-a na metade usando <code>fd</code>, aplique <code>fm</code> recursivamente em cada metade, e calcule a união das listas resultantes usando <code>fu</code>.</li>
 </ul>

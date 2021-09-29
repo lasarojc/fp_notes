@@ -503,6 +503,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#maybe" class="md-nav__link">
+    Maybe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tipos-recursivos" class="md-nav__link">
     Tipos recursivos
   </a>
@@ -525,7 +532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../polymorphism.md" class="md-nav__link">
+      <a href="../type_variables/" class="md-nav__link">
         Polimorfismo
       </a>
     </li>
@@ -730,6 +737,13 @@
         <li class="md-nav__item">
   <a href="#notacao-tipo-record" class="md-nav__link">
     Notação tipo "record"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maybe" class="md-nav__link">
+    Maybe
   </a>
   
 </li>
@@ -1034,6 +1048,9 @@ Para fazer isso, basta modificar a definição da seguinte forma.</p>
   <span class="o">...</span>
 </code></pre></div>
 </td></tr></table></p>
+<h6>Read</h6>
+<p>???todo "TODO
+     <code class="highlight"><span class="nf">read</span> <span class="s">&quot;100&quot;</span> <span class="ow">::</span> <span class="kt">Int</span></code></p>
 <h6>Definição completa</h6>
 <p>Definindo o tipo para o naipe com todas estas classes de tipo, teremos um tipo bem interessante, que pode ser impresso na tela, comparado e usado para gerar listas por enumeração.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -1342,9 +1359,189 @@ De fato, esta é uma abordagem comum na definição de tipos algébricos em Hask
 <h2 id="notacao-tipo-record">Notação tipo "record"</h2>
 <details class="todo"><summary>TODO</summary></details>
 <p>Records</p>
+<h2 id="maybe">Maybe</h2>
+<p><code class="highlight"><span class="kt">Read</span></code> é uma classe de tipo útil por permitir que strings sejam usadas lidas e interpretadas como o tipo.
+O tipo <code class="highlight"><span class="kt">Int</span></code> e outros números, por exemplo, pertencem a esta classe, o que nos diz que podemos fazer o seguinte:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">read</span> <span class="s">&quot;100&quot;</span> <span class="ow">::</span> <span class="kt">Int</span>
+<span class="o">&gt;</span> <span class="n">x</span>
+<span class="mi">100</span>
+<span class="o">&gt;</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">read</span> <span class="s">&quot;100&quot;</span> <span class="ow">::</span> <span class="kt">Float</span>
+<span class="o">&gt;</span> <span class="n">x</span>
+<span class="mf">100.0</span>
+</code></pre></div>
+</td></tr></table>
+<p>Acontece que nem sempre a função será bem sucedida em interpretar a string, por exemplo:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">read</span> <span class="s">&quot;Bolhufas&quot;</span> <span class="ow">::</span> <span class="kt">Int</span>
+<span class="o">&gt;</span> <span class="n">x</span>
+<span class="o">***</span> <span class="kt">Exception:</span> <span class="kt">Prelude</span><span class="o">.</span><span class="n">read</span><span class="kt">:</span> <span class="n">no</span> <span class="n">parse</span>
+</code></pre></div>
+</td></tr></table>
+<p>Esta é apenas uma de muitas situações em que uma exceção pode ser causada por uma falha na execução de alguma função.
+Outros exemplos são falhas de alocação de memória, de abertura de um arquivo no disco, de comunicação com outro processo via uma rede de computadores, etc.
+Nestas situações, é comum o uso do tipo <code class="highlight"><span class="kt">Maybe</span> <span class="n">a</span></code> definido como se segue:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kr">import</span> <span class="nn">Text.Read</span>
+
+<span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Maybe</span>
+<span class="kr">data</span> <span class="kt">Maybe</span> <span class="n">a</span> <span class="ow">=</span> <span class="kt">Nothing</span> <span class="o">|</span> <span class="kt">Just</span> <span class="n">a</span>
+<span class="o">...</span>
+</code></pre></div>
+</td></tr></table>
+<p>Este tipo permite que a função indique um erro ao retornar <code class="highlight"><span class="kt">Nothing</span></code> ou que um valor x foi recuperado da string usando ao retornar <code class="highlight"><span class="kt">Just</span> <span class="n">x</span></code>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">readMaybe</span> <span class="s">&quot;Bolhufas&quot;</span> <span class="ow">::</span> <span class="kt">Maybe</span> <span class="kt">Int</span>
+<span class="o">&gt;</span> <span class="n">x</span>
+<span class="kt">Nothing</span>
+<span class="o">&gt;</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">readMaybe</span> <span class="s">&quot;100&quot;</span> <span class="ow">::</span> <span class="kt">Maybe</span> <span class="kt">Int</span>
+<span class="o">&gt;</span> <span class="n">x</span>
+<span class="kt">Just</span> <span class="mi">100</span>
+</code></pre></div>
+</td></tr></table>
 <h2 id="tipos-recursivos">Tipos recursivos</h2>
-<details class="todo"><summary>TODO</summary></details>
-<p>Tipos recursivos</p>
+<p>Como pode ver até agora, tipos algébricos tem muitos usos, a agora veremos um dos mais interessantes, na definição de tipos recursivos.
+Considere uma lista, como definida pelo operador cons, <code class="highlight"><span class="kt">:</span></code>: uma lista é a concatenação de um elemento, a cabeça da lista, com uma outra lista, a cauda.
+Usando tipos algébricos, conseguimos representar listas da seguinte forma:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">data</span> <span class="kt">Lista</span> <span class="n">a</span> <span class="ow">=</span> <span class="kt">Vazio</span> <span class="o">|</span> <span class="kt">Elemento</span> <span class="n">a</span> <span class="p">(</span><span class="kt">Lista</span> <span class="n">a</span><span class="p">)</span> <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Show</span><span class="p">)</span>
+
+<span class="nf">busca</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Lista</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="nf">busca</span> <span class="kr">_</span> <span class="kt">Vazio</span> <span class="ow">=</span> <span class="kt">False</span>
+<span class="nf">busca</span> <span class="n">e</span> <span class="p">(</span><span class="kt">Elemento</span> <span class="n">x</span> <span class="n">xs</span><span class="p">)</span>
+  <span class="o">|</span> <span class="n">e</span> <span class="o">==</span> <span class="n">x</span> <span class="ow">=</span> <span class="kt">True</span>
+  <span class="o">|</span> <span class="n">busca</span> <span class="n">e</span> <span class="n">xs</span>
+
+<span class="nf">busca&#39;</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Lista</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="nf">busca&#39;</span> <span class="kr">_</span> <span class="kt">Vazio</span> <span class="ow">=</span> <span class="kt">False</span>
+<span class="nf">busca&#39;</span> <span class="n">e</span> <span class="p">(</span><span class="kt">Elemento</span> <span class="n">x</span> <span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">e</span> <span class="o">==</span> <span class="n">x</span> <span class="o">||</span> <span class="n">busca</span> <span class="n">e</span> <span class="n">xs</span>
+
+
+<span class="o">&gt;</span> <span class="n">lV</span> <span class="ow">=</span> <span class="kt">Vazio</span>
+<span class="o">&gt;</span> <span class="n">l1</span> <span class="ow">=</span> <span class="kt">Elemento</span> <span class="mi">1</span> <span class="p">(</span><span class="kt">Vazio</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">l2</span> <span class="ow">=</span> <span class="kt">Elemento</span> <span class="mi">2</span> <span class="p">(</span><span class="kt">Elemento</span> <span class="mi">1</span> <span class="kt">Vazio</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">lV</span>
+<span class="kt">Vazio</span>
+<span class="o">&gt;</span> <span class="n">l1</span>
+<span class="kt">Elemento</span> <span class="mi">1</span> <span class="kt">Vazio</span>
+<span class="o">&gt;</span> <span class="n">l2</span>
+<span class="kt">Elemento</span> <span class="mi">2</span> <span class="p">(</span><span class="kt">Elemento</span> <span class="mi">1</span> <span class="kt">Vazio</span><span class="p">)</span>
+
+<span class="o">&gt;</span> <span class="n">busca&#39;</span> <span class="mi">1</span> <span class="n">lV</span>
+<span class="kt">False</span>
+<span class="o">&gt;</span> <span class="n">busca&#39;</span> <span class="mi">1</span> <span class="n">l1</span>
+<span class="kt">True</span>
+<span class="o">&gt;</span> <span class="n">busca&#39;</span> <span class="mi">1</span> <span class="n">l2</span>
+<span class="kt">True</span>
+<span class="o">&gt;</span> <span class="n">busca&#39;</span> <span class="mi">2</span> <span class="n">l1</span>
+<span class="kt">False</span>
+</code></pre></div>
+</td></tr></table>
+<p>Para outro exemplo, considere uma árvore binária, uma estrutura de dados formada por nós que armazenam algum dado e apontam para outros dois nós, denominados filhos à esquerda e à direita.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">data</span> <span class="kt">Árvore</span> <span class="n">a</span> <span class="ow">=</span> <span class="kt">Nada</span> <span class="o">|</span> <span class="kt">Nó</span> <span class="n">a</span> <span class="p">(</span><span class="kt">Árvore</span> <span class="n">a</span><span class="p">)</span> <span class="p">(</span><span class="kt">Árvore</span> <span class="n">a</span><span class="p">)</span>  <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Show</span><span class="p">)</span>
+
+<span class="cm">{-</span>
+<span class="cm">&gt;&gt;&gt; mudinha = Nó 3 Nada Nada</span>
+
+<span class="cm">&gt;&gt;&gt; Nó 1 (Nó 2 (Nó 4 Nada Nada) Nada) (Nó 3 Nada Nada)</span>
+<span class="cm">Nó 1 (Nó 2 (Nó 4 Nada Nada) Nada) (Nó 3 Nada Nada)</span>
+<span class="cm">-}</span>
+
+<span class="nf">adicionar</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Eq</span> <span class="n">a</span><span class="p">,</span> <span class="kt">Ord</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Árvore</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Árvore</span> <span class="n">a</span>
+<span class="nf">adicionar</span> <span class="n">novoDado</span> <span class="kt">Nada</span> <span class="ow">=</span> <span class="kt">Nó</span> <span class="n">novoDado</span> <span class="kt">Nada</span> <span class="kt">Nada</span>
+<span class="nf">adicionar</span> <span class="n">novoDado</span> <span class="n">árvore</span><span class="o">@</span><span class="p">(</span><span class="kt">Nó</span> <span class="n">dadoExistente</span> <span class="n">ae</span> <span class="n">ad</span><span class="p">)</span>
+    <span class="o">|</span> <span class="n">novoDado</span> <span class="o">==</span> <span class="n">dadoExistente</span> <span class="ow">=</span> <span class="n">árvore</span>
+    <span class="o">|</span> <span class="n">novoDado</span> <span class="o">&lt;</span> <span class="n">dadoExistente</span>  <span class="ow">=</span> <span class="kt">Nó</span> <span class="n">dadoExistente</span> <span class="p">(</span><span class="n">adicionar</span> <span class="n">novoDado</span> <span class="n">ae</span><span class="p">)</span> <span class="n">ad</span>
+    <span class="o">|</span> <span class="n">otherwise</span>                 <span class="ow">=</span> <span class="kt">Nó</span> <span class="n">dadoExistente</span> <span class="n">ad</span> <span class="p">(</span><span class="n">adicionar</span> <span class="n">novoDado</span> <span class="n">ad</span><span class="p">)</span>
+
+<span class="cm">{-</span>
+<span class="cm">&gt;&gt;&gt; arv = adicionar 3 (adicionar 4 (adicionar 10 (adicionar 1 (adicionar 2 (adicionar 3 (adicionar 7 Nada))))))</span>
+
+<span class="cm">&gt;&gt;&gt; arv</span>
+<span class="cm">Nó 7 (Nó 4 (Nó 3 Nada Nada) Nada) (Nó 10 Nada Nada)</span>
+
+<span class="cm">&gt;&gt;&gt; impressãoEmOrdem arv</span>
+<span class="cm">&quot;.3.4.7.10.&quot;</span>
+<span class="cm">-}</span>
+
+<span class="nf">impressãoEmOrdem</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Show</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="kt">Árvore</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<span class="nf">impressãoEmOrdem</span> <span class="kt">Nada</span> <span class="ow">=</span> <span class="s">&quot;.&quot;</span>
+<span class="nf">impressãoEmOrdem</span> <span class="p">(</span><span class="kt">Nó</span> <span class="n">dado</span> <span class="n">ae</span> <span class="n">ad</span><span class="p">)</span> <span class="ow">=</span> <span class="n">impressãoEmOrdem</span> <span class="n">ae</span> <span class="o">++</span> <span class="n">show</span> <span class="n">dado</span> <span class="o">++</span> <span class="n">impressãoEmOrdem</span> <span class="n">ad</span>
+</code></pre></div>
+</td></tr></table>
+<div class="admonition exercise">
+<p class="admonition-title">Exercício</p>
+<p>Implemente uma impressão "em ordem" dos nós da árvore.</p>
+</div>
 <div class="footnote">
 <hr />
 <ol>
@@ -1390,13 +1587,13 @@ De fato, esta é uma abordagem comum na definição de tipos algébricos em Hask
       
       
         
-        <a href="../lambda/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Cálculo λ" rel="next">
+        <a href="../type_variables/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Polimorfismo" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Cálculo λ
+              Polimorfismo
             </div>
           </div>
           <div class="md-footer__button md-icon">

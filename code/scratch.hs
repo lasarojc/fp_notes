@@ -1,5 +1,5 @@
 import Debug.Trace(trace)
-
+import Data.List (delete)
 
 
 {- 
@@ -1420,3 +1420,169 @@ selection [] = []
 selection l = menor : selection restante
     where menor = minimum l
           restante = remove menor l
+
+
+
+
+
+
+{-
+>>>fr 1 [1,2,3]
+[2,3]
+
+>>>fr 1 [5,1,2,3]
+[5,2,3]
+
+>>>fr 1 [2,3,1]
+[2,3]
+
+>>>fr 1 []
+[]
+
+>>>fr 1 [2,3]
+[2,3]
+
+-}
+
+fr :: Int -> [Int] -> [Int]
+fr i []     = []
+fr i (x:xs) = if i == x then xs
+                        else x:fr i xs
+
+{-
+>>>fm [1,2,3]
+1
+
+>>>fm [2,1,3]
+1
+
+
+
+>>>fm [2,3,1]
+fm [2,3,1] = min 2 (fm [3,1])
+           = min 2 (min 3 (fm [1]))
+           = min 2 (min 3 (1))
+           = min 2 (1)
+           = 1
+1
+
+>>>fm []
+Lista vazia
+-}
+
+fm :: [Int] -> Int
+fm []     = error "Lista vazia"
+fm [x]    = x
+fm (x:xs) = min x (fm xs)
+
+
+{-
+>>>fs [3,1,2]
+[1,2,3]
+
+-}
+
+
+fs :: [Int] -> [Int]
+fs [] = []
+fs l = 
+    let m = fm l
+        r = fr m l
+    in m:fs r 
+
+
+
+fs' :: [Int] -> [Int]
+fs' [] = []
+fs' l  = let m = minimum l
+             r = delete m l
+         in m:fs r
+
+{-
+>>>fd []
+([],[])
+
+>>>fd [1]
+([],[1])
+
+>>>fd [1..5]
+([1,2],[3,4,5])
+
+>>>fd [1..6]
+([1,2,3],[4,5,6])
+
+-}
+fd :: [Int] -> ([Int],[Int])
+fd l = fd' (length l `div` 2) l
+    where   fd' _ []     = ([],[])
+            fd' 0 l        = ([],l)
+            fd' tle (x:xs) = (x:le, ld) 
+                where (le,ld) = fd' (tle -1) xs
+
+
+
+-- >>>f [1,3..30]
+-- ([1,3,5,7,9,11,13],[15,17,19,21,23,25,27,29])
+f l = (take (length l `div` 2) l, drop (length l `div` 2) l)
+
+{-
+>>>fu [1..10] [1..10]
+[1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10]
+
+-}
+
+fu :: [Int] -> [Int] -> [Int]
+fu x [] = x
+fu [] x = x
+fu lx@(x:xs) ly@(y:ys)
+  | x <= y    = x : fu xs ly
+  | otherwise = y : fu lx ys
+
+{-
+>>>fms [10,9..(-10)]
+[-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9,10]
+-}
+
+fms :: [Int] -> [Int]
+fms [] = []
+fms [e] = [e]
+fms l = let (le,ld) = fd l
+        in fu (fms le) (fms ld)
+
+
+
+data Pressão = Psi Float | Bar Float
+
+converteParaBar :: Pressão -> Pressão
+converteParaBar v@(Bar _)  = v
+converteParaBar v@(Psi vp) = Bar (vp * 1.6)
+
+-- >>> vempsi = Psi 30
+
+-- >>> vembar = Bar 45
+
+-- >>> qsort [10,9..1]
+-- [9,8,7,6,5,4,3,2,1,10]
+
+qsort :: Ord a => [a] -> [a]
+qsort [] = []
+qsort (x:xs) = qsort (filter (<= x) xs) ++ [x] ++ qsort (filter (> x) xs)
+
+sortAndPrint :: (Show a, Ord a) => [a] -> [String]
+sortAndPrint l = map show (qsort l)
+
+-- >>> sortAndPrint [10,9..1]
+-- ["9","8","7","6","5","4","3","2","1","10"]
+
+-- ["9","8","7","6","5","4","3","2","1","10"]
+-- <BLANKLINE>
+-- ByteCodeLink.lookupCE
+-- During interactive linking, GHCi couldn't find the following symbol:
+--   interactive_Ghci1_evalPrint_closure
+-- This may be due to you not asking GHCi to load extra object files,
+-- archives or DLLs needed by your current session.  Restart GHCi, specifying
+-- the missing library using the -L/path/to/object/dir and -lmissinglibname
+-- flags, or simply by naming the relevant files on the GHCi command line.
+-- Alternatively, this link failure might indicate a bug in GHCi.
+-- If you suspect the latter, please report this as a GHC bug:
+--   https://www.haskell.org/ghc/reportabug
