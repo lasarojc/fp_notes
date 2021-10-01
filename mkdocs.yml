@@ -129,9 +129,9 @@ nav:
         
         - Listas: lists.md
 
-        - Tipos algébricos: algebraic_data_types.md
-
         - Polimorfismo: type_variables.md
+
+        - Tipos algébricos: algebraic_data_types.md
 
         - Cálculo λ: lambda.md
 

@@ -218,8 +218,8 @@ class Enum a where
 
 ###### Read
 
-???todo "TODO
-     `#!hs read "100" :: Int`
+???todo "TODO"
+    `#!hs read "100" :: Int`
 
 ###### Definição completa
 Definindo o tipo para o naipe com todas estas classes de tipo, teremos um tipo bem interessante, que pode ser impresso na tela, comparado e usado para gerar listas por enumeração.
@@ -546,4 +546,4 @@ docs/code/tree.hs
 ```
 
 !!!exercise "Exercício"
-    Implemente uma impressão "em ordem" dos nós da árvore.
+    Implemente uma impressão "em ordem" dos nós da árvore, que recebe uma árvore e gera uma string com a resposta.

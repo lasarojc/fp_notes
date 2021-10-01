@@ -1,5 +1,6 @@
 import Debug.Trace(trace)
-import Data.List (delete)
+import Data.List (delete,isPrefixOf)
+import Data.Char (ord)
 
 
 {- 
@@ -1562,7 +1563,7 @@ converteParaBar v@(Psi vp) = Bar (vp * 1.6)
 -- >>> vembar = Bar 45
 
 -- >>> qsort [10,9..1]
--- [9,8,7,6,5,4,3,2,1,10]
+-- [1,2,3,4,5,6,7,8,9,10]
 
 qsort :: Ord a => [a] -> [a]
 qsort [] = []
@@ -1572,17 +1573,103 @@ sortAndPrint :: (Show a, Ord a) => [a] -> [String]
 sortAndPrint l = map show (qsort l)
 
 -- >>> sortAndPrint [10,9..1]
--- ["9","8","7","6","5","4","3","2","1","10"]
+-- ["1","2","3","4","5","6","7","8","9","10"]
 
--- ["9","8","7","6","5","4","3","2","1","10"]
--- <BLANKLINE>
--- ByteCodeLink.lookupCE
--- During interactive linking, GHCi couldn't find the following symbol:
---   interactive_Ghci1_evalPrint_closure
--- This may be due to you not asking GHCi to load extra object files,
--- archives or DLLs needed by your current session.  Restart GHCi, specifying
--- the missing library using the -L/path/to/object/dir and -lmissinglibname
--- flags, or simply by naming the relevant files on the GHCi command line.
--- Alternatively, this link failure might indicate a bug in GHCi.
--- If you suspect the latter, please report this as a GHC bug:
---   https://www.haskell.org/ghc/reportabug
+
+
+type Item = String
+
+éJogador i = isPrefixOf "Jogador_" i
+
+idDoJogador j = ord (last j) - ord '0'
+
+-- >>> idDoJogador "Jogador_3" 
+-- 3
+
+jogadores = [(1,(10,2)),(3,(10,2)),(2,(10,2))]
+
+
+-- >>>fst' (1,2)
+-- 1
+fst' :: (a,b) -> a
+fst' (v1,_) = v1 
+
+
+
+
+
+
+
+data Ponto = PR1 Int | PR2 Int Int | PR3 Int Int Int
+
+qualR :: Ponto -> String
+qualR (PR1 x)     = "R1 x=" ++ show x 
+qualR (PR2 x y)   = "R2 x=" ++ show x ++ " y=" ++ show y
+qualR (PR3 x y z) = "R3"
+
+-- >>> qualR (PR2 10 10)
+-- "R2 x=10 y=10"
+
+
+
+
+data Mão = Pedra | Tesoura | Papel deriving (Eq,Show)
+
+data Jogo = Empate | Ganha Mão deriving (Show)
+
+quemGanha :: Mão -> Mão -> Jogo
+quemGanha Pedra Tesoura = Ganha Pedra
+quemGanha Pedra Papel   = Ganha Papel
+quemGanha Tesoura Pedra = Ganha Pedra
+quemGanha Tesoura Papel = Ganha Tesoura
+quemGanha Papel Pedra   = Ganha Papel
+quemGanha Papel Tesoura = Ganha Tesoura
+quemGanha _ _           = Empate
+
+jogo' :: Mão -> Mão -> Jogo
+jogo' Pedra Tesoura = Ganha Pedra
+jogo' Tesoura Papel = Ganha Tesoura
+jogo' Papel Pedra   = Ganha Papel
+jogo' mao1 mao2 = if mao1 == mao2 
+                     then Empate 
+                     else Ganha mao2
+
+-- >>>quemGanham [(Pedra,Pedra),(Pedra,Tesoura),(Pedra,Papel)]
+-- [Empate,Ganha Pedra,Ganha Papel]
+
+quemGanham :: [(Mão,Mão)] -> [Jogo]
+quemGanham []               = []
+quemGanham ((m1,m2):tms)    = quemGanha m1 m2 : quemGanham tms
+
+
+
+-- >>>quemGanham' [(Pedra,Pedra),(Pedra,Tesoura),(Pedra,Papel)]
+-- [Empate,Ganha Pedra,Ganha Papel]
+
+-- >>>quemGanham' []
+-- []
+
+quemGanham' :: [(Mão,Mão)] -> [Jogo]
+quemGanham' l = [ quemGanha m1 m2 | (m1,m2) <- l]
+
+
+
+presenca :: String -> Bool
+presenca a = True
+
+-- >>> listaPresenca ["huryel", "marcus", "jose"]
+-- ["marcus estah presente"]
+listaPresenca l = [ e ++ " estah presente" | e <- l, head e == 'm']
+
+
+l = [1..]
+
+
+
+data Operação = Add Int Int | Mult Int Int | Neg Int
+
+executaOperacao :: Operação -> Int
+executaOperacao (Add i1 i2)  = i1 + i2
+executaOperacao (Mult i1 i2) = i1 * i2
+executaOperacao (Neg i1)     = negate i1
+
