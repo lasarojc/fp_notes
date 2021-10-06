@@ -133,13 +133,13 @@ nav:
 
         - Tipos algébricos: algebraic_data_types.md
 
-        - Cálculo λ: lambda.md
-
         - Funções de alta ordem: highorder.md
 
         - Entrada e Saída: io.md
 
         - Tudo junto e misturado: main.md
+
+        - Cálculo λ: lambda.md
 
         - Que preguiça: lazy.md
 

@@ -1615,7 +1615,7 @@ qualR (PR3 x y z) = "R3"
 
 data Mão = Pedra | Tesoura | Papel deriving (Eq,Show)
 
-data Jogo = Empate | Ganha Mão deriving (Show)
+data Jogo = Empate | Ganha Mão deriving (Show,Eq)
 
 quemGanha :: Mão -> Mão -> Jogo
 quemGanha Pedra Tesoura = Ganha Pedra
@@ -1673,3 +1673,76 @@ executaOperacao (Add i1 i2)  = i1 + i2
 executaOperacao (Mult i1 i2) = i1 * i2
 executaOperacao (Neg i1)     = negate i1
 
+data Exp = EAdd Exp Exp | ENeg Exp | ENum Int
+
+executaExpressao :: Exp -> Int
+executaExpressao (ENum i) = i
+executaExpressao (ENeg e) = negate (executaExpressao e)
+executaExpressao (EAdd e1 e2) = executaExpressao e1 + executaExpressao e2 
+
+-- >>>executaExpressao (ENum 3)
+-- 3
+-- >>>executaExpressao (ENeg (ENum 3)) = negate (executaExpressao (ENum 3)) = 
+
+-- >>>executaExpressão (EAdd (ENum 3) (ENum 4)) = 3 + 4 = 7
+--                    executaExpressao (ENum 3) = 3
+--                    executaExpressao (ENum 4) = 4
+
+-- >>>executaExpressão (EAdd (ENum 3) (ENeg (ENum 4))) = 3 + (-4) = -1
+-- executaExpressao (ENum 3) = 3
+-- executaExpressao (ENeg (ENum 4)) = negate (4) = -4
+-- executaExpressao (ENum 4) = 4
+
+
+
+multiplicarPor10 :: Int -> Int
+multiplicarPor10 x = x * 10
+
+multiplicarPor10Lista :: [Int] -> [Int]
+multiplicarPor10Lista l = [multiplicarPor10 e | e <- l]
+
+soma3 :: Int -> Int
+soma3 x = x + 3
+
+soma3Lista :: [Int] -> [Int]
+soma3Lista l = [soma3 e | e <- l]
+
+éPar :: Int -> Bool
+éPar x = even x
+
+éParLista :: [Int] -> [Bool]
+éParLista l = [éPar e | e <- l]
+
+mod3 :: Int -> Int
+mod3 x = x `mod` 3 
+
+mod3List :: [Int] -> [Int]
+mod3List l  = [mod3 e | e <- l]
+
+
+mapeie :: (a -> b) -> [a] -> [b]
+mapeie f xs = [f x | x <- xs]
+
+-- >>> mapeie multiplicarPor10 [1..10]
+-- [10,20,30,40,50,60,70,80,90,100]
+
+-- >>> mapeie soma3 [1..10]
+-- [4,5,6,7,8,9,10,11,12,13]
+
+-- >>> mapeie éPar [1..10]
+-- [False,True,False,True,False,True,False,True,False,True]
+
+-- >>> mapeie mod3 [1..10]
+-- [1,2,0,1,2,0,1,2,0,1]
+
+
+
+
+filtra [] = []
+filtra (Empate:xs) = filtra xs
+filtra (Ganha m:xs) = m: filtra xs
+
+-- >>> filtra [Empate, Ganha Pedra, Empate, Ganha Tesoura]
+-- [Pedra,Tesoura]
+
+filtra' l = [ e |e <- l, e /= Empate]

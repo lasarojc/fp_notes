@@ -446,6 +446,14 @@ valorNumérico Rei = 13
         * tempInCelsius - função que recebe uma temperatura qualquer e retorna uma Temperatura em Celsius.
         * Item para outras temperaturas.
 
+
+###### Compreensão de listas
+Imagine queira selecionar todas as cartas numéricas de uma lista `l` de Carta.
+Usando compreensão de listas, voce pode filtrar estes elementos simplesmente como `#!hs [e | Número e <- l]`.
+Isto é, o próprio gerador entende que somente tipos que casem com o construtor `#!hs Número` deverão ser considerados.
+
+
+
 ## Notação tipo "record"
 ???todo "TODO"
    Records

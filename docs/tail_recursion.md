@@ -88,3 +88,6 @@ Vejamos um outro exemplo do uso de recursão de cauda, desta vez para calcular o
 docs/code/fib1.hs
 --8<--
 ```
+
+
+###### foldl x foldr
