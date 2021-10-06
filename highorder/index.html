@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#funcoes-de-alta-ordem" class="md-skip">
+        <a href="#funcoes-de-mais-alta-ordem" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -456,21 +456,6 @@
 
   
   
-  
-    <li class="md-nav__item">
-      <a href="../lambda/" class="md-nav__link">
-        Cálculo λ
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
     
   
   
@@ -506,8 +491,57 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    map
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    filter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fold-reducao" class="md-nav__link">
+    fold (redução)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#all" class="md-nav__link">
+    all
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#lambda" class="md-nav__link">
     Lambda
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#curring-aplicacao-parcial" class="md-nav__link">
+    Curring (aplicação parcial)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operador-aplicacao" class="md-nav__link">
+    Operador $ (aplicação)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operador-composicao" class="md-nav__link">
+    Operador . (composição)
   </a>
   
 </li>
@@ -545,6 +579,21 @@
     <li class="md-nav__item">
       <a href="../main.md" class="md-nav__link">
         Tudo junto e misturado
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lambda/" class="md-nav__link">
+        Cálculo λ
       </a>
     </li>
   
@@ -651,8 +700,57 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    map
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    filter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fold-reducao" class="md-nav__link">
+    fold (redução)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#all" class="md-nav__link">
+    all
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#lambda" class="md-nav__link">
     Lambda
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#curring-aplicacao-parcial" class="md-nav__link">
+    Curring (aplicação parcial)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operador-aplicacao" class="md-nav__link">
+    Operador $ (aplicação)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operador-composicao" class="md-nav__link">
+    Operador . (composição)
   </a>
   
 </li>
@@ -680,8 +778,259 @@
 
 
   <!-- Content -->
-  <h1 id="funcoes-de-alta-ordem">Funções de alta ordem</h1>
-<p>Iteração</p>
+  <h1 id="funcoes-de-mais-alta-ordem">Funções de mais alta ordem</h1>
+<p>Quando estudamos linguagens de programação, é comum denominar como <strong>cidadãos de primeira classe</strong> (do inglês, <em>first class citizens</em>) as entidades que podem ser atribuídas a variáveis, passadas como parâmetro, retornadas como resultado ou operadas de forma geral.
+Em Haskell, funções são cidadãs de primeira classe! Vejamos um exemplo em que uma função é associada a uma variável, o que efetivamente torna esta variável uma função!</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">f</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">g</span> <span class="ow">=</span> <span class="n">f</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">g</span> <span class="mi">1</span> <span class="mi">2</span>
+<span class="mi">3</span>
+</code></pre></div>
+</td></tr></table>
+<p>Outro conceito relacionado é o das <strong>funções de mais alta ordem</strong>, aquelas funções que ou recebem como parâmetro ou retornam como resultado outras funções, e que só podem existir em linguagens em que funções são cidadãs de primeira classe.
+Vejamos um exemplo de uma função de mais alta ordem que aplica uma outra função, recebida como parâmetro, aos seus outros parâmetros.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">somar</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> 
+<span class="nf">somar</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="nf">multiplicar</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> 
+<span class="nf">multiplicar</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+
+<span class="nf">dividir</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> 
+<span class="nf">dividir</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="n">y</span>
+
+
+<span class="nf">operar</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">operar</span> <span class="n">f</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">f</span> <span class="n">x</span> <span class="n">y</span>
+
+<span class="c1">-- &gt;&gt;&gt; operar somar 3 4</span>
+<span class="c1">-- 7</span>
+
+<span class="c1">-- &gt;&gt;&gt; operar multiplicar 3 4</span>
+<span class="c1">-- 12</span>
+
+<span class="c1">-- &gt;&gt;&gt; operar dividir 3 4</span>
+<span class="c1">-- 0</span>
+
+
+<span class="nf">aplicarLista1</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">aplicarLista1</span> <span class="n">f</span> <span class="n">i</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">i</span>
+<span class="nf">aplicarLista1</span> <span class="n">f</span> <span class="n">i</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">f</span> <span class="n">n</span> <span class="p">(</span><span class="n">aplicarLista1</span> <span class="n">f</span> <span class="n">i</span> <span class="n">ns</span><span class="p">)</span>
+
+<span class="c1">-- &gt;&gt;&gt;aplicarLista1 somar 0 [1..5]</span>
+<span class="c1">-- 15</span>
+
+<span class="c1">-- &gt;&gt;&gt;aplicarLista1 multiplicar 1 [1..5]</span>
+<span class="c1">-- 120</span>
+
+<span class="nf">aplicarLista2</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">aplicarLista2</span> <span class="n">f</span> <span class="n">i</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">i</span>
+<span class="nf">aplicarLista2</span> <span class="n">f</span> <span class="n">i</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">aplicarLista2</span> <span class="n">f</span> <span class="p">(</span><span class="n">f</span> <span class="n">i</span> <span class="n">n</span><span class="p">)</span> <span class="n">ns</span>
+
+<span class="c1">-- &gt;&gt;&gt;aplicarLista2 somar 0 [1..5]</span>
+<span class="c1">-- 15</span>
+
+<span class="c1">-- &gt;&gt;&gt;aplicarLista2 multiplicar 1 [1..5]</span>
+<span class="c1">-- 120</span>
+</code></pre></div>
+</td></tr></table>
+<p>Observe que a função <code class="highlight"><span class="nf">operar</span></code> tem como primeiro parâmetro <code class="highlight"><span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span></code>, isto é, uma função que recebe dois inteiros e retorna um inteiro; ela recebe uma função como parâmetro e aplica esta função aos demais parâmetros!
+Funções de alta ordem são úteis em diversas situações, por exemplo, como forma de criar um comportamento configurável no seu código.
+De fato, Haskell tem diversas funções de mais alta ordem em sua biblioteca; vejamos algumas.</p>
+<h2 id="map">map</h2>
+<p>Seja uma lista de inteiros sobre a qual você queira executar diversas transformações, por exemplo, multiplicar todos os valores por 10, somar 3, testar se par ou achar o módulo por 3.
+Você pode começar definindo funções que fazem transformações em um único elemento e, para cada uma, uma função correspondente para listas.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">multiplicarPor10</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">multiplicarPor10</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">10</span>
+
+<span class="nf">multiplicarPor10Lista</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
+<span class="nf">multiplicarPor10Lista</span> <span class="n">l</span> <span class="ow">=</span> <span class="p">[</span><span class="n">multiplicarPor10</span> <span class="n">e</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="n">l</span><span class="p">]</span>
+
+<span class="nf">soma3</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">soma3</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
+
+<span class="nf">soma3Lista</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
+<span class="nf">soma3Lista</span> <span class="n">l</span> <span class="ow">=</span> <span class="p">[</span><span class="n">soma3</span> <span class="n">e</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="n">l</span><span class="p">]</span>
+
+<span class="nf">éPar</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="nf">éPar</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">even</span> <span class="n">x</span>
+
+<span class="nf">éParLista</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Bool</span><span class="p">]</span>
+<span class="nf">éParLista</span> <span class="n">l</span> <span class="ow">=</span> <span class="p">[</span><span class="n">éPar</span> <span class="n">e</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="n">l</span><span class="p">]</span>
+
+<span class="nf">mod3</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">mod3</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="p">`</span><span class="n">mod</span><span class="p">`</span> <span class="mi">3</span> 
+
+<span class="nf">mod3List</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
+<span class="nf">mod3List</span> <span class="n">l</span>  <span class="ow">=</span> <span class="p">[</span><span class="n">mod3</span> <span class="n">e</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="n">l</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+<p>Se você observar as funções para as listas perceberá que todas tem uma estrutura muito parecida.
+Graças às funções de mais alta ordem, você pode aproveitar este fato e criar uma função genérica que sirva para aplicar qualquer transformação.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">mapeie</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">b</span><span class="p">]</span>
+<span class="nf">mapeie</span> <span class="n">f</span> <span class="n">xs</span> <span class="ow">=</span> <span class="p">[</span><span class="n">f</span> <span class="n">x</span> <span class="o">|</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">xs</span><span class="p">]</span>
+
+<span class="o">&gt;</span> <span class="n">mapeie</span> <span class="n">multiplicarPor10</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
+
+<span class="o">&gt;</span> <span class="n">mapeie</span> <span class="n">soma3</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">]</span>
+
+<span class="o">&gt;</span> <span class="n">mapeie</span> <span class="n">éPar</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+<span class="p">[</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">]</span>
+
+<span class="o">&gt;</span> <span class="n">mapeie</span> <span class="n">mod3</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+<p>A função <code class="highlight"><span class="nf">mapeie</span></code>, na verdade, serve para aplicar qualquer função que transforme <code>a</code> para <code>b</code> em uma lista de elementos do tipo <code>a</code>, resultando em uma lista de elementos do tipo <code>b</code>.
+Esta função é tão útil, que já existe na biblioteca do Haskell e de qualquer linguagem de programação funcional (e mesmo outras, como Python e Java).</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="n">map</span>
+<span class="nf">map</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">b</span><span class="p">]</span>   <span class="c1">-- Defined in ‘GHC.Base’</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="filter">filter</h2>
+<p>A função <code class="highlight"><span class="nf">filter</span></code> recebe como parâmetros um predicado e uma lista e retorna como resultado um lista com todos os elementos da lista original que satisfazem ao predicado.
+Esta função pode ser definida e usada como a seguir.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="n">filter</span>
+<span class="nf">filter</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>     <span class="c1">-- Defined in ‘GHC.List’</span>
+<span class="nf">filter</span> <span class="n">p</span> <span class="n">xs</span> <span class="ow">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">|</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">xs</span><span class="p">,</span> <span class="n">p</span> <span class="n">x</span><span class="p">]</span>
+
+<span class="o">&gt;</span> <span class="n">f</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span>
+<span class="o">&gt;</span> <span class="n">filter</span> <span class="n">f</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">15</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="fold-reducao">fold (redução)</h2>
+<p>Um procedimento recorrente sobre dados é a redução de um conjunto para um único valor, como é feito pelas funções <code class="highlight"><span class="nf">product</span></code> e <code class="highlight"><span class="nf">sum</span></code> nos seguintes exemplos.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">sum</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+<span class="mi">55</span>
+
+<span class="o">&gt;</span> <span class="n">product</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">3</span><span class="p">]</span>
+<span class="mi">6</span>
+</code></pre></div>
+</td></tr></table>
+<p>Vamos tentar generalizar estas duas funções usando uma função de mais alta ordem.
+Isto é, definimos uma função de mais alta ordem que receba ou a função <code class="highlight"><span class="p">(</span><span class="o">+</span><span class="p">)</span></code> ou <code class="highlight"><span class="p">(</span><span class="o">*</span><span class="p">)</span></code> e aplique a uma lista de inteiros calculando o somatório ou o produtório dos elementos da lista.
+Comecemos por redefinir <code class="highlight"><span class="nf">sum</span></code> e <code class="highlight"><span class="nf">product</span></code> para entender melhor suas estruturas.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">sum&#39;</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">sum&#39;</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="mi">0</span>
+<span class="nf">sum&#39;</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">+</span> <span class="n">sum&#39;</span> <span class="n">ns</span>
+
+<span class="nf">product&#39;</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">product&#39;</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="nf">product&#39;</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">product&#39;</span> <span class="n">ns</span>
+</code></pre></div>
+</td></tr></table>
+<p>Por mais estranho que possa parecer, o produtório de uma lista vazia é 1, pois assim temos um caso base para a recursão que, tanto em <code class="highlight"><span class="nf">sum</span></code> quanto em <code class="highlight"><span class="nf">product</span></code> retorna o elemento neutro e permite que a recursão retorne o resultado correto.</p>
+<p>Façamos agora nossa função genérica.
+Ela deve receber uma função que receba dois inteiros e retorne um inteiro, além da lista de inteiros para aplicar a função, e de retornar um resultado também inteiro.
+Também deverá ter um caso recursivo a ser aplicado na cauda da lista.
+E deverá ter um caso base que retorne o elemento neutro da operação; mas como definir o caso base?</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">aplicarLista</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">aplicarLista</span> <span class="n">f</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="o">??</span>
+<span class="nf">aplicarLista</span> <span class="n">f</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">n</span> <span class="p">`</span><span class="n">f</span><span class="p">`</span> <span class="p">(</span><span class="n">aplicarLista</span> <span class="n">f</span> <span class="n">ns</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>Poderíamos testar se a função passada como parâmetro é a soma ou a multiplicação, mas você deve ter percebido que nosso objetivo é ir além destes dois operadores.
+Precisamos então de outra definição, que não esbarre no problema do elemento neutro, e a solução normalmente encontrada é indicar este elemento na invocação da função.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -689,16 +1038,93 @@
 5
 6
 7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">mapeie</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">b</span><span class="p">]</span>
-<span class="nf">mapeie</span> <span class="n">f</span> <span class="n">xs</span> <span class="ow">=</span> <span class="p">[</span><span class="n">f</span> <span class="n">x</span> <span class="o">|</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">xs</span><span class="p">]</span>
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">aplicarLista1</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">aplicarLista1</span> <span class="n">f</span> <span class="n">i</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">i</span>
+<span class="nf">aplicarLista1</span> <span class="n">f</span> <span class="n">i</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">n</span> <span class="p">`</span><span class="n">f</span><span class="p">`</span> <span class="p">(</span><span class="n">aplicarLista1</span> <span class="n">f</span> <span class="n">i</span> <span class="n">ns</span><span class="p">)</span>
 
-<span class="nf">filtre</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
-<span class="nf">filtre</span> <span class="n">p</span> <span class="n">xs</span> <span class="ow">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">|</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">p</span> <span class="n">x</span><span class="p">]</span>
+<span class="o">&gt;</span> <span class="n">aplicarLista1</span> <span class="n">somar</span> <span class="mi">0</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">]</span>
+<span class="mi">15</span>
 
-<span class="nf">descarte</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
-<span class="nf">descarte</span> <span class="n">p</span> <span class="n">xs</span> <span class="ow">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">|</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">not</span> <span class="p">(</span><span class="n">p</span> <span class="n">x</span><span class="p">)]</span>
+<span class="o">&gt;</span> <span class="n">aplicarLista1</span> <span class="n">multiplicar</span> <span class="mi">1</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">]</span>
+<span class="mi">120</span>
 </code></pre></div>
 </td></tr></table>
+<p>Enquanto correta, esta não é a única alternativa para se obter exatamente o mesmo resultado.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">aplicarLista2</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="nf">aplicarLista2</span> <span class="n">f</span> <span class="n">i</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">i</span>
+<span class="nf">aplicarLista2</span> <span class="n">f</span> <span class="n">i</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">aplicarLista2</span> <span class="n">f</span> <span class="p">(</span><span class="n">i</span> <span class="p">`</span><span class="n">f</span><span class="p">`</span> <span class="n">n</span><span class="p">)</span> <span class="n">ns</span>
+
+<span class="o">&gt;</span> <span class="n">aplicarLista2</span> <span class="n">somar</span> <span class="mi">0</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">]</span>
+<span class="mi">15</span>
+
+<span class="o">&gt;</span> <span class="n">aplicarLista2</span> <span class="n">multiplicar</span> <span class="mi">1</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">]</span>
+<span class="mi">120</span>
+</code></pre></div>
+</td></tr></table>
+<p>Mas estas duas funções são realmente iguais?</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="o">/</span><span class="mi">4</span><span class="o">/</span><span class="mi">5</span>
+<span class="mf">8.333333333333333e-3</span>
+<span class="o">&gt;</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="mi">5</span><span class="p">)))</span>
+<span class="mf">1.875</span>
+<span class="o">&gt;</span> <span class="p">(((</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span><span class="o">/</span><span class="mi">5</span>
+<span class="mf">8.333333333333333e-3</span>
+
+<span class="o">&gt;</span> <span class="p">(</span><span class="mi">100</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="p">(</span><span class="mi">10</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="p">(</span><span class="mi">2</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">1</span><span class="p">)))</span>
+<span class="mi">20</span>
+
+<span class="o">&gt;</span> <span class="p">((</span><span class="mi">100</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">10</span><span class="p">)</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">2</span><span class="p">)</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">1</span>
+<span class="mi">5</span>
+</code></pre></div>
+</td></tr></table>
+<p>De fato, estas duas funções são definidas (de forma mais geral) na biblioteca Haskell como <code class="highlight"><span class="nf">foldr</span></code> e <code class="highlight"><span class="nf">foldl</span></code>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">foldr</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">0</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">100000</span><span class="p">]</span>
+<span class="mi">5000050000</span>
+
+<span class="o">&gt;</span> <span class="n">foldl</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">0</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">100000</span><span class="p">]</span>
+<span class="mi">5000050000</span>
+
+<span class="o">&gt;</span> <span class="n">foldr</span> <span class="n">div</span> <span class="mi">1</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="mi">20</span>
+<span class="o">&gt;</span> <span class="n">foldl</span> <span class="n">div</span> <span class="mi">1</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="mi">0</span>
+</code></pre></div>
+</td></tr></table>
+<p>A diferença no nome vem do fato das funções assumirem que a função passada como parâmetro é associativa a direita (como +, *) ou a esquerda (como +, *, /, -)</p>
+<p>Outra distinção a ser feita entre as duas funções é o fato de uma usar muito mais recursos que a outra durante a computação, mas voltaremos a discutir isso quando falarmos sobre recursão de cauda.</p>
+<h2 id="all">all</h2>
+<h2 id="lambda">Lambda</h2>
+<h2 id="curring-aplicacao-parcial">Curring (aplicação parcial)</h2>
+<h2 id="operador-aplicacao">Operador $ (aplicação)</h2>
+<h2 id="operador-composicao">Operador . (composição)</h2>
 <p>Sumarização</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -730,7 +1156,6 @@
 </td></tr></table>
 <p>sortOn :: Ord b =&gt; (a -&gt; b) -&gt; [a] -&gt; [a]#</p>
 <p>Sort a list by comparing the results of a key function applied to each element. sortOn f is equivalent to sortBy (comparing f), but has the performance advantage of only evaluating f once for each element in the input list. This is called the decorate-sort-undecorate paradigm, or Schwartzian transform.</p>
-<h2 id="lambda">Lambda</h2>
 <p>all
 <a href="https://hoogle.haskell.org/?q=all">https://hoogle.haskell.org/?q=all</a></p>
 
@@ -754,7 +1179,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Rodapé">
       
         
-        <a href="../lambda/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Cálculo λ" rel="prev">
+        <a href="../algebraic_data_types/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Tipos algébricos" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -763,7 +1188,7 @@
               <span class="md-footer__direction">
                 Anterior
               </span>
-              Cálculo λ
+              Tipos algébricos
             </div>
           </div>
         </a>

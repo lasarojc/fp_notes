@@ -46,12 +46,15 @@ actionLoop t js =
                                 in actionLoop t' js'
                             else actionLoop t js
 
+-- Tenta movimentar o jogador na direcao especificada.
 mover :: Direção -> Tabuleiro -> [JogadorDados] -> Int -> (Tabuleiro, [JogadorDados])
 mover = error "not implemented"
 
+-- Descobre se alguma ação é possível para o jogador e executa.
 agir :: Tabuleiro -> [JogadorDados] -> Int -> (Tabuleiro, [JogadorDados])
 agir = error "not implemented"
 
+-- Verifica se é possível colocar a boma e coloca.
 colocarBomba :: Tabuleiro -> [JogadorDados] -> Int -> (Tabuleiro, [JogadorDados])
 colocarBomba = error "not implemented"
 
