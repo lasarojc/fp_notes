@@ -16,7 +16,7 @@
     
     
       
-        <title>Funções de alta ordem - Notas de Aula em Programação Funcional</title>
+        <title>Funções de ordem superior - Notas de Aula em Programação Funcional</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#funcoes-de-mais-alta-ordem" class="md-skip">
+        <a href="#funcoes-de-ordem-superior" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Funções de alta ordem
+              Funções de ordem superior
             
           </span>
         </div>
@@ -468,12 +468,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Funções de alta ordem
+          Funções de ordem superior
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Funções de alta ordem
+        Funções de ordem superior
       </a>
       
         
@@ -778,7 +778,7 @@
 
 
   <!-- Content -->
-  <h1 id="funcoes-de-mais-alta-ordem">Funções de mais alta ordem</h1>
+  <h1 id="funcoes-de-ordem-superior">Funções de ordem superior</h1>
 <p>Quando estudamos linguagens de programação, é comum denominar como <strong>cidadãos de primeira classe</strong> (do inglês, <em>first class citizens</em>) as entidades que podem ser atribuídas a variáveis, passadas como parâmetro, retornadas como resultado ou operadas de forma geral.
 Em Haskell, funções são cidadãs de primeira classe! Vejamos um exemplo em que uma função é associada a uma variável, o que efetivamente torna esta variável uma função!</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -790,8 +790,8 @@ Em Haskell, funções são cidadãs de primeira classe! Vejamos um exemplo em qu
 <span class="mi">3</span>
 </code></pre></div>
 </td></tr></table>
-<p>Outro conceito relacionado é o das <strong>funções de mais alta ordem</strong>, aquelas funções que ou recebem como parâmetro ou retornam como resultado outras funções, e que só podem existir em linguagens em que funções são cidadãs de primeira classe.
-Vejamos um exemplo de uma função de mais alta ordem que aplica uma outra função, recebida como parâmetro, aos seus outros parâmetros.</p>
+<p>Outro conceito relacionado é o das <strong>funções de ordem superior</strong>, aquelas funções que ou recebem como parâmetro ou retornam como resultado outras funções, e que só podem existir em linguagens em que funções são cidadãs de primeira classe.
+Vejamos um exemplo de uma função de ordem superior que aplica uma outra função, recebida como parâmetro, aos seus outros parâmetros.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -879,7 +879,7 @@ Vejamos um exemplo de uma função de mais alta ordem que aplica uma outra funç
 </td></tr></table>
 <p>Observe que a função <code class="highlight"><span class="nf">operar</span></code> tem como primeiro parâmetro <code class="highlight"><span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span></code>, isto é, uma função que recebe dois inteiros e retorna um inteiro; ela recebe uma função como parâmetro e aplica esta função aos demais parâmetros!
 Funções de alta ordem são úteis em diversas situações, por exemplo, como forma de criar um comportamento configurável no seu código.
-De fato, Haskell tem diversas funções de mais alta ordem em sua biblioteca; vejamos algumas.</p>
+De fato, Haskell tem diversas funções de ordem superior em sua biblioteca; vejamos algumas.</p>
 <h2 id="map">map</h2>
 <p>Seja uma lista de inteiros sobre a qual você queira executar diversas transformações, por exemplo, multiplicar todos os valores por 10, somar 3, testar se par ou achar o módulo por 3.
 Você pode começar definindo funções que fazem transformações em um único elemento e, para cada uma, uma função correspondente para listas.</p>
@@ -931,7 +931,7 @@ Você pode começar definindo funções que fazem transformações em um único 
 </code></pre></div>
 </td></tr></table>
 <p>Se você observar as funções para as listas perceberá que todas tem uma estrutura muito parecida.
-Graças às funções de mais alta ordem, você pode aproveitar este fato e criar uma função genérica que sirva para aplicar qualquer transformação.</p>
+Graças às funções de ordem superior, você pode aproveitar este fato e criar uma função genérica que sirva para aplicar qualquer transformação.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -999,8 +999,8 @@ Esta função pode ser definida e usada como a seguir.</p>
 <span class="mi">6</span>
 </code></pre></div>
 </td></tr></table>
-<p>Vamos tentar generalizar estas duas funções usando uma função de mais alta ordem.
-Isto é, definimos uma função de mais alta ordem que receba ou a função <code class="highlight"><span class="p">(</span><span class="o">+</span><span class="p">)</span></code> ou <code class="highlight"><span class="p">(</span><span class="o">*</span><span class="p">)</span></code> e aplique a uma lista de inteiros calculando o somatório ou o produtório dos elementos da lista.
+<p>Vamos tentar generalizar estas duas funções usando uma função de ordem superior.
+Isto é, definimos uma função de ordem superior que receba ou a função <code class="highlight"><span class="p">(</span><span class="o">+</span><span class="p">)</span></code> ou <code class="highlight"><span class="p">(</span><span class="o">*</span><span class="p">)</span></code> e aplique a uma lista de inteiros calculando o somatório ou o produtório dos elementos da lista.
 Comecemos por redefinir <code class="highlight"><span class="nf">sum</span></code> e <code class="highlight"><span class="nf">product</span></code> para entender melhor suas estruturas.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -1114,10 +1114,10 @@ Se não houver um valor que naturalmente se encaixe, sempre pode-se usar ou o pr
 É exatamente isso que as funções <code class="highlight"><span class="nf">foldl1</span></code> e <code class="highlight"><span class="nf">foldr1</span></code> fazem.
 Se usadas nas mesmas listas dos exemplos anteriores, temos os seguintes resultados.</p>
 <ul>
-<li><code class="highlight"><span class="nf">foldr1</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span></code> <span class="arithmatex">\(= 1 + (3 + (5)) = 1 + (8) = 9\)</span></li>
-<li><code class="highlight"><span class="nf">foldl1</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span></code> <span class="arithmatex">\(= ((1) + 3) + 5 = (4) + 5 = 9\)</span></li>
-<li><code class="highlight"><span class="nf">foldr1</span> <span class="n">div</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span></code> <span class="arithmatex">\(=  100 <code>div</code> (10 <code>div</code> (2)) = 100 <code>div</code> (5) = 20\)</span></li>
-<li><code class="highlight"><span class="nf">foldl1</span> <span class="n">div</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span></code> $=  (100 <code>div</code> 10) <code>div</code> 2 = (10) <code>div</code> 2 = 5 $</li>
+<li><code class="highlight"><span class="nf">foldr1</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="ow">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="ow">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="ow">=</span> <span class="mi">9</span></code></li>
+<li><code class="highlight"><span class="nf">foldl1</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="ow">=</span> <span class="p">((</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span> <span class="ow">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span> <span class="ow">=</span> <span class="mi">9</span></code></li>
+<li><code class="highlight"><span class="nf">foldr1</span> <span class="n">div</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="ow">=</span>  <span class="mi">100</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="p">(</span><span class="mi">10</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="ow">=</span> <span class="mi">100</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="ow">=</span> <span class="mi">20</span></code></li>
+<li><code class="highlight"><span class="nf">foldl1</span> <span class="n">div</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="ow">=</span>  <span class="p">(</span><span class="mi">100</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">10</span><span class="p">)</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">2</span> <span class="ow">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">2</span> <span class="ow">=</span> <span class="mi">5</span></code></li>
 </ul>
 <h6>Foldable</h6>
 <p>Todos os exemplos usados até agora foram sobre listas de números, mas a especificação das funções de redução não faz esta exigência.
@@ -1230,7 +1230,7 @@ Fold tem o seguinte efeito.</p>
 </details>
 <h2 id="all">all</h2>
 <p>Seja uma lista <code>l::[a]</code>, com elementos do tipo <code>a</code>. Seja um predicado <code>p</code> sobre a, isto é, <code class="highlight"><span class="nf">p</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span></code>.
-<code>#hs all p l</code> testa se o predicado <code>p</code> é válido para todos os elementos da lista <code>l</code>, por exemplo <code class="highlight"><span class="nf">all</span> <span class="p">(</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">)</span> <span class="p">[</span><span class="mi">6</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span></code> resulta em <code class="highlight"><span class="kt">True</span></code>.</p>
+<code class="highlight"><span class="nf">all</span> <span class="n">p</span> <span class="n">l</span></code> testa se o predicado <code>p</code> é válido para todos os elementos da lista <code>l</code>, por exemplo <code class="highlight"><span class="nf">all</span> <span class="p">(</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">)</span> <span class="p">[</span><span class="mi">6</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span></code> resulta em <code class="highlight"><span class="kt">True</span></code>.</p>
 <p>Enquanto não impressionante, uma vez que vimos logo acima como fazer a mesma coisa usando fold, a invocação chama a atenção por causa do <code class="highlight"><span class="p">(</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">)</span></code>.
 Este é um exemplo de <strong>Currying</strong>.</p>
 <h2 id="currying-aplicacao-parcial">Currying (aplicação parcial)</h2>
