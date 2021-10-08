@@ -163,30 +163,24 @@ aplicarLista2 f i (n:ns) = aplicarLista2 f (i `f` n) ns
 ```
 
 Mas estas duas funções são realmente iguais?
+A resposta é evidentemente não, pois elas aplicam a função passada como parâmetro de forma associativa à esquerda, no caso de `#!hs aplicarLista1`, e à direita, no caso de `#!hs aplicarLista2`, e associatividade tem implicações profundas no cálculo de uma expressão.
+Considere a operação de multiplicação; por ser associativa, isto é, associativa à direita e à esquerda, $1*2*3*4 = ((1*2)*3)*4 = 1*(2*(3*4)) = 24$.
+Agora considere a divisão; por associativa à esquerda $1/2/3/4 = ((1/2)/3)/4 = (0,5/3)/4 = 0,167/4 = 0.0146 \neq 1/(2/(3/4)) = 1/(2/0,75) = 1/2,67 = 0,375$
+
+Esta diferença precisa ficar bem clara, pois estas duas funções são usadas muito frequentemente em Haskell, sendo definidas (de forma mais geral) na biblioteca como `#!hs foldX`.
+
+###### `#!hs foldl` e `#!hs foldr`
+*Fold* é o termo usado para descrever a operação de dobrar a lista sobre si mesma, combinando os elementos até que só sobre um valor.
+Outro nome usado frequentemente é *reduce*, que inclusive nomeia funções semelhantes em outras linguagens.
+
+Haskell tem várias versões de *fold*, mas as duas mais básicas são `#!hs foldl` e `#!hs foldr`, sendo que diferença no nome vem do fato das funções assumirem que a função passada como parâmetro é associativa a direita (como +, *) ou a esquerda (como +, *, /, -).
 
 ```hs
-> 1/2/3/4/5
-8.333333333333333e-3
-> 1/(2/(3/(4/5)))
-1.875
-> (((1/2)/3)/4)/5
-8.333333333333333e-3
+> foldr (+) 0 [1,3,5]
+9
 
-> (100 `div` (10 `div` (2 `div` 1)))
-20
-
-> ((100 `div` 10) `div` 2) `div` 1
-5
-```
-
-De fato, estas duas funções são definidas (de forma mais geral) na biblioteca Haskell como `#!hs foldr` e `#!hs foldl`.
-
-```hs
-> foldr (+) 0 [1..100000]
-5000050000
-
-> foldl (+) 0 [1..100000]
-5000050000
+> foldl (+) 0 [1,3,5]
+9
 
 > foldr div 1 [100,10,2]
 20
@@ -194,16 +188,142 @@ De fato, estas duas funções são definidas (de forma mais geral) na biblioteca
 0
 ```
 
-A diferença no nome vem do fato das funções assumirem que a função passada como parâmetro é associativa a direita (como +, *) ou a esquerda (como +, *, /, -)
+Assim, os exemplos acima podem ser vistos como se segue, evidenciando por quê o resultado da divisão inteira é diferente nas duas chamadas.
+
+* `#!hs foldr (+) 0 [1,3,5]` $= 1 + (3 + (5 + (0))) = 1 + (3 + (5)) = 1 + (8) = 9$
+* `#!hs foldl (+) 0 [1,3,5]` $= ((0 + 1) + 3) + 5 = ((1) + 3) + 5 = (4) + 5 = 9$
+* `#!hs foldr div 1 [100,10,2]` $=  100 `div` (10 `div` (2 `div` (1))) = 100 `div` (10 `div` (2)) = 100 `div` (5) = 20$
+* `#!hs foldl div 1 [100,10,2]` $=  ((1 `div` 100) `div` 10) `div` 2 = ((0) `div` 10) `div` 2 = (0) `div` 2 = 0$
+
 
 Outra distinção a ser feita entre as duas funções é o fato de uma usar muito mais recursos que a outra durante a computação, mas voltaremos a discutir isso quando falarmos sobre recursão de cauda.
 
-## all
+###### `#!hs foldl1` e `#!hs foldr1`
+Para invocar as funções `#!hs foldl` e `#!hs foldr` é necessário especificar o valor a ser usado "na ponta" do cálculo, isto é, como primeiro elemento no caso de `#!hs foldl` e como último elemento no caso de `#!hs foldr`.
+Se não houver um valor que naturalmente se encaixe, sempre pode-se usar ou o primeiro ou o último elemento da própria lista, desde que esta não seja vazia.
+É exatamente isso que as funções `#!hs foldl1` e `#!hs foldr1` fazem.
+Se usadas nas mesmas listas dos exemplos anteriores, temos os seguintes resultados.
 
+* `#!hs foldr1 (+) [1,3,5]` $= 1 + (3 + (5)) = 1 + (8) = 9$
+* `#!hs foldl1 (+) [1,3,5]` $= ((1) + 3) + 5 = (4) + 5 = 9$
+* `#!hs foldr1 div [100,10,2]` $=  100 `div` (10 `div` (2)) = 100 `div` (5) = 20$
+* `#!hs foldl1 div [100,10,2]` $=  (100 `div` 10) `div` 2 = (10) `div` 2 = 5 $
+
+
+###### Foldable
+Todos os exemplos usados até agora foram sobre listas de números, mas a especificação das funções de redução não faz esta exigência.
+Destrinchemos o exemplo de `#!hs foldr`.
+
+```hs
+> :t foldr
+foldr :: Foldable t => (a -> b -> b) -> b -> t a -> b
+```
+
+De forma geral, a definição diz que a função passada como primeiro parâmetro deve receber um parâmetro do tipo variável `a` e outro `b` e que o resultado deve ser do tipo `b`.
+Na prática, esta definição permite que usemos funções assimétricas comp parâmetro, isto é, que tenha parâmetros de tipos distintos.
+
+!!!note "Assimetria"
+     Por exemplo, na execução seguinte a função foi definida para testar o número passado como parâmetro é maior que 5 e combinar a resposta com outras anteriores, na forma de um booleano.
+
+     ```hs
+     > maiorque5 i b = b && (i > 5)
+     > foldr maiorque5 True [1,2,3,4]
+     False
+     > foldr maiorque5 True [1,2,3,4,6]
+     False
+     > foldr maiorque5 True [6..10]
+     True
+     ```
+
+A definição de `#!hs foldr` também diz que o valor inicial da função deve ser do tipo `b`, mas que a lista de valores deve encapsular um valor do tipo `a`; o encapsulamento é feito por elementos da classe `#!hs Foldable`.
+Listas são `#!hs Foldable` (como um `#!hs :i []` pode rapidamente demonstrar), mas não são as únicas estruturas deste tipo. Até mesmo como tipos algébricos recursivos, dependendo de suas definições, podem satisfazer este critério. 
+Por exemplo, podemos definir uma **árvore** que se "dobra" em uma travessia por em ordem dos seus elementos e usar o *folds* para encontrar o maior valor da lista, como no exemplo a seguir.
+
+```hs
+--8<--
+docs/code/foldable.hs
+--8<--
+```
+
+Considere a seguinte árvore:
+
+```
+                 Nó 1
+             /         \
+         Nó 2           Nó 3 
+       /      \        /     \
+  Nó 4        Nada  Nada     Nada
+ /    \
+Nada   Nada
+```
+
+Ou, Haskell, `#!hs arv = Nó 1    (Nó 2 (Nó 4 Nada Nada) Nada)     (Nó 3 Nada Nada)`.
+Fold tem o seguinte efeito.
+
+```hs 
+> foldr (+) 0 arv
+10
+```
+
+O poder desta abordagem está na genericidade na criação da árvore, que também pode armazenar outros dados e ser dobrada termos de outra operação, por exemplo `#!hs String` e `#!hs ++`:
+
+```hs
+> arv2 = Nó  "a" (Nó "b" (Nó "c" Nada Nada) Nada) (Nó "d" Nada Nada)
+> foldr (++)  "" arv2
+"cbad"
+```
+
+Para mais detalhes, visite http://learnyouahaskell.com/functors-applicative-functors-and-monoids#monoids
+
+???todo "TODO"
+     Expandir sobre foldable e traversable.
+
+
+## all
+Seja uma lista `l::[a]`, com elementos do tipo `a`. Seja um predicado `p` sobre a, isto é, `#!hs p :: a -> Bool`.
+`#hs all p l` testa se o predicado `p` é válido para todos os elementos da lista `l`, por exemplo `#!hs all (>5) [6..10]` resulta em `#!hs True`.
+
+Enquanto não impressionante, uma vez que vimos logo acima como fazer a mesma coisa usando fold, a invocação chama a atenção por causa do `#!hs (>5)`.
+Este é um exemplo de **Currying**.
+
+## Currying (aplicação parcial)
+Em outras linguagens, funções são normalmente definidas com sintaxe semelhante à  `#!hs f :: (a,b) -> c`, isto é, o nome da função, seguido de um tupla de tipos de parâmetros, e de um tipo de resultado.
+Isso é verdade para C, Java, Pascal, etc.
+**Currying** é o processo pelo qual uma função deste tipo é transformada em uma função do tipo `#!hs f :: a -> ((b) -> c)`, ou seja, uma função que recebe somente um parâmetro e retorna uma outra função que recebe os demais parâmetros e retorna, ao o mesmo tipo que a primeira função.
+
+O processo pode ser feito para funções mais complexas, exatamente da mesma forma, por exemplo transformando `#!hs f :: (a,b,c) -> d` em `#!hs f :: a -> ((b,c) -> d)`, e também aplicado recursivamente levando, levando a função `#!hs f :: a -> (b -> (c -> d))`, que pode ser simplificado de forma não ambígua para `#!hs f :: a -> b -> c -> d`, que é forma usada pelo Haskell.
+Isso quer dizer que quando você define uma função em Haskell, voce especifica o tipo usando a forma *Curryed*, mesmo que defina a função da forma tradicional.
+Acontece que o próprio Haskell, por baixo dos panos, transforma a sua função no correspondente ao tipo, o que permite que você faça coisas muito legais, como no exemplo a seguir.
+
+```hs
+> 1 + 2
+3
+> (1 +) 2
+3
+```
+
+Esta técnica é conhecida como aplicação parcial, e serve para derivar funções mais especializadas.
+
+```hs
+> f = (1 +)
+> f 2
+3
+```
+
+Estas funções derivadas são como quaisquer outras funções, e podem ser usadas por exemplo em maps e filters.
+
+```hs
+> f = (1 +)
+> map f [1,2,3]
+[2,3,4]
+> f = (==10)
+> map f [1,10,2,10,3,10]
+[False,True,False,True,False,True]
+> filter f [1,10,2,10,3,10]
+[10,10,10]
+```
 
 ## Lambda
-
-## Curring (aplicação parcial)
 
 ## Operador $ (aplicação)
 
@@ -225,18 +345,7 @@ soma (x:xs) = x + soma xs
 eLógico []     = True
 eLógico [x:xs] = x && eLógico xs
 
-
-dobreDireita op base []     = base 
-dobreDireita op base (x:xs) = x `op` dobreDireita op base xs
-
-dobreDireita (+) 0 [1,2,3,4,5]
-dobreDireita (*) 1 [1,2,3,4,5]
 ```
-
-```hs
-dobreEsquerda?
-```
-
 
 sortOn :: Ord b => (a -> b) -> [a] -> [a]#
 
