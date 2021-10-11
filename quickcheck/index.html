@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.be71726b.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.24c991ad.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -88,7 +88,9 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
     <a href=".." title="Notas de Aula em Programação Funcional" class="md-header__button md-logo" aria-label="Notas de Aula em Programação Funcional" data-md-component="logo">
       
@@ -123,7 +125,7 @@
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
             </label>
           
         
@@ -191,11 +193,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -616,13 +621,10 @@
   <p>Agora que nossas funções estão ficando mais complexas, precisamos gastar um pouco mais de esforço nos certificando de que estão corretas.
 Uma ferramenta que nos ajuda a fazer isso é a biblioteca <strong>QuickCheck</strong>.
 Para entender como usar a QuickCheck, considere as duas seguintes funções.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">celsius2fahrenheit</span> <span class="n">c</span> <span class="ow">=</span> <span class="n">c</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">32</span> 
-
-<span class="nf">fahrenheit2celsius</span> <span class="n">f</span> <span class="ow">=</span> <span class="p">(</span><span class="n">f</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="o">/</span><span class="mi">9</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">celsius2fahrenheit</span> <span class="n">c</span> <span class="ow">=</span> <span class="n">c</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">32</span> 
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">fahrenheit2celsius</span> <span class="n">f</span> <span class="ow">=</span> <span class="p">(</span><span class="n">f</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="o">/</span><span class="mi">9</span>
 </code></pre></div>
-</td></tr></table>
 <p>Elas são obviamente inversas uma da outra, o que quer dizer que se eu aplicar um valor qualquer à primeira função e então aplicar resultado na segunda, eu deveria recuperar o valor original.
 Por exemplo, se o valor qualquer é 100, <code class="highlight"><span class="mi">100</span> <span class="o">==</span> <span class="n">fahrenheit2celsius</span> <span class="p">(</span><span class="n">celsius2fahrenheit</span> <span class="mi">100</span><span class="p">)</span></code>.
 Pois a QuickCheck nos permite escrever exatamente este tipo de afirmação e tê-la testada automaticamente para um conjunto de valores aleatórios. 
@@ -632,75 +634,48 @@ Contudo, nossa confiança na corretude aumentaria.</p>
 A propriedade tem um nome iniciado em <code>prop_</code>, mas isso é apenas uma convenção.
 A definição recebe como parâmetro um valor <code>c</code>, converte para Celcius e de volta para Fahrenheit, e confere se o valor resultante é igual ao valor de entrada.
 Observe que o resultado da função é o resultado da comparação com o valor inicial, o que é equivalente mas muito mais limpo do que fazer um teste do tipo <code class="highlight"><span class="kr">if</span> <span class="kt">Condição</span> <span class="kr">then</span> <span class="kt">True</span> <span class="kr">else</span> <span class="kt">False</span></code>.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">prop_C2f2C</span> <span class="n">c</span> <span class="ow">=</span> <span class="n">fahrenheit2celsius</span> <span class="p">(</span><span class="n">celsius2fahrenheit</span> <span class="n">c</span><span class="p">)</span> <span class="o">==</span> <span class="n">c</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">prop_C2f2C</span> <span class="n">c</span> <span class="ow">=</span> <span class="n">fahrenheit2celsius</span> <span class="p">(</span><span class="n">celsius2fahrenheit</span> <span class="n">c</span><span class="p">)</span> <span class="o">==</span> <span class="n">c</span>
 </code></pre></div>
-</td></tr></table>
 <p>Para usar a biblioteca, precisamos importá-la, no início do arquivo, com um <code class="highlight"><span class="kr">import</span> <span class="nn">Test.QuickCheck</span></code>.
 Assim, o arquivo ficará assim.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="nn">Test.QuickCheck</span>
-
-<span class="nf">celsius2fahrenheit</span> <span class="n">c</span> <span class="ow">=</span> <span class="n">c</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">32</span> 
-
-<span class="nf">fahrenheit2celsius</span> <span class="n">f</span> <span class="ow">=</span> <span class="p">(</span><span class="n">f</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="o">/</span><span class="mi">9</span>
-
-<span class="nf">prop_C2f2C</span> <span class="n">c</span> <span class="ow">=</span> <span class="n">fahrenheit2celsius</span> <span class="p">(</span><span class="n">celsius2fahrenheit</span> <span class="n">c</span><span class="p">)</span> <span class="o">==</span> <span class="n">c</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kr">import</span> <span class="nn">Test.QuickCheck</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">celsius2fahrenheit</span> <span class="n">c</span> <span class="ow">=</span> <span class="n">c</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">32</span> 
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="nf">fahrenheit2celsius</span> <span class="n">f</span> <span class="ow">=</span> <span class="p">(</span><span class="n">f</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="o">/</span><span class="mi">9</span>
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="nf">prop_C2f2C</span> <span class="n">c</span> <span class="ow">=</span> <span class="n">fahrenheit2celsius</span> <span class="p">(</span><span class="n">celsius2fahrenheit</span> <span class="n">c</span><span class="p">)</span> <span class="o">==</span> <span class="n">c</span>
 </code></pre></div>
-</td></tr></table>
 <p>Para testar o código, execute o ghci carregando o QuickCheck. A forma mais simples de fazê-lo é usando stack: <code>stack ghci --package QuickCheck</code>.
 Agora carregue seu programa,  usando <code>:l f2c2f</code> no meu caso e execute o teste</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>*Main&gt; quickCheck prop_C2f2C
-*** Failed! Falsified (after 2 tests and 4 shrinks):
--0.1
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>*Main&gt; quickCheck prop_C2f2C
+<span class="linenos" data-linenos="2 "></span>*** Failed! Falsified (after 2 tests and 4 shrinks):
+<span class="linenos" data-linenos="3 "></span>-0.1
 </code></pre></div>
-</td></tr></table>
 <p>Ooops! O teste falhou para o valor -0.1. Mas por quê? Vejamos cada função isoladamente.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>*Main&gt; celsius2fahrenheit (-0.1)
-31.82
-*Main&gt; fahrenheit2celsius 31.82
--9.999999999999984e-2
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>*Main&gt; celsius2fahrenheit (-0.1)
+<span class="linenos" data-linenos="2 "></span>31.82
+<span class="linenos" data-linenos="3 "></span>*Main&gt; fahrenheit2celsius 31.82
+<span class="linenos" data-linenos="4 "></span>-9.999999999999984e-2
 </code></pre></div>
-</td></tr></table>
 <p>Os valores são próximos, mas não são iguais, por causa de problemas de arredondamento causados pela imprecisão dos tipos utilizados.
 O problema está no teste, pois é impossível para o computador representar certos valores e estes erros de aproximação ocorrerão.
 Assim, uma estratégia melhor é definir um operador <strong>quase igual</strong>, para comparar valores com pequenos erros.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="nn">Test.QuickCheck</span>
-
-<span class="nf">celsius2fahrenheit</span> <span class="n">c</span> <span class="ow">=</span> <span class="n">c</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">32</span> 
-
-<span class="nf">fahrenheit2celsius</span> <span class="n">f</span> <span class="ow">=</span> <span class="p">(</span><span class="n">f</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="o">/</span><span class="mi">9</span>
-
-<span class="nf">prop_C2f2C</span> <span class="n">c</span> <span class="ow">=</span> <span class="n">fahrenheit2celsius</span> <span class="p">(</span><span class="n">celsius2fahrenheit</span> <span class="n">c</span><span class="p">)</span> <span class="o">~==</span> <span class="n">c</span>
-
-<span class="nf">l</span> <span class="o">~==</span> <span class="n">r</span> <span class="ow">=</span> <span class="n">abs</span> <span class="p">(</span><span class="n">l</span> <span class="o">-</span> <span class="n">r</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">ε</span>
-    <span class="kr">where</span> <span class="n">ε</span> <span class="ow">=</span> <span class="mf">10e-10</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kr">import</span> <span class="nn">Test.QuickCheck</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nf">celsius2fahrenheit</span> <span class="n">c</span> <span class="ow">=</span> <span class="n">c</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">32</span> 
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nf">fahrenheit2celsius</span> <span class="n">f</span> <span class="ow">=</span> <span class="p">(</span><span class="n">f</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="o">/</span><span class="mi">9</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nf">prop_C2f2C</span> <span class="n">c</span> <span class="ow">=</span> <span class="n">fahrenheit2celsius</span> <span class="p">(</span><span class="n">celsius2fahrenheit</span> <span class="n">c</span><span class="p">)</span> <span class="o">~==</span> <span class="n">c</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nf">l</span> <span class="o">~==</span> <span class="n">r</span> <span class="ow">=</span> <span class="n">abs</span> <span class="p">(</span><span class="n">l</span> <span class="o">-</span> <span class="n">r</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">ε</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="kr">where</span> <span class="n">ε</span> <span class="ow">=</span> <span class="mf">10e-10</span>
 </code></pre></div>
-</td></tr></table>
 <p>Com esta nova definição, nosso teste agora passa com sucesso.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>*Main&gt; quickCheck prop_C2f2C
-+++ OK, passed 100 tests.
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>*Main&gt; quickCheck prop_C2f2C
+<span class="linenos" data-linenos="2 "></span>+++ OK, passed 100 tests.
 </code></pre></div>
-</td></tr></table>
 
   <!-- Last update of source file -->
 
@@ -762,10 +737,12 @@ Assim, uma estratégia melhor é definir um operador <strong>quase igual</strong
             Copyright © 2021 Lásaro Camargos
           </div>
         
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
         
       </div>
       
@@ -787,10 +764,10 @@ Assim, uma estratégia melhor é definir um operador <strong>quase igual</strong
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.e99e714c.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.56a63758.min.js"></script>
+      <script src="../assets/javascripts/bundle.bc35569b.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       

@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.be71726b.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.24c991ad.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -93,7 +93,9 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
     <a href=".." title="Notas de Aula em Programação Funcional" class="md-header__button md-logo" aria-label="Notas de Aula em Programação Funcional" data-md-component="logo">
       
@@ -128,7 +130,7 @@
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
             </label>
           
         
@@ -196,11 +198,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -788,156 +793,93 @@ Com <code class="highlight"><span class="kr">data</span></code> é possível faz
 <h2 id="data"><code class="highlight"><span class="kr">data</span></code></h2>
 <p>Com a palavra reservada <code class="highlight"><span class="kr">data</span></code> é possível definir um novo tipo de dados (em inglês, <em>data</em>).
 O seguinte uso define um tipo para os naipes das cartas de um baralho.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span>
 </code></pre></div>
-</td></tr></table>
 <p>Pela equação seguinte, definimos o tipo de dados <code class="highlight"><span class="kt">Naipe</span></code> (lado esquerdo) como sendo igual a <strong>um dos</strong> valores do lado direito, dado que o lado direito é uma disjunção.
 É comum dizer que <code class="highlight"><span class="kt">Naipe</span></code> é uma <strong>enumeração</strong> dos valores à direita da equação.</p>
 <p>Uma vez definido o tipo, podemos perguntar ao Haskell como ele é interpretado.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span> 
-<span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Naipe</span>
-<span class="kr">type</span> <span class="kt">Naipe</span> <span class="ow">::</span> <span class="o">*</span>
-<span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span>
-        <span class="c1">-- Defined at &lt;interactive&gt;:1:1</span>
-<span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Copas</span>
-<span class="kr">type</span> <span class="kt">Naipe</span> <span class="ow">::</span> <span class="o">*</span>
-<span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="o">...</span>
-        <span class="c1">-- Defined at &lt;interactive&gt;:1:14</span>
-<span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="kt">Copas</span>
-<span class="kt">Copas</span> <span class="ow">::</span> <span class="kt">Naipe</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span> 
+<span class="linenos" data-linenos=" 2 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Naipe</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kr">type</span> <span class="kt">Naipe</span> <span class="ow">::</span> <span class="o">*</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="c1">-- Defined at &lt;interactive&gt;:1:1</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Copas</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="kr">type</span> <span class="kt">Naipe</span> <span class="ow">::</span> <span class="o">*</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="o">...</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="c1">-- Defined at &lt;interactive&gt;:1:14</span>
+<span class="linenos" data-linenos="10 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="kt">Copas</span>
+<span class="linenos" data-linenos="11 "></span><span class="kt">Copas</span> <span class="ow">::</span> <span class="kt">Naipe</span>
 </code></pre></div>
-</td></tr></table>
 <p>Você também já pode usar o tipo em sua definições, por exemplo:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">corDoNaipe</span> <span class="ow">::</span> <span class="kt">Naipe</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
-<span class="nf">corDoNaipe</span> <span class="kt">Copas</span> <span class="ow">=</span> <span class="s">&quot;Vermelho&quot;</span>
-<span class="nf">corDoNaipe</span> <span class="kt">Ouro</span> <span class="ow">=</span> <span class="s">&quot;Vermelho&quot;</span>
-<span class="nf">corDoNaipe</span> <span class="kt">Paus</span> <span class="ow">=</span> <span class="s">&quot;Preto&quot;</span>
-<span class="nf">corDoNaipe</span> <span class="kt">Espada</span> <span class="ow">=</span> <span class="s">&quot;Preto&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">corDoNaipe</span> <span class="ow">::</span> <span class="kt">Naipe</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">corDoNaipe</span> <span class="kt">Copas</span> <span class="ow">=</span> <span class="s">&quot;Vermelho&quot;</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">corDoNaipe</span> <span class="kt">Ouro</span> <span class="ow">=</span> <span class="s">&quot;Vermelho&quot;</span>
+<span class="linenos" data-linenos="4 "></span><span class="nf">corDoNaipe</span> <span class="kt">Paus</span> <span class="ow">=</span> <span class="s">&quot;Preto&quot;</span>
+<span class="linenos" data-linenos="5 "></span><span class="nf">corDoNaipe</span> <span class="kt">Espada</span> <span class="ow">=</span> <span class="s">&quot;Preto&quot;</span>
 </code></pre></div>
-</td></tr></table>
 <p>Ou, equivalentemente, no seguinte exemplo.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">corDoNaipe</span> <span class="ow">::</span> <span class="kt">Naipe</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
-<span class="nf">corDoNaipe</span> <span class="n">n</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">n</span> <span class="kr">of</span> 
-                  <span class="kt">Copas</span> <span class="ow">-&gt;</span> <span class="s">&quot;Vermelho&quot;</span>
-                  <span class="kt">Ouro</span> <span class="ow">-&gt;</span> <span class="s">&quot;Vermelho&quot;</span>
-                  <span class="kt">Paus</span> <span class="ow">-&gt;</span> <span class="s">&quot;Preto&quot;</span>
-                  <span class="kt">Espada</span> <span class="ow">-&gt;</span> <span class="s">&quot;Preto&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">corDoNaipe</span> <span class="ow">::</span> <span class="kt">Naipe</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">corDoNaipe</span> <span class="n">n</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">n</span> <span class="kr">of</span> 
+<span class="linenos" data-linenos="3 "></span>                  <span class="kt">Copas</span> <span class="ow">-&gt;</span> <span class="s">&quot;Vermelho&quot;</span>
+<span class="linenos" data-linenos="4 "></span>                  <span class="kt">Ouro</span> <span class="ow">-&gt;</span> <span class="s">&quot;Vermelho&quot;</span>
+<span class="linenos" data-linenos="5 "></span>                  <span class="kt">Paus</span> <span class="ow">-&gt;</span> <span class="s">&quot;Preto&quot;</span>
+<span class="linenos" data-linenos="6 "></span>                  <span class="kt">Espada</span> <span class="ow">-&gt;</span> <span class="s">&quot;Preto&quot;</span>
 </code></pre></div>
-</td></tr></table>
 <p>Mas e o seguinte código?</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">corDoNaipe&#39;&#39;</span> <span class="ow">::</span> <span class="kt">Naipe</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
-<span class="nf">corDoNaipe&#39;&#39;</span> <span class="n">n</span>
-    <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="kt">Copas</span> <span class="ow">=</span> <span class="s">&quot;Vermelho&quot;</span>
-    <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="kt">Ouro</span> <span class="ow">=</span> <span class="s">&quot;Vermelho&quot;</span>
-    <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="kt">Paus</span> <span class="ow">=</span> <span class="s">&quot;Preto&quot;</span>
-    <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="kt">Espada</span> <span class="ow">=</span> <span class="s">&quot;Preto&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">corDoNaipe&#39;&#39;</span> <span class="ow">::</span> <span class="kt">Naipe</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">corDoNaipe&#39;&#39;</span> <span class="n">n</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="kt">Copas</span> <span class="ow">=</span> <span class="s">&quot;Vermelho&quot;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="kt">Ouro</span> <span class="ow">=</span> <span class="s">&quot;Vermelho&quot;</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="kt">Paus</span> <span class="ow">=</span> <span class="s">&quot;Preto&quot;</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="kt">Espada</span> <span class="ow">=</span> <span class="s">&quot;Preto&quot;</span>
 </code></pre></div>
-</td></tr></table>
 <p>Se testá-lo, verá que não funciona. Um efeito semelhante é observado quando fazemos algo mais simples ainda.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espada</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span>
-<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">Copas</span> <span class="o">==</span> <span class="kt">Copas</span>
-
-<span class="o">&lt;</span><span class="n">interactive</span><span class="o">&gt;:</span><span class="mi">2</span><span class="kt">:</span><span class="mi">1</span><span class="kt">:</span> <span class="ne">error</span><span class="kt">:</span>
-    <span class="err">•</span> <span class="kt">No</span> <span class="kr">instance</span> <span class="n">for</span> <span class="p">(</span><span class="kt">Eq</span> <span class="kt">Naipe</span><span class="p">)</span> <span class="n">arising</span> <span class="n">from</span> <span class="n">a</span> <span class="n">use</span> <span class="kr">of</span> <span class="err">‘</span><span class="o">==</span><span class="err">’</span>
-    <span class="err">•</span> <span class="kt">In</span> <span class="n">the</span> <span class="n">expression</span><span class="kt">:</span> <span class="kt">Copas</span> <span class="o">==</span> <span class="kt">Copas</span>
-      <span class="kt">In</span> <span class="n">an</span> <span class="n">equation</span> <span class="n">for</span> <span class="err">‘</span><span class="n">it</span><span class="err">’</span><span class="kt">:</span> <span class="n">it</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">==</span> <span class="kt">Copas</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espada</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">Copas</span> <span class="o">==</span> <span class="kt">Copas</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="o">&lt;</span><span class="n">interactive</span><span class="o">&gt;:</span><span class="mi">2</span><span class="kt">:</span><span class="mi">1</span><span class="kt">:</span> <span class="ne">error</span><span class="kt">:</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="err">•</span> <span class="kt">No</span> <span class="kr">instance</span> <span class="n">for</span> <span class="p">(</span><span class="kt">Eq</span> <span class="kt">Naipe</span><span class="p">)</span> <span class="n">arising</span> <span class="n">from</span> <span class="n">a</span> <span class="n">use</span> <span class="kr">of</span> <span class="err">‘</span><span class="o">==</span><span class="err">’</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="err">•</span> <span class="kt">In</span> <span class="n">the</span> <span class="n">expression</span><span class="kt">:</span> <span class="kt">Copas</span> <span class="o">==</span> <span class="kt">Copas</span>
+<span class="linenos" data-linenos="7 "></span>      <span class="kt">In</span> <span class="n">an</span> <span class="n">equation</span> <span class="n">for</span> <span class="err">‘</span><span class="n">it</span><span class="err">’</span><span class="kt">:</span> <span class="n">it</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">==</span> <span class="kt">Copas</span>
 </code></pre></div>
-</td></tr></table>
 <p>O problema aqui é que Haskell não sabe como testar se dois naipes são iguais!
 Agora teste o seguinte.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">True</span> <span class="o">==</span> <span class="kt">True</span>
-<span class="kt">True</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">True</span> <span class="o">==</span> <span class="kt">True</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">True</span>
 </code></pre></div>
-</td></tr></table>
 <p>Qual a diferença?</p>
 <h2 id="classes-de-tipos">Classes de tipos</h2>
 <p>Observe que o tipo <code class="highlight"><span class="kt">Bool</span></code> foi definido da mesma forma, exceto por algumas informações extra que aparecem quando o tipo é descrito.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Bool</span>
-<span class="kr">type</span> <span class="kt">Bool</span> <span class="ow">::</span> <span class="o">*</span>
-<span class="kr">data</span> <span class="kt">Bool</span> <span class="ow">=</span> <span class="kt">False</span> <span class="o">|</span> <span class="kt">True</span>
-        <span class="c1">-- Defined in ‘GHC.Types’</span>
-<span class="kr">instance</span> <span class="kt">Eq</span> <span class="kt">Bool</span> <span class="c1">-- Defined in ‘GHC.Classes’</span>
-<span class="kr">instance</span> <span class="kt">Ord</span> <span class="kt">Bool</span> <span class="c1">-- Defined in ‘GHC.Classes’</span>
-<span class="kr">instance</span> <span class="kt">Enum</span> <span class="kt">Bool</span> <span class="c1">-- Defined in ‘GHC.Enum’</span>
-<span class="kr">instance</span> <span class="kt">Show</span> <span class="kt">Bool</span> <span class="c1">-- Defined in ‘GHC.Show’</span>
-<span class="kr">instance</span> <span class="kt">Read</span> <span class="kt">Bool</span> <span class="c1">-- Defined in ‘GHC.Read’</span>
-<span class="kr">instance</span> <span class="kt">Bounded</span> <span class="kt">Bool</span> <span class="c1">-- Defined in ‘GHC.Enum’</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kr">type</span> <span class="kt">Bool</span> <span class="ow">::</span> <span class="o">*</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kr">data</span> <span class="kt">Bool</span> <span class="ow">=</span> <span class="kt">False</span> <span class="o">|</span> <span class="kt">True</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="c1">-- Defined in ‘GHC.Types’</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="kr">instance</span> <span class="kt">Eq</span> <span class="kt">Bool</span> <span class="c1">-- Defined in ‘GHC.Classes’</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="kr">instance</span> <span class="kt">Ord</span> <span class="kt">Bool</span> <span class="c1">-- Defined in ‘GHC.Classes’</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="kr">instance</span> <span class="kt">Enum</span> <span class="kt">Bool</span> <span class="c1">-- Defined in ‘GHC.Enum’</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="kr">instance</span> <span class="kt">Show</span> <span class="kt">Bool</span> <span class="c1">-- Defined in ‘GHC.Show’</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="kr">instance</span> <span class="kt">Read</span> <span class="kt">Bool</span> <span class="c1">-- Defined in ‘GHC.Read’</span>
+<span class="linenos" data-linenos="10 "></span><span class="kr">instance</span> <span class="kt">Bounded</span> <span class="kt">Bool</span> <span class="c1">-- Defined in ‘GHC.Enum’</span>
 </code></pre></div>
-</td></tr></table>
 <p>Mas o que são estas informações extra? Façamos um teste, simplesmente avaliando um dos valores de <code class="highlight"><span class="kt">Bool</span></code> e de <code class="highlight"><span class="kt">Naipe</span></code>.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kt">True</span>
-<span class="kt">True</span>
-<span class="o">&gt;</span> <span class="kt">Copas</span>
-
-<span class="o">&lt;</span><span class="n">interactive</span><span class="o">&gt;:</span><span class="mi">9</span><span class="kt">:</span><span class="mi">1</span><span class="kt">:</span> <span class="ne">error</span><span class="kt">:</span>
-    <span class="err">•</span> <span class="kt">No</span> <span class="kr">instance</span> <span class="n">for</span> <span class="p">(</span><span class="kt">Show</span> <span class="kt">Naipe</span><span class="p">)</span> <span class="n">arising</span> <span class="n">from</span> <span class="n">a</span> <span class="n">use</span> <span class="kr">of</span> <span class="err">‘</span><span class="n">print</span><span class="err">’</span>
-    <span class="err">•</span> <span class="kt">In</span> <span class="n">a</span> <span class="n">stmt</span> <span class="kr">of</span> <span class="n">an</span> <span class="n">interactive</span> <span class="kt">GHCi</span> <span class="n">command</span><span class="kt">:</span> <span class="n">print</span> <span class="n">it</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="kt">True</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">True</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="kt">Copas</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="o">&lt;</span><span class="n">interactive</span><span class="o">&gt;:</span><span class="mi">9</span><span class="kt">:</span><span class="mi">1</span><span class="kt">:</span> <span class="ne">error</span><span class="kt">:</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="err">•</span> <span class="kt">No</span> <span class="kr">instance</span> <span class="n">for</span> <span class="p">(</span><span class="kt">Show</span> <span class="kt">Naipe</span><span class="p">)</span> <span class="n">arising</span> <span class="n">from</span> <span class="n">a</span> <span class="n">use</span> <span class="kr">of</span> <span class="err">‘</span><span class="n">print</span><span class="err">’</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="err">•</span> <span class="kt">In</span> <span class="n">a</span> <span class="n">stmt</span> <span class="kr">of</span> <span class="n">an</span> <span class="n">interactive</span> <span class="kt">GHCi</span> <span class="n">command</span><span class="kt">:</span> <span class="n">print</span> <span class="n">it</span>
 </code></pre></div>
-</td></tr></table>
 <p>O erro aparece porquê quando a avaliação é feita, o GHCi tenta imprimir o resultado na tela, e para imprimir o resultado ele tenta obter sua representação como <code class="highlight"><span class="kt">String</span></code> usando a função <code class="highlight"><span class="nf">show</span></code>.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">show</span> <span class="kt">True</span>
-<span class="s">&quot;True&quot;</span>
-<span class="o">&gt;</span> <span class="n">show</span> <span class="kt">Copas</span>
-
-<span class="o">&lt;</span><span class="n">interactive</span><span class="o">&gt;:</span><span class="mi">11</span><span class="kt">:</span><span class="mi">1</span><span class="kt">:</span> <span class="ne">error</span><span class="kt">:</span>
-    <span class="err">•</span> <span class="kt">No</span> <span class="kr">instance</span> <span class="n">for</span> <span class="p">(</span><span class="kt">Show</span> <span class="kt">Naipe</span><span class="p">)</span> <span class="n">arising</span> <span class="n">from</span> <span class="n">a</span> <span class="n">use</span> <span class="kr">of</span> <span class="err">‘</span><span class="n">show</span><span class="err">’</span>
-    <span class="err">•</span> <span class="kt">In</span> <span class="n">the</span> <span class="n">expression</span><span class="kt">:</span> <span class="n">show</span> <span class="kt">Copas</span>
-      <span class="kt">In</span> <span class="n">an</span> <span class="n">equation</span> <span class="n">for</span> <span class="err">‘</span><span class="n">it</span><span class="err">’</span><span class="kt">:</span> <span class="n">it</span> <span class="ow">=</span> <span class="n">show</span> <span class="kt">Copas</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">show</span> <span class="kt">True</span>
+<span class="linenos" data-linenos="2 "></span><span class="s">&quot;True&quot;</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="n">show</span> <span class="kt">Copas</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="o">&lt;</span><span class="n">interactive</span><span class="o">&gt;:</span><span class="mi">11</span><span class="kt">:</span><span class="mi">1</span><span class="kt">:</span> <span class="ne">error</span><span class="kt">:</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="err">•</span> <span class="kt">No</span> <span class="kr">instance</span> <span class="n">for</span> <span class="p">(</span><span class="kt">Show</span> <span class="kt">Naipe</span><span class="p">)</span> <span class="n">arising</span> <span class="n">from</span> <span class="n">a</span> <span class="n">use</span> <span class="kr">of</span> <span class="err">‘</span><span class="n">show</span><span class="err">’</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="err">•</span> <span class="kt">In</span> <span class="n">the</span> <span class="n">expression</span><span class="kt">:</span> <span class="n">show</span> <span class="kt">Copas</span>
+<span class="linenos" data-linenos="8 "></span>      <span class="kt">In</span> <span class="n">an</span> <span class="n">equation</span> <span class="n">for</span> <span class="err">‘</span><span class="n">it</span><span class="err">’</span><span class="kt">:</span> <span class="n">it</span> <span class="ow">=</span> <span class="n">show</span> <span class="kt">Copas</span>
 </code></pre></div>
-</td></tr></table>
 <p>No caso do valor booleano, a função funciona, mas no caso do naipe não!</p>
 <p>Volte no trecho acima onde descrevemos o valor verdadeiro.
 Uma das diferenças para o naipe era a presença da linha <code class="highlight"><span class="kr">instance</span> <span class="kt">Show</span> <span class="kt">Bool</span> <span class="c1">-- Defined in ‘GHC.Show’</span></code> que basicamente dizia que <code class="highlight"><span class="kt">Bool</span></code> faz parte da <strong>classe de tipos</strong> <code class="highlight"><span class="kt">Show</span></code>, a classe dos tipos que podem ser passados como parâmetro para função <code class="highlight"><span class="nf">show</span></code>.
@@ -946,392 +888,230 @@ Há várias classes de tipo em Haskell, e você ainda pode criar as suas própri
 <p>No caso do exemplo anterior, é possível incluir o tipo naipe na classe em questão de uma forma manual definindo uma série de funções necessárias ao <code class="highlight"><span class="kt">Show</span></code> (<code class="highlight"><span class="kt">:</span><span class="n">i</span> <span class="kt">Show</span></code>).
 Mas há um atalho que diz que todas as funções necessárias devem ser construídas segundo um padrão, que neste caso basicamente quer dizer que o valor em <code class="highlight"><span class="kt">String</span></code> é simplesmente o texto usado na declaração.
 Para fazer isso, basta modificar a definição da seguinte forma.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span>
-    <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Show</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Show</span><span class="p">)</span>
 </code></pre></div>
-</td></tr></table>
 <p>Assim, podemos refazer as consultas e testes feitas anteriormente.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span> <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Show</span><span class="p">)</span>
-<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Naipe</span>
-<span class="kr">type</span> <span class="kt">Naipe</span> <span class="ow">::</span> <span class="o">*</span>
-<span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span>
-        <span class="c1">-- Defined at &lt;interactive&gt;:12:1</span>
-<span class="kr">instance</span> <span class="p">[</span><span class="n">safe</span><span class="p">]</span> <span class="kt">Show</span> <span class="kt">Naipe</span> <span class="c1">-- Defined at &lt;interactive&gt;:12:54</span>
-<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">show</span> <span class="kt">Copas</span>
-<span class="s">&quot;Copas&quot;</span>
-<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">Copas</span>
-<span class="kt">Copas</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span> <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Show</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Naipe</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kr">type</span> <span class="kt">Naipe</span> <span class="ow">::</span> <span class="o">*</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="c1">-- Defined at &lt;interactive&gt;:12:1</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="kr">instance</span> <span class="p">[</span><span class="n">safe</span><span class="p">]</span> <span class="kt">Show</span> <span class="kt">Naipe</span> <span class="c1">-- Defined at &lt;interactive&gt;:12:54</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">show</span> <span class="kt">Copas</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="s">&quot;Copas&quot;</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">Copas</span>
+<span class="linenos" data-linenos="10 "></span><span class="kt">Copas</span>
 </code></pre></div>
-</td></tr></table>
 <h6>Eq</h6>
 <p>Assim como <code class="highlight"><span class="kt">Show</span></code>, <code class="highlight"><span class="kt">Eq</span></code> é uma classe de tipo que define que todos os membros da class devem ter definidas algumas operações, em específico, os operadores <code class="highlight"><span class="p">(</span><span class="o">==</span><span class="p">)</span></code> e <code class="highlight"><span class="p">(</span><span class="o">/=</span><span class="p">)</span></code>, como 
 <code class="highlight"><span class="kt">:</span><span class="n">i</span> <span class="kt">Eq</span></code> mostra:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Eq</span>
-<span class="kr">type</span> <span class="kt">Eq</span> <span class="ow">::</span> <span class="o">*</span> <span class="ow">-&gt;</span> <span class="kt">Constraint</span>
-<span class="kr">class</span> <span class="kt">Eq</span> <span class="n">a</span> <span class="kr">where</span>
-  <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
-  <span class="p">(</span><span class="o">/=</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
-  <span class="cm">{-# MINIMAL (==) | (/=) #-}</span>
-  <span class="o">...</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Eq</span>
+<span class="linenos" data-linenos="2 "></span><span class="kr">type</span> <span class="kt">Eq</span> <span class="ow">::</span> <span class="o">*</span> <span class="ow">-&gt;</span> <span class="kt">Constraint</span>
+<span class="linenos" data-linenos="3 "></span><span class="kr">class</span> <span class="kt">Eq</span> <span class="n">a</span> <span class="kr">where</span>
+<span class="linenos" data-linenos="4 "></span>  <span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos="5 "></span>  <span class="p">(</span><span class="o">/=</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos="6 "></span>  <span class="cm">{-# MINIMAL (==) | (/=) #-}</span>
+<span class="linenos" data-linenos="7 "></span>  <span class="o">...</span>
 </code></pre></div>
-</td></tr></table>
 <h6>Ord</h6>
 <p>Por sua vez,  <code class="highlight"><span class="kt">Ord</span></code> é uma classe de tipo que define capacidades de comparação entre elementos de um tipo, como <code class="highlight"><span class="kt">:</span><span class="n">i</span> <span class="kt">Ord</span></code> mostra:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Ord</span>
-<span class="kr">type</span> <span class="kt">Ord</span> <span class="ow">::</span> <span class="o">*</span> <span class="ow">-&gt;</span> <span class="kt">Constraint</span>
-<span class="kr">class</span> <span class="kt">Eq</span> <span class="n">a</span> <span class="ow">=&gt;</span> <span class="kt">Ord</span> <span class="n">a</span> <span class="kr">where</span>
-  <span class="n">compare</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Ordering</span>
-  <span class="p">(</span><span class="o">&lt;</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
-  <span class="p">(</span><span class="o">&lt;=</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
-  <span class="p">(</span><span class="o">&gt;</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
-  <span class="p">(</span><span class="o">&gt;=</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
-  <span class="n">max</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
-  <span class="n">min</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
-  <span class="cm">{-# MINIMAL compare | (&lt;=) #-}</span>
-  <span class="o">...</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Ord</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kr">type</span> <span class="kt">Ord</span> <span class="ow">::</span> <span class="o">*</span> <span class="ow">-&gt;</span> <span class="kt">Constraint</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kr">class</span> <span class="kt">Eq</span> <span class="n">a</span> <span class="ow">=&gt;</span> <span class="kt">Ord</span> <span class="n">a</span> <span class="kr">where</span>
+<span class="linenos" data-linenos=" 4 "></span>  <span class="n">compare</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Ordering</span>
+<span class="linenos" data-linenos=" 5 "></span>  <span class="p">(</span><span class="o">&lt;</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="p">(</span><span class="o">&lt;=</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos=" 7 "></span>  <span class="p">(</span><span class="o">&gt;</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos=" 8 "></span>  <span class="p">(</span><span class="o">&gt;=</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos=" 9 "></span>  <span class="n">max</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="linenos" data-linenos="10 "></span>  <span class="n">min</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="linenos" data-linenos="11 "></span>  <span class="cm">{-# MINIMAL compare | (&lt;=) #-}</span>
+<span class="linenos" data-linenos="12 "></span>  <span class="o">...</span>
 </code></pre></div>
-</td></tr></table>
 <p>Observe que para que um tipo pertencer a <code class="highlight"><span class="kt">Ord</span></code> ele também deve pertencer a <code class="highlight"><span class="kt">Eq</span></code>.</p>
 <h6>Enum</h6>
 <p>Finalmente, <code class="highlight"><span class="kt">Enum</span></code> define a capacidade de, dado um valor de um certo tipo, determinar antecessores e sucessores, bem como construir listas por enumeração.
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Enum</span>
-<span class="kr">type</span> <span class="kt">Enum</span> <span class="ow">::</span> <span class="o">*</span> <span class="ow">-&gt;</span> <span class="kt">Constraint</span>
-<span class="kr">class</span> <span class="kt">Enum</span> <span class="n">a</span> <span class="kr">where</span>
-  <span class="n">succ</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
-  <span class="n">pred</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
-  <span class="n">toEnum</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="n">a</span>
-  <span class="n">fromEnum</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
-  <span class="n">enumFrom</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
-  <span class="n">enumFromThen</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
-  <span class="n">enumFromTo</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
-  <span class="n">enumFromThenTo</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
-  <span class="cm">{-# MINIMAL toEnum, fromEnum #-}</span>
-  <span class="o">...</span>
-</code></pre></div>
-</td></tr></table></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Enum</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kr">type</span> <span class="kt">Enum</span> <span class="ow">::</span> <span class="o">*</span> <span class="ow">-&gt;</span> <span class="kt">Constraint</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kr">class</span> <span class="kt">Enum</span> <span class="n">a</span> <span class="kr">where</span>
+<span class="linenos" data-linenos=" 4 "></span>  <span class="n">succ</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="linenos" data-linenos=" 5 "></span>  <span class="n">pred</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="n">toEnum</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="linenos" data-linenos=" 7 "></span>  <span class="n">fromEnum</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos=" 8 "></span>  <span class="n">enumFrom</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 9 "></span>  <span class="n">enumFromThen</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="linenos" data-linenos="10 "></span>  <span class="n">enumFromTo</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="linenos" data-linenos="11 "></span>  <span class="n">enumFromThenTo</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="linenos" data-linenos="12 "></span>  <span class="cm">{-# MINIMAL toEnum, fromEnum #-}</span>
+<span class="linenos" data-linenos="13 "></span>  <span class="o">...</span>
+</code></pre></div></p>
 <h6>Read</h6>
 <details class="todo"><summary>TODO</summary><p><code class="highlight"><span class="nf">read</span> <span class="s">&quot;100&quot;</span> <span class="ow">::</span> <span class="kt">Int</span></code></p>
 </details>
 <h6>Definição completa</h6>
 <p>Definindo o tipo para o naipe com todas estas classes de tipo, teremos um tipo bem interessante, que pode ser impresso na tela, comparado e usado para gerar listas por enumeração.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span> <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Show</span><span class="p">,</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Enum</span><span class="p">,</span><span class="kt">Ord</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="p">[</span><span class="kt">Copas</span> <span class="o">..</span> <span class="kt">Paus</span><span class="p">]</span>
-<span class="p">[</span><span class="kt">Copas</span><span class="p">,</span><span class="kt">Espadas</span><span class="p">,</span><span class="kt">Ouro</span><span class="p">,</span><span class="kt">Paus</span><span class="p">]</span>
-<span class="o">&gt;</span> <span class="n">pred</span> <span class="kt">Ouro</span>
-<span class="kt">Espadas</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span> <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Show</span><span class="p">,</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Enum</span><span class="p">,</span><span class="kt">Ord</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span> <span class="p">[</span><span class="kt">Copas</span> <span class="o">..</span> <span class="kt">Paus</span><span class="p">]</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">[</span><span class="kt">Copas</span><span class="p">,</span><span class="kt">Espadas</span><span class="p">,</span><span class="kt">Ouro</span><span class="p">,</span><span class="kt">Paus</span><span class="p">]</span>
+<span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span> <span class="n">pred</span> <span class="kt">Ouro</span>
+<span class="linenos" data-linenos="5 "></span><span class="kt">Espadas</span>
 </code></pre></div>
-</td></tr></table>
 <p>Contudo, há limitações para o que se pode fazer com esta definição, como demonstrado pelo próximo exemplo.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">pred</span> <span class="kt">Copas</span>
-<span class="o">***</span> <span class="kt">Exception:</span> <span class="n">pred</span><span class="p">{</span><span class="kt">Naipe</span><span class="p">}</span><span class="kt">:</span> <span class="n">tried</span> <span class="n">to</span> <span class="n">take</span> <span class="p">`</span><span class="n">pred&#39;</span> <span class="kr">of</span> <span class="n">first</span> <span class="n">tag</span> <span class="kr">in</span> <span class="n">enumeration</span>
-<span class="kt">CallStack</span> <span class="p">(</span><span class="n">from</span> <span class="kt">HasCallStack</span><span class="p">)</span><span class="kt">:</span>
-  <span class="ne">error</span><span class="p">,</span> <span class="n">called</span> <span class="n">at</span> <span class="o">&lt;</span><span class="n">interactive</span><span class="o">&gt;:</span><span class="mi">9</span><span class="kt">:</span><span class="mi">62</span> <span class="kr">in</span> <span class="n">interactive</span><span class="kt">:Ghci1</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">pred</span> <span class="kt">Copas</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">***</span> <span class="kt">Exception:</span> <span class="n">pred</span><span class="p">{</span><span class="kt">Naipe</span><span class="p">}</span><span class="kt">:</span> <span class="n">tried</span> <span class="n">to</span> <span class="n">take</span> <span class="p">`</span><span class="n">pred&#39;</span> <span class="kr">of</span> <span class="n">first</span> <span class="n">tag</span> <span class="kr">in</span> <span class="n">enumeration</span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">CallStack</span> <span class="p">(</span><span class="n">from</span> <span class="kt">HasCallStack</span><span class="p">)</span><span class="kt">:</span>
+<span class="linenos" data-linenos="4 "></span>  <span class="ne">error</span><span class="p">,</span> <span class="n">called</span> <span class="n">at</span> <span class="o">&lt;</span><span class="n">interactive</span><span class="o">&gt;:</span><span class="mi">9</span><span class="kt">:</span><span class="mi">62</span> <span class="kr">in</span> <span class="n">interactive</span><span class="kt">:Ghci1</span>
 </code></pre></div>
-</td></tr></table>
 <h2 id="tipos-mais-complexos">Tipos mais complexos</h2>
 <p>Mas e se quisermos definir um tipo para representar o valor de uma carta?</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">data</span> <span class="kt">Valor</span> <span class="ow">=</span> <span class="kt">Ás</span> <span class="o">|</span> <span class="kt">Número1</span> <span class="o">|</span> <span class="kt">Número2</span> <span class="o">|</span> <span class="kt">Número3</span> <span class="o">|</span> <span class="kt">Número4</span> <span class="o">|</span> <span class="kt">Número5</span> <span class="o">|</span> <span class="kt">Número6</span> <span class="o">|</span> <span class="kt">Número7</span> <span class="o">|</span> <span class="kt">Número8</span> <span class="o">|</span> <span class="kt">Número9</span> <span class="o">|</span> <span class="kt">Número10</span> <span class="o">|</span> <span class="kt">Valete</span> <span class="o">|</span> <span class="kt">Dama</span> <span class="o">|</span> <span class="kt">Rei</span>
-  <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Show</span><span class="p">,</span><span class="kt">Ord</span><span class="p">,</span><span class="kt">Enum</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kr">data</span> <span class="kt">Valor</span> <span class="ow">=</span> <span class="kt">Ás</span> <span class="o">|</span> <span class="kt">Número1</span> <span class="o">|</span> <span class="kt">Número2</span> <span class="o">|</span> <span class="kt">Número3</span> <span class="o">|</span> <span class="kt">Número4</span> <span class="o">|</span> <span class="kt">Número5</span> <span class="o">|</span> <span class="kt">Número6</span> <span class="o">|</span> <span class="kt">Número7</span> <span class="o">|</span> <span class="kt">Número8</span> <span class="o">|</span> <span class="kt">Número9</span> <span class="o">|</span> <span class="kt">Número10</span> <span class="o">|</span> <span class="kt">Valete</span> <span class="o">|</span> <span class="kt">Dama</span> <span class="o">|</span> <span class="kt">Rei</span>
+<span class="linenos" data-linenos="2 "></span>  <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Show</span><span class="p">,</span><span class="kt">Ord</span><span class="p">,</span><span class="kt">Enum</span><span class="p">)</span>
 </code></pre></div>
-</td></tr></table>
 <p>Com esta definição é possível, por exemplo, comparar os valores das cartas.
 Mas, convenhamos, é uma definição horrível.
 Haskell to the rescue!
 É possível definir um valor que seja baseado em outro tipo, como no seguinte exemplo.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">data</span> <span class="kt">Valor</span> <span class="ow">=</span> <span class="kt">Ás</span> <span class="o">|</span> <span class="kt">Número</span> <span class="kt">Int</span> <span class="o">|</span> <span class="kt">Valete</span> <span class="o">|</span> <span class="kt">Dama</span> <span class="o">|</span> <span class="kt">Rei</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kr">data</span> <span class="kt">Valor</span> <span class="ow">=</span> <span class="kt">Ás</span> <span class="o">|</span> <span class="kt">Número</span> <span class="kt">Int</span> <span class="o">|</span> <span class="kt">Valete</span> <span class="o">|</span> <span class="kt">Dama</span> <span class="o">|</span> <span class="kt">Rei</span>
 </code></pre></div>
-</td></tr></table>
 <p><code class="highlight"><span class="kt">Número</span> <span class="kt">Int</span></code> define que qualquer combinação de <code class="highlight"><span class="kt">Número</span></code>, denominado o <strong>construtor</strong>, combinado com um valor do tipo <code>#hs Int</code>, é um valor do tipo <code class="highlight"><span class="kt">Valor</span></code>.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Valor</span> <span class="ow">=</span> <span class="kt">Ás</span> <span class="o">|</span> <span class="kt">Número</span> <span class="kt">Int</span> <span class="o">|</span> <span class="kt">Valete</span> <span class="o">|</span> <span class="kt">Dama</span> <span class="o">|</span> <span class="kt">Rei</span> <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Show</span><span class="p">,</span> <span class="kt">Ord</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="n">as</span> <span class="ow">=</span> <span class="kt">Ás</span>
-<span class="o">&gt;</span> <span class="n">valete</span> <span class="ow">=</span> <span class="kt">Valete</span>
-<span class="o">&gt;</span> <span class="n">nove</span> <span class="ow">=</span> <span class="kt">Número</span> <span class="mi">9</span>
-<span class="o">&gt;</span> <span class="n">as</span>
-<span class="kt">Ás</span>
-<span class="o">&gt;</span> <span class="n">valete</span>
-<span class="kt">Valete</span>
-<span class="o">&gt;</span> <span class="n">nove</span>
-<span class="kt">Número</span> <span class="mi">9</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Valor</span> <span class="ow">=</span> <span class="kt">Ás</span> <span class="o">|</span> <span class="kt">Número</span> <span class="kt">Int</span> <span class="o">|</span> <span class="kt">Valete</span> <span class="o">|</span> <span class="kt">Dama</span> <span class="o">|</span> <span class="kt">Rei</span> <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Show</span><span class="p">,</span> <span class="kt">Ord</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="o">&gt;</span> <span class="n">as</span> <span class="ow">=</span> <span class="kt">Ás</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="o">&gt;</span> <span class="n">valete</span> <span class="ow">=</span> <span class="kt">Valete</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="o">&gt;</span> <span class="n">nove</span> <span class="ow">=</span> <span class="kt">Número</span> <span class="mi">9</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="o">&gt;</span> <span class="n">as</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="kt">Ás</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="o">&gt;</span> <span class="n">valete</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="kt">Valete</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="o">&gt;</span> <span class="n">nove</span>
+<span class="linenos" data-linenos="10 "></span><span class="kt">Número</span> <span class="mi">9</span>
 </code></pre></div>
-</td></tr></table>
 <p>Assim como <code class="highlight"><span class="kt">Naipe</span></code> pode ser usado em um casamento de padrões, também a definição de <code class="highlight"><span class="kt">Valor</span></code> pode, como no seguinte exemplo.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">éFigura</span> <span class="ow">::</span> <span class="kt">Valor</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
-<span class="nf">éFigura</span> <span class="p">(</span><span class="kt">Número</span> <span class="kr">_</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">False</span>
-<span class="nf">éFigura</span> <span class="kt">Ás</span> <span class="ow">-&gt;</span> <span class="kt">True</span>  <span class="c1">-- Esta definição é desnecessária e usada só pra demonstração.</span>
-<span class="nf">éFigura</span> <span class="kr">_</span> <span class="ow">-&gt;</span> <span class="kt">True</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">éFigura</span> <span class="ow">::</span> <span class="kt">Valor</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">éFigura</span> <span class="p">(</span><span class="kt">Número</span> <span class="kr">_</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">False</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">éFigura</span> <span class="kt">Ás</span> <span class="ow">-&gt;</span> <span class="kt">True</span>  <span class="c1">-- Esta definição é desnecessária e usada só pra demonstração.</span>
+<span class="linenos" data-linenos="4 "></span><span class="nf">éFigura</span> <span class="kr">_</span> <span class="ow">-&gt;</span> <span class="kt">True</span>
 </code></pre></div>
-</td></tr></table>
 <h6>Ord e Eq</h6>
 <p>Como na definição de <code class="highlight"><span class="kt">Valor</span></code> tanto <code class="highlight"><span class="kt">Ord</span></code> e <code class="highlight"><span class="kt">Eq</span></code> foram usados, Haskell deve ser capaz de comparar todas as possibilidades de valores.
 Assim, por exemplo, <code class="highlight"><span class="kt">Ás</span></code> é menor que qualquer número, que é menor que qualquer outra figura.
 Também quaisquer dois números podem ser comparados, sendo resultado determinado pela comparação dos respectivos inteiros.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Valor</span> <span class="ow">=</span> <span class="kt">Ás</span> <span class="o">|</span> <span class="kt">Número</span> <span class="kt">Int</span> <span class="o">|</span> <span class="kt">Valete</span> <span class="o">|</span> <span class="kt">Dama</span> <span class="o">|</span> <span class="kt">Rei</span>      <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Show</span><span class="p">,</span><span class="kt">Ord</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="kt">Número</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="kt">Número</span> <span class="mi">4</span>
-<span class="kt">True</span>
-<span class="o">&gt;</span> <span class="kt">Número</span> <span class="mi">3</span> <span class="o">==</span> <span class="kt">Número</span> <span class="mi">4</span>
-<span class="kt">False</span>
-<span class="o">&gt;</span> <span class="kt">Ás</span> <span class="o">&lt;</span> <span class="kt">Número</span> <span class="mi">10</span>
-<span class="kt">True</span>
-<span class="o">&gt;</span> <span class="kt">Ás</span> <span class="o">&lt;</span> <span class="kt">Rei</span>
-<span class="kt">True</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Valor</span> <span class="ow">=</span> <span class="kt">Ás</span> <span class="o">|</span> <span class="kt">Número</span> <span class="kt">Int</span> <span class="o">|</span> <span class="kt">Valete</span> <span class="o">|</span> <span class="kt">Dama</span> <span class="o">|</span> <span class="kt">Rei</span>      <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Show</span><span class="p">,</span><span class="kt">Ord</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span> <span class="kt">Número</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="kt">Número</span> <span class="mi">4</span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">True</span>
+<span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span> <span class="kt">Número</span> <span class="mi">3</span> <span class="o">==</span> <span class="kt">Número</span> <span class="mi">4</span>
+<span class="linenos" data-linenos="5 "></span><span class="kt">False</span>
+<span class="linenos" data-linenos="6 "></span><span class="o">&gt;</span> <span class="kt">Ás</span> <span class="o">&lt;</span> <span class="kt">Número</span> <span class="mi">10</span>
+<span class="linenos" data-linenos="7 "></span><span class="kt">True</span>
+<span class="linenos" data-linenos="8 "></span><span class="o">&gt;</span> <span class="kt">Ás</span> <span class="o">&lt;</span> <span class="kt">Rei</span>
+<span class="linenos" data-linenos="9 "></span><span class="kt">True</span>
 </code></pre></div>
-</td></tr></table>
 <p>Observe que a definição não inclui <code class="highlight"><span class="kt">Enum</span></code>, para entender porquê, tente determinar qual seria o sucessor de <code class="highlight"><span class="kt">Ás</span></code> e o antecessor de <code class="highlight"><span class="kt">Valete</span></code>.
 Como não é possível determinar estes valores, o compilador nem permite que <code class="highlight"><span class="kt">Enum</span></code> seja usado.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Valor</span> <span class="ow">=</span> <span class="kt">Ás</span> <span class="o">|</span> <span class="kt">Número</span> <span class="kt">Int</span> <span class="o">|</span> <span class="kt">Valete</span> <span class="o">|</span> <span class="kt">Dama</span> <span class="o">|</span> <span class="kt">Rei</span>      <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Show</span><span class="p">,</span><span class="kt">Ord</span><span class="p">,</span><span class="kt">Enum</span><span class="p">)</span>
-
-<span class="o">&lt;</span><span class="n">interactive</span><span class="o">&gt;:</span><span class="mi">21</span><span class="kt">:</span><span class="mi">79</span><span class="kt">:</span> <span class="ne">error</span><span class="kt">:</span>
-    <span class="err">•</span> <span class="kt">Can&#39;t</span> <span class="n">make</span> <span class="n">a</span> <span class="n">derived</span> <span class="kr">instance</span> <span class="kr">of</span> <span class="err">‘</span><span class="kt">Enum</span> <span class="kt">Valor</span><span class="err">’</span><span class="kt">:</span>
-        <span class="err">‘</span><span class="kt">Valor</span><span class="err">’</span> <span class="n">must</span> <span class="n">be</span> <span class="n">an</span> <span class="n">enumeration</span> <span class="kr">type</span>
-        <span class="p">(</span><span class="n">an</span> <span class="n">enumeration</span> <span class="n">consists</span> <span class="kr">of</span> <span class="n">one</span> <span class="n">or</span> <span class="n">more</span> <span class="n">nullary</span><span class="p">,</span> <span class="n">non</span><span class="o">-</span><span class="kt">GADT</span> <span class="n">constructors</span><span class="p">)</span>
-    <span class="err">•</span> <span class="kt">In</span> <span class="n">the</span> <span class="kr">data</span> <span class="n">declaration</span> <span class="n">for</span> <span class="err">‘</span><span class="kt">Valor</span><span class="err">’</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Valor</span> <span class="ow">=</span> <span class="kt">Ás</span> <span class="o">|</span> <span class="kt">Número</span> <span class="kt">Int</span> <span class="o">|</span> <span class="kt">Valete</span> <span class="o">|</span> <span class="kt">Dama</span> <span class="o">|</span> <span class="kt">Rei</span>      <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Show</span><span class="p">,</span><span class="kt">Ord</span><span class="p">,</span><span class="kt">Enum</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&lt;</span><span class="n">interactive</span><span class="o">&gt;:</span><span class="mi">21</span><span class="kt">:</span><span class="mi">79</span><span class="kt">:</span> <span class="ne">error</span><span class="kt">:</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="err">•</span> <span class="kt">Can&#39;t</span> <span class="n">make</span> <span class="n">a</span> <span class="n">derived</span> <span class="kr">instance</span> <span class="kr">of</span> <span class="err">‘</span><span class="kt">Enum</span> <span class="kt">Valor</span><span class="err">’</span><span class="kt">:</span>
+<span class="linenos" data-linenos="5 "></span>        <span class="err">‘</span><span class="kt">Valor</span><span class="err">’</span> <span class="n">must</span> <span class="n">be</span> <span class="n">an</span> <span class="n">enumeration</span> <span class="kr">type</span>
+<span class="linenos" data-linenos="6 "></span>        <span class="p">(</span><span class="n">an</span> <span class="n">enumeration</span> <span class="n">consists</span> <span class="kr">of</span> <span class="n">one</span> <span class="n">or</span> <span class="n">more</span> <span class="n">nullary</span><span class="p">,</span> <span class="n">non</span><span class="o">-</span><span class="kt">GADT</span> <span class="n">constructors</span><span class="p">)</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="err">•</span> <span class="kt">In</span> <span class="n">the</span> <span class="kr">data</span> <span class="n">declaration</span> <span class="n">for</span> <span class="err">‘</span><span class="kt">Valor</span><span class="err">’</span>
 </code></pre></div>
-</td></tr></table>
 <h2 id="tipos-mais-complexos-ainda">Tipos mais complexos ainda</h2>
 <p>Combinemos agora os tipos <code class="highlight"><span class="kt">Naipe</span></code> e <code class="highlight"><span class="kt">Valor</span></code> em um único tipo que representa uma carta de baralho.
 A instanciação é feita usando-se o construtor.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Valor</span> <span class="ow">=</span> <span class="kt">Ás</span> <span class="o">|</span> <span class="kt">Número</span> <span class="kt">Int</span> <span class="o">|</span> <span class="kt">Valete</span> <span class="o">|</span> <span class="kt">Dama</span> <span class="o">|</span> <span class="kt">Rei</span>      <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Show</span><span class="p">,</span><span class="kt">Ord</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span>              <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Show</span><span class="p">,</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Enum</span><span class="p">,</span><span class="kt">Ord</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">CartaT</span> <span class="ow">=</span> <span class="kt">Carta</span> <span class="kt">Naipe</span> <span class="kt">Valor</span>                         <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Show</span><span class="p">,</span><span class="kt">Ord</span><span class="p">)</span>
-
-<span class="o">&gt;</span> <span class="kt">Carta</span> <span class="kt">Paus</span> <span class="kt">Rei</span>
-<span class="kt">Carta</span> <span class="kt">Paus</span> <span class="kt">Rei</span>
-<span class="o">&gt;</span> <span class="kt">Carta</span> <span class="kt">Paus</span> <span class="p">(</span><span class="kt">Número</span> <span class="mi">3</span><span class="p">)</span>
-<span class="kt">Carta</span> <span class="kt">Paus</span> <span class="p">(</span><span class="kt">Número</span> <span class="mi">3</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="kt">Carta</span> <span class="kt">Paus</span> <span class="p">(</span><span class="kt">Número</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&lt;</span> <span class="kt">Carta</span> <span class="kt">Paus</span> <span class="kt">Rei</span>
-<span class="kt">True</span>
-<span class="o">&gt;</span> <span class="kt">Carta</span> <span class="kt">Paus</span> <span class="p">(</span><span class="kt">Número</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&lt;</span> <span class="kt">Carta</span> <span class="kt">Ouro</span> <span class="kt">Rei</span>
-<span class="kt">False</span>
-
-<span class="o">&gt;</span> <span class="n">k</span> <span class="ow">=</span> <span class="kt">Carta</span> <span class="kt">Paus</span> <span class="kt">Rei</span>
-<span class="o">&gt;</span> <span class="n">k</span>
-<span class="kt">Carta</span> <span class="kt">Paus</span> <span class="kt">Rei</span>
-<span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="n">k</span>
-<span class="nf">k</span> <span class="ow">::</span> <span class="kt">CartaT</span>
-<span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="n">k</span>
-<span class="nf">k</span> <span class="ow">::</span> <span class="kt">CartaT</span>     <span class="c1">-- Defined at &lt;interactive&gt;:28:1</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Valor</span> <span class="ow">=</span> <span class="kt">Ás</span> <span class="o">|</span> <span class="kt">Número</span> <span class="kt">Int</span> <span class="o">|</span> <span class="kt">Valete</span> <span class="o">|</span> <span class="kt">Dama</span> <span class="o">|</span> <span class="kt">Rei</span>      <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Show</span><span class="p">,</span><span class="kt">Ord</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span>              <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Show</span><span class="p">,</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Enum</span><span class="p">,</span><span class="kt">Ord</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">CartaT</span> <span class="ow">=</span> <span class="kt">Carta</span> <span class="kt">Naipe</span> <span class="kt">Valor</span>                         <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Show</span><span class="p">,</span><span class="kt">Ord</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="o">&gt;</span> <span class="kt">Carta</span> <span class="kt">Paus</span> <span class="kt">Rei</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="kt">Carta</span> <span class="kt">Paus</span> <span class="kt">Rei</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="o">&gt;</span> <span class="kt">Carta</span> <span class="kt">Paus</span> <span class="p">(</span><span class="kt">Número</span> <span class="mi">3</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="kt">Carta</span> <span class="kt">Paus</span> <span class="p">(</span><span class="kt">Número</span> <span class="mi">3</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="o">&gt;</span> <span class="kt">Carta</span> <span class="kt">Paus</span> <span class="p">(</span><span class="kt">Número</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&lt;</span> <span class="kt">Carta</span> <span class="kt">Paus</span> <span class="kt">Rei</span>
+<span class="linenos" data-linenos="10 "></span><span class="kt">True</span>
+<span class="linenos" data-linenos="11 "></span><span class="o">&gt;</span> <span class="kt">Carta</span> <span class="kt">Paus</span> <span class="p">(</span><span class="kt">Número</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&lt;</span> <span class="kt">Carta</span> <span class="kt">Ouro</span> <span class="kt">Rei</span>
+<span class="linenos" data-linenos="12 "></span><span class="kt">False</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="o">&gt;</span> <span class="n">k</span> <span class="ow">=</span> <span class="kt">Carta</span> <span class="kt">Paus</span> <span class="kt">Rei</span>
+<span class="linenos" data-linenos="15 "></span><span class="o">&gt;</span> <span class="n">k</span>
+<span class="linenos" data-linenos="16 "></span><span class="kt">Carta</span> <span class="kt">Paus</span> <span class="kt">Rei</span>
+<span class="linenos" data-linenos="17 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="n">k</span>
+<span class="linenos" data-linenos="18 "></span><span class="nf">k</span> <span class="ow">::</span> <span class="kt">CartaT</span>
+<span class="linenos" data-linenos="19 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="n">k</span>
+<span class="linenos" data-linenos="20 "></span><span class="nf">k</span> <span class="ow">::</span> <span class="kt">CartaT</span>     <span class="c1">-- Defined at &lt;interactive&gt;:28:1</span>
 </code></pre></div>
-</td></tr></table>
 <p>Veja que do lado esquerdo da equação temos a definição de um tipo <code class="highlight"><span class="kt">CartaT</span></code> e do lado direito temos a definição de um construtor <code class="highlight"><span class="kt">Carta</span></code> para o tipo <code class="highlight"><span class="kt">CartaT</span></code>.
 É possível solicitar mais informações do Haskell tanto sobre o construtor quanto o tipo, mas nem todas as solicitações fazem sentido.
 Quanto ao tipo, <code class="highlight"><span class="kt">CartaT</span></code>, é possível pedir informações sobre a definição, mas não o tipo da definição.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">CartaT</span>
-<span class="kr">type</span> <span class="kt">CartaT</span> <span class="ow">::</span> <span class="o">*</span>
-<span class="kr">data</span> <span class="kt">CartaT</span> <span class="ow">=</span> <span class="kt">Carta</span> <span class="kt">Naipe</span> <span class="kt">Valor</span>
-    <span class="c1">-- Defined at &lt;interactive&gt;:26:1</span>
-<span class="kr">instance</span> <span class="p">[</span><span class="n">safe</span><span class="p">]</span> <span class="kt">Ord</span> <span class="kt">CartaT</span> <span class="c1">-- Defined at &lt;interactive&gt;:26:75</span>
-<span class="kr">instance</span> <span class="p">[</span><span class="n">safe</span><span class="p">]</span> <span class="kt">Show</span> <span class="kt">CartaT</span> <span class="c1">-- Defined at &lt;interactive&gt;:26:70</span>
-<span class="kr">instance</span> <span class="p">[</span><span class="n">safe</span><span class="p">]</span> <span class="kt">Eq</span> <span class="kt">CartaT</span> <span class="c1">-- Defined at &lt;interactive&gt;:26:67</span>
-
-<span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="kt">CartaT</span>
-<span class="o">&lt;</span><span class="n">interactive</span><span class="o">&gt;:</span><span class="mi">1</span><span class="kt">:</span><span class="mi">1</span><span class="kt">:</span> <span class="ne">error</span><span class="kt">:</span>
-    <span class="err">•</span> <span class="kt">Data</span> <span class="n">constructor</span> <span class="n">not</span> <span class="kr">in</span> <span class="n">scope</span><span class="kt">:</span> <span class="kt">CartaT</span>
-    <span class="err">•</span> <span class="kt">Perhaps</span> <span class="n">you</span> <span class="n">meant</span> <span class="err">‘</span><span class="kt">Carta</span><span class="err">’</span> <span class="p">(</span><span class="n">line</span> <span class="mi">26</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">CartaT</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kr">type</span> <span class="kt">CartaT</span> <span class="ow">::</span> <span class="o">*</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kr">data</span> <span class="kt">CartaT</span> <span class="ow">=</span> <span class="kt">Carta</span> <span class="kt">Naipe</span> <span class="kt">Valor</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="c1">-- Defined at &lt;interactive&gt;:26:1</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="kr">instance</span> <span class="p">[</span><span class="n">safe</span><span class="p">]</span> <span class="kt">Ord</span> <span class="kt">CartaT</span> <span class="c1">-- Defined at &lt;interactive&gt;:26:75</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="kr">instance</span> <span class="p">[</span><span class="n">safe</span><span class="p">]</span> <span class="kt">Show</span> <span class="kt">CartaT</span> <span class="c1">-- Defined at &lt;interactive&gt;:26:70</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="kr">instance</span> <span class="p">[</span><span class="n">safe</span><span class="p">]</span> <span class="kt">Eq</span> <span class="kt">CartaT</span> <span class="c1">-- Defined at &lt;interactive&gt;:26:67</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="kt">CartaT</span>
+<span class="linenos" data-linenos="10 "></span><span class="o">&lt;</span><span class="n">interactive</span><span class="o">&gt;:</span><span class="mi">1</span><span class="kt">:</span><span class="mi">1</span><span class="kt">:</span> <span class="ne">error</span><span class="kt">:</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="err">•</span> <span class="kt">Data</span> <span class="n">constructor</span> <span class="n">not</span> <span class="kr">in</span> <span class="n">scope</span><span class="kt">:</span> <span class="kt">CartaT</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="err">•</span> <span class="kt">Perhaps</span> <span class="n">you</span> <span class="n">meant</span> <span class="err">‘</span><span class="kt">Carta</span><span class="err">’</span> <span class="p">(</span><span class="n">line</span> <span class="mi">26</span><span class="p">)</span>
 </code></pre></div>
-</td></tr></table>
 <p>Quanto ao construtor, <code class="highlight"><span class="kt">Carta</span></code>, é possível perguntar as duas coisas.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Carta</span>
-<span class="kr">type</span> <span class="kt">CartaT</span> <span class="ow">::</span> <span class="o">*</span>
-<span class="kr">data</span> <span class="kt">CartaT</span> <span class="ow">=</span> <span class="kt">Carta</span> <span class="kt">Naipe</span> <span class="kt">Valor</span>
-    <span class="c1">-- Defined at &lt;interactive&gt;:26:15</span>
-
-<span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="kt">Carta</span>
-<span class="kt">Carta</span> <span class="ow">::</span> <span class="kt">Naipe</span> <span class="ow">-&gt;</span> <span class="kt">Valor</span> <span class="ow">-&gt;</span> <span class="kt">CartaT</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Carta</span>
+<span class="linenos" data-linenos="2 "></span><span class="kr">type</span> <span class="kt">CartaT</span> <span class="ow">::</span> <span class="o">*</span>
+<span class="linenos" data-linenos="3 "></span><span class="kr">data</span> <span class="kt">CartaT</span> <span class="ow">=</span> <span class="kt">Carta</span> <span class="kt">Naipe</span> <span class="kt">Valor</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="c1">-- Defined at &lt;interactive&gt;:26:15</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="kt">Carta</span>
+<span class="linenos" data-linenos="7 "></span><span class="kt">Carta</span> <span class="ow">::</span> <span class="kt">Naipe</span> <span class="ow">-&gt;</span> <span class="kt">Valor</span> <span class="ow">-&gt;</span> <span class="kt">CartaT</span>
 </code></pre></div>
-</td></tr></table>
 <p>Veja que quanto perguntamos o tipo do construtor, a resposta é que é uma função que recebe <code class="highlight"><span class="kt">Naipe</span></code> e <code class="highlight"><span class="kt">Valor</span></code> e que retorna uma instância do tipo <code class="highlight"><span class="kt">CartaT</span></code>.</p>
 <h6>Punning</h6>
 <p>Uma vez que esteja claro que tipo e construtores são coisas diferentes, é preciso dizer que seus contextos geralmente são diferentes e que, por isso, é possível que ambos tenham o mesmo nome.
 De fato, esta é uma abordagem comum na definição de tipos algébricos em Haskell, denominada <em>punning</em>.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Carta</span> <span class="ow">=</span> <span class="kt">Carta</span> <span class="kt">Naipe</span> <span class="kt">Valor</span>                         <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Show</span><span class="p">,</span><span class="kt">Ord</span><span class="p">)</span>
-<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">a</span> <span class="ow">=</span> <span class="kt">Carta</span> <span class="kt">Copas</span> <span class="kt">Ás</span>
-<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="n">a</span>
-<span class="nf">a</span> <span class="ow">::</span> <span class="kt">Carta</span>  <span class="c1">-- Defined at &lt;interactive&gt;:39:1</span>
-<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="n">a</span>
-<span class="nf">a</span> <span class="ow">::</span> <span class="kt">Carta</span>
-<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Carta</span>
-<span class="kr">type</span> <span class="kt">Carta</span> <span class="ow">::</span> <span class="o">*</span>
-<span class="kr">data</span> <span class="kt">Carta</span> <span class="ow">=</span> <span class="kt">Carta</span> <span class="kt">Naipe</span> <span class="kt">Valor</span>
-    <span class="c1">-- Defined at &lt;interactive&gt;:38:1</span>
-<span class="kr">instance</span> <span class="p">[</span><span class="n">safe</span><span class="p">]</span> <span class="kt">Ord</span> <span class="kt">Carta</span> <span class="c1">-- Defined at &lt;interactive&gt;:38:74</span>
-<span class="kr">instance</span> <span class="p">[</span><span class="n">safe</span><span class="p">]</span> <span class="kt">Show</span> <span class="kt">Carta</span> <span class="c1">-- Defined at &lt;interactive&gt;:38:69</span>
-<span class="kr">instance</span> <span class="p">[</span><span class="n">safe</span><span class="p">]</span> <span class="kt">Eq</span> <span class="kt">Carta</span> <span class="c1">-- Defined at &lt;interactive&gt;:38:66</span>
-<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="kt">Carta</span>
-<span class="kt">Carta</span> <span class="ow">::</span> <span class="kt">Naipe</span> <span class="ow">-&gt;</span> <span class="kt">Valor</span> <span class="ow">-&gt;</span> <span class="kt">Carta</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Carta</span> <span class="ow">=</span> <span class="kt">Carta</span> <span class="kt">Naipe</span> <span class="kt">Valor</span>                         <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Show</span><span class="p">,</span><span class="kt">Ord</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">a</span> <span class="ow">=</span> <span class="kt">Carta</span> <span class="kt">Copas</span> <span class="kt">Ás</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="n">a</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nf">a</span> <span class="ow">::</span> <span class="kt">Carta</span>  <span class="c1">-- Defined at &lt;interactive&gt;:39:1</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="n">a</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nf">a</span> <span class="ow">::</span> <span class="kt">Carta</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Carta</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="kr">type</span> <span class="kt">Carta</span> <span class="ow">::</span> <span class="o">*</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="kr">data</span> <span class="kt">Carta</span> <span class="ow">=</span> <span class="kt">Carta</span> <span class="kt">Naipe</span> <span class="kt">Valor</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="c1">-- Defined at &lt;interactive&gt;:38:1</span>
+<span class="linenos" data-linenos="11 "></span><span class="kr">instance</span> <span class="p">[</span><span class="n">safe</span><span class="p">]</span> <span class="kt">Ord</span> <span class="kt">Carta</span> <span class="c1">-- Defined at &lt;interactive&gt;:38:74</span>
+<span class="linenos" data-linenos="12 "></span><span class="kr">instance</span> <span class="p">[</span><span class="n">safe</span><span class="p">]</span> <span class="kt">Show</span> <span class="kt">Carta</span> <span class="c1">-- Defined at &lt;interactive&gt;:38:69</span>
+<span class="linenos" data-linenos="13 "></span><span class="kr">instance</span> <span class="p">[</span><span class="n">safe</span><span class="p">]</span> <span class="kt">Eq</span> <span class="kt">Carta</span> <span class="c1">-- Defined at &lt;interactive&gt;:38:66</span>
+<span class="linenos" data-linenos="14 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="kt">Carta</span>
+<span class="linenos" data-linenos="15 "></span><span class="kt">Carta</span> <span class="ow">::</span> <span class="kt">Naipe</span> <span class="ow">-&gt;</span> <span class="kt">Valor</span> <span class="ow">-&gt;</span> <span class="kt">Carta</span>
 </code></pre></div>
-</td></tr></table>
 <h2 id="casamento-de-padroes">Casamento de Padrões</h2>
 <p>Para que estes tipos sejam úteis, precisamos usá-los em funções, que é direto e óbvio para os tipos mais simples, como visto anteriormente.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">corDoNaipe</span> <span class="ow">::</span> <span class="kt">Naipe</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
-<span class="nf">corDoNaipe</span> <span class="kt">Copas</span> <span class="ow">=</span> <span class="s">&quot;Vermelho&quot;</span>
-<span class="nf">corDoNaipe</span> <span class="kt">Ouro</span> <span class="ow">=</span> <span class="s">&quot;Vermelho&quot;</span>
-<span class="nf">corDoNaipe</span> <span class="kt">Paus</span> <span class="ow">=</span> <span class="s">&quot;Preto&quot;</span>
-<span class="nf">corDoNaipe</span> <span class="kt">Espada</span> <span class="ow">=</span> <span class="s">&quot;Preto&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">corDoNaipe</span> <span class="ow">::</span> <span class="kt">Naipe</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">corDoNaipe</span> <span class="kt">Copas</span> <span class="ow">=</span> <span class="s">&quot;Vermelho&quot;</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">corDoNaipe</span> <span class="kt">Ouro</span> <span class="ow">=</span> <span class="s">&quot;Vermelho&quot;</span>
+<span class="linenos" data-linenos="4 "></span><span class="nf">corDoNaipe</span> <span class="kt">Paus</span> <span class="ow">=</span> <span class="s">&quot;Preto&quot;</span>
+<span class="linenos" data-linenos="5 "></span><span class="nf">corDoNaipe</span> <span class="kt">Espada</span> <span class="ow">=</span> <span class="s">&quot;Preto&quot;</span>
 </code></pre></div>
-</td></tr></table>
 <p>Já para tipos que usam construtores, os padrões devem incluir o construtor, como mostram as funções a seguir.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">naipe</span> <span class="ow">::</span> <span class="kt">CartaT</span> <span class="ow">-&gt;</span> <span class="kt">Naipe</span>
-<span class="nf">naipe</span> <span class="p">(</span><span class="kt">Carta</span> <span class="n">n</span> <span class="kr">_</span><span class="p">)</span> <span class="ow">=</span> <span class="n">n</span>
-
-<span class="nf">valor</span> <span class="ow">::</span> <span class="kt">CartaT</span> <span class="ow">-&gt;</span> <span class="kt">Valor</span>
-<span class="nf">valor</span> <span class="p">(</span><span class="kt">Carta</span> <span class="kr">_</span> <span class="n">v</span><span class="p">)</span> <span class="ow">=</span> <span class="n">v</span>
-
-<span class="nf">valorNumérico</span> <span class="ow">::</span> <span class="kt">Valor</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
-<span class="nf">valorNumérico</span> <span class="kt">Ás</span> <span class="ow">=</span> <span class="mi">1</span>
-<span class="nf">valorNumérico</span> <span class="p">(</span><span class="kt">Número</span> <span class="n">i</span><span class="p">)</span> <span class="ow">=</span> <span class="n">i</span>
-<span class="nf">valorNumérico</span> <span class="kt">Valete</span> <span class="ow">=</span> <span class="mi">11</span>
-<span class="nf">valorNumérico</span> <span class="kt">Dama</span> <span class="ow">=</span> <span class="mi">12</span>
-<span class="nf">valorNumérico</span> <span class="kt">Rei</span> <span class="ow">=</span> <span class="mi">13</span>
-
-<span class="o">&gt;</span> <span class="n">valorNumérico</span> <span class="p">(</span><span class="kt">Número</span> <span class="mi">4</span><span class="p">)</span>
-<span class="mi">4</span>
-<span class="o">&gt;</span> <span class="n">valorNumérico</span> <span class="kt">Rei</span>
-<span class="mi">13</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nf">naipe</span> <span class="ow">::</span> <span class="kt">CartaT</span> <span class="ow">-&gt;</span> <span class="kt">Naipe</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nf">naipe</span> <span class="p">(</span><span class="kt">Carta</span> <span class="n">n</span> <span class="kr">_</span><span class="p">)</span> <span class="ow">=</span> <span class="n">n</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nf">valor</span> <span class="ow">::</span> <span class="kt">CartaT</span> <span class="ow">-&gt;</span> <span class="kt">Valor</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nf">valor</span> <span class="p">(</span><span class="kt">Carta</span> <span class="kr">_</span> <span class="n">v</span><span class="p">)</span> <span class="ow">=</span> <span class="n">v</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nf">valorNumérico</span> <span class="ow">::</span> <span class="kt">Valor</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nf">valorNumérico</span> <span class="kt">Ás</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nf">valorNumérico</span> <span class="p">(</span><span class="kt">Número</span> <span class="n">i</span><span class="p">)</span> <span class="ow">=</span> <span class="n">i</span>
+<span class="linenos" data-linenos="10 "></span><span class="nf">valorNumérico</span> <span class="kt">Valete</span> <span class="ow">=</span> <span class="mi">11</span>
+<span class="linenos" data-linenos="11 "></span><span class="nf">valorNumérico</span> <span class="kt">Dama</span> <span class="ow">=</span> <span class="mi">12</span>
+<span class="linenos" data-linenos="12 "></span><span class="nf">valorNumérico</span> <span class="kt">Rei</span> <span class="ow">=</span> <span class="mi">13</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="o">&gt;</span> <span class="n">valorNumérico</span> <span class="p">(</span><span class="kt">Número</span> <span class="mi">4</span><span class="p">)</span>
+<span class="linenos" data-linenos="15 "></span><span class="mi">4</span>
+<span class="linenos" data-linenos="16 "></span><span class="o">&gt;</span> <span class="n">valorNumérico</span> <span class="kt">Rei</span>
+<span class="linenos" data-linenos="17 "></span><span class="mi">13</span>
 </code></pre></div>
-</td></tr></table>
 <div class="admonition exercise">
 <p class="admonition-title">Exercícios</p>
 <ul>
@@ -1366,182 +1146,102 @@ Isto é, o próprio gerador entende que somente tipos que casem com o construtor
 <h2 id="maybe">Maybe</h2>
 <p><code class="highlight"><span class="kt">Read</span></code> é uma classe de tipo útil por permitir que strings sejam usadas lidas e interpretadas como o tipo.
 O tipo <code class="highlight"><span class="kt">Int</span></code> e outros números, por exemplo, pertencem a esta classe, o que nos diz que podemos fazer o seguinte:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">read</span> <span class="s">&quot;100&quot;</span> <span class="ow">::</span> <span class="kt">Int</span>
-<span class="o">&gt;</span> <span class="n">x</span>
-<span class="mi">100</span>
-<span class="o">&gt;</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">read</span> <span class="s">&quot;100&quot;</span> <span class="ow">::</span> <span class="kt">Float</span>
-<span class="o">&gt;</span> <span class="n">x</span>
-<span class="mf">100.0</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">read</span> <span class="s">&quot;100&quot;</span> <span class="ow">::</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span> <span class="n">x</span>
+<span class="linenos" data-linenos="3 "></span><span class="mi">100</span>
+<span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">read</span> <span class="s">&quot;100&quot;</span> <span class="ow">::</span> <span class="kt">Float</span>
+<span class="linenos" data-linenos="5 "></span><span class="o">&gt;</span> <span class="n">x</span>
+<span class="linenos" data-linenos="6 "></span><span class="mf">100.0</span>
 </code></pre></div>
-</td></tr></table>
 <p>Acontece que nem sempre a função será bem sucedida em interpretar a string, por exemplo:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">read</span> <span class="s">&quot;Bolhufas&quot;</span> <span class="ow">::</span> <span class="kt">Int</span>
-<span class="o">&gt;</span> <span class="n">x</span>
-<span class="o">***</span> <span class="kt">Exception:</span> <span class="kt">Prelude</span><span class="o">.</span><span class="n">read</span><span class="kt">:</span> <span class="n">no</span> <span class="n">parse</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">read</span> <span class="s">&quot;Bolhufas&quot;</span> <span class="ow">::</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span> <span class="n">x</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">***</span> <span class="kt">Exception:</span> <span class="kt">Prelude</span><span class="o">.</span><span class="n">read</span><span class="kt">:</span> <span class="n">no</span> <span class="n">parse</span>
 </code></pre></div>
-</td></tr></table>
 <p>Esta é apenas uma de muitas situações em que uma exceção pode ser causada por uma falha na execução de alguma função.
 Outros exemplos são falhas de alocação de memória, de abertura de um arquivo no disco, de comunicação com outro processo via uma rede de computadores, etc.
 Nestas situações, é comum o uso do tipo <code class="highlight"><span class="kt">Maybe</span> <span class="n">a</span></code> definido como se segue:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kr">import</span> <span class="nn">Text.Read</span>
-
-<span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Maybe</span>
-<span class="kr">data</span> <span class="kt">Maybe</span> <span class="n">a</span> <span class="ow">=</span> <span class="kt">Nothing</span> <span class="o">|</span> <span class="kt">Just</span> <span class="n">a</span>
-<span class="o">...</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="kr">import</span> <span class="nn">Text.Read</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Maybe</span>
+<span class="linenos" data-linenos="4 "></span><span class="kr">data</span> <span class="kt">Maybe</span> <span class="n">a</span> <span class="ow">=</span> <span class="kt">Nothing</span> <span class="o">|</span> <span class="kt">Just</span> <span class="n">a</span>
+<span class="linenos" data-linenos="5 "></span><span class="o">...</span>
 </code></pre></div>
-</td></tr></table>
 <p>Este tipo permite que a função indique um erro ao retornar <code class="highlight"><span class="kt">Nothing</span></code> ou que um valor x foi recuperado da string usando ao retornar <code class="highlight"><span class="kt">Just</span> <span class="n">x</span></code>.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">readMaybe</span> <span class="s">&quot;Bolhufas&quot;</span> <span class="ow">::</span> <span class="kt">Maybe</span> <span class="kt">Int</span>
-<span class="o">&gt;</span> <span class="n">x</span>
-<span class="kt">Nothing</span>
-<span class="o">&gt;</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">readMaybe</span> <span class="s">&quot;100&quot;</span> <span class="ow">::</span> <span class="kt">Maybe</span> <span class="kt">Int</span>
-<span class="o">&gt;</span> <span class="n">x</span>
-<span class="kt">Just</span> <span class="mi">100</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">readMaybe</span> <span class="s">&quot;Bolhufas&quot;</span> <span class="ow">::</span> <span class="kt">Maybe</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span> <span class="n">x</span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">Nothing</span>
+<span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">readMaybe</span> <span class="s">&quot;100&quot;</span> <span class="ow">::</span> <span class="kt">Maybe</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="5 "></span><span class="o">&gt;</span> <span class="n">x</span>
+<span class="linenos" data-linenos="6 "></span><span class="kt">Just</span> <span class="mi">100</span>
 </code></pre></div>
-</td></tr></table>
 <h2 id="tipos-recursivos">Tipos recursivos</h2>
 <p>Como pode ver até agora, tipos algébricos tem muitos usos, a agora veremos um dos mais interessantes, na definição de tipos recursivos.
 Considere uma lista, como definida pelo operador cons, <code class="highlight"><span class="kt">:</span></code>: uma lista é a concatenação de um elemento, a cabeça da lista, com uma outra lista, a cauda.
 Usando tipos algébricos, conseguimos representar listas da seguinte forma:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">data</span> <span class="kt">Lista</span> <span class="n">a</span> <span class="ow">=</span> <span class="kt">Vazio</span> <span class="o">|</span> <span class="kt">Elemento</span> <span class="n">a</span> <span class="p">(</span><span class="kt">Lista</span> <span class="n">a</span><span class="p">)</span> <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Show</span><span class="p">)</span>
-
-<span class="nf">busca</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Lista</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
-<span class="nf">busca</span> <span class="kr">_</span> <span class="kt">Vazio</span> <span class="ow">=</span> <span class="kt">False</span>
-<span class="nf">busca</span> <span class="n">e</span> <span class="p">(</span><span class="kt">Elemento</span> <span class="n">x</span> <span class="n">xs</span><span class="p">)</span>
-  <span class="o">|</span> <span class="n">e</span> <span class="o">==</span> <span class="n">x</span> <span class="ow">=</span> <span class="kt">True</span>
-  <span class="o">|</span> <span class="n">busca</span> <span class="n">e</span> <span class="n">xs</span>
-
-<span class="nf">busca&#39;</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Lista</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
-<span class="nf">busca&#39;</span> <span class="kr">_</span> <span class="kt">Vazio</span> <span class="ow">=</span> <span class="kt">False</span>
-<span class="nf">busca&#39;</span> <span class="n">e</span> <span class="p">(</span><span class="kt">Elemento</span> <span class="n">x</span> <span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">e</span> <span class="o">==</span> <span class="n">x</span> <span class="o">||</span> <span class="n">busca</span> <span class="n">e</span> <span class="n">xs</span>
-
-
-<span class="o">&gt;</span> <span class="n">lV</span> <span class="ow">=</span> <span class="kt">Vazio</span>
-<span class="o">&gt;</span> <span class="n">l1</span> <span class="ow">=</span> <span class="kt">Elemento</span> <span class="mi">1</span> <span class="p">(</span><span class="kt">Vazio</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="n">l2</span> <span class="ow">=</span> <span class="kt">Elemento</span> <span class="mi">2</span> <span class="p">(</span><span class="kt">Elemento</span> <span class="mi">1</span> <span class="kt">Vazio</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="n">lV</span>
-<span class="kt">Vazio</span>
-<span class="o">&gt;</span> <span class="n">l1</span>
-<span class="kt">Elemento</span> <span class="mi">1</span> <span class="kt">Vazio</span>
-<span class="o">&gt;</span> <span class="n">l2</span>
-<span class="kt">Elemento</span> <span class="mi">2</span> <span class="p">(</span><span class="kt">Elemento</span> <span class="mi">1</span> <span class="kt">Vazio</span><span class="p">)</span>
-
-<span class="o">&gt;</span> <span class="n">busca&#39;</span> <span class="mi">1</span> <span class="n">lV</span>
-<span class="kt">False</span>
-<span class="o">&gt;</span> <span class="n">busca&#39;</span> <span class="mi">1</span> <span class="n">l1</span>
-<span class="kt">True</span>
-<span class="o">&gt;</span> <span class="n">busca&#39;</span> <span class="mi">1</span> <span class="n">l2</span>
-<span class="kt">True</span>
-<span class="o">&gt;</span> <span class="n">busca&#39;</span> <span class="mi">2</span> <span class="n">l1</span>
-<span class="kt">False</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kr">data</span> <span class="kt">Lista</span> <span class="n">a</span> <span class="ow">=</span> <span class="kt">Vazio</span> <span class="o">|</span> <span class="kt">Elemento</span> <span class="n">a</span> <span class="p">(</span><span class="kt">Lista</span> <span class="n">a</span><span class="p">)</span> <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Show</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nf">busca</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Lista</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nf">busca</span> <span class="kr">_</span> <span class="kt">Vazio</span> <span class="ow">=</span> <span class="kt">False</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nf">busca</span> <span class="n">e</span> <span class="p">(</span><span class="kt">Elemento</span> <span class="n">x</span> <span class="n">xs</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="o">|</span> <span class="n">e</span> <span class="o">==</span> <span class="n">x</span> <span class="ow">=</span> <span class="kt">True</span>
+<span class="linenos" data-linenos=" 7 "></span>  <span class="o">|</span> <span class="n">busca</span> <span class="n">e</span> <span class="n">xs</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nf">busca&#39;</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Lista</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos="10 "></span><span class="nf">busca&#39;</span> <span class="kr">_</span> <span class="kt">Vazio</span> <span class="ow">=</span> <span class="kt">False</span>
+<span class="linenos" data-linenos="11 "></span><span class="nf">busca&#39;</span> <span class="n">e</span> <span class="p">(</span><span class="kt">Elemento</span> <span class="n">x</span> <span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">e</span> <span class="o">==</span> <span class="n">x</span> <span class="o">||</span> <span class="n">busca</span> <span class="n">e</span> <span class="n">xs</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="o">&gt;</span> <span class="n">lV</span> <span class="ow">=</span> <span class="kt">Vazio</span>
+<span class="linenos" data-linenos="15 "></span><span class="o">&gt;</span> <span class="n">l1</span> <span class="ow">=</span> <span class="kt">Elemento</span> <span class="mi">1</span> <span class="p">(</span><span class="kt">Vazio</span><span class="p">)</span>
+<span class="linenos" data-linenos="16 "></span><span class="o">&gt;</span> <span class="n">l2</span> <span class="ow">=</span> <span class="kt">Elemento</span> <span class="mi">2</span> <span class="p">(</span><span class="kt">Elemento</span> <span class="mi">1</span> <span class="kt">Vazio</span><span class="p">)</span>
+<span class="linenos" data-linenos="17 "></span><span class="o">&gt;</span> <span class="n">lV</span>
+<span class="linenos" data-linenos="18 "></span><span class="kt">Vazio</span>
+<span class="linenos" data-linenos="19 "></span><span class="o">&gt;</span> <span class="n">l1</span>
+<span class="linenos" data-linenos="20 "></span><span class="kt">Elemento</span> <span class="mi">1</span> <span class="kt">Vazio</span>
+<span class="linenos" data-linenos="21 "></span><span class="o">&gt;</span> <span class="n">l2</span>
+<span class="linenos" data-linenos="22 "></span><span class="kt">Elemento</span> <span class="mi">2</span> <span class="p">(</span><span class="kt">Elemento</span> <span class="mi">1</span> <span class="kt">Vazio</span><span class="p">)</span>
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span><span class="o">&gt;</span> <span class="n">busca&#39;</span> <span class="mi">1</span> <span class="n">lV</span>
+<span class="linenos" data-linenos="25 "></span><span class="kt">False</span>
+<span class="linenos" data-linenos="26 "></span><span class="o">&gt;</span> <span class="n">busca&#39;</span> <span class="mi">1</span> <span class="n">l1</span>
+<span class="linenos" data-linenos="27 "></span><span class="kt">True</span>
+<span class="linenos" data-linenos="28 "></span><span class="o">&gt;</span> <span class="n">busca&#39;</span> <span class="mi">1</span> <span class="n">l2</span>
+<span class="linenos" data-linenos="29 "></span><span class="kt">True</span>
+<span class="linenos" data-linenos="30 "></span><span class="o">&gt;</span> <span class="n">busca&#39;</span> <span class="mi">2</span> <span class="n">l1</span>
+<span class="linenos" data-linenos="31 "></span><span class="kt">False</span>
 </code></pre></div>
-</td></tr></table>
 <p>Para outro exemplo, considere uma árvore binária, uma estrutura de dados formada por nós que armazenam algum dado e apontam para outros dois nós, denominados filhos à esquerda e à direita.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">data</span> <span class="kt">Árvore</span> <span class="n">a</span> <span class="ow">=</span> <span class="kt">Nada</span> <span class="o">|</span> <span class="kt">Nó</span> <span class="n">a</span> <span class="p">(</span><span class="kt">Árvore</span> <span class="n">a</span><span class="p">)</span> <span class="p">(</span><span class="kt">Árvore</span> <span class="n">a</span><span class="p">)</span>  <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Show</span><span class="p">)</span>
-
-<span class="cm">{-</span>
-<span class="cm">&gt;&gt;&gt; mudinha = Nó 3 Nada Nada</span>
-
-<span class="cm">&gt;&gt;&gt; Nó 1 (Nó 2 (Nó 4 Nada Nada) Nada) (Nó 3 Nada Nada)</span>
-<span class="cm">Nó 1 (Nó 2 (Nó 4 Nada Nada) Nada) (Nó 3 Nada Nada)</span>
-<span class="cm">-}</span>
-
-<span class="nf">adicionar</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Eq</span> <span class="n">a</span><span class="p">,</span> <span class="kt">Ord</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Árvore</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Árvore</span> <span class="n">a</span>
-<span class="nf">adicionar</span> <span class="n">novoDado</span> <span class="kt">Nada</span> <span class="ow">=</span> <span class="kt">Nó</span> <span class="n">novoDado</span> <span class="kt">Nada</span> <span class="kt">Nada</span>
-<span class="nf">adicionar</span> <span class="n">novoDado</span> <span class="n">árvore</span><span class="o">@</span><span class="p">(</span><span class="kt">Nó</span> <span class="n">dadoExistente</span> <span class="n">ae</span> <span class="n">ad</span><span class="p">)</span>
-    <span class="o">|</span> <span class="n">novoDado</span> <span class="o">==</span> <span class="n">dadoExistente</span> <span class="ow">=</span> <span class="n">árvore</span>
-    <span class="o">|</span> <span class="n">novoDado</span> <span class="o">&lt;</span> <span class="n">dadoExistente</span>  <span class="ow">=</span> <span class="kt">Nó</span> <span class="n">dadoExistente</span> <span class="p">(</span><span class="n">adicionar</span> <span class="n">novoDado</span> <span class="n">ae</span><span class="p">)</span> <span class="n">ad</span>
-    <span class="o">|</span> <span class="n">otherwise</span>                 <span class="ow">=</span> <span class="kt">Nó</span> <span class="n">dadoExistente</span> <span class="n">ad</span> <span class="p">(</span><span class="n">adicionar</span> <span class="n">novoDado</span> <span class="n">ad</span><span class="p">)</span>
-
-<span class="cm">{-</span>
-<span class="cm">&gt;&gt;&gt; arv = adicionar 3 (adicionar 4 (adicionar 10 (adicionar 1 (adicionar 2 (adicionar 3 (adicionar 7 Nada))))))</span>
-
-<span class="cm">&gt;&gt;&gt; arv</span>
-<span class="cm">Nó 7 (Nó 4 (Nó 3 Nada Nada) Nada) (Nó 10 Nada Nada)</span>
-
-<span class="cm">&gt;&gt;&gt; impressãoEmOrdem arv</span>
-<span class="cm">&quot;.3.4.7.10.&quot;</span>
-<span class="cm">-}</span>
-
-<span class="nf">impressãoEmOrdem</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Show</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="kt">Árvore</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
-<span class="nf">impressãoEmOrdem</span> <span class="kt">Nada</span> <span class="ow">=</span> <span class="s">&quot;.&quot;</span>
-<span class="nf">impressãoEmOrdem</span> <span class="p">(</span><span class="kt">Nó</span> <span class="n">dado</span> <span class="n">ae</span> <span class="n">ad</span><span class="p">)</span> <span class="ow">=</span> <span class="n">impressãoEmOrdem</span> <span class="n">ae</span> <span class="o">++</span> <span class="n">show</span> <span class="n">dado</span> <span class="o">++</span> <span class="n">impressãoEmOrdem</span> <span class="n">ad</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kr">data</span> <span class="kt">Árvore</span> <span class="n">a</span> <span class="ow">=</span> <span class="kt">Nada</span> <span class="o">|</span> <span class="kt">Nó</span> <span class="n">a</span> <span class="p">(</span><span class="kt">Árvore</span> <span class="n">a</span><span class="p">)</span> <span class="p">(</span><span class="kt">Árvore</span> <span class="n">a</span><span class="p">)</span>  <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Show</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="cm">{-</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="cm">&gt;&gt;&gt; mudinha = Nó 3 Nada Nada</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="cm">&gt;&gt;&gt; Nó 1 (Nó 2 (Nó 4 Nada Nada) Nada) (Nó 3 Nada Nada)</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="cm">Nó 1 (Nó 2 (Nó 4 Nada Nada) Nada) (Nó 3 Nada Nada)</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="cm">-}</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="nf">adicionar</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Eq</span> <span class="n">a</span><span class="p">,</span> <span class="kt">Ord</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Árvore</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Árvore</span> <span class="n">a</span>
+<span class="linenos" data-linenos="11 "></span><span class="nf">adicionar</span> <span class="n">novoDado</span> <span class="kt">Nada</span> <span class="ow">=</span> <span class="kt">Nó</span> <span class="n">novoDado</span> <span class="kt">Nada</span> <span class="kt">Nada</span>
+<span class="linenos" data-linenos="12 "></span><span class="nf">adicionar</span> <span class="n">novoDado</span> <span class="n">árvore</span><span class="o">@</span><span class="p">(</span><span class="kt">Nó</span> <span class="n">dadoExistente</span> <span class="n">ae</span> <span class="n">ad</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="o">|</span> <span class="n">novoDado</span> <span class="o">==</span> <span class="n">dadoExistente</span> <span class="ow">=</span> <span class="n">árvore</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="o">|</span> <span class="n">novoDado</span> <span class="o">&lt;</span> <span class="n">dadoExistente</span>  <span class="ow">=</span> <span class="kt">Nó</span> <span class="n">dadoExistente</span> <span class="p">(</span><span class="n">adicionar</span> <span class="n">novoDado</span> <span class="n">ae</span><span class="p">)</span> <span class="n">ad</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="o">|</span> <span class="n">otherwise</span>                 <span class="ow">=</span> <span class="kt">Nó</span> <span class="n">dadoExistente</span> <span class="n">ad</span> <span class="p">(</span><span class="n">adicionar</span> <span class="n">novoDado</span> <span class="n">ad</span><span class="p">)</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span><span class="cm">{-</span>
+<span class="linenos" data-linenos="18 "></span><span class="cm">&gt;&gt;&gt; arv = adicionar 3 (adicionar 4 (adicionar 10 (adicionar 1 (adicionar 2 (adicionar 3 (adicionar 7 Nada))))))</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span><span class="cm">&gt;&gt;&gt; arv</span>
+<span class="linenos" data-linenos="21 "></span><span class="cm">Nó 7 (Nó 4 (Nó 3 Nada Nada) Nada) (Nó 10 Nada Nada)</span>
+<span class="linenos" data-linenos="22 "></span>
+<span class="linenos" data-linenos="23 "></span><span class="cm">&gt;&gt;&gt; impressãoEmOrdem arv</span>
+<span class="linenos" data-linenos="24 "></span><span class="cm">&quot;.3.4.7.10.&quot;</span>
+<span class="linenos" data-linenos="25 "></span><span class="cm">-}</span>
+<span class="linenos" data-linenos="26 "></span>
+<span class="linenos" data-linenos="27 "></span><span class="nf">impressãoEmOrdem</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Show</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="kt">Árvore</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<span class="linenos" data-linenos="28 "></span><span class="nf">impressãoEmOrdem</span> <span class="kt">Nada</span> <span class="ow">=</span> <span class="s">&quot;.&quot;</span>
+<span class="linenos" data-linenos="29 "></span><span class="nf">impressãoEmOrdem</span> <span class="p">(</span><span class="kt">Nó</span> <span class="n">dado</span> <span class="n">ae</span> <span class="n">ad</span><span class="p">)</span> <span class="ow">=</span> <span class="n">impressãoEmOrdem</span> <span class="n">ae</span> <span class="o">++</span> <span class="n">show</span> <span class="n">dado</span> <span class="o">++</span> <span class="n">impressãoEmOrdem</span> <span class="n">ad</span>
 </code></pre></div>
-</td></tr></table>
 <div class="admonition exercise">
 <p class="admonition-title">Exercício</p>
 <p>Implemente uma impressão "em ordem" dos nós da árvore, que recebe uma árvore e gera uma string com a resposta.</p>
@@ -1615,10 +1315,12 @@ Usando tipos algébricos, conseguimos representar listas da seguinte forma:</p>
             Copyright © 2021 Lásaro Camargos
           </div>
         
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
         
       </div>
       
@@ -1640,10 +1342,10 @@ Usando tipos algébricos, conseguimos representar listas da seguinte forma:</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.e99e714c.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.56a63758.min.js"></script>
+      <script src="../assets/javascripts/bundle.bc35569b.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       

@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.be71726b.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.24c991ad.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -88,7 +88,9 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
     <a href=".." title="Notas de Aula em Programação Funcional" class="md-header__button md-logo" aria-label="Notas de Aula em Programação Funcional" data-md-component="logo">
       
@@ -123,7 +125,7 @@
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
             </label>
           
         
@@ -191,11 +193,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -615,156 +620,96 @@
   <!-- Content -->
   <p>Frequentemente em nossas funções, precisamos usar mais de uma vez um valor calculado por outra função.
 No cálculo do índice de massa corporal a seguir, por exemplo, o valor do índice é recalculado a cada guarda, ou seja, pode ser calculado até 3 vezes.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">imc</span> <span class="n">p</span> <span class="n">a</span>
-    <span class="o">|</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mf">18.5</span> <span class="ow">=</span> <span class="s">&quot;Baixo&quot;</span>
-    <span class="o">|</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mf">25.0</span> <span class="ow">=</span> <span class="s">&quot;Normal&quot;</span>
-    <span class="o">|</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mf">30.0</span> <span class="ow">=</span> <span class="s">&quot;Alto&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">imc</span> <span class="n">p</span> <span class="n">a</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="o">|</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mf">18.5</span> <span class="ow">=</span> <span class="s">&quot;Baixo&quot;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">|</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mf">25.0</span> <span class="ow">=</span> <span class="s">&quot;Normal&quot;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="o">|</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mf">30.0</span> <span class="ow">=</span> <span class="s">&quot;Alto&quot;</span>
 </code></pre></div>
-</td></tr></table>
 <p>Para estes casos, Haskell nos dá o construto <code>where</code>, que permite fazer definições "locais" à função.</p>
 <h6>Where</h6>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">imc</span> <span class="n">p</span> <span class="n">a</span>
-    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="mf">18.5</span> <span class="ow">=</span> <span class="s">&quot;Baixo&quot;</span>
-    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="mf">25.0</span> <span class="ow">=</span> <span class="s">&quot;Normal&quot;</span>
-    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="mf">30.0</span> <span class="ow">=</span> <span class="s">&quot;Alto&quot;</span>
-    <span class="kr">where</span> <span class="n">imc&#39;</span> <span class="ow">=</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">imc</span> <span class="n">p</span> <span class="n">a</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="mf">18.5</span> <span class="ow">=</span> <span class="s">&quot;Baixo&quot;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="mf">25.0</span> <span class="ow">=</span> <span class="s">&quot;Normal&quot;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="mf">30.0</span> <span class="ow">=</span> <span class="s">&quot;Alto&quot;</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="kr">where</span> <span class="n">imc&#39;</span> <span class="ow">=</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span>
 </code></pre></div>
-</td></tr></table>
 <p>O código fica muito mais legível desta forma.
 O where pode ser até usado múltiplas vezes, bastando que todas as definições estejam perfeitamente indentadas.
 No exemplo a seguir, fica fácil localizar e modificar as definições dos vários níveis de IMC. Ponto para a manutenabilidade!</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">imc</span> <span class="n">p</span> <span class="n">a</span>
-    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="n">baixo</span> <span class="ow">=</span> <span class="s">&quot;Baixo&quot;</span>
-    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="n">normal</span> <span class="ow">=</span> <span class="s">&quot;Normal&quot;</span>
-    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="n">alto</span> <span class="ow">=</span> <span class="s">&quot;Alto&quot;</span>
-    <span class="kr">where</span> <span class="n">imc&#39;</span> <span class="ow">=</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span>
-          <span class="n">baixo</span> <span class="ow">=</span> <span class="mf">18.5</span>
-          <span class="n">normal</span> <span class="ow">=</span> <span class="mf">25.0</span>
-          <span class="n">alto</span> <span class="ow">=</span> <span class="mf">30.0</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">imc</span> <span class="n">p</span> <span class="n">a</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="n">baixo</span> <span class="ow">=</span> <span class="s">&quot;Baixo&quot;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="n">normal</span> <span class="ow">=</span> <span class="s">&quot;Normal&quot;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="n">alto</span> <span class="ow">=</span> <span class="s">&quot;Alto&quot;</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="kr">where</span> <span class="n">imc&#39;</span> <span class="ow">=</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span>
+<span class="linenos" data-linenos="6 "></span>          <span class="n">baixo</span> <span class="ow">=</span> <span class="mf">18.5</span>
+<span class="linenos" data-linenos="7 "></span>          <span class="n">normal</span> <span class="ow">=</span> <span class="mf">25.0</span>
+<span class="linenos" data-linenos="8 "></span>          <span class="n">alto</span> <span class="ow">=</span> <span class="mf">30.0</span>
 </code></pre></div>
-</td></tr></table>
 <p><code>where</code> é especialmente útil na definição de funções recursivas, pois permite nomear as invocações, como por exemplo na definição da função que calcula os termos da sequência de Fibonacci, com e sem o uso do construto.</p>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Sem Where</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fib</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">0</span>
-<span class="nf">fib</span> <span class="mi">1</span> <span class="ow">=</span> <span class="mi">1</span>
-<span class="nf">fib</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">fib</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">fib</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">0</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">fib</span> <span class="mi">1</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">fib</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">fib</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
-</td></tr></table>
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Com Where</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fib</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">0</span>
-<span class="nf">fib</span> <span class="mi">1</span> <span class="ow">=</span> <span class="mi">1</span>
-<span class="nf">fib</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">prev</span> <span class="o">+</span> <span class="n">prevPrev</span>
-    <span class="kr">where</span> <span class="n">prev</span>     <span class="ow">=</span> <span class="n">fib</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> 
-          <span class="n">prevPrev</span> <span class="ow">=</span> <span class="n">fib</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">fib</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">0</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">fib</span> <span class="mi">1</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">fib</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">prev</span> <span class="o">+</span> <span class="n">prevPrev</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="kr">where</span> <span class="n">prev</span>     <span class="ow">=</span> <span class="n">fib</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> 
+<span class="linenos" data-linenos="5 "></span>          <span class="n">prevPrev</span> <span class="ow">=</span> <span class="n">fib</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
-</td></tr></table>
 </div>
 </div>
 <p>Neste caso pode-se argumentar que não houve ganhos com o mudança, dado que a função é muito simples.
 Em funções mais complexas, contudo, os benefícios em termos de legibilidade aumentam, como na função a seguir.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">collatz</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
-<span class="nf">collatz</span> <span class="n">n</span> <span class="n">i</span>
-    <span class="o">|</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="n">n</span>
-    <span class="o">|</span> <span class="n">even</span> <span class="n">anterior</span> <span class="ow">=</span> <span class="n">anterior</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">2</span>
-    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">anterior</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="kr">where</span> <span class="n">anterior</span> <span class="ow">=</span> <span class="n">collatz</span> <span class="n">n</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="nf">converge</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
-<span class="nf">converge</span> <span class="n">n</span> <span class="n">passo</span>
-    <span class="o">|</span> <span class="n">termo</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="kt">True</span>
-    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">converge</span> <span class="n">n</span> <span class="p">(</span><span class="n">passo</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="kr">where</span> <span class="n">termo</span> <span class="ow">=</span> <span class="n">collatz</span> <span class="n">n</span> <span class="n">passo</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nf">collatz</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nf">collatz</span> <span class="n">n</span> <span class="n">i</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="o">|</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="n">n</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="o">|</span> <span class="n">even</span> <span class="n">anterior</span> <span class="ow">=</span> <span class="n">anterior</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">2</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">anterior</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="kr">where</span> <span class="n">anterior</span> <span class="ow">=</span> <span class="n">collatz</span> <span class="n">n</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nf">converge</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nf">converge</span> <span class="n">n</span> <span class="n">passo</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="o">|</span> <span class="n">termo</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="kt">True</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">converge</span> <span class="n">n</span> <span class="p">(</span><span class="n">passo</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="kr">where</span> <span class="n">termo</span> <span class="ow">=</span> <span class="n">collatz</span> <span class="n">n</span> <span class="n">passo</span>
 </code></pre></div>
-</td></tr></table>
 <h6>let-in</h6>
 <p>Um outro construto interessante e com funcionalidade parecida é o <code class="highlight"><span class="kr">let</span> <span class="kr">in</span></code>, em que se pode fazer algumas definições no <code class="highlight"><span class="kr">let</span></code> e que serão visíveis no <code class="highlight"><span class="kr">in</span></code>. Por exemplo, nas seguintes definições.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fib</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">0</span>
-<span class="nf">fib</span> <span class="mi">1</span> <span class="ow">=</span> <span class="mi">1</span>
-<span class="nf">fib</span> <span class="n">n</span> <span class="ow">=</span> <span class="kr">let</span> <span class="n">prev</span>     <span class="ow">=</span> <span class="n">fib</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> 
-            <span class="n">prevPrev</span> <span class="ow">=</span> <span class="n">fib</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
-        <span class="kr">in</span> <span class="n">prev</span> <span class="o">+</span> <span class="n">prevPrev</span>
-
-<span class="nf">areaCilindro</span> <span class="n">r</span> <span class="n">a</span> <span class="ow">=</span> 
-    <span class="kr">let</span> <span class="n">areaLateral</span> <span class="ow">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">a</span>
-        <span class="n">areaTopo</span> <span class="ow">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">r</span><span class="o">^</span><span class="mi">2</span>  
-    <span class="kr">in</span>  <span class="n">areaLateral</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">areaTopo</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nf">fib</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">0</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nf">fib</span> <span class="mi">1</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nf">fib</span> <span class="n">n</span> <span class="ow">=</span> <span class="kr">let</span> <span class="n">prev</span>     <span class="ow">=</span> <span class="n">fib</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> 
+<span class="linenos" data-linenos=" 4 "></span>            <span class="n">prevPrev</span> <span class="ow">=</span> <span class="n">fib</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="kr">in</span> <span class="n">prev</span> <span class="o">+</span> <span class="n">prevPrev</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nf">areaCilindro</span> <span class="n">r</span> <span class="n">a</span> <span class="ow">=</span> 
+<span class="linenos" data-linenos=" 8 "></span>    <span class="kr">let</span> <span class="n">areaLateral</span> <span class="ow">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">a</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="n">areaTopo</span> <span class="ow">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">r</span><span class="o">^</span><span class="mi">2</span>  
+<span class="linenos" data-linenos="10 "></span>    <span class="kr">in</span>  <span class="n">areaLateral</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">areaTopo</span>
 </code></pre></div>
-</td></tr></table>
 <p>Nestes exemplos, parece que <code class="highlight"><span class="kr">where</span></code> e <code class="highlight"><span class="kr">let</span> <span class="kr">in</span></code> são apenas sintaxes diferentes para o mesmo fim, criar definições locais.
 Isso é verdade, mas há algumas diferenças fundamentais.
 Primeiro, enquanto o as definições feitas no <code class="highlight"><span class="kr">where</span></code> são amarradas ao contexto da função em que estão colocadas, podendo ser vistas em quaisquer outras partes da função, por exemplo guardas, as definições feitas no <code class="highlight"><span class="kr">let</span></code> são muito mais localizadas, válidas apenas dentro do <code class="highlight"><span class="kr">in</span></code> correspondente. 
 Segundo, <code class="highlight"><span class="kr">let</span> <span class="kr">in</span></code> são expressões e podem aparecer em qualquer lugar onde uma expressão é esperada.
 Por exemplo, eles podem ser usados para definir constantes ou funções</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="kr">let</span> <span class="n">um</span> <span class="ow">=</span> <span class="mi">1</span> <span class="kr">in</span> <span class="n">um</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="mi">3</span>
-<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kr">let</span> <span class="n">quadrado</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="kr">in</span> <span class="n">quadrado</span> <span class="mi">3</span>
-<span class="mi">9</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="kr">let</span> <span class="n">um</span> <span class="ow">=</span> <span class="mi">1</span> <span class="kr">in</span> <span class="n">um</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">3</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kr">let</span> <span class="n">quadrado</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="kr">in</span> <span class="n">quadrado</span> <span class="mi">3</span>
+<span class="linenos" data-linenos="4 "></span><span class="mi">9</span>
 </code></pre></div>
-</td></tr></table>
 <p>Em alguns contextos em que o escopo é muito claro, podemos omitir o <code class="highlight"><span class="kr">in</span></code> da definição. No GHCI, por exemplo, o fizermos, então a definição feita será válida por toda a execução do REPL, ou até que seja sobrescrita.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kr">let</span> <span class="n">quadrado</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="kr">in</span> <span class="n">quadrado</span> <span class="mi">3</span>
-<span class="mi">9</span>
-<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">quadrado</span> <span class="mi">3</span>
-
-<span class="o">&lt;</span><span class="n">interactive</span><span class="o">&gt;:</span><span class="mi">25</span><span class="kt">:</span><span class="mi">1</span><span class="kt">:</span> <span class="ne">error</span><span class="kt">:</span>
-    <span class="kt">Variable</span> <span class="n">not</span> <span class="kr">in</span> <span class="n">scope</span><span class="kt">:</span> <span class="n">quadrado</span> <span class="ow">::</span> <span class="n">t0</span> <span class="ow">-&gt;</span> <span class="n">t</span>
-<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kr">let</span> <span class="n">quadrado</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
-<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">quadrado</span> <span class="mi">3</span>
-<span class="mi">9</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kr">let</span> <span class="n">quadrado</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="kr">in</span> <span class="n">quadrado</span> <span class="mi">3</span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">9</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">quadrado</span> <span class="mi">3</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="o">&lt;</span><span class="n">interactive</span><span class="o">&gt;:</span><span class="mi">25</span><span class="kt">:</span><span class="mi">1</span><span class="kt">:</span> <span class="ne">error</span><span class="kt">:</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="kt">Variable</span> <span class="n">not</span> <span class="kr">in</span> <span class="n">scope</span><span class="kt">:</span> <span class="n">quadrado</span> <span class="ow">::</span> <span class="n">t0</span> <span class="ow">-&gt;</span> <span class="n">t</span>
+<span class="linenos" data-linenos="7 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kr">let</span> <span class="n">quadrado</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
+<span class="linenos" data-linenos="8 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">quadrado</span> <span class="mi">3</span>
+<span class="linenos" data-linenos="9 "></span><span class="mi">9</span>
 </code></pre></div>
-</td></tr></table>
 
   <!-- Last update of source file -->
 
@@ -826,10 +771,12 @@ Por exemplo, eles podem ser usados para definir constantes ou funções</p>
             Copyright © 2021 Lásaro Camargos
           </div>
         
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
         
       </div>
       
@@ -851,10 +798,10 @@ Por exemplo, eles podem ser usados para definir constantes ou funções</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.e99e714c.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.56a63758.min.js"></script>
+      <script src="../assets/javascripts/bundle.bc35569b.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       

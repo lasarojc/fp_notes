@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.be71726b.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.24c991ad.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -93,7 +93,9 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
     <a href=".." title="Notas de Aula em Programação Funcional" class="md-header__button md-logo" aria-label="Notas de Aula em Programação Funcional" data-md-component="logo">
       
@@ -128,7 +130,7 @@
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
             </label>
           
         
@@ -196,11 +198,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -738,61 +743,40 @@
   <!-- Content -->
   <h1 id="tipos">Tipos</h1>
 <p>Seja a função <code>diasMes</code> a função que calcula a quantidade de dias em um mês, dado o número do mês, definida assim:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">diasMes</span> <span class="n">m</span>
-    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">3</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">5</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">7</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">8</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">10</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">12</span> <span class="ow">=</span> <span class="mi">31</span>
-    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">=</span> <span class="mi">28</span>
-    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="mi">30</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">diasMes</span> <span class="n">m</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">3</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">5</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">7</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">8</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">10</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">12</span> <span class="ow">=</span> <span class="mi">31</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">=</span> <span class="mi">28</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="mi">30</span>
 </code></pre></div>
-</td></tr></table>
 <p>O que acontece se você passar 7.2 para a função? O resultado está correto? 
 Isso nos leva a perguntar como definir que uma função só é aplicável a números inteiros, do <strong>tipo</strong> inteiro.</p>
 <p>Em linguagens de programação, um tipo é um nome dado a uma coleção de valores que tem um mesmo comportamento na linguagem.
 Na linguagem C, por exemplo, temos os tipos <code>int</code> e <code>short</code>, ambos associados a valores inteiros mas com número de bits diferentes usados para representá-los.</p>
 <p>Algumas linguagens são denominadas <strong>fracamente tipadas</strong>, o que quer dizer que o uso de tipos é relaxado e pode até ser alterado em tempo de execução.
 Por exemplo, no seguinte código em Python a variável <code>x</code> assume três tipos diferentes em momentos diferentes da execução.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;lala&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="mf">10.0</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;lala&quot;</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="linenos" data-linenos="5 "></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="linenos" data-linenos="6 "></span>
+<span class="linenos" data-linenos="7 "></span><span class="n">x</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="linenos" data-linenos="8 "></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </code></pre></div>
-</td></tr></table>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>&lt;class <span class="s1">&#39;str&#39;</span>&gt;
-&lt;class <span class="s1">&#39;int&#39;</span>&gt;
-&lt;class <span class="s1">&#39;float&#39;</span>&gt;
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>&lt;class <span class="s1">&#39;str&#39;</span>&gt;
+<span class="linenos" data-linenos="2 "></span>&lt;class <span class="s1">&#39;int&#39;</span>&gt;
+<span class="linenos" data-linenos="3 "></span>&lt;class <span class="s1">&#39;float&#39;</span>&gt;
 </code></pre></div>
-</td></tr></table>
 <p>Já a linguagem Haskell é o que chamamos de <strong>fortemente tipada</strong>, o que quer dizer que toda variável, constante ou função tem apenas um tipo e este sempre pode ser determinado.
 Além disso, Haskell é <strong>estaticamente tipada</strong>, ou seja, os tipos são determinados em tempo de compilação, em oposição a linguagens que determinam o tipo durante a execução do programa, denominadas dinamicamente tipadas.
 Assim como <code>type</code> em Python, Haskell tem a função <code class="highlight"><span class="kt">:</span><span class="kr">type</span></code> para verificar o tipo de uma variável. Por exemplo:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kt">:</span><span class="kr">type</span> <span class="mi">1</span>
-<span class="mi">1</span> <span class="ow">::</span> <span class="kt">Num</span> <span class="n">p</span> <span class="ow">=&gt;</span> <span class="n">p</span>
-<span class="o">&gt;</span> <span class="kt">:</span><span class="kr">type</span> <span class="mf">1.0</span>
-<span class="mf">1.0</span> <span class="ow">::</span> <span class="kt">Fractional</span> <span class="n">p</span> <span class="ow">=&gt;</span> <span class="n">p</span>
-<span class="o">&gt;</span> <span class="kt">:</span><span class="kr">type</span> <span class="s">&quot;Bom dia&quot;</span>
-<span class="s">&quot;Bom dia&quot;</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Char</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="kr">type</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">1</span> <span class="ow">::</span> <span class="kt">Num</span> <span class="n">p</span> <span class="ow">=&gt;</span> <span class="n">p</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="kr">type</span> <span class="mf">1.0</span>
+<span class="linenos" data-linenos="4 "></span><span class="mf">1.0</span> <span class="ow">::</span> <span class="kt">Fractional</span> <span class="n">p</span> <span class="ow">=&gt;</span> <span class="n">p</span>
+<span class="linenos" data-linenos="5 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="kr">type</span> <span class="s">&quot;Bom dia&quot;</span>
+<span class="linenos" data-linenos="6 "></span><span class="s">&quot;Bom dia&quot;</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Char</span><span class="p">]</span>
 </code></pre></div>
-</td></tr></table>
 <details class="sideslide"><summary>Tipos em Haskell</summary><ul>
 <li>Forte</li>
 <li>Estáticos</li>
@@ -893,15 +877,11 @@ Mas por enquanto, nos foquemos nos tipos mais simples.</p>
 </table>
 <p>Observe que alguns destes operadores são naturalmente infixos, e.g., <code>+</code>, e outros, prefixos, e.g., <code>rem</code>.<sup id="fnref:infix"><a class="footnote-ref" href="#fn:infix">1</a></sup>
 Contudo, ambos podem ser usados da outra forma, como mostrado nos seguintes exemplos.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="mi">10</span> <span class="o">+</span> <span class="mi">20</span>
-<span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">10</span> <span class="mi">20</span>
-<span class="nf">quot</span> <span class="mi">10</span> <span class="mi">3</span>
-<span class="mi">10</span> <span class="p">`</span><span class="n">quot</span><span class="p">`</span> <span class="mi">3</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="mi">10</span> <span class="o">+</span> <span class="mi">20</span>
+<span class="linenos" data-linenos="2 "></span><span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">10</span> <span class="mi">20</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">quot</span> <span class="mi">10</span> <span class="mi">3</span>
+<span class="linenos" data-linenos="4 "></span><span class="mi">10</span> <span class="p">`</span><span class="n">quot</span><span class="p">`</span> <span class="mi">3</span>
 </code></pre></div>
-</td></tr></table>
 <p>Caso você queira ou precise especificar um tipo para um número, pode sufixá-lo com o tipo, por exemplo, <code class="highlight"><span class="mi">20</span> <span class="ow">::</span> <span class="kt">Int</span></code> ou  <code class="highlight"><span class="mi">20</span> <span class="ow">::</span> <span class="kt">Double</span></code>.</p>
 <div class="admonition todo">
 <p class="admonition-title">Exercícios</p>
@@ -1048,63 +1028,49 @@ Exemplos dos dois tipos são apresentados na tabela a seguir.</p>
 <h2 id="prototipo-de-funcoes">Protótipo de funções</h2>
 <p>Agora que já conhecemos alguns tipos, podemos ver como usá-los na definição de funções.
 Para fazê-lo, devemos usar a seguinte sintaxe:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">nomeFuncao</span> <span class="ow">::</span> <span class="n">tipo_arg1</span> <span class="ow">-&gt;</span> <span class="o">...</span> <span class="ow">-&gt;</span> <span class="n">tipo_argN</span> <span class="ow">-&gt;</span> <span class="n">tipo_saida</span>
-<span class="nf">nomeFuncao</span> <span class="n">arg1</span> <span class="o">...</span> <span class="n">argN</span> <span class="ow">=</span> <span class="o">&lt;</span><span class="n">definicao</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">nomeFuncao</span> <span class="ow">::</span> <span class="n">tipo_arg1</span> <span class="ow">-&gt;</span> <span class="o">...</span> <span class="ow">-&gt;</span> <span class="n">tipo_argN</span> <span class="ow">-&gt;</span> <span class="n">tipo_saida</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">nomeFuncao</span> <span class="n">arg1</span> <span class="o">...</span> <span class="n">argN</span> <span class="ow">=</span> <span class="o">&lt;</span><span class="n">definicao</span><span class="o">&gt;</span>
 </code></pre></div>
-</td></tr></table>
 <p>Por exemplo, o <strong>protótipo</strong> da função <code>diaMes</code>, isto é, a definição dos tipos de entrada e saída da função, fica assim:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">diasMes</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
-<span class="nf">diasMes</span> <span class="n">m</span>
-    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">3</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">5</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">7</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">8</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">10</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">12</span> <span class="ow">=</span> <span class="mi">31</span>
-    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">=</span> <span class="mi">28</span>
-    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="mi">30</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">diasMes</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">diasMes</span> <span class="n">m</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">3</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">5</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">7</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">8</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">10</span> <span class="o">||</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">12</span> <span class="ow">=</span> <span class="mi">31</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">=</span> <span class="mi">28</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="mi">30</span>
 </code></pre></div>
-</td></tr></table>
 <div class="admonition exercise">
 <p class="admonition-title">Exercícios</p>
 <ul>
 <li>Defina o protótipo da função de conversão de Fahrenheit para Celsius <code class="highlight"><span class="nf">f2c</span> <span class="n">x</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">/</span><span class="mf">1.8</span></code></li>
 <li>Descubra a quanto 100f corresponde em Célsius</li>
 </ul>
-<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">f2c</span> <span class="ow">::</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span><span class="p">`</span>
-<span class="nf">f2c</span> <span class="n">x</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">/</span><span class="mf">1.8</span>
+<details class="example"><summary>Resolução</summary><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">f2c</span> <span class="ow">::</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span><span class="p">`</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">f2c</span> <span class="n">x</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">/</span><span class="mf">1.8</span>
 </code></pre></div>
-</td></tr></table>
 </details>
 <ul>
 <li>Defina o protótipo da função de media de dois números reais <code class="highlight"><span class="nf">m2n</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span></code></li>
 </ul>
-<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">m2n</span> <span class="ow">::</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span>
-<span class="nf">m2n</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<details class="example"><summary>Resolução</summary><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">m2n</span> <span class="ow">::</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">m2n</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
 </code></pre></div>
-</td></tr></table>
 </details>
 <ul>
 <li>Defina o protótipo da soma de dois números inteiros <code class="highlight"><span class="nf">soma2int</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span></code></li>
 <li>Aplique a função aos valores 2 e 3.</li>
 <li>Aplique a função aos valores 2.0 e 3.0.</li>
 </ul>
-<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">soma2int</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
-<span class="nf">soma2int</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<details class="example"><summary>Resolução</summary><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">soma2int</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">soma2int</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </code></pre></div>
-</td></tr></table>
 </details>
 <ul>
 <li>Defina o protótipo da soma de dois números reais <code class="highlight"><span class="nf">soma2reais</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span></code></li>
 <li>Aplique a função aos valores 2.0 e 3.0.</li>
 <li>Aplique a função aos valores 2 e 3.</li>
 </ul>
-<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">soma2reais</span> <span class="ow">::</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span>
+<details class="example"><summary>Resolução</summary><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">soma2reais</span> <span class="ow">::</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span>
 </code></pre></div>
-</td></tr></table>
 </details>
 <ul>
 <li>Explique a diferença de comportamento das duas últimas funções.</li>
@@ -1115,104 +1081,62 @@ Para fazê-lo, devemos usar a seguinte sintaxe:</p>
 <h2 id="definicao-de-novos-tipos">Definição de novos tipos</h2>
 <p>A palavra reservada <code class="highlight"><span class="kr">type</span></code> permite que definamos <strong>apelidos</strong> para tipos no Haskell, tornando o código mais legível.
 Por exemplo, podemos definir um tipo <code class="highlight"><span class="kt">Inteiro</span></code> similar ao tipo <code class="highlight"><span class="kt">Int</span></code> e funções associadas ao tipo.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">type</span> <span class="kt">Inteiro</span> <span class="ow">=</span> <span class="kt">Int</span>
-
-<span class="nf">somaInteiros</span> <span class="ow">::</span> <span class="kt">Inteiro</span> <span class="ow">-&gt;</span> <span class="kt">Inteiro</span> <span class="ow">-&gt;</span> <span class="kt">Inteiro</span>
-<span class="nf">somaInteiros</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kr">type</span> <span class="kt">Inteiro</span> <span class="ow">=</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">somaInteiros</span> <span class="ow">::</span> <span class="kt">Inteiro</span> <span class="ow">-&gt;</span> <span class="kt">Inteiro</span> <span class="ow">-&gt;</span> <span class="kt">Inteiro</span>
+<span class="linenos" data-linenos="4 "></span><span class="nf">somaInteiros</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </code></pre></div>
-</td></tr></table>
 <p>O uso da função é como esperado.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">somaInteiros</span> <span class="mi">1</span> <span class="mi">2</span>
-<span class="mi">3</span>
-<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">somaInteiros</span> <span class="p">(</span><span class="mi">1</span><span class="ow">::</span><span class="kt">Inteiro</span><span class="p">)</span> <span class="p">(</span><span class="mi">2</span><span class="ow">::</span><span class="kt">Inteiro</span><span class="p">)</span>
-<span class="mi">3</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">somaInteiros</span> <span class="mi">1</span> <span class="mi">2</span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">3</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">somaInteiros</span> <span class="p">(</span><span class="mi">1</span><span class="ow">::</span><span class="kt">Inteiro</span><span class="p">)</span> <span class="p">(</span><span class="mi">2</span><span class="ow">::</span><span class="kt">Inteiro</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span><span class="mi">3</span>
 </code></pre></div>
-</td></tr></table>
 <h2 id="type-e-info">:type e :info</h2>
 <p>O GHC é uma ferramenta poderosa no aprendizado da linguagem Haskell por possuir uma série de comandos que permitem extrair informações sobre tipos e funções definidas.
 Usando o comando <code class="highlight"><span class="kt">:</span><span class="n">info</span></code> (ou simplesmente <code class="highlight"><span class="kt">:</span><span class="n">i</span></code>), por exemplo, podemos perguntar ao ghci o que ele sabe sobre o tipo <code class="highlight"><span class="kt">Inteiro</span></code>, ao que será respondido que é o tipo inteiro é um apelido para <code>Int</code>, definido no arquivo scratch.hs, no meu caso.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Inteiro</span>
-<span class="kr">type</span> <span class="kt">Inteiro</span> <span class="ow">::</span> <span class="o">*</span>
-<span class="kr">type</span> <span class="kt">Inteiro</span> <span class="ow">=</span> <span class="kt">Int</span>
-        <span class="c1">-- Defined at scratch.hs:82:1        </span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Inteiro</span>
+<span class="linenos" data-linenos="2 "></span><span class="kr">type</span> <span class="kt">Inteiro</span> <span class="ow">::</span> <span class="o">*</span>
+<span class="linenos" data-linenos="3 "></span><span class="kr">type</span> <span class="kt">Inteiro</span> <span class="ow">=</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="c1">-- Defined at scratch.hs:82:1        </span>
 </code></pre></div>
-</td></tr></table>
 <p>Já o comando <code class="highlight"><span class="kt">:</span><span class="kr">type</span></code> (ou <code class="highlight"><span class="kt">:</span><span class="n">t</span></code>) pode ser usado para identificar o tipo de funções, por exemplo:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">somaInteiros</span> <span class="mi">1</span> <span class="mi">2</span>
-<span class="mi">3</span>
-<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="n">somaInteiros</span>
-<span class="nf">somaInteiros</span> <span class="ow">::</span> <span class="kt">Inteiro</span> <span class="ow">-&gt;</span> <span class="kt">Inteiro</span> <span class="ow">-&gt;</span> <span class="kt">Inteiro</span>
-<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="mi">1</span><span class="ow">::</span><span class="kt">Inteiro</span>
-<span class="mi">1</span><span class="ow">::</span><span class="kt">Inteiro</span> <span class="ow">::</span> <span class="kt">Inteiro</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">somaInteiros</span> <span class="mi">1</span> <span class="mi">2</span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">3</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="n">somaInteiros</span>
+<span class="linenos" data-linenos="4 "></span><span class="nf">somaInteiros</span> <span class="ow">::</span> <span class="kt">Inteiro</span> <span class="ow">-&gt;</span> <span class="kt">Inteiro</span> <span class="ow">-&gt;</span> <span class="kt">Inteiro</span>
+<span class="linenos" data-linenos="5 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="mi">1</span><span class="ow">::</span><span class="kt">Inteiro</span>
+<span class="linenos" data-linenos="6 "></span><span class="mi">1</span><span class="ow">::</span><span class="kt">Inteiro</span> <span class="ow">::</span> <span class="kt">Inteiro</span>
 </code></pre></div>
-</td></tr></table>
 <p>Estes comandos podem ser aplicados a quaisquer definições, não somente às suas. Por exemplo, podemos solicitar informações sobre o tipo <code class="highlight"><span class="kt">Num</span></code>, com seguinte resultado.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Num</span>
-<span class="kr">type</span> <span class="kt">Num</span> <span class="ow">::</span> <span class="o">*</span> <span class="ow">-&gt;</span> <span class="kt">Constraint</span>
-<span class="kr">class</span> <span class="kt">Num</span> <span class="n">a</span> <span class="kr">where</span>
-  <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
-  <span class="p">(</span><span class="o">-</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
-  <span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
-  <span class="n">negate</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
-  <span class="n">abs</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
-  <span class="n">signum</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
-  <span class="n">fromInteger</span> <span class="ow">::</span> <span class="kt">Integer</span> <span class="ow">-&gt;</span> <span class="n">a</span>
-  <span class="cm">{-# MINIMAL (+), (*), abs, signum, fromInteger, (negate | (-)) #-}</span>
-        <span class="c1">-- Defined in ‘GHC.Num’</span>
-<span class="kr">instance</span> <span class="kt">Num</span> <span class="kt">Word</span> <span class="c1">-- Defined in ‘GHC.Num’</span>
-<span class="kr">instance</span> <span class="kt">Num</span> <span class="kt">Integer</span> <span class="c1">-- Defined in ‘GHC.Num’</span>
-<span class="kr">instance</span> <span class="kt">Num</span> <span class="kt">Int</span> <span class="c1">-- Defined in ‘GHC.Num’</span>
-<span class="kr">instance</span> <span class="kt">Num</span> <span class="kt">Float</span> <span class="c1">-- Defined in ‘GHC.Float’</span>
-<span class="kr">instance</span> <span class="kt">Num</span> <span class="kt">Double</span> <span class="c1">-- Defined in ‘GHC.Float’</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Num</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kr">type</span> <span class="kt">Num</span> <span class="ow">::</span> <span class="o">*</span> <span class="ow">-&gt;</span> <span class="kt">Constraint</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kr">class</span> <span class="kt">Num</span> <span class="n">a</span> <span class="kr">where</span>
+<span class="linenos" data-linenos=" 4 "></span>  <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="linenos" data-linenos=" 5 "></span>  <span class="p">(</span><span class="o">-</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="linenos" data-linenos=" 7 "></span>  <span class="n">negate</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="linenos" data-linenos=" 8 "></span>  <span class="n">abs</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="linenos" data-linenos=" 9 "></span>  <span class="n">signum</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="linenos" data-linenos="10 "></span>  <span class="n">fromInteger</span> <span class="ow">::</span> <span class="kt">Integer</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="linenos" data-linenos="11 "></span>  <span class="cm">{-# MINIMAL (+), (*), abs, signum, fromInteger, (negate | (-)) #-}</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="c1">-- Defined in ‘GHC.Num’</span>
+<span class="linenos" data-linenos="13 "></span><span class="kr">instance</span> <span class="kt">Num</span> <span class="kt">Word</span> <span class="c1">-- Defined in ‘GHC.Num’</span>
+<span class="linenos" data-linenos="14 "></span><span class="kr">instance</span> <span class="kt">Num</span> <span class="kt">Integer</span> <span class="c1">-- Defined in ‘GHC.Num’</span>
+<span class="linenos" data-linenos="15 "></span><span class="kr">instance</span> <span class="kt">Num</span> <span class="kt">Int</span> <span class="c1">-- Defined in ‘GHC.Num’</span>
+<span class="linenos" data-linenos="16 "></span><span class="kr">instance</span> <span class="kt">Num</span> <span class="kt">Float</span> <span class="c1">-- Defined in ‘GHC.Float’</span>
+<span class="linenos" data-linenos="17 "></span><span class="kr">instance</span> <span class="kt">Num</span> <span class="kt">Double</span> <span class="c1">-- Defined in ‘GHC.Float’</span>
 </code></pre></div>
-</td></tr></table>
 <p>Algumas das informações apresentadas podem ainda não fazer sentido para você, mas de forma geral podemos resumí-las como implicando que algumas operações, como <code>+</code>, <code>-</code> e <code>abs</code> se aplicam ao tipo <code>Num</code>, e que outros tipos, como <code class="highlight"><span class="kt">Float</span></code> e <code class="highlight"><span class="kt">Integer</span></code> são instâncias de <code>Num</code>.</p>
 <p>Se aplicarmos o mesmo comando ao operador <code>+</code>, descobriremos que ele é uma função infixa por padrão (<code>INFIXl</code>), associativo à esquerda (<code>infixL</code>), e com prioridade 6.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span>
-<span class="kr">type</span> <span class="kt">Num</span> <span class="ow">::</span> <span class="o">*</span> <span class="ow">-&gt;</span> <span class="kt">Constraint</span>
-<span class="kr">class</span> <span class="kt">Num</span> <span class="n">a</span> <span class="kr">where</span>
-  <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
-  <span class="o">...</span>
-        <span class="c1">-- Defined in ‘GHC.Num’</span>
-<span class="kr">infixl</span> <span class="mi">6</span> <span class="o">+</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="kr">type</span> <span class="kt">Num</span> <span class="ow">::</span> <span class="o">*</span> <span class="ow">-&gt;</span> <span class="kt">Constraint</span>
+<span class="linenos" data-linenos="3 "></span><span class="kr">class</span> <span class="kt">Num</span> <span class="n">a</span> <span class="kr">where</span>
+<span class="linenos" data-linenos="4 "></span>  <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="linenos" data-linenos="5 "></span>  <span class="o">...</span>
+<span class="linenos" data-linenos="6 "></span>        <span class="c1">-- Defined in ‘GHC.Num’</span>
+<span class="linenos" data-linenos="7 "></span><span class="kr">infixl</span> <span class="mi">6</span> <span class="o">+</span>
 </code></pre></div>
-</td></tr></table>
 <p>Também vemos que o estas definições são parde do GHC.Num, mas o que é o GHC.Num?</p>
 <h2 id="modulos">Módulos</h2>
 <p>Como em diversas outras linguagens, Haskell usa módulos para organizar a definição de tipos e funções, colocando aquelas relacionadas no mesmo módulo.
@@ -1265,15 +1189,11 @@ Uma pequena mas interessante amostra de outros tipos incluídos:</p>
 Além do Prelude, centenas de outros módulos estão disponíveis na Web, de compiladores a geradores de gráficos 3D, de transformadas rápidas de Fourier a <em>message brokers</em>, em repositórios como o Hackage.<sup id="fnref:hackage"><a class="footnote-ref" href="#fn:hackage">4</a></sup>
 Contudo, é preciso ter cuidado com os módulos que baixa.
 Caso você encontre um módulo que queira usar, de nome <code>X</code>, bastar baixá-lo e usar o <code class="highlight"><span class="kr">import</span></code>. Por exemplo, para trabalhar com números complexos, voce pode usar o módulo <code class="highlight"><span class="kt">Data</span><span class="o">.</span><span class="kt">Complex</span></code> assim:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kr">import</span> <span class="nn">Data.Complex</span>
-<span class="kt">Prelude</span> <span class="kt">Data</span><span class="o">.</span><span class="kt">Complex</span><span class="o">&gt;</span> <span class="kr">let</span> <span class="n">x</span> <span class="ow">=</span> <span class="mf">1.0</span> <span class="kt">:+</span> <span class="mf">0.0</span>
-<span class="kt">Prelude</span> <span class="kt">Data</span><span class="o">.</span><span class="kt">Complex</span><span class="o">&gt;</span> <span class="n">x</span>
-<span class="mf">1.0</span> <span class="kt">:+</span> <span class="mf">0.0</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kr">import</span> <span class="nn">Data.Complex</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">Prelude</span> <span class="kt">Data</span><span class="o">.</span><span class="kt">Complex</span><span class="o">&gt;</span> <span class="kr">let</span> <span class="n">x</span> <span class="ow">=</span> <span class="mf">1.0</span> <span class="kt">:+</span> <span class="mf">0.0</span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">Prelude</span> <span class="kt">Data</span><span class="o">.</span><span class="kt">Complex</span><span class="o">&gt;</span> <span class="n">x</span>
+<span class="linenos" data-linenos="4 "></span><span class="mf">1.0</span> <span class="kt">:+</span> <span class="mf">0.0</span>
 </code></pre></div>
-</td></tr></table>
 <p>Com esta visita rápida ao Prelude, encerramos esta introdução ao Haskell e rumamos para tópicos mais universais.
 Isto é, mesmo que os tópicos vistos até agora sejam obviamente associados à programação funcional, os mesmos estão fortemente relacionados à sintaxe do Haskell.
 Já nas próximas seções, veremos tópicos mais independentes, i.e., mesmo que as funções, tipos e construtos usados ainda sejam implementadas em Haskell, os conceitos por trás são mais universais.</p>
@@ -1359,10 +1279,12 @@ Já nas próximas seções, veremos tópicos mais independentes, i.e., mesmo que
             Copyright © 2021 Lásaro Camargos
           </div>
         
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
         
       </div>
       
@@ -1384,10 +1306,10 @@ Já nas próximas seções, veremos tópicos mais independentes, i.e., mesmo que
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.e99e714c.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.56a63758.min.js"></script>
+      <script src="../assets/javascripts/bundle.bc35569b.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       

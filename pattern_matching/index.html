@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.be71726b.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.24c991ad.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -93,7 +93,9 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
     <a href=".." title="Notas de Aula em Programação Funcional" class="md-header__button md-logo" aria-label="Notas de Aula em Programação Funcional" data-md-component="logo">
       
@@ -128,7 +130,7 @@
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
             </label>
           
         
@@ -196,11 +198,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -697,39 +702,28 @@
   <h1 id="casamento-de-padroes">Casamento de Padrões</h1>
 <p>Quando especificamos a lista de parâmetros formais que uma função recebe, estamos dizendo ao compilador que os parâmetros passados na invocação da função devem ser associados aos parâmetros formais.
 Por exemplo, considere a seguinte definição de uma função que soma dois pontos </p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">soma2n</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">soma2n</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 </code></pre></div>
-</td></tr></table>
 <p>e sua invocação.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">soma2n</span> <span class="mi">3</span> <span class="mi">4</span>
-<span class="mi">7</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">soma2n</span> <span class="mi">3</span> <span class="mi">4</span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">7</span>
 </code></pre></div>
-</td></tr></table>
 <p>Quando a invocação acontece, o valor 3 é associado a <code>x</code> e 4 a <code>y</code>.
 O mesmo acontece para qualquer tipo de parâmetro passado, mesmo tuplas e, como veremos depois, listas. 
 Por exemplo, considere a soma de dois pontos em um espaço bidimensional, em que pontos são especificados como tuplas de aridade 2.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">type</span> <span class="kt">Ponto</span> <span class="ow">=</span> <span class="p">(</span><span class="kt">Integer</span><span class="p">,</span><span class="kt">Integer</span><span class="p">)</span>
-
-<span class="nf">soma2v</span> <span class="ow">::</span> <span class="kt">Ponto</span> <span class="ow">-&gt;</span> <span class="kt">Ponto</span> <span class="ow">-&gt;</span> <span class="kt">Ponto</span>
-<span class="nf">soma2v</span> <span class="n">ponto1</span> <span class="n">ponto2</span> <span class="ow">=</span> <span class="p">(</span><span class="n">fst</span> <span class="n">ponto1</span> <span class="o">+</span> <span class="n">fst</span> <span class="n">ponto2</span><span class="p">,</span> <span class="n">snd</span> <span class="n">ponto1</span> <span class="o">+</span> <span class="n">snd</span> <span class="n">ponto2</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kr">type</span> <span class="kt">Ponto</span> <span class="ow">=</span> <span class="p">(</span><span class="kt">Integer</span><span class="p">,</span><span class="kt">Integer</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">soma2v</span> <span class="ow">::</span> <span class="kt">Ponto</span> <span class="ow">-&gt;</span> <span class="kt">Ponto</span> <span class="ow">-&gt;</span> <span class="kt">Ponto</span>
+<span class="linenos" data-linenos="4 "></span><span class="nf">soma2v</span> <span class="n">ponto1</span> <span class="n">ponto2</span> <span class="ow">=</span> <span class="p">(</span><span class="n">fst</span> <span class="n">ponto1</span> <span class="o">+</span> <span class="n">fst</span> <span class="n">ponto2</span><span class="p">,</span> <span class="n">snd</span> <span class="n">ponto1</span> <span class="o">+</span> <span class="n">snd</span> <span class="n">ponto2</span><span class="p">)</span>
 </code></pre></div>
-</td></tr></table>
 <p>Um dos problemas deste código é a necessidade de usar <code>fst</code> e <code>snd</code> para extrair os componentes das tuplas.
 Mas como vimos na seção sobre <a href="../tuples/">tuplas</a>, é possível associar as componentes das tuplas diretamente a variáveis.
 Por exemplo, considere a definição alternativa para <code>soma2v</code>.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">type</span> <span class="kt">Ponto</span> <span class="ow">=</span> <span class="p">(</span><span class="kt">Integer</span><span class="p">,</span><span class="kt">Integer</span><span class="p">)</span>
-
-<span class="nf">soma2v</span> <span class="ow">::</span> <span class="kt">Ponto</span> <span class="ow">-&gt;</span> <span class="kt">Ponto</span> <span class="ow">-&gt;</span> <span class="kt">Ponto</span>
-<span class="nf">soma2v</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">)</span> <span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">)</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="o">+</span><span class="n">y2</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kr">type</span> <span class="kt">Ponto</span> <span class="ow">=</span> <span class="p">(</span><span class="kt">Integer</span><span class="p">,</span><span class="kt">Integer</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">soma2v</span> <span class="ow">::</span> <span class="kt">Ponto</span> <span class="ow">-&gt;</span> <span class="kt">Ponto</span> <span class="ow">-&gt;</span> <span class="kt">Ponto</span>
+<span class="linenos" data-linenos="4 "></span><span class="nf">soma2v</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">)</span> <span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">)</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="o">+</span><span class="n">y2</span><span class="p">)</span>
 </code></pre></div>
-</td></tr></table>
 <p>Observe que, na linha 4, as coordenadas dos pontos passados são associados às variáveis <code>x1, y1, x2</code> e <code>y2</code>.
 O termo correto para o que está acontecendo ali é <strong>casamento de padrões</strong>.</p>
 <h2 id="tipos-de-padrao">Tipos de Padrão</h2>
@@ -777,34 +771,26 @@ Para isso, vamos dividir os padrões em alguns tipos e analisar exemplos de cada
 </tbody>
 </table>
 <p>Para cada linha, imagine uma função definida como a seguir, mas onde o símbolo █ é substituído pelo padrão</p>
-<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">minhaFunção</span> <span class="err">█</span> <span class="ow">=</span> <span class="s">&quot;Sucesso!&quot;</span>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">minhaFunção</span> <span class="err">█</span> <span class="ow">=</span> <span class="s">&quot;Sucesso!&quot;</span>
 </code></pre></div>
-</td></tr></table>
 e que você esteja invocando a função no ghci assim como a seguir, mas onde o símbolo ▓ é substituído pelo valor.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">minhaFunção</span> <span class="err">▓</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">minhaFunção</span> <span class="err">▓</span>
 </code></pre></div>
-</td></tr></table>
 <p>Por exemplo, para a primeira linha, a função fica assim</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">minhaFunção</span> <span class="mi">10</span> <span class="ow">=</span> <span class="s">&quot;Sucesso!&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">minhaFunção</span> <span class="mi">10</span> <span class="ow">=</span> <span class="s">&quot;Sucesso!&quot;</span>
 </code></pre></div>
-</td></tr></table>
 <p>e a invocação fica assim.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">minhaFunção</span> <span class="mi">10</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">minhaFunção</span> <span class="mi">10</span>
 </code></pre></div>
-</td></tr></table>
 <p>Quando a invocação é feita, o ghci pega o valor passado, 10, e tenta casá-lo com o padrão especificado na definição de minhaFunção, 10.
 Neste caso, há um casamento entre o valor e o padrão.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">minhaFuncao</span> <span class="mi">10</span>
-<span class="s">&quot;Deu certo&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">minhaFuncao</span> <span class="mi">10</span>
+<span class="linenos" data-linenos="2 "></span><span class="s">&quot;Deu certo&quot;</span>
 </code></pre></div>
-</td></tr></table>
 <p>Já para a segunda linha, não há um casamento, pois o valor 10 não pode ser decomposto como a constante 20, e o ghci reclama com um erro que não vem ao caso agora.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">minhaFuncao</span> <span class="mi">20</span>
-<span class="s">&quot;*** Exception: scratch.hs:87:1-28: Non-exhaustive patterns in function minhaFuncao</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">minhaFuncao</span> <span class="mi">20</span>
+<span class="linenos" data-linenos="2 "></span><span class="s">&quot;*** Exception: scratch.hs:87:1-28: Non-exhaustive patterns in function minhaFuncao</span>
 </code></pre></div>
-</td></tr></table>
 <h6>Variável</h6>
 <p>Se em vez de constantes a coluna padrão tivesse como elementos uma variável, então o casamento sempre seria bem sucedido.
 Neste caso, a coluna <em>associações</em><sup id="fnref:bind"><a class="footnote-ref" href="#fn:bind">1</a></sup> mostra quais os valores associados à cada variável do padrão. </p>
@@ -999,15 +985,12 @@ O casamento de tuplas no valor e no padrão pode levar aos seguintes resultados,
 <p>Nos exemplos vistos nas tabelas, temos sempre um valor e um padrão, mas funções podem ter diversos parâmetros.
 Neste caso, o casamento de padrões acontece para cada um dos parâmetros passados na invocação da função, da esquerda para a direita.
 Por exemplo, considerando a seguinte definição</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">minhaFunção&#39;&#39;</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="p">((</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">),</span><span class="kr">_</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>  <span class="n">g</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="n">d</span> <span class="o">+</span> <span class="n">f</span> <span class="o">+</span> <span class="n">fst</span> <span class="n">g</span> <span class="o">+</span> <span class="n">snd</span> <span class="n">g</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">minhaFunção&#39;&#39;</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="p">((</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">),</span><span class="kr">_</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>  <span class="n">g</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="n">d</span> <span class="o">+</span> <span class="n">f</span> <span class="o">+</span> <span class="n">fst</span> <span class="n">g</span> <span class="o">+</span> <span class="n">snd</span> <span class="n">g</span>
 </code></pre></div>
-</td></tr></table>
 <p>invocação </p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">minhaFunção&#39;&#39;</span>  <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
-<span class="mi">31</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">minhaFunção&#39;&#39;</span>  <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">31</span>
 </code></pre></div>
-</td></tr></table>
 <p>Isto é, temos as seguintes associações <code>a = 1, b = 2, c = 3, d = 4, f = 6, g = (7,8)</code>.</p>
 <h2 id="definicao-de-funcoes">Definição de Funções</h2>
 <p>Além de decompor os parâmetros passados para um função e como mencionado <a href="../guards">anteriormente</a>, casamento de padrões pode ser usado na definição de funções para simplificar testes via <code>if-then-else</code> e guardas nos parâmetros da função.</p>
@@ -1016,181 +999,109 @@ O resultado da invocação da função é dado pela <strong>primeira</strong> eq
 Se ao final não houver casamento ou se as guardas não forem satisfeitas, ocorre um <strong>erro de execução</strong>.</p>
 <p>Para começar, vejamos uma definição sem guardas, revisitando a função <code>nomeMes</code>.
 Usando casamento de padrões constantes, ela ficaria assim:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">nomeMes</span> <span class="mi">1</span> <span class="ow">=</span> <span class="s">&quot;JAN&quot;</span>
-<span class="nf">nomeMes</span> <span class="mi">2</span> <span class="ow">=</span> <span class="s">&quot;FEB&quot;</span>
-<span class="nf">nomeMes</span> <span class="mi">3</span> <span class="ow">=</span> <span class="s">&quot;ABR&quot;</span>
-<span class="nf">nomeMes</span> <span class="mi">4</span> <span class="ow">=</span> <span class="s">&quot;MAR&quot;</span>
-<span class="nf">nomeMes</span> <span class="mi">5</span> <span class="ow">=</span> <span class="s">&quot;MAI&quot;</span>
-<span class="nf">nomeMes</span> <span class="mi">6</span> <span class="ow">=</span> <span class="s">&quot;JUN&quot;</span>
-<span class="nf">nomeMes</span> <span class="mi">7</span> <span class="ow">=</span> <span class="s">&quot;JUL&quot;</span>
-<span class="nf">nomeMes</span> <span class="mi">8</span> <span class="ow">=</span> <span class="s">&quot;AGO&quot;</span>
-<span class="nf">nomeMes</span> <span class="mi">9</span> <span class="ow">=</span> <span class="s">&quot;SET&quot;</span>
-<span class="nf">nomeMes</span> <span class="mi">10</span> <span class="ow">=</span> <span class="s">&quot;OUT&quot;</span>
-<span class="nf">nomeMes</span> <span class="mi">11</span> <span class="ow">=</span> <span class="s">&quot;NOV&quot;</span>
-<span class="nf">nomeMes</span> <span class="mi">12</span> <span class="ow">=</span> <span class="s">&quot;DEZ&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nf">nomeMes</span> <span class="mi">1</span> <span class="ow">=</span> <span class="s">&quot;JAN&quot;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nf">nomeMes</span> <span class="mi">2</span> <span class="ow">=</span> <span class="s">&quot;FEB&quot;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nf">nomeMes</span> <span class="mi">3</span> <span class="ow">=</span> <span class="s">&quot;ABR&quot;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nf">nomeMes</span> <span class="mi">4</span> <span class="ow">=</span> <span class="s">&quot;MAR&quot;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nf">nomeMes</span> <span class="mi">5</span> <span class="ow">=</span> <span class="s">&quot;MAI&quot;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nf">nomeMes</span> <span class="mi">6</span> <span class="ow">=</span> <span class="s">&quot;JUN&quot;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nf">nomeMes</span> <span class="mi">7</span> <span class="ow">=</span> <span class="s">&quot;JUL&quot;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nf">nomeMes</span> <span class="mi">8</span> <span class="ow">=</span> <span class="s">&quot;AGO&quot;</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nf">nomeMes</span> <span class="mi">9</span> <span class="ow">=</span> <span class="s">&quot;SET&quot;</span>
+<span class="linenos" data-linenos="10 "></span><span class="nf">nomeMes</span> <span class="mi">10</span> <span class="ow">=</span> <span class="s">&quot;OUT&quot;</span>
+<span class="linenos" data-linenos="11 "></span><span class="nf">nomeMes</span> <span class="mi">11</span> <span class="ow">=</span> <span class="s">&quot;NOV&quot;</span>
+<span class="linenos" data-linenos="12 "></span><span class="nf">nomeMes</span> <span class="mi">12</span> <span class="ow">=</span> <span class="s">&quot;DEZ&quot;</span>
 </code></pre></div>
-</td></tr></table>
 <p>Esta função funciona especificamente para valores na faixa [1,12] e retornará um erro para qualquer valor fora da mesma.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">nomeMes</span> <span class="mi">13</span>
-<span class="s">&quot;*** Exception: scratch.hs:(112,1)-(123,18): Non-exhaustive patterns in function nomeMes</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">nomeMes</span> <span class="mi">13</span>
+<span class="linenos" data-linenos="2 "></span><span class="s">&quot;*** Exception: scratch.hs:(112,1)-(123,18): Non-exhaustive patterns in function nomeMes</span>
 </code></pre></div>
-</td></tr></table>
 <p>É possível usar uma definição genérica <em>catch-all</em> para casar com valores não específicos usando um padrão variável.
 Por exemplo, a definição da função <code>fatorial</code> tem um tratamento especial para 0, via padrão constante, e um caso genérico para qualquer outro número, via padrão variável.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fatorial</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">1</span>
-<span class="nf">fatorial</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fatorial</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">fatorial</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">fatorial</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fatorial</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
-</td></tr></table>
 <p>Mas esta definição de <code>fatorial</code> tem um problema, que aparece ao se tentar calcular o fatorial de números negativos, que são indefinidos.
 Neste caso, precisamos impedir que números negativos sejam aceitos pela função, lançando erros.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fatorial</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">1</span>
-<span class="nf">fatorial</span> <span class="n">n</span> 
-    <span class="o">|</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fatorial</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="o">|</span><span class="n">otherwise</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;Indefinido&quot;</span>
-
-<span class="nf">fatorial&#39;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">1</span>
-<span class="nf">fatorial&#39;</span> <span class="n">n</span>
-    <span class="o">|</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fat</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="nf">fatorial&#39;</span> <span class="kr">_</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;Indefinido&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">fatorial</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">fatorial</span> <span class="n">n</span> 
+<span class="linenos" data-linenos="3 "></span>    <span class="o">|</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fatorial</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="o">|</span><span class="n">otherwise</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;Indefinido&quot;</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="nf">fatorial&#39;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="7 "></span><span class="nf">fatorial&#39;</span> <span class="n">n</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="o">|</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fat</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos" data-linenos="9 "></span><span class="nf">fatorial&#39;</span> <span class="kr">_</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;Indefinido&quot;</span>
 </code></pre></div>
-</td></tr></table>
 <p>Com o seguinte resultado </p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">fat</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="o">***</span> <span class="kt">Exception:</span> <span class="kt">Indefinido</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">fat</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">***</span> <span class="kt">Exception:</span> <span class="kt">Indefinido</span>
 </code></pre></div>
-</td></tr></table>
 <p>O exemplo seguinte mostra o uso de padrões curinga, constantes e variáveis, combinados com guardas e, um caso especial, gerando um erro.
 Você consegue determinar o que a função faz?</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">próximos3</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Char</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span>
-<span class="nf">próximos3</span> <span class="mi">0</span> <span class="kr">_</span> <span class="ow">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="nf">próximos3</span> <span class="n">n</span> <span class="sc">&#39;d&#39;</span>
-    <span class="o">|</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
-    <span class="o">|</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
-
-<span class="nf">próximos3</span> <span class="n">n</span> <span class="sc">&#39;a&#39;</span>
-    <span class="o">|</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
-    <span class="o">|</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
-
-<span class="nf">próximos3</span> <span class="kr">_</span> <span class="kr">_</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;Use d ou a&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nf">próximos3</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Char</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nf">próximos3</span> <span class="mi">0</span> <span class="kr">_</span> <span class="ow">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nf">próximos3</span> <span class="n">n</span> <span class="sc">&#39;d&#39;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="o">|</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="o">|</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nf">próximos3</span> <span class="n">n</span> <span class="sc">&#39;a&#39;</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="o">|</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="o">|</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="nf">próximos3</span> <span class="kr">_</span> <span class="kr">_</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;Use d ou a&quot;</span>
 </code></pre></div>
-</td></tr></table>
 <p>Vejamos outros exemplos, do módulo prelude do Haskell.
 Primeiro, a função <code>not</code>, que nega o valor passado.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">not</span> <span class="ow">::</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
-<span class="nf">not</span> <span class="kt">True</span> <span class="ow">=</span> <span class="kt">False</span>
-<span class="nf">not</span> <span class="kt">False</span> <span class="ow">=</span> <span class="kt">True</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">not</span> <span class="ow">::</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">not</span> <span class="kt">True</span> <span class="ow">=</span> <span class="kt">False</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">not</span> <span class="kt">False</span> <span class="ow">=</span> <span class="kt">True</span>
 </code></pre></div>
-</td></tr></table>
 <p>Vejamos agora diferentes definições do operador <code class="highlight"><span class="o">&amp;&amp;</span></code>. Observe que como o operador é infixo, a definição das equações segue esta notação, mesmo que a definição do protótipo não siga.</p>
 <p>A primeira definição usa somente constantes como padrão.
 Esta definição está correta, mas é mais complexa do que o necessário, já que somente a primeira equação resulta em <code class="highlight"><span class="kt">True</span></code>.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">(</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
-<span class="kt">True</span> <span class="o">&amp;&amp;</span> <span class="kt">True</span> <span class="ow">=</span> <span class="kt">True</span>
-<span class="kt">True</span> <span class="o">&amp;&amp;</span> <span class="kt">False</span> <span class="ow">=</span> <span class="kt">False</span>
-<span class="kt">False</span> <span class="o">&amp;&amp;</span> <span class="kt">True</span> <span class="ow">=</span> <span class="kt">False</span>
-<span class="kt">False</span> <span class="o">&amp;&amp;</span> <span class="kt">False</span> <span class="ow">=</span> <span class="kt">False</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">(</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">True</span> <span class="o">&amp;&amp;</span> <span class="kt">True</span> <span class="ow">=</span> <span class="kt">True</span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">True</span> <span class="o">&amp;&amp;</span> <span class="kt">False</span> <span class="ow">=</span> <span class="kt">False</span>
+<span class="linenos" data-linenos="4 "></span><span class="kt">False</span> <span class="o">&amp;&amp;</span> <span class="kt">True</span> <span class="ow">=</span> <span class="kt">False</span>
+<span class="linenos" data-linenos="5 "></span><span class="kt">False</span> <span class="o">&amp;&amp;</span> <span class="kt">False</span> <span class="ow">=</span> <span class="kt">False</span>
 </code></pre></div>
-</td></tr></table>
 <p>Uma versão simplificada pelo uso de padrões curinga, seria a seguinte.
 Observe como ela é mais legível.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">(</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
-<span class="kt">True</span> <span class="o">&amp;&amp;</span> <span class="kt">True</span> <span class="ow">=</span> <span class="kt">True</span>
-<span class="kr">_</span> <span class="o">&amp;&amp;</span> <span class="kr">_</span> <span class="ow">=</span> <span class="kt">False</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">(</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">True</span> <span class="o">&amp;&amp;</span> <span class="kt">True</span> <span class="ow">=</span> <span class="kt">True</span>
+<span class="linenos" data-linenos="3 "></span><span class="kr">_</span> <span class="o">&amp;&amp;</span> <span class="kr">_</span> <span class="ow">=</span> <span class="kt">False</span>
 </code></pre></div>
-</td></tr></table>
 <p>Finalmente, uma terceira versão que usa um padrão variável e um curinga também poderia ser usada.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">(</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
-<span class="kt">True</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">b</span>
-<span class="kt">False</span> <span class="o">&amp;&amp;</span> <span class="kr">_</span> <span class="ow">=</span> <span class="kt">False</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">(</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">True</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">b</span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">False</span> <span class="o">&amp;&amp;</span> <span class="kr">_</span> <span class="ow">=</span> <span class="kt">False</span>
 </code></pre></div>
-</td></tr></table>
 <p>Como exemplo do casamento em padrões em tuplas, relembre as definições de <code class="highlight"><span class="nf">fst</span></code> e <code class="highlight"><span class="nf">snd</span></code>.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fst</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="kr">_</span><span class="p">)</span> <span class="ow">=</span>  <span class="n">x</span>
-
-<span class="nf">snd</span> <span class="p">(</span><span class="kr">_</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="ow">=</span>  <span class="n">y</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">fst</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="kr">_</span><span class="p">)</span> <span class="ow">=</span>  <span class="n">x</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">snd</span> <span class="p">(</span><span class="kr">_</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="ow">=</span>  <span class="n">y</span>
 </code></pre></div>
-</td></tr></table>
 <p>Também podemos pensar no tipo <code class="highlight"><span class="kt">Pessoa</span></code> e funções associadas, definidos anteriormente.
 Neste caso, como ficaria uma função que extraísse apenas o sobrenome de uma pessoa?</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">type</span> <span class="kt">Nome</span> <span class="ow">=</span> <span class="p">(</span><span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="p">)</span>
-<span class="kr">type</span> <span class="kt">Telefone</span> <span class="ow">=</span> <span class="p">(</span><span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="p">)</span>
-<span class="kr">type</span> <span class="kt">CPF</span> <span class="ow">=</span> <span class="kt">String</span>
-<span class="kr">type</span> <span class="kt">Endereço</span> <span class="ow">=</span> <span class="p">(</span><span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="p">)</span>
-<span class="kr">type</span> <span class="kt">Pessoa</span> <span class="ow">=</span> <span class="p">(</span><span class="kt">Nome</span><span class="p">,</span> <span class="kt">Telefone</span><span class="p">,</span> <span class="kt">CPF</span><span class="p">,</span> <span class="kt">Endereço</span><span class="p">)</span>
-
-<span class="nf">fazPessoa</span> <span class="ow">::</span> <span class="kt">Nome</span> <span class="ow">-&gt;</span> <span class="kt">Telefone</span> <span class="ow">-&gt;</span> <span class="kt">CPF</span> <span class="ow">-&gt;</span> <span class="kt">Endereço</span> <span class="ow">-&gt;</span> <span class="kt">Pessoa</span> <span class="c1">-- (1) Definição da função.</span>
-<span class="nf">fazPessoa</span> <span class="n">nome</span> <span class="n">telefone</span> <span class="n">cpf</span> <span class="n">endereço</span> <span class="ow">=</span> <span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">telefone</span><span class="p">,</span> <span class="n">cpf</span><span class="p">,</span> <span class="n">endereço</span><span class="p">)</span>
-
-<span class="nf">pegaNome</span> <span class="ow">::</span> <span class="kt">Pessoa</span> <span class="ow">-&gt;</span> <span class="kt">Nome</span>
-<span class="nf">pegaNome</span> <span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="kr">_</span><span class="p">,</span> <span class="kr">_</span><span class="p">,</span> <span class="kr">_</span><span class="p">)</span> <span class="ow">=</span> <span class="n">nome</span>
-
-<span class="nf">pegaTelefone</span> <span class="ow">::</span> <span class="kt">Pessoa</span> <span class="ow">-&gt;</span> <span class="kt">Telefone</span>
-<span class="nf">pegaTelefone</span> <span class="p">(</span><span class="kr">_</span><span class="p">,</span> <span class="n">telefone</span><span class="p">,</span> <span class="kr">_</span><span class="p">,</span> <span class="kr">_</span><span class="p">)</span> <span class="ow">=</span> <span class="n">telefone</span>
-
-<span class="nf">trocaTelefone</span> <span class="ow">::</span> <span class="kt">Pessoa</span> <span class="ow">-&gt;</span> <span class="kt">Telefone</span> <span class="ow">-&gt;</span> <span class="kt">Pessoa</span>
-<span class="nf">trocaTelefone</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">_t</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span> <span class="n">novoTelefone</span> <span class="ow">=</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">novoTelefone</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kr">type</span> <span class="kt">Nome</span> <span class="ow">=</span> <span class="p">(</span><span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kr">type</span> <span class="kt">Telefone</span> <span class="ow">=</span> <span class="p">(</span><span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kr">type</span> <span class="kt">CPF</span> <span class="ow">=</span> <span class="kt">String</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="kr">type</span> <span class="kt">Endereço</span> <span class="ow">=</span> <span class="p">(</span><span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="kr">type</span> <span class="kt">Pessoa</span> <span class="ow">=</span> <span class="p">(</span><span class="kt">Nome</span><span class="p">,</span> <span class="kt">Telefone</span><span class="p">,</span> <span class="kt">CPF</span><span class="p">,</span> <span class="kt">Endereço</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nf">fazPessoa</span> <span class="ow">::</span> <span class="kt">Nome</span> <span class="ow">-&gt;</span> <span class="kt">Telefone</span> <span class="ow">-&gt;</span> <span class="kt">CPF</span> <span class="ow">-&gt;</span> <span class="kt">Endereço</span> <span class="ow">-&gt;</span> <span class="kt">Pessoa</span> <span class="c1">-- (1) Definição da função.</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nf">fazPessoa</span> <span class="n">nome</span> <span class="n">telefone</span> <span class="n">cpf</span> <span class="n">endereço</span> <span class="ow">=</span> <span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">telefone</span><span class="p">,</span> <span class="n">cpf</span><span class="p">,</span> <span class="n">endereço</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="nf">pegaNome</span> <span class="ow">::</span> <span class="kt">Pessoa</span> <span class="ow">-&gt;</span> <span class="kt">Nome</span>
+<span class="linenos" data-linenos="11 "></span><span class="nf">pegaNome</span> <span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="kr">_</span><span class="p">,</span> <span class="kr">_</span><span class="p">,</span> <span class="kr">_</span><span class="p">)</span> <span class="ow">=</span> <span class="n">nome</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="nf">pegaTelefone</span> <span class="ow">::</span> <span class="kt">Pessoa</span> <span class="ow">-&gt;</span> <span class="kt">Telefone</span>
+<span class="linenos" data-linenos="14 "></span><span class="nf">pegaTelefone</span> <span class="p">(</span><span class="kr">_</span><span class="p">,</span> <span class="n">telefone</span><span class="p">,</span> <span class="kr">_</span><span class="p">,</span> <span class="kr">_</span><span class="p">)</span> <span class="ow">=</span> <span class="n">telefone</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="nf">trocaTelefone</span> <span class="ow">::</span> <span class="kt">Pessoa</span> <span class="ow">-&gt;</span> <span class="kt">Telefone</span> <span class="ow">-&gt;</span> <span class="kt">Pessoa</span>
+<span class="linenos" data-linenos="17 "></span><span class="nf">trocaTelefone</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">_t</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span> <span class="n">novoTelefone</span> <span class="ow">=</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">novoTelefone</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
 </code></pre></div>
-</td></tr></table>
 <div class="admonition exercise">
 <p class="admonition-title">Exercício</p>
 <ul>
@@ -1205,85 +1116,55 @@ Neste caso, como ficaria uma função que extraísse apenas o sobrenome de uma p
 </ul>
 </li>
 </ul>
-<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>```hs
-Surprise!
-```
+<details class="example"><summary>Resolução</summary><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>```hs
+<span class="linenos" data-linenos="2 "></span>Surprise!
+<span class="linenos" data-linenos="3 "></span>```
 </code></pre></div>
-</td></tr></table>
 </details>
 </li>
 </ul>
 </div>
 <h6><code class="highlight"><span class="kr">case</span><span class="o">-</span><span class="kr">of</span></code></h6>
 <p>Esta estrutura se assemelha ao <code>switch</code> de linguagens como C e Java, e tem a seguinte sintaxe, onde os padrões devem estar perfeitamente alinhados.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">case</span> <span class="n">expression</span> <span class="kr">of</span> <span class="n">pattern</span> <span class="ow">-&gt;</span> <span class="n">result</span>  
-                   <span class="n">pattern</span> <span class="ow">-&gt;</span> <span class="n">result</span>  
-                   <span class="n">pattern</span> <span class="ow">-&gt;</span> <span class="n">result</span>  
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kr">case</span> <span class="n">expression</span> <span class="kr">of</span> <span class="n">pattern</span> <span class="ow">-&gt;</span> <span class="n">result</span>  
+<span class="linenos" data-linenos="2 "></span>                   <span class="n">pattern</span> <span class="ow">-&gt;</span> <span class="n">result</span>  
+<span class="linenos" data-linenos="3 "></span>                   <span class="n">pattern</span> <span class="ow">-&gt;</span> <span class="n">result</span>  
 </code></pre></div>
-</td></tr></table>
 <p>Por exemplo, vamos definir uma função que retorne o nome do mês, dado o seu número.
 Seria possível escreve esta função com <code>if</code> aninhados, assim.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">nome_mes</span> <span class="n">m</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span> <span class="kr">then</span> <span class="s">&quot;JAN&quot;</span>
-             <span class="kr">else</span> <span class="kr">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">2</span> <span class="kr">then</span> <span class="s">&quot;FEB&quot;</span>
-             <span class="kr">else</span> <span class="kr">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">3</span> <span class="kr">then</span> <span class="s">&quot;MAR&quot;</span>
-             <span class="o">...</span>
-             <span class="kr">else</span> <span class="kr">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">11</span> <span class="kr">then</span> <span class="s">&quot;NOV&quot;</span>
-             <span class="kr">else</span> <span class="s">&quot;DEZ&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">nome_mes</span> <span class="n">m</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span> <span class="kr">then</span> <span class="s">&quot;JAN&quot;</span>
+<span class="linenos" data-linenos="2 "></span>             <span class="kr">else</span> <span class="kr">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">2</span> <span class="kr">then</span> <span class="s">&quot;FEB&quot;</span>
+<span class="linenos" data-linenos="3 "></span>             <span class="kr">else</span> <span class="kr">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">3</span> <span class="kr">then</span> <span class="s">&quot;MAR&quot;</span>
+<span class="linenos" data-linenos="4 "></span>             <span class="o">...</span>
+<span class="linenos" data-linenos="5 "></span>             <span class="kr">else</span> <span class="kr">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">11</span> <span class="kr">then</span> <span class="s">&quot;NOV&quot;</span>
+<span class="linenos" data-linenos="6 "></span>             <span class="kr">else</span> <span class="s">&quot;DEZ&quot;</span>
 </code></pre></div>
-</td></tr></table>
 <p>Usando guardas, ficaria assim:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">nome_mes</span> <span class="n">m</span>
-    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="s">&quot;JAN&quot;</span>
-    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">=</span> <span class="s">&quot;FEB&quot;</span>
-    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">=</span> <span class="s">&quot;MAR&quot;</span>
-    <span class="o">...</span>
-    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">11</span> <span class="ow">=</span> <span class="s">&quot;NOV&quot;</span>
-    <span class="o">|</span> <span class="n">otherwise</span> <span class="s">&quot;DEZ&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">nome_mes</span> <span class="n">m</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="s">&quot;JAN&quot;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">=</span> <span class="s">&quot;FEB&quot;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">=</span> <span class="s">&quot;MAR&quot;</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="o">...</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">11</span> <span class="ow">=</span> <span class="s">&quot;NOV&quot;</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="o">|</span> <span class="n">otherwise</span> <span class="s">&quot;DEZ&quot;</span>
 </code></pre></div>
-</td></tr></table>
 <p>Usando <code>case</code>-<code>of</code>, a</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">nomeMes</span> <span class="n">m</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">m</span> <span class="kr">of</span> <span class="mi">1</span> <span class="ow">-&gt;</span> <span class="s">&quot;JAN&quot;</span>
-                 <span class="n">m</span> <span class="kr">of</span> <span class="mi">2</span> <span class="ow">-&gt;</span>  <span class="s">&quot;FEB&quot;</span>
-                 <span class="n">m</span> <span class="kr">of</span> <span class="mi">3</span> <span class="ow">-&gt;</span> <span class="s">&quot;MAR&quot;</span>
-                 <span class="o">...</span>
-                 <span class="n">m</span> <span class="kr">of</span> <span class="mi">11</span> <span class="ow">-&gt;</span> <span class="s">&quot;NOV&quot;</span>
-                 <span class="n">m</span> <span class="kr">of</span> <span class="mi">12</span> <span class="ow">-&gt;</span> <span class="s">&quot;DEZ&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">nomeMes</span> <span class="n">m</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">m</span> <span class="kr">of</span> <span class="mi">1</span> <span class="ow">-&gt;</span> <span class="s">&quot;JAN&quot;</span>
+<span class="linenos" data-linenos="2 "></span>                 <span class="n">m</span> <span class="kr">of</span> <span class="mi">2</span> <span class="ow">-&gt;</span>  <span class="s">&quot;FEB&quot;</span>
+<span class="linenos" data-linenos="3 "></span>                 <span class="n">m</span> <span class="kr">of</span> <span class="mi">3</span> <span class="ow">-&gt;</span> <span class="s">&quot;MAR&quot;</span>
+<span class="linenos" data-linenos="4 "></span>                 <span class="o">...</span>
+<span class="linenos" data-linenos="5 "></span>                 <span class="n">m</span> <span class="kr">of</span> <span class="mi">11</span> <span class="ow">-&gt;</span> <span class="s">&quot;NOV&quot;</span>
+<span class="linenos" data-linenos="6 "></span>                 <span class="n">m</span> <span class="kr">of</span> <span class="mi">12</span> <span class="ow">-&gt;</span> <span class="s">&quot;DEZ&quot;</span>
 </code></pre></div>
-</td></tr></table>
 <p>É importante notar que é possível aninhar <code>case-of</code>.
 A função <code class="highlight"><span class="nf">próximos3</span></code> poderia ser reescrita assim.
 Observe o alinhamento dentro do segundo case.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">próximos3&#39;&#39;&#39;</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Char</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span>
-<span class="nf">próximos3&#39;&#39;&#39;</span> <span class="n">n</span> <span class="n">dir</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">n</span> <span class="kr">of</span> <span class="mi">0</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-                               <span class="kr">_</span> <span class="ow">-&gt;</span> <span class="kr">case</span> <span class="n">dir</span> <span class="kr">of</span> <span class="sc">&#39;d&#39;</span> <span class="ow">-&gt;</span> <span class="kr">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="kr">else</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
-                                                <span class="sc">&#39;a&#39;</span> <span class="ow">-&gt;</span> <span class="kr">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="kr">then</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="kr">else</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
-                                                <span class="kr">_</span>   <span class="ow">-&gt;</span> <span class="ne">error</span> <span class="s">&quot;Use d ou a&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">próximos3&#39;&#39;&#39;</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Char</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">próximos3&#39;&#39;&#39;</span> <span class="n">n</span> <span class="n">dir</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">n</span> <span class="kr">of</span> <span class="mi">0</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span>                               <span class="kr">_</span> <span class="ow">-&gt;</span> <span class="kr">case</span> <span class="n">dir</span> <span class="kr">of</span> <span class="sc">&#39;d&#39;</span> <span class="ow">-&gt;</span> <span class="kr">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="kr">else</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span>                                                <span class="sc">&#39;a&#39;</span> <span class="ow">-&gt;</span> <span class="kr">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="kr">then</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="kr">else</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span>                                                <span class="kr">_</span>   <span class="ow">-&gt;</span> <span class="ne">error</span> <span class="s">&quot;Use d ou a&quot;</span>
 </code></pre></div>
-</td></tr></table>
 <div class="footnote">
 <hr />
 <ol>
@@ -1353,10 +1234,12 @@ Observe o alinhamento dentro do segundo case.</p>
             Copyright © 2021 Lásaro Camargos
           </div>
         
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
         
       </div>
       
@@ -1378,10 +1261,10 @@ Observe o alinhamento dentro do segundo case.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.e99e714c.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.56a63758.min.js"></script>
+      <script src="../assets/javascripts/bundle.bc35569b.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       

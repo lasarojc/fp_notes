@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.be71726b.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.24c991ad.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -93,7 +93,9 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
     <a href=".." title="Notas de Aula em Programação Funcional" class="md-header__button md-logo" aria-label="Notas de Aula em Programação Funcional" data-md-component="logo">
       
@@ -128,7 +130,7 @@
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
             </label>
           
         
@@ -196,11 +198,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -679,17 +684,12 @@
 </ul>
 </li>
 <li>[] ] Definição
-        <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">class</span> <span class="kt">Eq</span> <span class="n">a</span> <span class="kr">where</span>  
-<span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>  
-<span class="p">(</span><span class="o">/=</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>  
-<span class="nf">x</span> <span class="o">==</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">not</span> <span class="p">(</span><span class="n">x</span> <span class="o">/=</span> <span class="n">y</span><span class="p">)</span>  
-<span class="nf">x</span> <span class="o">/=</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">not</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span> 
-</code></pre></div>
-</td></tr></table></li>
+        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kr">class</span> <span class="kt">Eq</span> <span class="n">a</span> <span class="kr">where</span>  
+<span class="linenos" data-linenos="2 "></span><span class="p">(</span><span class="o">==</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>  
+<span class="linenos" data-linenos="3 "></span><span class="p">(</span><span class="o">/=</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>  
+<span class="linenos" data-linenos="4 "></span><span class="nf">x</span> <span class="o">==</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">not</span> <span class="p">(</span><span class="n">x</span> <span class="o">/=</span> <span class="n">y</span><span class="p">)</span>  
+<span class="linenos" data-linenos="5 "></span><span class="nf">x</span> <span class="o">/=</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">not</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span> 
+</code></pre></div></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Tuplas</li>
 </ul>
 </li>
@@ -734,19 +734,14 @@
             * Exemplos
                 * [ ] Maybe
                     * <a href="https://www.youtube.com/watch?v=b9FagOVqxmI">https://www.youtube.com/watch?v=b9FagOVqxmI</a>
-                    <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">data</span>  <span class="kt">Maybe</span> <span class="n">a</span>     <span class="ow">=</span>  <span class="kt">Nothing</span> <span class="o">|</span> <span class="kt">Just</span> <span class="n">a</span>  <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Eq</span><span class="p">,</span> <span class="kt">Ord</span><span class="p">,</span> <span class="kt">Read</span><span class="p">,</span> <span class="kt">Show</span><span class="p">)</span>  
-<span class="kr">data</span>  <span class="kt">Either</span> <span class="n">a</span> <span class="n">b</span>  <span class="ow">=</span>  <span class="kt">Left</span> <span class="n">a</span> <span class="o">|</span> <span class="kt">Right</span> <span class="n">b</span>  <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Eq</span><span class="p">,</span> <span class="kt">Ord</span><span class="p">,</span> <span class="kt">Read</span><span class="p">,</span> <span class="kt">Show</span><span class="p">)</span>  
+                    <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kr">data</span>  <span class="kt">Maybe</span> <span class="n">a</span>     <span class="ow">=</span>  <span class="kt">Nothing</span> <span class="o">|</span> <span class="kt">Just</span> <span class="n">a</span>  <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Eq</span><span class="p">,</span> <span class="kt">Ord</span><span class="p">,</span> <span class="kt">Read</span><span class="p">,</span> <span class="kt">Show</span><span class="p">)</span>  
+<span class="linenos" data-linenos="2 "></span><span class="kr">data</span>  <span class="kt">Either</span> <span class="n">a</span> <span class="n">b</span>  <span class="ow">=</span>  <span class="kt">Left</span> <span class="n">a</span> <span class="o">|</span> <span class="kt">Right</span> <span class="n">b</span>  <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Eq</span><span class="p">,</span> <span class="kt">Ord</span><span class="p">,</span> <span class="kt">Read</span><span class="p">,</span> <span class="kt">Show</span><span class="p">)</span>  
 </code></pre></div>
-</td></tr></table>
                 * [ ] Either</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    * [ ] Tipos recursivos
-        - [ ] Listas
-        - [ ] Árvores
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    * [ ] Tipos recursivos
+<span class="linenos" data-linenos="2 "></span>        - [ ] Listas
+<span class="linenos" data-linenos="3 "></span>        - [ ] Árvores
 </code></pre></div>
-</td></tr></table>
 </li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Pattern matching</p>
@@ -872,35 +867,24 @@
 <ul>
 <li>Defina uma função que dado uma String, verifique se ela é um palíndromo.</li>
 </ul>
-<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">éPalíndromo</span> <span class="n">s</span> <span class="ow">=</span> <span class="n">s</span> <span class="o">==</span> <span class="n">reverse</span> <span class="n">s</span>
+<details class="example"><summary>Resolução</summary><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">éPalíndromo</span> <span class="n">s</span> <span class="ow">=</span> <span class="n">s</span> <span class="o">==</span> <span class="n">reverse</span> <span class="n">s</span>
 </code></pre></div>
-</td></tr></table>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">éPalíndromo</span> <span class="s">&quot;aba&quot;</span>
-<span class="kt">True</span>
-<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">éPalíndromo</span> <span class="s">&quot;abac&quot;</span>
-<span class="kt">False</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">éPalíndromo</span> <span class="s">&quot;aba&quot;</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">True</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">éPalíndromo</span> <span class="s">&quot;abac&quot;</span>
+<span class="linenos" data-linenos="4 "></span><span class="kt">False</span>
 </code></pre></div>
-</td></tr></table>
 </details>
 <ul>
 <li>Um pangrama é uma frase que contem todas as letras do alfabeto. Escreva uma função que, dado uma String, verifique se é um pangrama.</li>
 </ul>
-<details class="example"><summary>Resolução</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">module</span> <span class="nn">Pangram</span> <span class="p">(</span><span class="nf">isPangram</span><span class="p">)</span> <span class="kr">where</span>
-
-<span class="kr">import</span> <span class="nn">Data.Char</span> <span class="p">(</span><span class="nf">toLower</span><span class="p">)</span>
-
-<span class="nf">isPangram</span> <span class="ow">::</span> <span class="kt">String</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
-<span class="nf">isPangram</span> <span class="n">text</span> <span class="ow">=</span> <span class="n">all</span> <span class="p">(`</span><span class="n">elem</span><span class="p">`</span> <span class="p">(</span><span class="n">map</span> <span class="n">toLower</span> <span class="n">text</span><span class="p">))</span> <span class="p">[</span><span class="sc">&#39;a&#39;</span><span class="o">..</span><span class="sc">&#39;z&#39;</span><span class="p">]</span>
+<details class="example"><summary>Resolução</summary><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kr">module</span> <span class="nn">Pangram</span> <span class="p">(</span><span class="nf">isPangram</span><span class="p">)</span> <span class="kr">where</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="kr">import</span> <span class="nn">Data.Char</span> <span class="p">(</span><span class="nf">toLower</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="nf">isPangram</span> <span class="ow">::</span> <span class="kt">String</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos="6 "></span><span class="nf">isPangram</span> <span class="n">text</span> <span class="ow">=</span> <span class="n">all</span> <span class="p">(`</span><span class="n">elem</span><span class="p">`</span> <span class="p">(</span><span class="n">map</span> <span class="n">toLower</span> <span class="n">text</span><span class="p">))</span> <span class="p">[</span><span class="sc">&#39;a&#39;</span><span class="o">..</span><span class="sc">&#39;z&#39;</span><span class="p">]</span>
 </code></pre></div>
-</td></tr></table>
 </details>
 </li>
 </ul>
@@ -930,10 +914,12 @@
             Copyright © 2021 Lásaro Camargos
           </div>
         
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
         
       </div>
       
@@ -955,10 +941,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.e99e714c.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.56a63758.min.js"></script>
+      <script src="../assets/javascripts/bundle.bc35569b.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       

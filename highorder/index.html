@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.be71726b.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.24c991ad.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -93,7 +93,9 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
     <a href=".." title="Notas de Aula em Programação Funcional" class="md-header__button md-logo" aria-label="Notas de Aula em Programação Funcional" data-md-component="logo">
       
@@ -128,7 +130,7 @@
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
             </label>
           
         
@@ -196,11 +198,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -498,13 +503,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#filter" class="md-nav__link">
-    filter
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fold-reducao" class="md-nav__link">
     fold (redução)
   </a>
@@ -512,8 +510,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#all" class="md-nav__link">
-    all
+  <a href="#filter-e-all" class="md-nav__link">
+    filter e all
   </a>
   
 </li>
@@ -707,13 +705,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#filter" class="md-nav__link">
-    filter
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#fold-reducao" class="md-nav__link">
     fold (redução)
   </a>
@@ -721,8 +712,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#all" class="md-nav__link">
-    all
+  <a href="#filter-e-all" class="md-nav__link">
+    filter e all
   </a>
   
 </li>
@@ -781,331 +772,247 @@
   <h1 id="funcoes-de-ordem-superior">Funções de ordem superior</h1>
 <p>Quando estudamos linguagens de programação, é comum denominar como <strong>cidadãos de primeira classe</strong> (do inglês, <em>first class citizens</em>) as entidades que podem ser atribuídas a variáveis, passadas como parâmetro, retornadas como resultado ou operadas de forma geral.
 Em Haskell, funções são cidadãs de primeira classe! Vejamos um exemplo em que uma função é associada a uma variável, o que efetivamente torna esta variável uma função!</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">f</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">g</span> <span class="ow">=</span> <span class="n">f</span>
-<span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">g</span> <span class="mi">1</span> <span class="mi">2</span>
-<span class="mi">3</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">f</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">g</span> <span class="ow">=</span> <span class="n">f</span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">g</span> <span class="mi">1</span> <span class="mi">2</span>
+<span class="linenos" data-linenos="4 "></span><span class="mi">3</span>
 </code></pre></div>
-</td></tr></table>
 <p>Outro conceito relacionado é o das <strong>funções de ordem superior</strong>, aquelas funções que ou recebem como parâmetro ou retornam como resultado outras funções, e que só podem existir em linguagens em que funções são cidadãs de primeira classe.
 Vejamos um exemplo de uma função de ordem superior que aplica uma outra função, recebida como parâmetro, aos seus outros parâmetros.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">somar</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> 
-<span class="nf">somar</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-
-<span class="nf">multiplicar</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> 
-<span class="nf">multiplicar</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
-
-<span class="nf">dividir</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> 
-<span class="nf">dividir</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="n">y</span>
-
-
-<span class="nf">operar</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
-<span class="nf">operar</span> <span class="n">f</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">f</span> <span class="n">x</span> <span class="n">y</span>
-
-<span class="c1">-- &gt;&gt;&gt; operar somar 3 4</span>
-<span class="c1">-- 7</span>
-
-<span class="c1">-- &gt;&gt;&gt; operar multiplicar 3 4</span>
-<span class="c1">-- 12</span>
-
-<span class="c1">-- &gt;&gt;&gt; operar dividir 3 4</span>
-<span class="c1">-- 0</span>
-
-
-<span class="nf">aplicarLista1</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
-<span class="nf">aplicarLista1</span> <span class="n">f</span> <span class="n">i</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">i</span>
-<span class="nf">aplicarLista1</span> <span class="n">f</span> <span class="n">i</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">f</span> <span class="n">n</span> <span class="p">(</span><span class="n">aplicarLista1</span> <span class="n">f</span> <span class="n">i</span> <span class="n">ns</span><span class="p">)</span>
-
-<span class="c1">-- &gt;&gt;&gt;aplicarLista1 somar 0 [1..5]</span>
-<span class="c1">-- 15</span>
-
-<span class="c1">-- &gt;&gt;&gt;aplicarLista1 multiplicar 1 [1..5]</span>
-<span class="c1">-- 120</span>
-
-<span class="nf">aplicarLista2</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
-<span class="nf">aplicarLista2</span> <span class="n">f</span> <span class="n">i</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">i</span>
-<span class="nf">aplicarLista2</span> <span class="n">f</span> <span class="n">i</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">aplicarLista2</span> <span class="n">f</span> <span class="p">(</span><span class="n">f</span> <span class="n">i</span> <span class="n">n</span><span class="p">)</span> <span class="n">ns</span>
-
-<span class="c1">-- &gt;&gt;&gt;aplicarLista2 somar 0 [1..5]</span>
-<span class="c1">-- 15</span>
-
-<span class="c1">-- &gt;&gt;&gt;aplicarLista2 multiplicar 1 [1..5]</span>
-<span class="c1">-- 120</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nf">somar</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> 
+<span class="linenos" data-linenos=" 2 "></span><span class="nf">somar</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nf">multiplicar</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> 
+<span class="linenos" data-linenos=" 5 "></span><span class="nf">multiplicar</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nf">dividir</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> 
+<span class="linenos" data-linenos=" 8 "></span><span class="nf">dividir</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="n">y</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="nf">operar</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="12 "></span><span class="nf">operar</span> <span class="n">f</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">f</span> <span class="n">x</span> <span class="n">y</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="c1">-- &gt;&gt;&gt; operar somar 3 4</span>
+<span class="linenos" data-linenos="15 "></span><span class="c1">-- 7</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span><span class="c1">-- &gt;&gt;&gt; operar multiplicar 3 4</span>
+<span class="linenos" data-linenos="18 "></span><span class="c1">-- 12</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span><span class="c1">-- &gt;&gt;&gt; operar dividir 3 4</span>
+<span class="linenos" data-linenos="21 "></span><span class="c1">-- 0</span>
 </code></pre></div>
-</td></tr></table>
-<p>Observe que a função <code class="highlight"><span class="nf">operar</span></code> tem como primeiro parâmetro <code class="highlight"><span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span></code>, isto é, uma função que recebe dois inteiros e retorna um inteiro; ela recebe uma função como parâmetro e aplica esta função aos demais parâmetros!
-Funções de alta ordem são úteis em diversas situações, por exemplo, como forma de criar um comportamento configurável no seu código.
-De fato, Haskell tem diversas funções de ordem superior em sua biblioteca; vejamos algumas.</p>
+<p>Observe que a função <code class="highlight"><span class="nf">operar</span></code> tem como primeiro parâmetro formal <code>#!f</code>, que é do tipo <code class="highlight"><span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span></code>, isto é, uma função que recebe dois inteiros e retorna um inteiro.
+Esta função <code class="highlight"><span class="nf">f</span></code> é aplicada aos demais parâmetros de de <code class="highlight"><span class="nf">operar</span></code> para calcular o resultado.</p>
+<p>Funções de alta ordem são úteis em diversas situações, por exemplo, como forma de criar um comportamento configurável no seu código, e são frequentes na biblioteca da linguagem Haskell, dentre as quais destacamos <code class="highlight"><span class="nf">map</span></code>,  <code class="highlight"><span class="nf">filter</span></code>,  e diversos tipos de <code class="highlight"><span class="nf">fold</span></code>.</p>
 <h2 id="map">map</h2>
 <p>Seja uma lista de inteiros sobre a qual você queira executar diversas transformações, por exemplo, multiplicar todos os valores por 10, somar 3, testar se par ou achar o módulo por 3.
 Você pode começar definindo funções que fazem transformações em um único elemento e, para cada uma, uma função correspondente para listas.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">multiplicarPor10</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
-<span class="nf">multiplicarPor10</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">10</span>
-
-<span class="nf">multiplicarPor10Lista</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
-<span class="nf">multiplicarPor10Lista</span> <span class="n">l</span> <span class="ow">=</span> <span class="p">[</span><span class="n">multiplicarPor10</span> <span class="n">e</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="n">l</span><span class="p">]</span>
-
-<span class="nf">soma3</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
-<span class="nf">soma3</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
-
-<span class="nf">soma3Lista</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
-<span class="nf">soma3Lista</span> <span class="n">l</span> <span class="ow">=</span> <span class="p">[</span><span class="n">soma3</span> <span class="n">e</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="n">l</span><span class="p">]</span>
-
-<span class="nf">éPar</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
-<span class="nf">éPar</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">even</span> <span class="n">x</span>
-
-<span class="nf">éParLista</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Bool</span><span class="p">]</span>
-<span class="nf">éParLista</span> <span class="n">l</span> <span class="ow">=</span> <span class="p">[</span><span class="n">éPar</span> <span class="n">e</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="n">l</span><span class="p">]</span>
-
-<span class="nf">mod3</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
-<span class="nf">mod3</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="p">`</span><span class="n">mod</span><span class="p">`</span> <span class="mi">3</span> 
-
-<span class="nf">mod3List</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
-<span class="nf">mod3List</span> <span class="n">l</span>  <span class="ow">=</span> <span class="p">[</span><span class="n">mod3</span> <span class="n">e</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="n">l</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nf">multiplicarPor10</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nf">multiplicarPor10</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">10</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nf">multiplicarPor10Lista</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nf">multiplicarPor10Lista</span> <span class="n">l</span> <span class="ow">=</span> <span class="p">[</span><span class="n">multiplicarPor10</span> <span class="n">e</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="n">l</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="c1">-- &gt;&gt;&gt;multiplicarPor10Lista [2..5]</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="c1">-- [20,30,40,50]</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="nf">somar3</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="11 "></span><span class="nf">somar3</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="nf">somar3Lista</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
+<span class="linenos" data-linenos="14 "></span><span class="nf">somar3Lista</span> <span class="n">l</span> <span class="ow">=</span> <span class="p">[</span><span class="n">somar3</span> <span class="n">e</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="n">l</span><span class="p">]</span>
+<span class="linenos" data-linenos="15 "></span><span class="c1">-- &gt;&gt;&gt;somar3Lista [2..5]</span>
+<span class="linenos" data-linenos="16 "></span><span class="c1">-- [5,6,7,8]</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span>
+<span class="linenos" data-linenos="19 "></span><span class="nf">éPar</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos="20 "></span><span class="nf">éPar</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">even</span> <span class="n">x</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span><span class="nf">éParLista</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Bool</span><span class="p">]</span>
+<span class="linenos" data-linenos="23 "></span><span class="nf">éParLista</span> <span class="n">l</span> <span class="ow">=</span> <span class="p">[</span><span class="n">éPar</span> <span class="n">e</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="n">l</span><span class="p">]</span>
+<span class="linenos" data-linenos="24 "></span><span class="c1">-- &gt;&gt;&gt;éParLista [2..5]</span>
+<span class="linenos" data-linenos="25 "></span><span class="c1">-- [True,False,True,False]</span>
+<span class="linenos" data-linenos="26 "></span>
+<span class="linenos" data-linenos="27 "></span>
+<span class="linenos" data-linenos="28 "></span><span class="nf">mod3</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="29 "></span><span class="nf">mod3</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="p">`</span><span class="n">mod</span><span class="p">`</span> <span class="mi">3</span> 
+<span class="linenos" data-linenos="30 "></span>
+<span class="linenos" data-linenos="31 "></span><span class="nf">mod3Lista</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
+<span class="linenos" data-linenos="32 "></span><span class="nf">mod3Lista</span> <span class="n">l</span>  <span class="ow">=</span> <span class="p">[</span><span class="n">mod3</span> <span class="n">e</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="n">l</span><span class="p">]</span>
+<span class="linenos" data-linenos="33 "></span>
+<span class="linenos" data-linenos="34 "></span><span class="c1">-- &gt;&gt;&gt;mod3Lista [2..5]</span>
+<span class="linenos" data-linenos="35 "></span><span class="c1">-- [2,0,1,2]</span>
 </code></pre></div>
-</td></tr></table>
-<p>Se você observar as funções para as listas perceberá que todas tem uma estrutura muito parecida.
-Graças às funções de ordem superior, você pode aproveitar este fato e criar uma função genérica que sirva para aplicar qualquer transformação.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">mapeie</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">b</span><span class="p">]</span>
-<span class="nf">mapeie</span> <span class="n">f</span> <span class="n">xs</span> <span class="ow">=</span> <span class="p">[</span><span class="n">f</span> <span class="n">x</span> <span class="o">|</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">xs</span><span class="p">]</span>
-
-<span class="o">&gt;</span> <span class="n">mapeie</span> <span class="n">multiplicarPor10</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
-
-<span class="o">&gt;</span> <span class="n">mapeie</span> <span class="n">soma3</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">]</span>
-
-<span class="o">&gt;</span> <span class="n">mapeie</span> <span class="n">éPar</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
-<span class="p">[</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">]</span>
-
-<span class="o">&gt;</span> <span class="n">mapeie</span> <span class="n">mod3</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<p>Se você observar as funções para as listas perceberá que todas tem uma mesma estrutura.
+Graças às funções de ordem superior, você pode aproveitar este fato e criar uma função, genérica, que sirva para aplicar qualquer das transformações desejadas.</p>
+<p>Como as funções acima, nossa função genérica recebe uma lista de um tipo <code class="highlight"><span class="nf">a</span></code> e resultará em uma lista de um tipo <code class="highlight"><span class="nf">b</span></code>.
+Por iso, chamemos nossa função de <code class="highlight"><span class="nf">mapeie</span></code>, pois com ela mapearemos cada valor da lista de entrada para a lista de resultado. 
+Além da lista de entrada, <code class="highlight"><span class="nf">mapeie</span></code> mas também receberá uma função com tipo <code class="highlight"><span class="nf">a</span> <span class="ow">-&gt;</span> <span class="n">b</span></code>, a ser aplicada nas transformações.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">mapeie</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">b</span><span class="p">]</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">mapeie</span> <span class="n">f</span> <span class="n">xs</span> <span class="ow">=</span> <span class="p">[</span><span class="n">f</span> <span class="n">x</span> <span class="o">|</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">xs</span><span class="p">]</span>
 </code></pre></div>
-</td></tr></table>
-<p>A função <code class="highlight"><span class="nf">mapeie</span></code>, na verdade, serve para aplicar qualquer função que transforme <code>a</code> para <code>b</code> em uma lista de elementos do tipo <code>a</code>, resultando em uma lista de elementos do tipo <code>b</code>.
+<p>Uma vez definida a função, sua invocação é trivial.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&gt;</span> <span class="n">mapeie</span> <span class="n">multiplicarPor10</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="o">&gt;</span> <span class="n">mapeie</span> <span class="n">somar3</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="o">&gt;</span> <span class="n">mapeie</span> <span class="n">éPar</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">[</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="o">&gt;</span> <span class="n">mapeie</span> <span class="n">mod3</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+<p>A função <code class="highlight"><span class="nf">mapeie</span></code>, na verdade, serve para aplicar <strong>qualquer função</strong> que transforme <code>a</code> para <code>b</code> em uma lista de elementos do tipo <code>a</code>, resultando em uma lista de elementos do tipo <code>b</code>.
 Esta função é tão útil, que já existe na biblioteca do Haskell e de qualquer linguagem de programação funcional (e mesmo outras, como Python e Java).</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="n">map</span>
-<span class="nf">map</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">b</span><span class="p">]</span>   <span class="c1">-- Defined in ‘GHC.Base’</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="n">map</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">map</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">b</span><span class="p">]</span>   <span class="c1">-- Defined in ‘GHC.Base’</span>
 </code></pre></div>
-</td></tr></table>
-<h2 id="filter">filter</h2>
-<p>A função <code class="highlight"><span class="nf">filter</span></code> recebe como parâmetros um predicado e uma lista e retorna como resultado um lista com todos os elementos da lista original que satisfazem ao predicado.
-Esta função pode ser definida e usada como a seguir.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="n">filter</span>
-<span class="nf">filter</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>     <span class="c1">-- Defined in ‘GHC.List’</span>
-<span class="nf">filter</span> <span class="n">p</span> <span class="n">xs</span> <span class="ow">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">|</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">xs</span><span class="p">,</span> <span class="n">p</span> <span class="n">x</span><span class="p">]</span>
-
-<span class="o">&gt;</span> <span class="n">f</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span>
-<span class="o">&gt;</span> <span class="n">filter</span> <span class="n">f</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">15</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
-</code></pre></div>
-</td></tr></table>
 <h2 id="fold-reducao">fold (redução)</h2>
-<p>Um procedimento recorrente sobre dados é a redução de um conjunto para um único valor, como é feito pelas funções <code class="highlight"><span class="nf">product</span></code> e <code class="highlight"><span class="nf">sum</span></code> nos seguintes exemplos.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">sum</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
-<span class="mi">55</span>
-
-<span class="o">&gt;</span> <span class="n">product</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">3</span><span class="p">]</span>
-<span class="mi">6</span>
+<p>Um outro procedimento recorrente sobre dados é a redução ou sumarização de um conjunto para um único valor, como é feito pelas funções <code class="highlight"><span class="nf">product</span></code> e <code class="highlight"><span class="nf">sum</span></code> nos seguintes exemplos.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">sum</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">55</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span> <span class="n">product</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">3</span><span class="p">]</span>
+<span class="linenos" data-linenos="5 "></span><span class="mi">6</span>
 </code></pre></div>
-</td></tr></table>
 <p>Vamos tentar generalizar estas duas funções usando uma função de ordem superior.
-Isto é, definimos uma função de ordem superior que receba ou a função <code class="highlight"><span class="p">(</span><span class="o">+</span><span class="p">)</span></code> ou <code class="highlight"><span class="p">(</span><span class="o">*</span><span class="p">)</span></code> e aplique a uma lista de inteiros calculando o somatório ou o produtório dos elementos da lista.
+Isto é, definimos uma função de ordem superior que receba um operador, como <code class="highlight"><span class="p">(</span><span class="o">+</span><span class="p">)</span></code> e <code class="highlight"><span class="p">(</span><span class="o">*</span><span class="p">)</span></code>, e aplique a uma lista de inteiros calculando resumo dos elementos da lista, como o somatório ou o produtório no caso dos operadores <code class="highlight"><span class="p">(</span><span class="o">+</span><span class="p">)</span></code> e <code class="highlight"><span class="p">(</span><span class="o">*</span><span class="p">)</span></code>.
 Comecemos por redefinir <code class="highlight"><span class="nf">sum</span></code> e <code class="highlight"><span class="nf">product</span></code> para entender melhor suas estruturas.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">sum&#39;</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
-<span class="nf">sum&#39;</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="mi">0</span>
-<span class="nf">sum&#39;</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">+</span> <span class="n">sum&#39;</span> <span class="n">ns</span>
-
-<span class="nf">product&#39;</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
-<span class="nf">product&#39;</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="mi">1</span>
-<span class="nf">product&#39;</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">product&#39;</span> <span class="n">ns</span>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">sum&#39;</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">sum&#39;</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="mi">0</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">sum&#39;</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">+</span> <span class="n">sum&#39;</span> <span class="n">ns</span>
 </code></pre></div>
-</td></tr></table>
-<p>Por mais estranho que possa parecer, o produtório de uma lista vazia é 1, pois assim temos um caso base para a recursão que, tanto em <code class="highlight"><span class="nf">sum</span></code> quanto em <code class="highlight"><span class="nf">product</span></code> retorna o elemento neutro e permite que a recursão retorne o resultado correto.</p>
-<p>Façamos agora nossa função genérica.
-Ela deve receber uma função que receba dois inteiros e retorne um inteiro, além da lista de inteiros para aplicar a função, e de retornar um resultado também inteiro.
-Também deverá ter um caso recursivo a ser aplicado na cauda da lista.
-E deverá ter um caso base que retorne o elemento neutro da operação; mas como definir o caso base?</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">aplicarLista</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
-<span class="nf">aplicarLista</span> <span class="n">f</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="o">??</span>
-<span class="nf">aplicarLista</span> <span class="n">f</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">n</span> <span class="p">`</span><span class="n">f</span><span class="p">`</span> <span class="p">(</span><span class="n">aplicarLista</span> <span class="n">f</span> <span class="n">ns</span><span class="p">)</span>
+Podemos pensar na função <code class="highlight"><span class="nf">sum&#39;</span></code> como gerando uma expressão formada pelos elementos da lista mais o valor 0, separados pelo operador <code>+</code>, por exemplo, <code class="highlight"><span class="nf">sum&#39;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="ow">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">0</span></code> e <code class="highlight"><span class="nf">sum&#39;</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">14</span><span class="p">]</span> <span class="ow">=</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">14</span> <span class="o">+</span> <span class="mi">0</span></code>.</p>
+<p>Observe que o valor 0 é escolhido como resultado do caso base, 0, pois ele não afeta o somatório, isto é, 0 é o elemento neutro (ou identidade) da adição.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">product&#39;</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">product&#39;</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">product&#39;</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">product&#39;</span> <span class="n">ns</span>
 </code></pre></div>
-</td></tr></table>
-<p>Poderíamos testar se a função passada como parâmetro é a soma ou a multiplicação, mas você deve ter percebido que nosso objetivo é ir além destes dois operadores.
-Precisamos então de outra definição, que não esbarre no problema do elemento neutro, e a solução normalmente encontrada é indicar este elemento na invocação da função.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">aplicarLista1</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
-<span class="nf">aplicarLista1</span> <span class="n">f</span> <span class="n">i</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">i</span>
-<span class="nf">aplicarLista1</span> <span class="n">f</span> <span class="n">i</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">n</span> <span class="p">`</span><span class="n">f</span><span class="p">`</span> <span class="p">(</span><span class="n">aplicarLista1</span> <span class="n">f</span> <span class="n">i</span> <span class="n">ns</span><span class="p">)</span>
-
-<span class="o">&gt;</span> <span class="n">aplicarLista1</span> <span class="n">somar</span> <span class="mi">0</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">]</span>
-<span class="mi">15</span>
-
-<span class="o">&gt;</span> <span class="n">aplicarLista1</span> <span class="n">multiplicar</span> <span class="mi">1</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">]</span>
-<span class="mi">120</span>
+<p>No caso de <code class="highlight"><span class="nf">product</span></code>, embora a estrutura seja a mesma, alteramos o caso base para 1, o elemento neutro da multiplicação.
+Assim, por mais estranho que possa parecer, o produtório de uma lista vazia é definido como 1.<sup id="fnref:product"><a class="footnote-ref" href="#fn:product">1</a></sup> 
+A expressão gerada pela função é semelhante, isto é, <code class="highlight"><span class="nf">product&#39;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="ow">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">1</span></code> e <code class="highlight"><span class="nf">product&#39;</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">14</span><span class="p">]</span> <span class="ow">=</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">*</span> <span class="mi">14</span> <span class="o">*</span> <span class="mi">1</span></code>.</p>
+<p>Podemos então generalizar a função como uma recursão em que o caso genérico é a do operador especificado e o caso base retorna o elemento neutro da operação.
+O tipo da função é claro; ela deve receber um operar, que é uma função que recebe dois inteiros e retorna um inteiro, a lista de inteiros para aplicar o operador, e retornar um resultado também inteiro.
+A recursão consistirá em um caso genérico, que aplica o operador à cabeça da lista e ao resultado da invocação recursivo na cauda, e de um caso base que retorne o elemento neutro da operação. Mas como saber qual é o elemento neutro?</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">resumir</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">resumir</span> <span class="n">f</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="o">??</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">resumir</span> <span class="n">f</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">n</span> <span class="p">`</span><span class="n">f</span><span class="p">`</span> <span class="p">(</span><span class="n">resumir</span> <span class="n">f</span> <span class="n">ns</span><span class="p">)</span>
 </code></pre></div>
-</td></tr></table>
-<p>Enquanto correta, esta não é a única alternativa para se obter exatamente o mesmo resultado.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">aplicarLista2</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
-<span class="nf">aplicarLista2</span> <span class="n">f</span> <span class="n">i</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">i</span>
-<span class="nf">aplicarLista2</span> <span class="n">f</span> <span class="n">i</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">aplicarLista2</span> <span class="n">f</span> <span class="p">(</span><span class="n">i</span> <span class="p">`</span><span class="n">f</span><span class="p">`</span> <span class="n">n</span><span class="p">)</span> <span class="n">ns</span>
-
-<span class="o">&gt;</span> <span class="n">aplicarLista2</span> <span class="n">somar</span> <span class="mi">0</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">]</span>
-<span class="mi">15</span>
-
-<span class="o">&gt;</span> <span class="n">aplicarLista2</span> <span class="n">multiplicar</span> <span class="mi">1</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">]</span>
-<span class="mi">120</span>
+<p>Não nos resta alternativa senão passar o próprio elemento neutro na invocação da função, resultando na seguinte definição.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">resumir</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">resumir</span> <span class="n">f</span> <span class="n">i</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">i</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">resumir</span> <span class="n">f</span> <span class="n">i</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">n</span> <span class="p">`</span><span class="n">f</span><span class="p">`</span> <span class="p">(</span><span class="n">resumir</span> <span class="n">f</span> <span class="n">i</span> <span class="n">ns</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="c1">-- &gt;&gt;&gt; resumir somar 0 [1..5]</span>
+<span class="linenos" data-linenos="6 "></span><span class="c1">-- 15</span>
+<span class="linenos" data-linenos="7 "></span>
+<span class="linenos" data-linenos="8 "></span><span class="c1">-- &gt;&gt;&gt; resumir multiplicar 1 [1..5]</span>
+<span class="linenos" data-linenos="9 "></span><span class="c1">-- 120</span>
 </code></pre></div>
-</td></tr></table>
-<p>Mas estas duas funções são realmente iguais?
-A resposta é evidentemente não, pois elas aplicam a função passada como parâmetro de forma associativa à esquerda, no caso de <code class="highlight"><span class="nf">aplicarLista1</span></code>, e à direita, no caso de <code class="highlight"><span class="nf">aplicarLista2</span></code>, e associatividade tem implicações profundas no cálculo de uma expressão.
-Considere a operação de multiplicação; por ser associativa, isto é, associativa à direita e à esquerda, <span class="arithmatex">\(1*2*3*4 = ((1*2)*3)*4 = 1*(2*(3*4)) = 24\)</span>.
-Agora considere a divisão; por associativa à esquerda <span class="arithmatex">\(1/2/3/4 = ((1/2)/3)/4 = (0,5/3)/4 = 0,167/4 = 0.0146 \neq 1/(2/(3/4)) = 1/(2/0,75) = 1/2,67 = 0,375\)</span></p>
+<p>Uma variação ligeiramente diferente, alterando a chamada recursiva, gera os mesmos resultados.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">resumir&#39;</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">resumir&#39;</span> <span class="n">f</span> <span class="n">i</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">i</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">resumir&#39;</span> <span class="n">f</span> <span class="n">i</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">resumir&#39;</span> <span class="n">f</span> <span class="p">(</span><span class="n">i</span> <span class="p">`</span><span class="n">f</span><span class="p">`</span> <span class="n">n</span><span class="p">)</span> <span class="n">ns</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="c1">-- &gt;&gt;&gt; resumir somar 0 [1..5]</span>
+<span class="linenos" data-linenos="6 "></span><span class="c1">-- 15</span>
+<span class="linenos" data-linenos="7 "></span>
+<span class="linenos" data-linenos="8 "></span><span class="c1">-- &gt;&gt;&gt; resumir&#39; multiplicar 1 [1..5]</span>
+<span class="linenos" data-linenos="9 "></span><span class="c1">-- 120</span>
+</code></pre></div>
+<p>A diferença aqui é que em vez da recursão passar o elemento neutro adiante para ser usado no caso base, intocado, o elemento neutro é usado de cara e operado com a cabeça da lista; o resultado desta operação é que é então passado para a chamada recursiva até que, no caso base, seja retornado como o resultado da função.
+Uma outra forma de ver isso é comparando as expressões geradas pelas duas declarações.
+Neste caso, consideraremos operador <code>o</code> e um elemento neutro <code>i</code>, mas, desta vez, observemos também a ordem em que as operações serão efetivamente executadas, denotando a ordem por meio de parênteses.</p>
+<table>
+<tr>
+
+<td> Função </td>
+
+<td> 
+
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">resumir</span> <span class="n">o</span> <span class="n">i</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+</code></pre></div>
+</td>
+<td> 
+
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">resumir&#39;</span> <span class="n">o</span> <span class="n">i</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+</code></pre></div>
+</td>
+</tr>
+
+<tr>
+
+<td> Expressão 
+
+<td> 
+
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="mi">1</span> <span class="p">`</span><span class="n">o</span><span class="p">`</span> <span class="p">(</span><span class="mi">2</span> <span class="p">`</span><span class="n">o</span><span class="p">`</span> <span class="p">(</span><span class="mi">3</span> <span class="p">`</span><span class="n">o</span><span class="p">`</span> <span class="n">i</span><span class="p">))</span>
+</code></pre></div>
+</td>
+<td>
+
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">((</span><span class="n">i</span> <span class="p">`</span><span class="n">o</span><span class="p">`</span> <span class="mi">1</span><span class="p">)</span> <span class="p">`</span><span class="n">o</span><span class="p">`</span> <span class="mi">2</span><span class="p">)</span> <span class="p">`</span><span class="n">o</span><span class="p">`</span> <span class="mi">3</span>
+</code></pre></div>
+</td>
+</tr>
+
+<tr>
+
+<td>Árvore </td>
+
+<td> 
+
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>  `o`
+<span class="linenos" data-linenos="2 "></span> /   \
+<span class="linenos" data-linenos="3 "></span>1    `o`
+<span class="linenos" data-linenos="4 "></span>    /   \
+<span class="linenos" data-linenos="5 "></span>   2    `o`
+<span class="linenos" data-linenos="6 "></span>       /   \
+<span class="linenos" data-linenos="7 "></span>      3     i
+</code></pre></div>
+
+</td>
+<td> 
+
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>        `o`
+<span class="linenos" data-linenos="2 "></span>       /   \
+<span class="linenos" data-linenos="3 "></span>     `o`    1
+<span class="linenos" data-linenos="4 "></span>    /   \
+<span class="linenos" data-linenos="5 "></span>  `o`   2
+<span class="linenos" data-linenos="6 "></span> /   \
+<span class="linenos" data-linenos="7 "></span>i     1
+</code></pre></div>
+</td>
+</tr>
+</table>
+
+<p>Pelas expressões vemos que os operadores são tratados como associativo à direita, no caso de <code class="highlight"><span class="nf">resumir</span></code>, e à direita, no caso de <code class="highlight"><span class="nf">resumir&#39;</span></code>, e a associatividade tem implicações profundas no cálculo de uma expressão.</p>
+<p>Considere a operação de multiplicação; por ser associativa, isto é, associativa à direita e à esquerda, <span class="arithmatex">\(1*2*3*4 = ((1*2)*3)*4 = 1*(2*(3*4)) = 24\)</span>.</p>
+<p>Agora considere a divisão; por ser associativa à esquerda <span class="arithmatex">\(1/2/3/4 = ((1/2)/3)/4 = (0,5/3)/4 = 0,167/4 = 0.0146 \neq 1/(2/(3/4)) = 1/(2/0,75) = 1/2,67 = 0,375\)</span></p>
 <p>Esta diferença precisa ficar bem clara, pois estas duas funções são usadas muito frequentemente em Haskell, sendo definidas (de forma mais geral) na biblioteca como <code class="highlight"><span class="nf">foldX</span></code>.</p>
 <h6><code class="highlight"><span class="nf">foldl</span></code> e <code class="highlight"><span class="nf">foldr</span></code></h6>
 <p><em>Fold</em> é o termo usado para descrever a operação de dobrar a lista sobre si mesma, combinando os elementos até que só sobre um valor.
 Outro nome usado frequentemente é <em>reduce</em>, que inclusive nomeia funções semelhantes em outras linguagens.</p>
 <p>Haskell tem várias versões de <em>fold</em>, mas as duas mais básicas são <code class="highlight"><span class="nf">foldl</span></code> e <code class="highlight"><span class="nf">foldr</span></code>, sendo que diferença no nome vem do fato das funções assumirem que a função passada como parâmetro é associativa a direita (como +, *) ou a esquerda (como +, *, /, -).</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">foldr</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">0</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-<span class="mi">9</span>
-
-<span class="o">&gt;</span> <span class="n">foldl</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">0</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-<span class="mi">9</span>
-
-<span class="o">&gt;</span> <span class="n">foldr</span> <span class="n">div</span> <span class="mi">1</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
-<span class="mi">20</span>
-<span class="o">&gt;</span> <span class="n">foldl</span> <span class="n">div</span> <span class="mi">1</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
-<span class="mi">0</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&gt;</span> <span class="n">foldr</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">0</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="mi">9</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="o">&gt;</span> <span class="n">foldl</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">0</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="mi">9</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="o">&gt;</span> <span class="n">foldr</span> <span class="n">div</span> <span class="mi">1</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="mi">20</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="o">&gt;</span> <span class="n">foldl</span> <span class="n">div</span> <span class="mi">1</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="linenos" data-linenos="10 "></span><span class="mi">0</span>
 </code></pre></div>
-</td></tr></table>
 <p>Assim, os exemplos acima podem ser vistos como se segue, evidenciando por quê o resultado da divisão inteira é diferente nas duas chamadas.</p>
 <ul>
-<li><code class="highlight"><span class="nf">foldr</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">0</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span></code> <span class="arithmatex">\(= 1 + (3 + (5 + (0))) = 1 + (3 + (5)) = 1 + (8) = 9\)</span></li>
-<li><code class="highlight"><span class="nf">foldl</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">0</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span></code> <span class="arithmatex">\(= ((0 + 1) + 3) + 5 = ((1) + 3) + 5 = (4) + 5 = 9\)</span></li>
-<li><code class="highlight"><span class="nf">foldr</span> <span class="n">div</span> <span class="mi">1</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span></code> <span class="arithmatex">\(=  100 <code>div</code> (10 <code>div</code> (2 <code>div</code> (1))) = 100 <code>div</code> (10 <code>div</code> (2)) = 100 <code>div</code> (5) = 20\)</span></li>
-<li><code class="highlight"><span class="nf">foldl</span> <span class="n">div</span> <span class="mi">1</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span></code> <span class="arithmatex">\(=  ((1 <code>div</code> 100) <code>div</code> 10) <code>div</code> 2 = ((0) <code>div</code> 10) <code>div</code> 2 = (0) <code>div</code> 2 = 0\)</span></li>
+<li><code class="highlight"><span class="nf">foldr</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">0</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="ow">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="p">(</span><span class="mi">0</span><span class="p">)))</span> <span class="ow">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="ow">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="ow">=</span> <span class="mi">9</span></code></li>
+<li><code class="highlight"><span class="nf">foldl</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">0</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="ow">=</span> <span class="p">((</span><span class="mi">0</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span> <span class="ow">=</span> <span class="p">((</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span> <span class="ow">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span> <span class="ow">=</span> <span class="mi">9</span></code></li>
+<li><code class="highlight"><span class="nf">foldr</span> <span class="n">div</span> <span class="mi">1</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="ow">=</span>  <span class="mi">100</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="p">(</span><span class="mi">10</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="p">(</span><span class="mi">2</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="p">(</span><span class="mi">1</span><span class="p">)))</span> <span class="ow">=</span> <span class="mi">100</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="p">(</span><span class="mi">10</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="ow">=</span> <span class="mi">100</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="ow">=</span> <span class="mi">20</span></code></li>
+<li><code class="highlight"><span class="nf">foldl</span> <span class="n">div</span> <span class="mi">1</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="ow">=</span>  <span class="p">((</span><span class="mi">1</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">100</span><span class="p">)</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">10</span><span class="p">)</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">2</span> <span class="ow">=</span> <span class="p">((</span><span class="mi">0</span><span class="p">)</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">10</span><span class="p">)</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">2</span> <span class="ow">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">2</span> <span class="ow">=</span> <span class="mi">0</span></code></li>
 </ul>
 <p>Outra distinção a ser feita entre as duas funções é o fato de uma usar muito mais recursos que a outra durante a computação, mas voltaremos a discutir isso quando falarmos sobre recursão de cauda.</p>
 <h6><code class="highlight"><span class="nf">foldl1</span></code> e <code class="highlight"><span class="nf">foldr1</span></code></h6>
@@ -1122,117 +1029,111 @@ Se usadas nas mesmas listas dos exemplos anteriores, temos os seguintes resultad
 <h6>Foldable</h6>
 <p>Todos os exemplos usados até agora foram sobre listas de números, mas a especificação das funções de redução não faz esta exigência.
 Destrinchemos o exemplo de <code class="highlight"><span class="nf">foldr</span></code>.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="n">foldr</span>
-<span class="nf">foldr</span> <span class="ow">::</span> <span class="kt">Foldable</span> <span class="n">t</span> <span class="ow">=&gt;</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">b</span> <span class="ow">-&gt;</span> <span class="n">t</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="n">foldr</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">foldr</span> <span class="ow">::</span> <span class="kt">Foldable</span> <span class="n">t</span> <span class="ow">=&gt;</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">b</span> <span class="ow">-&gt;</span> <span class="n">t</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span>
 </code></pre></div>
-</td></tr></table>
 <p>De forma geral, a definição diz que a função passada como primeiro parâmetro deve receber um parâmetro do tipo variável <code>a</code> e outro <code>b</code> e que o resultado deve ser do tipo <code>b</code>.
-Na prática, esta definição permite que usemos funções assimétricas comp parâmetro, isto é, que tenha parâmetros de tipos distintos.</p>
+Na prática, esta definição permite que usemos funções assimétricas como parâmetro, isto é, que tenha parâmetros de tipos distintos.</p>
 <div class="admonition note">
 <p class="admonition-title">Assimetria</p>
-<p>Por exemplo, na execução seguinte a função foi definida para testar o número passado como parâmetro é maior que 5 e combinar a resposta com outras anteriores, na forma de um booleano.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">maiorque5</span> <span class="n">i</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="n">foldr</span> <span class="n">maiorque5</span> <span class="kt">True</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="kt">False</span>
-<span class="o">&gt;</span> <span class="n">foldr</span> <span class="n">maiorque5</span> <span class="kt">True</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
-<span class="kt">False</span>
-<span class="o">&gt;</span> <span class="n">foldr</span> <span class="n">maiorque5</span> <span class="kt">True</span> <span class="p">[</span><span class="mi">6</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
-<span class="kt">True</span>
+<p>Na execução seguinte a função foi definida para testar se o número passado como parâmetro é maior que 5 e combinar a resposta com outras anteriores, na forma de um booleano.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">maiorque5</span> <span class="n">i</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span> <span class="n">foldr</span> <span class="n">maiorque5</span> <span class="kt">True</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">False</span>
+<span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span> <span class="n">foldr</span> <span class="n">maiorque5</span> <span class="kt">True</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="linenos" data-linenos="5 "></span><span class="kt">False</span>
+<span class="linenos" data-linenos="6 "></span><span class="o">&gt;</span> <span class="n">foldr</span> <span class="n">maiorque5</span> <span class="kt">True</span> <span class="p">[</span><span class="mi">6</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+<span class="linenos" data-linenos="7 "></span><span class="kt">True</span>
 </code></pre></div>
-</td></tr></table>
 </div>
 <p>A definição de <code class="highlight"><span class="nf">foldr</span></code> também diz que o valor inicial da função deve ser do tipo <code>b</code>, mas que a lista de valores deve encapsular um valor do tipo <code>a</code>; o encapsulamento é feito por elementos da classe <code class="highlight"><span class="kt">Foldable</span></code>.
-Listas são <code class="highlight"><span class="kt">Foldable</span></code> (como um <code class="highlight"><span class="kt">:</span><span class="n">i</span> <span class="kt">[]</span></code> pode rapidamente demonstrar), mas não são as únicas estruturas deste tipo. Até mesmo como tipos algébricos recursivos, dependendo de suas definições, podem satisfazer este critério. 
+Listas são <code class="highlight"><span class="kt">Foldable</span></code> (como um <code class="highlight"><span class="kt">:</span><span class="n">i</span> <span class="kt">[]</span></code> pode rapidamente demonstrar), mas não são as únicas estruturas deste tipo. Até mesmo tipos algébricos recursivos, dependendo de suas definições, podem satisfazer este critério. 
 Por exemplo, podemos definir uma <strong>árvore</strong> que se "dobra" em uma travessia por em ordem dos seus elementos e usar o <em>folds</em> para encontrar o maior valor da lista, como no exemplo a seguir.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="nn">Data.Foldable</span> <span class="k">as</span> <span class="n">F</span>
-
-<span class="kr">data</span> <span class="kt">Árvore</span> <span class="n">a</span> <span class="ow">=</span> <span class="kt">Nada</span> <span class="o">|</span> <span class="kt">Nó</span> <span class="n">a</span> <span class="p">(</span><span class="kt">Árvore</span> <span class="n">a</span><span class="p">)</span> <span class="p">(</span><span class="kt">Árvore</span> <span class="n">a</span><span class="p">)</span>
-    <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Show</span><span class="p">,</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Read</span><span class="p">)</span>
-
-<span class="kr">instance</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Foldable</span> <span class="kt">Árvore</span> <span class="kr">where</span>
-    <span class="n">foldMap</span> <span class="n">f</span> <span class="kt">Nada</span>         <span class="ow">=</span> <span class="n">mempty</span>
-    <span class="n">foldMap</span> <span class="n">f</span> <span class="p">(</span><span class="kt">Nó</span> <span class="n">a</span> <span class="n">ae</span> <span class="n">ad</span><span class="p">)</span> <span class="ow">=</span> <span class="kt">F</span><span class="o">.</span><span class="n">foldMap</span> <span class="n">f</span> <span class="n">ae</span>   <span class="p">`</span><span class="n">mappend</span><span class="p">`</span> 
-                             <span class="n">f</span> <span class="n">a</span>              <span class="p">`</span><span class="n">mappend</span><span class="p">`</span> 
-                             <span class="kt">F</span><span class="o">.</span><span class="n">foldMap</span> <span class="n">f</span> <span class="n">ad</span>
-
-    <span class="n">foldr</span> <span class="n">f</span> <span class="n">acc</span>  <span class="kt">Nada</span>        <span class="ow">=</span> <span class="n">acc</span>
-    <span class="n">foldr</span> <span class="n">f</span> <span class="n">acc</span> <span class="p">(</span><span class="kt">Nó</span> <span class="n">a</span> <span class="n">ae</span> <span class="n">ad</span><span class="p">)</span> <span class="ow">=</span> <span class="n">foldr</span> <span class="n">f</span> <span class="p">(</span><span class="n">f</span> <span class="n">a</span> <span class="p">(</span><span class="n">foldr</span> <span class="n">f</span> <span class="n">acc</span> <span class="n">ad</span><span class="p">))</span> <span class="n">ae</span>
-
-<span class="cm">{- </span>
-<span class="cm">&gt;&gt;&gt;arv = Nó 1    (Nó 2 (Nó 4 Nada Nada) Nada)     (Nó 3 Nada Nada)</span>
-<span class="cm">&gt;&gt;&gt; foldr (+) 0 arv</span>
-<span class="cm">&gt;&gt;&gt; F.foldl1 (+) arv</span>
-<span class="cm">&gt;&gt;&gt;arv2 = Nó  &quot;a&quot;    (Nó &quot;b&quot; (Nó &quot;c&quot; Nada Nada) Nada)     (Nó &quot;d&quot; Nada Nada)</span>
-<span class="cm">&gt;&gt;&gt; foldr (++)  &quot;&quot; arv2</span>
-<span class="cm">-}</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kr">import</span> <span class="nn">Data.Foldable</span> <span class="k">as</span> <span class="n">F</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kr">data</span> <span class="kt">Árvore</span> <span class="n">a</span> <span class="ow">=</span> <span class="kt">Nada</span> <span class="o">|</span> <span class="kt">Nó</span> <span class="n">a</span> <span class="p">(</span><span class="kt">Árvore</span> <span class="n">a</span><span class="p">)</span> <span class="p">(</span><span class="kt">Árvore</span> <span class="n">a</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Show</span><span class="p">,</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Read</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="kr">instance</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Foldable</span> <span class="kt">Árvore</span> <span class="kr">where</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="n">foldMap</span> <span class="n">f</span> <span class="kt">Nada</span>         <span class="ow">=</span> <span class="n">mempty</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="n">foldMap</span> <span class="n">f</span> <span class="p">(</span><span class="kt">Nó</span> <span class="n">a</span> <span class="n">ae</span> <span class="n">ad</span><span class="p">)</span> <span class="ow">=</span> <span class="kt">F</span><span class="o">.</span><span class="n">foldMap</span> <span class="n">f</span> <span class="n">ae</span>   <span class="p">`</span><span class="n">mappend</span><span class="p">`</span> 
+<span class="linenos" data-linenos=" 9 "></span>                             <span class="n">f</span> <span class="n">a</span>              <span class="p">`</span><span class="n">mappend</span><span class="p">`</span> 
+<span class="linenos" data-linenos="10 "></span>                             <span class="kt">F</span><span class="o">.</span><span class="n">foldMap</span> <span class="n">f</span> <span class="n">ad</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span>    <span class="n">foldr</span> <span class="n">f</span> <span class="n">acc</span>  <span class="kt">Nada</span>        <span class="ow">=</span> <span class="n">acc</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="n">foldr</span> <span class="n">f</span> <span class="n">acc</span> <span class="p">(</span><span class="kt">Nó</span> <span class="n">a</span> <span class="n">ae</span> <span class="n">ad</span><span class="p">)</span> <span class="ow">=</span> <span class="n">foldr</span> <span class="n">f</span> <span class="p">(</span><span class="n">f</span> <span class="n">a</span> <span class="p">(</span><span class="n">foldr</span> <span class="n">f</span> <span class="n">acc</span> <span class="n">ad</span><span class="p">))</span> <span class="n">ae</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="cm">{- </span>
+<span class="linenos" data-linenos="16 "></span><span class="cm">&gt;&gt;&gt;arv = Nó 1    (Nó 2 (Nó 4 Nada Nada) Nada)     (Nó 3 Nada Nada)</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span><span class="cm">&gt;&gt;&gt; foldr (+) 0 arv</span>
+<span class="linenos" data-linenos="19 "></span><span class="cm">10</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span><span class="cm">&gt;&gt;&gt;arv2 = Nó  &quot;a&quot;    (Nó &quot;b&quot; (Nó &quot;c&quot; Nada Nada) Nada)     (Nó &quot;d&quot; Nada Nada)</span>
+<span class="linenos" data-linenos="22 "></span>
+<span class="linenos" data-linenos="23 "></span><span class="cm">&gt;&gt;&gt; foldr (++)  &quot;&quot; arv2</span>
+<span class="linenos" data-linenos="24 "></span><span class="cm">&quot;cbad&quot;</span>
+<span class="linenos" data-linenos="25 "></span><span class="cm">-}</span>
 </code></pre></div>
-</td></tr></table>
 <p>Considere a seguinte árvore:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>                 Nó 1
-             /         \
-         Nó 2           Nó 3 
-       /      \        /     \
-  Nó 4        Nada  Nada     Nada
- /    \
-Nada   Nada
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>                 Nó 1
+<span class="linenos" data-linenos="2 "></span>             /         \
+<span class="linenos" data-linenos="3 "></span>         Nó 2           Nó 3 
+<span class="linenos" data-linenos="4 "></span>       /     \        /     \
+<span class="linenos" data-linenos="5 "></span>    Nó 4    Nada   Nada     Nada
+<span class="linenos" data-linenos="6 "></span>  /    \
+<span class="linenos" data-linenos="7 "></span>Nada   Nada
 </code></pre></div>
-</td></tr></table>
 <p>Ou, Haskell, <code class="highlight"><span class="nf">arv</span> <span class="ow">=</span> <span class="kt">Nó</span> <span class="mi">1</span>    <span class="p">(</span><span class="kt">Nó</span> <span class="mi">2</span> <span class="p">(</span><span class="kt">Nó</span> <span class="mi">4</span> <span class="kt">Nada</span> <span class="kt">Nada</span><span class="p">)</span> <span class="kt">Nada</span><span class="p">)</span>     <span class="p">(</span><span class="kt">Nó</span> <span class="mi">3</span> <span class="kt">Nada</span> <span class="kt">Nada</span><span class="p">)</span></code>.
 Fold tem o seguinte efeito.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">foldr</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">0</span> <span class="n">arv</span>
-<span class="mi">10</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">foldr</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">0</span> <span class="n">arv</span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">10</span>
 </code></pre></div>
-</td></tr></table>
 <p>O poder desta abordagem está na genericidade na criação da árvore, que também pode armazenar outros dados e ser dobrada termos de outra operação, por exemplo <code class="highlight"><span class="kt">String</span></code> e <code class="highlight"><span class="o">++</span></code>:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">arv2</span> <span class="ow">=</span> <span class="kt">Nó</span>  <span class="s">&quot;a&quot;</span> <span class="p">(</span><span class="kt">Nó</span> <span class="s">&quot;b&quot;</span> <span class="p">(</span><span class="kt">Nó</span> <span class="s">&quot;c&quot;</span> <span class="kt">Nada</span> <span class="kt">Nada</span><span class="p">)</span> <span class="kt">Nada</span><span class="p">)</span> <span class="p">(</span><span class="kt">Nó</span> <span class="s">&quot;d&quot;</span> <span class="kt">Nada</span> <span class="kt">Nada</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="n">foldr</span> <span class="p">(</span><span class="o">++</span><span class="p">)</span>  <span class="s">&quot;&quot;</span> <span class="n">arv2</span>
-<span class="s">&quot;cbad&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">arv2</span> <span class="ow">=</span> <span class="kt">Nó</span>  <span class="s">&quot;a&quot;</span> <span class="p">(</span><span class="kt">Nó</span> <span class="s">&quot;b&quot;</span> <span class="p">(</span><span class="kt">Nó</span> <span class="s">&quot;c&quot;</span> <span class="kt">Nada</span> <span class="kt">Nada</span><span class="p">)</span> <span class="kt">Nada</span><span class="p">)</span> <span class="p">(</span><span class="kt">Nó</span> <span class="s">&quot;d&quot;</span> <span class="kt">Nada</span> <span class="kt">Nada</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span> <span class="n">foldr</span> <span class="p">(</span><span class="o">++</span><span class="p">)</span>  <span class="s">&quot;&quot;</span> <span class="n">arv2</span>
+<span class="linenos" data-linenos="3 "></span><span class="s">&quot;cbad&quot;</span>
 </code></pre></div>
-</td></tr></table>
 <p>Para mais detalhes, visite <a href="http://learnyouahaskell.com/functors-applicative-functors-and-monoids#monoids">http://learnyouahaskell.com/functors-applicative-functors-and-monoids#monoids</a></p>
 <details class="todo"><summary>TODO</summary><p>Expandir sobre foldable e traversable.</p>
 </details>
-<h2 id="all">all</h2>
-<p>Seja uma lista <code>l::[a]</code>, com elementos do tipo <code>a</code>. Seja um predicado <code>p</code> sobre a, isto é, <code class="highlight"><span class="nf">p</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span></code>.
-<code class="highlight"><span class="nf">all</span> <span class="n">p</span> <span class="n">l</span></code> testa se o predicado <code>p</code> é válido para todos os elementos da lista <code>l</code>, por exemplo <code class="highlight"><span class="nf">all</span> <span class="p">(</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">)</span> <span class="p">[</span><span class="mi">6</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span></code> resulta em <code class="highlight"><span class="kt">True</span></code>.</p>
-<p>Enquanto não impressionante, uma vez que vimos logo acima como fazer a mesma coisa usando fold, a invocação chama a atenção por causa do <code class="highlight"><span class="p">(</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">)</span></code>.
-Este é um exemplo de <strong>Currying</strong>.</p>
+<h2 id="filter-e-all"><code class="highlight"><span class="nf">filter</span></code> e <code class="highlight"><span class="nf">all</span></code></h2>
+<p>A função <code class="highlight"><span class="nf">filter</span></code> recebe como parâmetros um predicado e uma lista e retorna como resultado um lista com todos os elementos da lista original que satisfazem ao predicado.
+Já função  <code class="highlight"><span class="nf">all</span></code> retorna a lista dos elementos que satisfazem ao predicado.</p>
+<p>Estas funções podem ser definidas e usadas como a seguir.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nf">filter</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nf">filter</span> <span class="n">p</span> <span class="n">xs</span> <span class="ow">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">|</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">xs</span><span class="p">,</span> <span class="n">p</span> <span class="n">x</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nf">all</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nf">all</span> <span class="n">p</span> <span class="kt">[]</span>     <span class="ow">=</span> <span class="kt">True</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nf">all</span> <span class="n">p</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">p</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">all</span> <span class="n">p</span> <span class="n">xs</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="o">&gt;</span> <span class="n">f</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span>
+<span class="linenos" data-linenos="10 "></span><span class="o">&gt;</span> <span class="n">filter</span> <span class="n">f</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">15</span><span class="p">]</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="o">&gt;</span> <span class="n">all</span> <span class="n">f</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">15</span><span class="p">]</span>
+<span class="linenos" data-linenos="14 "></span><span class="kt">False</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="o">&gt;</span> <span class="n">all</span> <span class="n">f</span> <span class="p">[</span><span class="mi">11</span><span class="o">..</span><span class="mi">15</span><span class="p">]</span>
+<span class="linenos" data-linenos="17 "></span><span class="kt">True</span>
+</code></pre></div>
+<p>Enquanto não impressionantes, estas funções podem ser usadas para demonstrar uma outra funcionalidade de Haskell.
+Observe as seguintes invocações.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&gt;</span> <span class="n">filter</span> <span class="p">(</span><span class="o">&gt;</span><span class="mi">10</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">15</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="o">&gt;</span> <span class="n">filter</span> <span class="p">(</span><span class="mi">10</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">15</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="o">&gt;</span> <span class="n">all</span> <span class="p">(</span><span class="o">&gt;</span><span class="mi">10</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">15</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="kt">False</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="o">&gt;</span> <span class="n">all</span> <span class="p">(</span><span class="o">&gt;</span><span class="mi">10</span><span class="p">)</span> <span class="p">[</span><span class="mi">11</span><span class="o">..</span><span class="mi">15</span><span class="p">]</span>
+<span class="linenos" data-linenos="11 "></span><span class="kt">False</span>
+</code></pre></div>
+<p>Os predicados definidos como <code class="highlight"><span class="p">(</span><span class="o">&gt;</span><span class="mi">10</span><span class="p">)</span></code> e <code class="highlight"><span class="p">(</span><span class="mi">10</span><span class="o">&gt;</span><span class="p">)</span></code> são exemplos de <strong>Currying</strong>.</p>
 <h2 id="currying-aplicacao-parcial">Currying (aplicação parcial)</h2>
 <p>Em outras linguagens, funções são normalmente definidas com sintaxe semelhante à  <code class="highlight"><span class="nf">f</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">c</span></code>, isto é, o nome da função, seguido de um tupla de tipos de parâmetros, e de um tipo de resultado.
 Isso é verdade para C, Java, Pascal, etc.
@@ -1240,60 +1141,48 @@ Isso é verdade para C, Java, Pascal, etc.
 <p>O processo pode ser feito para funções mais complexas, exatamente da mesma forma, por exemplo transformando <code class="highlight"><span class="nf">f</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">d</span></code> em <code class="highlight"><span class="nf">f</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="p">((</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">d</span><span class="p">)</span></code>, e também aplicado recursivamente levando, levando a função <code class="highlight"><span class="nf">f</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="n">b</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="n">c</span> <span class="ow">-&gt;</span> <span class="n">d</span><span class="p">))</span></code>, que pode ser simplificado de forma não ambígua para <code class="highlight"><span class="nf">f</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span> <span class="ow">-&gt;</span> <span class="n">c</span> <span class="ow">-&gt;</span> <span class="n">d</span></code>, que é forma usada pelo Haskell.
 Isso quer dizer que quando você define uma função em Haskell, voce especifica o tipo usando a forma <em>Curryed</em>, mesmo que defina a função da forma tradicional.
 Acontece que o próprio Haskell, por baixo dos panos, transforma a sua função no correspondente ao tipo, o que permite que você faça coisas muito legais, como no exemplo a seguir.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
-<span class="mi">3</span>
-<span class="o">&gt;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span><span class="p">)</span> <span class="mi">2</span>
-<span class="mi">3</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">3</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span><span class="p">)</span> <span class="mi">2</span>
+<span class="linenos" data-linenos="4 "></span><span class="mi">3</span>
 </code></pre></div>
-</td></tr></table>
 <p>Esta técnica é conhecida como aplicação parcial, e serve para derivar funções mais especializadas.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">f</span> <span class="ow">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="n">f</span> <span class="mi">2</span>
-<span class="mi">3</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">f</span> <span class="ow">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span> <span class="n">f</span> <span class="mi">2</span>
+<span class="linenos" data-linenos="3 "></span><span class="mi">3</span>
 </code></pre></div>
-</td></tr></table>
 <p>Estas funções derivadas são como quaisquer outras funções, e podem ser usadas por exemplo em maps e filters.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="n">f</span> <span class="ow">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="n">map</span> <span class="n">f</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="o">&gt;</span> <span class="n">f</span> <span class="ow">=</span> <span class="p">(</span><span class="o">==</span><span class="mi">10</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="n">map</span> <span class="n">f</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
-<span class="p">[</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">]</span>
-<span class="o">&gt;</span> <span class="n">filter</span> <span class="n">f</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">f</span> <span class="ow">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span> <span class="n">map</span> <span class="n">f</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span> <span class="n">f</span> <span class="ow">=</span> <span class="p">(</span><span class="o">==</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span><span class="o">&gt;</span> <span class="n">map</span> <span class="n">f</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">[</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">]</span>
+<span class="linenos" data-linenos="7 "></span><span class="o">&gt;</span> <span class="n">filter</span> <span class="n">f</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
 </code></pre></div>
-</td></tr></table>
 <h2 id="lambda">Lambda</h2>
 <h2 id="operador-aplicacao">Operador $ (aplicação)</h2>
 <h2 id="operador-composicao">Operador . (composição)</h2>
 <p>Sumarização</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">soma</span> <span class="kt">[]</span>     <span class="ow">=</span> <span class="mi">0</span>
-<span class="nf">soma</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">soma</span> <span class="n">xs</span>
-
-<span class="nf">eLógico</span> <span class="kt">[]</span>     <span class="ow">=</span> <span class="kt">True</span>
-<span class="nf">eLógico</span> <span class="p">[</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">]</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">eLógico</span> <span class="n">xs</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">soma</span> <span class="kt">[]</span>     <span class="ow">=</span> <span class="mi">0</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">soma</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">soma</span> <span class="n">xs</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="nf">eLógico</span> <span class="kt">[]</span>     <span class="ow">=</span> <span class="kt">True</span>
+<span class="linenos" data-linenos="5 "></span><span class="nf">eLógico</span> <span class="p">[</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">]</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">eLógico</span> <span class="n">xs</span>
 </code></pre></div>
-</td></tr></table>
 <p>sortOn :: Ord b =&gt; (a -&gt; b) -&gt; [a] -&gt; [a]#</p>
 <p>Sort a list by comparing the results of a key function applied to each element. sortOn f is equivalent to sortBy (comparing f), but has the performance advantage of only evaluating f once for each element in the input list. This is called the decorate-sort-undecorate paradigm, or Schwartzian transform.</p>
 <p>all
 <a href="https://hoogle.haskell.org/?q=all">https://hoogle.haskell.org/?q=all</a></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:product">
+<p><a href="https://www.johndcook.com/blog/2015/04/14/empty-sum-product/">Why is an empty sum 0 and an empty product 1?</a>&#160;<a class="footnote-backref" href="#fnref:product" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
   <!-- Last update of source file -->
 
@@ -1355,10 +1244,12 @@ Acontece que o próprio Haskell, por baixo dos panos, transforma a sua função 
             Copyright © 2021 Lásaro Camargos
           </div>
         
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
         
       </div>
       
@@ -1380,10 +1271,10 @@ Acontece que o próprio Haskell, por baixo dos panos, transforma a sua função 
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.e99e714c.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.56a63758.min.js"></script>
+      <script src="../assets/javascripts/bundle.bc35569b.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       

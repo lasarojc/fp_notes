@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.be71726b.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.24c991ad.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -93,7 +93,9 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
     <a href=".." title="Notas de Aula em Programação Funcional" class="md-header__button md-logo" aria-label="Notas de Aula em Programação Funcional" data-md-component="logo">
       
@@ -128,7 +130,7 @@
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
             </label>
           
         
@@ -196,11 +198,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -740,13 +745,10 @@ n! =
 <h2 id="em-haskell">Em Haskell</h2>
 <p>Não há nada de especial em termos de sintaxe na declaração de funções recursivas.
 O cálculo do fatorial pode ser traduzido quase que diretamente para Haskell usando guardas.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fatorialGuardas</span> <span class="n">n</span>
-     <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">1</span>
-     <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fatorialGuardas</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">fatorialGuardas</span> <span class="n">n</span>
+<span class="linenos" data-linenos="2 "></span>     <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="3 "></span>     <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fatorialGuardas</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
-</td></tr></table>
 <p>Observe que a definição é iniciada tratando o caso em que <code>0</code> é passado como parâmetro; este é o que chamamos de <strong>caso base</strong>, que serve para limitar a recursão e impedir que execute para sempre.</p>
 <p>Já o que torna a função recursiva acontece na última linha: a invocação da própria função.
 Como esta invocação será feita para o valor passado como parâmetro menos 1, temos a garantia de que, para qualquer número positivo passado como parâmetro, em algum momento haverá uma invocação da função com o parâmetro igual a <code>0</code>, que será respondida pelo caso base.</p>
@@ -755,42 +757,28 @@ Cada <span class="arithmatex">\(n\)</span> só existe no escopo de uma invocaç�
 Pictograficamente, <span class="arithmatex">\(n\)</span> só é visível dentro da "caixinha" onde foi associada a um valor.</p>
 <p><img alt="" src="../drawings/function.drawio-5.svg" /></p>
 <p>Outra forma absolutamente equivalente de definir a função é usando casamento de padrões, como a seguir.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fatorialPM</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">1</span>
-<span class="nf">fatorialPM</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fatorialPM</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">fatorialPM</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">fatorialPM</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fatorialPM</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
-</td></tr></table>
 <p>Considerando as duas definições da função, considere o que acontece se as mesmas forem invocadas com um número negativo como parâmetro. 
 O que acontece? A recursão simplesmente "nunca" termina, continuando com <span class="arithmatex">\(n\)</span> indo para o - infinito.
 Acontece que não é definido o fatorial de números negativos e, por isso, precisamos que um erro seja lançado quando uma tentativa de invocação deste tipo ocorrer.
 Há diferentes formas de se lançar um erro, sendo a primeira simplesmente limitar os valores válidos para os parâmetros.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fatorialGuardas</span> <span class="n">n</span>
-     <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">1</span>
-     <span class="o">|</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fatorialGuardas</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">fatorialGuardas</span> <span class="n">n</span>
+<span class="linenos" data-linenos="2 "></span>     <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="3 "></span>     <span class="o">|</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fatorialGuardas</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
-</td></tr></table>
 <p>A outra alternativa é explicitamente causar um erro.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fatorialGuardas&#39;</span> <span class="n">n</span>
-     <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">1</span>
-     <span class="o">|</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fatorialGuardas&#39;</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-     <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;Não se pode calcular o fatorial de números negativos&quot;</span>
-
-<span class="nf">fatorialGuardas&#39;&#39;</span> <span class="n">n</span>
-     <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">1</span>
-     <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fatorialGuardas&#39;&#39;</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> 
-                            <span class="kr">else</span> <span class="ne">error</span> <span class="s">&quot;Não se pode calcular o fatorial de números negativos&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">fatorialGuardas&#39;</span> <span class="n">n</span>
+<span class="linenos" data-linenos="2 "></span>     <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="3 "></span>     <span class="o">|</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fatorialGuardas&#39;</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span>     <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;Não se pode calcular o fatorial de números negativos&quot;</span>
+<span class="linenos" data-linenos="5 "></span>
+<span class="linenos" data-linenos="6 "></span><span class="nf">fatorialGuardas&#39;&#39;</span> <span class="n">n</span>
+<span class="linenos" data-linenos="7 "></span>     <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="8 "></span>     <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fatorialGuardas&#39;&#39;</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> 
+<span class="linenos" data-linenos="9 "></span>                            <span class="kr">else</span> <span class="ne">error</span> <span class="s">&quot;Não se pode calcular o fatorial de números negativos&quot;</span>
 </code></pre></div>
-</td></tr></table>
 <div class="admonition note inline end">
 <p class="admonition-title">Funções Recursivas</p>
 <ul>
@@ -815,15 +803,11 @@ mdc(a,b) =
      \end{cases}
 \]</div>
 <p>Em Haskell, a definição fica assim.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">mdc</span> <span class="ow">::</span> <span class="kt">Integer</span> <span class="ow">-&gt;</span> <span class="kt">Integer</span> <span class="ow">-&gt;</span> <span class="kt">Integer</span>
-<span class="nf">mdc</span> <span class="n">a</span> <span class="n">b</span>
-      <span class="o">|</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span>     <span class="ow">=</span> <span class="n">a</span>
-      <span class="o">|</span> <span class="n">otherwise</span>  <span class="ow">=</span> <span class="n">mdc</span> <span class="n">b</span> <span class="p">(</span><span class="n">a</span> <span class="p">`</span><span class="n">mod</span><span class="p">`</span> <span class="n">b</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">mdc</span> <span class="ow">::</span> <span class="kt">Integer</span> <span class="ow">-&gt;</span> <span class="kt">Integer</span> <span class="ow">-&gt;</span> <span class="kt">Integer</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">mdc</span> <span class="n">a</span> <span class="n">b</span>
+<span class="linenos" data-linenos="3 "></span>      <span class="o">|</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span>     <span class="ow">=</span> <span class="n">a</span>
+<span class="linenos" data-linenos="4 "></span>      <span class="o">|</span> <span class="n">otherwise</span>  <span class="ow">=</span> <span class="n">mdc</span> <span class="n">b</span> <span class="p">(</span><span class="n">a</span> <span class="p">`</span><span class="n">mod</span><span class="p">`</span> <span class="n">b</span><span class="p">)</span>
 </code></pre></div>
-</td></tr></table>
 <h6>Fibonacci</h6>
 <p>Considere a função que retorna um termo da sequência de Fibonacci, em que os dois primeiros termos são 1 e todos os outros termos são iguais à soma dos dois termos anteriores.</p>
 <div class="arithmatex">\[
@@ -836,39 +820,23 @@ F(n) =
 \]</div>
 <p>A mesma tradução direta da definição matemática para Haskell também pode ser feita aqui, sendo a única diferença o fato de que duas invocações recursivas são feitas a cada passo.
 Há, contudo, diversas possibilidades de tradução.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">fibIf</span> <span class="n">n</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="kr">then</span> <span class="mi">1</span>
-          <span class="kr">else</span> <span class="kr">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span> <span class="kr">then</span> <span class="mi">1</span>
-          <span class="kr">else</span> <span class="n">fibIf</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibIf</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="nf">fibGuard</span> <span class="n">n</span>
-  <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="mi">1</span>
-  <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">=</span> <span class="mi">1</span>
-  <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">fibGuard</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibGuard</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="nf">fibPattern</span> <span class="mi">1</span> <span class="ow">=</span> <span class="mi">1</span>
-<span class="nf">fibPattern</span> <span class="mi">2</span> <span class="ow">=</span> <span class="mi">1</span>
-<span class="nf">fibPattern</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">fibPattern</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibPattern</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="nf">fibCase</span> <span class="n">x</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">x</span> <span class="kr">of</span> <span class="mi">1</span> <span class="ow">-&gt;</span> <span class="mi">0</span>
-                      <span class="mi">2</span> <span class="ow">-&gt;</span> <span class="mi">1</span>
-                      <span class="n">n</span> <span class="ow">-&gt;</span> <span class="n">fibCase</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibCase</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nf">fibIf</span> <span class="n">n</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="kr">then</span> <span class="mi">1</span>
+<span class="linenos" data-linenos=" 2 "></span>          <span class="kr">else</span> <span class="kr">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span> <span class="kr">then</span> <span class="mi">1</span>
+<span class="linenos" data-linenos=" 3 "></span>          <span class="kr">else</span> <span class="n">fibIf</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibIf</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nf">fibGuard</span> <span class="n">n</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="linenos" data-linenos=" 7 "></span>  <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="linenos" data-linenos=" 8 "></span>  <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">fibGuard</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibGuard</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="nf">fibPattern</span> <span class="mi">1</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="11 "></span><span class="nf">fibPattern</span> <span class="mi">2</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="12 "></span><span class="nf">fibPattern</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">fibPattern</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibPattern</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="nf">fibCase</span> <span class="n">x</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">x</span> <span class="kr">of</span> <span class="mi">1</span> <span class="ow">-&gt;</span> <span class="mi">0</span>
+<span class="linenos" data-linenos="15 "></span>                      <span class="mi">2</span> <span class="ow">-&gt;</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="16 "></span>                      <span class="n">n</span> <span class="ow">-&gt;</span> <span class="n">fibCase</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibCase</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
-</td></tr></table>
 <h6>Conjectura de Collatz</h6>
 <p>Considere a seguinte função para construir uma sequência de números usando <span class="arithmatex">\(n\)</span> como base.</p>
 <div class="arithmatex">\[
@@ -894,100 +862,56 @@ Por exemplo, </p>
 <p>Esta é uma conjectura pois não se sabe se a sequência realmente converge para 1 dado qualquer <span class="arithmatex">\(n\)</span>. 
 O que você acha de testar alguns valores para tentar identificar há ou não uma convergência? 
 Em C, poderíamos fazer o seguinte:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">collatz</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i</span><span class="p">){</span>
-     <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-          <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
-     <span class="k">else</span> <span class="p">{</span>
-          <span class="kt">int</span> <span class="n">f_n_i_menos_1</span> <span class="o">=</span> <span class="n">collatz</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">i</span><span class="mi">-1</span><span class="p">);</span>
-          <span class="k">if</span> <span class="p">(</span><span class="n">f_n_i_menos_1</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-               <span class="k">return</span> <span class="n">f_n_i_menos_1</span> <span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-          <span class="k">else</span>
-               <span class="n">f_n_i_menos_1</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">bool</span> <span class="n">converge</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-     <span class="kt">bool</span> <span class="n">convergiu</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="o">!</span><span class="n">convergiu</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-          <span class="n">convergiu</span> <span class="o">=</span> <span class="n">collatz</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">;</span>
-     <span class="k">return</span> <span class="n">convergiu</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kt">int</span> <span class="nf">collatz</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i</span><span class="p">){</span>
+<span class="linenos" data-linenos=" 2 "></span>     <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 3 "></span>          <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span>     <span class="k">else</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 5 "></span>          <span class="kt">int</span> <span class="n">f_n_i_menos_1</span> <span class="o">=</span> <span class="n">collatz</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">i</span><span class="mi">-1</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span>          <span class="k">if</span> <span class="p">(</span><span class="n">f_n_i_menos_1</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span>               <span class="k">return</span> <span class="n">f_n_i_menos_1</span> <span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 8 "></span>          <span class="k">else</span>
+<span class="linenos" data-linenos=" 9 "></span>               <span class="n">f_n_i_menos_1</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="kt">bool</span> <span class="n">converge</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="13 "></span>     <span class="kt">bool</span> <span class="n">convergiu</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span>     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="o">!</span><span class="n">convergiu</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="linenos" data-linenos="15 "></span>          <span class="n">convergiu</span> <span class="o">=</span> <span class="n">collatz</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">;</span>
+<span class="linenos" data-linenos="16 "></span>     <span class="k">return</span> <span class="n">convergiu</span><span class="p">;</span>
+<span class="linenos" data-linenos="17 "></span><span class="p">}</span>
 </code></pre></div>
-</td></tr></table>
 <p>Por mais ineficiente que seja, este código em C funciona e pode servir de base para uma versão em Haskell, mas como escrever a iteração?
 Como dito anteriormente, a iteração pode ser feita por meio de outra recursão!</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">collatz</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
-<span class="nf">collatz</span> <span class="n">n</span> <span class="n">i</span>
-    <span class="o">|</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="n">n</span>
-    <span class="o">|</span> <span class="n">even</span> <span class="p">(</span><span class="n">collatz</span> <span class="n">n</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="ow">=</span> <span class="n">collatz</span> <span class="n">n</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">2</span>
-    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">collatz</span> <span class="n">n</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span>
-
-
-<span class="nf">converge</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
-<span class="nf">converge</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">convergeInterna</span> <span class="n">n</span> <span class="mi">1</span>
-
-
-<span class="nf">convergeInterna</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
-<span class="nf">convergeInterna</span> <span class="n">n</span> <span class="n">passo</span>
-    <span class="o">|</span> <span class="n">collatz</span> <span class="n">n</span> <span class="n">passo</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="kt">True</span>
-    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">convergeInterna</span> <span class="n">n</span> <span class="p">(</span><span class="n">passo</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nf">collatz</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nf">collatz</span> <span class="n">n</span> <span class="n">i</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="o">|</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="n">n</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="o">|</span> <span class="n">even</span> <span class="p">(</span><span class="n">collatz</span> <span class="n">n</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="ow">=</span> <span class="n">collatz</span> <span class="n">n</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">2</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">collatz</span> <span class="n">n</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nf">converge</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nf">converge</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">convergeInterna</span> <span class="n">n</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="nf">convergeInterna</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos="13 "></span><span class="nf">convergeInterna</span> <span class="n">n</span> <span class="n">passo</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="o">|</span> <span class="n">collatz</span> <span class="n">n</span> <span class="n">passo</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="kt">True</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">convergeInterna</span> <span class="n">n</span> <span class="p">(</span><span class="n">passo</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
-</td></tr></table>
 <p>Vejamos alguns exemplos.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">collatz</span> <span class="mi">7</span> <span class="mi">13</span>
-<span class="mi">16</span>
-<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">collatz</span> <span class="mi">7</span> <span class="mi">17</span>
-<span class="mi">1</span>
-<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">converge</span> <span class="mi">7</span>
-<span class="kt">True</span>
-<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">converge</span> <span class="mi">12</span>
-<span class="kt">True</span>
-<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">convergeInterna</span> <span class="mi">7</span> <span class="mi">15</span>
-<span class="kt">True</span>
-<span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">convergeInterna</span> <span class="mi">7</span> <span class="mi">1</span>
-<span class="kt">True</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">collatz</span> <span class="mi">7</span> <span class="mi">13</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="mi">16</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">collatz</span> <span class="mi">7</span> <span class="mi">17</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="mi">1</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">converge</span> <span class="mi">7</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="kt">True</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">converge</span> <span class="mi">12</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="kt">True</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">convergeInterna</span> <span class="mi">7</span> <span class="mi">15</span>
+<span class="linenos" data-linenos="10 "></span><span class="kt">True</span>
+<span class="linenos" data-linenos="11 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">convergeInterna</span> <span class="mi">7</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="12 "></span><span class="kt">True</span>
 </code></pre></div>
-</td></tr></table>
 <p>Tente executar a função para o número 27, cuja sequência calculada acima tem 111 passos.
 Quando seu computador começar a se desesperar ou você cansar de esperar, aperte <span class="keys"><kbd class="key-control">Ctrl</kbd></span> + <span class="keys"><kbd class="key-c">C</kbd></span>.
 Mas por quê esta função tão simples ficou tão pesada? Por quê para calcular se a sequência converge, primeiro a função testou o primeiro termo, 27, e viu que não era igual 1; calculou então o segundo termo, para isto calculando o primeiro termo novamente, e testando se igual a 1; calculou então o terceiro termo, para isso calculando o segundo termo, para isso calculando o primeiro, e assim por diante. 
@@ -1005,29 +929,18 @@ Além disso, no cálculo de cada termo, há um teste para ver se o termo anterio
 <details class="example"><summary>Resolução</summary><ul>
 <li>Use um contador para limitar o número de recursões e, no caso do limite ser alcançado, emita um erro.</li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">collatz</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
-<span class="nf">collatz</span> <span class="n">n</span> <span class="n">i</span>
-    <span class="o">|</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="n">n</span>
-    <span class="o">|</span> <span class="n">even</span> <span class="p">(</span><span class="n">collatz</span> <span class="n">n</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="ow">=</span> <span class="n">collatz</span> <span class="n">n</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">2</span>
-    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">collatz</span> <span class="n">n</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span>
-
-<span class="nf">converge</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
-<span class="nf">converge</span> <span class="n">n</span> <span class="n">passo</span> <span class="n">limite</span>
-    <span class="o">|</span> <span class="n">limite</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;Não alcançou uma resposta&quot;</span>
-    <span class="o">|</span> <span class="n">collatz</span> <span class="n">n</span> <span class="n">passo</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="kt">True</span>
-    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">converge</span> <span class="n">n</span> <span class="p">(</span><span class="n">passo</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="n">limite</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nf">collatz</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nf">collatz</span> <span class="n">n</span> <span class="n">i</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="o">|</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="n">n</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="o">|</span> <span class="n">even</span> <span class="p">(</span><span class="n">collatz</span> <span class="n">n</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="ow">=</span> <span class="n">collatz</span> <span class="n">n</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">2</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">collatz</span> <span class="n">n</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nf">converge</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nf">converge</span> <span class="n">n</span> <span class="n">passo</span> <span class="n">limite</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="o">|</span> <span class="n">limite</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;Não alcançou uma resposta&quot;</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="o">|</span> <span class="n">collatz</span> <span class="n">n</span> <span class="n">passo</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="kt">True</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">converge</span> <span class="n">n</span> <span class="p">(</span><span class="n">passo</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="n">limite</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
-</td></tr></table>
 </details>
 </div>
 <h6>Binomial</h6>
@@ -1114,10 +1027,12 @@ Esta técnica será explorada no futuro, uma vez que já estejam confortáveis c
             Copyright © 2021 Lásaro Camargos
           </div>
         
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
         
       </div>
       
@@ -1139,10 +1054,10 @@ Esta técnica será explorada no futuro, uma vez que já estejam confortáveis c
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.e99e714c.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.56a63758.min.js"></script>
+      <script src="../assets/javascripts/bundle.bc35569b.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       
