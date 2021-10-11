@@ -14,8 +14,12 @@ instance F.Foldable Árvore where
 
 {- 
 >>>arv = Nó 1    (Nó 2 (Nó 4 Nada Nada) Nada)     (Nó 3 Nada Nada)
+
 >>> foldr (+) 0 arv
->>> F.foldl1 (+) arv
+10
+
 >>>arv2 = Nó  "a"    (Nó "b" (Nó "c" Nada Nada) Nada)     (Nó "d" Nada Nada)
+
 >>> foldr (++)  "" arv2
+"cbad"
 -}
