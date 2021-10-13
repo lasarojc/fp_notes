@@ -1164,17 +1164,6 @@ Acontece que o próprio Haskell, por baixo dos panos, transforma a sua função 
 <h2 id="lambda">Lambda</h2>
 <h2 id="operador-aplicacao">Operador $ (aplicação)</h2>
 <h2 id="operador-composicao">Operador . (composição)</h2>
-<p>Sumarização</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">soma</span> <span class="kt">[]</span>     <span class="ow">=</span> <span class="mi">0</span>
-<span class="linenos" data-linenos="2 "></span><span class="nf">soma</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">soma</span> <span class="n">xs</span>
-<span class="linenos" data-linenos="3 "></span>
-<span class="linenos" data-linenos="4 "></span><span class="nf">eLógico</span> <span class="kt">[]</span>     <span class="ow">=</span> <span class="kt">True</span>
-<span class="linenos" data-linenos="5 "></span><span class="nf">eLógico</span> <span class="p">[</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">]</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">eLógico</span> <span class="n">xs</span>
-</code></pre></div>
-<p>sortOn :: Ord b =&gt; (a -&gt; b) -&gt; [a] -&gt; [a]#</p>
-<p>Sort a list by comparing the results of a key function applied to each element. sortOn f is equivalent to sortBy (comparing f), but has the performance advantage of only evaluating f once for each element in the input list. This is called the decorate-sort-undecorate paradigm, or Schwartzian transform.</p>
-<p>all
-<a href="https://hoogle.haskell.org/?q=all">https://hoogle.haskell.org/?q=all</a></p>
 <div class="footnote">
 <hr />
 <ol>
