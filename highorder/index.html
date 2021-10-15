@@ -525,7 +525,7 @@
       
         <li class="md-nav__item">
   <a href="#lambda" class="md-nav__link">
-    Lambda
+    Lambda (λ)
   </a>
   
 </li>
@@ -727,7 +727,7 @@
       
         <li class="md-nav__item">
   <a href="#lambda" class="md-nav__link">
-    Lambda
+    Lambda (λ)
   </a>
   
 </li>
@@ -978,7 +978,7 @@ Neste caso, consideraremos operador <code>o</code> e um elemento neutro <code>i<
 
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>        `o`
 <span class="linenos" data-linenos="2 "></span>       /   \
-<span class="linenos" data-linenos="3 "></span>     `o`    1
+<span class="linenos" data-linenos="3 "></span>     `o`    3
 <span class="linenos" data-linenos="4 "></span>    /   \
 <span class="linenos" data-linenos="5 "></span>  `o`   2
 <span class="linenos" data-linenos="6 "></span> /   \
@@ -1161,14 +1161,112 @@ Acontece que o próprio Haskell, por baixo dos panos, transforma a sua função 
 <span class="linenos" data-linenos="7 "></span><span class="o">&gt;</span> <span class="n">filter</span> <span class="n">f</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
 <span class="linenos" data-linenos="8 "></span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
 </code></pre></div>
-<h2 id="lambda">Lambda</h2>
+<h2 id="lambda">Lambda (λ)</h2>
+<p>Uma função anônima é uma função, pasmem, sem um nome, definida, por exemplo, no ato da invocação de uma função de ordem superior, e também conhecidas como abstração <span class="arithmatex">\(\lambda\)</span>, um termo advindo do cálculo <span class="arithmatex">\(\lambda\)</span>.
+Um lambda é definido em Haskell com a seguinte sintaxe: <code class="highlight"><span class="nf">\</span><span class="n">v1</span> <span class="n">v2</span> <span class="o">...</span> <span class="n">vn</span> <span class="ow">-&gt;</span> <span class="n">exp</span></code>, onde o <code class="highlight"><span class="nf">\</span></code> é uma alusão ao símbolo <span class="arithmatex">\(\lambda\)</span>, <code class="highlight"><span class="nf">v1</span> <span class="n">v2</span> <span class="o">...</span> <span class="n">vn</span></code> são os parâmetros formais da função, e <code class="highlight"><span class="nf">exp</span></code> é uma expressão sobre as variáveis.
+Por exemplo, <code class="highlight"><span class="nf">\</span><span class="n">x</span> <span class="ow">-&gt;</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span></code> e <code class="highlight"><span class="nf">\</span><span class="n">x</span> <span class="n">y</span> <span class="ow">-&gt;</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span></code> são as funções que somam 1 ao parâmetro e multiplicam os parâmetros, respectivamente; observe seus usos no exemplo a seguir.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="p">(</span><span class="nf">\</span><span class="n">x</span> <span class="ow">-&gt;</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="mi">5</span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">6</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="p">(</span><span class="nf">\</span><span class="n">x</span> <span class="n">y</span> <span class="ow">-&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span> <span class="mi">4</span> <span class="mi">5</span>
+<span class="linenos" data-linenos="4 "></span><span class="mi">20</span>
+</code></pre></div>
+<p>Como qualquer outra função, lambdas podem ser associadas a variáveis e sofrerem aplicação parcial, embora usos como os do exemplo seguinte não pareçam muito úteis.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">mult</span> <span class="ow">=</span> <span class="p">(</span><span class="nf">\</span><span class="n">x</span> <span class="n">y</span> <span class="ow">-&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span> <span class="n">mult4</span> <span class="ow">=</span> <span class="n">mult</span> <span class="mi">4</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="n">mult</span> <span class="mi">4</span> <span class="mi">5</span>
+<span class="linenos" data-linenos="4 "></span><span class="mi">20</span>
+<span class="linenos" data-linenos="5 "></span><span class="o">&gt;</span> <span class="n">mult4</span> <span class="mi">5</span>
+<span class="linenos" data-linenos="6 "></span><span class="mi">20</span>
+</code></pre></div>
+<p>A verdadeira utilidade das lambdas é no invocação de funções como <code class="highlight"><span class="nf">map</span></code> e <code class="highlight"><span class="nf">filter</span></code>, como a seguir.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">filter</span> <span class="p">(</span><span class="nf">\</span><span class="n">x</span> <span class="ow">-&gt;</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">[</span> <span class="mi">1</span><span class="o">..</span><span class="mi">20</span><span class="p">]</span>
+<span class="linenos" data-linenos="2 "></span><span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="n">map</span> <span class="p">(</span><span class="nf">\</span><span class="n">x</span> <span class="ow">-&gt;</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>
+</code></pre></div>
+<p>Há muito mais que pode ser dito sobre abstrações lambda, por exemplo sobre como <code class="highlight"><span class="nf">f</span> <span class="n">x</span> <span class="ow">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span></code> é na verdade apenas açúcar sintático para <code class="highlight"><span class="nf">f</span> <span class="ow">=</span> <span class="nf">\</span><span class="n">x</span> <span class="ow">-&gt;</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span></code> e <code class="highlight"><span class="nf">f</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span></code> é na verdade <code class="highlight"><span class="nf">f</span> <span class="ow">=</span> <span class="nf">\</span><span class="n">x</span> <span class="ow">-&gt;</span> <span class="nf">\</span><span class="n">y</span> <span class="ow">-&gt;</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span></code>, mas isso está fora do escopo deste curso.</p>
 <h2 id="operador-aplicacao">Operador $ (aplicação)</h2>
+<p>O operador <code class="highlight"><span class="o">$</span></code> tem uma definição muito simples, dizendo apenas que ao receber uma função e um outro argumento, aplica a função ao parâmetro.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">(</span><span class="o">$</span><span class="p">)</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span>  
+<span class="linenos" data-linenos="2 "></span><span class="nf">f</span> <span class="o">$</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">f</span> <span class="n">x</span>
+</code></pre></div>
+<p>Mas se tudo o que ele faz é aplicar uma função a um parâmetro, por que é que se você olhar qualquer exemplo de código Haskell com mais do que algumas linhas de código, você encontrará o operador <code class="highlight"><span class="o">$</span></code> em uso?
+A resposta está na precedência e na associatividade de operador; compare-as com as de outros operadores.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="p">(</span><span class="o">$</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">(</span><span class="o">$</span><span class="p">)</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kr">infixr</span> <span class="mi">0</span> <span class="o">$</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="o">...</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="kr">infixl</span> <span class="mi">6</span> <span class="o">+</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="linenos" data-linenos="10 "></span>  <span class="o">...</span>
+<span class="linenos" data-linenos="11 "></span><span class="kr">infixl</span> <span class="mi">7</span> <span class="o">*</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="p">(</span><span class="o">^</span><span class="p">)</span>
+<span class="linenos" data-linenos="14 "></span><span class="o">...</span>
+<span class="linenos" data-linenos="15 "></span><span class="kr">infixr</span> <span class="mi">8</span> <span class="o">^</span>
+</code></pre></div>
+<p>Por ter precedência tão baixa, o operador será o último a ser executado, e por ser associativo à direita, toda a expressão à direita do operador será resolvida antes que ele seja executado, mesmo outras instâncias de <code class="highlight"><span class="o">$</span></code>.
+Vejamos um exemplo de como isso pode ser útil; considere a expressão a seguir.
+Para forçar sua avaliação da direita para a esquerda, foi necessário o uso de diversos parênteses.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">filter</span> <span class="n">even</span> <span class="p">(</span><span class="n">map</span> <span class="n">floor</span> <span class="p">(</span><span class="n">map</span> <span class="n">sqrt</span> <span class="p">(</span><span class="n">filter</span> <span class="p">(</span><span class="o">&gt;</span><span class="mi">100</span><span class="p">)</span> <span class="p">(</span><span class="n">map</span> <span class="p">(</span><span class="mi">2</span><span class="o">^</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]))))</span>
+</code></pre></div>
+<details class="todo"><summary>TODO</summary></details>
+<p>Imagem mostrando a resolução e evidenciando a precedência imposta pelos parênteses.</p>
+<p>Esta mesma expressão pode ser reescrita trocando-se os parênteses por </p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">filter</span> <span class="n">even</span> <span class="o">$</span> <span class="n">map</span> <span class="n">floor</span> <span class="o">$</span> <span class="n">map</span> <span class="n">sqrt</span> <span class="o">$</span> <span class="n">filter</span>  <span class="p">(</span><span class="o">&gt;</span><span class="mi">100</span><span class="p">)</span> <span class="o">$</span> <span class="n">map</span> <span class="p">(</span><span class="mi">2</span><span class="o">^</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+</code></pre></div>
+<p>Outro uso interessante está na "inversão" da função <code class="highlight"><span class="nf">map</span></code>. Esta função aplica uma outra função, como nos exemplos acima, a todos os elementos de uma lista.
+Mas como o <code class="highlight"><span class="o">$</span></code>, é possível aplicar um argumento a uma lista de funções!</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">map</span> <span class="n">f</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="o">==&gt;</span> <span class="p">[</span><span class="n">f</span> <span class="mi">1</span><span class="p">,</span> <span class="n">f</span> <span class="mi">2</span><span class="p">,</span> <span class="n">f</span> <span class="mi">3</span><span class="p">,</span> <span class="n">f</span> <span class="mi">4</span><span class="p">]</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">map</span> <span class="p">(</span> <span class="o">$</span> <span class="n">x</span><span class="p">)</span> <span class="p">[</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="n">f3</span><span class="p">,</span> <span class="n">f4</span><span class="p">]</span> <span class="ow">=</span> <span class="p">[</span><span class="n">f1</span> <span class="o">$</span> <span class="n">x</span><span class="p">,</span> <span class="n">f2</span> <span class="o">$</span> <span class="n">x</span><span class="p">,</span> <span class="n">f3</span> <span class="o">$</span> <span class="n">x</span><span class="p">,</span> <span class="n">f4</span> <span class="o">$</span> <span class="n">x</span><span class="p">]</span>
+</code></pre></div>
+<p>Por exemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">map</span> <span class="p">(</span><span class="o">$</span> <span class="mi">10</span><span class="p">)</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">,</span> <span class="p">(</span><span class="o">+</span><span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">20</span><span class="o">-</span><span class="p">),</span> <span class="p">(</span><span class="o">^</span><span class="mi">2</span><span class="p">)]</span>  
+<span class="linenos" data-linenos="2 "></span><span class="p">[</span><span class="mf">3.1622776601683795</span><span class="p">,</span><span class="mf">14.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">,</span><span class="mf">100.0</span><span class="p">]</span>
+</code></pre></div>
 <h2 id="operador-composicao">Operador . (composição)</h2>
+<p>Na matemática é comum falarmos em composição de funções, isto, é na aplicação de uma função ao resultado da aplicação de outra função, isto é, dadas duas funções <span class="arithmatex">\(f\)</span> e <span class="arithmatex">\(g\)</span>, <span class="arithmatex">\((fog)(x) = f(g(x))\)</span>.
+Por exemplo, sejam <span class="arithmatex">\(f(x) = x*x\)</span>  e <span class="arithmatex">\(g(x) = x+10\)</span>, <span class="arithmatex">\(fog(3) = (3+10)*(3+10) = 13*13 = 169\)</span>.</p>
+<p>Em Haskell, a composição de duas funções é feita pelo operador <code class="highlight"><span class="o">.</span></code>, por exemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">f</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span> <span class="n">g</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">10</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="n">fog</span> <span class="ow">=</span> <span class="n">f</span><span class="o">.</span><span class="n">g</span>
+<span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span> <span class="n">fog</span> <span class="mi">3</span>
+<span class="linenos" data-linenos="5 "></span><span class="mi">169</span>
+</code></pre></div>
+<p>A definição deste operador é interessante, pois este operador é uma função de ordem superior que recebe duas funções como parâmetro e retorna uma função como resultado, construída como uma abstração lambda.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">(</span><span class="o">.</span><span class="p">)</span> <span class="ow">::</span> <span class="p">(</span><span class="n">b</span> <span class="ow">-&gt;</span> <span class="n">c</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">c</span>  
+<span class="linenos" data-linenos="2 "></span><span class="nf">f</span> <span class="o">.</span> <span class="n">g</span> <span class="ow">=</span> <span class="nf">\</span><span class="n">x</span> <span class="ow">-&gt;</span> <span class="n">f</span> <span class="p">(</span><span class="n">g</span> <span class="n">x</span><span class="p">)</span>
+</code></pre></div>
+<p>Uma definição alternativa seria a seguinte, onde o tipo do resultado fica mais explícito e em vez da função lambda, usamos uma notação simplificada para gerar a função resposta.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">o</span> <span class="ow">::</span> <span class="p">(</span><span class="n">b</span> <span class="ow">-&gt;</span> <span class="n">c</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">c</span> <span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">o</span> <span class="n">f</span> <span class="n">g</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">f</span> <span class="p">(</span><span class="n">g</span> <span class="n">x</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="c1">-- &gt;&gt;&gt;f x = x*x</span>
+<span class="linenos" data-linenos="5 "></span><span class="c1">-- &gt;&gt;&gt;g x = x+10</span>
+<span class="linenos" data-linenos="6 "></span><span class="c1">-- &gt;&gt;&gt;fog = f `o` g</span>
+<span class="linenos" data-linenos="7 "></span><span class="c1">-- &gt;&gt;&gt; fog 3</span>
+<span class="linenos" data-linenos="8 "></span><span class="mi">169</span>
+</code></pre></div>
+<p>Sobre os usos deste operador, veja o exemplo seguinte, onde em vez de uma função lambda, foi passada uma composição de diversas funções, com o mesmo efeito.<sup id="fnref:learn"><a class="footnote-ref" href="#fn:learn">2</a></sup></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">map</span> <span class="p">(</span><span class="nf">\</span><span class="n">xs</span> <span class="ow">-&gt;</span> <span class="n">negate</span> <span class="p">(</span><span class="n">sum</span> <span class="p">(</span><span class="n">tail</span> <span class="n">xs</span><span class="p">)))</span> <span class="p">[[</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">],[</span><span class="mi">3</span><span class="o">..</span><span class="mi">6</span><span class="p">],[</span><span class="mi">1</span><span class="o">..</span><span class="mi">7</span><span class="p">]]</span>  
+<span class="linenos" data-linenos="2 "></span><span class="p">[</span><span class="o">-</span><span class="mi">14</span><span class="p">,</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="o">-</span><span class="mi">27</span><span class="p">]</span> 
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="nf">map</span> <span class="p">(</span><span class="n">negate</span> <span class="o">.</span> <span class="n">sum</span> <span class="o">.</span> <span class="n">tail</span><span class="p">)</span> <span class="p">[[</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">],[</span><span class="mi">3</span><span class="o">..</span><span class="mi">6</span><span class="p">],[</span><span class="mi">1</span><span class="o">..</span><span class="mi">7</span><span class="p">]]</span>  
+<span class="linenos" data-linenos="5 "></span><span class="p">[</span><span class="o">-</span><span class="mi">14</span><span class="p">,</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="o">-</span><span class="mi">27</span><span class="p">]</span>
+</code></pre></div>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:product">
 <p><a href="https://www.johndcook.com/blog/2015/04/14/empty-sum-product/">Why is an empty sum 0 and an empty product 1?</a>&#160;<a class="footnote-backref" href="#fnref:product" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:learn">
+<p><a href="http://learnyouahaskell.com/higher-order-functions#composition">Learn you a Haskell: Function composition</a>&#160;<a class="footnote-backref" href="#fnref:learn" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
