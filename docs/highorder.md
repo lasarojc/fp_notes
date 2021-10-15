@@ -207,7 +207,7 @@ resumir' o i [1,2,3]
 ```
         `o`
        /   \
-     `o`    1
+     `o`    3
     /   \
   `o`   2
  /   \
@@ -419,38 +419,147 @@ Estas funções derivadas são como quaisquer outras funções, e podem ser usad
 [10,10,10]
 ```
 
-## Lambda
-
-## Operador $ (aplicação)
-
-## Operador . (composição)
-
-
-
-
-
-
-
-
-Sumarização
+## Lambda (λ)
+Uma função anônima é uma função, pasmem, sem um nome, definida, por exemplo, no ato da invocação de uma função de ordem superior, e também conhecidas como abstração $\lambda$, um termo advindo do cálculo $\lambda$.
+Um lambda é definido em Haskell com a seguinte sintaxe: `#!hs \v1 v2 ... vn -> exp`, onde o `#!hs \` é uma alusão ao símbolo $\lambda$, `#!hs v1 v2 ... vn` são os parâmetros formais da função, e `#!hs exp` é uma expressão sobre as variáveis.
+Por exemplo, `#!hs \x -> x+1` e `#!hs \x y -> x*y` são as funções que somam 1 ao parâmetro e multiplicam os parâmetros, respectivamente; observe seus usos no exemplo a seguir.
 
 ```hs
-soma []     = 0
-soma (x:xs) = x + soma xs
-
-eLógico []     = True
-eLógico [x:xs] = x && eLógico xs
-
+> (\x -> x + 1) 5
+6
+> (\x y -> x * y) 4 5
+20
 ```
 
-sortOn :: Ord b => (a -> b) -> [a] -> [a]#
+Como qualquer outra função, lambdas podem ser associadas a variáveis e sofrerem aplicação parcial, embora usos como os do exemplo seguinte não pareçam muito úteis.
 
-Sort a list by comparing the results of a key function applied to each element. sortOn f is equivalent to sortBy (comparing f), but has the performance advantage of only evaluating f once for each element in the input list. This is called the decorate-sort-undecorate paradigm, or Schwartzian transform.
+```hs
+> mult = (\x y -> x * y)
+> mult4 = mult 4
+> mult 4 5
+20
+> mult4 5
+20
+```
+
+A verdadeira utilidade das lambdas é no invocação de funções como `#!hs map` e `#!hs filter`, como a seguir.
+
+```hs
+> filter (\x -> x > 10) [ 1..20]
+[11,12,13,14,15,16,17,18,19,20]
+> map (\x -> x*2) [1..10]
+[2,4,6,8,10,12,14,16,18,20]
+```
+
+Há muito mais que pode ser dito sobre abstrações lambda, por exemplo sobre como `#!hs f x = 2*x` é na verdade apenas açúcar sintático para `#!hs f = \x -> 2*x` e `#!hs f x y = x * y` é na verdade `#!hs f = \x -> \y -> x*y`, mas isso está fora do escopo deste curso.
 
 
+## Operador $ (aplicação)
+O operador `#!hs $` tem uma definição muito simples, dizendo apenas que ao receber uma função e um outro argumento, aplica a função ao parâmetro.
+
+```hs
+($) :: (a -> b) -> a -> b  
+f $ x = f x
+```
+
+Mas se tudo o que ele faz é aplicar uma função a um parâmetro, por que é que se você olhar qualquer exemplo de código Haskell com mais do que algumas linhas de código, você encontrará o operador `#!hs $` em uso?
+A resposta está na precedência e na associatividade de operador; compare-as com as de outros operadores.
+
+```hs
+> :i ($)
+($) :: (a -> b) -> a -> b
+infixr 0 $
+
+> :i (+)
+  ...
+infixl 6 +
+
+> :i (*)
+  ...
+infixl 7 *
+
+> :i (^)
+...
+infixr 8 ^
+```
+
+Por ter precedência tão baixa, o operador será o último a ser executado, e por ser associativo à direita, toda a expressão à direita do operador será resolvida antes que ele seja executado, mesmo outras instâncias de `#!hs $`.
+Vejamos um exemplo de como isso pode ser útil; considere a expressão a seguir.
+Para forçar sua avaliação da direita para a esquerda, foi necessário o uso de diversos parênteses.
+
+```hs
+filter even (map floor (map sqrt (filter (>100) (map (2^) [1..10]))))
+```
+
+???todo "TODO"
+   Imagem mostrando a resolução e evidenciando a precedência imposta pelos parênteses.
+
+Esta mesma expressão pode ser reescrita trocando-se os parênteses por 
+
+```hs
+> filter even $ map floor $ map sqrt $ filter  (>100) $ map (2^) [1..10]
+```
 
 
+Outro uso interessante está na "inversão" da função `#!hs map`. Esta função aplica uma outra função, como nos exemplos acima, a todos os elementos de uma lista.
+Mas como o `#!hs $`, é possível aplicar um argumento a uma lista de funções!
 
+```hs
+map f [1,2,3,4] ==> [f 1, f 2, f 3, f 4]
 
-all
-https://hoogle.haskell.org/?q=all
+map ( $ x) [f1, f2, f3, f4] = [f1 $ x, f2 $ x, f3 $ x, f4 $ x]
+```
+
+Por exemplo:
+
+```hs
+> map ($ 10) [sqrt, (+4), (20-), (^2)]  
+[3.1622776601683795,14.0,10.0,100.0]
+```
+
+## Operador . (composição)
+Na matemática é comum falarmos em composição de funções, isto, é na aplicação de uma função ao resultado da aplicação de outra função, isto é, dadas duas funções $f$ e $g$, $(fog)(x) = f(g(x))$.
+Por exemplo, sejam $f(x) = x*x$  e $g(x) = x+10$, $fog(3) = (3+10)*(3+10) = 13*13 = 169$.
+
+Em Haskell, a composição de duas funções é feita pelo operador `#!hs .`, por exemplo:
+
+```hs
+> f x = x*x
+> g x = x+10
+> fog = f.g
+> fog 3
+169
+```
+
+A definição deste operador é interessante, pois este operador é uma função de ordem superior que recebe duas funções como parâmetro e retorna uma função como resultado, construída como uma abstração lambda.
+
+```hs
+(.) :: (b -> c) -> (a -> b) -> a -> c  
+f . g = \x -> f (g x)
+```
+
+Uma definição alternativa seria a seguinte, onde o tipo do resultado fica mais explícito e em vez da função lambda, usamos uma notação simplificada para gerar a função resposta.
+
+```hs
+o :: (b -> c) -> (a -> b) -> (a -> c )
+o f g x = f (g x)
+
+-- >>>f x = x*x
+-- >>>g x = x+10
+-- >>>fog = f `o` g
+-- >>> fog 3
+169
+```
+
+Sobre os usos deste operador, veja o exemplo seguinte, onde em vez de uma função lambda, foi passada uma composição de diversas funções, com o mesmo efeito.[^learn]
+
+[^learn]: [Learn you a Haskell: Function composition](http://learnyouahaskell.com/higher-order-functions#composition)
+
+```hs
+> map (\xs -> negate (sum (tail xs))) [[1..5],[3..6],[1..7]]  
+[-14,-15,-27] 
+
+map (negate . sum . tail) [[1..5],[3..6],[1..7]]  
+[-14,-15,-27]
+```
+

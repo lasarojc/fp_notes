@@ -1486,10 +1486,10 @@ fm (x:xs) = min x (fm xs)
 
 fs :: [Int] -> [Int]
 fs [] = []
-fs l = 
+fs l =
     let m = fm l
         r = fr m l
-    in m:fs r 
+    in m:fs r
 
 
 
@@ -1517,7 +1517,7 @@ fd :: [Int] -> ([Int],[Int])
 fd l = fd' (length l `div` 2) l
     where   fd' _ []     = ([],[])
             fd' 0 l        = ([],l)
-            fd' tle (x:xs) = (x:le, ld) 
+            fd' tle (x:xs) = (x:le, ld)
                 where (le,ld) = fd' (tle -1) xs
 
 
@@ -1592,7 +1592,7 @@ jogadores = [(1,(10,2)),(3,(10,2)),(2,(10,2))]
 -- >>>fst' (1,2)
 -- 1
 fst' :: (a,b) -> a
-fst' (v1,_) = v1 
+fst' (v1,_) = v1
 
 
 
@@ -1603,7 +1603,7 @@ fst' (v1,_) = v1
 data Ponto = PR1 Int | PR2 Int Int | PR3 Int Int Int
 
 qualR :: Ponto -> String
-qualR (PR1 x)     = "R1 x=" ++ show x 
+qualR (PR1 x)     = "R1 x=" ++ show x
 qualR (PR2 x y)   = "R2 x=" ++ show x ++ " y=" ++ show y
 qualR (PR3 x y z) = "R3"
 
@@ -1630,8 +1630,8 @@ jogo' :: Mão -> Mão -> Jogo
 jogo' Pedra Tesoura = Ganha Pedra
 jogo' Tesoura Papel = Ganha Tesoura
 jogo' Papel Pedra   = Ganha Papel
-jogo' mao1 mao2 = if mao1 == mao2 
-                     then Empate 
+jogo' mao1 mao2 = if mao1 == mao2
+                     then Empate
                      else Ganha mao2
 
 -- >>>quemGanham [(Pedra,Pedra),(Pedra,Tesoura),(Pedra,Papel)]
@@ -1678,7 +1678,7 @@ data Exp = EAdd Exp Exp | ENeg Exp | ENum Int
 executaExpressao :: Exp -> Int
 executaExpressao (ENum i) = i
 executaExpressao (ENeg e) = negate (executaExpressao e)
-executaExpressao (EAdd e1 e2) = executaExpressao e1 + executaExpressao e2 
+executaExpressao (EAdd e1 e2) = executaExpressao e1 + executaExpressao e2
 
 -- >>>executaExpressao (ENum 3)
 -- 3
@@ -1714,7 +1714,7 @@ soma3Lista l = [soma3 e | e <- l]
 éParLista l = [éPar e | e <- l]
 
 mod3 :: Int -> Int
-mod3 x = x `mod` 3 
+mod3 x = x `mod` 3
 
 mod3List :: [Int] -> [Int]
 mod3List l  = [mod3 e | e <- l]
@@ -1745,4 +1745,171 @@ filtra (Ganha m:xs) = m: filtra xs
 -- >>> filtra [Empate, Ganha Pedra, Empate, Ganha Tesoura]
 -- [Pedra,Tesoura]
 
-filtra' l = [ e |e <- l, e /= Empate]
+filtra' l = [ extraiMao e |e <- l, e /= Empate]
+    where extraiMao (Ganha m) = m
+          extraiMao Empate = error "Deu prego"
+
+-- >>> filtra' [Empate, Ganha Pedra, Empate, Ganha Tesoura]
+-- [Pedra,Tesoura]
+
+filtra'' l = [ m | Ganha m <- l]
+
+-- >>> filtra'' [Empate, Ganha Pedra, Empate, Ganha Tesoura]
+-- [Pedra,Tesoura]
+
+
+somar x y = x + y
+
+aplicarLista1 :: (a -> a -> a) -> a -> [a] -> a
+aplicarLista1 f i [] = i
+aplicarLista1 f i (n:ns) = n `f` (aplicarLista1 f i ns)
+
+-- >>> aplicarLista1 somar 0 [1..5] 
+-- 15
+
+-- >>> aplicarLista1 (++) "" ["lala","lele","lili"] 
+-- "lalalelelili"
+
+
+-- >>> aplicarLista1 (||) False [False,False,False, False]
+-- False
+
+
+
+
+somaQuads :: Int -> Int
+somaQuads n = foldr (+) 0 [e^2 | e <- [1..n]]
+
+
+-- n ===> [1..n]
+
+quadMais n1 n2 = n1*n1 + n2
+
+-- foldr o i [1..n] ===> 1 `o` (2 `o` (3 `o` i))
+--                  ===> 1^2 + (2^2 + (3^2 + 0)
+
+-- >>>foldr o 0 [1..3]
+-- 14
+
+somaQuads' n = foldr quadMais 0 [1..n]
+
+-- >>> somaQuads' 3
+-- 14
+
+
+somaMais' n1 n2 = n1 + n2*n2
+
+-- foldl o i [1..3] ===> ((i `o` 1) `o` 2) `o` 3
+--                  ===> ((i + 1^2) + 2^2) + 3^2
+
+-- >>> foldl somaMais' 0 [1..3]
+-- 14
+{-
+comp [2..4] ===> 3
+
+foldl o i [2,3,4] ===> ((i `o` 2) `o` 3) `o` 4
+                       ((0  +  1)  +  1)  +  1
+
+>>>foldl opC' 0 [2,3,4]
+3
+-}
+
+opC' a _ = a + 1
+
+
+
+op n1 n2 = n1 `div` n1 + n2
+
+opC _ b = 1 + b
+
+comp :: Foldable t => t Int -> Int
+comp l = foldr op 0 l
+
+
+
+
+-- >>> foldl1 min [10100,10099..1010]
+-- 1010
+
+
+-- >>>maxBound::Int
+-- 9223372036854775807
+
+
+concatInvertido a b = b ++ [a]
+
+{-
+
+reverte [1,2,3] = foldr o i [1,2,3] ===> 1 `o` (2 `o` (3 `o` i))
+
+                                                        [3] ++ []
+                                                 [3] ++ [2]
+                                         [3,2] ++ 1       
+                                        [3,2,1]
+                                         
+
+>>> foldr concatInvertido [] [1,2,3]
+[3,2,1]
+
+
+
+
+Usando foldr, defina uma função que recebe duas listas e que remova todo elemento da segunda lista que aparece na primeira lista.
+>>>removeDups [1,2,4] [0,1,2,3]
+[0,3]
+
+foldr op [] [0,1,2,3] ===> 0 `op` (1 `op` (2 `op` (3 `op` i)))
+                                                          []
+                                                     [3]
+                                             [3]
+                                     [3]
+                            [0,3]
+-}
+
+
+removeDups l1 l2 = foldr op [] l2
+    where op e l = if e `elem` l1 then l else e:l
+
+
+
+
+
+
+o :: (b -> c) -> (a -> b) -> (a -> c )
+o f g x = f (g x)
+
+{-
+>>>f x = x*x
+>>>g x = x+10
+
+>>>fog = f `o` g
+
+>>> fog 3
+169
+-}
+
+
+
+
+
+-- 5 - Usando foldl, defina uma função que recebe duas listas e que remova todo elemento da segunda lista que aparece na primeira lista.
+
+remove' l1 l2 = foldl op [] l2
+   where op l e = if e `elem` l1 then l else l ++ [e]
+
+-- >>> remove' [-1,1,4] [0,1,2,3,4]
+-- [0,2,3]
+
+-- foldl o i l2 
+
+-- foldl o i [0,1,2,3,4] ===>  (((((i `o` 0) `o` 1) `o` 2) `o` 3) `o` 4)
+--                                  []++[0]
+--                                    [0]
+--                                           [0]
+--                                               [0]++[2]
+--                                                 [0,2]
+--                                                      [0,2]++[3]
+--                                                        [0,2,3]
+--                                                               [0,2,3]
+-- >>> foldl op [] [0,1,2,3,4]
+
