@@ -1895,7 +1895,7 @@ o f g x = f (g x)
 -- 5 - Usando foldl, defina uma função que recebe duas listas e que remova todo elemento da segunda lista que aparece na primeira lista.
 
 remove' l1 l2 = foldl op [] l2
-   where op l e = if e `elem` l1 then l else l ++ [e]
+   where op l e = if e `elem` l1 then l else l++[e]
 
 -- >>> remove' [-1,1,4] [0,1,2,3,4]
 -- [0,2,3]

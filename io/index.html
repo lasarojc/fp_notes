@@ -487,9 +487,74 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Entrada e Saída
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Entrada e Saída
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#acoes-de-es" class="md-nav__link">
+    Ações de E/S
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binding" class="md-nav__link">
+    binding
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#io" class="md-nav__link">
+    IO
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#do" class="md-nav__link">
+    do
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    return
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main" class="md-nav__link">
+    main
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -619,6 +684,56 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#acoes-de-es" class="md-nav__link">
+    Ações de E/S
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binding" class="md-nav__link">
+    binding
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#io" class="md-nav__link">
+    IO
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#do" class="md-nav__link">
+    do
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    return
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main" class="md-nav__link">
+    main
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -641,7 +756,133 @@
 
   <!-- Content -->
   <h1 id="entrada-e-saida">Entrada e Saída</h1>
-<p>Hello, world!</p>
+<p>Em programação dizemos que uma função tem <strong>efeitos colaterais</strong> quando lê ou modifica qualquer estado além do que lhe foi passado como parâmetro e suas variáveis locais.
+Linguagens de funcionais puras não tem <strong>efeitos colaterais</strong> e é por isso que toda vez que uma função é invocada com os mesmos parâmetros, ela retorna o mesmo resultado, assim como 2+2 = 4, sempre.</p>
+<p>O problema de ser uma linguagem funcional pura está em realizar Entrada e Saída (E/S, I/O), ou seja, interagir com o mundo exterior ao programa em execução, por exemplo lendo do teclado, manipulando arquivos, ou mesmo modificando o estado da memória de vídeo para desenhar ou escrever algo na tela, pois isso é um efeito colateral.
+Como E/S é uma realidade dos programas de computador, as linguagens funcionais devem ou abdicar de sua pureza ou usar de artimanhas para realizá-las.</p>
+<p>No caso de Haskell, E/S é encapsulada em Mônadas, um conceito no qual não nos aprofundaremos neste curso.</p>
+<h2 id="acoes-de-es">Ações de E/S</h2>
+<p>E/S é executada por meio de uma <strong>ação E/S</strong>, uma função especial que se comunica com o mundo "exterior".
+As seguintes funções são exemplos de ações que se comunicam com teclado e monitor.</p>
+<table>
+<thead>
+<tr>
+<th>Ação</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="highlight"><span class="nf">getChar</span></code></td>
+<td>Lê um caractere do teclado.</td>
+</tr>
+<tr>
+<td><code class="highlight"><span class="nf">putChar</span></code></td>
+<td>Escreve um caractere na tela.</td>
+</tr>
+<tr>
+<td><code class="highlight"><span class="nf">getLine</span></code></td>
+<td>Lê uma linha do teclado.</td>
+</tr>
+<tr>
+<td><code class="highlight"><span class="nf">putStr</span></code></td>
+<td>Escreve uma string na tela.</td>
+</tr>
+<tr>
+<td><code class="highlight"><span class="nf">putStrLn</span></code></td>
+<td>Escreve uma string na tela e quebra a linha.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="binding"><em>binding</em></h2>
+<p>Uma vez que tenha visto estas funções, é natural que queira escrever algo como <code class="highlight"><span class="nf">nome</span> <span class="ow">=</span> <span class="n">getLine</span></code>, mas isso não terá o efeito que você espera.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">nome</span> <span class="ow">=</span> <span class="n">getLine</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">nome</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nf">lalala</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="s">&quot;lalala&quot;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">putStr</span> <span class="n">nome</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="o">&lt;</span><span class="n">interactive</span><span class="o">&gt;:</span><span class="mi">11</span><span class="kt">:</span><span class="mi">8</span><span class="kt">:</span> <span class="ne">error</span><span class="kt">:</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="err">•</span> <span class="kt">Couldn&#39;t</span> <span class="n">match</span> <span class="kr">type</span> <span class="err">‘</span><span class="kt">IO</span> <span class="kt">String</span><span class="err">’</span> <span class="n">with</span> <span class="err">‘</span><span class="p">[</span><span class="kt">Char</span><span class="p">]</span><span class="err">’</span>
+<span class="linenos" data-linenos=" 9 "></span>      <span class="kt">Expected</span> <span class="kr">type</span><span class="kt">:</span> <span class="kt">String</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="kt">Actual</span> <span class="kr">type</span><span class="kt">:</span> <span class="kt">IO</span> <span class="kt">String</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="err">•</span> <span class="kt">In</span> <span class="n">the</span> <span class="n">first</span> <span class="n">argument</span> <span class="kr">of</span> <span class="err">‘</span><span class="n">putStr</span><span class="err">’</span><span class="p">,</span> <span class="n">namely</span> <span class="err">‘</span><span class="n">nome</span><span class="err">’</span>
+<span class="linenos" data-linenos="12 "></span>      <span class="kt">In</span> <span class="n">the</span> <span class="n">expression</span><span class="kt">:</span> <span class="n">putStr</span> <span class="n">nome</span>
+<span class="linenos" data-linenos="13 "></span>      <span class="kt">In</span> <span class="n">an</span> <span class="n">equation</span> <span class="n">for</span> <span class="err">‘</span><span class="n">it</span><span class="err">’</span><span class="kt">:</span> <span class="n">it</span> <span class="ow">=</span> <span class="n">putStr</span> <span class="n">nome</span>
+</code></pre></div>
+<p>O que aconteceu no exemplo acima foi que a ação <code class="highlight"><span class="nf">getLine</span></code> foi atribuída a <code class="highlight"><span class="nf">nome</span></code>, não uma string.
+Para fazer o que você quer, isto é, executar uma ação e atribuir o seu resultado a uma variável, precisamos usar o operador <code class="highlight"><span class="ow">&lt;-</span></code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">nome</span> <span class="ow">&lt;-</span> <span class="n">getLine</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">lala</span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">print</span> <span class="n">nome</span>
+<span class="linenos" data-linenos="4 "></span><span class="s">&quot;lala&quot;</span>
+</code></pre></div>
+<p>Dizemos que o operador <code class="highlight"><span class="ow">&lt;-</span></code> faz o <em>binding</em> (atrelamento) do valor à variável.</p>
+<h2 id="io"><code class="highlight"><span class="kt">IO</span></code></h2>
+<p>Se explorarmos o tipo das ações veremos que elas não tem retorno como esperaríamos, por exemplo, <code class="highlight"><span class="nf">getLine</span></code> tem tipo  <code class="highlight"><span class="nf">getLine</span> <span class="ow">::</span> <span class="kt">IO</span> <span class="kt">String</span></code>.
+O <code class="highlight"><span class="kt">IO</span></code> no tipo do resultado é um tipo algébrico que encapsula o resultado da ação, mas diferenciar a ação de outras funções que resultem em <code class="highlight"><span class="kt">String</span></code>.</p>
+<p>Todas as ações retornam um <code class="highlight"><span class="kt">IO</span> <span class="n">a</span></code>, onde <code class="highlight"><span class="nf">a</span></code> é uma variável de tipo, mesmo aquelas que não retornam nada de útil, como a ação <code class="highlight"><span class="nf">putChar</span></code>, que resulta em <code class="highlight"><span class="nf">putChar</span> <span class="ow">::</span> <span class="kt">Char</span> <span class="ow">-&gt;</span> <span class="kt">IO</span> <span class="nb">()</span></code>, isto é, o encapsulamento da tupla vazia (também conhecida como <em>Unit</em>).</p>
+<p>Mas por quê esta diferenciação? Para marcar funções <strong>impuras</strong> e separá-las das funções <strong>puras</strong>.
+Este estigma de uma função impura serve para que o compilador Haskell determine quando a ação pode executar e quando não pode, sendo que uma função impura só pode executar dentro de outra função impura.
+Isso quer dizer que eu não consigo fazer uma ação de E/S e retornar somente o resultado desta ação, como em </p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">lêNomePura</span> <span class="ow">::</span> <span class="kt">String</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">lêNomePura</span> <span class="ow">=</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">getLine</span>
+</code></pre></div>
+<p>Na verdade, este código nem compila, pois o que é o resultado da expressão à direita na equação? Na verdade, ela nem é uma expressão.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">getLine</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&lt;</span><span class="n">no</span> <span class="n">location</span> <span class="n">info</span><span class="o">&gt;:</span> <span class="ne">error</span><span class="kt">:</span> <span class="n">not</span> <span class="n">an</span> <span class="n">expression</span><span class="kt">:</span> <span class="err">‘</span><span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">getLine</span><span class="err">’</span>
+</code></pre></div>
+<p>Uma outra tentativa seria a seguinte. Mas como vimos, este código não executa a ação, apenas dá outro nome para ação <code class="highlight"><span class="nf">getLine</span></code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">lêNomeImpura</span> <span class="ow">::</span> <span class="kt">IO</span> <span class="kt">String</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">lêNomeImpura</span> <span class="ow">=</span> <span class="n">getLine</span>
+</code></pre></div>
+<h2 id="do"><code class="highlight"><span class="kr">do</span></code></h2>
+<p>O problema aqui é que você não está descrevendo como um cálculo acontece, mas dizendo ao processo que execute ações.
+Isso está muito mais para o paradigma imperativo que para o funcional.
+E de fato, para executar ações, você precisara usar o modo imperativo do Haskell, usando <code class="highlight"><span class="kr">do</span></code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">lêNomeImpura&#39;</span> <span class="ow">::</span> <span class="kt">IO</span> <span class="kt">String</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">lêNomeImpura&#39;</span> <span class="ow">=</span> <span class="kr">do</span>
+<span class="linenos" data-linenos="3 "></span>                    <span class="n">putStr</span> <span class="s">&quot;Digite o seu nome&quot;</span>
+<span class="linenos" data-linenos="4 "></span>                    <span class="n">getLine</span>
+</code></pre></div>
+<p>O modo imperativo essencialmente diz que as ações devem ser executadas na ordem em que foram definidas e que o resultado do bloco é o resultado da última ação do bloco, neste exemplo, <code class="highlight"><span class="nf">getLine</span></code>.</p>
+<h2 id="return"><code class="highlight"><span class="nf">return</span></code></h2>
+<p>Nem sempre o resultado será gerado pela última ação, e neste caso você terá que construir o resultado manualmente, como no código a seguir, usando um <code class="highlight"><span class="nf">return</span></code> no final.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">lêNomeImpura&#39;</span> <span class="ow">::</span> <span class="kt">IO</span> <span class="kt">String</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">lêNomeImpura&#39;</span> <span class="ow">=</span> <span class="kr">do</span>
+<span class="linenos" data-linenos="3 "></span>                    <span class="n">putStr</span> <span class="s">&quot;Digite o seu nome&quot;</span>
+<span class="linenos" data-linenos="4 "></span>                    <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">getLine</span>
+<span class="linenos" data-linenos="5 "></span>                    <span class="n">putStr</span> <span class="s">&quot;Obrigado&quot;</span>
+<span class="linenos" data-linenos="6 "></span>                    <span class="n">return</span> <span class="p">(</span><span class="s">&quot;O nome é : &quot;</span> <span class="o">++</span> <span class="n">x</span><span class="p">)</span>
+</code></pre></div>
+<p>O <code class="highlight"><span class="nf">return</span></code> pode causar confusão, pois ele não faz o que você imagina. O que ele faz é construir um valor do tipo <code class="highlight"><span class="kt">IO</span></code> com o valor passado, e que pode ser usado como resposta para o bloco.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">return</span> <span class="mi">3</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span> <span class="n">x</span>
+<span class="linenos" data-linenos="3 "></span><span class="mi">3</span>
+<span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="n">x</span>
+<span class="linenos" data-linenos="5 "></span><span class="nf">x</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Monad</span> <span class="n">m</span><span class="p">,</span> <span class="kt">Num</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="n">m</span> <span class="n">a</span>
+</code></pre></div>
+<h2 id="main"><code class="highlight"><span class="nf">main</span></code></h2>
+<p>Até agora temos usado as funções que escrevemos apenas dentro do GHCi, de modo interpretado, o que demanda uma instalação do interpretador.
+Quando escrevemos um programa para ser executado em outras máquinas, normalmente queremos que ele seja um executável auto-contido, isto é, que execute independentemente de haver ou não um interpretador Haskell em tais máquinas.
+Para isso, devemos <strong>compilar</strong> o programa e gerar um arquivo executável.</p>
+<p>Quando compilamos um programa Haskell, este deve ter uma função <code class="highlight"><span class="nf">main</span></code> (em um módulo que dever explicitamente denominado <code class="highlight"><span class="kt">Main</span></code>, caso tenha mais de um módulo), e que será sempre a função invocada quando o executável for invocado.
+Como ações de E/S só podem ser executadas dentro de outras ações de E/S, a função <code class="highlight"><span class="nf">main</span></code> deve ser uma ação E/S também.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">main</span> <span class="ow">::</span> <span class="kt">IO</span> <span class="nb">()</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">main</span> <span class="ow">=</span> <span class="kr">do</span>
+<span class="linenos" data-linenos="3 "></span>        <span class="n">putStrLn</span> <span class="s">&quot;Digite seu nome: &quot;</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="n">nome</span> <span class="ow">&lt;-</span> <span class="n">getLine</span>
+<span class="linenos" data-linenos="5 "></span>        <span class="n">putStrLn</span> <span class="o">$</span> <span class="s">&quot;Olá, &quot;</span> <span class="o">++</span> <span class="n">nome</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>&gt;&gt; ghc --make main.hs
+<span class="linenos" data-linenos="2 "></span>[1 of 1] Compiling Main             ( main.hs, main.o )
+<span class="linenos" data-linenos="3 "></span>Linking main ...
+<span class="linenos" data-linenos="4 "></span>&gt;&gt; ./main            
+<span class="linenos" data-linenos="5 "></span>Digite seu nome: 
+<span class="linenos" data-linenos="6 "></span>Asdrubalino
+<span class="linenos" data-linenos="7 "></span>Olá, Asdrubalino
+</code></pre></div>
 
   <!-- Last update of source file -->
 

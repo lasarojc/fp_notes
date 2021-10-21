@@ -1,6 +1,7 @@
 module Main where
 
-import Text.Read ( readMaybe ) 
+import Text.Read ( readMaybe )
+import Data.Maybe ( fromMaybe, isNothing, fromJust )
 
 
 data Direção = Norte | Sul | Leste | Oeste
@@ -15,6 +16,27 @@ data JogadorDados = JogadorDados Int (Int,Int) String
 
 type Tabuleiro = [[Item]]
 
+keyMaps = [(1,[('e',ColocarBomba),('r',Agir),('a', Mover Oeste),('s', Mover Sul),('d',Mover Leste),('w', Mover Norte),('Q', Sair)]),
+           (2,[('o',ColocarBomba),('p',Agir),('j', Mover Oeste),('k', Mover Sul),('l',Mover Leste),('i', Mover Norte),('Q', Sair)])]
+
+mapKey :: Char -> [(Int, [(Char, Ação)])] -> Maybe (Int, Ação)
+mapKey c []     = Nothing
+mapKey c ((j,as):jas) = case mapKey' c as of Nothing -> mapKey c jas
+                                             Just a  -> Just (j,a)
+    where mapKey' c [] = Nothing
+          mapKey' c ((c',a):ms)
+            | c == c'   = Just a
+            | otherwise = mapKey' c ms
+
+-- Retorna IO id do jogador e ação a ser executada.
+pegaMov :: [Int] -> IO (Maybe (Int,Ação))
+pegaMov js = do
+        movChar <- getChar
+        return (let mapped = mapKey movChar keyMaps
+                in case mapped of Nothing     -> Nothing
+                                  Just (j,a)  -> if j `elem` js then mapped
+                                                                else Nothing)
+
 
 main :: IO ()
 main = do
@@ -28,60 +50,31 @@ iniciarTabuleiro :: (Tabuleiro,[JogadorDados])
 iniciarTabuleiro = (tabuleiroExemplo, jogadorDadosExemplo)
 
 actionLoop :: Tabuleiro -> [JogadorDados] -> IO ()
-actionLoop t js = 
-    let ids = [i | JogadorDados i _ _ <- js] in 
+actionLoop t js =
+    let ids = [i | JogadorDados i _ _ <- js] in
     do
-        j <- vez ids
-        print j
-        opção <- menu
-        print opção
-        if opção == Sair then return ()
-                         else if j `elem` ids 
-                              then 
-                                let (t',js') = case opção of  ColocarBomba   -> colocarBomba t js j
-                                                              Agir           -> agir t js j
-                                                              Mover d        -> mover d t js j
-                                                              NO_OP          -> (t,js)
-                                                              Sair           -> (t,js)
-                                in actionLoop t' js'
-                            else actionLoop t js
+        move <- pegaMov ids
+        let (j,op) = fromMaybe (-1,NO_OP) move in
+         do 
+              print $ "(Jogador,Ação)" ++ show (j,op)
+              if op == Sair
+                then return ()
+                else let (t',js') = case op of
+                                        ColocarBomba   -> colocarBomba t js j
+                                        Agir           -> agir t js j
+                                        Mover d        -> mover d t js j
+                                        NO_OP          -> (t,js)
+                                        _              -> (t,js)
+                     in actionLoop t' js'
 
 -- Tenta movimentar o jogador na direcao especificada.
 mover :: Direção -> Tabuleiro -> [JogadorDados] -> Int -> (Tabuleiro, [JogadorDados])
-mover = error "not implemented"
+mover d t js j = (t,js)
 
 -- Descobre se alguma ação é possível para o jogador e executa.
 agir :: Tabuleiro -> [JogadorDados] -> Int -> (Tabuleiro, [JogadorDados])
-agir = error "not implemented"
+agir t js j = (t,js)
 
 -- Verifica se é possível colocar a boma e coloca.
 colocarBomba :: Tabuleiro -> [JogadorDados] -> Int -> (Tabuleiro, [JogadorDados])
-colocarBomba = error "not implemented"
-
-
-
-
-
--- Retorna IO Int com Int igual ao id do jogador.
-vez :: [Int] -> IO Int
-vez js = do
-        print ("Escolha o jogador: " ++ show js)
-        opçãoStr <- getLine
-        return (maybe (-1) id (readMaybe opçãoStr))
-
-
--- Retorna IO Ação onde Ação é a próxima ação a ser executada
-menu :: IO Ação
-menu = do
-    putStrLn "Escolha o que fazer: Norte Sul Leste Oeste Ação colocaBomba saiR"
-    opção <- getLine
-    return (case opção of "N" -> Mover Norte
-                          "S" -> Mover Sul
-                          "L" -> Mover Leste
-                          "O" -> Mover Oeste
-                          "A" -> Agir
-                          "B" -> ColocarBomba
-                          "R" -> Sair
-                          _ -> NO_OP)
-
-
+colocarBomba t js i = (t,js)

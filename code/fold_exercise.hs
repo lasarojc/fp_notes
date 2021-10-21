@@ -3,13 +3,13 @@
 1 - Usando foldr, defina uma função somaQuads que recebe como parâmetro um inteiro n e retorna a soma dos quadrados dos primeiros n inteiros. somaQuads n = 1^2 + 2^2 + 3^2 ... n^2
 
 >>> somaQuads 3
-15
+14
 
 >>> somaQuads' 3
-15
+14
 
 >>> somaQuadsL 3
-15
+14
 
 
 2 - Usando fold, defina uma função que calcule o comprimento de uma lista.
