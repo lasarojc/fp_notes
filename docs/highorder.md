@@ -531,6 +531,7 @@ Em Haskell, a composição de duas funções é feita pelo operador `#!hs .`, po
 169
 ```
 
+###### Definição
 A definição deste operador é interessante, pois este operador é uma função de ordem superior que recebe duas funções como parâmetro e retorna uma função como resultado, construída como uma abstração lambda.
 
 ```hs
@@ -551,15 +552,28 @@ o f g x = f (g x)
 169
 ```
 
-Sobre os usos deste operador, veja o exemplo seguinte, onde em vez de uma função lambda, foi passada uma composição de diversas funções, com o mesmo efeito.[^learn]
+###### Simplificação
+Sobre os usos deste operador, veja o exemplo seguinte, onde várias transformações devem ser feitas sobre a mesma lista de valores.
+
+```hs
+> map negate (map sum (map tail [[1..5],[3..6],[1..7]]))
+[-14,-15,-27]
+```
+
+Uma primeira observação importante sobre este código é que a lista é percorrida 3 vezes, o que certamente terá um impacto em termos de desempenho.
+
+Este problema pode ser resolvido passando-se uma única função para o `#!hs map` que faça todas as transformações.[^learn]
 
 [^learn]: [Learn you a Haskell: Function composition](http://learnyouahaskell.com/higher-order-functions#composition)
 
 ```hs
 > map (\xs -> negate (sum (tail xs))) [[1..5],[3..6],[1..7]]  
 [-14,-15,-27] 
+```
 
+Embora o uso da função lambda tenha melhorado o desempenho, uma composição das diversas funções tem o mesmo efeito, e um código mais legível.
+
+```hs
 map (negate . sum . tail) [[1..5],[3..6],[1..7]]  
 [-14,-15,-27]
 ```
-

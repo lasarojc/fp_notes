@@ -6,11 +6,10 @@
 (https://en.wikibooks.org/wiki/Haskell)
 
 
-- [x] Tipos
+- [x] Tipos básicos
     - [x] Haskell
-        * é Fortemente tipada: sem conversão automática
-        * é Statically typed: em tempo de compilação.
-            * Exemplo python e tipos mutantes
+        * Fortemente tipada: sem conversão automática
+        * Statically typed: em tempo de compilação.
     - [x] Protótipos
         - [x] Inferência de tipos.
         - [x] Especificação manual
@@ -23,16 +22,9 @@
             - [x] Show
             - [ ] Read
             - [ ] Bounded: minBound maxBound
-    - [] ] Definição
-            ```hs
-            class Eq a where  
-            (==) :: a -> a -> Bool  
-            (/=) :: a -> a -> Bool  
-            x == y = not (x /= y)  
-            x /= y = not (x == y) 
-            ```
-- [x] Tuplas
+    - [x] Definição de
 
+- [x] Tuplas
 - [x] Listas
     - [x] sao homogêneas
     - [x] range operator [1..10]
@@ -40,7 +32,7 @@
     - [x] ++ append
     - [x] !! get at index
     - [x] Pattern matching
-    - [x] Compreensão de listas
+    - [x] Compreensão de listas (Zermello-Frankel)
     - [x] Listas infinitas
     - [ ] ordenação
         - [x] selection-sort
@@ -48,40 +40,36 @@
         - [ ] Merge-sort
 
 
-- [ ] Polimorfismo - funções que se aplicam a vários tipos - generics () http://learnyouahaskell.com/types-and-typeclasses)
-    - [ ] type variables - http://www.decom.ufop.br/romildo/2014-1/bcc222/practices/p06-polimorfismo.pdf
-    - `head :: [a] -> a`
-    - `swap :: (a,b) -> (b,a)
-
+- [x] Polimorfismo - funções que se aplicam a vários tipos - generics () http://learnyouahaskell.com/types-and-typeclasses)
+    - [x] type variables - http://www.decom.ufop.br/romildo/2014-1/bcc222/practices/p06-polimorfismo.pdf
+        - `head :: [a] -> a`
+        - `swap :: (a,b) -> (b,a)
 
 - [x] Tipos especificados pelo usuário
-        - [ ] apelidos - type
+        - [x] apelidos - type
             - [x] não parametrizado
-            - [ ] parametrizado (http://learnyouahaskell.com/making-our-own-types-and-typeclasses#algebraic-data-types)
         - [ ] Tipos algébricos -  data 
+            - [x] parametrizado (http://learnyouahaskell.com/making-our-own-types-and-typeclasses#algebraic-data-types)
             * [x] Definição (https://mmhaskell.com/blog/2017/12/24/haskell-data-types-in-5-steps) (https://en.wikibooks.org/wiki/Haskell/GADT#Extending_the_language)
                 - [x] não parametrizado
-                - [ ] parametrizado
-                - [ ] produto x soma
+                - [x] parametrizado
+                - [x] produto x soma
             * [x] Casamento de padrões
             * Exemplos
-                * [ ] Maybe
+                * [x] Maybe
                     * https://www.youtube.com/watch?v=b9FagOVqxmI
                     ```hs
                     data  Maybe a     =  Nothing | Just a  deriving (Eq, Ord, Read, Show)  
                     data  Either a b  =  Left a | Right b  deriving (Eq, Ord, Read, Show)  
                     ```
-                * [ ] Either
-
-            * [ ] Tipos recursivos
-                - [ ] Listas
-                - [ ] Árvores
+            * [x] Tipos recursivos
+                - [x] Listas
+                - [x] Árvores
 
 - [x] Pattern matching
     - [x] case-of
     - [x] Declaração de funções
     - [x] as pattern - `@`
-
 
 - [ ] Funções
     - [x] Equações simples
@@ -94,14 +82,14 @@
         - [x] simples
         - [x] em listas
         - [ ] de cauda
-    - [ ] Currying:
-    - [ ] Alta Ordem:
+    - [x] Currying:
+    - [x] Alta Ordem:
         - There are a number of concepts which are the main corner stones of functional programming, such as first-class and higher-order functions, pure functions, recursion, strict versus non-strict evaluation, and type systems. Higher-order functions can take other functions as arguments or return them as results. An example of a higherorder functions is an integrator or differential operator as it returns a function. Pure functions have no side effects (memory or I/O). This means that pure functions are very useful to optimize code. For example, if the result of a pure expression is not used, it can be removed without affecting the other expressions. If there is no data dependency between two pure expressions, then their order can be reversed or they can be performed in parallel and not interfere with each other. This means pure expressions are thread safe. To allow compilers to optimize code more easily in other languages, there is usually keywords you can add to tell the compiler the function is pure. Recursion functions invoke themselves, performing an operation multiple times unit the base case is reached. Common patterns of recursion can be re-factored using higher order functions. Some recursions require maintaining a stack but tail recursions can be optimized into the same code used to implement iteration in imperative languages. Functional programming that is limited to well-founded recursion with a few other constraints is called total functional programming [24]. Strict versus non-strict evaluation is a concept that divides functional languages by whether they use strict (eager) or nonstrict (lazy) evaluation. Figure 8 presents an example. Under strict evaluation the entire term and function and evaluated, meaning if any term of the expression would fail, the whole expression would fail. Under non-strict evaluation, the length function will return the value 4 since evaluation it will not attempt to evaluate the terms making p the list. The usual implementation strategy for non-strict evaluation in functional languages is graph reduction [25].
-        - [ ] fold
-        - [ ] filter
-        - [ ] map
-        - .
-        - $
+        - [x] fold
+        - [x] filter
+        - [x] map
+        - [x] .
+        - [x] $
 
 - [ ] Avaliação preguiçosa
     - [ ] mostrar com listas infinitas
@@ -110,10 +98,12 @@
         - https://takenobu-hs.github.io/downloads/haskell_lazy_evaluation.pdf
 
 
-- [ ] Entrada e saída:
-    - [ ] Show
-    - [ ] Read
-    - [ ] Monads
+- [x] Entrada e saída:
+    - [x] Show
+    - [x] Read
+    - [x] Monads (menção)
+    - [x] IO
+
 
 - [ ] Haskell em produção
     - [ ] Comunicação entre linguagens
@@ -129,7 +119,7 @@
 
 - [ ] Test
     - [ ] HSpec
-    - [ ] quickcheck
+    - [ ] quickcheck - https://www.cs.umd.edu/class/spring2019/cmsc388F/lectures/randomized-testing.html
     - [ ] quickcheck + Hspec https://hspec.github.io/quickcheck.html
 
 
@@ -152,8 +142,6 @@ Exercícios/Provas
     - cartas
         - teste se bateu em algum jogo
         - ordene as cartas
-
-
 
 * Exercícios
     * Defina uma função que dado uma String, verifique se ela é um palíndromo.
