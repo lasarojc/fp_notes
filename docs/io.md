@@ -120,6 +120,34 @@ O `#!hs return` pode causar confusão, pois ele não faz o que você imagina. O 
 x :: (Monad m, Num a) => m a
 ```
 
+## let ~in~
+Frequentemente você precisará intercalar código puro com código não puro, como no exemplo **incorreto** a seguir.
+
+```hs
+import Data.Char
+
+main = do
+        putStrLn "Digite seu nome: "
+        nome <- getLine
+        nomeMaiúsculo = map toUpper nome
+        nomeMinúsculo = map toLower nome
+        putStrLn $ "Olá. Seu nome em letras maiúsculas é " ++ nomeMaiúsculo ++ " e em letras minúsculas é " ++ nomeMinúsculo
+```
+
+Este exemplo, embora se assemelhe ao que outras linguagens fazem, não é correto em Haskell pois o código puro não pode ser invocado de forma imperativa, pois códigos puros são definições de equações, não instruções de execução.
+A forma apropriada para fazer as definições de `#!hs nomeMaiúsculo` e `#!hs nomeMinúsculo` de forma que sejam usáveis na invocação de `#!hs putStrLn` é via `#!hs let` e `#!hs in`; bom, neste caso, como o contexto do `#!hs let` é bem claro, o `#!hs in` é omitido.
+
+```hs
+import Data.Char
+
+main = do
+        putStrLn "Digite seu nome: "
+        nome <- getLine
+        let nomeMaiúsculo = map toUpper nome
+            nomeMinúsculo = map toLower nome
+        putStrLn $ "Olá. Seu nome em letras maiúsculas é " ++ nomeMaiúsculo ++ " e em letras minúsculas é " ++ nomeMinúsculo
+```
+
 ## `#!hs main`
 Até agora temos usado as funções que escrevemos apenas dentro do GHCi, de modo interpretado, o que demanda uma instalação do interpretador.
 Quando escrevemos um programa para ser executado em outras máquinas, normalmente queremos que ele seja um executável auto-contido, isto é, que execute independentemente de haver ou não um interpretador Haskell em tais máquinas.

@@ -97,3 +97,9 @@ Nesta primeira etapa, você desenvolverá as funções que permitirão criar e m
 
 Vocês são livres para preencher as lacunas da especificação de forma razoável.
 Na dúvida, me pergunte.
+
+## Etapa 2
+
+Escrever um programa que leia os dados de movimentações de jogadores e use estes dados como entrada nas funções de manipulação do tabuleiro.
+
+A cada movimentação, imprimir o tabuleiro na tela, na forma de uma matriz, mostrando apenas o elemento superior de cada célula.

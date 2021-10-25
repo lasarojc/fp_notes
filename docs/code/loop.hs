@@ -54,18 +54,17 @@ actionLoop t js =
     let ids = [i | JogadorDados i _ _ <- js] in
     do
         move <- pegaMov ids
-        let (j,op) = fromMaybe (-1,NO_OP) move in
-         do 
-              print $ "(Jogador,Ação)" ++ show (j,op)
-              if op == Sair
-                then return ()
-                else let (t',js') = case op of
-                                        ColocarBomba   -> colocarBomba t js j
-                                        Agir           -> agir t js j
-                                        Mover d        -> mover d t js j
-                                        NO_OP          -> (t,js)
-                                        _              -> (t,js)
-                     in actionLoop t' js'
+        let (j,op) = fromMaybe (-1,NO_OP) move
+        print $ "(Jogador,Ação)" ++ show (j,op)
+        if op == Sair
+        then return ()
+        else let (t',js') = case op of
+                                ColocarBomba   -> colocarBomba t js j
+                                Agir           -> agir t js j
+                                Mover d        -> mover d t js j
+                                NO_OP          -> (t,js)
+                                _              -> (t,js)
+             in actionLoop t' js'
 
 -- Tenta movimentar o jogador na direcao especificada.
 mover :: Direção -> Tabuleiro -> [JogadorDados] -> Int -> (Tabuleiro, [JogadorDados])
