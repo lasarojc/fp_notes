@@ -546,6 +546,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#let-in" class="md-nav__link">
+    let in
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#main" class="md-nav__link">
     main
   </a>
@@ -726,6 +733,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#let-in" class="md-nav__link">
+    let in
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#main" class="md-nav__link">
     main
   </a>
@@ -862,6 +876,28 @@ E de fato, para executar ações, você precisara usar o modo imperativo do Hask
 <span class="linenos" data-linenos="3 "></span><span class="mi">3</span>
 <span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="n">x</span>
 <span class="linenos" data-linenos="5 "></span><span class="nf">x</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Monad</span> <span class="n">m</span><span class="p">,</span> <span class="kt">Num</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="n">m</span> <span class="n">a</span>
+</code></pre></div>
+<h2 id="let-in">let <sub>in</sub></h2>
+<p>Frequentemente você precisará intercalar código puro com código não puro, como no exemplo <strong>incorreto</strong> a seguir.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kr">import</span> <span class="nn">Data.Char</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">main</span> <span class="ow">=</span> <span class="kr">do</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="n">putStrLn</span> <span class="s">&quot;Digite seu nome: &quot;</span>
+<span class="linenos" data-linenos="5 "></span>        <span class="n">nome</span> <span class="ow">&lt;-</span> <span class="n">getLine</span>
+<span class="linenos" data-linenos="6 "></span>        <span class="n">nomeMaiúsculo</span> <span class="ow">=</span> <span class="n">map</span> <span class="n">toUpper</span> <span class="n">nome</span>
+<span class="linenos" data-linenos="7 "></span>        <span class="n">nomeMinúsculo</span> <span class="ow">=</span> <span class="n">map</span> <span class="n">toLower</span> <span class="n">nome</span>
+<span class="linenos" data-linenos="8 "></span>        <span class="n">putStrLn</span> <span class="o">$</span> <span class="s">&quot;Olá. Seu nome em letras maiúsculas é &quot;</span> <span class="o">++</span> <span class="n">nomeMaiúsculo</span> <span class="o">++</span> <span class="s">&quot; e em letras minúsculas é &quot;</span> <span class="o">++</span> <span class="n">nomeMinúsculo</span>
+</code></pre></div>
+<p>Este exemplo, embora se assemelhe ao que outras linguagens fazem, não é correto em Haskell pois o código puro não pode ser invocado de forma imperativa, pois códigos puros são definições de equações, não instruções de execução.
+A forma apropriada para fazer as definições de <code class="highlight"><span class="nf">nomeMaiúsculo</span></code> e <code class="highlight"><span class="nf">nomeMinúsculo</span></code> de forma que sejam usáveis na invocação de <code class="highlight"><span class="nf">putStrLn</span></code> é via <code class="highlight"><span class="kr">let</span></code> e <code class="highlight"><span class="kr">in</span></code>; bom, neste caso, como o contexto do <code class="highlight"><span class="kr">let</span></code> é bem claro, o <code class="highlight"><span class="kr">in</span></code> é omitido.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kr">import</span> <span class="nn">Data.Char</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">main</span> <span class="ow">=</span> <span class="kr">do</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="n">putStrLn</span> <span class="s">&quot;Digite seu nome: &quot;</span>
+<span class="linenos" data-linenos="5 "></span>        <span class="n">nome</span> <span class="ow">&lt;-</span> <span class="n">getLine</span>
+<span class="linenos" data-linenos="6 "></span>        <span class="kr">let</span> <span class="n">nomeMaiúsculo</span> <span class="ow">=</span> <span class="n">map</span> <span class="n">toUpper</span> <span class="n">nome</span>
+<span class="linenos" data-linenos="7 "></span>            <span class="n">nomeMinúsculo</span> <span class="ow">=</span> <span class="n">map</span> <span class="n">toLower</span> <span class="n">nome</span>
+<span class="linenos" data-linenos="8 "></span>        <span class="n">putStrLn</span> <span class="o">$</span> <span class="s">&quot;Olá. Seu nome em letras maiúsculas é &quot;</span> <span class="o">++</span> <span class="n">nomeMaiúsculo</span> <span class="o">++</span> <span class="s">&quot; e em letras minúsculas é &quot;</span> <span class="o">++</span> <span class="n">nomeMinúsculo</span>
 </code></pre></div>
 <h2 id="main"><code class="highlight"><span class="nf">main</span></code></h2>
 <p>Até agora temos usado as funções que escrevemos apenas dentro do GHCi, de modo interpretado, o que demanda uma instalação do interpretador.
