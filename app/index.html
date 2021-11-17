@@ -254,7 +254,7 @@
   
     <li class="md-nav__item">
       <a href="../preface/" class="md-nav__link">
-        Prefácio
+        Apresentação
       </a>
     </li>
   
@@ -267,10 +267,108 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../intro/">Introdução</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Introdução" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Introdução
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../intro/" class="md-nav__link">
-        Introdução
+      <a href="../intro/paradigm/" class="md-nav__link">
+        Paradigmas
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/choseyourpoison/" class="md-nav__link">
+        Escolhas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/haskell/" class="md-nav__link">
+        Haskell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/more/" class="md-nav__link">
+        Mais
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -282,55 +380,92 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../haskell101/" class="md-nav__link">
-        1+1
-      </a>
-    </li>
-  
-
     
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       
       
-
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../functions/">Funções</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Funções" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Funções
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../functions/" class="md-nav__link">
-        Primeiras funções
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ifthenelse/" class="md-nav__link">
+      <a href="../functions/ifthenelse/" class="md-nav__link">
         Se então, senão
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../guards/" class="md-nav__link">
+      <a href="../functions/guards/" class="md-nav__link">
         Guardas!
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/pattern_matching/" class="md-nav__link">
+        Padrões
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -648,7 +783,7 @@
 <span class="linenos" data-linenos=" 3 "></span><span class="kr">import</span> <span class="nn">Text.Read</span> <span class="p">(</span> <span class="nf">readMaybe</span> <span class="p">)</span>
 <span class="linenos" data-linenos=" 4 "></span><span class="kr">import</span> <span class="nn">Data.Maybe</span> <span class="p">(</span> <span class="nf">fromMaybe</span><span class="p">,</span> <span class="nf">isNothing</span><span class="p">,</span> <span class="nf">fromJust</span> <span class="p">)</span>
 <span class="linenos" data-linenos=" 5 "></span>
-<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="c1">-- Definição de novos tipos</span>
 <span class="linenos" data-linenos=" 7 "></span><span class="kr">data</span> <span class="kt">Direção</span> <span class="ow">=</span> <span class="kt">Norte</span> <span class="o">|</span> <span class="kt">Sul</span> <span class="o">|</span> <span class="kt">Leste</span> <span class="o">|</span> <span class="kt">Oeste</span>
 <span class="linenos" data-linenos=" 8 "></span>    <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Show</span><span class="p">,</span> <span class="kt">Eq</span><span class="p">)</span>
 <span class="linenos" data-linenos=" 9 "></span>
@@ -657,71 +792,82 @@
 <span class="linenos" data-linenos="12 "></span>
 <span class="linenos" data-linenos="13 "></span><span class="kr">data</span> <span class="kt">Item</span> <span class="ow">=</span> <span class="kt">Presente</span> <span class="o">|</span> <span class="kt">Jogador</span> <span class="kt">Int</span> <span class="o">|</span> <span class="kt">Parede</span> <span class="o">|</span> <span class="kt">Grama</span>
 <span class="linenos" data-linenos="14 "></span>
-<span class="linenos" data-linenos="15 "></span><span class="kr">data</span> <span class="kt">JogadorDados</span> <span class="ow">=</span> <span class="kt">JogadorDados</span> <span class="kt">Int</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span> <span class="kt">String</span>
+<span class="linenos" data-linenos="15 "></span><span class="kr">data</span> <span class="kt">DadosDoJogador</span> <span class="ow">=</span> <span class="kt">DadosDoJogador</span> <span class="kt">Int</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span> <span class="kt">String</span>
 <span class="linenos" data-linenos="16 "></span>
 <span class="linenos" data-linenos="17 "></span><span class="kr">type</span> <span class="kt">Tabuleiro</span> <span class="ow">=</span> <span class="p">[[</span><span class="kt">Item</span><span class="p">]]</span>
 <span class="linenos" data-linenos="18 "></span>
-<span class="linenos" data-linenos="19 "></span><span class="nf">keyMaps</span> <span class="ow">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,[(</span><span class="sc">&#39;e&#39;</span><span class="p">,</span><span class="kt">ColocarBomba</span><span class="p">),(</span><span class="sc">&#39;r&#39;</span><span class="p">,</span><span class="kt">Agir</span><span class="p">),(</span><span class="sc">&#39;a&#39;</span><span class="p">,</span> <span class="kt">Mover</span> <span class="kt">Oeste</span><span class="p">),(</span><span class="sc">&#39;s&#39;</span><span class="p">,</span> <span class="kt">Mover</span> <span class="kt">Sul</span><span class="p">),(</span><span class="sc">&#39;d&#39;</span><span class="p">,</span><span class="kt">Mover</span> <span class="kt">Leste</span><span class="p">),(</span><span class="sc">&#39;w&#39;</span><span class="p">,</span> <span class="kt">Mover</span> <span class="kt">Norte</span><span class="p">),(</span><span class="sc">&#39;Q&#39;</span><span class="p">,</span> <span class="kt">Sair</span><span class="p">)]),</span>
-<span class="linenos" data-linenos="20 "></span>           <span class="p">(</span><span class="mi">2</span><span class="p">,[(</span><span class="sc">&#39;o&#39;</span><span class="p">,</span><span class="kt">ColocarBomba</span><span class="p">),(</span><span class="sc">&#39;p&#39;</span><span class="p">,</span><span class="kt">Agir</span><span class="p">),(</span><span class="sc">&#39;j&#39;</span><span class="p">,</span> <span class="kt">Mover</span> <span class="kt">Oeste</span><span class="p">),(</span><span class="sc">&#39;k&#39;</span><span class="p">,</span> <span class="kt">Mover</span> <span class="kt">Sul</span><span class="p">),(</span><span class="sc">&#39;l&#39;</span><span class="p">,</span><span class="kt">Mover</span> <span class="kt">Leste</span><span class="p">),(</span><span class="sc">&#39;i&#39;</span><span class="p">,</span> <span class="kt">Mover</span> <span class="kt">Norte</span><span class="p">),(</span><span class="sc">&#39;Q&#39;</span><span class="p">,</span> <span class="kt">Sair</span><span class="p">)])]</span>
-<span class="linenos" data-linenos="21 "></span>
-<span class="linenos" data-linenos="22 "></span><span class="nf">mapKey</span> <span class="ow">::</span> <span class="kt">Char</span> <span class="ow">-&gt;</span> <span class="p">[(</span><span class="kt">Int</span><span class="p">,</span> <span class="p">[(</span><span class="kt">Char</span><span class="p">,</span> <span class="kt">Ação</span><span class="p">)])]</span> <span class="ow">-&gt;</span> <span class="kt">Maybe</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Ação</span><span class="p">)</span>
-<span class="linenos" data-linenos="23 "></span><span class="nf">mapKey</span> <span class="n">c</span> <span class="kt">[]</span>     <span class="ow">=</span> <span class="kt">Nothing</span>
-<span class="linenos" data-linenos="24 "></span><span class="nf">mapKey</span> <span class="n">c</span> <span class="p">((</span><span class="n">j</span><span class="p">,</span><span class="n">as</span><span class="p">)</span><span class="kt">:</span><span class="n">jas</span><span class="p">)</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">mapKey&#39;</span> <span class="n">c</span> <span class="n">as</span> <span class="kr">of</span> <span class="kt">Nothing</span> <span class="ow">-&gt;</span> <span class="n">mapKey</span> <span class="n">c</span> <span class="n">jas</span>
-<span class="linenos" data-linenos="25 "></span>                                             <span class="kt">Just</span> <span class="n">a</span>  <span class="ow">-&gt;</span> <span class="kt">Just</span> <span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
-<span class="linenos" data-linenos="26 "></span>    <span class="kr">where</span> <span class="n">mapKey&#39;</span> <span class="n">c</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="kt">Nothing</span>
-<span class="linenos" data-linenos="27 "></span>          <span class="n">mapKey&#39;</span> <span class="n">c</span> <span class="p">((</span><span class="n">c&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span><span class="kt">:</span><span class="n">ms</span><span class="p">)</span>
-<span class="linenos" data-linenos="28 "></span>            <span class="o">|</span> <span class="n">c</span> <span class="o">==</span> <span class="n">c&#39;</span>   <span class="ow">=</span> <span class="kt">Just</span> <span class="n">a</span>
-<span class="linenos" data-linenos="29 "></span>            <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">mapKey&#39;</span> <span class="n">c</span> <span class="n">ms</span>
-<span class="linenos" data-linenos="30 "></span>
-<span class="linenos" data-linenos="31 "></span><span class="c1">-- Retorna IO id do jogador e ação a ser executada.</span>
-<span class="linenos" data-linenos="32 "></span><span class="nf">pegaMov</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">IO</span> <span class="p">(</span><span class="kt">Maybe</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Ação</span><span class="p">))</span>
-<span class="linenos" data-linenos="33 "></span><span class="nf">pegaMov</span> <span class="n">js</span> <span class="ow">=</span> <span class="kr">do</span>
-<span class="linenos" data-linenos="34 "></span>        <span class="n">movChar</span> <span class="ow">&lt;-</span> <span class="n">getChar</span>
-<span class="linenos" data-linenos="35 "></span>        <span class="n">return</span> <span class="p">(</span><span class="kr">let</span> <span class="n">mapped</span> <span class="ow">=</span> <span class="n">mapKey</span> <span class="n">movChar</span> <span class="n">keyMaps</span>
-<span class="linenos" data-linenos="36 "></span>                <span class="kr">in</span> <span class="kr">case</span> <span class="n">mapped</span> <span class="kr">of</span> <span class="kt">Nothing</span>     <span class="ow">-&gt;</span> <span class="kt">Nothing</span>
-<span class="linenos" data-linenos="37 "></span>                                  <span class="kt">Just</span> <span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>  <span class="ow">-&gt;</span> <span class="kr">if</span> <span class="n">j</span> <span class="p">`</span><span class="n">elem</span><span class="p">`</span> <span class="n">js</span> <span class="kr">then</span> <span class="n">mapped</span>
-<span class="linenos" data-linenos="38 "></span>                                                                <span class="kr">else</span> <span class="kt">Nothing</span><span class="p">)</span>
-<span class="linenos" data-linenos="39 "></span>
-<span class="linenos" data-linenos="40 "></span>
-<span class="linenos" data-linenos="41 "></span><span class="nf">main</span> <span class="ow">::</span> <span class="kt">IO</span> <span class="nb">()</span>
-<span class="linenos" data-linenos="42 "></span><span class="nf">main</span> <span class="ow">=</span> <span class="kr">do</span>
-<span class="linenos" data-linenos="43 "></span>    <span class="n">actionLoop</span> <span class="n">tabuleiro</span> <span class="n">jogadores</span>
-<span class="linenos" data-linenos="44 "></span>    <span class="kr">where</span> <span class="p">(</span><span class="n">tabuleiro</span><span class="p">,</span><span class="n">jogadores</span><span class="p">)</span> <span class="ow">=</span> <span class="n">iniciarTabuleiro</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span><span class="c1">-- Mapeamento de teclas para ações de cada um dos possíveis jogadores.</span>
+<span class="linenos" data-linenos="21 "></span><span class="c1">-- Cada linha corresponde a um jogador.</span>
+<span class="linenos" data-linenos="22 "></span><span class="nf">keyMaps</span> <span class="ow">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,[(</span><span class="sc">&#39;e&#39;</span><span class="p">,</span><span class="kt">ColocarBomba</span><span class="p">),(</span><span class="sc">&#39;r&#39;</span><span class="p">,</span><span class="kt">Agir</span><span class="p">),(</span><span class="sc">&#39;a&#39;</span><span class="p">,</span> <span class="kt">Mover</span> <span class="kt">Oeste</span><span class="p">),(</span><span class="sc">&#39;s&#39;</span><span class="p">,</span> <span class="kt">Mover</span> <span class="kt">Sul</span><span class="p">),(</span><span class="sc">&#39;d&#39;</span><span class="p">,</span><span class="kt">Mover</span> <span class="kt">Leste</span><span class="p">),(</span><span class="sc">&#39;w&#39;</span><span class="p">,</span> <span class="kt">Mover</span> <span class="kt">Norte</span><span class="p">),(</span><span class="sc">&#39;Q&#39;</span><span class="p">,</span> <span class="kt">Sair</span><span class="p">)]),</span>
+<span class="linenos" data-linenos="23 "></span>           <span class="p">(</span><span class="mi">2</span><span class="p">,[(</span><span class="sc">&#39;o&#39;</span><span class="p">,</span><span class="kt">ColocarBomba</span><span class="p">),(</span><span class="sc">&#39;p&#39;</span><span class="p">,</span><span class="kt">Agir</span><span class="p">),(</span><span class="sc">&#39;j&#39;</span><span class="p">,</span> <span class="kt">Mover</span> <span class="kt">Oeste</span><span class="p">),(</span><span class="sc">&#39;k&#39;</span><span class="p">,</span> <span class="kt">Mover</span> <span class="kt">Sul</span><span class="p">),(</span><span class="sc">&#39;l&#39;</span><span class="p">,</span><span class="kt">Mover</span> <span class="kt">Leste</span><span class="p">),(</span><span class="sc">&#39;i&#39;</span><span class="p">,</span> <span class="kt">Mover</span> <span class="kt">Norte</span><span class="p">),(</span><span class="sc">&#39;Q&#39;</span><span class="p">,</span> <span class="kt">Sair</span><span class="p">)])]</span>
+<span class="linenos" data-linenos="24 "></span>
+<span class="linenos" data-linenos="25 "></span><span class="c1">-- Dado uma tecla e um mapa, retorna o jogador e a ação a ser executada para ele.</span>
+<span class="linenos" data-linenos="26 "></span><span class="c1">-- Se a tecla é inválida, retorna Nothing.</span>
+<span class="linenos" data-linenos="27 "></span><span class="nf">mapKey</span> <span class="ow">::</span> <span class="kt">Char</span> <span class="ow">-&gt;</span> <span class="p">[(</span><span class="kt">Int</span><span class="p">,</span> <span class="p">[(</span><span class="kt">Char</span><span class="p">,</span> <span class="kt">Ação</span><span class="p">)])]</span> <span class="ow">-&gt;</span> <span class="kt">Maybe</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Ação</span><span class="p">)</span>
+<span class="linenos" data-linenos="28 "></span><span class="nf">mapKey</span> <span class="n">c</span> <span class="kt">[]</span>     <span class="ow">=</span> <span class="kt">Nothing</span>
+<span class="linenos" data-linenos="29 "></span><span class="nf">mapKey</span> <span class="n">c</span> <span class="p">((</span><span class="n">j</span><span class="p">,</span><span class="n">as</span><span class="p">)</span><span class="kt">:</span><span class="n">jas</span><span class="p">)</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">mapKey&#39;</span> <span class="n">c</span> <span class="n">as</span> <span class="kr">of</span> <span class="kt">Nothing</span> <span class="ow">-&gt;</span> <span class="n">mapKey</span> <span class="n">c</span> <span class="n">jas</span>
+<span class="linenos" data-linenos="30 "></span>                                             <span class="kt">Just</span> <span class="n">a</span>  <span class="ow">-&gt;</span> <span class="kt">Just</span> <span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="linenos" data-linenos="31 "></span>    <span class="kr">where</span> <span class="n">mapKey&#39;</span> <span class="n">c</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="kt">Nothing</span>
+<span class="linenos" data-linenos="32 "></span>          <span class="n">mapKey&#39;</span> <span class="n">c</span> <span class="p">((</span><span class="n">c&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span><span class="kt">:</span><span class="n">ms</span><span class="p">)</span>
+<span class="linenos" data-linenos="33 "></span>            <span class="o">|</span> <span class="n">c</span> <span class="o">==</span> <span class="n">c&#39;</span>   <span class="ow">=</span> <span class="kt">Just</span> <span class="n">a</span>
+<span class="linenos" data-linenos="34 "></span>            <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">mapKey&#39;</span> <span class="n">c</span> <span class="n">ms</span>
+<span class="linenos" data-linenos="35 "></span>
+<span class="linenos" data-linenos="36 "></span><span class="c1">-- Retorna IO id do jogador e ação a ser executada.</span>
+<span class="linenos" data-linenos="37 "></span><span class="c1">-- js é a lista dos jogadores ainda no jogo.</span>
+<span class="linenos" data-linenos="38 "></span><span class="nf">pegaMov</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">IO</span> <span class="p">(</span><span class="kt">Maybe</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Ação</span><span class="p">))</span>
+<span class="linenos" data-linenos="39 "></span><span class="nf">pegaMov</span> <span class="n">js</span> <span class="ow">=</span> <span class="kr">do</span>
+<span class="linenos" data-linenos="40 "></span>        <span class="n">movChar</span> <span class="ow">&lt;-</span> <span class="n">getChar</span>
+<span class="linenos" data-linenos="41 "></span>        <span class="kr">let</span> <span class="n">mapped</span> <span class="ow">=</span> <span class="n">mapKey</span> <span class="n">movChar</span> <span class="n">keyMaps</span>    <span class="c1">-- Observe a ausência do `in` quando estamos dentro de um bloco IO.</span>
+<span class="linenos" data-linenos="42 "></span>        <span class="kr">case</span> <span class="n">mapped</span> <span class="kr">of</span> <span class="kt">Nothing</span>     <span class="ow">-&gt;</span> <span class="n">return</span> <span class="kt">Nothing</span>
+<span class="linenos" data-linenos="43 "></span>                       <span class="kt">Just</span> <span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>  <span class="ow">-&gt;</span> <span class="kr">if</span> <span class="n">j</span> <span class="p">`</span><span class="n">elem</span><span class="p">`</span> <span class="n">js</span> <span class="kr">then</span> <span class="n">return</span> <span class="n">mapped</span>
+<span class="linenos" data-linenos="44 "></span>                                                     <span class="kr">else</span> <span class="n">return</span> <span class="kt">Nothing</span>
 <span class="linenos" data-linenos="45 "></span>
-<span class="linenos" data-linenos="46 "></span><span class="nf">tabuleiroExemplo</span> <span class="ow">=</span> <span class="p">[[</span><span class="kt">Grama</span><span class="p">,</span><span class="kt">Presente</span><span class="p">,</span><span class="kt">Jogador</span> <span class="mi">1</span><span class="p">],[</span><span class="kt">Grama</span><span class="p">],[</span><span class="kt">Grama</span><span class="p">],[</span><span class="kt">Grama</span><span class="p">,</span><span class="kt">Presente</span><span class="p">,</span><span class="kt">Jogador</span> <span class="mi">2</span><span class="p">]]</span>
-<span class="linenos" data-linenos="47 "></span><span class="nf">jogadorDadosExemplo</span> <span class="ow">=</span> <span class="p">[</span><span class="kt">JogadorDados</span> <span class="mi">1</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="s">&quot;BP&quot;</span><span class="p">,</span> <span class="kt">JogadorDados</span> <span class="mi">2</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="s">&quot;BP&quot;</span> <span class="p">]</span>
-<span class="linenos" data-linenos="48 "></span>
-<span class="linenos" data-linenos="49 "></span><span class="nf">iniciarTabuleiro</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Tabuleiro</span><span class="p">,[</span><span class="kt">JogadorDados</span><span class="p">])</span>
-<span class="linenos" data-linenos="50 "></span><span class="nf">iniciarTabuleiro</span> <span class="ow">=</span> <span class="p">(</span><span class="n">tabuleiroExemplo</span><span class="p">,</span> <span class="n">jogadorDadosExemplo</span><span class="p">)</span>
+<span class="linenos" data-linenos="46 "></span>
+<span class="linenos" data-linenos="47 "></span><span class="nf">main</span> <span class="ow">::</span> <span class="kt">IO</span> <span class="nb">()</span>
+<span class="linenos" data-linenos="48 "></span><span class="nf">main</span> <span class="ow">=</span> <span class="kr">do</span>
+<span class="linenos" data-linenos="49 "></span>    <span class="n">loopPrincipal</span> <span class="n">tabuleiro</span> <span class="n">jogadores</span>
+<span class="linenos" data-linenos="50 "></span>    <span class="kr">where</span> <span class="p">(</span><span class="n">tabuleiro</span><span class="p">,</span><span class="n">jogadores</span><span class="p">)</span> <span class="ow">=</span> <span class="n">iniciarTabuleiro</span>
 <span class="linenos" data-linenos="51 "></span>
-<span class="linenos" data-linenos="52 "></span><span class="nf">actionLoop</span> <span class="ow">::</span> <span class="kt">Tabuleiro</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">JogadorDados</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">IO</span> <span class="nb">()</span>
-<span class="linenos" data-linenos="53 "></span><span class="nf">actionLoop</span> <span class="n">t</span> <span class="n">js</span> <span class="ow">=</span>
-<span class="linenos" data-linenos="54 "></span>    <span class="kr">let</span> <span class="n">ids</span> <span class="ow">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">|</span> <span class="kt">JogadorDados</span> <span class="n">i</span> <span class="kr">_</span> <span class="kr">_</span> <span class="ow">&lt;-</span> <span class="n">js</span><span class="p">]</span> <span class="kr">in</span>
-<span class="linenos" data-linenos="55 "></span>    <span class="kr">do</span>
-<span class="linenos" data-linenos="56 "></span>        <span class="n">move</span> <span class="ow">&lt;-</span> <span class="n">pegaMov</span> <span class="n">ids</span>
-<span class="linenos" data-linenos="57 "></span>        <span class="kr">let</span> <span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">op</span><span class="p">)</span> <span class="ow">=</span> <span class="n">fromMaybe</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="kt">NO_OP</span><span class="p">)</span> <span class="n">move</span>
-<span class="linenos" data-linenos="58 "></span>        <span class="n">print</span> <span class="o">$</span> <span class="s">&quot;(Jogador,Ação)&quot;</span> <span class="o">++</span> <span class="n">show</span> <span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">op</span><span class="p">)</span>
-<span class="linenos" data-linenos="59 "></span>        <span class="kr">if</span> <span class="n">op</span> <span class="o">==</span> <span class="kt">Sair</span>
-<span class="linenos" data-linenos="60 "></span>        <span class="kr">then</span> <span class="n">return</span> <span class="nb">()</span>
-<span class="linenos" data-linenos="61 "></span>        <span class="kr">else</span> <span class="kr">let</span> <span class="p">(</span><span class="n">t&#39;</span><span class="p">,</span><span class="n">js&#39;</span><span class="p">)</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">op</span> <span class="kr">of</span>
-<span class="linenos" data-linenos="62 "></span>                                <span class="kt">ColocarBomba</span>   <span class="ow">-&gt;</span> <span class="n">colocarBomba</span> <span class="n">t</span> <span class="n">js</span> <span class="n">j</span>
-<span class="linenos" data-linenos="63 "></span>                                <span class="kt">Agir</span>           <span class="ow">-&gt;</span> <span class="n">agir</span> <span class="n">t</span> <span class="n">js</span> <span class="n">j</span>
-<span class="linenos" data-linenos="64 "></span>                                <span class="kt">Mover</span> <span class="n">d</span>        <span class="ow">-&gt;</span> <span class="n">mover</span> <span class="n">d</span> <span class="n">t</span> <span class="n">js</span> <span class="n">j</span>
-<span class="linenos" data-linenos="65 "></span>                                <span class="kt">NO_OP</span>          <span class="ow">-&gt;</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">js</span><span class="p">)</span>
-<span class="linenos" data-linenos="66 "></span>                                <span class="kr">_</span>              <span class="ow">-&gt;</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">js</span><span class="p">)</span>
-<span class="linenos" data-linenos="67 "></span>             <span class="kr">in</span> <span class="n">actionLoop</span> <span class="n">t&#39;</span> <span class="n">js&#39;</span>
-<span class="linenos" data-linenos="68 "></span>
-<span class="linenos" data-linenos="69 "></span><span class="c1">-- Tenta movimentar o jogador na direcao especificada.</span>
-<span class="linenos" data-linenos="70 "></span><span class="nf">mover</span> <span class="ow">::</span> <span class="kt">Direção</span> <span class="ow">-&gt;</span> <span class="kt">Tabuleiro</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">JogadorDados</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Tabuleiro</span><span class="p">,</span> <span class="p">[</span><span class="kt">JogadorDados</span><span class="p">])</span>
-<span class="linenos" data-linenos="71 "></span><span class="nf">mover</span> <span class="n">d</span> <span class="n">t</span> <span class="n">js</span> <span class="n">j</span> <span class="ow">=</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">js</span><span class="p">)</span>
+<span class="linenos" data-linenos="52 "></span><span class="nf">tabuleiroExemplo</span> <span class="ow">=</span> <span class="p">[[</span><span class="kt">Grama</span><span class="p">,</span><span class="kt">Presente</span><span class="p">,</span><span class="kt">Jogador</span> <span class="mi">1</span><span class="p">],[</span><span class="kt">Grama</span><span class="p">],[</span><span class="kt">Grama</span><span class="p">],[</span><span class="kt">Grama</span><span class="p">,</span><span class="kt">Presente</span><span class="p">,</span><span class="kt">Jogador</span> <span class="mi">2</span><span class="p">]]</span>
+<span class="linenos" data-linenos="53 "></span><span class="nf">dadosDoJogadorExemplo</span> <span class="ow">=</span> <span class="p">[</span><span class="kt">DadosDoJogador</span> <span class="mi">1</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="s">&quot;BP&quot;</span><span class="p">,</span> 
+<span class="linenos" data-linenos="54 "></span>                         <span class="kt">DadosDoJogador</span> <span class="mi">2</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="s">&quot;BP&quot;</span> <span class="p">]</span>
+<span class="linenos" data-linenos="55 "></span>
+<span class="linenos" data-linenos="56 "></span><span class="nf">iniciarTabuleiro</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Tabuleiro</span><span class="p">,[</span><span class="kt">DadosDoJogador</span><span class="p">])</span>
+<span class="linenos" data-linenos="57 "></span><span class="nf">iniciarTabuleiro</span> <span class="ow">=</span> <span class="p">(</span><span class="n">tabuleiroExemplo</span><span class="p">,</span>      <span class="c1">-- O tabuleiro deveria ser lido de um arquivo com a descrição de uma fase.</span>
+<span class="linenos" data-linenos="58 "></span>                    <span class="n">dadosDoJogadorExemplo</span><span class="p">)</span> <span class="c1">-- A lista de jogadores deveria ser lida de um menu que permitisse a escolha e configuração dos jogadores.</span>
+<span class="linenos" data-linenos="59 "></span>
+<span class="linenos" data-linenos="60 "></span><span class="nf">loopPrincipal</span> <span class="ow">::</span> <span class="kt">Tabuleiro</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">DadosDoJogador</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">IO</span> <span class="nb">()</span>
+<span class="linenos" data-linenos="61 "></span><span class="nf">loopPrincipal</span> <span class="n">t</span> <span class="n">js</span> <span class="ow">=</span> <span class="kr">do</span>
+<span class="linenos" data-linenos="62 "></span>    <span class="kr">let</span> <span class="n">ids</span> <span class="ow">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">|</span> <span class="kt">DadosDoJogador</span> <span class="n">i</span> <span class="kr">_</span> <span class="kr">_</span> <span class="ow">&lt;-</span> <span class="n">js</span><span class="p">]</span>
+<span class="linenos" data-linenos="63 "></span>    <span class="n">move</span> <span class="ow">&lt;-</span> <span class="n">pegaMov</span> <span class="n">ids</span>
+<span class="linenos" data-linenos="64 "></span>    <span class="kr">let</span> <span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">op</span><span class="p">)</span> <span class="ow">=</span> <span class="n">fromMaybe</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="kt">NO_OP</span><span class="p">)</span> <span class="n">move</span>
+<span class="linenos" data-linenos="65 "></span>    <span class="n">print</span> <span class="o">$</span> <span class="s">&quot;(Jogador,Ação)&quot;</span> <span class="o">++</span> <span class="n">show</span> <span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">op</span><span class="p">)</span>
+<span class="linenos" data-linenos="66 "></span>    <span class="kr">case</span> <span class="n">op</span> <span class="kr">of</span>
+<span class="linenos" data-linenos="67 "></span>            <span class="kt">ColocarBomba</span>   <span class="ow">-&gt;</span> <span class="kr">let</span> <span class="p">(</span><span class="n">t&#39;</span><span class="p">,</span><span class="n">js&#39;</span><span class="p">)</span> <span class="ow">=</span> <span class="n">colocarBomba</span> <span class="n">t</span> <span class="n">js</span> <span class="n">j</span> <span class="kr">in</span> <span class="n">loopPrincipal</span> <span class="n">t&#39;</span> <span class="n">js&#39;</span> <span class="c1">-- poderia ser simplificado com uso da função uncurry</span>
+<span class="linenos" data-linenos="68 "></span>            <span class="kt">Agir</span>           <span class="ow">-&gt;</span> <span class="kr">let</span> <span class="p">(</span><span class="n">t&#39;</span><span class="p">,</span><span class="n">js&#39;</span><span class="p">)</span> <span class="ow">=</span> <span class="n">agir</span> <span class="n">t</span> <span class="n">js</span> <span class="n">j</span>         <span class="kr">in</span> <span class="n">loopPrincipal</span> <span class="n">t&#39;</span> <span class="n">js&#39;</span>
+<span class="linenos" data-linenos="69 "></span>            <span class="kt">Mover</span> <span class="n">d</span>        <span class="ow">-&gt;</span> <span class="kr">let</span> <span class="p">(</span><span class="n">t&#39;</span><span class="p">,</span><span class="n">js&#39;</span><span class="p">)</span> <span class="ow">=</span> <span class="n">mover</span> <span class="n">d</span> <span class="n">t</span> <span class="n">js</span> <span class="n">j</span>      <span class="kr">in</span> <span class="n">loopPrincipal</span> <span class="n">t&#39;</span> <span class="n">js&#39;</span>
+<span class="linenos" data-linenos="70 "></span>            <span class="kt">NO_OP</span>          <span class="ow">-&gt;</span> <span class="n">loopPrincipal</span> <span class="n">t</span> <span class="n">js</span>
+<span class="linenos" data-linenos="71 "></span>            <span class="kt">Sair</span>           <span class="ow">-&gt;</span> <span class="n">return</span> <span class="nb">()</span>
 <span class="linenos" data-linenos="72 "></span>
-<span class="linenos" data-linenos="73 "></span><span class="c1">-- Descobre se alguma ação é possível para o jogador e executa.</span>
-<span class="linenos" data-linenos="74 "></span><span class="nf">agir</span> <span class="ow">::</span> <span class="kt">Tabuleiro</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">JogadorDados</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Tabuleiro</span><span class="p">,</span> <span class="p">[</span><span class="kt">JogadorDados</span><span class="p">])</span>
-<span class="linenos" data-linenos="75 "></span><span class="nf">agir</span> <span class="n">t</span> <span class="n">js</span> <span class="n">j</span> <span class="ow">=</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">js</span><span class="p">)</span>
-<span class="linenos" data-linenos="76 "></span>
-<span class="linenos" data-linenos="77 "></span><span class="c1">-- Verifica se é possível colocar a boma e coloca.</span>
-<span class="linenos" data-linenos="78 "></span><span class="nf">colocarBomba</span> <span class="ow">::</span> <span class="kt">Tabuleiro</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">JogadorDados</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Tabuleiro</span><span class="p">,</span> <span class="p">[</span><span class="kt">JogadorDados</span><span class="p">])</span>
-<span class="linenos" data-linenos="79 "></span><span class="nf">colocarBomba</span> <span class="n">t</span> <span class="n">js</span> <span class="n">i</span> <span class="ow">=</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">js</span><span class="p">)</span>
+<span class="linenos" data-linenos="73 "></span>
+<span class="linenos" data-linenos="74 "></span><span class="c1">-- Tenta movimentar o jogador na direcao especificada.</span>
+<span class="linenos" data-linenos="75 "></span><span class="nf">mover</span> <span class="ow">::</span> <span class="kt">Direção</span> <span class="ow">-&gt;</span> <span class="kt">Tabuleiro</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">DadosDoJogador</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Tabuleiro</span><span class="p">,</span> <span class="p">[</span><span class="kt">DadosDoJogador</span><span class="p">])</span>
+<span class="linenos" data-linenos="76 "></span><span class="nf">mover</span> <span class="n">d</span> <span class="n">t</span> <span class="n">js</span> <span class="n">j</span> <span class="ow">=</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">js</span><span class="p">)</span>
+<span class="linenos" data-linenos="77 "></span>
+<span class="linenos" data-linenos="78 "></span><span class="c1">-- Descobre se alguma ação é possível para o jogador e executa.</span>
+<span class="linenos" data-linenos="79 "></span><span class="nf">agir</span> <span class="ow">::</span> <span class="kt">Tabuleiro</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">DadosDoJogador</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Tabuleiro</span><span class="p">,</span> <span class="p">[</span><span class="kt">DadosDoJogador</span><span class="p">])</span>
+<span class="linenos" data-linenos="80 "></span><span class="nf">agir</span> <span class="n">t</span> <span class="n">js</span> <span class="n">j</span> <span class="ow">=</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">js</span><span class="p">)</span>
+<span class="linenos" data-linenos="81 "></span>
+<span class="linenos" data-linenos="82 "></span><span class="c1">-- Verifica se é possível colocar a boma e coloca.</span>
+<span class="linenos" data-linenos="83 "></span><span class="nf">colocarBomba</span> <span class="ow">::</span> <span class="kt">Tabuleiro</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">DadosDoJogador</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Tabuleiro</span><span class="p">,</span> <span class="p">[</span><span class="kt">DadosDoJogador</span><span class="p">])</span>
+<span class="linenos" data-linenos="84 "></span><span class="nf">colocarBomba</span> <span class="n">t</span> <span class="n">js</span> <span class="n">i</span> <span class="ow">=</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">js</span><span class="p">)</span>
+<span class="linenos" data-linenos="85 "></span>
+<span class="linenos" data-linenos="86 "></span>
+<span class="linenos" data-linenos="87 "></span>
+<span class="linenos" data-linenos="88 "></span>
+<span class="linenos" data-linenos="89 "></span><span class="c1">--- &gt;&gt;&gt; filter (\x -&gt; x &gt; 5) [1..23]</span>
+<span class="linenos" data-linenos="90 "></span><span class="c1">-- [6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]</span>
 </code></pre></div>
 
   <!-- Last update of source file -->
@@ -811,7 +957,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.e99e714c.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes", "navigation.tracking"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.e99e714c.min.js", "version": {"provider": "mike"}}</script>
     
     
       <script src="../assets/javascripts/bundle.bc35569b.min.js"></script>

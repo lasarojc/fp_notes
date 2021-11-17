@@ -254,7 +254,7 @@
   
     <li class="md-nav__item">
       <a href="../preface/" class="md-nav__link">
-        Prefácio
+        Apresentação
       </a>
     </li>
   
@@ -267,10 +267,108 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../intro/">Introdução</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Introdução" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Introdução
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../intro/" class="md-nav__link">
-        Introdução
+      <a href="../intro/paradigm/" class="md-nav__link">
+        Paradigmas
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/choseyourpoison/" class="md-nav__link">
+        Escolhas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/haskell/" class="md-nav__link">
+        Haskell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/more/" class="md-nav__link">
+        Mais
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -282,55 +380,92 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../haskell101/" class="md-nav__link">
-        1+1
-      </a>
-    </li>
-  
-
     
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       
       
-
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../functions/">Funções</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Funções" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Funções
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../functions/" class="md-nav__link">
-        Primeiras funções
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ifthenelse/" class="md-nav__link">
+      <a href="../functions/ifthenelse/" class="md-nav__link">
         Se então, senão
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../guards/" class="md-nav__link">
+      <a href="../functions/guards/" class="md-nav__link">
         Guardas!
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/pattern_matching/" class="md-nav__link">
+        Padrões
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -671,7 +806,7 @@ Acontece que Haskell é inteligente o suficiente para perceber se a função nã
 Esta técnica é conhecida como <strong>recursão de cauda</strong>, pois a chamada recursiva é a última coisa feita na função e, por isso, não deixa pendências.
 Em outras palavra <strong>o resultado da chamada recursiva é o resultado da chamada</strong>.
 No exemplo da soma, podemos reescrever a função assim:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">soma</span> <span class="mi">0</span> <span class="n">acc</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">acc</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">soma</span> <span class="n">acc</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">acc</span>
 <span class="linenos" data-linenos="2 "></span><span class="nf">soma</span> <span class="n">acc</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">soma</span> <span class="p">(</span><span class="n">acc</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span> <span class="n">xs</span>
 </code></pre></div>
 <p>Como não há pilha, é possível calcular somatórios bem maiores, pois nada fica para trás, correto? </p>
@@ -679,19 +814,19 @@ No exemplo da soma, podemos reescrever a função assim:</p>
 <p>A verdade é que o Haskell é muito preguiçoso, e não avalia o <code>+</code> enquanto não for necessário, então a computação fica na verdade assim.</p>
 <p><img alt="" src="../drawings/tail_recursion.drawio-2.svg" /></p>
 <p>Haskell nos dá, contudo, a opção de forçar o cálculo do acumulador antes de passá-lo como parâmetro para a chamada recursiva usando a função <code class="highlight"><span class="nf">seq</span></code>.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">soma</span> <span class="mi">0</span> <span class="n">acc</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">acc</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">soma</span> <span class="n">acc</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">acc</span>
 <span class="linenos" data-linenos="2 "></span><span class="nf">soma</span> <span class="n">acc</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">seq</span> <span class="n">acc</span> <span class="n">soma</span> <span class="p">(</span><span class="n">acc</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span> <span class="n">xs</span>
 </code></pre></div>
 <p>O que a segunda linha do código faz é dizer ao Haskell que "primeiro avalie <code class="highlight"><span class="nf">acc</span></code> e <strong>na sequência</strong> avalie <code class="highlight"><span class="nf">soma</span> <span class="p">(</span><span class="n">acc</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span> <span class="n">xs</span></code>.
 Outra forma, mais idiomática de escrever o mesmo código é usando <code class="highlight"><span class="nf">seq</span></code> de forma infixa.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">soma</span> <span class="mi">0</span> <span class="n">acc</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">acc</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">soma</span> <span class="n">acc</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">acc</span>
 <span class="linenos" data-linenos="2 "></span><span class="nf">soma</span> <span class="n">acc</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">acc</span> <span class="p">`</span><span class="n">seq</span><span class="p">`</span> <span class="n">soma</span> <span class="p">(</span><span class="n">acc</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span> <span class="n">xs</span>
 </code></pre></div>
 <p>Felizmente você quase nunca precisará usar <code class="highlight"><span class="nf">seq</span></code> manualmente quando estiver escrevendo código que vá entrar em produção, isto é, que será compilado, pois poderá usar a flag <code>-O</code> para dizer ao compilador que tente encontrar onde o uso de <code class="highlight"><span class="nf">seq</span></code> seria apropriado, e o compilador faz um excelente trabalho neste sentido.</p>
 <p>A técnica de passar um acumulador ou acumuladores na invocação recursiva é muito comum e deve estar sempre em sua mente.
 E se você não quiser "poluir" a API com um parâmetro que só faz sentido por causa da recursão, você pode usar funções auxiliares, como a seguir.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">soma</span> <span class="n">l</span> <span class="ow">=</span> <span class="n">soma&#39;</span> <span class="mi">0</span> <span class="n">l</span>
-<span class="linenos" data-linenos="2 "></span>   <span class="kr">where</span> <span class="n">soma&#39;</span> <span class="mi">0</span> <span class="n">acc</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">acc</span>
+<span class="linenos" data-linenos="2 "></span>   <span class="kr">where</span> <span class="n">soma&#39;</span> <span class="n">acc</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">acc</span>
 <span class="linenos" data-linenos="3 "></span>         <span class="n">soma&#39;</span> <span class="n">acc</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">soma&#39;</span> <span class="p">(</span><span class="n">acc</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span> <span class="n">xs</span>
 </code></pre></div>
 <p>Vejamos um outro exemplo do uso de recursão de cauda, desta vez para calcular os números da sequência de Fibonacci "de baixo para cima".</p>
@@ -702,7 +837,6 @@ E se você não quiser "poluir" a API com um parâmetro que só faz sentido por 
 <span class="linenos" data-linenos="5 "></span>    <span class="kr">where</span> <span class="n">fibUpTo</span> <span class="n">prevPrev</span> <span class="n">prev</span> <span class="n">prevCount</span> <span class="n">limit</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">prevCount</span> <span class="o">==</span> <span class="n">limit</span> <span class="kr">then</span> <span class="n">prev</span> <span class="o">+</span> <span class="n">prevPrev</span>
 <span class="linenos" data-linenos="6 "></span>                                                                        <span class="kr">else</span> <span class="n">fibUpTo</span> <span class="n">prev</span> <span class="p">(</span><span class="n">prev</span> <span class="o">+</span> <span class="n">prevPrev</span><span class="p">)</span> <span class="p">(</span><span class="n">prevCount</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="n">limit</span>
 </code></pre></div>
-<h6>foldl x foldr</h6>
 
   <!-- Last update of source file -->
 
@@ -791,7 +925,7 @@ E se você não quiser "poluir" a API com um parâmetro que só faz sentido por 
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.e99e714c.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes", "navigation.tracking"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.e99e714c.min.js", "version": {"provider": "mike"}}</script>
     
     
       <script src="../assets/javascripts/bundle.bc35569b.min.js"></script>

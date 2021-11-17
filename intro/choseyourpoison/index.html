@@ -11,19 +11,19 @@
       
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
     
     
       
-        <title>Polimorfismo - Notas de Aula em Programação Funcional</title>
+        <title>Escolhas - Notas de Aula em Programação Funcional</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.24c991ad.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.24c991ad.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
         
       
     
@@ -38,7 +38,7 @@
     
     
     
-      <link rel="stylesheet" href="../css/extra.css">
+      <link rel="stylesheet" href="../../css/extra.css">
     
     
       
@@ -74,7 +74,7 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
     
-    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
       <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#polimorfismo" class="md-skip">
+        <a href="#para-cada-servico-uma-ferramenta" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -97,7 +97,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
-    <a href=".." title="Notas de Aula em Programação Funcional" class="md-header__button md-logo" aria-label="Notas de Aula em Programação Funcional" data-md-component="logo">
+    <a href="../.." title="Notas de Aula em Programação Funcional" class="md-header__button md-logo" aria-label="Notas de Aula em Programação Funcional" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Polimorfismo
+              Escolhas
             
           </span>
         </div>
@@ -221,7 +221,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Notas de Aula em Programação Funcional" class="md-nav__button md-logo" aria-label="Notas de Aula em Programação Funcional" data-md-component="logo">
+    <a href="../.." title="Notas de Aula em Programação Funcional" class="md-nav__button md-logo" aria-label="Notas de Aula em Programação Funcional" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -253,7 +253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../preface/" class="md-nav__link">
+      <a href="../../preface/" class="md-nav__link">
         Apresentação
       </a>
     </li>
@@ -266,12 +266,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -293,7 +295,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../intro/">Introdução</a>
+          <a href="../">Introdução</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -317,7 +319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../intro/paradigm/" class="md-nav__link">
+      <a href="../paradigm/" class="md-nav__link">
         Paradigmas
       </a>
     </li>
@@ -329,11 +331,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../intro/choseyourpoison/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Escolhas
       </a>
+      
     </li>
   
 
@@ -345,7 +357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../intro/haskell/" class="md-nav__link">
+      <a href="../haskell/" class="md-nav__link">
         Haskell
       </a>
     </li>
@@ -359,7 +371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../intro/more/" class="md-nav__link">
+      <a href="../more/" class="md-nav__link">
         Mais
       </a>
     </li>
@@ -404,7 +416,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../functions/">Funções</a>
+          <a href="../../functions/">Funções</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -428,7 +440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../functions/ifthenelse/" class="md-nav__link">
+      <a href="../../functions/ifthenelse/" class="md-nav__link">
         Se então, senão
       </a>
     </li>
@@ -442,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../functions/guards/" class="md-nav__link">
+      <a href="../../functions/guards/" class="md-nav__link">
         Guardas!
       </a>
     </li>
@@ -456,7 +468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../functions/pattern_matching/" class="md-nav__link">
+      <a href="../../functions/pattern_matching/" class="md-nav__link">
         Padrões
       </a>
     </li>
@@ -478,7 +490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../types/" class="md-nav__link">
+      <a href="../../types/" class="md-nav__link">
         Tipos
       </a>
     </li>
@@ -493,7 +505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tuples/" class="md-nav__link">
+      <a href="../../tuples/" class="md-nav__link">
         Tuplas
       </a>
     </li>
@@ -508,7 +520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pattern_matching/" class="md-nav__link">
+      <a href="../../pattern_matching/" class="md-nav__link">
         Padrões
       </a>
     </li>
@@ -523,7 +535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../recursion/" class="md-nav__link">
+      <a href="../../recursion/" class="md-nav__link">
         Recursão
       </a>
     </li>
@@ -538,7 +550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../where_let_in/" class="md-nav__link">
+      <a href="../../where_let_in/" class="md-nav__link">
         Where e Let-In
       </a>
     </li>
@@ -553,7 +565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lists/" class="md-nav__link">
+      <a href="../../lists/" class="md-nav__link">
         Listas
       </a>
     </li>
@@ -566,21 +578,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../type_variables/" class="md-nav__link">
         Polimorfismo
       </a>
-      
     </li>
   
 
@@ -593,7 +595,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../algebraic_data_types/" class="md-nav__link">
+      <a href="../../algebraic_data_types/" class="md-nav__link">
         Tipos algébricos
       </a>
     </li>
@@ -608,7 +610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../highorder/" class="md-nav__link">
+      <a href="../../highorder/" class="md-nav__link">
         Funções de ordem superior
       </a>
     </li>
@@ -623,7 +625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../io/" class="md-nav__link">
+      <a href="../../io/" class="md-nav__link">
         Entrada e Saída
       </a>
     </li>
@@ -638,7 +640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../app/" class="md-nav__link">
+      <a href="../../app/" class="md-nav__link">
         Tudo junto e misturado
       </a>
     </li>
@@ -653,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lambda/" class="md-nav__link">
+      <a href="../../lambda/" class="md-nav__link">
         Cálculo λ
       </a>
     </li>
@@ -668,7 +670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lazy/" class="md-nav__link">
+      <a href="../../lazy/" class="md-nav__link">
         Que preguiça
       </a>
     </li>
@@ -683,7 +685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tail_recursion/" class="md-nav__link">
+      <a href="../../tail_recursion/" class="md-nav__link">
         Recursão de Cauda
       </a>
     </li>
@@ -698,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../quickcheck/" class="md-nav__link">
+      <a href="../../quickcheck/" class="md-nav__link">
         Quick, Check!
       </a>
     </li>
@@ -713,7 +715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../project/" class="md-nav__link">
+      <a href="../../project/" class="md-nav__link">
         Projeto
       </a>
     </li>
@@ -728,7 +730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../comments/" class="md-nav__link">
+      <a href="../../comments/" class="md-nav__link">
         Erros comuns
       </a>
     </li>
@@ -775,49 +777,64 @@
 
 
   <!-- Content -->
-  <h1 id="polimorfismo">Polimorfismo</h1>
-<p>Observe o funcionamento da função <code class="highlight"><span class="nf">head</span></code> nos seguintes exemplos.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">head</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)]</span>
-<span class="linenos" data-linenos="2 "></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="n">head</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="linenos" data-linenos="4 "></span><span class="mi">1</span>
-<span class="linenos" data-linenos="5 "></span><span class="o">&gt;</span> <span class="n">head</span> <span class="s">&quot;abcd&quot;</span>
-<span class="linenos" data-linenos="6 "></span><span class="sc">&#39;a&#39;</span>
-</code></pre></div>
-<p>Independentemente do tipo dos elementos da lista e, portanto, da lista, <code class="highlight"><span class="nf">head</span></code> consistentemente retorna o primeiro elemento da lista passada como parâmetro.
-Isso acontece porquê a função <code class="highlight"><span class="nf">head</span></code> é o que chamamos de <strong>polimórfica</strong>, literalmente, com muitos formas, e pode atuar sobre listas de diversos tipos.</p>
-<p>Funções polimórficas são declaradas usando <strong>variáveis de tipo</strong> em vez de tipos específicos para os parâmetros, como fizemos até agora.
-A função <code class="highlight"><span class="nf">head</span></code>, por exemplo, tem declaração de tipo <code class="highlight"><span class="nf">head</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="n">a</span></code>,<sup id="fnref:parametric"><a class="footnote-ref" href="#fn:parametric">1</a></sup> onde <code class="highlight"><span class="nf">a</span></code> é a variável de tipo.
-Esta declaração implica que a função recebe como parâmetro uma lista de elementos de um tipo qualquer <code class="highlight"><span class="nf">a</span></code> e que retorna um elemento <strong>do mesmo tipo</strong> <code class="highlight"><span class="nf">a</span></code>.</p>
-<p>Várias variáveis de tipos podem aparecer em uma mesma declaração, como em <code class="highlight"><span class="nf">snd</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">b</span></code>, que define que o resultado da função é do mesmo tipo do segundo elemento da dupla passada como parâmetros, ou <code class="highlight"><span class="nf">zip</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)]</span></code>, que combina o tipo dos parâmetros de entrada em uma tupla dos mesmos tipos no resultado da função.
-Observe que variáveis de tipo <strong>devem começar com uma letra minúscula</strong> e, geralmente, são recebem nomes <code class="highlight"><span class="nf">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="o">...</span></code>, mas fora isso, podem ter qualquer nome, o que literalmente permite que funções tenham uma infinitude de nomes.</p>
-<p>Declarações também podem misturar variáveis de tipo com tipos normais, como em <code class="highlight"><span class="nf">length</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span></code>, que define que o comprimento de uma lista de qualquer tipo será sempre do tipo <code class="highlight"><span class="kt">Int</span></code>, e <code class="highlight"><span class="nf">take</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span></code>.</p>
-<p>Enquanto algumas funções tem variáveis de tipo completamente livres, isto é, podem ser instanciadas com qualquer tipo, outras impõem certas restrições nos tipos na forma de <strong>classes de tipo</strong>.</p>
-<p>Por exemplo, a função <code class="highlight"><span class="nf">sort</span></code> recebe uma lista de dados e retorna uma lista com os mesmos dados, ordenados.
-Para implementar a ordenação, é preciso que os elementos da lista possam ser comparados uns com os outros, o que é determinado pela pertinência do tipo à classe de tipos <code class="highlight"><span class="kt">Ord</span></code>. 
-A declaração da função fica então assim: <code class="highlight"><span class="nf">sort</span> <span class="ow">::</span> <span class="kt">Ord</span> <span class="n">a</span> <span class="ow">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span></code>.<sup id="fnref:adhoc"><a class="footnote-ref" href="#fn:adhoc">2</a></sup></p>
-<p>Uma mesma variável de tipo pode pertencer a múltiplas classes e diferentes variáveis podem pertencer a classes diferentes, como nas seguintes declarações:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nf">quickSort</span> <span class="ow">::</span> <span class="kt">Ord</span> <span class="n">a</span> <span class="ow">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
-<span class="linenos" data-linenos=" 2 "></span><span class="nf">quickSort</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="kt">[]</span>
-<span class="linenos" data-linenos=" 3 "></span><span class="nf">quickSort</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">quickSort</span> <span class="p">(</span><span class="n">filter</span> <span class="p">(</span><span class="o">&lt;=</span> <span class="n">x</span><span class="p">)</span> <span class="n">xs</span><span class="p">)</span> <span class="o">++</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">++</span> <span class="n">quickSort</span> <span class="p">(</span><span class="n">filter</span> <span class="p">(</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">)</span> <span class="n">xs</span><span class="p">)</span>
-<span class="linenos" data-linenos=" 4 "></span>
-<span class="linenos" data-linenos=" 5 "></span><span class="nf">sortAndPrint</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Show</span> <span class="n">a</span><span class="p">,</span> <span class="kt">Ord</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span>
-<span class="linenos" data-linenos=" 6 "></span><span class="nf">sortAndPrint</span> <span class="n">l</span> <span class="ow">=</span> <span class="n">map</span> <span class="n">show</span> <span class="p">(</span><span class="n">quickSort</span> <span class="n">l</span><span class="p">)</span>
-<span class="linenos" data-linenos=" 7 "></span>
-<span class="linenos" data-linenos=" 8 "></span>
-<span class="linenos" data-linenos=" 9 "></span><span class="o">&gt;</span> <span class="n">quickSort</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">9</span><span class="o">..</span><span class="mi">1</span><span class="p">]</span>
-<span class="linenos" data-linenos="10 "></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
-<span class="linenos" data-linenos="11 "></span><span class="o">&gt;</span> <span class="n">sortAndPrint</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">9</span><span class="o">..</span><span class="mi">1</span><span class="p">]</span>
-<span class="linenos" data-linenos="12 "></span><span class="p">[</span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="s">&quot;2&quot;</span><span class="p">,</span><span class="s">&quot;3&quot;</span><span class="p">,</span><span class="s">&quot;4&quot;</span><span class="p">,</span><span class="s">&quot;5&quot;</span><span class="p">,</span><span class="s">&quot;6&quot;</span><span class="p">,</span><span class="s">&quot;7&quot;</span><span class="p">,</span><span class="s">&quot;8&quot;</span><span class="p">,</span><span class="s">&quot;9&quot;</span><span class="p">,</span><span class="s">&quot;10&quot;</span><span class="p">]</span>
-</code></pre></div>
+  <h1 id="para-cada-servico-uma-ferramenta">Para cada serviço, uma ferramenta!</h1>
+<p>Em cada paradigma, encontramos vantagens e desvantagens.
+Como desenvolvedores de tecnologia, nada mais justo que vocês conheçam todos os paradigmas e que possam, assim, escolher aquele paradigma e, dentro dele, aquela linguagem que permite resolver o seu problema da forma mais eficiente, isto é, rapidamente, com menor custo e com melhor qualidade.</p>
+<p>Mas quanto ao paradigma funcional, em especial, é importante compreendê-lo pois muitas de suas funcionalidades tem sido incorporadas a outras linguagens, como compreensão de listas em Python, funções lambda em Java e C++, e processamento assíncrono, que pode ser visto como uma forma de avaliação preguiçosa, em diversas linguagens.</p>
+<p>Algumas características importantes do paradigma:</p>
+<ul>
+<li>
+<p>Sem efeitos colaterais: executando um programa, de repente você percebe que uma certa variável tem um valor estranho e fica se perguntando quem foi que atribuiu tal valor; efeitos colaterais são a origem de boa parte dos bugs e eliminá-los, ou ao menos reduzí-los, permite que você identifique rapidamente onde alterações poderiam ter acontecido.</p>
+</li>
+<li>
+<p>Camadas de abstração: funções podem ser compostas levando a programas verdadeiramente complexos, permitindo que abstrações sejam definidas em diversas camadas. Além disso, é possível, em teoria, ser provar a corretude de funções e, mesmo que na prática isso não se realize, há ferramentas que conseguem usar esta ideia para lhe ajudar a encontrar bugs.</p>
+</li>
+<li>
+<p>Processamento paralelo eficiente: a ausência de efeitos colaterais também implica que funções sem dependências podem ser executadas em paralelo, sem se preocupar com qualquer sincronização, isto é, sem mutexes e variáveis de condição, etc.</p>
+</li>
+<li>
+<p>Avaliação preguiçosa: funções só precisam realmente ser executadas se seus resultados são necessários e o compilador consegue atrasar a execução de funções enquanto possível.</p>
+</li>
+<li>
+<p>Recursão de calda: alguns problemas podem ser descritos muito facilmente como uma recursão que com uma iteração, mas linguagens tradicionais tem um limite no tamanho das pilhas de função; linguagens funcionais conseguem, em certas condições, usar recursão infinita, contornando esta limitação.</p>
+</li>
+<li>
+<p>Funções de ordem superior: funções podem receber outras funções como parâmetro e com isso podemos compor funções, por exemplo para implementar orientação a objetos.</p>
+</li>
+</ul>
+<p>Como já ficou óbvio, há muitas, muitas linguagens de programação por aí e é possível escrever código bom em cada um delas, assim como é possível escrever código ruim em cada uma delas.
+Também é possível escrever usando orientação a objetos ou funcionalmente em cada uma delas, mas embora seja <strong>possível</strong>, há aquelas linguagens que suportam melhor cada um dos paradigmas.
+Dentre estas, há diversas opções de linguagens que podemos usar para estudar o paradigma funcional, por exemplo:</p>
+<ul>
+<li>Scheme</li>
+<li>Lisp</li>
+<li>ML</li>
+<li>F#</li>
+<li>Erlang</li>
+<li>Elixir</li>
+<li>Haskell</li>
+<li>Clojure</li>
+</ul>
+<p>Neste curso, veremos princípios gerais e que, em teoria, poderiam ser aplicados em quaisquer destas linguagens.
+Contudo, como a sintaxe pode variar muito de uma linguagem para outra, precisaremos nos focar em uma única.
+Assim, nosso foco aqui será em Haskell, uma linguagem funcional madura e estável.</p>
 <div class="footnote">
 <hr />
 <ol>
-<li id="fn:parametric">
-<p>Este tipo de polimorfismo, em que o tipo não tem qualquer restrição, é denominado <strong>paramétrico</strong>.&#160;<a class="footnote-backref" href="#fnref:parametric" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<li id="fn:comunicacao">
+<p><a href="https://www.dicio.com.br/comunicacao/">Comunicação</a>&#160;<a class="footnote-backref" href="#fnref:comunicacao" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
-<li id="fn:adhoc">
-<p>Este tipo de polimorfismo é denominado <em>ad-hoc</em>.&#160;<a class="footnote-backref" href="#fnref:adhoc" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<li id="fn:lp">
+<p><a href="https://pt.wikipedia.org/wiki/Linguagem_de_programa%C3%A7%C3%A3o">Linguagem de Programação</a>&#160;<a class="footnote-backref" href="#fnref:lp" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:families">
+<p><a href="https://kremer.cpsc.ucalgary.ca/courses/seng403/W2013/papers/11ProgrammingLanguages.pdf">Programming Language Families</a>&#160;<a class="footnote-backref" href="#fnref:families" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:void">
+<p><code>void</code> é simplesmente um resultado que diz que o resultado não importa.&#160;<a class="footnote-backref" href="#fnref:void" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:monadas">
+<p><a href="https://www.youtube.com/watch?v=t1e8gqXLbsU">What is a Monad?</a>&#160;<a class="footnote-backref" href="#fnref:monadas" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -842,7 +859,7 @@ A declaração da função fica então assim: <code class="highlight"><span clas
     <nav class="md-footer__inner md-grid" aria-label="Rodapé">
       
         
-        <a href="../lists/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Listas" rel="prev">
+        <a href="../paradigm/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Paradigmas" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -851,20 +868,20 @@ A declaração da função fica então assim: <code class="highlight"><span clas
               <span class="md-footer__direction">
                 Anterior
               </span>
-              Listas
+              Paradigmas
             </div>
           </div>
         </a>
       
       
         
-        <a href="../algebraic_data_types/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Tipos algébricos" rel="next">
+        <a href="../haskell/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Haskell" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Tipos algébricos
+              Haskell
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -909,16 +926,16 @@ A declaração da função fica então assim: <code class="highlight"><span clas
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes", "navigation.tracking"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.e99e714c.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "navigation.indexes", "navigation.tracking"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../../assets/javascripts/workers/search.e99e714c.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.bc35569b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.bc35569b.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
-        <script src="../javascripts/mathjaxhelper.js"></script>
+        <script src="../../javascripts/mathjaxhelper.js"></script>
       
     
   </body>

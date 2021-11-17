@@ -254,7 +254,7 @@
   
     <li class="md-nav__item">
       <a href="../preface/" class="md-nav__link">
-        Prefácio
+        Apresentação
       </a>
     </li>
   
@@ -267,10 +267,108 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../intro/">Introdução</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Introdução" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Introdução
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../intro/" class="md-nav__link">
-        Introdução
+      <a href="../intro/paradigm/" class="md-nav__link">
+        Paradigmas
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/choseyourpoison/" class="md-nav__link">
+        Escolhas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/haskell/" class="md-nav__link">
+        Haskell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/more/" class="md-nav__link">
+        Mais
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -282,55 +380,92 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../haskell101/" class="md-nav__link">
-        1+1
-      </a>
-    </li>
-  
-
     
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       
       
-
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../functions/">Funções</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Funções" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Funções
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../functions/" class="md-nav__link">
-        Primeiras funções
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ifthenelse/" class="md-nav__link">
+      <a href="../functions/ifthenelse/" class="md-nav__link">
         Se então, senão
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../guards/" class="md-nav__link">
+      <a href="../functions/guards/" class="md-nav__link">
         Guardas!
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/pattern_matching/" class="md-nav__link">
+        Padrões
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -686,17 +821,17 @@
 
   <!-- Content -->
   <h1 id="calculo-lambda">Cálculo  <span class="arithmatex">\(\lambda\)</span></h1>
-<p>O cálculo <span class="arithmatex">\(\lambda\)</span> (<span class="arithmatex">\(\lambda\)</span>-calculus) é um sistema formal para expressão computação desenvolvido pelo matemático Alonzo Church em 1930 e que serve de base para o paradigma de programação funcional.
+<p>O cálculo <span class="arithmatex">\(\lambda\)</span> (<span class="arithmatex">\(\lambda\)</span>-calculus) é um sistema formal para expressão de computação desenvolvido pelo matemático Alonzo Church em 1930 e que serve de base para o paradigma de programação funcional.
 O formalismo em si é muito simples e consiste na descrição da computação executada na forma de termos lambda, que podem dos seguintes tipos:</p>
 <ul>
 <li>constante: por exemplo, 4;<sup id="fnref:lambda1"><a class="footnote-ref" href="#fn:lambda1">1</a></sup></li>
 <li>variável: por exemplo, <span class="arithmatex">\(x\)</span>;</li>
-<li>abstração: se <span class="arithmatex">\(t\)</span> é um termo <span class="arithmatex">\(\lambda\)</span> e <span class="arithmatex">\(x\)</span> é uma variável, então <span class="arithmatex">\((\lambda x.t)\)</span> é uma abstração, que define uma função onde <span class="arithmatex">\(x\)</span> é um parâmetro a ser aplicado em <span class="arithmatex">\(t\)</span>, por exemplo, a abstração <span class="arithmatex">\(\lambda x.x*x\)</span> é função <span class="arithmatex">\(f(x) = x^2\)</span>;</li>
+<li>abstração: se <span class="arithmatex">\(t\)</span> é um termo lambda e <span class="arithmatex">\(x\)</span> é uma variável, então <span class="arithmatex">\((\lambda x.t)\)</span> é uma abstração, que define uma função onde <span class="arithmatex">\(x\)</span> é um parâmetro a ser aplicado em <span class="arithmatex">\(t\)</span>, por exemplo, a abstração <span class="arithmatex">\(\lambda x.x*x\)</span> é função <span class="arithmatex">\(f(x) = x^2\)</span>;</li>
 <li>aplicação: se <span class="arithmatex">\(t\)</span> e <span class="arithmatex">\(s\)</span> são termos, então <span class="arithmatex">\((ts)\)</span> é uma aplicação, que representa a invocação da função <span class="arithmatex">\(t\)</span> com parâmetro <span class="arithmatex">\(s\)</span>, por exemplo, <span class="arithmatex">\(((\lambda x.x*x)3)\)</span> corresponde a invocação de <span class="arithmatex">\(f(3)\)</span>, onde <span class="arithmatex">\(f(x) = x^2\)</span>.</li>
 </ul>
 <p>O cálculo da computação acontece pela aplicação sucessiva de certas regras de transformação que reduzem ("simplificam") os termos até que um resultado seja obtido.
 As reduções <span class="arithmatex">\(\beta\)</span> são as mais importantes no contexto do nosso estudo, pois elas reduzem uma aplicações.
-Por exemplo, seja o termo lambda <span class="arithmatex">\((\lambda x.2 \times x)5\)</span>; a redução <span class="arithmatex">\(\beta\)</span> reduz o termo pela termo resultante da substituição de todas as ocorrências de <span class="arithmatex">\(x\)</span> por 5, que pode ser novamente substituído pela aplicação do operador <span class="arithmatex">\(\times\)</span>, isto é </p>
+Por exemplo, seja o termo lambda <span class="arithmatex">\((\lambda x.2 \times x)5\)</span>; a redução <span class="arithmatex">\(\beta\)</span> reduz o termo pela substituição de todas as ocorrências de <span class="arithmatex">\(x\)</span> por 5, que pode ser novamente substituído pela aplicação do operador <span class="arithmatex">\(\times\)</span>, isto é </p>
 <div class="arithmatex">\[
 \begin{eqnarray}
 (\lambda x.2 \times x)5 &amp;\rightarrow_\beta&amp; 5 \times 2 \\
@@ -750,6 +885,7 @@ De fato, os conceitos discutidos até agora são a base das seguintes funcionali
 <li>Currying</li>
 <li>Avaliação preguiçosa</li>
 </ul>
+<p>Colocando de outra forma, Haskell é apenas uma implementação, com sintaxe mais amigável, do Cálculo <span class="arithmatex">\(\lambda\)</span>.</p>
 <div class="footnote">
 <hr />
 <ol>
@@ -846,7 +982,7 @@ De fato, os conceitos discutidos até agora são a base das seguintes funcionali
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.e99e714c.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes", "navigation.tracking"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.e99e714c.min.js", "version": {"provider": "mike"}}</script>
     
     
       <script src="../assets/javascripts/bundle.bc35569b.min.js"></script>
