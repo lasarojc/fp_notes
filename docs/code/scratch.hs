@@ -1,6 +1,6 @@
 import Debug.Trace(trace)
 import Data.List (delete,isPrefixOf)
-import Data.Char (ord)
+import Data.Char (ord,toLower)
 
 
 {- 
@@ -1912,4 +1912,28 @@ remove' l1 l2 = foldl op [] l2
 --                                                        [0,2,3]
 --                                                               [0,2,3]
 -- >>> foldl op [] [0,1,2,3,4]
+
+
+
+
+
+imc2 :: Double -> Double -> String
+imc2 p a
+    | imc' <= trace "av b "  18.5 = "Baixo"
+    | imc' <= trace "av n " 25.0 = "Normal"
+    | imc' <= trace "av a " 30.0 = "Alto"
+    | otherwise = "Muito, muito alto"
+    where imc' = trace "hmmm... " (p /a^2)
+
+
+fibWhere 0 = 0
+fibWhere 1 = 1
+fibWhere n = prev + prevPrev
+    where prev     = fibWhere (n - 1) 
+          prevPrev = fibWhere (n - 2)
+
+
+--- >>> imc2 90 1.8
+-- "Alto"
+
 

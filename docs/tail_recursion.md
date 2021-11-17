@@ -42,7 +42,7 @@ Em outras palavra **o resultado da chamada recursiva é o resultado da chamada**
 No exemplo da soma, podemos reescrever a função assim:
 
 ```hs
-soma 0 acc [] = acc
+soma acc [] = acc
 soma acc (x:xs) = soma (acc + x) xs
 ```
 
@@ -57,7 +57,7 @@ A verdade é que o Haskell é muito preguiçoso, e não avalia o `+` enquanto n�
 Haskell nos dá, contudo, a opção de forçar o cálculo do acumulador antes de passá-lo como parâmetro para a chamada recursiva usando a função `#!hs seq`.
 
 ```hs
-soma 0 acc [] = acc
+soma acc [] = acc
 soma acc (x:xs) = seq acc soma (acc + x) xs
 ```
 
@@ -65,7 +65,7 @@ O que a segunda linha do código faz é dizer ao Haskell que "primeiro avalie `#
 Outra forma, mais idiomática de escrever o mesmo código é usando `#!hs seq` de forma infixa.
 
 ```hs
-soma 0 acc [] = acc
+soma acc [] = acc
 soma acc (x:xs) = acc `seq` soma (acc + x) xs
 ```
 
@@ -77,7 +77,7 @@ E se você não quiser "poluir" a API com um parâmetro que só faz sentido por 
 
 ```hs
 soma l = soma' 0 l
-   where soma' 0 acc [] = acc
+   where soma' acc [] = acc
          soma' acc (x:xs) = soma' (acc + x) xs
 ```
 
@@ -88,6 +88,3 @@ Vejamos um outro exemplo do uso de recursão de cauda, desta vez para calcular o
 docs/code/fib1.hs
 --8<--
 ```
-
-
-###### foldl x foldr

@@ -7,7 +7,7 @@ imc p a
     | imc' <= 18.5 = "Baixo"
     | imc' <= 25.0 = "Normal"
     | imc' <= 30.0 = "Alto"
-    where imc' = p / a ^ 2
+    where imc' = p / a^2
 ```
 
 O uso de `#!hs where` na definição, além de melhorar a legibilidade do código, dá ao compilador Haskell a oportunidade de usar uma de suas mais importantes funcionalidades, a **avaliação preguiçosa**.

@@ -1,17 +1,17 @@
 # Cálculo  $\lambda$
 
-O cálculo $\lambda$ ($\lambda$-calculus) é um sistema formal para expressão computação desenvolvido pelo matemático Alonzo Church em 1930 e que serve de base para o paradigma de programação funcional.
+O cálculo $\lambda$ ($\lambda$-calculus) é um sistema formal para expressão de computação desenvolvido pelo matemático Alonzo Church em 1930 e que serve de base para o paradigma de programação funcional.
 O formalismo em si é muito simples e consiste na descrição da computação executada na forma de termos lambda, que podem dos seguintes tipos:
 
 * constante: por exemplo, 4;[^lambda1]
 * variável: por exemplo, $x$;
-* abstração: se $t$ é um termo $\lambda$ e $x$ é uma variável, então $(\lambda x.t)$ é uma abstração, que define uma função onde $x$ é um parâmetro a ser aplicado em $t$, por exemplo, a abstração $\lambda x.x*x$ é função $f(x) = x^2$;
+* abstração: se $t$ é um termo lambda e $x$ é uma variável, então $(\lambda x.t)$ é uma abstração, que define uma função onde $x$ é um parâmetro a ser aplicado em $t$, por exemplo, a abstração $\lambda x.x*x$ é função $f(x) = x^2$;
 * aplicação: se $t$ e $s$ são termos, então $(ts)$ é uma aplicação, que representa a invocação da função $t$ com parâmetro $s$, por exemplo, $((\lambda x.x*x)3)$ corresponde a invocação de $f(3)$, onde $f(x) = x^2$.
 
 
 O cálculo da computação acontece pela aplicação sucessiva de certas regras de transformação que reduzem ("simplificam") os termos até que um resultado seja obtido.
 As reduções $\beta$ são as mais importantes no contexto do nosso estudo, pois elas reduzem uma aplicações.
-Por exemplo, seja o termo lambda $(\lambda x.2 \times x)5$; a redução $\beta$ reduz o termo pela termo resultante da substituição de todas as ocorrências de $x$ por 5, que pode ser novamente substituído pela aplicação do operador $\times$, isto é 
+Por exemplo, seja o termo lambda $(\lambda x.2 \times x)5$; a redução $\beta$ reduz o termo pela substituição de todas as ocorrências de $x$ por 5, que pode ser novamente substituído pela aplicação do operador $\times$, isto é 
 
 $$
 \begin{eqnarray}
@@ -76,7 +76,7 @@ De fato, os conceitos discutidos até agora são a base das seguintes funcionali
 * Currying
 * Avaliação preguiçosa
 
-
+Colocando de outra forma, Haskell é apenas uma implementação, com sintaxe mais amigável, do Cálculo $\lambda$.
 
 
 [^lambda1]: Na verdade este não é um termo lambda, mas uma simplificação de como um termo lambda poderia ser usado para representar uma constante, não somente numérica mas também, por exemplo, booleanos. A forma purista do cálculo $\lambda$ seria muito complicada para este curso.

@@ -33,6 +33,7 @@ theme:
            - search.suggest
            - search.highlight
            - navigation.indexes
+           - navigation.tracking
 
 markdown_extensions:
         - toc:
@@ -111,18 +112,25 @@ plugins:
 
 nav:
         #- Início: index.html
-        - Prefácio: preface.md #1 assinc
-        - Introdução: intro.md #1 sinc
-        
-        - 1+1: haskell101.md #2 sinc
-        - Primeiras funções: functions.md #2 sinc
-        - Se então, senão: ifthenelse.md #2 sinc
-        - Guardas!: guards.md
+        - Apresentação: preface.md
+        - Introdução: 
+            - intro/index.md
+            - Paradigmas: intro/paradigm.md
+            - Escolhas: intro/choseyourpoison.md
+            - Haskell: intro/haskell.md
+            - Mais: intro/more.md
+
+        - Funções:
+            - functions/index.md
+            - Se então, senão: functions/ifthenelse.md
+            - Guardas!: functions/guards.md
+            - Padrões: functions/pattern_matching.md
+
         - Tipos: types.md
         
         - Tuplas: tuples.md
 
-        - Padrões: pattern_matching.md
+        - Padrões: pattern_matching.md #Remove some content that got migrated to 1+1
 
         - Recursão: recursion.md
 

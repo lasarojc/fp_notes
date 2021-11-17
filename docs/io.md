@@ -13,13 +13,13 @@ No caso de Haskell, E/S é encapsulada em Mônadas, um conceito no qual não nos
 E/S é executada por meio de uma **ação E/S**, uma função especial que se comunica com o mundo "exterior".
 As seguintes funções são exemplos de ações que se comunicam com teclado e monitor.
 
-| Ação | Descrição |
-|------|-----------|
+| Ação           | Descrição |
+|----------------|-----------|
 | `#!hs getChar` | Lê um caractere do teclado. |
 | `#!hs putChar` | Escreve um caractere na tela. |
 | `#!hs getLine` | Lê uma linha do teclado. |
-| `#!hs putStr` |  Escreve uma string na tela. |
-| `#!hs putStrLn` | Escreve uma string na tela e quebra a linha. |
+| `#!hs putStr`  |  Escreve uma string na tela. |
+| `#!hs putStrLn`| Escreve uma string na tela e quebra a linha. |
 
 
 ## *binding*
@@ -173,3 +173,21 @@ Digite seu nome:
 Asdrubalino
 Olá, Asdrubalino
 ```
+
+
+## `#!hs do` é açúcar sintático
+
+
+???todo "TODO"
+    ```hs
+    main = do print "lala"
+              print "lele"
+              print "lili"
+
+    main = print "lala" >> print "lele" >> print "lili"
+    ```
+
+## Funções úteis
+
+* `#!hs sequence_ :: [IO a] -> IO ()`
+* `#!hs sequence  :: [IO a] -> IO [a]` 
