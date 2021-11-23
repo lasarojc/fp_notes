@@ -1,0 +1,1834 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Notas de aula do curso de Sistemas Distribuídos da FACOM/UFU">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
+    
+    
+      
+        <title>Padrões - Notas de Aula em Programação Funcional</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.24c991ad.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    
+      
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-65TK61CS8M"),document.addEventListener("DOMContentLoaded",function(){"undefined"!=typeof location$&&location$.subscribe(function(t){gtag("config","G-65TK61CS8M",{page_path:t.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-65TK61CS8M"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#casamento-de-padroes" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Notas de Aula em Programação Funcional" class="md-header__button md-logo" aria-label="Notas de Aula em Programação Funcional" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notas de Aula em Programação Funcional
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Padrões
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/lasarojc/fp_notes" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Notas de Aula em Programação Funcional" class="md-nav__button md-logo" aria-label="Notas de Aula em Programação Funcional" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Notas de Aula em Programação Funcional
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/lasarojc/fp_notes" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preface/" class="md-nav__link">
+        Apresentação
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../intro/">Introdução</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Introdução" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Introdução
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/haskell/" class="md-nav__link">
+        Haskell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/more/" class="md-nav__link">
+        Mais Haskell
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../functions/">Funções I</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Funções I" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Funções I
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../functions/ifthenelse/" class="md-nav__link">
+        Se então, senão
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../functions/guards/" class="md-nav__link">
+        Guardas!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../functions/pattern_matching/" class="md-nav__link">
+        Padrões
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../functions/where_let_in/" class="md-nav__link">
+        Funções Locais
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../types/">Tipos I</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tipos I" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tipos I
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/basic/" class="md-nav__link">
+        Básicos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/functions/" class="md-nav__link">
+        Funções
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/tuples/" class="md-nav__link">
+        Tuplas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/lists/" class="md-nav__link">
+        Listas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/operators/" class="md-nav__link">
+        Operadores
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../development/">Desenvolvimento I</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Desenvolvimento I" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Desenvolvimento I
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/modules/" class="md-nav__link">
+        Módulos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/hspec/" class="md-nav__link">
+        HSpec
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/quickcheck/" class="md-nav__link">
+        Quick, Check!
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Funções II
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Funções II" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Funções II
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Padrões
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Padrões
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-padrao" class="md-nav__link">
+    Tipos de Padrão
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definicao-de-funcoes" class="md-nav__link">
+    Definição de Funções
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listas" class="md-nav__link">
+    Listas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursao" class="md-nav__link">
+    Recursão
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recursion/" class="md-nav__link">
+        Recursão
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Tipos II
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tipos II" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tipos II
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types2/userdefined/" class="md-nav__link">
+        Novos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types2/algebraic/" class="md-nav__link">
+        Tipos algébricos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types2/type_variables/" class="md-nav__link">
+        Polimorfismo
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lambda/lambda/" class="md-nav__link">
+        Cálculo λ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Funções III
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Funções III" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Funções III
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../functions3/highorder/" class="md-nav__link">
+        Ordem superior
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../functions3/lazy/" class="md-nav__link">
+        Que preguiça
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../functions3/tail_recursion/" class="md-nav__link">
+        Recursão de cauda
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Entrada e Saída
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Entrada e Saída" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Entrada e Saída
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../io.md" class="md-nav__link">
+        IO
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tests/iotest.md" class="md-nav__link">
+        Testes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../app.md" class="md-nav__link">
+        Tudo junto e misturado
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/" class="md-nav__link">
+        Projetos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comments/" class="md-nav__link">
+        Erros comuns
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-padrao" class="md-nav__link">
+    Tipos de Padrão
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definicao-de-funcoes" class="md-nav__link">
+    Definição de Funções
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listas" class="md-nav__link">
+    Listas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursao" class="md-nav__link">
+    Recursão
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+<!-- Edit button -->
+
+
+  <!--
+       Hack: check whether the content contains a h1 headline. If it
+       doesn't, the page title (or respectively site name) is used
+       as the main headline.
+    -->
+
+
+  <!-- Content -->
+  <h1 id="casamento-de-padroes">Casamento de Padrões</h1>
+<p>Mencionamos anteriormente que quando especificamos a lista de parâmetros formais que uma função recebe, estamos dizendo ao compilador que os parâmetros passados na invocação da função devem ser associados aos parâmetros formais.
+Vamos nos aprofundar nesta ideia, do <strong>casamento de padrões</strong>.</p>
+<h2 id="tipos-de-padrao">Tipos de Padrão</h2>
+<p>O casamento de padrões é o processo pelo qual os valores em uma <strong>expressão</strong> são decompostos e associados aos elementos de um <strong>padrão</strong>.
+Em outras palavras, dada uma expressão e um padrão, é feita uma tentativa de decomposição da expressão de acordo com o especificado pelo padrão.
+Se a decomposição é bem sucedida, isto é, se <strong>a expressão e o padrão tem exatamente o mesmo tipo</strong> e se <strong>constantes</strong> especificadas no padrão tem o mesmo valor na mesma posição da expressão, então o casamento <strong>é bem sucedido</strong>; caso contrário, o casamento <strong>fracassa</strong>.</p>
+<p>É mais fácil entender a descrição de casamento de padrões acima usando exemplos. 
+Para isso, vamos dividir os padrões em alguns tipos e analisar exemplos de cada um destes tipos.</p>
+<h6>Constante</h6>
+<p>Considere a seguinte tabela, com suas colunas <strong>padrão</strong>, cujas entradas são <strong>constantes</strong>, <strong>valor</strong>, cujas cujas entradas queremos tentar casar com o padrão, e <strong>resultado</strong>, que informa o resultado do casamento.</p>
+<table>
+<thead>
+<tr>
+<th>Padrão</th>
+<th>Valor</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>10</td>
+<td>Sucesso</td>
+</tr>
+<tr>
+<td>10</td>
+<td>20</td>
+<td>Fracasso</td>
+</tr>
+<tr>
+<td>10</td>
+<td>'C'</td>
+<td>Erro</td>
+</tr>
+<tr>
+<td>True</td>
+<td>False</td>
+<td>Fracasso</td>
+</tr>
+<tr>
+<td>False</td>
+<td>False</td>
+<td>Sucesso</td>
+</tr>
+</tbody>
+</table>
+<p>Para cada linha, imagine uma função definida como a seguir, mas onde o símbolo █ é substituído pelo padrão</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">minhaFunção</span> <span class="err">█</span> <span class="ow">=</span> <span class="s">&quot;Sucesso!&quot;</span>
+</code></pre></div>
+e que você esteja invocando a função no ghci assim como a seguir, mas onde o símbolo ▓ é substituído pelo valor.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">minhaFunção</span> <span class="err">▓</span>
+</code></pre></div>
+<p>Por exemplo, para a primeira linha, a função fica assim</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">minhaFunção</span> <span class="mi">10</span> <span class="ow">=</span> <span class="s">&quot;Sucesso!&quot;</span>
+</code></pre></div>
+<p>e a invocação fica assim.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">minhaFunção</span> <span class="mi">10</span>
+</code></pre></div>
+<p>Quando a invocação é feita, o ghci pega o valor passado, 10, e tenta casá-lo com o padrão especificado na definição de minhaFunção, 10.
+Neste caso, há um casamento entre o valor e o padrão.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">minhaFuncao</span> <span class="mi">10</span>
+<span class="linenos" data-linenos="2 "></span><span class="s">&quot;Deu certo&quot;</span>
+</code></pre></div>
+<p>Já para a segunda linha, não há um casamento, pois o valor 10 não pode ser decomposto como a constante 20, e o ghci reclama com um erro que não vem ao caso agora.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">minhaFuncao</span> <span class="mi">20</span>
+<span class="linenos" data-linenos="2 "></span><span class="s">&quot;*** Exception: scratch.hs:87:1-28: Non-exhaustive patterns in function minhaFuncao</span>
+</code></pre></div>
+<h6>Variável</h6>
+<p>Se em vez de constantes a coluna padrão tivesse como elementos uma variável, então o casamento sempre seria bem sucedido.
+Neste caso, a coluna <em>associações</em><sup id="fnref:bind"><a class="footnote-ref" href="#fn:bind">1</a></sup> mostra quais os valores associados à cada variável do padrão. </p>
+<table>
+<thead>
+<tr>
+<th>Padrão</th>
+<th>Valor</th>
+<th>Resultado</th>
+<th>Associação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>10</td>
+<td>Sucesso</td>
+<td>x = 10</td>
+</tr>
+<tr>
+<td>x</td>
+<td>20</td>
+<td>Sucesso</td>
+<td>x = 20</td>
+</tr>
+<tr>
+<td>x</td>
+<td>'C'</td>
+<td>Sucesso</td>
+<td>x = 'C'</td>
+</tr>
+<tr>
+<td>x</td>
+<td>False</td>
+<td>Sucesso</td>
+<td>x = False</td>
+</tr>
+<tr>
+<td>x</td>
+<td>(1,2,3)</td>
+<td>Sucesso</td>
+<td>x = (1,2,3)</td>
+</tr>
+</tbody>
+</table>
+<h6>Curinga</h6>
+<p>Como já mencionado antes, <code>_</code> na definição de uma função funciona como uma variável, mas cujo valor é descartado, isto é, não é associado a uma variável.
+Isto é na verdade um casamento em que o padrão é um <strong>curinga</strong>, que é sempre bem sucedido mas que não gera uma associação.</p>
+<table>
+<thead>
+<tr>
+<th>Padrão</th>
+<th>Valor</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_</td>
+<td>10</td>
+<td>Sucesso</td>
+</tr>
+<tr>
+<td>_</td>
+<td>20</td>
+<td>Sucesso</td>
+</tr>
+<tr>
+<td>_</td>
+<td>'C'</td>
+<td>Sucesso</td>
+</tr>
+<tr>
+<td>_</td>
+<td>False</td>
+<td>Sucesso</td>
+</tr>
+<tr>
+<td>_</td>
+<td>(1,2,3)</td>
+<td>Sucesso</td>
+</tr>
+</tbody>
+</table>
+<h6>Tupla</h6>
+<p>Como demonstrado no exemplo da função <code class="highlight"><span class="nf">soma2v</span></code>, tuplas podem ser usados como padrão, permitindo decompor uma tupla usada como valor.
+O casamento de tuplas no valor e no padrão pode levar aos seguintes resultados, observando que o casamento de padrões é aplicado recursivamente em cada elemento da tupla.</p>
+<ul>
+<li>Sucesso se<ul>
+<li>a tupla padrão tiver a mesma aridade que a tupla valores <strong>e</strong></li>
+<li>cada elemento da tupla padrão casa com o elemento correspondente da tupla valor.</li>
+</ul>
+</li>
+<li>Fracasso se<ul>
+<li>a tupla padrão tiver a mesma aridade que a tupla valore <strong>e</strong></li>
+<li>algum elemento da tupla padrão <strong>não</strong> casa com o elemento correspondente da tupla valor.</li>
+</ul>
+</li>
+<li>Resulta em um erro de tipo se <ul>
+<li>a tupla de padrões <strong>não</strong> tiver a mesma aridade que a tupla de valores <strong>ou</strong></li>
+<li>algum elemento da tupla de padrões resultar um erro de tipo no casamento com o elemento correspondente da tupla de valores.</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Padrão</th>
+<th>Valor</th>
+<th>Resultado</th>
+<th>Associação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(x,y)</td>
+<td>(1,2)</td>
+<td>Sucesso</td>
+<td>x = 1 e y = 2</td>
+</tr>
+<tr>
+<td>(1,y)</td>
+<td>(1,2)</td>
+<td>Sucesso</td>
+<td>y = 2</td>
+</tr>
+<tr>
+<td>(1,y)</td>
+<td>(2,2)</td>
+<td>Fracasso</td>
+<td></td>
+</tr>
+<tr>
+<td>(_,y)</td>
+<td>(1,2)</td>
+<td>Sucesso</td>
+<td>y = 2</td>
+</tr>
+<tr>
+<td>(_,y)</td>
+<td>(10,2)</td>
+<td>Sucesso</td>
+<td>y = 2</td>
+</tr>
+<tr>
+<td>('X',y)</td>
+<td>('X',2)</td>
+<td>Sucesso</td>
+<td>y = 2</td>
+</tr>
+<tr>
+<td>(x,y)</td>
+<td>(1,(2,3))</td>
+<td>Sucesso</td>
+<td>x = 1; y = (2,3)</td>
+</tr>
+<tr>
+<td>(_, (_,y))</td>
+<td>(1,(2,3))</td>
+<td>Sucesso</td>
+<td>y = 3</td>
+</tr>
+<tr>
+<td>(x,y)</td>
+<td>(1,(2,3),3)</td>
+<td>Erro de tipo</td>
+<td></td>
+</tr>
+<tr>
+<td>(1,y)</td>
+<td>('x',(2,3))</td>
+<td>Erro de tipo</td>
+<td></td>
+</tr>
+<tr>
+<td>x</td>
+<td>(1,2)</td>
+<td>Sucesso</td>
+<td>x = (1,2)</td>
+</tr>
+<tr>
+<td>(x,y)</td>
+<td>1</td>
+<td>Erro de tipo</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h6>Listas</h6>
+<p>Por completude, precisamos mencionar que o casamento funciona também para listas, mas deixaremos para mais tarde esta discussão, quando nos focarmos em listas.</p>
+<h6>Mais de um padrão</h6>
+<p>Nos exemplos vistos nas tabelas, temos sempre um valor e um padrão, mas funções podem ter diversos parâmetros.
+Neste caso, o casamento de padrões acontece para cada um dos parâmetros passados na invocação da função, da esquerda para a direita.
+Por exemplo, considerando a seguinte definição</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">minhaFunção&#39;&#39;</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="p">((</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">),</span><span class="kr">_</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>  <span class="n">g</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="n">d</span> <span class="o">+</span> <span class="n">f</span> <span class="o">+</span> <span class="n">fst</span> <span class="n">g</span> <span class="o">+</span> <span class="n">snd</span> <span class="n">g</span>
+</code></pre></div>
+<p>invocação </p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">minhaFunção&#39;&#39;</span>  <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">31</span>
+</code></pre></div>
+<p>Isto é, temos as seguintes associações <code>a = 1, b = 2, c = 3, d = 4, f = 6, g = (7,8)</code>.</p>
+<h2 id="definicao-de-funcoes">Definição de Funções</h2>
+<p>Além de decompor os parâmetros passados para um função e como mencionado <a href="../guards">anteriormente</a>, casamento de padrões pode ser usado na definição de funções para simplificar testes via <code>if-then-else</code> e guardas nos parâmetros da função.</p>
+<p>Neste caso, a função é definida como uma sequência de equações em que são feitas tentativas sucessivas de casamento de padrões, na ordem das definições.
+O resultado da invocação da função é dado pela <strong>primeira</strong> equação em que houver um casamento bem sucedido <strong>e</strong> todas as guardas forem satisfeitas.
+Se ao final não houver casamento ou se as guardas não forem satisfeitas, ocorre um <strong>erro de execução</strong>.</p>
+<p>O exemplo seguinte mostra o uso de padrões curinga, constantes e variáveis, combinados com guardas e, um caso especial, gerando um erro.
+Você consegue determinar o que a função faz?</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nf">próximos3</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Char</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nf">próximos3</span> <span class="mi">0</span> <span class="kr">_</span> <span class="ow">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nf">próximos3</span> <span class="n">n</span> <span class="sc">&#39;d&#39;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="o">|</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="o">|</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nf">próximos3</span> <span class="n">n</span> <span class="sc">&#39;a&#39;</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="o">|</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="o">|</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="nf">próximos3</span> <span class="kr">_</span> <span class="kr">_</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;Use d ou a&quot;</span>
+</code></pre></div>
+<p>Vejamos outros exemplos, do módulo prelude do Haskell.
+Primeiro, a função <code>not</code>, que nega o valor passado.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">not</span> <span class="ow">::</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">not</span> <span class="kt">True</span> <span class="ow">=</span> <span class="kt">False</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">not</span> <span class="kt">False</span> <span class="ow">=</span> <span class="kt">True</span>
+</code></pre></div>
+<p>Vejamos agora diferentes definições do operador <code class="highlight"><span class="o">&amp;&amp;</span></code>. Observe que como o operador é infixo, a definição das equações segue esta notação, mesmo que a definição do protótipo não siga.</p>
+<p>A primeira definição usa somente constantes como padrão.
+Esta definição está correta, mas é mais complexa do que o necessário, já que somente a primeira equação resulta em <code class="highlight"><span class="kt">True</span></code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">(</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">True</span> <span class="o">&amp;&amp;</span> <span class="kt">True</span> <span class="ow">=</span> <span class="kt">True</span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">True</span> <span class="o">&amp;&amp;</span> <span class="kt">False</span> <span class="ow">=</span> <span class="kt">False</span>
+<span class="linenos" data-linenos="4 "></span><span class="kt">False</span> <span class="o">&amp;&amp;</span> <span class="kt">True</span> <span class="ow">=</span> <span class="kt">False</span>
+<span class="linenos" data-linenos="5 "></span><span class="kt">False</span> <span class="o">&amp;&amp;</span> <span class="kt">False</span> <span class="ow">=</span> <span class="kt">False</span>
+</code></pre></div>
+<p>Uma versão simplificada pelo uso de padrões curinga, seria a seguinte.
+Observe como ela é mais legível.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">(</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">True</span> <span class="o">&amp;&amp;</span> <span class="kt">True</span> <span class="ow">=</span> <span class="kt">True</span>
+<span class="linenos" data-linenos="3 "></span><span class="kr">_</span> <span class="o">&amp;&amp;</span> <span class="kr">_</span> <span class="ow">=</span> <span class="kt">False</span>
+</code></pre></div>
+<p>Finalmente, uma terceira versão que usa um padrão variável e um curinga também poderia ser usada.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">(</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">True</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">b</span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">False</span> <span class="o">&amp;&amp;</span> <span class="kr">_</span> <span class="ow">=</span> <span class="kt">False</span>
+</code></pre></div>
+<p>Como exemplo do casamento em padrões em tuplas, relembre as definições de <code class="highlight"><span class="nf">fst</span></code> e <code class="highlight"><span class="nf">snd</span></code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">fst</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="kr">_</span><span class="p">)</span> <span class="ow">=</span>  <span class="n">x</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">snd</span> <span class="p">(</span><span class="kr">_</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="ow">=</span>  <span class="n">y</span>
+</code></pre></div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercício</p>
+<ul>
+<li>Seguindo os moldes da definição do operador <code>&amp;&amp;</code>, defina o operador lógico ou <code>||</code> de três formas diferentes.</li>
+<li>Seguindo os moldes da definição do operador <code>&amp;&amp;</code>, defina o operador lógico ou <code>||</code> de três formas diferentes.</li>
+<li>
+<p>Defina 3 funções, usando <code>if</code>-<code>then</code>-<code>else</code>, guardas e casamento de padrões, que calculem os números da série de Fibonacci, a saber</p>
+<ul>
+<li>Fib(1) = 1<ul>
+<li>Fib(2) = 1</li>
+<li>Fib(n) = Fib(n-1) + Fib(n-2)</li>
+</ul>
+</li>
+</ul>
+<details class="example"><summary>Resolução</summary><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>```hs
+<span class="linenos" data-linenos="2 "></span>Surprise!
+<span class="linenos" data-linenos="3 "></span>```
+</code></pre></div>
+</details>
+</li>
+</ul>
+</div>
+<h6><code class="highlight"><span class="kr">case</span><span class="o">-</span><span class="kr">of</span></code></h6>
+<p>Esta estrutura se assemelha ao <code>switch</code> de linguagens como C e Java, e tem a seguinte sintaxe, onde os padrões devem estar perfeitamente alinhados.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kr">case</span> <span class="n">expression</span> <span class="kr">of</span> <span class="n">pattern</span> <span class="ow">-&gt;</span> <span class="n">result</span>  
+<span class="linenos" data-linenos="2 "></span>                   <span class="n">pattern</span> <span class="ow">-&gt;</span> <span class="n">result</span>  
+<span class="linenos" data-linenos="3 "></span>                   <span class="n">pattern</span> <span class="ow">-&gt;</span> <span class="n">result</span>  
+</code></pre></div>
+<p>Por exemplo, vamos definir uma função que retorne o nome do mês, dado o seu número.
+Seria possível escreve esta função com <code>if</code> aninhados, assim.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">nome_mes</span> <span class="n">m</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span> <span class="kr">then</span> <span class="s">&quot;JAN&quot;</span>
+<span class="linenos" data-linenos="2 "></span>             <span class="kr">else</span> <span class="kr">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">2</span> <span class="kr">then</span> <span class="s">&quot;FEB&quot;</span>
+<span class="linenos" data-linenos="3 "></span>             <span class="kr">else</span> <span class="kr">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">3</span> <span class="kr">then</span> <span class="s">&quot;MAR&quot;</span>
+<span class="linenos" data-linenos="4 "></span>             <span class="o">...</span>
+<span class="linenos" data-linenos="5 "></span>             <span class="kr">else</span> <span class="kr">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">11</span> <span class="kr">then</span> <span class="s">&quot;NOV&quot;</span>
+<span class="linenos" data-linenos="6 "></span>             <span class="kr">else</span> <span class="s">&quot;DEZ&quot;</span>
+</code></pre></div>
+<p>Usando guardas, ficaria assim:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">nome_mes</span> <span class="n">m</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="s">&quot;JAN&quot;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">=</span> <span class="s">&quot;FEB&quot;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">=</span> <span class="s">&quot;MAR&quot;</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="o">...</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">11</span> <span class="ow">=</span> <span class="s">&quot;NOV&quot;</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="o">|</span> <span class="n">otherwise</span> <span class="s">&quot;DEZ&quot;</span>
+</code></pre></div>
+<p>Usando <code>case</code>-<code>of</code>, a</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">nomeMes</span> <span class="n">m</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">m</span> <span class="kr">of</span> <span class="mi">1</span> <span class="ow">-&gt;</span> <span class="s">&quot;JAN&quot;</span>
+<span class="linenos" data-linenos="2 "></span>                 <span class="n">m</span> <span class="kr">of</span> <span class="mi">2</span> <span class="ow">-&gt;</span>  <span class="s">&quot;FEB&quot;</span>
+<span class="linenos" data-linenos="3 "></span>                 <span class="n">m</span> <span class="kr">of</span> <span class="mi">3</span> <span class="ow">-&gt;</span> <span class="s">&quot;MAR&quot;</span>
+<span class="linenos" data-linenos="4 "></span>                 <span class="o">...</span>
+<span class="linenos" data-linenos="5 "></span>                 <span class="n">m</span> <span class="kr">of</span> <span class="mi">11</span> <span class="ow">-&gt;</span> <span class="s">&quot;NOV&quot;</span>
+<span class="linenos" data-linenos="6 "></span>                 <span class="n">m</span> <span class="kr">of</span> <span class="mi">12</span> <span class="ow">-&gt;</span> <span class="s">&quot;DEZ&quot;</span>
+</code></pre></div>
+<p>É importante notar que é possível aninhar <code>case-of</code>.
+A função <code class="highlight"><span class="nf">próximos3</span></code> poderia ser reescrita assim.
+Observe o alinhamento dentro do segundo case.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">próximos3&#39;&#39;&#39;</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Char</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">próximos3&#39;&#39;&#39;</span> <span class="n">n</span> <span class="n">dir</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">n</span> <span class="kr">of</span> <span class="mi">0</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span>                               <span class="kr">_</span> <span class="ow">-&gt;</span> <span class="kr">case</span> <span class="n">dir</span> <span class="kr">of</span> <span class="sc">&#39;d&#39;</span> <span class="ow">-&gt;</span> <span class="kr">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="kr">else</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span>                                                <span class="sc">&#39;a&#39;</span> <span class="ow">-&gt;</span> <span class="kr">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="kr">then</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="kr">else</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span>                                                <span class="kr">_</span>   <span class="ow">-&gt;</span> <span class="ne">error</span> <span class="s">&quot;Use d ou a&quot;</span>
+</code></pre></div>
+<h2 id="listas">Listas</h2>
+<p>Toda lista é <strong>ou</strong> uma lista vazia <strong>ou</strong> ou um elemento cabeça seguido por uma lista cauda.
+Assim, se cobrir estes dois casos em uma definição por casamento de padrões, terá coberto "todos" os casos!
+Mas como? Vejamos um exemplo.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">oQueHáNaCabeça</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Show</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">oQueHáNaCabeça</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="s">&quot;Nada&quot;</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">oQueHáNaCabeça</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="s">&quot;Há &quot;</span> <span class="o">++</span> <span class="n">x</span>
+</code></pre></div>
+<ul>
+<li>Linha 1: não se preocupe esta linha; ela apenas implica que a lista deve ser de valores convertíveis a String</li>
+<li>Linha 2: esta linha usa um padrão constante para testar se a lista é vazia, isto é, <code class="highlight"><span class="kt">[]</span></code> e, neste caso, retornar a string <code class="highlight"><span class="s">&quot;Nada&quot;</span></code> como resultado.</li>
+<li>Linha 3: este é o caso mais interessante, pois usa um padrão que define uma lista em que <code class="highlight"><span class="nf">x</span></code> é a cabeça, concatenada por <code class="highlight"><span class="kt">:</span></code> a uma cauda <code class="highlight"><span class="nf">xs</span></code>, e retorna <code class="highlight"><span class="s">&quot;Há &quot;</span></code> seguido do valor casado com <code class="highlight"><span class="nf">x</span></code>.</li>
+</ul>
+<p>Observe que foram usados parênteses na linha 3 para especificar o padrão, e não apenas <code class="highlight"><span class="nf">x</span><span class="kt">:</span><span class="n">xs</span></code> como seria de se esperar.
+A verdade é que o padrão é <code class="highlight"><span class="nf">x</span><span class="kt">:</span><span class="n">xs</span></code> e os parêntesis são usados apenas para impedir que Haskell primeiro avalie <code class="highlight"><span class="nf">oQueHáNaCabeça</span> <span class="n">x</span></code> antes de avaliar o operador <code class="highlight"><span class="kt">:</span></code> e o seu segundo operando.
+Esta é uma das idiossincrasias de Haskell com a qual você simplesmente terá que aprender a conviver para dividir listas entre cabeça e cauda em um casamento de padrões.</p>
+<p>Embora estes dois padrões, isto é, lista vazia e cabeça seguida de cauda, cubram todas as possibilidades de listas, não quer dizer que não haja melhores opções, dependendo do que precise extrair da lista.
+Por exemplo, na próxima função há 4 casos de casamento de padrões distintos:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">oQueHáNaLista</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Show</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">oQueHáNaLista</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="s">&quot;Nada&quot;</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">oQueHáNaLista</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="ow">=</span> <span class="s">&quot;Só &quot;</span> <span class="o">++</span> <span class="p">(</span><span class="n">show</span> <span class="n">x</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span><span class="nf">oQueHáNaLista</span> <span class="p">[</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">]</span> <span class="ow">=</span> <span class="s">&quot;Há &quot;</span> <span class="o">++</span> <span class="p">(</span><span class="n">show</span> <span class="n">x1</span><span class="p">)</span> <span class="o">++</span> <span class="s">&quot; e &quot;</span> <span class="o">++</span> <span class="p">(</span><span class="n">show</span> <span class="n">x2</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span><span class="nf">oQueHáNaLista</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="s">&quot;Há &quot;</span> <span class="o">++</span> <span class="p">(</span><span class="n">show</span> <span class="n">x</span><span class="p">)</span> <span class="o">++</span> <span class="s">&quot; e mais um monte de coisas&quot;</span> 
+</code></pre></div>
+<ul>
+<li>Linha 2: lista vazia;</li>
+<li>Linha 3: lista com exatamente um elemento, casado com <code class="highlight"><span class="nf">x</span></code>.</li>
+<li>Linha 4: lista com exatamente 2 elementos, casados com <code class="highlight"><span class="nf">x1</span></code> e <code class="highlight"><span class="nf">x2</span></code>.</li>
+<li>Linha 5: lista com mais de 2 elementos, em que a cabeça é casada com <code class="highlight"><span class="nf">x</span></code> e a cauda com <code class="highlight"><span class="nf">xs</span></code>.</li>
+</ul>
+<p>Outra forma de obter exatamente o mesmo resultado, usando mais o operador <code class="highlight"><span class="nf">cons</span></code>,  seria a seguinte.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">oQueHáNaLista</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Show</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">oQueHáNaLista</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="s">&quot;Nada&quot;</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">oQueHáNaLista</span> <span class="p">(</span><span class="n">x</span><span class="kt">:[]</span><span class="p">)</span> <span class="ow">=</span> <span class="s">&quot;Só &quot;</span> <span class="o">++</span> <span class="p">(</span><span class="n">show</span> <span class="n">x</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span><span class="nf">oQueHáNaLista</span> <span class="p">(</span><span class="n">x1</span><span class="kt">:</span><span class="n">x2</span><span class="kt">:[]</span><span class="p">)</span> <span class="ow">=</span> <span class="s">&quot;Há &quot;</span> <span class="o">++</span> <span class="p">(</span><span class="n">show</span> <span class="n">x1</span><span class="p">)</span> <span class="o">++</span> <span class="s">&quot; e &quot;</span> <span class="o">++</span> <span class="p">(</span><span class="n">show</span> <span class="n">x2</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span><span class="nf">oQueHáNaLista</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="s">&quot;Há &quot;</span> <span class="o">++</span> <span class="p">(</span><span class="n">show</span> <span class="n">x</span><span class="p">)</span> <span class="o">++</span> <span class="s">&quot; e mais um monte de coisas&quot;</span> 
+</code></pre></div>
+<p>Dado que strings são apenas listas de Char, estas também podem ser decompostas por casamentos de padrões.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">resumo</span> <span class="ow">::</span> <span class="kt">String</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">resumo</span> <span class="kt">[]</span> <span class="ow">-&gt;</span> <span class="s">&quot;Nada&quot;</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">resumo</span> <span class="p">[</span><span class="kr">_</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="s">&quot;Um&quot;</span>
+<span class="linenos" data-linenos="4 "></span><span class="nf">resumo</span> <span class="p">[</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="s">&quot;Dois&quot;</span>
+<span class="linenos" data-linenos="5 "></span><span class="nf">resumo</span> <span class="kr">_</span> <span class="ow">-&gt;</span> <span class="s">&quot;Muitos&quot;</span>
+</code></pre></div>
+<p>Assim como listas podem ter elementos mais complexos que tipos primitivos, por exemplo tuplas e listas, também os casamentos de padrões aplicados a estas listas serão mais complexos.
+Por exemplo, considere uma lista de três ou mais String, isto é, uma lista de lista de Char; é possível, por exemplo, selecionar a primeira letra de cada uma das três primeiras strings com a seguinte função.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">iniciais</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Char</span><span class="p">]</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">iniciais</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="kt">[]</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">iniciais</span> <span class="p">[(</span><span class="n">x</span><span class="kt">:</span><span class="kr">_</span><span class="p">)]</span> <span class="ow">=</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>
+<span class="linenos" data-linenos="4 "></span><span class="nf">iniciais</span> <span class="p">[(</span><span class="n">x</span><span class="kt">:</span><span class="kr">_</span><span class="p">),(</span><span class="n">y</span><span class="kt">:</span><span class="kr">_</span><span class="p">)]</span> <span class="ow">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">]</span>
+<span class="linenos" data-linenos="5 "></span><span class="nf">iniciais</span> <span class="p">((</span><span class="n">x</span><span class="kt">:</span><span class="kr">_</span><span class="p">)</span><span class="kt">:</span><span class="p">(</span><span class="n">y</span><span class="kt">:</span><span class="kr">_</span><span class="p">)</span><span class="kt">:</span><span class="p">(</span><span class="n">z</span><span class="kt">:</span><span class="kr">_</span><span class="p">)</span><span class="kt">:</span><span class="kr">_</span><span class="p">)</span> <span class="ow">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="recursao">Recursão</h2>
+<p>A recursão é essencial no processamento de listas e, de fato, muitas das funções listadas na seção anterior podem e são definidas recursivamente, como a função <code>maximum</code>:</p>
+<p><span class="arithmatex">\(maximum~[1,2,3] = max~1 \left( maximum~[2,3] = max~2 \left( maximum~[3] = 3 \right)        \right)\)</span></p>
+<p>Vejamos algumas definições.<sup id="fnref:alt"><a class="footnote-ref" href="#fn:alt">2</a></sup></p>
+<div class="admonition example">
+<p class="admonition-title">maximum</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">maximum&#39;</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;lista vazia&quot;</span>  
+<span class="linenos" data-linenos="2 "></span><span class="nf">maximum&#39;</span> <span class="p">[</span><span class="n">h</span><span class="p">]</span> <span class="ow">=</span> <span class="n">h</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">maximum&#39;</span> <span class="p">(</span><span class="n">h</span><span class="kt">:</span><span class="n">t</span><span class="p">)</span> <span class="ow">=</span> <span class="n">max</span> <span class="n">h</span> <span class="p">(</span><span class="n">maximum&#39;</span> <span class="n">t</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">length</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">length&#39;</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">length&#39;</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="mi">0</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">length&#39;</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">length&#39;</span> <span class="n">xs</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">last</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">last&#39;</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">last&#39;</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;List is empty&quot;</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">last&#39;</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="ow">=</span> <span class="n">x</span>
+<span class="linenos" data-linenos="4 "></span><span class="nf">last&#39;</span> <span class="p">(</span><span class="kr">_</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">last&#39;</span> <span class="n">xs</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">reverse</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">reverse&#39;</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">reverse&#39;</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="kt">[]</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">reverse&#39;</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">reverse&#39;</span> <span class="n">xs</span> <span class="o">++</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">replicate</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">replicate&#39;</span> <span class="mi">0</span> <span class="n">e</span> <span class="ow">=</span> <span class="kt">[]</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">replicate&#39;</span> <span class="n">x</span> <span class="n">e</span> <span class="ow">=</span> <span class="n">e</span><span class="kt">:</span><span class="n">replicate&#39;</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">e</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">zip</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">zip&#39;</span> <span class="kt">[]</span> <span class="kr">_</span> <span class="ow">=</span> <span class="kt">[]</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">zip&#39;</span> <span class="kr">_</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="kt">[]</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">zip&#39;</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="p">(</span><span class="n">y</span><span class="kt">:</span><span class="n">ys</span><span class="p">)</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="kt">:</span> <span class="n">zip&#39;</span> <span class="n">xs</span> <span class="n">ys</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">elem</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">elem&#39;</span> <span class="kr">_</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="kt">False</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">elem&#39;</span> <span class="n">e</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">e</span> <span class="o">==</span> <span class="n">x</span> <span class="o">||</span> <span class="n">elem&#39;</span> <span class="n">e</span> <span class="n">xs</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">++</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">maisMais</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">maisMais</span> <span class="kt">[]</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="kt">[]</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">maisMais</span> <span class="kt">[]</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">y</span>
+<span class="linenos" data-linenos="4 "></span><span class="nf">maisMais</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="kt">:</span> <span class="n">maisMais</span> <span class="n">xs</span> <span class="n">y</span>
+</code></pre></div>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercício</p>
+<ul>
+<li>Defina a função <code>take</code></li>
+<li>Defina a função <code>drop</code></li>
+<li>Defina a função <code>união</code> que recebe duas listas sem repetições retorna a concatenação das listas, sem repetições, usando recursividade.</li>
+<li>Defina a função <code>união</code> que recebe duas listas sem repetições retorna a concatenação das listas, sem repetições, usando compreensão de listas.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Ordenação</p>
+<ul>
+<li>
+<p>Selection-sort (<a href="https://www.youtube.com/embed/Ns4TPTC8whw">https://www.youtube.com/embed/Ns4TPTC8whw</a>)</p>
+<ul>
+<li>Defina uma função <code>fr</code> que receba um inteiro <code>i</code> e uma lista de inteiros <code>l</code> e retorne a lista <code>l</code> sem a primeira ocorrência de <code>i</code> em <code>l</code>.</li>
+<li>Defina uma função <code>fm</code> que receba uma lista de inteiros <code>l</code> e retorne o menor inteiro da lista.</li>
+<li>Defina uma função <code>fs</code> que receba uma lista de inteiros <code>l</code>, escolha o menor inteiro <code>m</code> de <code>l</code> e retorne <code>m</code> concatenado a cabeça da lista gerada por <code>fs (fr m l)</code></li>
+</ul>
+</li>
+<li>
+<p>Merge-Sort (<a href="https://www.youtube.com/embed/XaqR3G_NVoo">https://www.youtube.com/embed/XaqR3G_NVoo</a>)</p>
+<ul>
+<li>Defina uma função <code>fd</code> que receba uma lista e retorne suas duas metades em uma dupla: <code class="highlight"><span class="nf">metade</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">11</span><span class="p">]</span> <span class="ow">=</span> <span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">])</span></code></li>
+<li>Defina uma função <code>fu</code> que receba duas listas ordenadas e retorne uma lista ordenada com a união das listas <code class="highlight"><span class="nf">união</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span> <span class="ow">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span></code></li>
+<li>Defina uma função <code>fm</code> que receba uma lista, divida-a na metade usando <code>fd</code>, aplique <code>fm</code> recursivamente em cada metade, e calcule a união das listas resultantes usando <code>fu</code>.</li>
+</ul>
+</li>
+<li>
+<p>Quick-sort</p>
+<ul>
+<li>Defina uma função <code>fp</code> que receba uma lista <code>l</code> de inteiros e retorne retorne uma tripla <code>(p,m1,m2)</code> em que <ul>
+<li><code>p</code> é o primeiro elemento da lista <code>l</code></li>
+<li><code>m1</code> é a lista dos elementos em <code>l</code> menores ou iguais a <code>p</code>, exclusive</li>
+<li><code>m2</code> é a lista dos elementos em <code>l</code> maiores que <code>p</code></li>
+</ul>
+</li>
+<li>Defina uma função <code>fq</code> que recebe uma lista <code>l</code>, calcule <code>(p,m1,m2) = fp l</code> e retorne <code>fq m1</code> concatenado a <code>p</code> concatenado a <code>fq m2</code>.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:bind">
+<p>O termo em inglês é <em>bind</em>.&#160;<a class="footnote-backref" href="#fnref:bind" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:alt">
+<p>Todas as funções definidas a seguir tem nome terminado em ``` para evitar colisão com as funções padrão.&#160;<a class="footnote-backref" href="#fnref:alt" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+  <!-- Last update of source file -->
+
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Rodapé">
+      
+        
+        <a href="../../development/quickcheck/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Quick, Check!" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Quick, Check!
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../recursion/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Recursão" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              Recursão
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2021 Lásaro Camargos
+          </div>
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+      <a href="https://github.com/lasarojc/ds_notes" target="_blank" rel="noopener" title="These notes on Github" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "navigation.indexes", "navigation.tracking"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../../assets/javascripts/workers/search.e99e714c.min.js", "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.bc35569b.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/mathjaxhelper.js"></script>
+      
+    
+  </body>
+</html>

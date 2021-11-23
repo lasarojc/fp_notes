@@ -1937,3 +1937,5 @@ fibWhere n = prev + prevPrev
 -- "Alto"
 
 
+soma2v :: (Int,Int) -> (Int,Int) -> (Int,Int)
+soma2v (x1,y1) (x2,y2) = (x1+x2, y1+y2)

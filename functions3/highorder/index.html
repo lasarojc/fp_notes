@@ -1,0 +1,1838 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Notas de aula do curso de Sistemas Distribuídos da FACOM/UFU">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
+    
+    
+      
+        <title>Ordem superior - Notas de Aula em Programação Funcional</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.24c991ad.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    
+      
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-65TK61CS8M"),document.addEventListener("DOMContentLoaded",function(){"undefined"!=typeof location$&&location$.subscribe(function(t){gtag("config","G-65TK61CS8M",{page_path:t.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-65TK61CS8M"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#funcoes-de-ordem-superior" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Notas de Aula em Programação Funcional" class="md-header__button md-logo" aria-label="Notas de Aula em Programação Funcional" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notas de Aula em Programação Funcional
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ordem superior
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/lasarojc/fp_notes" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Notas de Aula em Programação Funcional" class="md-nav__button md-logo" aria-label="Notas de Aula em Programação Funcional" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Notas de Aula em Programação Funcional
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/lasarojc/fp_notes" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../preface/" class="md-nav__link">
+        Apresentação
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../intro/">Introdução</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Introdução" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Introdução
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/haskell/" class="md-nav__link">
+        Haskell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/more/" class="md-nav__link">
+        Mais Haskell
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../functions/">Funções I</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Funções I" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Funções I
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../functions/ifthenelse/" class="md-nav__link">
+        Se então, senão
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../functions/guards/" class="md-nav__link">
+        Guardas!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../functions/pattern_matching/" class="md-nav__link">
+        Padrões
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../functions/where_let_in/" class="md-nav__link">
+        Funções Locais
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../types/">Tipos I</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tipos I" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tipos I
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/basic/" class="md-nav__link">
+        Básicos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/functions/" class="md-nav__link">
+        Funções
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/tuples/" class="md-nav__link">
+        Tuplas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/lists/" class="md-nav__link">
+        Listas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/operators/" class="md-nav__link">
+        Operadores
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../development/">Desenvolvimento I</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Desenvolvimento I" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Desenvolvimento I
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/modules/" class="md-nav__link">
+        Módulos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/hspec/" class="md-nav__link">
+        HSpec
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/quickcheck/" class="md-nav__link">
+        Quick, Check!
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Funções II
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Funções II" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Funções II
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../functions2/pattern_matching/" class="md-nav__link">
+        Padrões
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../functions2/recursion/" class="md-nav__link">
+        Recursão
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Tipos II
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tipos II" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tipos II
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types2/userdefined/" class="md-nav__link">
+        Novos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types2/algebraic/" class="md-nav__link">
+        Tipos algébricos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types2/type_variables/" class="md-nav__link">
+        Polimorfismo
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lambda/lambda/" class="md-nav__link">
+        Cálculo λ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Funções III
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Funções III" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Funções III
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Ordem superior
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Ordem superior
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    map
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fold-reducao" class="md-nav__link">
+    fold (redução)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filter-e-all" class="md-nav__link">
+    filter e all
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#currying-aplicacao-parcial" class="md-nav__link">
+    Currying (aplicação parcial)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lambda" class="md-nav__link">
+    Lambda (λ)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operador-aplicacao" class="md-nav__link">
+    Operador $ (aplicação)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operador-composicao" class="md-nav__link">
+    Operador . (composição)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lazy/" class="md-nav__link">
+        Que preguiça
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tail_recursion/" class="md-nav__link">
+        Recursão de cauda
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Entrada e Saída
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Entrada e Saída" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Entrada e Saída
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../io.md" class="md-nav__link">
+        IO
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tests/iotest.md" class="md-nav__link">
+        Testes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../app.md" class="md-nav__link">
+        Tudo junto e misturado
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/" class="md-nav__link">
+        Projetos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comments/" class="md-nav__link">
+        Erros comuns
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    map
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fold-reducao" class="md-nav__link">
+    fold (redução)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filter-e-all" class="md-nav__link">
+    filter e all
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#currying-aplicacao-parcial" class="md-nav__link">
+    Currying (aplicação parcial)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lambda" class="md-nav__link">
+    Lambda (λ)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operador-aplicacao" class="md-nav__link">
+    Operador $ (aplicação)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operador-composicao" class="md-nav__link">
+    Operador . (composição)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+<!-- Edit button -->
+
+
+  <!--
+       Hack: check whether the content contains a h1 headline. If it
+       doesn't, the page title (or respectively site name) is used
+       as the main headline.
+    -->
+
+
+  <!-- Content -->
+  <h1 id="funcoes-de-ordem-superior">Funções de ordem superior</h1>
+<p>Quando estudamos linguagens de programação, é comum denominar como <strong>cidadãos de primeira classe</strong> (do inglês, <em>first class citizens</em>) as entidades que podem ser atribuídas a variáveis, passadas como parâmetro, retornadas como resultado ou operadas de forma geral.
+Em Haskell, funções são cidadãs de primeira classe! Vejamos um exemplo em que uma função é associada a uma variável, o que efetivamente torna esta variável uma função!</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">f</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="linenos" data-linenos="2 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">g</span> <span class="ow">=</span> <span class="n">f</span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">g</span> <span class="mi">1</span> <span class="mi">2</span>
+<span class="linenos" data-linenos="4 "></span><span class="mi">3</span>
+</code></pre></div>
+<p>Outro conceito relacionado é o das <strong>funções de ordem superior</strong>, aquelas funções que ou recebem como parâmetro ou retornam como resultado outras funções, e que só podem existir em linguagens em que funções são cidadãs de primeira classe.
+Vejamos um exemplo de uma função de ordem superior que aplica uma outra função, recebida como parâmetro, aos seus outros parâmetros.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nf">somar</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> 
+<span class="linenos" data-linenos=" 2 "></span><span class="nf">somar</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nf">multiplicar</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> 
+<span class="linenos" data-linenos=" 5 "></span><span class="nf">multiplicar</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nf">dividir</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> 
+<span class="linenos" data-linenos=" 8 "></span><span class="nf">dividir</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="n">y</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="nf">operar</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="12 "></span><span class="nf">operar</span> <span class="n">f</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">f</span> <span class="n">x</span> <span class="n">y</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="c1">-- &gt;&gt;&gt; operar somar 3 4</span>
+<span class="linenos" data-linenos="15 "></span><span class="c1">-- 7</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span><span class="c1">-- &gt;&gt;&gt; operar multiplicar 3 4</span>
+<span class="linenos" data-linenos="18 "></span><span class="c1">-- 12</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span><span class="c1">-- &gt;&gt;&gt; operar dividir 3 4</span>
+<span class="linenos" data-linenos="21 "></span><span class="c1">-- 0</span>
+</code></pre></div>
+<p>Observe que a função <code class="highlight"><span class="nf">operar</span></code> tem como primeiro parâmetro formal <code>#!f</code>, que é do tipo <code class="highlight"><span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span></code>, isto é, uma função que recebe dois inteiros e retorna um inteiro.
+Esta função <code class="highlight"><span class="nf">f</span></code> é aplicada aos demais parâmetros de de <code class="highlight"><span class="nf">operar</span></code> para calcular o resultado.</p>
+<p>Funções de alta ordem são úteis em diversas situações, por exemplo, como forma de criar um comportamento configurável no seu código, e são frequentes na biblioteca da linguagem Haskell, dentre as quais destacamos <code class="highlight"><span class="nf">map</span></code>,  <code class="highlight"><span class="nf">filter</span></code>,  e diversos tipos de <code class="highlight"><span class="nf">fold</span></code>.</p>
+<h2 id="map">map</h2>
+<p>Seja uma lista de inteiros sobre a qual você queira executar diversas transformações, por exemplo, multiplicar todos os valores por 10, somar 3, testar se par ou achar o módulo por 3.
+Você pode começar definindo funções que fazem transformações em um único elemento e, para cada uma, uma função correspondente para listas.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nf">multiplicarPor10</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nf">multiplicarPor10</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">10</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nf">multiplicarPor10Lista</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nf">multiplicarPor10Lista</span> <span class="n">l</span> <span class="ow">=</span> <span class="p">[</span><span class="n">multiplicarPor10</span> <span class="n">e</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="n">l</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="c1">-- &gt;&gt;&gt;multiplicarPor10Lista [2..5]</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="c1">-- [20,30,40,50]</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="nf">somar3</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="11 "></span><span class="nf">somar3</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="nf">somar3Lista</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
+<span class="linenos" data-linenos="14 "></span><span class="nf">somar3Lista</span> <span class="n">l</span> <span class="ow">=</span> <span class="p">[</span><span class="n">somar3</span> <span class="n">e</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="n">l</span><span class="p">]</span>
+<span class="linenos" data-linenos="15 "></span><span class="c1">-- &gt;&gt;&gt;somar3Lista [2..5]</span>
+<span class="linenos" data-linenos="16 "></span><span class="c1">-- [5,6,7,8]</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span>
+<span class="linenos" data-linenos="19 "></span><span class="nf">éPar</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos="20 "></span><span class="nf">éPar</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">even</span> <span class="n">x</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span><span class="nf">éParLista</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Bool</span><span class="p">]</span>
+<span class="linenos" data-linenos="23 "></span><span class="nf">éParLista</span> <span class="n">l</span> <span class="ow">=</span> <span class="p">[</span><span class="n">éPar</span> <span class="n">e</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="n">l</span><span class="p">]</span>
+<span class="linenos" data-linenos="24 "></span><span class="c1">-- &gt;&gt;&gt;éParLista [2..5]</span>
+<span class="linenos" data-linenos="25 "></span><span class="c1">-- [True,False,True,False]</span>
+<span class="linenos" data-linenos="26 "></span>
+<span class="linenos" data-linenos="27 "></span>
+<span class="linenos" data-linenos="28 "></span><span class="nf">mod3</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="29 "></span><span class="nf">mod3</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="p">`</span><span class="n">mod</span><span class="p">`</span> <span class="mi">3</span> 
+<span class="linenos" data-linenos="30 "></span>
+<span class="linenos" data-linenos="31 "></span><span class="nf">mod3Lista</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
+<span class="linenos" data-linenos="32 "></span><span class="nf">mod3Lista</span> <span class="n">l</span>  <span class="ow">=</span> <span class="p">[</span><span class="n">mod3</span> <span class="n">e</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="n">l</span><span class="p">]</span>
+<span class="linenos" data-linenos="33 "></span>
+<span class="linenos" data-linenos="34 "></span><span class="c1">-- &gt;&gt;&gt;mod3Lista [2..5]</span>
+<span class="linenos" data-linenos="35 "></span><span class="c1">-- [2,0,1,2]</span>
+</code></pre></div>
+<p>Se você observar as funções para as listas perceberá que todas tem uma mesma estrutura.
+Graças às funções de ordem superior, você pode aproveitar este fato e criar uma função, genérica, que sirva para aplicar qualquer das transformações desejadas.</p>
+<p>Como as funções acima, nossa função genérica recebe uma lista de um tipo <code class="highlight"><span class="nf">a</span></code> e resultará em uma lista de um tipo <code class="highlight"><span class="nf">b</span></code>.
+Por iso, chamemos nossa função de <code class="highlight"><span class="nf">mapeie</span></code>, pois com ela mapearemos cada valor da lista de entrada para a lista de resultado. 
+Além da lista de entrada, <code class="highlight"><span class="nf">mapeie</span></code> mas também receberá uma função com tipo <code class="highlight"><span class="nf">a</span> <span class="ow">-&gt;</span> <span class="n">b</span></code>, a ser aplicada nas transformações.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">mapeie</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">b</span><span class="p">]</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">mapeie</span> <span class="n">f</span> <span class="n">xs</span> <span class="ow">=</span> <span class="p">[</span><span class="n">f</span> <span class="n">x</span> <span class="o">|</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">xs</span><span class="p">]</span>
+</code></pre></div>
+<p>Uma vez definida a função, sua invocação é trivial.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&gt;</span> <span class="n">mapeie</span> <span class="n">multiplicarPor10</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="o">&gt;</span> <span class="n">mapeie</span> <span class="n">somar3</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="o">&gt;</span> <span class="n">mapeie</span> <span class="n">éPar</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">[</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="o">&gt;</span> <span class="n">mapeie</span> <span class="n">mod3</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+<p>A função <code class="highlight"><span class="nf">mapeie</span></code>, na verdade, serve para aplicar <strong>qualquer função</strong> que transforme <code>a</code> para <code>b</code> em uma lista de elementos do tipo <code>a</code>, resultando em uma lista de elementos do tipo <code>b</code>.
+Esta função é tão útil, que já existe na biblioteca do Haskell e de qualquer linguagem de programação funcional (e mesmo outras, como Python e Java).</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="n">map</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">map</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">b</span><span class="p">]</span>   <span class="c1">-- Defined in ‘GHC.Base’</span>
+</code></pre></div>
+<h2 id="fold-reducao">fold (redução)</h2>
+<p>Um outro procedimento recorrente sobre dados é a redução ou sumarização de um conjunto para um único valor, como é feito pelas funções <code class="highlight"><span class="nf">product</span></code> e <code class="highlight"><span class="nf">sum</span></code> nos seguintes exemplos.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">sum</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">55</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span> <span class="n">product</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">3</span><span class="p">]</span>
+<span class="linenos" data-linenos="5 "></span><span class="mi">6</span>
+</code></pre></div>
+<p>Vamos tentar generalizar estas duas funções usando uma função de ordem superior.
+Isto é, definimos uma função de ordem superior que receba um operador, como <code class="highlight"><span class="p">(</span><span class="o">+</span><span class="p">)</span></code> e <code class="highlight"><span class="p">(</span><span class="o">*</span><span class="p">)</span></code>, e aplique a uma lista de inteiros calculando resumo dos elementos da lista, como o somatório ou o produtório no caso dos operadores <code class="highlight"><span class="p">(</span><span class="o">+</span><span class="p">)</span></code> e <code class="highlight"><span class="p">(</span><span class="o">*</span><span class="p">)</span></code>.
+Comecemos por redefinir <code class="highlight"><span class="nf">sum</span></code> e <code class="highlight"><span class="nf">product</span></code> para entender melhor suas estruturas.</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">sum&#39;</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">sum&#39;</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="mi">0</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">sum&#39;</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">+</span> <span class="n">sum&#39;</span> <span class="n">ns</span>
+</code></pre></div>
+Podemos pensar na função <code class="highlight"><span class="nf">sum&#39;</span></code> como gerando uma expressão formada pelos elementos da lista mais o valor 0, separados pelo operador <code>+</code>, por exemplo, <code class="highlight"><span class="nf">sum&#39;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="ow">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">0</span></code> e <code class="highlight"><span class="nf">sum&#39;</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">14</span><span class="p">]</span> <span class="ow">=</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">14</span> <span class="o">+</span> <span class="mi">0</span></code>.</p>
+<p>Observe que o valor 0 é escolhido como resultado do caso base, 0, pois ele não afeta o somatório, isto é, 0 é o elemento neutro (ou identidade) da adição.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">product&#39;</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">product&#39;</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">product&#39;</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">product&#39;</span> <span class="n">ns</span>
+</code></pre></div>
+<p>No caso de <code class="highlight"><span class="nf">product</span></code>, embora a estrutura seja a mesma, alteramos o caso base para 1, o elemento neutro da multiplicação.
+Assim, por mais estranho que possa parecer, o produtório de uma lista vazia é definido como 1.<sup id="fnref:product"><a class="footnote-ref" href="#fn:product">1</a></sup> 
+A expressão gerada pela função é semelhante, isto é, <code class="highlight"><span class="nf">product&#39;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="ow">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">1</span></code> e <code class="highlight"><span class="nf">product&#39;</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">14</span><span class="p">]</span> <span class="ow">=</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">*</span> <span class="mi">14</span> <span class="o">*</span> <span class="mi">1</span></code>.</p>
+<p>Podemos então generalizar a função como uma recursão em que o caso genérico é a do operador especificado e o caso base retorna o elemento neutro da operação.
+O tipo da função é claro; ela deve receber um operar, que é uma função que recebe dois inteiros e retorna um inteiro, a lista de inteiros para aplicar o operador, e retornar um resultado também inteiro.
+A recursão consistirá em um caso genérico, que aplica o operador à cabeça da lista e ao resultado da invocação recursivo na cauda, e de um caso base que retorne o elemento neutro da operação. Mas como saber qual é o elemento neutro?</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">resumir</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">resumir</span> <span class="n">f</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="o">??</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">resumir</span> <span class="n">f</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">n</span> <span class="p">`</span><span class="n">f</span><span class="p">`</span> <span class="p">(</span><span class="n">resumir</span> <span class="n">f</span> <span class="n">ns</span><span class="p">)</span>
+</code></pre></div>
+<p>Não nos resta alternativa senão passar o próprio elemento neutro na invocação da função, resultando na seguinte definição.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">resumir</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">resumir</span> <span class="n">f</span> <span class="n">i</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">i</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">resumir</span> <span class="n">f</span> <span class="n">i</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">n</span> <span class="p">`</span><span class="n">f</span><span class="p">`</span> <span class="p">(</span><span class="n">resumir</span> <span class="n">f</span> <span class="n">i</span> <span class="n">ns</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="c1">-- &gt;&gt;&gt; resumir somar 0 [1..5]</span>
+<span class="linenos" data-linenos="6 "></span><span class="c1">-- 15</span>
+<span class="linenos" data-linenos="7 "></span>
+<span class="linenos" data-linenos="8 "></span><span class="c1">-- &gt;&gt;&gt; resumir multiplicar 1 [1..5]</span>
+<span class="linenos" data-linenos="9 "></span><span class="c1">-- 120</span>
+</code></pre></div>
+<p>Uma variação ligeiramente diferente, alterando a chamada recursiva, gera os mesmos resultados.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">resumir&#39;</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">resumir&#39;</span> <span class="n">f</span> <span class="n">i</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">i</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">resumir&#39;</span> <span class="n">f</span> <span class="n">i</span> <span class="p">(</span><span class="n">n</span><span class="kt">:</span><span class="n">ns</span><span class="p">)</span> <span class="ow">=</span> <span class="n">resumir&#39;</span> <span class="n">f</span> <span class="p">(</span><span class="n">i</span> <span class="p">`</span><span class="n">f</span><span class="p">`</span> <span class="n">n</span><span class="p">)</span> <span class="n">ns</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="c1">-- &gt;&gt;&gt; resumir somar 0 [1..5]</span>
+<span class="linenos" data-linenos="6 "></span><span class="c1">-- 15</span>
+<span class="linenos" data-linenos="7 "></span>
+<span class="linenos" data-linenos="8 "></span><span class="c1">-- &gt;&gt;&gt; resumir&#39; multiplicar 1 [1..5]</span>
+<span class="linenos" data-linenos="9 "></span><span class="c1">-- 120</span>
+</code></pre></div>
+<p>A diferença aqui é que em vez da recursão passar o elemento neutro adiante para ser usado no caso base, intocado, o elemento neutro é usado de cara e operado com a cabeça da lista; o resultado desta operação é que é então passado para a chamada recursiva até que, no caso base, seja retornado como o resultado da função.
+Uma outra forma de ver isso é comparando as expressões geradas pelas duas declarações.
+Neste caso, consideraremos operador <code>o</code> e um elemento neutro <code>i</code>, mas, desta vez, observemos também a ordem em que as operações serão efetivamente executadas, denotando a ordem por meio de parênteses.</p>
+<table>
+<tr>
+
+<td> Função </td>
+
+<td> 
+
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">resumir</span> <span class="n">o</span> <span class="n">i</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+</code></pre></div>
+</td>
+<td> 
+
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">resumir&#39;</span> <span class="n">o</span> <span class="n">i</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+</code></pre></div>
+</td>
+</tr>
+
+<tr>
+
+<td> Expressão 
+
+<td> 
+
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="mi">1</span> <span class="p">`</span><span class="n">o</span><span class="p">`</span> <span class="p">(</span><span class="mi">2</span> <span class="p">`</span><span class="n">o</span><span class="p">`</span> <span class="p">(</span><span class="mi">3</span> <span class="p">`</span><span class="n">o</span><span class="p">`</span> <span class="n">i</span><span class="p">))</span>
+</code></pre></div>
+</td>
+<td>
+
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">((</span><span class="n">i</span> <span class="p">`</span><span class="n">o</span><span class="p">`</span> <span class="mi">1</span><span class="p">)</span> <span class="p">`</span><span class="n">o</span><span class="p">`</span> <span class="mi">2</span><span class="p">)</span> <span class="p">`</span><span class="n">o</span><span class="p">`</span> <span class="mi">3</span>
+</code></pre></div>
+</td>
+</tr>
+
+<tr>
+
+<td>Árvore </td>
+
+<td> 
+
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>  `o`
+<span class="linenos" data-linenos="2 "></span> /   \
+<span class="linenos" data-linenos="3 "></span>1    `o`
+<span class="linenos" data-linenos="4 "></span>    /   \
+<span class="linenos" data-linenos="5 "></span>   2    `o`
+<span class="linenos" data-linenos="6 "></span>       /   \
+<span class="linenos" data-linenos="7 "></span>      3     i
+</code></pre></div>
+
+</td>
+<td> 
+
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>        `o`
+<span class="linenos" data-linenos="2 "></span>       /   \
+<span class="linenos" data-linenos="3 "></span>     `o`    3
+<span class="linenos" data-linenos="4 "></span>    /   \
+<span class="linenos" data-linenos="5 "></span>  `o`   2
+<span class="linenos" data-linenos="6 "></span> /   \
+<span class="linenos" data-linenos="7 "></span>i     1
+</code></pre></div>
+</td>
+</tr>
+</table>
+
+<p>Pelas expressões vemos que os operadores são tratados como associativo à direita, no caso de <code class="highlight"><span class="nf">resumir</span></code>, e à direita, no caso de <code class="highlight"><span class="nf">resumir&#39;</span></code>, e a associatividade tem implicações profundas no cálculo de uma expressão.</p>
+<p>Considere a operação de multiplicação; por ser associativa, isto é, associativa à direita e à esquerda, <span class="arithmatex">\(1*2*3*4 = ((1*2)*3)*4 = 1*(2*(3*4)) = 24\)</span>.</p>
+<p>Agora considere a divisão; por ser associativa à esquerda <span class="arithmatex">\(1/2/3/4 = ((1/2)/3)/4 = (0,5/3)/4 = 0,167/4 = 0.0146 \neq 1/(2/(3/4)) = 1/(2/0,75) = 1/2,67 = 0,375\)</span></p>
+<p>Esta diferença precisa ficar bem clara, pois estas duas funções são usadas muito frequentemente em Haskell, sendo definidas (de forma mais geral) na biblioteca como <code class="highlight"><span class="nf">foldX</span></code>.</p>
+<h6><code class="highlight"><span class="nf">foldl</span></code> e <code class="highlight"><span class="nf">foldr</span></code></h6>
+<p><em>Fold</em> é o termo usado para descrever a operação de dobrar a lista sobre si mesma, combinando os elementos até que só sobre um valor.
+Outro nome usado frequentemente é <em>reduce</em>, que inclusive nomeia funções semelhantes em outras linguagens.</p>
+<p>Haskell tem várias versões de <em>fold</em>, mas as duas mais básicas são <code class="highlight"><span class="nf">foldl</span></code> e <code class="highlight"><span class="nf">foldr</span></code>, sendo que diferença no nome vem do fato das funções assumirem que a função passada como parâmetro é associativa a direita (como +, *) ou a esquerda (como +, *, /, -).</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&gt;</span> <span class="n">foldr</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">0</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="mi">9</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="o">&gt;</span> <span class="n">foldl</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">0</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="mi">9</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="o">&gt;</span> <span class="n">foldr</span> <span class="n">div</span> <span class="mi">1</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="mi">20</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="o">&gt;</span> <span class="n">foldl</span> <span class="n">div</span> <span class="mi">1</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="linenos" data-linenos="10 "></span><span class="mi">0</span>
+</code></pre></div>
+<p>Assim, os exemplos acima podem ser vistos como se segue, evidenciando por quê o resultado da divisão inteira é diferente nas duas chamadas.</p>
+<ul>
+<li><code class="highlight"><span class="nf">foldr</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">0</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="ow">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="p">(</span><span class="mi">0</span><span class="p">)))</span> <span class="ow">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="ow">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="ow">=</span> <span class="mi">9</span></code></li>
+<li><code class="highlight"><span class="nf">foldl</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">0</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="ow">=</span> <span class="p">((</span><span class="mi">0</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span> <span class="ow">=</span> <span class="p">((</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span> <span class="ow">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span> <span class="ow">=</span> <span class="mi">9</span></code></li>
+<li><code class="highlight"><span class="nf">foldr</span> <span class="n">div</span> <span class="mi">1</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="ow">=</span>  <span class="mi">100</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="p">(</span><span class="mi">10</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="p">(</span><span class="mi">2</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="p">(</span><span class="mi">1</span><span class="p">)))</span> <span class="ow">=</span> <span class="mi">100</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="p">(</span><span class="mi">10</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="ow">=</span> <span class="mi">100</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="ow">=</span> <span class="mi">20</span></code></li>
+<li><code class="highlight"><span class="nf">foldl</span> <span class="n">div</span> <span class="mi">1</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="ow">=</span>  <span class="p">((</span><span class="mi">1</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">100</span><span class="p">)</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">10</span><span class="p">)</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">2</span> <span class="ow">=</span> <span class="p">((</span><span class="mi">0</span><span class="p">)</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">10</span><span class="p">)</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">2</span> <span class="ow">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">2</span> <span class="ow">=</span> <span class="mi">0</span></code></li>
+</ul>
+<p>Outra distinção a ser feita entre as duas funções é o fato de uma usar muito mais recursos que a outra durante a computação, mas voltaremos a discutir isso quando falarmos sobre recursão de cauda.</p>
+<h6><code class="highlight"><span class="nf">foldl1</span></code> e <code class="highlight"><span class="nf">foldr1</span></code></h6>
+<p>Para invocar as funções <code class="highlight"><span class="nf">foldl</span></code> e <code class="highlight"><span class="nf">foldr</span></code> é necessário especificar o valor a ser usado "na ponta" do cálculo, isto é, como primeiro elemento no caso de <code class="highlight"><span class="nf">foldl</span></code> e como último elemento no caso de <code class="highlight"><span class="nf">foldr</span></code>.
+Se não houver um valor que naturalmente se encaixe, sempre pode-se usar ou o primeiro ou o último elemento da própria lista, desde que esta não seja vazia.
+É exatamente isso que as funções <code class="highlight"><span class="nf">foldl1</span></code> e <code class="highlight"><span class="nf">foldr1</span></code> fazem.
+Se usadas nas mesmas listas dos exemplos anteriores, temos os seguintes resultados.</p>
+<ul>
+<li><code class="highlight"><span class="nf">foldr1</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="ow">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="ow">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="ow">=</span> <span class="mi">9</span></code></li>
+<li><code class="highlight"><span class="nf">foldl1</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="ow">=</span> <span class="p">((</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span> <span class="ow">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span> <span class="ow">=</span> <span class="mi">9</span></code></li>
+<li><code class="highlight"><span class="nf">foldr1</span> <span class="n">div</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="ow">=</span>  <span class="mi">100</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="p">(</span><span class="mi">10</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="ow">=</span> <span class="mi">100</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="ow">=</span> <span class="mi">20</span></code></li>
+<li><code class="highlight"><span class="nf">foldl1</span> <span class="n">div</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="ow">=</span>  <span class="p">(</span><span class="mi">100</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">10</span><span class="p">)</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">2</span> <span class="ow">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">2</span> <span class="ow">=</span> <span class="mi">5</span></code></li>
+</ul>
+<h6>Foldable</h6>
+<p>Todos os exemplos usados até agora foram sobre listas de números, mas a especificação das funções de redução não faz esta exigência.
+Destrinchemos o exemplo de <code class="highlight"><span class="nf">foldr</span></code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="n">foldr</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">foldr</span> <span class="ow">::</span> <span class="kt">Foldable</span> <span class="n">t</span> <span class="ow">=&gt;</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">b</span> <span class="ow">-&gt;</span> <span class="n">t</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span>
+</code></pre></div>
+<p>De forma geral, a definição diz que a função passada como primeiro parâmetro deve receber um parâmetro do tipo variável <code>a</code> e outro <code>b</code> e que o resultado deve ser do tipo <code>b</code>.
+Na prática, esta definição permite que usemos funções assimétricas como parâmetro, isto é, que tenha parâmetros de tipos distintos.</p>
+<div class="admonition note">
+<p class="admonition-title">Assimetria</p>
+<p>Na execução seguinte a função foi definida para testar se o número passado como parâmetro é maior que 5 e combinar a resposta com outras anteriores, na forma de um booleano.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">maiorque5</span> <span class="n">i</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span> <span class="n">foldr</span> <span class="n">maiorque5</span> <span class="kt">True</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">False</span>
+<span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span> <span class="n">foldr</span> <span class="n">maiorque5</span> <span class="kt">True</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="linenos" data-linenos="5 "></span><span class="kt">False</span>
+<span class="linenos" data-linenos="6 "></span><span class="o">&gt;</span> <span class="n">foldr</span> <span class="n">maiorque5</span> <span class="kt">True</span> <span class="p">[</span><span class="mi">6</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+<span class="linenos" data-linenos="7 "></span><span class="kt">True</span>
+</code></pre></div>
+</div>
+<p>A definição de <code class="highlight"><span class="nf">foldr</span></code> também diz que o valor inicial da função deve ser do tipo <code>b</code>, mas que a lista de valores deve encapsular um valor do tipo <code>a</code>; o encapsulamento é feito por elementos da classe <code class="highlight"><span class="kt">Foldable</span></code>.
+Listas são <code class="highlight"><span class="kt">Foldable</span></code> (como um <code class="highlight"><span class="kt">:</span><span class="n">i</span> <span class="kt">[]</span></code> pode rapidamente demonstrar), mas não são as únicas estruturas deste tipo. Até mesmo tipos algébricos recursivos, dependendo de suas definições, podem satisfazer este critério. 
+Por exemplo, podemos definir uma <strong>árvore</strong> que se "dobra" em uma travessia por em ordem dos seus elementos e usar o <em>folds</em> para encontrar o maior valor da lista, como no exemplo a seguir.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kr">import</span> <span class="nn">Data.Foldable</span> <span class="k">as</span> <span class="n">F</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kr">data</span> <span class="kt">Árvore</span> <span class="n">a</span> <span class="ow">=</span> <span class="kt">Nada</span> <span class="o">|</span> <span class="kt">Nó</span> <span class="n">a</span> <span class="p">(</span><span class="kt">Árvore</span> <span class="n">a</span><span class="p">)</span> <span class="p">(</span><span class="kt">Árvore</span> <span class="n">a</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Show</span><span class="p">,</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Read</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="kr">instance</span> <span class="kt">F</span><span class="o">.</span><span class="kt">Foldable</span> <span class="kt">Árvore</span> <span class="kr">where</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="n">foldMap</span> <span class="n">f</span> <span class="kt">Nada</span>         <span class="ow">=</span> <span class="n">mempty</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="n">foldMap</span> <span class="n">f</span> <span class="p">(</span><span class="kt">Nó</span> <span class="n">a</span> <span class="n">ae</span> <span class="n">ad</span><span class="p">)</span> <span class="ow">=</span> <span class="kt">F</span><span class="o">.</span><span class="n">foldMap</span> <span class="n">f</span> <span class="n">ae</span>   <span class="p">`</span><span class="n">mappend</span><span class="p">`</span> 
+<span class="linenos" data-linenos=" 9 "></span>                             <span class="n">f</span> <span class="n">a</span>              <span class="p">`</span><span class="n">mappend</span><span class="p">`</span> 
+<span class="linenos" data-linenos="10 "></span>                             <span class="kt">F</span><span class="o">.</span><span class="n">foldMap</span> <span class="n">f</span> <span class="n">ad</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span>    <span class="n">foldr</span> <span class="n">f</span> <span class="n">acc</span>  <span class="kt">Nada</span>        <span class="ow">=</span> <span class="n">acc</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="n">foldr</span> <span class="n">f</span> <span class="n">acc</span> <span class="p">(</span><span class="kt">Nó</span> <span class="n">a</span> <span class="n">ae</span> <span class="n">ad</span><span class="p">)</span> <span class="ow">=</span> <span class="n">foldr</span> <span class="n">f</span> <span class="p">(</span><span class="n">f</span> <span class="n">a</span> <span class="p">(</span><span class="n">foldr</span> <span class="n">f</span> <span class="n">acc</span> <span class="n">ad</span><span class="p">))</span> <span class="n">ae</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="cm">{- </span>
+<span class="linenos" data-linenos="16 "></span><span class="cm">&gt;&gt;&gt;arv = Nó 1    (Nó 2 (Nó 4 Nada Nada) Nada)     (Nó 3 Nada Nada)</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span><span class="cm">&gt;&gt;&gt; foldr (+) 0 arv</span>
+<span class="linenos" data-linenos="19 "></span><span class="cm">10</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span><span class="cm">&gt;&gt;&gt;arv2 = Nó  &quot;a&quot;    (Nó &quot;b&quot; (Nó &quot;c&quot; Nada Nada) Nada)     (Nó &quot;d&quot; Nada Nada)</span>
+<span class="linenos" data-linenos="22 "></span>
+<span class="linenos" data-linenos="23 "></span><span class="cm">&gt;&gt;&gt; foldr (++)  &quot;&quot; arv2</span>
+<span class="linenos" data-linenos="24 "></span><span class="cm">&quot;cbad&quot;</span>
+<span class="linenos" data-linenos="25 "></span><span class="cm">-}</span>
+</code></pre></div>
+<p>Considere a seguinte árvore:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>                 Nó 1
+<span class="linenos" data-linenos="2 "></span>             /         \
+<span class="linenos" data-linenos="3 "></span>         Nó 2           Nó 3 
+<span class="linenos" data-linenos="4 "></span>       /     \        /     \
+<span class="linenos" data-linenos="5 "></span>    Nó 4    Nada   Nada     Nada
+<span class="linenos" data-linenos="6 "></span>  /    \
+<span class="linenos" data-linenos="7 "></span>Nada   Nada
+</code></pre></div>
+<p>Ou, Haskell, <code class="highlight"><span class="nf">arv</span> <span class="ow">=</span> <span class="kt">Nó</span> <span class="mi">1</span>    <span class="p">(</span><span class="kt">Nó</span> <span class="mi">2</span> <span class="p">(</span><span class="kt">Nó</span> <span class="mi">4</span> <span class="kt">Nada</span> <span class="kt">Nada</span><span class="p">)</span> <span class="kt">Nada</span><span class="p">)</span>     <span class="p">(</span><span class="kt">Nó</span> <span class="mi">3</span> <span class="kt">Nada</span> <span class="kt">Nada</span><span class="p">)</span></code>.
+Fold tem o seguinte efeito.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">foldr</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">0</span> <span class="n">arv</span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">10</span>
+</code></pre></div>
+<p>O poder desta abordagem está na genericidade na criação da árvore, que também pode armazenar outros dados e ser dobrada termos de outra operação, por exemplo <code class="highlight"><span class="kt">String</span></code> e <code class="highlight"><span class="o">++</span></code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">arv2</span> <span class="ow">=</span> <span class="kt">Nó</span>  <span class="s">&quot;a&quot;</span> <span class="p">(</span><span class="kt">Nó</span> <span class="s">&quot;b&quot;</span> <span class="p">(</span><span class="kt">Nó</span> <span class="s">&quot;c&quot;</span> <span class="kt">Nada</span> <span class="kt">Nada</span><span class="p">)</span> <span class="kt">Nada</span><span class="p">)</span> <span class="p">(</span><span class="kt">Nó</span> <span class="s">&quot;d&quot;</span> <span class="kt">Nada</span> <span class="kt">Nada</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span> <span class="n">foldr</span> <span class="p">(</span><span class="o">++</span><span class="p">)</span>  <span class="s">&quot;&quot;</span> <span class="n">arv2</span>
+<span class="linenos" data-linenos="3 "></span><span class="s">&quot;cbad&quot;</span>
+</code></pre></div>
+<p>Para mais detalhes, visite <a href="http://learnyouahaskell.com/functors-applicative-functors-and-monoids#monoids">http://learnyouahaskell.com/functors-applicative-functors-and-monoids#monoids</a></p>
+<details class="todo"><summary>TODO</summary><p>Expandir sobre foldable e traversable.</p>
+</details>
+<h2 id="filter-e-all"><code class="highlight"><span class="nf">filter</span></code> e <code class="highlight"><span class="nf">all</span></code></h2>
+<p>A função <code class="highlight"><span class="nf">filter</span></code> recebe como parâmetros um predicado e uma lista e retorna como resultado um lista com todos os elementos da lista original que satisfazem ao predicado.
+Já função  <code class="highlight"><span class="nf">all</span></code> retorna a lista dos elementos que satisfazem ao predicado.</p>
+<p>Estas funções podem ser definidas e usadas como a seguir.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nf">filter</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nf">filter</span> <span class="n">p</span> <span class="n">xs</span> <span class="ow">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">|</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">xs</span><span class="p">,</span> <span class="n">p</span> <span class="n">x</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="nf">all</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nf">all</span> <span class="n">p</span> <span class="kt">[]</span>     <span class="ow">=</span> <span class="kt">True</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nf">all</span> <span class="n">p</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">p</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">all</span> <span class="n">p</span> <span class="n">xs</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="o">&gt;</span> <span class="n">f</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span>
+<span class="linenos" data-linenos="10 "></span><span class="o">&gt;</span> <span class="n">filter</span> <span class="n">f</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">15</span><span class="p">]</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="o">&gt;</span> <span class="n">all</span> <span class="n">f</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">15</span><span class="p">]</span>
+<span class="linenos" data-linenos="14 "></span><span class="kt">False</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="o">&gt;</span> <span class="n">all</span> <span class="n">f</span> <span class="p">[</span><span class="mi">11</span><span class="o">..</span><span class="mi">15</span><span class="p">]</span>
+<span class="linenos" data-linenos="17 "></span><span class="kt">True</span>
+</code></pre></div>
+<p>Enquanto não impressionantes, estas funções podem ser usadas para demonstrar uma outra funcionalidade de Haskell.
+Observe as seguintes invocações.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&gt;</span> <span class="n">filter</span> <span class="p">(</span><span class="o">&gt;</span><span class="mi">10</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">15</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="o">&gt;</span> <span class="n">filter</span> <span class="p">(</span><span class="mi">10</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">15</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="o">&gt;</span> <span class="n">all</span> <span class="p">(</span><span class="o">&gt;</span><span class="mi">10</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">15</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="kt">False</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="o">&gt;</span> <span class="n">all</span> <span class="p">(</span><span class="o">&gt;</span><span class="mi">10</span><span class="p">)</span> <span class="p">[</span><span class="mi">11</span><span class="o">..</span><span class="mi">15</span><span class="p">]</span>
+<span class="linenos" data-linenos="11 "></span><span class="kt">False</span>
+</code></pre></div>
+<p>Os predicados definidos como <code class="highlight"><span class="p">(</span><span class="o">&gt;</span><span class="mi">10</span><span class="p">)</span></code> e <code class="highlight"><span class="p">(</span><span class="mi">10</span><span class="o">&gt;</span><span class="p">)</span></code> são exemplos de <strong>Currying</strong>.</p>
+<h2 id="currying-aplicacao-parcial">Currying (aplicação parcial)</h2>
+<p>Em outras linguagens, funções são normalmente definidas com sintaxe semelhante à  <code class="highlight"><span class="nf">f</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">c</span></code>, isto é, o nome da função, seguido de um tupla de tipos de parâmetros, e de um tipo de resultado.
+Isso é verdade para C, Java, Pascal, etc.
+<strong>Currying</strong> é o processo pelo qual uma função deste tipo é transformada em uma função do tipo <code class="highlight"><span class="nf">f</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="p">((</span><span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">c</span><span class="p">)</span></code>, ou seja, uma função que recebe somente um parâmetro e retorna uma outra função que recebe os demais parâmetros e retorna, ao o mesmo tipo que a primeira função.</p>
+<p>O processo pode ser feito para funções mais complexas, exatamente da mesma forma, por exemplo transformando <code class="highlight"><span class="nf">f</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">d</span></code> em <code class="highlight"><span class="nf">f</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="p">((</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">d</span><span class="p">)</span></code>, e também aplicado recursivamente levando, levando a função <code class="highlight"><span class="nf">f</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="n">b</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="n">c</span> <span class="ow">-&gt;</span> <span class="n">d</span><span class="p">))</span></code>, que pode ser simplificado de forma não ambígua para <code class="highlight"><span class="nf">f</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span> <span class="ow">-&gt;</span> <span class="n">c</span> <span class="ow">-&gt;</span> <span class="n">d</span></code>, que é forma usada pelo Haskell.
+Isso quer dizer que quando você define uma função em Haskell, voce especifica o tipo usando a forma <em>Curryed</em>, mesmo que defina a função da forma tradicional.
+Acontece que o próprio Haskell, por baixo dos panos, transforma a sua função no correspondente ao tipo, o que permite que você faça coisas muito legais, como no exemplo a seguir.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">3</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span><span class="p">)</span> <span class="mi">2</span>
+<span class="linenos" data-linenos="4 "></span><span class="mi">3</span>
+</code></pre></div>
+<p>Esta técnica é conhecida como aplicação parcial, e serve para derivar funções mais especializadas.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">f</span> <span class="ow">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span> <span class="n">f</span> <span class="mi">2</span>
+<span class="linenos" data-linenos="3 "></span><span class="mi">3</span>
+</code></pre></div>
+<p>Estas funções derivadas são como quaisquer outras funções, e podem ser usadas por exemplo em maps e filters.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">f</span> <span class="ow">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span> <span class="n">map</span> <span class="n">f</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="linenos" data-linenos="3 "></span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span> <span class="n">f</span> <span class="ow">=</span> <span class="p">(</span><span class="o">==</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span><span class="o">&gt;</span> <span class="n">map</span> <span class="n">f</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">[</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">,</span><span class="kt">True</span><span class="p">]</span>
+<span class="linenos" data-linenos="7 "></span><span class="o">&gt;</span> <span class="n">filter</span> <span class="n">f</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="lambda">Lambda (λ)</h2>
+<p>Uma função anônima é uma função, pasmem, sem um nome, definida, por exemplo, no ato da invocação de uma função de ordem superior, e também conhecidas como abstração <span class="arithmatex">\(\lambda\)</span>, um termo advindo do cálculo <span class="arithmatex">\(\lambda\)</span>.
+Um lambda é definido em Haskell com a seguinte sintaxe: <code class="highlight"><span class="nf">\</span><span class="n">v1</span> <span class="n">v2</span> <span class="o">...</span> <span class="n">vn</span> <span class="ow">-&gt;</span> <span class="n">exp</span></code>, onde o <code class="highlight"><span class="nf">\</span></code> é uma alusão ao símbolo <span class="arithmatex">\(\lambda\)</span>, <code class="highlight"><span class="nf">v1</span> <span class="n">v2</span> <span class="o">...</span> <span class="n">vn</span></code> são os parâmetros formais da função, e <code class="highlight"><span class="nf">exp</span></code> é uma expressão sobre as variáveis.
+Por exemplo, <code class="highlight"><span class="nf">\</span><span class="n">x</span> <span class="ow">-&gt;</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span></code> e <code class="highlight"><span class="nf">\</span><span class="n">x</span> <span class="n">y</span> <span class="ow">-&gt;</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span></code> são as funções que somam 1 ao parâmetro e multiplicam os parâmetros, respectivamente; observe seus usos no exemplo a seguir.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="p">(</span><span class="nf">\</span><span class="n">x</span> <span class="ow">-&gt;</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="mi">5</span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">6</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="p">(</span><span class="nf">\</span><span class="n">x</span> <span class="n">y</span> <span class="ow">-&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span> <span class="mi">4</span> <span class="mi">5</span>
+<span class="linenos" data-linenos="4 "></span><span class="mi">20</span>
+</code></pre></div>
+<p>Como qualquer outra função, lambdas podem ser associadas a variáveis e sofrerem aplicação parcial, embora usos como os do exemplo seguinte não pareçam muito úteis.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">mult</span> <span class="ow">=</span> <span class="p">(</span><span class="nf">\</span><span class="n">x</span> <span class="n">y</span> <span class="ow">-&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span> <span class="n">mult4</span> <span class="ow">=</span> <span class="n">mult</span> <span class="mi">4</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="n">mult</span> <span class="mi">4</span> <span class="mi">5</span>
+<span class="linenos" data-linenos="4 "></span><span class="mi">20</span>
+<span class="linenos" data-linenos="5 "></span><span class="o">&gt;</span> <span class="n">mult4</span> <span class="mi">5</span>
+<span class="linenos" data-linenos="6 "></span><span class="mi">20</span>
+</code></pre></div>
+<p>A verdadeira utilidade das lambdas é no invocação de funções como <code class="highlight"><span class="nf">map</span></code> e <code class="highlight"><span class="nf">filter</span></code>, como a seguir.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">filter</span> <span class="p">(</span><span class="nf">\</span><span class="n">x</span> <span class="ow">-&gt;</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">[</span> <span class="mi">1</span><span class="o">..</span><span class="mi">20</span><span class="p">]</span>
+<span class="linenos" data-linenos="2 "></span><span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="n">map</span> <span class="p">(</span><span class="nf">\</span><span class="n">x</span> <span class="ow">-&gt;</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>
+</code></pre></div>
+<p>Há muito mais que pode ser dito sobre abstrações lambda, por exemplo sobre como <code class="highlight"><span class="nf">f</span> <span class="n">x</span> <span class="ow">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span></code> é na verdade apenas açúcar sintático para <code class="highlight"><span class="nf">f</span> <span class="ow">=</span> <span class="nf">\</span><span class="n">x</span> <span class="ow">-&gt;</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span></code> e <code class="highlight"><span class="nf">f</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span></code> é na verdade <code class="highlight"><span class="nf">f</span> <span class="ow">=</span> <span class="nf">\</span><span class="n">x</span> <span class="ow">-&gt;</span> <span class="nf">\</span><span class="n">y</span> <span class="ow">-&gt;</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span></code>, mas isso está fora do escopo deste curso.</p>
+<h2 id="operador-aplicacao">Operador $ (aplicação)</h2>
+<p>O operador <code class="highlight"><span class="o">$</span></code> tem uma definição muito simples, dizendo apenas que ao receber uma função e um outro argumento, aplica a função ao parâmetro.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">(</span><span class="o">$</span><span class="p">)</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span>  
+<span class="linenos" data-linenos="2 "></span><span class="nf">f</span> <span class="o">$</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">f</span> <span class="n">x</span>
+</code></pre></div>
+<p>Mas se tudo o que ele faz é aplicar uma função a um parâmetro, por que é que se você olhar qualquer exemplo de código Haskell com mais do que algumas linhas de código, você encontrará o operador <code class="highlight"><span class="o">$</span></code> em uso?
+A resposta está na precedência e na associatividade de operador; compare-as com as de outros operadores.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="p">(</span><span class="o">$</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">(</span><span class="o">$</span><span class="p">)</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kr">infixr</span> <span class="mi">0</span> <span class="o">$</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="o">...</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="kr">infixl</span> <span class="mi">6</span> <span class="o">+</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="linenos" data-linenos="10 "></span>  <span class="o">...</span>
+<span class="linenos" data-linenos="11 "></span><span class="kr">infixl</span> <span class="mi">7</span> <span class="o">*</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="p">(</span><span class="o">^</span><span class="p">)</span>
+<span class="linenos" data-linenos="14 "></span><span class="o">...</span>
+<span class="linenos" data-linenos="15 "></span><span class="kr">infixr</span> <span class="mi">8</span> <span class="o">^</span>
+</code></pre></div>
+<p>Por ter precedência tão baixa, o operador será o último a ser executado, e por ser associativo à direita, toda a expressão à direita do operador será resolvida antes que ele seja executado, mesmo outras instâncias de <code class="highlight"><span class="o">$</span></code>.
+Vejamos um exemplo de como isso pode ser útil; considere a expressão a seguir.
+Para forçar sua avaliação da direita para a esquerda, foi necessário o uso de diversos parênteses.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">filter</span> <span class="n">even</span> <span class="p">(</span><span class="n">map</span> <span class="n">floor</span> <span class="p">(</span><span class="n">map</span> <span class="n">sqrt</span> <span class="p">(</span><span class="n">filter</span> <span class="p">(</span><span class="o">&gt;</span><span class="mi">100</span><span class="p">)</span> <span class="p">(</span><span class="n">map</span> <span class="p">(</span><span class="mi">2</span><span class="o">^</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]))))</span>
+</code></pre></div>
+<details class="todo"><summary>TODO</summary></details>
+<p>Imagem mostrando a resolução e evidenciando a precedência imposta pelos parênteses.</p>
+<p>Esta mesma expressão pode ser reescrita trocando-se os parênteses por </p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">filter</span> <span class="n">even</span> <span class="o">$</span> <span class="n">map</span> <span class="n">floor</span> <span class="o">$</span> <span class="n">map</span> <span class="n">sqrt</span> <span class="o">$</span> <span class="n">filter</span>  <span class="p">(</span><span class="o">&gt;</span><span class="mi">100</span><span class="p">)</span> <span class="o">$</span> <span class="n">map</span> <span class="p">(</span><span class="mi">2</span><span class="o">^</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+</code></pre></div>
+<p>Outro uso interessante está na "inversão" da função <code class="highlight"><span class="nf">map</span></code>. Esta função aplica uma outra função, como nos exemplos acima, a todos os elementos de uma lista.
+Mas como o <code class="highlight"><span class="o">$</span></code>, é possível aplicar um argumento a uma lista de funções!</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">map</span> <span class="n">f</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="o">==&gt;</span> <span class="p">[</span><span class="n">f</span> <span class="mi">1</span><span class="p">,</span> <span class="n">f</span> <span class="mi">2</span><span class="p">,</span> <span class="n">f</span> <span class="mi">3</span><span class="p">,</span> <span class="n">f</span> <span class="mi">4</span><span class="p">]</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">map</span> <span class="p">(</span> <span class="o">$</span> <span class="n">x</span><span class="p">)</span> <span class="p">[</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="n">f3</span><span class="p">,</span> <span class="n">f4</span><span class="p">]</span> <span class="ow">=</span> <span class="p">[</span><span class="n">f1</span> <span class="o">$</span> <span class="n">x</span><span class="p">,</span> <span class="n">f2</span> <span class="o">$</span> <span class="n">x</span><span class="p">,</span> <span class="n">f3</span> <span class="o">$</span> <span class="n">x</span><span class="p">,</span> <span class="n">f4</span> <span class="o">$</span> <span class="n">x</span><span class="p">]</span>
+</code></pre></div>
+<p>Por exemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">map</span> <span class="p">(</span><span class="o">$</span> <span class="mi">10</span><span class="p">)</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">,</span> <span class="p">(</span><span class="o">+</span><span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">20</span><span class="o">-</span><span class="p">),</span> <span class="p">(</span><span class="o">^</span><span class="mi">2</span><span class="p">)]</span>  
+<span class="linenos" data-linenos="2 "></span><span class="p">[</span><span class="mf">3.1622776601683795</span><span class="p">,</span><span class="mf">14.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">,</span><span class="mf">100.0</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="operador-composicao">Operador . (composição)</h2>
+<p>Na matemática é comum falarmos em composição de funções, isto, é na aplicação de uma função ao resultado da aplicação de outra função, isto é, dadas duas funções <span class="arithmatex">\(f\)</span> e <span class="arithmatex">\(g\)</span>, <span class="arithmatex">\((fog)(x) = f(g(x))\)</span>.
+Por exemplo, sejam <span class="arithmatex">\(f(x) = x*x\)</span>  e <span class="arithmatex">\(g(x) = x+10\)</span>, <span class="arithmatex">\(fog(3) = (3+10)*(3+10) = 13*13 = 169\)</span>.</p>
+<p>Em Haskell, a composição de duas funções é feita pelo operador <code class="highlight"><span class="o">.</span></code>, por exemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">f</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span> <span class="n">g</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">10</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="n">fog</span> <span class="ow">=</span> <span class="n">f</span><span class="o">.</span><span class="n">g</span>
+<span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span> <span class="n">fog</span> <span class="mi">3</span>
+<span class="linenos" data-linenos="5 "></span><span class="mi">169</span>
+</code></pre></div>
+<h6>Definição</h6>
+<p>A definição deste operador é interessante, pois este operador é uma função de ordem superior que recebe duas funções como parâmetro e retorna uma função como resultado, construída como uma abstração lambda.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">(</span><span class="o">.</span><span class="p">)</span> <span class="ow">::</span> <span class="p">(</span><span class="n">b</span> <span class="ow">-&gt;</span> <span class="n">c</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">c</span>  
+<span class="linenos" data-linenos="2 "></span><span class="nf">f</span> <span class="o">.</span> <span class="n">g</span> <span class="ow">=</span> <span class="nf">\</span><span class="n">x</span> <span class="ow">-&gt;</span> <span class="n">f</span> <span class="p">(</span><span class="n">g</span> <span class="n">x</span><span class="p">)</span>
+</code></pre></div>
+<p>Uma definição alternativa seria a seguinte, onde o tipo do resultado fica mais explícito e em vez da função lambda, usamos uma notação simplificada para gerar a função resposta.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">o</span> <span class="ow">::</span> <span class="p">(</span><span class="n">b</span> <span class="ow">-&gt;</span> <span class="n">c</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">c</span> <span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">o</span> <span class="n">f</span> <span class="n">g</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">f</span> <span class="p">(</span><span class="n">g</span> <span class="n">x</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="c1">-- &gt;&gt;&gt;f x = x*x</span>
+<span class="linenos" data-linenos="5 "></span><span class="c1">-- &gt;&gt;&gt;g x = x+10</span>
+<span class="linenos" data-linenos="6 "></span><span class="c1">-- &gt;&gt;&gt;fog = f `o` g</span>
+<span class="linenos" data-linenos="7 "></span><span class="c1">-- &gt;&gt;&gt; fog 3</span>
+<span class="linenos" data-linenos="8 "></span><span class="mi">169</span>
+</code></pre></div>
+<h6>Simplificação</h6>
+<p>Sobre os usos deste operador, veja o exemplo seguinte, onde várias transformações devem ser feitas sobre a mesma lista de valores.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">map</span> <span class="n">negate</span> <span class="p">(</span><span class="n">map</span> <span class="n">sum</span> <span class="p">(</span><span class="n">map</span> <span class="n">tail</span> <span class="p">[[</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">],[</span><span class="mi">3</span><span class="o">..</span><span class="mi">6</span><span class="p">],[</span><span class="mi">1</span><span class="o">..</span><span class="mi">7</span><span class="p">]]))</span>
+<span class="linenos" data-linenos="2 "></span><span class="p">[</span><span class="o">-</span><span class="mi">14</span><span class="p">,</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="o">-</span><span class="mi">27</span><span class="p">]</span>
+</code></pre></div>
+<p>Uma primeira observação importante sobre este código é que a lista é percorrida 3 vezes, o que certamente terá um impacto em termos de desempenho.</p>
+<p>Este problema pode ser resolvido passando-se uma única função para o <code class="highlight"><span class="nf">map</span></code> que faça todas as transformações.<sup id="fnref:learn"><a class="footnote-ref" href="#fn:learn">2</a></sup></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">map</span> <span class="p">(</span><span class="nf">\</span><span class="n">xs</span> <span class="ow">-&gt;</span> <span class="n">negate</span> <span class="p">(</span><span class="n">sum</span> <span class="p">(</span><span class="n">tail</span> <span class="n">xs</span><span class="p">)))</span> <span class="p">[[</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">],[</span><span class="mi">3</span><span class="o">..</span><span class="mi">6</span><span class="p">],[</span><span class="mi">1</span><span class="o">..</span><span class="mi">7</span><span class="p">]]</span>  
+<span class="linenos" data-linenos="2 "></span><span class="p">[</span><span class="o">-</span><span class="mi">14</span><span class="p">,</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="o">-</span><span class="mi">27</span><span class="p">]</span> 
+</code></pre></div>
+<p>Embora o uso da função lambda tenha melhorado o desempenho, uma composição das diversas funções tem o mesmo efeito, e um código mais legível.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">map</span> <span class="p">(</span><span class="n">negate</span> <span class="o">.</span> <span class="n">sum</span> <span class="o">.</span> <span class="n">tail</span><span class="p">)</span> <span class="p">[[</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">],[</span><span class="mi">3</span><span class="o">..</span><span class="mi">6</span><span class="p">],[</span><span class="mi">1</span><span class="o">..</span><span class="mi">7</span><span class="p">]]</span>  
+<span class="linenos" data-linenos="2 "></span><span class="p">[</span><span class="o">-</span><span class="mi">14</span><span class="p">,</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="o">-</span><span class="mi">27</span><span class="p">]</span>
+</code></pre></div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:product">
+<p><a href="https://www.johndcook.com/blog/2015/04/14/empty-sum-product/">Why is an empty sum 0 and an empty product 1?</a>&#160;<a class="footnote-backref" href="#fnref:product" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:learn">
+<p><a href="http://learnyouahaskell.com/higher-order-functions#composition">Learn you a Haskell: Function composition</a>&#160;<a class="footnote-backref" href="#fnref:learn" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+  <!-- Last update of source file -->
+
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Rodapé">
+      
+        
+        <a href="../../lambda/lambda/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Cálculo λ" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Cálculo λ
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../lazy/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Que preguiça" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              Que preguiça
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2021 Lásaro Camargos
+          </div>
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+      <a href="https://github.com/lasarojc/ds_notes" target="_blank" rel="noopener" title="These notes on Github" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "navigation.indexes", "navigation.tracking"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../../assets/javascripts/workers/search.e99e714c.min.js", "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.bc35569b.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/mathjaxhelper.js"></script>
+      
+    
+  </body>
+</html>
