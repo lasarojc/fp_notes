@@ -1,43 +1,6 @@
 # Casamento de Padrões
-
-Quando especificamos a lista de parâmetros formais que uma função recebe, estamos dizendo ao compilador que os parâmetros passados na invocação da função devem ser associados aos parâmetros formais.
-Por exemplo, considere a seguinte definição de uma função que soma dois pontos 
-
-```hs
-soma2n x y = x + y
-```
-
-e sua invocação.
-
-```hs
-> soma2n 3 4
-7
-```
-
-Quando a invocação acontece, o valor 3 é associado a `x` e 4 a `y`.
-O mesmo acontece para qualquer tipo de parâmetro passado, mesmo tuplas e, como veremos depois, listas. 
-Por exemplo, considere a soma de dois pontos em um espaço bidimensional, em que pontos são especificados como tuplas de aridade 2.
-
-```hs
-type Ponto = (Integer,Integer)
-
-soma2v :: Ponto -> Ponto -> Ponto
-soma2v ponto1 ponto2 = (fst ponto1 + fst ponto2, snd ponto1 + snd ponto2)
-```
-
-Um dos problemas deste código é a necessidade de usar `fst` e `snd` para extrair os componentes das tuplas.
-Mas como vimos na seção sobre [tuplas](./tuples.md), é possível associar as componentes das tuplas diretamente a variáveis.
-Por exemplo, considere a definição alternativa para `soma2v`.
-
-```hs
-type Ponto = (Integer,Integer)
-
-soma2v :: Ponto -> Ponto -> Ponto
-soma2v (x1,y1) (x2,y2) = (x1+x2, y1+y2)
-```
-
-Observe que, na linha 4, as coordenadas dos pontos passados são associados às variáveis `x1, y1, x2` e `y2`.
-O termo correto para o que está acontecendo ali é **casamento de padrões**.
+Mencionamos anteriormente que quando especificamos a lista de parâmetros formais que uma função recebe, estamos dizendo ao compilador que os parâmetros passados na invocação da função devem ser associados aos parâmetros formais.
+Vamos nos aprofundar nesta ideia, do **casamento de padrões**.
 
 ## Tipos de Padrão
 O casamento de padrões é o processo pelo qual os valores em uma **expressão** são decompostos e associados aos elementos de um **padrão**.
@@ -158,6 +121,8 @@ O casamento de tuplas no valor e no padrão pode levar aos seguintes resultados,
 ###### Listas
 Por completude, precisamos mencionar que o casamento funciona também para listas, mas deixaremos para mais tarde esta discussão, quando nos focarmos em listas.
 
+
+
 ###### Mais de um padrão
 Nos exemplos vistos nas tabelas, temos sempre um valor e um padrão, mas funções podem ter diversos parâmetros.
 Neste caso, o casamento de padrões acontece para cada um dos parâmetros passados na invocação da função, da esquerda para a direita.
@@ -184,62 +149,6 @@ Neste caso, a função é definida como uma sequência de equações em que são
 O resultado da invocação da função é dado pela **primeira** equação em que houver um casamento bem sucedido **e** todas as guardas forem satisfeitas.
 Se ao final não houver casamento ou se as guardas não forem satisfeitas, ocorre um **erro de execução**.
 
-Para começar, vejamos uma definição sem guardas, revisitando a função `nomeMes`.
-Usando casamento de padrões constantes, ela ficaria assim:
-
-```hs
-nomeMes 1 = "JAN"
-nomeMes 2 = "FEB"
-nomeMes 3 = "ABR"
-nomeMes 4 = "MAR"
-nomeMes 5 = "MAI"
-nomeMes 6 = "JUN"
-nomeMes 7 = "JUL"
-nomeMes 8 = "AGO"
-nomeMes 9 = "SET"
-nomeMes 10 = "OUT"
-nomeMes 11 = "NOV"
-nomeMes 12 = "DEZ"
-```
-
-Esta função funciona especificamente para valores na faixa [1,12] e retornará um erro para qualquer valor fora da mesma.
-
-```hs
-*Main> nomeMes 13
-"*** Exception: scratch.hs:(112,1)-(123,18): Non-exhaustive patterns in function nomeMes
-```
-
-É possível usar uma definição genérica *catch-all* para casar com valores não específicos usando um padrão variável.
-Por exemplo, a definição da função `fatorial` tem um tratamento especial para 0, via padrão constante, e um caso genérico para qualquer outro número, via padrão variável.
-
-```hs
-fatorial 0 = 1
-fatorial n = n * fatorial (n-1)
-```
-
-Mas esta definição de `fatorial` tem um problema, que aparece ao se tentar calcular o fatorial de números negativos, que são indefinidos.
-Neste caso, precisamos impedir que números negativos sejam aceitos pela função, lançando erros.
-
-```hs
-fatorial 0 = 1
-fatorial n 
-    |n > 0 = n * fatorial (n-1)
-    |otherwise = error "Indefinido"
-
-fatorial' 0 = 1
-fatorial' n
-    |n > 0 = n * fat (n-1)
-fatorial' _ = error "Indefinido"
-```
-
-Com o seguinte resultado 
-
-```hs
-*Main> fat (-1)
-*** Exception: Indefinido
-```
-
-
 O exemplo seguinte mostra o uso de padrões curinga, constantes e variáveis, combinados com guardas e, um caso especial, gerando um erro.
 Você consegue determinar o que a função faz?
 
@@ -256,7 +165,6 @@ próximos3 n 'a'
 
 próximos3 _ _ = error "Use d ou a"
 ```
-
 
 Vejamos outros exemplos, do módulo prelude do Haskell.
 Primeiro, a função `not`, que nega o valor passado.
@@ -306,15 +214,6 @@ fst (x,_) =  x
 snd (_,y) =  y
 ```
 
-Também podemos pensar no tipo `#!hs Pessoa` e funções associadas, definidos anteriormente.
-Neste caso, como ficaria uma função que extraísse apenas o sobrenome de uma pessoa?
-
-```hs
---8<--
-docs/code/pessoa3.hs
---8<--
-```
-
 
 !!!exercise "Exercício"
     * Seguindo os moldes da definição do operador `&&`, defina o operador lógico ou `||` de três formas diferentes.
@@ -329,23 +228,8 @@ docs/code/pessoa3.hs
             ```hs
             Surprise!
             ```
-        
-
-
-
-
-
-
-
-
-
-
-
-
 
 ###### `#!hs case-of`
-
-
 Esta estrutura se assemelha ao `switch` de linguagens como C e Java, e tem a seguinte sintaxe, onde os padrões devem estar perfeitamente alinhados.
 
 ```hs
@@ -401,3 +285,164 @@ próximos3''' n dir = case n of 0 -> (-1,0,1)
                                                 'a' -> if n < 0 then (n-1,n-2,n-3) else (n+1,n+2,n+3)
                                                 _   -> error "Use d ou a"
 ```
+
+
+
+
+
+
+## Listas
+Toda lista é **ou** uma lista vazia **ou** ou um elemento cabeça seguido por uma lista cauda.
+Assim, se cobrir estes dois casos em uma definição por casamento de padrões, terá coberto "todos" os casos!
+Mas como? Vejamos um exemplo.
+
+```hs
+oQueHáNaCabeça :: (Show a) => [a] -> String
+oQueHáNaCabeça [] = "Nada"
+oQueHáNaCabeça (x:xs) = "Há " ++ x
+```
+
+* Linha 1: não se preocupe esta linha; ela apenas implica que a lista deve ser de valores convertíveis a String
+* Linha 2: esta linha usa um padrão constante para testar se a lista é vazia, isto é, `#!hs []` e, neste caso, retornar a string `#!hs "Nada"` como resultado.
+* Linha 3: este é o caso mais interessante, pois usa um padrão que define uma lista em que `#!hs x` é a cabeça, concatenada por `#!hs :` a uma cauda `#!hs xs`, e retorna `#!hs "Há "` seguido do valor casado com `#!hs x`.
+
+Observe que foram usados parênteses na linha 3 para especificar o padrão, e não apenas `#!hs x:xs` como seria de se esperar.
+A verdade é que o padrão é `#!hs x:xs` e os parêntesis são usados apenas para impedir que Haskell primeiro avalie `#!hs oQueHáNaCabeça x` antes de avaliar o operador `#!hs :` e o seu segundo operando.
+Esta é uma das idiossincrasias de Haskell com a qual você simplesmente terá que aprender a conviver para dividir listas entre cabeça e cauda em um casamento de padrões.
+
+Embora estes dois padrões, isto é, lista vazia e cabeça seguida de cauda, cubram todas as possibilidades de listas, não quer dizer que não haja melhores opções, dependendo do que precise extrair da lista.
+Por exemplo, na próxima função há 4 casos de casamento de padrões distintos:
+
+```hs
+oQueHáNaLista :: (Show a) => [a] -> String
+oQueHáNaLista [] = "Nada"
+oQueHáNaLista [x] = "Só " ++ (show x)
+oQueHáNaLista [x1,x2] = "Há " ++ (show x1) ++ " e " ++ (show x2)
+oQueHáNaLista (x:xs) = "Há " ++ (show x) ++ " e mais um monte de coisas" 
+```
+
+* Linha 2: lista vazia;
+* Linha 3: lista com exatamente um elemento, casado com `#!hs x`.
+* Linha 4: lista com exatamente 2 elementos, casados com `#!hs x1` e `#!hs x2`.
+* Linha 5: lista com mais de 2 elementos, em que a cabeça é casada com `#!hs x` e a cauda com `#!hs xs`.
+
+Outra forma de obter exatamente o mesmo resultado, usando mais o operador `#!hs cons`,  seria a seguinte.
+
+```hs
+oQueHáNaLista :: (Show a) => [a] -> String
+oQueHáNaLista [] = "Nada"
+oQueHáNaLista (x:[]) = "Só " ++ (show x)
+oQueHáNaLista (x1:x2:[]) = "Há " ++ (show x1) ++ " e " ++ (show x2)
+oQueHáNaLista (x:xs) = "Há " ++ (show x) ++ " e mais um monte de coisas" 
+```
+
+Dado que strings são apenas listas de Char, estas também podem ser decompostas por casamentos de padrões.
+
+```hs
+resumo :: String -> String
+resumo [] -> "Nada"
+resumo [_] -> "Um"
+resumo [_,_] -> "Dois"
+resumo _ -> "Muitos"
+```
+
+Assim como listas podem ter elementos mais complexos que tipos primitivos, por exemplo tuplas e listas, também os casamentos de padrões aplicados a estas listas serão mais complexos.
+Por exemplo, considere uma lista de três ou mais String, isto é, uma lista de lista de Char; é possível, por exemplo, selecionar a primeira letra de cada uma das três primeiras strings com a seguinte função.
+
+```hs
+iniciais :: [String] -> [Char]
+iniciais [] = []
+iniciais [(x:_)] = [x]
+iniciais [(x:_),(y:_)] = [x,y]
+iniciais ((x:_):(y:_):(z:_):_) = [x,y,z]
+```
+
+
+## Recursão
+A recursão é essencial no processamento de listas e, de fato, muitas das funções listadas na seção anterior podem e são definidas recursivamente, como a função `maximum`:
+
+$maximum~[1,2,3] = max~1 \left( maximum~[2,3] = max~2 \left( maximum~[3] = 3 \right)        \right)$
+
+Vejamos algumas definições.[^alt]
+
+[^alt]: Todas as funções definidas a seguir tem nome terminado em `\`` para evitar colisão com as funções padrão.
+
+!!!example "maximum"
+    ```hs
+    maximum' [] = error "lista vazia"  
+    maximum' [h] = h
+    maximum' (h:t) = max h (maximum' t)
+    ```
+
+!!!example "length"
+    ```hs
+    length' :: [a] -> Int
+    length' [] = 0
+    length' (x:xs) = 1 + length' xs
+    ```
+
+!!!example "last"
+    ```hs
+    last' :: [a] -> a
+    last' [] = error "List is empty"
+    last' [x] = x
+    last' (_:xs) = last' xs
+    ``` 
+
+!!!example "reverse"
+    ```hs
+    reverse' :: [a] -> [a]
+    reverse' [] = []
+    reverse' (x:xs) = reverse' xs ++ [x]
+    ```
+
+!!!example "replicate"
+    ```hs
+    replicate' 0 e = []
+    replicate' x e = e:replicate' (x-1) e
+    ```
+
+!!!example "zip"
+    ```hs
+    zip' [] _ = []
+    zip' _ [] = []
+    zip' (x:xs) (y:ys) = (x,y) : zip' xs ys
+    ```
+
+!!!example "elem"
+    ```hs
+    elem' _ [] = False
+    elem' e (x:xs) = e == x || elem' e xs
+    ```
+
+!!!example "++"
+    ```hs
+    maisMais :: [a] -> [a] -> [a]
+    maisMais [] [] = []
+    maisMais [] y = y
+    maisMais (x:xs) y = x : maisMais xs y
+    ```
+
+!!!exercise "Exercício"
+     * Defina a função `take`
+     * Defina a função `drop`
+     * Defina a função `união` que recebe duas listas sem repetições retorna a concatenação das listas, sem repetições, usando recursividade.
+     * Defina a função `união` que recebe duas listas sem repetições retorna a concatenação das listas, sem repetições, usando compreensão de listas.
+
+!!!exercise "Ordenação"
+    * Selection-sort (https://www.youtube.com/embed/Ns4TPTC8whw)
+        * Defina uma função `fr` que receba um inteiro `i` e uma lista de inteiros `l` e retorne a lista `l` sem a primeira ocorrência de `i` em `l`.
+        * Defina uma função `fm` que receba uma lista de inteiros `l` e retorne o menor inteiro da lista.
+        * Defina uma função `fs` que receba uma lista de inteiros `l`, escolha o menor inteiro `m` de `l` e retorne `m` concatenado a cabeça da lista gerada por `fs (fr m l)`
+
+    * Merge-Sort (https://www.youtube.com/embed/XaqR3G_NVoo)
+        * Defina uma função `fd` que receba uma lista e retorne suas duas metades em uma dupla: `#!hs metade [1..11] = ([1,2,3,4,5],[6,7,8,9,10,11])`
+        * Defina uma função `fu` que receba duas listas ordenadas e retorne uma lista ordenada com a união das listas `#!hs união [1,3,5,7] [2,4,6,7] = [1,2,3,5,6,7,7]`
+        * Defina uma função `fm` que receba uma lista, divida-a na metade usando `fd`, aplique `fm` recursivamente em cada metade, e calcule a união das listas resultantes usando `fu`.
+
+    * Quick-sort
+        * Defina uma função `fp` que receba uma lista `l` de inteiros e retorne retorne uma tripla `(p,m1,m2)` em que 
+            * `p` é o primeiro elemento da lista `l`
+            * `m1` é a lista dos elementos em `l` menores ou iguais a `p`, exclusive
+            * `m2` é a lista dos elementos em `l` maiores que `p`
+        * Defina uma função `fq` que recebe uma lista `l`, calcule `(p,m1,m2) = fp l` e retorne `fq m1` concatenado a `p` concatenado a `fq m2`.

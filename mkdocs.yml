@@ -115,50 +115,54 @@ nav:
         - Apresentação: preface.md
         - Introdução: 
             - intro/index.md
-            - Paradigmas: intro/paradigm.md
-            - Escolhas: intro/choseyourpoison.md
             - Haskell: intro/haskell.md
-            - Mais: intro/more.md
+            - Mais Haskell: intro/more.md
 
-        - Funções:
+        - Funções I:
             - functions/index.md
             - Se então, senão: functions/ifthenelse.md
             - Guardas!: functions/guards.md
             - Padrões: functions/pattern_matching.md
+            - Funções Locais: functions/where_let_in.md
 
-        - Tipos: types.md
-        
-        - Tuplas: tuples.md
+        - Tipos I: 
+            - types/index.md
+            - Básicos: types/basic.md
+            - Funções: types/functions.md
+            - Tuplas: types/tuples.md
+            - Listas: types/lists.md
+            - Operadores: types/operators.md
 
-        - Padrões: pattern_matching.md #Remove some content that got migrated to 1+1
+        - Desenvolvimento I:
+            - development/index.md
+            - Módulos: development/modules.md
+            - HSpec: development/hspec.md
+            - Quick, Check!: development/quickcheck.md
 
-        - Recursão: recursion.md
+        - Funções II:
+            - Padrões: functions2/pattern_matching.md
+            - Recursão: functions2/recursion.md
 
-        - Where e Let-In: where_let_in.md
-        
-        - Listas: lists.md
+        - Tipos II:
+            - Novos: types2/userdefined.md
+            - Tipos algébricos: types2/algebraic.md
+            - Polimorfismo: types2/type_variables.md
 
-        - Polimorfismo: type_variables.md
 
-        - Tipos algébricos: algebraic_data_types.md
+        - Cálculo λ: lambda/lambda.md
 
-        - Funções de ordem superior: highorder.md
+        - Funções III:
+            - Ordem superior: functions3/highorder.md
+            - Que preguiça: functions3/lazy.md
+            - Recursão de cauda: functions3/tail_recursion.md
 
-        - Entrada e Saída: io.md
+        - Entrada e Saída: 
+            - IO: io.md
+            - Testes: tests/iotest.md
+
 
         - Tudo junto e misturado: app.md
 
-        - Cálculo λ: lambda.md
-
-        - Que preguiça: lazy.md
-
-        - Recursão de Cauda: tail_recursion.md
-
-        - Quick, Check!: quickcheck.md
-
-        - Projeto: project.md
+        - Projetos: project.md
 
         - Erros comuns: comments.md
-
-
-

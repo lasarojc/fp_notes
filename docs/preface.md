@@ -44,6 +44,9 @@ Referências a tópicos específicos são apresentadas nas seções onde são us
 
 * [Haskell](https://en.wikibooks.org/wiki/Haskell) - Divide o estudo da linguagem em "trilhas" de diversos níveis.
 * [Learn you a Haskell for a greater good](http://learnyouahaskell.com/) - Visão geral e de alto nível da linguagem.
+* [Learn Haskell Programming](https://www.tutorialspoint.com/haskell/index.htm) - Tutorial para iniciantes.
+* [Haskell in Depth](https://livebook.manning.com/book/haskell-in-depth)
+* [Hoogle](https://hoogle.haskell.org/) - Haskell search engine.
 
 ## TODO
 Esta sessão documenta o conteúdo presente e a ser adicionado nestas notas de aula, sendo principalmente para a minha própria referência.
@@ -92,7 +95,9 @@ A ordem não reflete a ordem de apresentação.
          - [ ] Novas type classes - http://learnyouahaskell.com/making-our-own-types-and-typeclasses#algebraic-data-types
 
     - [x] Tipos especificados pelo usuário
-        - [x] Definição - `#!hs type` - apelidos para tipos
+        - [ ] Definição - `#!hs type` - apelidos para tipos
+            - [x] não parametrizado
+            - [ ] parametrizado - Variáveis de tipo
         - [ ] Tipos algébricos 
             * [x] Definição - `#!hs data`
                 - https://mmhaskell.com/blog/2017/12/24/haskell-data-types-in-5-steps
@@ -111,7 +116,8 @@ A ordem não reflete a ordem de apresentação.
     - [x] Guardas
     - [x] Casamento de padrões
     - [x] where
-    - [x] let in 
+    - [x] let in
+    - [ ] operadores
     - [x] Protótipos
         - [x] Inferência - `#!hs :t`
         - [x] Especificação manual
