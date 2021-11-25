@@ -8,13 +8,13 @@ Já `#!hs [1::Int,2::Int,3::Int]` é uma lista de 3 elementos do tipo `#!hs Int`
 ## Listas x Tuplas
 Listas tem duas particularidades que as diferenciam de tuplas.
 Primeiro, enquanto as tuplas `#!hs (1::Int,2::Int,3::Int)` e `#!hs (1::Int,2::Int,3::Int,4::Int)` tem tipos diferentes, isto é, uma é uma tupla de **três** inteiros e a outra uma tupla de **quatro** inteiros, as listas `#!hs [1::Int,2::Int,3::Int]` e `#!hs [1::Int,2::Int,3::Int,4::Int]` tem exatamente o mesmo tipo, **lista de inteiros**, ou mais especificamente, `#!hs [Int]`.
-Ou seja, listas com cardinalidades diferentes, mas com elementos do mesmo tipo, são do mesmo tipo.
+Ou seja, as cardinalidades das tuplas fazem parte do seu tipo mas não das listas e portanto listas com cardinalidades diferentes mas com elementos do mesmo tipo, são do mesmo tipo.
 
 Segundo, enquanto uma tupla pode ter elementos de tipos diferentes, todos os elementos de uma lista devem ser do mesmo tipo.
 Ou seja, enquanto é possível definir `#!hs x = ("Joao", 14, True)`, não é possível definir `#!hs x = ["Joao", 14, True]`.
-Aliás, outra forma de escrever a lista `#!hs [1::Int,2::Int,3::Int]`, enquanto especificando seus tipos, é `#!hs [1,2,3]::[Int]`.
+Aliás, outra forma de escrever a lista `#!hs [1::Int,2::Int,3::Int]`, especificando seu tipo, é `#!hs [1,2,3]::[Int]`.
 
-É preciso observar contudo que é possível construir uma lista `#!hs [1,2,3,4,17,4.2]`, mas mas isto só é possível porquê existe um tipo do qual todos os elementos da lista são derivados, no caso, `#!hs Fractional`.
+É preciso observar contudo que é possível construir uma lista `#!hs [1,2,3,4,17,4.2]`, mas isto só é possível porquê existe um tipo do qual todos os elementos da lista são derivados, no caso, `#!hs Fractional`.
 De fato, quando definimos este lista, Haskell automaticamente faz o boxing dos cinco primeiros valores para ponto flutuante.
 
 ```hs
@@ -30,7 +30,7 @@ Já a tupla `#!hs (1,2,3,4,17,4.2)` tem elementos com tipos diferentes.[^edicao]
 [^edicao]: Foi feita uma pequena edição na saída do comando `#!hs :t` para claridade, pois o resultado real envolvia supertipos, a serem vistos mais adiante.
 
 ```hs
-Prelude> :t t
+> :t t
 t :: (Num, Num, Num, Num, Num, Fractional)
 ```
 
@@ -43,8 +43,8 @@ Listas não vazias são representadas como a concatenação do primeiro elemento
 Por exemplo, a lista dos números 1, 2 e 3 nesta ordem é construída como `#!hs 1:2:3:[]`; observe que como o 3 é o último elemento da lista, a lista que vem depois do cons é a lista vazia.
 
 ```hs
-Prelude> x = 1:2:3:[]
-Prelude> x
+> x = 1:2:3:[]
+> x
 [1,2,3]
 ```
 
@@ -54,9 +54,9 @@ No exemplo anterior, `#!hs 1:2:3:[]`, `#!hs 1` é a cabeça e `#!hs 2:3:[]` a ca
 Haskell inclusive define funções para recuperar estas partes de uma lista qualquer.
 
 ```hs
-Prelude> head x
+> head x
 1
-Prelude> tail x
+> tail x
 [2,3]
 ```
 
@@ -64,18 +64,18 @@ Dado uma lista de elementos de um tipo qualquer, a cabeça desta lista é um ele
 Logo, podemos subdividir a cauda também em uma cabeça e uma cauda, no exemplo, `#!hs 2` e `#!hs 3:[]`. 
 
 ```hs
-Prelude> head (tail x)
+> head (tail x)
 2
-Prelude> tail (tail x)
+> tail (tail x)
 [3]
 ```
 
 Podemos aplicar `#!hs head` e `#!hs tail` mais uma vez na lista, obtendo 3 e `#!hs []` como resultado.
 
 ```hs
-Prelude> head (tail (tail x))
+> head (tail (tail x))
 3
-Prelude> tail (tail (tail x))
+> tail (tail (tail x))
 []
 ```
 
@@ -83,9 +83,9 @@ Mas e se formos além? Neste caso estaríamos tentando identificar o primeiro el
 Tampouco podemos extrair a lista após a cabeça. 
 
 ```hs
-Prelude> head []
+> head []
 *** Exception: Prelude.head: empty list
-Prelude> tail []
+> tail []
 *** Exception: Prelude.tail: empty list
 ```
 
@@ -94,7 +94,7 @@ Logo, qualquer iteração nos elementos de uma lista, geralmente especificada po
 
 ###### Um pouco de açúcar sintático
 A especificação manual de uma lista usando o operador cons não é muito utilizada na prática, sendo a especificação usando colchetes e vírgulas mais comum, como feito nos primeiros exemplos deste capítulo, e é inclusive como o próprio Haskell exibe as listas.
-O efeito final é o mesmo, ficando para você a decisão qual construção usar.
+O efeito final é o mesmo, ficando para você a decisão de qual construção usar.
 
 * `#!hs 1:[]` é igual a `#!hs [1]`
 * `#!hs 2:1:[]` é igual a `#!hs [2,1]`
@@ -107,13 +107,13 @@ Se o açúcar sintático dos colchetes não representa economia em termos de dig
 Isto por que para listas de caracteres, como `#!hs ['a','b','c']`, podemos escrever simplesmente `#!hs "abc"`, com exatamente o mesmo efeito, e até misturar com o uso de cons.
 
 ```hs
-Prelude> "abc"
+> "abc"
 "abc"
-Prelude> ['a','b','c']
+> ['a','b','c']
 "abc"
-Prelude> 'a':['b','c']
+> 'a':['b','c']
 "abc"
-Prelude> 'a':"bc"
+> 'a':"bc"
 "abc"
 ```
 
@@ -173,53 +173,56 @@ A seguir, uma pequena amostra das funções disponíveis na biblioteca padrão d
 
 
 ## Enumeração
-Para facilitar a vida dos desenvolvedores, Haskell permite a construção de listas por enumeração, bastando para isso especificar o primeiro elemento da lista, opcionalmente o segundo, e o último elemento, isto é `#!hs [<primE>, [segE,]..,<ultE>]`
+Para facilitar a vida dos desenvolvedores, Haskell permite a construção de listas por enumeração, bastando para isso especificar o primeiro elemento da lista, opcionalmente o segundo, e o último elemento, isto é `#!hs [<primE> {,segE}..<ultE>]`. [^optional]
+
+[^optional]: Parâmetros especificados entre `<>` são obrigatórios e entre `{}` são opcionais.
 
 
 ```hs
-Prelude> [11,13..23]
+> [11,13..23]
 [11,13,15,17,19,21,23]
 
-Prelude> [-15,-13..14]
+> [-15,-13..14]
 [-15,-13,-11,-9,-7,-5,-3,-1,1,3,5,7,9,11,13]
 ```
 
-Observe que Haskell determinou um passo de incremento igual a $13-11 = 2$ no primeiro exemplo e $-15 - -13 = 2$ no segundo exemplo, e usou estes passos para gerar as lista.
+Observe que Haskell determinou um passo de incremento igual a $13-11 = 2$ no primeiro exemplo e $(-13) - (-15) = 2$ no segundo exemplo, e usou estes passos para gerar as lista.
 
 Também é possível definir um passo negativo, como no próximo exemplo.
 
 ```hs
-Prelude> [11,9..0]
+> [11,9..0]
 [11,9,7,5,3,1]
 ```
 
 Como mencionado, o segundo elemento é opcional na enumeração e caso não especificado, Haskell assume que seja $1$, como no exemplo a seguir.
 
 ```hs
-Prelude> [11..23]
+> [11..23]
 [11,12,13,14,15,16,17,18,19,20,21,22,23]
-Prelude> [3.5..10]
+> [3.5..10]
 [3.5,4.5,5.5,6.5,7.5,8.5,9.5,10.5]
 ```
 
 Contudo, não é possível omitir o segundo elemento se a intenção for gerar uma lista com valores decrescentes.
 
 ```hs
-Prelude> [11..0]
+> [11..0]
 []
 ```
 
 A enumeração pode ser feita para outros tipos que não sejam numéricos, bastando que exista uma relação de ordem entre os elementos para que Haskell consiga "incrementar" a cada passo.
-Isso existe, por exemplo, entre os caracteres, mas também para tipos definidos pelo desenvolvedor.[^espaco]
+Isso existe, por exemplo, entre os caracteres, mas possivelmente para tipos definidos pelo desenvolvedor.[^espaco]
+Este ponto será revisto depois que estudarmos tipos algébricos.
 
 [^espaco]: No exemplo, observe o espaço entre `Copas` e `..`.
 
 ```hs
-Prelude> ['a'..'m']
+> ['a'..'m']
 "abcdefghijklm"
 
-Prelude> data Naipe = Copas | Espada | Ouro | Paus deriving (Ord,Eq,Enum,Show)
-Prelude> [Copas ..Ouro]
+> data Naipe = Copas | Espada | Ouro | Paus deriving (Ord,Eq,Enum,Show)
+> [Copas ..Ouro]
 [Copas,Espada,Ouro]
 ```
 
@@ -234,7 +237,7 @@ Prelude> [Copas ..Ouro]
         ```
 
         ```hs
-        *Main> vaiEVolta 3
+        > vaiEVolta 3
         [1,2,3,2,1]
         ```
 
@@ -274,7 +277,9 @@ A compreensão de listas é similar
 Uma diferença importante é que enquanto não há ordem nos conjuntos, há ordem nas listas e a construção é feita na ordem da lista original.
 
 ###### Listas infinitas
-Assim como é possível expressar um conjunto infinito usando compreensão de conjuntos, por exemplo o conjunto dos quadrados de todos os números naturais $S = \{e^2 | e \in \mathcal{N} \}$, podemos expressar listas infinitas usando enumeração e compreensão de listas como `#!hs lq = [e**2 | e <- [1..]]`.
+Assim como é possível expressar um conjunto infinito usando compreensão de conjuntos, por exemplo o conjunto dos quadrados de todos os números naturais $S = \{e^2 | e \in \mathcal{N} \}$, podemos expressar listas infinitas usando enumeração e compreensão de listas como 
+
+`#!hs lq = [e**2 | e <- [1..]]`.
 
 "Mas como é possível?", você me pergunta, afinal, a memória do computador é finita e portanto não poderia armazenar uma lista infinita.
 Esta é uma das mágicas de Haskell, conhecida como avaliação preguiçosa, e será discutida mais adiante.
@@ -330,7 +335,7 @@ Data.Char> [ toUpper e | e <- "abcd,'dasdfa;lkqwoiur"]
 A lista resultante pode tem tipos complexos como elementos, como no exemplo seguinte, em que compreensão gera uma com tuplas com as versões minúscula e em maiúscula de cada letra encontrada na entrada.
 
 ```hs
-Prelude Data.Char> [ (toUpper e,toLower e) | e <- "abCD"]
+ Data.Char> [ (toUpper e,toLower e) | e <- "abCD"]
 [('A','a'),('B','b'),('C','c'),('D','d')]
 ```
 
@@ -352,7 +357,7 @@ Neste caso, podemos adicionar um teste aos elementos sendo aplicados na constru�
 Observe que os predicados em si podem ser tão complexos quanto se queira.
 
 ```hs
-Prelude Data.Char> [e^2 | e <- [1..100], e `mod` 3 == 0, e^2 `mod` 4 == 0]
+ Data.Char> [e^2 | e <- [1..100], e `mod` 3 == 0, e^2 `mod` 4 == 0]
 [36,144,324,576,900,1296,1764,2304,2916,3600,4356,5184,6084,7056,8100,9216]
 ```
 

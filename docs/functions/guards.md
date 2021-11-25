@@ -22,7 +22,7 @@ nomeFuncao arg1 ... argN
 ```
 
 
-Especificamente, o exemplo do cálculo do nome dos meses ficaria assim como a seguir.
+Especificamente, o exemplo do cálculo do nome dos meses ficaria como a seguir.
 
 ```hs
 nomeMes m
@@ -41,7 +41,7 @@ nomeMes m
     | m == 13 = "ONZ"
 ```
 
-Embora no exemplo anterior cada condição seja muito simples, apenas um teste de igualdade, condições podem ser mais complexas, podendo incluir múltiplos testes e computações; a única condição é resulte em um valor booleano.
+Embora no exemplo anterior cada condição seja muito simples, apenas um teste de igualdade, condições podem ser mais complexas, podendo incluir múltiplos testes e computações; a única condição é que resulte em um valor booleano.
 Por exemplo, vejamos uma função que calcula o maior entre três números.
 
 ```hs
@@ -99,7 +99,7 @@ maiorDeTres a b c
 ```
 
 De fato, se usarmos o GHCi para obtermos mais informações sobre `otherwise`, veremos que é uma constante, cujo valor é `#!hs True`.
-Isso serve para ilustrar o poder da linguagem, que tem um conjunto reduzido de palavras chave que é estendida usando suas funcionalidades básicas.
+Isso serve para ilustrar o poder da linguagem, que tem um conjunto reduzido de palavras reservadas e que é estendida usando suas funcionalidades básicas.
 
 ```
 Prelude> otherwise

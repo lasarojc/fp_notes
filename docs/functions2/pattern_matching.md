@@ -1,6 +1,6 @@
 # Casamento de Padrões
 Mencionamos anteriormente que quando especificamos a lista de parâmetros formais que uma função recebe, estamos dizendo ao compilador que os parâmetros passados na invocação da função devem ser associados aos parâmetros formais.
-Vamos nos aprofundar nesta ideia, do **casamento de padrões**.
+Em Haskell, este processo acontece por meio de um **casamento de padrões**.
 
 ## Tipos de Padrão
 O casamento de padrões é o processo pelo qual os valores em uma **expressão** são decompostos e associados aos elementos de um **padrão**.
@@ -31,7 +31,7 @@ minhaFunção █ = "Sucesso!"
 e que você esteja invocando a função no ghci assim como a seguir, mas onde o símbolo ▓ é substituído pelo valor.
 
 ```hs
-Prelude> minhaFunção ▓
+> minhaFunção ▓
 ```
 
 Por exemplo, para a primeira linha, a função fica assim
@@ -43,7 +43,7 @@ minhaFunção 10 = "Sucesso!"
 e a invocação fica assim.
 
 ```hs
-Prelude> minhaFunção 10
+> minhaFunção 10
 ```
 
 Quando a invocação é feita, o ghci pega o valor passado, 10, e tenta casá-lo com o padrão especificado na definição de minhaFunção, 10.

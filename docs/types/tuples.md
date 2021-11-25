@@ -25,7 +25,7 @@ soma2v p1 p2 = █████
 ```
 
 Para acessar as diferentes coordenadas dentro das tuplas podemos usar as funções `#!hs fst` e `#!hs snd`,[^prelude] abreviações para *first* e *second* e que retornam o primeiro e o segundo elemento de uma tupla de dois elementos, um par, respectivamente.
-Logo, 
+Isto é, 
 
 [^prelude]: Funções definidas no pacote [Prelude](https://hackage.haskell.org/package/base-4.15.0.0/docs/Prelude.html#g:3).
 
@@ -125,6 +125,8 @@ docs/code/pessoa.hs
 --8<--
 ```
 
+Uma observação a ser feita é que, na última função, nomear a variável como `#!hs _t` tem o mesmo efeito que simplesmente `#!hs _` para o compilador, mas deixa o código mais legível.
+Outra observação é que mesmo com o uso `#!hs _t`, o código fica rapidamente difícil de se ler, pois o desenvolvedor deve manter em mente qual posição corresponde a qual dado de uma pessoa. Veja o exemplo de uso das funções.
 
 ```hs
 > x = fazPessoa "jose da silva" "12345" "0003003093" "Av das Couves, 14"  
@@ -139,12 +141,12 @@ docs/code/pessoa.hs
 => ("jose da silva","54321","0003003093","Av das Couves, 14")
 ```
 
-Uma observação a ser feita é que, na última função, nomear a variável como `#!hs _t` tem o mesmo efeito que simplesmente `#!hs _` para o compilador, mas deixa o código mais legível.
-Outra observação é que mesmo com o uso `#!hs _t`, o código fica rapidamente difícil de se ler, pois o desenvolvedor deve manter em mente qual posição corresponde a qual dado de uma pessoa; imagine estruturas mais complexas, contendo outros dados de cada pessoa, e várias outras estruturas semelhantes, como ordens de serviço, descrição de inventários, cadastro de vendedores, etc.
-Veremos adiante como definir novos tipos de dados pode facilitar o desenvolvimento.
+Imagine estruturas mais complexas, contendo outros dados de cada pessoa, e várias outras estruturas semelhantes, como ordens de serviço, descrição de inventários, cadastro de vendedores, etc.
+Veremos adiante como definir novos tipos de dados pode facilitar o desenvolvimento e não ter que ficar se lembrando das posições dos valores dentro das tuplas.
+
 
 ## O tipo de um tupla
-Ao definirmos a função `#!hs soma2v`, definimos que o primeiro parâmetro é uma tupla com duas componentes do tipo `#!hs Int`, ou seja, `#!hs (Int,Int)`; este é o tipo dos parâmetros da função.
+Ao definirmos a função `#!hs soma2v`, definimos que o primeiro parâmetro é uma tupla com duas componentes do tipo `#!hs Int`, ou seja, `#!hs (Int,Int)`; este é o tipo do parâmetro.
 Podemos confirmar esta informação usando `#!hs :t`.
 
 ```hs
@@ -178,9 +180,8 @@ Os tipos das componentes de uma tupla podem ter qualquer tipo válido, inclusive
 
 ## Ordem entre tuplas
 Dado duas tuplas com mesmo tipo (mesmo tamanho e tipo de suas componentes), podemos compará-las lexicograficamente.
-Isto quer dizer que uma tupla $t_1$ é menor que uma tupla $t_2$ se, considerando posições da esquerda para a direita:
-
-* dado uma posição $i$, se $t_1$ na posição $i$ é menor que $t_2$ na posição $i$ e se $\forall j < i$, $t_1$ na posição $j$ é igual a $t_2$ na posição $j$.
+Isto quer dizer que uma tupla $t_1$ é menor que uma tupla $t_2$ se, considerando posições da esquerda para a direita. 
+Isto é, dado tupla $t^1$ e uma tupla $t^2$, se o primeiro elemento da tupla $t^1$ é menor que o primeiro elemento da tupla $t^2$, então $t^1 < t^2$. Caso o primeiro elemento de $t^2$ seja menor, então $t^2 < t^1$. E caso os primeiros elementos sejam iguais, a avaliação é repetida para os segundos elementos e assim sucessivamente.
 
 ```hs
 > (1,2) < (1,3)
@@ -205,14 +206,14 @@ True
 False
 ```
 
-Assim, se usarmos como data uma tupla com ano, mês e dia, **nesta ordem**, então duas datas podem ser comparadas diretamente como comparação de tuplas.
+Um exemplo do uso desta funcionalidade é na comparação de datas, se as representarmos como tuplas com ano, mês e dia, **nesta ordem**. Neste caso, duas datas podem ser comparadas diretamente como comparação de tuplas.
 
 ```hs
 > (2000,01,01) < (1999,12,12)
 False
-ghci> (2000,01,01) < (2001,12,12)
+> (2000,01,01) < (2001,12,12)
 True
-ghci> (2000,01,01) < (2000,01,2)
+> (2000,01,01) < (2000,01,2)
 True
 ```
 
@@ -220,3 +221,16 @@ True
 Por completude, é preciso mencionar que tuplas podem ter qualquer aridade, inclusive zero.
 Isto é, `#!hs ()` é uma tupla válida e a única instância de tuplas de aridade zero.
 A utilidade desta tupla, denominada **Unit**, ficará clara mais adiante, quando falarmos sobre entrada e saída.
+
+
+
+##  Os operadores `#!hs (,)`
+
+???todo "TODO"
+    ```hs
+    > (,) 1 2
+    (1,2)
+    > (,,) 1 2 3
+    (1,2,3)
+    ```
+

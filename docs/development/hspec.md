@@ -1,7 +1,8 @@
 # HSpec [^hspec]
 Quando desenvolvemos software, é imprescindível que criemos testes para verificar a corretude de nosso código, ou pelo menos ganhar confiança em sua corretude.
 HSpec é um framework que possibilita escrever e executar testes unitários de funções;
-o *framework* provê uma linguagem de domínio específico para escrever os testes também em Haskell. Usaremo seguinte arquivo `test/Tests.hs` como exemplo para descrever a linguagem em (muito) alto nível.
+o *framework* provê uma linguagem de domínio específico para escrever os testes também em Haskell. 
+Usaremos seguinte arquivo `test/Tests.hs` como exemplo para descrever a linguagem em (muito) alto nível.
 
 ```hs
 import Test.Hspec        (Spec, it, shouldBe, describe)

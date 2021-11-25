@@ -12,8 +12,6 @@ extra_javascript:
 extra_css:
         - css/extra.css
 
-google_analytics: ['G-PJX835H7DP', 'lasarojc.github.org/fpnotes']
-
 theme:
         name: material
         palette:
@@ -123,15 +121,15 @@ nav:
             - Se então, senão: functions/ifthenelse.md
             - Guardas!: functions/guards.md
             - Padrões: functions/pattern_matching.md
-            - Funções Locais: functions/where_let_in.md
+            - Definições Locais: functions/where_let_in.md
 
         - Tipos I: 
             - types/index.md
             - Básicos: types/basic.md
             - Funções: types/functions.md
+            - Operadores: types/operators.md
             - Tuplas: types/tuples.md
             - Listas: types/lists.md
-            - Operadores: types/operators.md
 
         - Desenvolvimento I:
             - development/index.md
@@ -145,6 +143,7 @@ nav:
 
         - Tipos II:
             - Novos: types2/userdefined.md
+            - Listas: types2/lists_again.md
             - Tipos algébricos: types2/algebraic.md
             - Polimorfismo: types2/type_variables.md
 
@@ -157,12 +156,10 @@ nav:
             - Recursão de cauda: functions3/tail_recursion.md
 
         - Entrada e Saída: 
-            - IO: io.md
+            - IO: io/io.md
             - Testes: tests/iotest.md
 
-
-        - Tudo junto e misturado: app.md
-
-        - Projetos: project.md
-
-        - Erros comuns: comments.md
+        - Desenvolvimento II: 
+            - Uma aplicação: development/app.md
+            - Projetos de exemplo: development/project.md
+            - Erros comuns: development/comments.md

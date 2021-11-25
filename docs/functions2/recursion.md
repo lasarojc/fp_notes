@@ -2,7 +2,7 @@
 
 Uma função é dita recursiva quando ela é **definida em termos de si mesma**.
 
-![](drawings/function.drawio#4)
+![](../drawings/function.drawio#4)
 
 Estas funções são muito importantes tanto na matemática, onde são também conhecidas como **recorrências**.
 Por exemplo, vejamos como é definido um exemplo recorrentes de função na computação (*pun intended*) de forma recursiva, o cálculo do fatorial de um número.
@@ -56,7 +56,7 @@ Como esta invocação será feita para o valor passado como parâmetro menos 1, 
 Cada $n$ só existe no escopo de uma invocação da função.
 Pictograficamente, $n$ só é visível dentro da "caixinha" onde foi associada a um valor.
 
-![](drawings/function.drawio#5)
+![](../drawings/function.drawio#5)
 
 
 Outra forma absolutamente equivalente de definir a função é usando casamento de padrões, como a seguir.

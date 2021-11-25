@@ -24,13 +24,13 @@ somaDeAte x y = if x < y
 Observe que a sintaxe do **uso** das funções, contudo, é atípica. Enquanto a função em C é invocada como `#!c soma(1,10);`, em Haskell, usa-se o nome da função, seguido dos parâmetros, com espaço os separando, isto é:[^ghci]
 
 ```hs 
-> somaDeAte 1 10`
+> somaDeAte 1 10
 55
 ```
 
 A definição de funções em Haskell é feita pela especificação de uma ou mais **equações**.
-Na forma mais comum de definição, do lado esquerdo da equação temos o nome da função, iniciado sempre uma **letra minúscula**[^simb], e seguido por um ou mais parâmetros formais, todos iniciados também por **letras minúsculas**[^pattmatch].
-A convenção é que funções e parâmetros sigam sejam nomeados usando [Camel Casing](TODO).
+Na forma mais comum de definição, do lado esquerdo da equação temos o nome da função, iniciado sempre uma **letra minúscula**, e seguido por um ou mais parâmetros formais, todos iniciados também por **letras minúsculas**. 
+A convenção é que funções e parâmetros sejam nomeados usando [Camel Casing](TODO).
 Já do lado direito temos definição do cálculo do resultado.
 
 `#!hs nomeDaFunção [par1 [par2 [par2]]] = definição`
@@ -90,7 +90,7 @@ Com estas funções podemos, inclusive, compor funções no melhor estilo $g(f(x
 ???exercise "Exercício: área das figuras"
     * Defina uma função o cálculo da área de cada figura geométrica.
 
-    ![figuras](drawings/area.drawio)
+    ![figuras](../drawings/area.drawio)
 
     ???example "Resolução"
         ```hs

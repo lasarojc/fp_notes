@@ -5,13 +5,13 @@ A modularização em Haskell acontece em dois níveis, módulos e pacotes.
 ## Módulos
 No primeiro nível de modularização, o código é organizado em módulos, que contém funções e tipos associados.
 Um programa em Haskell é uma coleção de módulos, dentre os quais deve haver um módulo *`#!hs Main`*, que deve conter uma função `#!hs main` e que servirá de ponto de entrada para a execução do programa.
-Se o código for apenas interpretado, **não há a necessidade da presença de uma função main.
+Se o código for apenas interpretado, **não há a necessidade da presença de uma função main**.
 
 Cada módulo corresponde a um arquivo; o módulo pode **exportar** definições e **importar** definições de outros módulos, do mesmo time ou de bibliotecas de terceiros.
 Todo módulo tem a seguinte estrutura, onde o nome do módulo deve necessariamente começar com uma letra maiúscula.
 
 ```hs
-module NomeDoMódulo (<lista de funções exportadas>) where
+module NomeDoMódulo {(lista de funções exportadas)} where
 
 -- imports: Nome do módulo, seguido pelas funções a serem importadas.
 import Data.Char (toLower)
@@ -89,7 +89,7 @@ Módulos podem ter nomes hierarquizados, como `#!hs Números.Complexos.Operaçõ
 ###### Prelude
 Por padrão, o módulo **prelude**[^prelude] é carregado toda vez que executa o ghci ou compila um programa, a não ser que seja explicitamente indicado em contrário.
 Este módulo contém a definição dos tipos e operadores básicos vistos anteriormente, além de muitos outros, e o GHC.Num é parte do Prelude.
-Uma pequena mas interessante amostra de outros tipos incluídos:
+Uma pequena mas interessante amostra de outros tipos e funções.
 
 | Nome | Definição |
 |------|-----------|
@@ -98,8 +98,6 @@ Uma pequena mas interessante amostra de outros tipos incluídos:
 |`Semigroup` | Uma classe em que vale a associatividade |
 |`Monoid`| Monóide em que há um elemento identidade |
 |`putChar`| Escreve um caractere na saida padrão |
-|`putString`| Escreve uma string na saida padrão |
-|`getChar`| Lê um caractere da entrada padrão |
 |`getString`| Lê uma string da entrada padrão |
 
 Estes exemplos servem para mostrar como o módulo mais básico do Haskell é diverso e como a sua biblioteca é mais diversa ainda.
@@ -124,7 +122,7 @@ Dificilmente você escreverá algo de útil sem importar ao menos alguns módulo
 Considerando que há também diversas versões do compilador que usaremos, o Haskell, e que certos pacotes dependem de versões específicas do Haskell e de outros pacotes, configurações manuais se tornam muito trabalhosas.
 Em vez disso, pode-se usar ferramentas como **Cabal** e **Stack**, que permitem descrever os pacotes as serem instalados e suas respectivas versões, por projeto, e estas gerenciarão as dependências automaticamente em tempo de compilação.
 
-Há uma certa disputa entre as duas ferramentas, bem formas de se traduzir as informações de uma ferramenta para outra, mas isto está fora do escopo deste material.
+Há uma certa disputa entre as duas ferramentas, bem como formas de se traduzir as informações de uma ferramenta para outra, mas isto está fora do escopo deste material.
 O escopo se resume a simplesmente prover um esqueleto para uso do Stack, que permite a execução de testes automatizados tanto na sua máquina quando nos servidores em que fará a submissão dos seus exercícios.
 
 ## Esqueleto de Projeto
@@ -147,11 +145,9 @@ O repositório tem uma estrutura similar ao seguinte [template](https://github.c
       +-- Tests.hs
 ```
 
-Depois de clonar este repositório, da raiz do mesmo, digite `#!bash stack test`, a definição do ambiente no arquivo `stack.yml` será usada para iniciar a execução dos testes especificados em `test/Tests.hs`, que executam funções em `src/Exercise.hs`.
+Depois de clonar este repositório, da raiz do mesmo, digite `#!bash stack test`. 
+A definição do ambiente no arquivo `stack.yml` será usada para iniciar a execução dos testes especificados em `test/Tests.hs`, que executam funções em `src/Exercise.hs`.
 Use este template para criar novos projetos e seus testes; adicione novas dependências no arquivo `stack.yml`.
-
-
-
 
 
 

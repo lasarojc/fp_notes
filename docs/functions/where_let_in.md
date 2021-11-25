@@ -1,16 +1,16 @@
 # Definição Local de Funções
 
-Frequentemente em nossas funções, precisamos usar mais de uma vez um valor calculado por outra função.
-No cálculo do índice de massa corporal a seguir, por exemplo, o cálculo do índice é especificado em três locais diferentes.
+Frequentemente em nossas funções precisamos usar mais de uma vez um valor calculado por outra função.
+No cálculo do índice de massa corporal a seguir, por exemplo, o cálculo do índice `#!hs p / a ^ 2` é feito em três locais diferentes.
 
 ```hs
 imc p a
-    | p / a ^ 2 <= 18.5 = "Baixo"
-    | p / a ^ 2 <= 25.0 = "Normal"
-    | p / a ^ 2 <= 30.0 = "Alto"
+    | p/a^2 <= 18.5 = "Baixo"
+    | p/a^2 <= 25.0 = "Normal"
+    | p/a^2 <= 30.0 = "Alto"
 ```
 
-Uma alternativa que tornaria o código mais manutenível seria especificar o cálculo em outra função auxiliar, como no seguinte código.
+Uma alternativa que tornaria o código mais manutenível seria especificar o cálculo em uma função auxiliar, como no seguinte código.
 
 ```hs
 aux p a = p/a^2
@@ -36,13 +36,13 @@ imc p a
     where imc' p' a' = p'/a'^2
 ```
 
-Esta definição pode ser simplificada usando o fato de que todos os parâmetros formais da função externa são também visíveis dentro da função interna.
+Esta definição pode ser simplificada usando o fato de que todos **os parâmetros formais da função externa são também visíveis dentro da função interna**.
 
 ```hs
 imc p a
-    | imc' p a <= 18.5 = "Baixo"
-    | imc' p a <= 25.0 = "Normal"
-    | imc' p a <= 30.0 = "Alto"
+    | imc' <= 18.5 = "Baixo"
+    | imc' <= 25.0 = "Normal"
+    | imc' <= 30.0 = "Alto"
     where imc' = p/a^2
 ```
 
@@ -62,7 +62,7 @@ imc p a
 ```
 
 
-`where` é especialmente útil na definição de funções recursivas, pois permite nomear as invocações, como por exemplo na definição da função que calcula os termos da sequência de Fibonacci, com e sem o uso do construto.
+`where` é especialmente útil na definição de funções recursivas, pois permite nomear as invocações, como por exemplo na definição da função que calcula os termos da sequência de Fibonacci.
 
 === "Sem Where"
     ```hs
@@ -92,7 +92,7 @@ docs/code/collatz3.hs
 Finalmente, note que `#!hs where` pode ser aninhado, isto é, definições locais podem também ter suas próprias definições locais.
 
 
-###### `#!hs let .. in`
+###### `#!hs let ... in`
 `#!hs let ... in` oferece uma outra alternativa em Haskell para fazer definições locais.
 Neste caso, definições que se seguem ao `#!hs let` são visíveis na expressão definida no `#!hs in`, como nas seguintes definições.
 
@@ -112,11 +112,11 @@ areaCilindro r a =
 Nestes exemplos, parece que `#!hs where` e `#!hs let in` são apenas sintaxes diferentes para o mesmo fim, criar definições locais, mas há algumas diferenças fundamentais.
 Primeiro, enquanto o as definições feitas no `#!hs where` são amarradas ao contexto da função em que estão colocadas, podendo ser vistas em quaisquer outras partes da função, por exemplo nas guardas do cálculo do `#!hs imc`, as definições feitas no `#!hs let` são muito mais localizadas, válidas apenas dentro do `#!hs in` correspondente. 
 Segundo, `#!hs let ... in` são expressões e podem aparecer em qualquer lugar onde uma expressão é esperada.
-Por exemplo, eles podem ser usados para definir constantes ou funções
+Por exemplo, eles podem ser usados para definir constantes ou funções literalmente no meio de uma expressão.
 
 ```hs
-> 1 * (let um = 1 in um + 1) + 1
-3
+> 2 * (let um = 1 in um + 2) + 3
+9
 > let quadrado x = x*x in quadrado 3
 9
 ```

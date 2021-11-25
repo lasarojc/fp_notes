@@ -14,15 +14,15 @@ Quando a seguinte invocação acontece, o valor 3 é associado a `#!hs x` e 4 a 
 7
 ```
 
-Em Haskell, contudo, é possível especificar parâmetros formais com padrões a serem casados com os parâmetros passados na invocação.
-Veremos mais adiante como esse **casamento de padrões** de padrões é poderoso; por enquanto o usaremos apenas como forma de testar a igualdade dos parâmetros a constantes, como uma alternativa à definição de funções usando guardas.
+Em Haskell, contudo, é possível especificar mais do que uma lista de variáveis como parâmetros formais; é possível especifica padrões a serem casados com os parâmetros passados na invocação.
+Veremos mais adiante como esse **casamento de padrões** é poderoso; por enquanto o usaremos apenas como forma de testar a igualdade dos parâmetros a constantes, como uma alternativa à definição de funções usando guardas.
 
-Neste caso, a função é definida como uma sequência de equações em que são feitas tentativas sucessivas de casar os argumentos passados com os parâmetros formais, na ordem das definições.
+Neste caso, a função é definida como uma sequência de equações em que são feitas tentativas sucessivas de casar (igualar) os argumentos passados com os parâmetros formais, na ordem das definições.
 O resultado da invocação da função é dado pela **primeira** equação em que houver um casamento bem sucedido **e** todas as guardas forem satisfeitas.
 Se ao final não houver casamento ou se as guardas não forem satisfeitas, ocorre um **erro de execução**.
 
 Para começar, revisitemos a função `nomeMes`.
-Usando casamento de padrões constantes, ela ficaria assim:
+Usando casamento de padrões, ela ficaria assim:
 
 ```hs
 nomeMes 1 = "JAN"
@@ -39,7 +39,7 @@ nomeMes 11 = "NOV"
 nomeMes 12 = "DEZ"
 ```
 
-Esta função funciona especificamente para valores na faixa [1,12] e retornará um erro para qualquer valor fora da mesma.
+Esta função funciona para exatamente os valores na faixa [1,12] e retornará um erro para qualquer valor fora da mesma.
 
 ```hs
 > nomeMes 13
@@ -70,9 +70,9 @@ fatorial n
 Na execução, temos os seguintes resultados.
 
 ```hs
-> fatorial (-1)
-*** Exception: Indefinido
+> fatorial 1
+1
 
-> fatorial' (-1)
+> fatorial (-1)
 *** Exception: Indefinido
 ```

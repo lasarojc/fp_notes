@@ -31,7 +31,7 @@ Por exemplo, no caso para resolver `#!hs soma [1,2,3,4,5]`, o seguinte acontece:
 - mas, para calcular `#!hs soma [2,3,4,5]`primeiro é necessário calcular `#!hs soma [3,4,5]`, e a invocação recursiva é feita, e assim por diante;
 - as informações que permitem ao programa continuar a execução de uma invocação **depois** da chamada recursiva retornar, isto é, o valor da cabeça da lista na invocação atual, são "empilhadas" na memória;
 
-![](drawings/tail_recursion.drawio#0)
+![](../drawings/tail_recursion.drawio#0)
 
 Acontece que se a pilha (*stack*) cresce muito, como é o caso quando fazemos uma invocação `#!hs soma [100000000]`, ela extrapola a capacidade do processo de crescer a pilha e "transborda" (*overflow*) o espaço reservado para a pilha, que é o erro visto no exemplo anterior.
 Acontece que Haskell é inteligente o suficiente para perceber se a função não tiver pendências e, neste caso, não colocar na pilha.
@@ -48,11 +48,11 @@ soma acc (x:xs) = soma (acc + x) xs
 
 Como não há pilha, é possível calcular somatórios bem maiores, pois nada fica para trás, correto? 
 
-![](drawings/tail_recursion.drawio#1)
+![](../drawings/tail_recursion.drawio#1)
 
 A verdade é que o Haskell é muito preguiçoso, e não avalia o `+` enquanto não for necessário, então a computação fica na verdade assim.
 
-![](drawings/tail_recursion.drawio#2)
+![](../drawings/tail_recursion.drawio#2)
 
 Haskell nos dá, contudo, a opção de forçar o cálculo do acumulador antes de passá-lo como parâmetro para a chamada recursiva usando a função `#!hs seq`.
 

@@ -13,7 +13,7 @@ O que acontece se você passar 7.2 como argumento para a função? O resultado e
 Isso nos leva a perguntar como definir que uma função só é aplicável a números inteiros, do **tipo** inteiro.
 
 Em linguagens de programação, um tipo é um nome dado a uma coleção de valores que tem um mesmo comportamento na linguagem.
-Na linguagem C, por exemplo, temos os tipos `#!c int` e `#!c short`, ambos associados a valores inteiros mas com número de bits diferentes usados para representá-los.
+Em C, por exemplo, temos os tipos `#!c int` e `#!c short`, ambos associados a valores inteiros mas com número de bits diferentes usados para representá-los.
 
 Algumas linguagens são denominadas **fracamente tipadas**, o que quer dizer que o uso de tipos é relaxado e pode até ser alterado em tempo de execução.
 Por exemplo, no seguinte código em Python a variável `x` assume três tipos diferentes, em momentos diferentes.

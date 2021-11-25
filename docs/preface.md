@@ -5,17 +5,18 @@ Ainda assim, é um paradigma que deve ser estudado pois seus pontos fortes tem s
 Por isso, neste curso estudaremos o paradigma funcional de uma forma prática, tentando sempre que possível mostrar diversas aplicações das ideias apresentadas no mundo da programação moderna.
 
 ## Agradecimentos
-Antes de começarmos nosso estudo, deixo aqui o meu agradecimento aos professores que forneceram o material sobre o qual estas notas de aula são baseadas, Profa. Gina Maira B. Oliveira, Profa. Maria Adriana Vidigal de Lima, e Prof. Henrique Fernandes, da Faculdade de Computação da UFU.
+Antes de começarmos nosso estudo, deixo aqui o meu agradecimento aos professores da Faculdade de Computação da UFU que forneceram o material sobre o qual a primeira versão destas notas de aula foram baseadas: Profa. Gina Maira B. Oliveira, Profa. Maria Adriana Vidigal de Lima, e Prof. Henrique Fernandes.
 
 ## Convenções
 Neste documento, usamos diversos recursos visuais com diferentes propósitos.
 
 * *itálico* indica termos em outras línguas, como *framework* ou *middleware*. Alguns termos, contudo, são tão corriqueiramente usados que me escapam quando escrevendo e acabam não grafados corretamente.
 * **negrito** indica a introdução de termos e conceitos importantes, como **mônada** e **função de ordem superior**.
-* Apontadores indicam um sítio relacionado ao termo, por exemplo, como criar um repositório no [Github](http://github.com), e cuja leitura é sugerida ao final da aula.
-* Notas de rodapé[^foot] indicam referenciais teóricos importantes, com detalhes da publicação e apontadores para onde a publicação pode ser lida.
+* Apontadores indicam um sítio relacionado ao termo, por exemplo, como criar um repositório no [Github](http://github.com).
+A leitura dos conteúdos apontados é sugerida ao final da aula.
+* Notas de rodapé[^foot] indicam referenciais teóricos importantes, com detalhes da publicação e apontadores para onde a publicação pode ser lida. Elas serão, em algum momento, substituídas por referências formais.
 * Imagens não autorais são também apontadores para a fonte e tem como texto alternativo as informações da autoria.
-* Caixas alinhadas à esquerda são usadas para várias finalidades. Por exemplo, para apresentar exercícios, destacar especificações, apontar tarefas a serem executas por mim. 
+* Caixas alinhadas à esquerda são usadas para várias finalidades. Por exemplo, para apresentar exercícios, destacar especificações, apontar tarefas a serem executas por mim.
 Os diversos usos são indicados nos ícones e cores das caixas.
     
 !!!exercise "Exercício"
@@ -24,17 +25,32 @@ Os diversos usos são indicados nos ícones e cores das caixas.
     ???example "Resposta"
         Esta é a resposta do exercício.
 
-???- info inline end "Resumo"
-    * Elementos visuais
-
-
 !!!warning "Aviso!"
     Este material está em constante evolução.
 
 
+???- info inline end "Resumo"
+    * Elementos visuais
+
 * Caixas alinhadas à direita podem ser vistas como um sumário executivo do que está sendo apresentado no texto adjacente.
 
 [^foot]: Exemplo de nota de rodapé.
+
+Exemplos de código são colocados tanto diretamente dentro de linhas, como em `#!hs somar x y = x + y` quando em blocos separados, se mais longos.
+
+```hs
+somar :: Int -> Int -> Int
+somar x y = x + y
+```
+
+Exemplos de invocações de funções são apresentados também como blocos, em que entradas são precedidas por `#!hs >` mas não as saídas.
+
+```hs
+> somar 3 4
+7
+> 3 + 4
+7
+```
 
 
 ## Referências
@@ -54,7 +70,7 @@ A ordem não reflete a ordem de apresentação.
 
 - Organização
      - [ ] Ativar plugin bibtex e organizar referências.
-     - [ ] Reorganizar e agrupar tópicos.
+     - [x] Reorganizar e agrupar tópicos.
 
 - Tipos
      - [x] Tipagem em Haskell
@@ -138,7 +154,7 @@ A ordem não reflete a ordem de apresentação.
         - [x] $
     - [x] Currying
 
-- [ ] Controle de fluxo
+- [x] Controle de fluxo
     - [x] if-then-else
     - [x] case-of
 
@@ -155,7 +171,7 @@ A ordem não reflete a ordem de apresentação.
     - [x] Read
     - [x] Monads (menção)
     - [x] IO
-    - [ ] GUI
+    - [ ] GUI (e.g., GLOSS)
 
 - [ ] Mônadas
     - https://www.youtube.com/watch?v=t1e8gqXLbsU
@@ -178,8 +194,8 @@ A ordem não reflete a ordem de apresentação.
     - [ ] idempotência
 
 - [ ] Test
-    - [ ] HSpec
-    - [ ] quickcheck - https://www.cs.umd.edu/class/spring2019/cmsc388F/lectures/randomized-testing.html
+    - [x] HSpec
+    - [x] quickcheck - https://www.cs.umd.edu/class/spring2019/cmsc388F/lectures/randomized-testing.html
     - [ ] quickcheck + Hspec https://hspec.github.io/quickcheck.html
     - [ ] Test com IO
 
