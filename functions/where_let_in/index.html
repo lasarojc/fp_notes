@@ -16,7 +16,7 @@
     
     
       
-        <title>Funções Locais - Notas de Aula em Programação Funcional</title>
+        <title>Definições Locais - Notas de Aula em Programação Funcional</title>
       
     
     
@@ -42,15 +42,11 @@
     
     
       
-  
-
 
   
 
 
   
-  
-
 
   
 
@@ -116,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Funções Locais
+              Definições Locais
             
           </span>
         </div>
@@ -452,7 +448,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Funções Locais
+        Definições Locais
       </a>
       
     </li>
@@ -553,6 +549,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../types/operators/" class="md-nav__link">
+        Operadores
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../types/tuples/" class="md-nav__link">
         Tuplas
       </a>
@@ -569,20 +579,6 @@
     <li class="md-nav__item">
       <a href="../../types/lists/" class="md-nav__link">
         Listas
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../types/operators/" class="md-nav__link">
-        Operadores
       </a>
     </li>
   
@@ -782,6 +778,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7">
@@ -804,6 +802,20 @@
     <li class="md-nav__item">
       <a href="../../types2/userdefined/" class="md-nav__link">
         Novos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types2/lists_again/" class="md-nav__link">
+        Listas
       </a>
     </li>
   
@@ -983,7 +995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io.md" class="md-nav__link">
+      <a href="../../io/io/" class="md-nav__link">
         IO
       </a>
     </li>
@@ -1018,40 +1030,79 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Desenvolvimento II
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Desenvolvimento II" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Desenvolvimento II
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../app.md" class="md-nav__link">
-        Tudo junto e misturado
+      <a href="../../development/app/" class="md-nav__link">
+        Uma aplicação
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../project/" class="md-nav__link">
-        Projetos
+      <a href="../../development/project/" class="md-nav__link">
+        Projetos de exemplo
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../comments/" class="md-nav__link">
+      <a href="../../development/comments/" class="md-nav__link">
         Erros comuns
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1097,14 +1148,14 @@
 
   <!-- Content -->
   <h1 id="definicao-local-de-funcoes">Definição Local de Funções</h1>
-<p>Frequentemente em nossas funções, precisamos usar mais de uma vez um valor calculado por outra função.
-No cálculo do índice de massa corporal a seguir, por exemplo, o cálculo do índice é especificado em três locais diferentes.</p>
+<p>Frequentemente em nossas funções precisamos usar mais de uma vez um valor calculado por outra função.
+No cálculo do índice de massa corporal a seguir, por exemplo, o cálculo do índice <code class="highlight"><span class="nf">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span></code> é feito em três locais diferentes.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">imc</span> <span class="n">p</span> <span class="n">a</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="o">|</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mf">18.5</span> <span class="ow">=</span> <span class="s">&quot;Baixo&quot;</span>
-<span class="linenos" data-linenos="3 "></span>    <span class="o">|</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mf">25.0</span> <span class="ow">=</span> <span class="s">&quot;Normal&quot;</span>
-<span class="linenos" data-linenos="4 "></span>    <span class="o">|</span> <span class="n">p</span> <span class="o">/</span> <span class="n">a</span> <span class="o">^</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mf">30.0</span> <span class="ow">=</span> <span class="s">&quot;Alto&quot;</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="o">|</span> <span class="n">p</span><span class="o">/</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="mf">18.5</span> <span class="ow">=</span> <span class="s">&quot;Baixo&quot;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">|</span> <span class="n">p</span><span class="o">/</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="mf">25.0</span> <span class="ow">=</span> <span class="s">&quot;Normal&quot;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="o">|</span> <span class="n">p</span><span class="o">/</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="mf">30.0</span> <span class="ow">=</span> <span class="s">&quot;Alto&quot;</span>
 </code></pre></div>
-<p>Uma alternativa que tornaria o código mais manutenível seria especificar o cálculo em outra função auxiliar, como no seguinte código.</p>
+<p>Uma alternativa que tornaria o código mais manutenível seria especificar o cálculo em uma função auxiliar, como no seguinte código.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">aux</span> <span class="n">p</span> <span class="n">a</span> <span class="ow">=</span> <span class="n">p</span><span class="o">/</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span>
 <span class="linenos" data-linenos="2 "></span>
 <span class="linenos" data-linenos="3 "></span><span class="nf">imc</span> <span class="n">p</span> <span class="n">a</span>
@@ -1123,11 +1174,11 @@ Isso pode ser feito usando <code class="highlight"><span class="kr">where</span>
 <span class="linenos" data-linenos="4 "></span>    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="n">p</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="mf">30.0</span> <span class="ow">=</span> <span class="s">&quot;Alto&quot;</span>
 <span class="linenos" data-linenos="5 "></span>    <span class="kr">where</span> <span class="n">imc&#39;</span> <span class="n">p&#39;</span> <span class="n">a&#39;</span> <span class="ow">=</span> <span class="n">p&#39;</span><span class="o">/</span><span class="n">a&#39;</span><span class="o">^</span><span class="mi">2</span>
 </code></pre></div>
-<p>Esta definição pode ser simplificada usando o fato de que todos os parâmetros formais da função externa são também visíveis dentro da função interna.</p>
+<p>Esta definição pode ser simplificada usando o fato de que todos <strong>os parâmetros formais da função externa são também visíveis dentro da função interna</strong>.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">imc</span> <span class="n">p</span> <span class="n">a</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="n">p</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="mf">18.5</span> <span class="ow">=</span> <span class="s">&quot;Baixo&quot;</span>
-<span class="linenos" data-linenos="3 "></span>    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="n">p</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="mf">25.0</span> <span class="ow">=</span> <span class="s">&quot;Normal&quot;</span>
-<span class="linenos" data-linenos="4 "></span>    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="n">p</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="mf">30.0</span> <span class="ow">=</span> <span class="s">&quot;Alto&quot;</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="mf">18.5</span> <span class="ow">=</span> <span class="s">&quot;Baixo&quot;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="mf">25.0</span> <span class="ow">=</span> <span class="s">&quot;Normal&quot;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="o">|</span> <span class="n">imc&#39;</span> <span class="o">&lt;=</span> <span class="mf">30.0</span> <span class="ow">=</span> <span class="s">&quot;Alto&quot;</span>
 <span class="linenos" data-linenos="5 "></span>    <span class="kr">where</span> <span class="n">imc&#39;</span> <span class="ow">=</span> <span class="n">p</span><span class="o">/</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span>
 </code></pre></div>
 <p>Outro aspecto importante do uso de <code class="highlight"><span class="kr">where</span></code> é que várias definições podem ser feitas, bastando que todas estejam perfeitamente indentadas.
@@ -1141,7 +1192,7 @@ No exemplo a seguir, fica fácil localizar e modificar as definições dos vári
 <span class="linenos" data-linenos="7 "></span>          <span class="n">normal</span> <span class="ow">=</span> <span class="mf">25.0</span>
 <span class="linenos" data-linenos="8 "></span>          <span class="n">alto</span> <span class="ow">=</span> <span class="mf">30.0</span>
 </code></pre></div>
-<p><code>where</code> é especialmente útil na definição de funções recursivas, pois permite nomear as invocações, como por exemplo na definição da função que calcula os termos da sequência de Fibonacci, com e sem o uso do construto.</p>
+<p><code>where</code> é especialmente útil na definição de funções recursivas, pois permite nomear as invocações, como por exemplo na definição da função que calcula os termos da sequência de Fibonacci.</p>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Sem Where</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">fib</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">0</span>
 <span class="linenos" data-linenos="2 "></span><span class="nf">fib</span> <span class="mi">1</span> <span class="ow">=</span> <span class="mi">1</span>
@@ -1173,7 +1224,7 @@ Em funções mais complexas, contudo, os benefícios em termos de legibilidade a
 <span class="linenos" data-linenos="12 "></span>    <span class="kr">where</span> <span class="n">termo</span> <span class="ow">=</span> <span class="n">collatz</span> <span class="n">n</span> <span class="n">passo</span>
 </code></pre></div>
 <p>Finalmente, note que <code class="highlight"><span class="kr">where</span></code> pode ser aninhado, isto é, definições locais podem também ter suas próprias definições locais.</p>
-<h6><code class="highlight"><span class="kr">let</span> <span class="o">..</span> <span class="kr">in</span></code></h6>
+<h6><code class="highlight"><span class="kr">let</span> <span class="o">...</span> <span class="kr">in</span></code></h6>
 <p><code class="highlight"><span class="kr">let</span> <span class="o">...</span> <span class="kr">in</span></code> oferece uma outra alternativa em Haskell para fazer definições locais.
 Neste caso, definições que se seguem ao <code class="highlight"><span class="kr">let</span></code> são visíveis na expressão definida no <code class="highlight"><span class="kr">in</span></code>, como nas seguintes definições.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nf">fib</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">0</span>
@@ -1190,9 +1241,9 @@ Neste caso, definições que se seguem ao <code class="highlight"><span class="k
 <p>Nestes exemplos, parece que <code class="highlight"><span class="kr">where</span></code> e <code class="highlight"><span class="kr">let</span> <span class="kr">in</span></code> são apenas sintaxes diferentes para o mesmo fim, criar definições locais, mas há algumas diferenças fundamentais.
 Primeiro, enquanto o as definições feitas no <code class="highlight"><span class="kr">where</span></code> são amarradas ao contexto da função em que estão colocadas, podendo ser vistas em quaisquer outras partes da função, por exemplo nas guardas do cálculo do <code class="highlight"><span class="nf">imc</span></code>, as definições feitas no <code class="highlight"><span class="kr">let</span></code> são muito mais localizadas, válidas apenas dentro do <code class="highlight"><span class="kr">in</span></code> correspondente. 
 Segundo, <code class="highlight"><span class="kr">let</span> <span class="o">...</span> <span class="kr">in</span></code> são expressões e podem aparecer em qualquer lugar onde uma expressão é esperada.
-Por exemplo, eles podem ser usados para definir constantes ou funções</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="kr">let</span> <span class="n">um</span> <span class="ow">=</span> <span class="mi">1</span> <span class="kr">in</span> <span class="n">um</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="linenos" data-linenos="2 "></span><span class="mi">3</span>
+Por exemplo, eles podem ser usados para definir constantes ou funções literalmente no meio de uma expressão.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="kr">let</span> <span class="n">um</span> <span class="ow">=</span> <span class="mi">1</span> <span class="kr">in</span> <span class="n">um</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">9</span>
 <span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="kr">let</span> <span class="n">quadrado</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="kr">in</span> <span class="n">quadrado</span> <span class="mi">3</span>
 <span class="linenos" data-linenos="4 "></span><span class="mi">9</span>
 </code></pre></div>

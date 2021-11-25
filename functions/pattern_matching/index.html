@@ -42,15 +42,11 @@
     
     
       
-  
-
 
   
 
 
   
-  
-
 
   
 
@@ -453,7 +449,7 @@
   
     <li class="md-nav__item">
       <a href="../where_let_in/" class="md-nav__link">
-        Funções Locais
+        Definições Locais
       </a>
     </li>
   
@@ -553,6 +549,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../types/operators/" class="md-nav__link">
+        Operadores
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../types/tuples/" class="md-nav__link">
         Tuplas
       </a>
@@ -569,20 +579,6 @@
     <li class="md-nav__item">
       <a href="../../types/lists/" class="md-nav__link">
         Listas
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../types/operators/" class="md-nav__link">
-        Operadores
       </a>
     </li>
   
@@ -782,6 +778,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7">
@@ -804,6 +802,20 @@
     <li class="md-nav__item">
       <a href="../../types2/userdefined/" class="md-nav__link">
         Novos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types2/lists_again/" class="md-nav__link">
+        Listas
       </a>
     </li>
   
@@ -983,7 +995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io.md" class="md-nav__link">
+      <a href="../../io/io/" class="md-nav__link">
         IO
       </a>
     </li>
@@ -1018,40 +1030,79 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Desenvolvimento II
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Desenvolvimento II" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Desenvolvimento II
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../app.md" class="md-nav__link">
-        Tudo junto e misturado
+      <a href="../../development/app/" class="md-nav__link">
+        Uma aplicação
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../project/" class="md-nav__link">
-        Projetos
+      <a href="../../development/project/" class="md-nav__link">
+        Projetos de exemplo
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../comments/" class="md-nav__link">
+      <a href="../../development/comments/" class="md-nav__link">
         Erros comuns
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1105,13 +1156,13 @@ Por exemplo, considere a seguinte definição de uma função que soma dois núm
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">soma2n</span> <span class="mi">3</span> <span class="mi">4</span>
 <span class="linenos" data-linenos="2 "></span><span class="mi">7</span>
 </code></pre></div>
-<p>Em Haskell, contudo, é possível especificar parâmetros formais com padrões a serem casados com os parâmetros passados na invocação.
-Veremos mais adiante como esse <strong>casamento de padrões</strong> de padrões é poderoso; por enquanto o usaremos apenas como forma de testar a igualdade dos parâmetros a constantes, como uma alternativa à definição de funções usando guardas.</p>
-<p>Neste caso, a função é definida como uma sequência de equações em que são feitas tentativas sucessivas de casar os argumentos passados com os parâmetros formais, na ordem das definições.
+<p>Em Haskell, contudo, é possível especificar mais do que uma lista de variáveis como parâmetros formais; é possível especifica padrões a serem casados com os parâmetros passados na invocação.
+Veremos mais adiante como esse <strong>casamento de padrões</strong> é poderoso; por enquanto o usaremos apenas como forma de testar a igualdade dos parâmetros a constantes, como uma alternativa à definição de funções usando guardas.</p>
+<p>Neste caso, a função é definida como uma sequência de equações em que são feitas tentativas sucessivas de casar (igualar) os argumentos passados com os parâmetros formais, na ordem das definições.
 O resultado da invocação da função é dado pela <strong>primeira</strong> equação em que houver um casamento bem sucedido <strong>e</strong> todas as guardas forem satisfeitas.
 Se ao final não houver casamento ou se as guardas não forem satisfeitas, ocorre um <strong>erro de execução</strong>.</p>
 <p>Para começar, revisitemos a função <code>nomeMes</code>.
-Usando casamento de padrões constantes, ela ficaria assim:</p>
+Usando casamento de padrões, ela ficaria assim:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nf">nomeMes</span> <span class="mi">1</span> <span class="ow">=</span> <span class="s">&quot;JAN&quot;</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="nf">nomeMes</span> <span class="mi">2</span> <span class="ow">=</span> <span class="s">&quot;FEB&quot;</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="nf">nomeMes</span> <span class="mi">3</span> <span class="ow">=</span> <span class="s">&quot;ABR&quot;</span>
@@ -1125,7 +1176,7 @@ Usando casamento de padrões constantes, ela ficaria assim:</p>
 <span class="linenos" data-linenos="11 "></span><span class="nf">nomeMes</span> <span class="mi">11</span> <span class="ow">=</span> <span class="s">&quot;NOV&quot;</span>
 <span class="linenos" data-linenos="12 "></span><span class="nf">nomeMes</span> <span class="mi">12</span> <span class="ow">=</span> <span class="s">&quot;DEZ&quot;</span>
 </code></pre></div>
-<p>Esta função funciona especificamente para valores na faixa [1,12] e retornará um erro para qualquer valor fora da mesma.</p>
+<p>Esta função funciona para exatamente os valores na faixa [1,12] e retornará um erro para qualquer valor fora da mesma.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">nomeMes</span> <span class="mi">13</span>
 <span class="linenos" data-linenos="2 "></span><span class="s">&quot;*** Exception: scratch.hs:(112,1)-(123,18): Non-exhaustive patterns in function nomeMes</span>
 </code></pre></div>
@@ -1143,10 +1194,10 @@ Neste caso, precisamos impedir que números negativos sejam aceitos pela funçã
 <span class="linenos" data-linenos="4 "></span>    <span class="o">|</span><span class="n">otherwise</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;Indefinido&quot;</span>
 </code></pre></div>
 <p>Na execução, temos os seguintes resultados.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">fatorial</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos" data-linenos="2 "></span><span class="o">***</span> <span class="kt">Exception:</span> <span class="kt">Indefinido</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">fatorial</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">1</span>
 <span class="linenos" data-linenos="3 "></span>
-<span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span> <span class="n">fatorial&#39;</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span> <span class="n">fatorial</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="linenos" data-linenos="5 "></span><span class="o">***</span> <span class="kt">Exception:</span> <span class="kt">Indefinido</span>
 </code></pre></div>
 
@@ -1186,13 +1237,13 @@ Neste caso, precisamos impedir que números negativos sejam aceitos pela funçã
       
       
         
-        <a href="../where_let_in/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Funções Locais" rel="next">
+        <a href="../where_let_in/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Definições Locais" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Funções Locais
+              Definições Locais
             </div>
           </div>
           <div class="md-footer__button md-icon">

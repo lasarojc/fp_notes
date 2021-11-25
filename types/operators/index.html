@@ -42,15 +42,11 @@
     
     
       
-  
-
 
   
 
 
   
-  
-
 
   
 
@@ -82,6 +78,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#operadores" class="md-skip">
+          Ir para o conteúdo
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -436,7 +437,7 @@
   
     <li class="md-nav__item">
       <a href="../../functions/where_let_in/" class="md-nav__link">
-        Funções Locais
+        Definições Locais
       </a>
     </li>
   
@@ -536,6 +537,30 @@
               
   
   
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Operadores
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
   
     <li class="md-nav__item">
       <a href="../tuples/" class="md-nav__link">
@@ -555,28 +580,6 @@
       <a href="../lists/" class="md-nav__link">
         Listas
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Operadores
-      </a>
-      
     </li>
   
 
@@ -775,6 +778,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7">
@@ -797,6 +802,20 @@
     <li class="md-nav__item">
       <a href="../../types2/userdefined/" class="md-nav__link">
         Novos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types2/lists_again/" class="md-nav__link">
+        Listas
       </a>
     </li>
   
@@ -976,7 +995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io.md" class="md-nav__link">
+      <a href="../../io/io/" class="md-nav__link">
         IO
       </a>
     </li>
@@ -1011,40 +1030,79 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Desenvolvimento II
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Desenvolvimento II" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Desenvolvimento II
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../app.md" class="md-nav__link">
-        Tudo junto e misturado
+      <a href="../../development/app/" class="md-nav__link">
+        Uma aplicação
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../project/" class="md-nav__link">
-        Projetos
+      <a href="../../development/project/" class="md-nav__link">
+        Projetos de exemplo
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../comments/" class="md-nav__link">
+      <a href="../../development/comments/" class="md-nav__link">
         Erros comuns
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1055,6 +1113,23 @@
                 </div>
               </div>
             
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
             
           
           <div class="md-content" data-md-component="content">
@@ -1070,12 +1145,50 @@
        as the main headline.
     -->
 
-  <h1>Operadores</h1>
-
 
   <!-- Content -->
-  <details class="todo"><summary>TODO</summary><p>Falar sobre prioridade. usar :i para determinar.</p>
-</details>
+  <h1 id="operadores">Operadores</h1>
+<p>Operadores são apenas funções, mas funções com algumas particularidades.
+Em primeiro lugar, operadores são funções binárias, isto é, que recebem exatamente dois parâmetros.
+Em segundo lugar, o nome do operador é escrito apenas com símbolos (sem letras e números).
+Em terceiro, operadores são naturalmente infixos, isto é, são colocados entre os dois operandos em sua invocação.</p>
+<p>Veja o seguinte exemplo, em que se declara o operador <code class="highlight"><span class="o">******</span></code> que é essencialmente igual ao operador <code class="highlight"><span class="o">+</span></code>.
+Observe que o protótipo é especificado com o operador entre parênteses, mas o a definição da equação é feita usando a notação infixa.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">(</span><span class="o">******</span><span class="p">)</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">x</span> <span class="o">******</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</code></pre></div>
+<p>A invocação do operador é feita normalmente.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="mi">1</span> <span class="o">******</span> <span class="mi">3</span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">4</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="p">(</span><span class="o">******</span><span class="p">)</span> <span class="mi">1</span> <span class="mi">3</span>
+<span class="linenos" data-linenos="4 "></span><span class="mi">4</span>
+</code></pre></div>
+<h6>Prioridades</h6>
+<p>Quando uma expressão tem vários operadores e funções, estas são executadas na ordem e suas prioridades, a não ser que parênteses sejam usados para forçar uma ordem de avaliação.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">7</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span>
+<span class="linenos" data-linenos="5 "></span><span class="mi">9</span>
+</code></pre></div>
+<p>As ordens de prioridade são dadas pela definição dos operadores e podem ser verificadas usando o comando <code class="highlight"><span class="kt">:</span><span class="n">i</span></code> do GHCi.
+No resultado da execução trecho adiante, abreviado, identificamos que os operadores de adição, multiplicação e exponenciação tem, respectivamente, prioridades 6, 7 e 8.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">ghci</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">...</span>
+<span class="linenos" data-linenos="3 "></span><span class="kr">infixl</span> <span class="mi">6</span> <span class="o">+</span>
+<span class="linenos" data-linenos="4 "></span><span class="nf">ghci</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span><span class="o">...</span>
+<span class="linenos" data-linenos="6 "></span><span class="kr">infixl</span> <span class="mi">7</span> <span class="o">*</span>
+<span class="linenos" data-linenos="7 "></span><span class="nf">ghci</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="p">(</span><span class="o">^</span><span class="p">)</span>
+<span class="linenos" data-linenos="8 "></span><span class="o">...</span>
+<span class="linenos" data-linenos="9 "></span><span class="kr">infixr</span> <span class="mi">8</span> <span class="o">^</span>
+</code></pre></div>
+<p>Observe que funções normais tem prioridade maior que a dos operadores, independente de como são definidas.
+No exemplo a seguir, a função double nada mais é que uma soma, mas ainda assim é avaliada primeiro na quando imersa em uma expressão contendo operadores.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">double</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">double</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="linenos" data-linenos="3 "></span><span class="mi">13</span>
+</code></pre></div>
 
   <!-- Last update of source file -->
 
@@ -1097,7 +1210,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Rodapé">
       
         
-        <a href="../lists/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Listas" rel="prev">
+        <a href="../functions/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Funções" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1106,20 +1219,20 @@
               <span class="md-footer__direction">
                 Anterior
               </span>
-              Listas
+              Funções
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../development/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Desenvolvimento de Software em Haskell" rel="next">
+        <a href="../tuples/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Tuplas" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Desenvolvimento de Software em Haskell
+              Tuplas
             </div>
           </div>
           <div class="md-footer__button md-icon">

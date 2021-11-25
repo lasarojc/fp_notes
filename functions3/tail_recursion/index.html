@@ -42,15 +42,11 @@
     
     
       
-  
-
 
   
 
 
   
-  
-
 
   
 
@@ -441,7 +437,7 @@
   
     <li class="md-nav__item">
       <a href="../../functions/where_let_in/" class="md-nav__link">
-        Funções Locais
+        Definições Locais
       </a>
     </li>
   
@@ -541,6 +537,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../types/operators/" class="md-nav__link">
+        Operadores
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../types/tuples/" class="md-nav__link">
         Tuplas
       </a>
@@ -557,20 +567,6 @@
     <li class="md-nav__item">
       <a href="../../types/lists/" class="md-nav__link">
         Listas
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../types/operators/" class="md-nav__link">
-        Operadores
       </a>
     </li>
   
@@ -770,6 +766,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7">
@@ -792,6 +790,20 @@
     <li class="md-nav__item">
       <a href="../../types2/userdefined/" class="md-nav__link">
         Novos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types2/lists_again/" class="md-nav__link">
+        Listas
       </a>
     </li>
   
@@ -983,7 +995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io.md" class="md-nav__link">
+      <a href="../../io/io/" class="md-nav__link">
         IO
       </a>
     </li>
@@ -1018,40 +1030,79 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Desenvolvimento II
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Desenvolvimento II" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Desenvolvimento II
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../app.md" class="md-nav__link">
-        Tudo junto e misturado
+      <a href="../../development/app/" class="md-nav__link">
+        Uma aplicação
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../project/" class="md-nav__link">
-        Projetos
+      <a href="../../development/project/" class="md-nav__link">
+        Projetos de exemplo
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../comments/" class="md-nav__link">
+      <a href="../../development/comments/" class="md-nav__link">
         Erros comuns
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1120,7 +1171,7 @@ Por exemplo, no caso para resolver <code class="highlight"><span class="nf">soma
 <li>mas, para calcular <code class="highlight"><span class="nf">soma</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span></code>primeiro é necessário calcular <code class="highlight"><span class="nf">soma</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span></code>, e a invocação recursiva é feita, e assim por diante;</li>
 <li>as informações que permitem ao programa continuar a execução de uma invocação <strong>depois</strong> da chamada recursiva retornar, isto é, o valor da cabeça da lista na invocação atual, são "empilhadas" na memória;</li>
 </ul>
-<p><img alt="" src="drawings/tail_recursion.drawio-0.svg" /></p>
+<p><img alt="" src="../../drawings/tail_recursion.drawio-0.svg" /></p>
 <p>Acontece que se a pilha (<em>stack</em>) cresce muito, como é o caso quando fazemos uma invocação <code class="highlight"><span class="nf">soma</span> <span class="p">[</span><span class="mi">100000000</span><span class="p">]</span></code>, ela extrapola a capacidade do processo de crescer a pilha e "transborda" (<em>overflow</em>) o espaço reservado para a pilha, que é o erro visto no exemplo anterior.
 Acontece que Haskell é inteligente o suficiente para perceber se a função não tiver pendências e, neste caso, não colocar na pilha.</p>
 <p>Para não deixar pendências, a chamada recursiva deve receber toda a informação que seja necessária para o cálculo do resultado final da função.
@@ -1131,9 +1182,9 @@ No exemplo da soma, podemos reescrever a função assim:</p>
 <span class="linenos" data-linenos="2 "></span><span class="nf">soma</span> <span class="n">acc</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">soma</span> <span class="p">(</span><span class="n">acc</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span> <span class="n">xs</span>
 </code></pre></div>
 <p>Como não há pilha, é possível calcular somatórios bem maiores, pois nada fica para trás, correto? </p>
-<p><img alt="" src="drawings/tail_recursion.drawio-1.svg" /></p>
+<p><img alt="" src="../../drawings/tail_recursion.drawio-1.svg" /></p>
 <p>A verdade é que o Haskell é muito preguiçoso, e não avalia o <code>+</code> enquanto não for necessário, então a computação fica na verdade assim.</p>
-<p><img alt="" src="drawings/tail_recursion.drawio-2.svg" /></p>
+<p><img alt="" src="../../drawings/tail_recursion.drawio-2.svg" /></p>
 <p>Haskell nos dá, contudo, a opção de forçar o cálculo do acumulador antes de passá-lo como parâmetro para a chamada recursiva usando a função <code class="highlight"><span class="nf">seq</span></code>.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">soma</span> <span class="n">acc</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="n">acc</span>
 <span class="linenos" data-linenos="2 "></span><span class="nf">soma</span> <span class="n">acc</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">seq</span> <span class="n">acc</span> <span class="n">soma</span> <span class="p">(</span><span class="n">acc</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span> <span class="n">xs</span>
@@ -1195,13 +1246,13 @@ E se você não quiser "poluir" a API com um parâmetro que só faz sentido por 
       
       
         
-        <a href="../../project/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Projetos" rel="next">
+        <a href="../../io/io/" class="md-footer__link md-footer__link--next" aria-label="Próximo: IO" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Projetos
+              IO
             </div>
           </div>
           <div class="md-footer__button md-icon">

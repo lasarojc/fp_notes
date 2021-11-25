@@ -42,15 +42,11 @@
     
     
       
-  
-
 
   
 
 
   
-  
-
 
   
 
@@ -441,7 +437,7 @@
   
     <li class="md-nav__item">
       <a href="../../functions/where_let_in/" class="md-nav__link">
-        Funções Locais
+        Definições Locais
       </a>
     </li>
   
@@ -541,6 +537,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../operators/" class="md-nav__link">
+        Operadores
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -596,6 +606,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#os-operadores" class="md-nav__link">
+    Os operadores (,)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -613,20 +630,6 @@
     <li class="md-nav__item">
       <a href="../lists/" class="md-nav__link">
         Listas
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../operators/" class="md-nav__link">
-        Operadores
       </a>
     </li>
   
@@ -826,6 +829,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7">
@@ -848,6 +853,20 @@
     <li class="md-nav__item">
       <a href="../../types2/userdefined/" class="md-nav__link">
         Novos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types2/lists_again/" class="md-nav__link">
+        Listas
       </a>
     </li>
   
@@ -1027,7 +1046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io.md" class="md-nav__link">
+      <a href="../../io/io/" class="md-nav__link">
         IO
       </a>
     </li>
@@ -1062,40 +1081,79 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Desenvolvimento II
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Desenvolvimento II" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Desenvolvimento II
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../app.md" class="md-nav__link">
-        Tudo junto e misturado
+      <a href="../../development/app/" class="md-nav__link">
+        Uma aplicação
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../project/" class="md-nav__link">
-        Projetos
+      <a href="../../development/project/" class="md-nav__link">
+        Projetos de exemplo
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../comments/" class="md-nav__link">
+      <a href="../../development/comments/" class="md-nav__link">
         Erros comuns
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1146,6 +1204,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#os-operadores" class="md-nav__link">
+    Os operadores (,)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1187,7 +1252,7 @@ Observe que a função define claramente que as tuplas terão 2 elementos e qual
 <span class="linenos" data-linenos="2 "></span><span class="nf">soma2v</span> <span class="n">p1</span> <span class="n">p2</span> <span class="ow">=</span> <span class="err">█████</span>
 </code></pre></div>
 <p>Para acessar as diferentes coordenadas dentro das tuplas podemos usar as funções <code class="highlight"><span class="nf">fst</span></code> e <code class="highlight"><span class="nf">snd</span></code>,<sup id="fnref:prelude"><a class="footnote-ref" href="#fn:prelude">1</a></sup> abreviações para <em>first</em> e <em>second</em> e que retornam o primeiro e o segundo elemento de uma tupla de dois elementos, um par, respectivamente.
-Logo, </p>
+Isto é, </p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">snd</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="linenos" data-linenos="2 "></span><span class="mi">2</span>
 <span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="n">fst</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
@@ -1259,6 +1324,8 @@ Neste caso, alguns exemplos de funções úteis são mostrados a seguir.</p>
 <span class="linenos" data-linenos="6 "></span>
 <span class="linenos" data-linenos="7 "></span><span class="nf">trocaTelefone</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">_t</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span> <span class="n">novoTelefone</span> <span class="ow">=</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">novoTelefone</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
 </code></pre></div>
+<p>Uma observação a ser feita é que, na última função, nomear a variável como <code class="highlight"><span class="nf">_t</span></code> tem o mesmo efeito que simplesmente <code class="highlight"><span class="kr">_</span></code> para o compilador, mas deixa o código mais legível.
+Outra observação é que mesmo com o uso <code class="highlight"><span class="nf">_t</span></code>, o código fica rapidamente difícil de se ler, pois o desenvolvedor deve manter em mente qual posição corresponde a qual dado de uma pessoa. Veja o exemplo de uso das funções.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&gt;</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">fazPessoa</span> <span class="s">&quot;jose da silva&quot;</span> <span class="s">&quot;12345&quot;</span> <span class="s">&quot;0003003093&quot;</span> <span class="s">&quot;Av das Couves, 14&quot;</span>  
 <span class="linenos" data-linenos=" 2 "></span><span class="o">&gt;</span> <span class="n">x</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="ow">=&gt;</span> <span class="p">(</span><span class="s">&quot;jose da silva&quot;</span><span class="p">,</span><span class="s">&quot;12345&quot;</span><span class="p">,</span><span class="s">&quot;0003003093&quot;</span><span class="p">,</span><span class="s">&quot;Av das Couves, 14&quot;</span><span class="p">)</span>
@@ -1270,11 +1337,10 @@ Neste caso, alguns exemplos de funções úteis são mostrados a seguir.</p>
 <span class="linenos" data-linenos=" 9 "></span><span class="o">&gt;</span> <span class="n">y</span>
 <span class="linenos" data-linenos="10 "></span><span class="ow">=&gt;</span> <span class="p">(</span><span class="s">&quot;jose da silva&quot;</span><span class="p">,</span><span class="s">&quot;54321&quot;</span><span class="p">,</span><span class="s">&quot;0003003093&quot;</span><span class="p">,</span><span class="s">&quot;Av das Couves, 14&quot;</span><span class="p">)</span>
 </code></pre></div>
-<p>Uma observação a ser feita é que, na última função, nomear a variável como <code class="highlight"><span class="nf">_t</span></code> tem o mesmo efeito que simplesmente <code class="highlight"><span class="kr">_</span></code> para o compilador, mas deixa o código mais legível.
-Outra observação é que mesmo com o uso <code class="highlight"><span class="nf">_t</span></code>, o código fica rapidamente difícil de se ler, pois o desenvolvedor deve manter em mente qual posição corresponde a qual dado de uma pessoa; imagine estruturas mais complexas, contendo outros dados de cada pessoa, e várias outras estruturas semelhantes, como ordens de serviço, descrição de inventários, cadastro de vendedores, etc.
-Veremos adiante como definir novos tipos de dados pode facilitar o desenvolvimento.</p>
+<p>Imagine estruturas mais complexas, contendo outros dados de cada pessoa, e várias outras estruturas semelhantes, como ordens de serviço, descrição de inventários, cadastro de vendedores, etc.
+Veremos adiante como definir novos tipos de dados pode facilitar o desenvolvimento e não ter que ficar se lembrando das posições dos valores dentro das tuplas.</p>
 <h2 id="o-tipo-de-um-tupla">O tipo de um tupla</h2>
-<p>Ao definirmos a função <code class="highlight"><span class="nf">soma2v</span></code>, definimos que o primeiro parâmetro é uma tupla com duas componentes do tipo <code class="highlight"><span class="kt">Int</span></code>, ou seja, <code class="highlight"><span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span></code>; este é o tipo dos parâmetros da função.
+<p>Ao definirmos a função <code class="highlight"><span class="nf">soma2v</span></code>, definimos que o primeiro parâmetro é uma tupla com duas componentes do tipo <code class="highlight"><span class="kt">Int</span></code>, ou seja, <code class="highlight"><span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span></code>; este é o tipo do parâmetro.
 Podemos confirmar esta informação usando <code class="highlight"><span class="kt">:</span><span class="n">t</span></code>.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="n">soma2v</span>
 <span class="linenos" data-linenos="2 "></span><span class="nf">soma2v</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Int</span><span class="p">)</span>
@@ -1296,10 +1362,8 @@ Por exemplo, podemos ter uma tupla <code class="highlight"><span class="p">(</sp
 </code></pre></div>
 <h2 id="ordem-entre-tuplas">Ordem entre tuplas</h2>
 <p>Dado duas tuplas com mesmo tipo (mesmo tamanho e tipo de suas componentes), podemos compará-las lexicograficamente.
-Isto quer dizer que uma tupla <span class="arithmatex">\(t_1\)</span> é menor que uma tupla <span class="arithmatex">\(t_2\)</span> se, considerando posições da esquerda para a direita:</p>
-<ul>
-<li>dado uma posição <span class="arithmatex">\(i\)</span>, se <span class="arithmatex">\(t_1\)</span> na posição <span class="arithmatex">\(i\)</span> é menor que <span class="arithmatex">\(t_2\)</span> na posição <span class="arithmatex">\(i\)</span> e se <span class="arithmatex">\(\forall j &lt; i\)</span>, <span class="arithmatex">\(t_1\)</span> na posição <span class="arithmatex">\(j\)</span> é igual a <span class="arithmatex">\(t_2\)</span> na posição <span class="arithmatex">\(j\)</span>.</li>
-</ul>
+Isto quer dizer que uma tupla <span class="arithmatex">\(t_1\)</span> é menor que uma tupla <span class="arithmatex">\(t_2\)</span> se, considerando posições da esquerda para a direita. 
+Isto é, dado tupla <span class="arithmatex">\(t^1\)</span> e uma tupla <span class="arithmatex">\(t^2\)</span>, se o primeiro elemento da tupla <span class="arithmatex">\(t^1\)</span> é menor que o primeiro elemento da tupla <span class="arithmatex">\(t^2\)</span>, então <span class="arithmatex">\(t^1 &lt; t^2\)</span>. Caso o primeiro elemento de <span class="arithmatex">\(t^2\)</span> seja menor, então <span class="arithmatex">\(t^2 &lt; t^1\)</span>. E caso os primeiros elementos sejam iguais, a avaliação é repetida para os segundos elementos e assim sucessivamente.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&gt;</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="kt">True</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="o">&gt;</span> <span class="p">(</span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="sc">&#39;b&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
@@ -1321,18 +1385,25 @@ Isto quer dizer que uma tupla <span class="arithmatex">\(t_1\)</span> é menor q
 <span class="linenos" data-linenos="19 "></span><span class="o">&gt;</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="linenos" data-linenos="20 "></span><span class="kt">False</span>
 </code></pre></div>
-<p>Assim, se usarmos como data uma tupla com ano, mês e dia, <strong>nesta ordem</strong>, então duas datas podem ser comparadas diretamente como comparação de tuplas.</p>
+<p>Um exemplo do uso desta funcionalidade é na comparação de datas, se as representarmos como tuplas com ano, mês e dia, <strong>nesta ordem</strong>. Neste caso, duas datas podem ser comparadas diretamente como comparação de tuplas.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">01</span><span class="p">,</span><span class="mi">01</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">1999</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>
 <span class="linenos" data-linenos="2 "></span><span class="kt">False</span>
-<span class="linenos" data-linenos="3 "></span><span class="nf">ghci</span><span class="o">&gt;</span> <span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">01</span><span class="p">,</span><span class="mi">01</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">2001</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">01</span><span class="p">,</span><span class="mi">01</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">2001</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>
 <span class="linenos" data-linenos="4 "></span><span class="kt">True</span>
-<span class="linenos" data-linenos="5 "></span><span class="nf">ghci</span><span class="o">&gt;</span> <span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">01</span><span class="p">,</span><span class="mi">01</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">01</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span><span class="o">&gt;</span> <span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">01</span><span class="p">,</span><span class="mi">01</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">01</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="linenos" data-linenos="6 "></span><span class="kt">True</span>
 </code></pre></div>
 <h2 id="a-tupla-vazia">A tupla vazia</h2>
 <p>Por completude, é preciso mencionar que tuplas podem ter qualquer aridade, inclusive zero.
 Isto é, <code class="highlight"><span class="nb">()</span></code> é uma tupla válida e a única instância de tuplas de aridade zero.
 A utilidade desta tupla, denominada <strong>Unit</strong>, ficará clara mais adiante, quando falarmos sobre entrada e saída.</p>
+<h2 id="os-operadores">Os operadores <code class="highlight"><span class="p">(,)</span></code></h2>
+<details class="todo"><summary>TODO</summary><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="p">(,)</span> <span class="mi">1</span> <span class="mi">2</span>
+<span class="linenos" data-linenos="2 "></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="p">(,,)</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
+<span class="linenos" data-linenos="4 "></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div>
+</details>
 <div class="footnote">
 <hr />
 <ol>
@@ -1362,7 +1433,7 @@ A utilidade desta tupla, denominada <strong>Unit</strong>, ficará clara mais ad
     <nav class="md-footer__inner md-grid" aria-label="Rodapé">
       
         
-        <a href="../functions/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Funções" rel="prev">
+        <a href="../operators/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Operadores" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1371,7 +1442,7 @@ A utilidade desta tupla, denominada <strong>Unit</strong>, ficará clara mais ad
               <span class="md-footer__direction">
                 Anterior
               </span>
-              Funções
+              Operadores
             </div>
           </div>
         </a>

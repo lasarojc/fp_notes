@@ -42,15 +42,11 @@
     
     
       
-  
-
 
   
 
 
   
-  
-
 
   
 
@@ -443,7 +439,7 @@
   
     <li class="md-nav__item">
       <a href="../functions/where_let_in/" class="md-nav__link">
-        Funções Locais
+        Definições Locais
       </a>
     </li>
   
@@ -543,6 +539,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../types/operators/" class="md-nav__link">
+        Operadores
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../types/tuples/" class="md-nav__link">
         Tuplas
       </a>
@@ -559,20 +569,6 @@
     <li class="md-nav__item">
       <a href="../types/lists/" class="md-nav__link">
         Listas
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../types/operators/" class="md-nav__link">
-        Operadores
       </a>
     </li>
   
@@ -772,6 +768,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7">
@@ -794,6 +792,20 @@
     <li class="md-nav__item">
       <a href="../types2/userdefined/" class="md-nav__link">
         Novos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../types2/lists_again/" class="md-nav__link">
+        Listas
       </a>
     </li>
   
@@ -973,7 +985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../io.md" class="md-nav__link">
+      <a href="../io/io/" class="md-nav__link">
         IO
       </a>
     </li>
@@ -1008,40 +1020,79 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Desenvolvimento II
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Desenvolvimento II" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Desenvolvimento II
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../app.md" class="md-nav__link">
-        Tudo junto e misturado
+      <a href="../development/app/" class="md-nav__link">
+        Uma aplicação
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../project/" class="md-nav__link">
-        Projetos
+      <a href="../development/project/" class="md-nav__link">
+        Projetos de exemplo
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../comments/" class="md-nav__link">
+      <a href="../development/comments/" class="md-nav__link">
         Erros comuns
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1114,8 +1165,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#multi-paradigmas" class="md-nav__link">
-    Multi-paradigmas
+  <a href="#multi-paradigma" class="md-nav__link">
+    Multi-paradigma
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#para-cada-servico-uma-ferramenta" class="md-nav__link">
+    Para cada serviço, uma ferramenta!
   </a>
   
 </li>
@@ -1144,8 +1202,7 @@
 
   <!-- Content -->
   <h1 id="introducao">Introdução</h1>
-<p>Programar um computador consiste em comunicar ao computador instruções para que ele resolva problemas.
-E a comunicação entre duas entidades só é possível se usarem uma linguagem em comum, isto é, dominada pelas duas partes.</p>
+<p>Programar um computador consiste em comunicar ao computador instruções para que ele resolva problemas, e a comunicação entre duas entidades só é possível se usarem uma linguagem em comum, isto é, dominada por ambas as partes.</p>
 <div class="admonition quote">
 <p class="admonition-title">Comunicação<sup id="fnref:comunicacao"><a class="footnote-ref" href="#fn:comunicacao">1</a></sup></p>
 <p>Ação ou efeito de comunicar, de transmitir ou de receber ideias, conhecimento, mensagens etc., buscando compartilhar informações.</p>
@@ -1153,8 +1210,8 @@ E a comunicação entre duas entidades só é possível se usarem uma linguagem 
 <p>Embora este curso assuma que você já saiba programar em alguma linguagem, ou exatamente por isso, é importante que façamos uma revisão de algumas ideias básicas de programação antes de mergulharmos no paradigma funcional, para que possamos melhor posicionar este paradigma com em relação aos demais.</p>
 <h2 id="linguagens">Linguagens</h2>
 <p>Quando humanos se comunicam, usam <strong>linguagens naturais</strong>, como o português, libras, ou cantonês.
-Linguagens naturais são altamente expressivas, cheias de nuances e dependências do contexto, o que lhes confere grande poder de expressão mas também leva a ambiguidade.
-Por isso linguagens naturais não são boas para a comunicação entre computadores ou computadores e humanos, pois esta deve ser.
+Linguagens naturais são cheias de nuances e dependências do contexto, o que lhes confere grande poder de expressão mas também leva a possibilidade de ambiguidade.
+Por isso, <strong>linguagens naturais não são boas para a comunicação entre computadores ou computadores e humanos</strong>, pois esta deve ser precisa.
 Isto ocorre a despeito do grande esforço dispendido e na evolução do processamento de linguagens naturais, como as "alexas" e "siris" do mundo podem provar.</p>
 <p>A comunicação entre computadores é feita por um protocolo de comunicação, assunto para outro curso.
 Já a comunicação entre humanos e computadores, na programação do computador, é feita por meio de <strong>linguagens de programação</strong>, que são muito mais restritas que as linguagens naturais e, por isso, não ambíguas.</p>
@@ -1171,23 +1228,23 @@ Já a comunicação entre humanos e computadores, na programação do computador
 <p class="admonition-title">Semântica</p>
 <p>O significado de um programa é definido por sua semântica, ou seja, por regras que definem como as instruções especificado devem ser interpretadas.</p>
 </div>
-<p>Serem precisas não quer dizer que as linguagens sejam simples, como demonstra claramente a seguinte imagem, que é um programa "hello world" na linguagem <a href="https://dangermouse.net/esoteric/piet.html">Piet</a>.</p>
-<p><a href="https://dangermouse.net/esoteric/piet/samples.html"><img alt="" src="../images/Piet_hello.png" /></a></p>
-<p>Também não quer dizer que sejam limitadas. De fato, há <a href="https://en.wikipedia.org/wiki/List_of_programming_languages">milhares</a> de linguagens de programação por aí, e contando, com diferentes características que as tornam mais mais ou menos apropriadas para resolver diferentes problemas.</p>
+<p>Serem precisas não quer dizer que as linguagens sejam simples, como demonstra claramente a seguinte imagem, um programa "hello world" na linguagem <a href="https://dangermouse.net/esoteric/piet.html">Piet</a>.</p>
+<p><a href="https://dangermouse.net/esoteric/piet/samples.html"><img alt="Hello World! na linguagem Piet" src="../images/Piet_hello.png" /></a></p>
+<p>Também não quer dizer que sejam limitadas. De fato, há <a href="https://en.wikipedia.org/wiki/List_of_programming_languages">milhares</a> de linguagens de programação por aí, e contando, com diferentes características que as tornam mais ou menos apropriadas para resolver diferentes problemas.</p>
 <p><a href="https://www.digibarn.com/collections/posters/tongues/"><img alt="" src="../images/PLchart.png" /></a></p>
-<p>Mas mesmo apesar de tão grande número, as linguagens podem ser classificadas em grandes famílias ou paradigmas.</p>
+<p>Dado o grande número de linguagens, nada melhor que classificá-las em grandes famílias ou paradigmas de programação baseado em suas características mais relevantes.</p>
 <h2 id="imperativo-x-descritivo">Imperativo x Descritivo</h2>
-<div class="admonition sideslide">
+<p>Os primeiros "computadores" eram máquinas que computavam <strong>mecanicamente</strong> seus resultados.
+Os computadores de segunda geração, da qual destacamos o ENIAC (circa 1955), não tinham partes mecânicas, sendo programados por conexões elétricas de seus diversos componentes.
+A geração seguinte tinha computadores que interpretavam código escrito em uma linguagem de programação.</p>
+<div class="admonition note inline end">
 <p class="admonition-title">Imperativo x Descritivo</p>
 <ul>
 <li>Imperativo: como</li>
 <li>Descritivo: o quê</li>
 </ul>
 </div>
-<p>Os primeiros "computadores" eram máquinas que computavam <strong>mecanicamente</strong> seus resultados.
-Os computadores de segunda geração, da qual destacamos o ENIAC (circa 1955), não tinham partes mecânicas, sendo programados por conexões elétricas de suas diversas partes.
-A geração seguinte tinha computadores que interpretavam código escrito em uma linguagem de programação.</p>
-<p>Estas primeiras linguagens eram todas <strong>imperativas</strong>, no sentido de que ditavam ao computador uma sequência de instruções a serem seguidas para se chegar a um resultado. Isto é, estas linguagens permitiam ao programador dizer <strong>como</strong> realizar uma computação.</p>
+<p>Estas primeiras linguagens eram todas <strong>imperativas</strong>, no sentido de que ditavam ao computador uma sequência de ações a serem executadas para se chegar a um resultado. Isto é, estas linguagens permitiam ao programador dizer <strong>como</strong> realizar uma computação.</p>
 <div class="admonition example">
 <p class="admonition-title">Imperativo</p>
 <ol>
@@ -1206,17 +1263,17 @@ A geração seguinte tinha computadores que interpretavam código escrito em uma
 <div class="admonition example">
 <p class="admonition-title">Descritivo</p>
 <ol>
-<li>selecione todas as linhas em que a segunda parte é maior que 15 e imprima-as na tela.</li>
+<li>selecione todas as linhas do arquivo, em que a segunda parte da linha, interpretada como um número, é maior que 15, e imprima-os na tela.</li>
 </ol>
 </div>
-<p>Com uma análise rápida das linguagens mais conhecidas, voce deve reconhecer a maior parte como imperativas, por exemplo, C, Java, e Python.
+<p>Com uma análise rápida das linguagens mais conhecidas, você deve reconhecer a maior parte como imperativas, por exemplo, C, Java, e Python.
 Já dentre as linguagens declarativas, se destacam SQL, LINQ, e Prolog.</p>
-<p>Ortogonalmente ao foco no "como x o quê", podemos nos focar em como as estas instruções são organizadas mais em um nível mais alto, de onde se destacam quatro paradigmas principais: <strong>procedimental</strong>, <strong>orientado a objetos</strong>, <strong>lógico</strong> e <strong>funcional</strong>.<sup id="fnref:families"><a class="footnote-ref" href="#fn:families">3</a></sup></p>
+<p>Ortogonalmente ao foco no "como X o quê", podemos nos focar em como as instruções são organizadas mais em um nível mais alto, de onde se destacam quatro paradigmas principais: <strong>procedimental</strong>, <strong>orientado a objetos</strong>, <strong>lógico</strong> e <strong>funcional</strong>.<sup id="fnref:families"><a class="footnote-ref" href="#fn:families">3</a></sup></p>
 <h2 id="procedimental">Procedimental</h2>
 <p>Linguagens que usam o paradigma procedimental organizam instruções em blocos, denominados procedimentos, de onde vem o nome, ou funções.
-A ideia é que o código seja modularizado para separar funcionalidades e tornar o código mais compreensível e manutenível. 
+A ideia é que o código seja modularizado para separar funcionalidades e torná-lo mais compreensível e manutenível. 
 Cada função deve executar uma operação bem específica; funções associadas são colocadas em um mesmo arquivo; e arquivos associados são colocados em um mesmo <em>namespace</em>.</p>
-<p>O código seguinte, em C, mostra a função <code>main</code>, ponto de entrada do programa e de onde a função <code>printf</code>, importada de <code>stdio.h</code>, é invocada.</p>
+<p>O código seguinte, em C, mostra a função <code class="highlight"><span class="n">main</span></code>, ponto de entrada do programa e de onde a função <code class="highlight"><span class="n">printf</span></code>, importada de <code class="highlight"><span class="n">stdio</span><span class="p">.</span><span class="n">h</span></code>, é invocada.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="linenos" data-linenos="2 "></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 <span class="linenos" data-linenos="3 "></span>   <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">);</span>
@@ -1224,12 +1281,13 @@ Cada função deve executar uma operação bem específica; funções associadas
 <span class="linenos" data-linenos="5 "></span><span class="p">}</span>
 </code></pre></div>
 <p>Além da linguagem C, outros exemplos óbvios deste paradigma são as linguagens Pascal, Fortran e Python.
-Contudo, mesmo linguagens como Java e C++ podem ser consideradas procedurais, uma vez que organizam a computação em métodos, que são nada mais que funções. Mas como métodos estão fortemente associados a classes e suas instâncias, os objetos, estas linguagens são melhor classificadas como orientadas a objetos.</p>
+Contudo, mesmo linguagens como Java e C++ podem ser consideradas procedurais, uma vez que organizam a computação em métodos, que são nada mais que funções. 
+Mas como métodos estão fortemente associados a classes e suas instâncias, os objetos, estas linguagens são melhor classificadas como orientadas a objetos.</p>
 <h2 id="orientado-a-objetos">Orientado a Objetos</h2>
 <p>Na orientação a objetos, o foco está não na execução passo a passo de funções, mas na organização de dados e funções associadas em objetos.
 Embora esta organização possa ser feita em qualquer linguagem estruturada, a sintaxe das linguagens orientadas a objeto facilita e torna mais natural este trabalho.</p>
 <p>Dois conceitos básicos na orientação a objetos são as <strong>classes</strong> e os <strong>objetos</strong>.
-Classes são abstrações de tipos de coisas encontrados no mundo real, ou seja, receitas de estruturas de dados e definem quais os dados devem ser considerados em conjunto para representar um objeto e quais as ações associadas a este objeto.
+Classes são abstrações de tipos de coisas encontrados no mundo real, ou seja, receitas de estruturas de dados que definem quais informações devem ser considerados em conjunto para representar um objeto e quais as ações associadas a este objeto.
 Por exemplo, se no mundo real cachorros tem uma data de nascimento e um nome, e são capazes de latir, uma classe que represente cachorros pode ser definida assim em Java.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kd">class</span> <span class="nc">Cachorro</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 2 "></span>    <span class="kt">int</span> <span class="n">diaNascimento</span><span class="p">;</span>
@@ -1253,8 +1311,8 @@ Um cão qualquer poderia ser representado assim</p>
 <span class="linenos" data-linenos="2 "></span>Napoleão: Au!
 <span class="linenos" data-linenos="3 "></span>Napoleão: Au!
 </code></pre></div>
-<p>Observe que o "." em <code>cachorro1.latir(3)</code> quer dizer "executar a função latir no objeto <code>cachorro1</code>", o que leva à string <code>Napoleão</code> a aparecer antes de cada latido.
-Duas coisas poder ser ditas sobre este ".". Primeiro, que ele não é necessário, o objeto em si poderia ser passado como parâmetro para uma função <code>latir</code> que recebesse o objeto além da quantidade de latidos; de fato, em Python, a classe seria definida como a seguir, o que implica que o "." é só "açúcar sintático" para a execução de uma função, o que nos leva ao segundo ponto.</p>
+<p>Observe que o "." em <code class="highlight"><span class="n">cachorro1</span><span class="p">.</span><span class="na">latir</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span></code> quer dizer "executar a função latir no objeto <code>cachorro1</code>", o que leva a string <code>Napoleão</code> a aparecer antes de cada latido.
+Duas coisas podem ser ditas sobre este ".". Primeiro, que ele não é necessário: o objeto em si poderia ser passado como parâmetro para uma função <code>latir</code> que recebesse o objeto além da quantidade de latidos; de fato, em Python, a classe seria definida como a seguir, o que implica que o "." é só "açúcar sintático" para a execução de uma função.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">class</span> <span class="nc">Cachorro</span><span class="p">:</span>
 <span class="linenos" data-linenos="2 "></span>    <span class="n">diaNascimento</span>
 <span class="linenos" data-linenos="3 "></span>    <span class="n">mesNascimento</span>
@@ -1265,7 +1323,7 @@ Duas coisas poder ser ditas sobre este ".". Primeiro, que ele não é necessári
 <span class="linenos" data-linenos="8 "></span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">quantidade</span><span class="p">):</span>
 <span class="linenos" data-linenos="9 "></span>            <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nome</span> <span class="o">+</span> <span class="s2">&quot;: Au!&quot;</span><span class="p">)</span>
 </code></pre></div>
-<p>Na orientação a objetos conceitual, não se fala em invocação de funções mas de sinais sendo transmitidos entre objetos: envie mensagem para o 2 "somar-se com 3", ao que o objeto 2 responderia com uma mensagem "referência ao objeto 5". 
+<p>Segundo, na orientação a objetos conceitual, não se fala em invocação de funções mas de sinais sendo transmitidos entre objetos: envie mensagem para o 2 "somar-se com 3", ao que o objeto 2 responderia com uma mensagem "referência ao objeto 5". 
 Em Smalltalk, esta interação seria escrita assim:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">x</span> <span class="o">:=</span> <span class="m">2</span> <span class="nf">+</span> <span class="m">3</span><span class="p">.</span>
 </code></pre></div>
@@ -1275,10 +1333,10 @@ Uma outra ordem de encapsulamento, de outro tipo, é encontrada no paradigma ló
 <p>No paradigma lógico, declaram-se fatos básicos e regras sobre como os fatos se relacionam e pergunta-se ao programa se certos fatos são ou não são verdade, ou quais fatos são verdades.
 Por exemplo, como fatos, podemos declarar</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">eh_maior_que</span><span class="p">(</span><span class="s s-Atom">gato</span><span class="p">,</span> <span class="s s-Atom">rato</span><span class="p">).</span>
-<span class="linenos" data-linenos="2 "></span><span class="nf">eh_maior_que</span><span class="p">(</span><span class="s s-Atom">leao</span><span class="p">,</span> <span class="s s-Atom">gato</span><span class="p">).</span>
-<span class="linenos" data-linenos="3 "></span><span class="nf">eh_maior_que</span><span class="p">(</span><span class="s s-Atom">elefante</span><span class="p">,</span> <span class="s s-Atom">leao</span><span class="p">).</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">eh_maior_que</span><span class="p">(</span><span class="s s-Atom">leão</span><span class="p">,</span> <span class="s s-Atom">gato</span><span class="p">).</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">eh_maior_que</span><span class="p">(</span><span class="s s-Atom">elefante</span><span class="p">,</span> <span class="s s-Atom">leão</span><span class="p">).</span>
 <span class="linenos" data-linenos="4 "></span><span class="nf">eh_maior_que</span><span class="p">(</span><span class="s s-Atom">elefante</span><span class="p">,</span> <span class="s s-Atom">moto</span><span class="p">).</span>
-<span class="linenos" data-linenos="5 "></span><span class="nf">eh_maior_que</span><span class="p">(</span><span class="s s-Atom">legal</span><span class="p">,</span> <span class="s s-Atom">cachorro</span><span class="p">).</span>
+<span class="linenos" data-linenos="5 "></span><span class="nf">eh_maior_que</span><span class="p">(</span><span class="s s-Atom">leão</span><span class="p">,</span> <span class="s s-Atom">cachorro</span><span class="p">).</span>
 </code></pre></div>
 <p>e como regras podemos declarar que vale a transitividade</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">eh_maior_que</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span> <span class="nv">B</span><span class="p">)</span> <span class="p">:-</span>
@@ -1295,11 +1353,12 @@ Apesar do claro poder deste paradigma, o mesmo tem poucos representantes, como P
 <p>A programação funcional, como indicado pelo nome, é focada na organização do processamento em termos de funções, mas de uma forma diferente da programação procedimental.
 De forma geral, <strong>funções</strong> são blocos de código criadas essencialmente para se obter <strong>reusabilidade</strong>: uma vez definidas, as funções podem ser invocadas repetidas vezes para executar a mesma tarefa sobre diferentes <strong>parâmetros</strong>, sempre retornando um resultado.<sup id="fnref:void"><a class="footnote-ref" href="#fn:void">4</a></sup></p>
 <p><img alt="Função" src="../drawings/function.drawio-0.svg" /> <img alt="Função" src="../drawings/function.drawio-1.svg" /></p>
-<p>Um programa funcional consiste basicamente justaposição de funções, ligando os <strong>saídas</strong> de funções às <strong>entradas</strong> de outras funções, até que um resultado final seja produzido.
-Neste sentido, podemos dividir as funções em <strong>puras</strong> e com <strong>efeitos colaterais</strong>.</p>
+<p>Um programa funcional consiste basicamente justaposição de funções, ligando os <strong>saídas</strong> de funções às <strong>entradas</strong> de outras funções, até que um resultado final seja produzido.</p>
+<p><img alt="Função" src="../drawings/function.drawio-6.svg" /></p>
+<p>Neste sentido, podemos dividir as funções em <strong>puras</strong> e com <strong>efeitos colaterais</strong>.</p>
 <h6>Efeito colateral</h6>
-<p>Dizemos que uma função é <strong>pura</strong> quando ela depende somente dos parâmetros passados para calcular o seu resultado, ou seja, funções puras são como na matemática e mapeiam uma mesma entrada em <strong>exatamente</strong> a mesma saída.
-Por exemplo, as seguintes funções, definidas em Erlang, calculam <code class="highlight">A+B</code>, <code class="highlight">A*C</code> e <code class="highlight">(A+B)*(A+B)</code> e, independentemente de quantas vezes você o fizer, <code class="highlight">add(2,3)</code> sempre retornará <code>5</code>.</p>
+<p>Dizemos que uma função é <strong>pura</strong> quando ela depende somente dos parâmetros passados para calcular o seu resultado, ou seja, funções puras são como na matemática, mapeiam uma mesma entrada em <strong>exatamente</strong> uma mesma saída.
+Por exemplo, as seguintes funções, definidas em Erlang, calculam <code class="highlight"><span class="nv">A</span><span class="o">+</span><span class="nv">B</span></code>, <code class="highlight"><span class="nv">A</span><span class="o">*</span><span class="nv">C</span></code> e <code class="highlight"><span class="p">(</span><span class="nv">A</span><span class="o">+</span><span class="nv">B</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="nv">A</span><span class="o">+</span><span class="nv">B</span><span class="p">)</span></code> e, independentemente de quantas vezes você o fizer, <code class="highlight"><span class="nf">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span></code> sempre retornará <code>5</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">add</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span><span class="nv">B</span><span class="p">)</span> <span class="o">-&gt;</span>
 <span class="linenos" data-linenos="2 "></span>   <span class="nv">A</span> <span class="o">+</span> <span class="nv">B</span><span class="p">.</span>
 <span class="linenos" data-linenos="3 "></span>
@@ -1310,18 +1369,20 @@ Por exemplo, as seguintes funções, definidas em Erlang, calculam <code class="
 <span class="linenos" data-linenos="8 "></span>   <span class="n">mult</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span><span class="nv">B</span><span class="p">),</span><span class="n">add</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span><span class="nv">B</span><span class="p">)).</span>
 </code></pre></div>
 <p>Já funções que dependem de outras informações para calcular o seu resultado, como o conteúdo de um arquivo no disco, uma mensagem recebida na interface de rede ou algo digitado pelo usuário, são chamadas de funções impuras ou com <strong>efeitos colaterais</strong>.</p>
-<div class="admonition todo">
-<p class="admonition-title">TODO</p>
-<p>Exemplo de efeito colateral. </p>
 <p>Agora observe a função seguinte, escrita em Python; a cada invocação, a variável <code>acc</code> tem seu valor alterado e, mesmo que invocada com a mesma entrada, o resultado da função é sempre diferente.</p>
-<p>No exemplo anterior, o efeito colateral está na modificação e uso da variável <code>acc</code>.</p>
-</div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">soma</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="k">global</span> <span class="n">acc</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span>    <span class="n">acc</span> <span class="o">=</span> <span class="n">acc</span> <span class="o">+</span> <span class="n">x</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">return</span> <span class="n">acc</span>
+</code></pre></div>
 <p>Por  um lado, efeitos colaterais são essencias para se desempenhar algumas operações, como Entrada/Saída.
 Por exemplo, ao invocar <code class="highlight"><span class="nb">print</span></code> no Python, o terminal tem seu estado alterado, e cada nova invocação altera mais o estado.
-Da mesma forma, ao se invocar <code class="highlight"><span class="n">scanf</span></code> em um código C, a função acessa o estado do teclado, que dependo do que o usuário digitou.
+Da mesma forma, ao se invocar <code class="highlight"><span class="n">scanf</span></code> em um código C, a função acessa o estado do teclado, que dependendo do que o usuário digitou.
 Por outro lado, se uma função não tem efeitos colaterais ela pode ser muito mais facilmente testada e até mesmo provada correta, sendo almejadas como blocos de construção.
-Assim, por um lado precisamos executar operações que causam efeitos colaterais e por outro queremos minimizá-los pois são fontes de indeterminismo e bugs no código.</p>
-<p>Linguagens diferentes tomam rumos diferentes relativos a efeitos colaterais. Enquanto são lugar comum na programação procedimental, ficando totalmente sob responsabilidade do desenvolvedor evitar que causem bugs, na programação funcional são evitados ao tratar variáveis não como áreas de memória alteráveis, mas como incógnitas, como na matemática, evitando que estado seja "acumulado" fora dos parâmetros formais da função. Nas linguagens deste paradigma, ou exceções são feitas para operações que demandam efeitos colaterais, dando origem às linguagens funcionais <strong>não puras</strong>, ou os efeitos colaterais são completamente abolidos, mesmo que às custas de "artifícios", <sup id="fnref:monadas"><a class="footnote-ref" href="#fn:monadas">5</a></sup> como em Haskell.</p>
+Assim, ao mesmo tempo em que precisamos executar operações que causam efeitos colaterais, queremos minimizá-los pois são fontes de indeterminismo e bugs no código.</p>
+<p>Linguagens diferentes tomam rumos diferentes com respeito a efeitos colaterais. 
+Enquanto são lugar comum na programação procedimental, ficando totalmente sob responsabilidade do desenvolvedor evitar que causem problemas, na programação funcional são evitados ao tratar variáveis não como áreas de memória alteráveis, mas como incógnitas, como na matemática, evitando que estado seja "acumulado" fora dos parâmetros formais da função. Nas linguagens deste paradigma, ou exceções são feitas para operações que demandam efeitos colaterais, dando origem às linguagens funcionais <strong>não puras</strong>, ou os efeitos colaterais são completamente abolidos, mesmo que às custas de "artifícios", <sup id="fnref:monadas"><a class="footnote-ref" href="#fn:monadas">5</a></sup> como em Haskell.</p>
 <p><a href="https://xkcd.com/1312/"><img alt="" src="https://imgs.xkcd.com/comics/haskell.png" /></a></p>
 <p>Além das linguagens funcionais puras e não puras, há as linguagens não funcionais e, dentro destas, aquelas com elementos de programação funcional.</p>
 <h6>"Funcionalidades"</h6>
@@ -1335,12 +1396,12 @@ Você pode optar por um <code class="highlight"><span class="k">for</span></code
 <span class="linenos" data-linenos="4 "></span>        <span class="n">lista</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
 <span class="linenos" data-linenos="5 "></span>    <span class="k">return</span> <span class="n">lista</span>
 </code></pre></div>
-<p>ou por uma <strong>compreensão de listas</strong>.</p>
+<p>ou por uma <strong>compreensão de listas</strong>, características da programação funcional.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">quads2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="linenos" data-linenos="2 "></span>    <span class="k">return</span> <span class="p">[</span><span class="n">e</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">x</span><span class="p">)]</span>
 </code></pre></div>
 <p>Além disso, há linguagens funcionais que também se enquadram em outros paradigmas e que podem ser consideradas híbridas, ou multi-paradigma.</p>
-<h2 id="multi-paradigmas">Multi-paradigmas</h2>
+<h2 id="multi-paradigma">Multi-paradigma</h2>
 <p>Muitas linguagens modernas podem ser classificadas ao mesmo tempo em muitos paradigmas, por exemplo, a linguagem Scala é ao mesmo tempo funcional e orientada a objetos, sendo muito difícil usá-la sem fazer uso extensivo de ambos aspectos.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">object</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
 <span class="linenos" data-linenos="2 "></span>  <span class="k">def</span> <span class="n">main</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
@@ -1348,6 +1409,47 @@ Você pode optar por um <code class="highlight"><span class="k">for</span></code
 <span class="linenos" data-linenos="4 "></span>  <span class="o">}</span>
 <span class="linenos" data-linenos="5 "></span><span class="o">}</span>
 </code></pre></div>
+<h2 id="para-cada-servico-uma-ferramenta">Para cada serviço, uma ferramenta!</h2>
+<p>Encontramos vantagens e desvantagens em cada paradigma.
+Como desenvolvedores de tecnologia, nada mais justo que vocês conheçam todos os paradigmas e que possam, assim, escolher aquele paradigma e, dentro dele, aquela linguagem que permite resolver o seu problema da forma mais eficiente, isto é, rapidamente, com menor custo e com melhor qualidade.</p>
+<p>Mas quanto ao paradigma funcional, em especial, é importante compreendê-lo pois muitas de suas funcionalidades tem sido incorporadas a outras linguagens, como compreensão de listas em Python, funções lambda em Java e C++, e processamento assíncrono, que pode ser visto como uma forma de avaliação preguiçosa, em diversas linguagens.</p>
+<p>Algumas características importantes do paradigma:</p>
+<ul>
+<li>
+<p>Sem efeitos colaterais: executando um programa, de repente você percebe que uma certa variável tem um valor estranho e fica se perguntando quem foi que atribuiu tal valor; efeitos colaterais são a origem de boa parte dos bugs e eliminá-los, ou ao menos reduzí-los, permite que você identifique rapidamente onde alterações poderiam ter acontecido.</p>
+</li>
+<li>
+<p>Camadas de abstração: funções podem ser compostas levando a programas verdadeiramente complexos, permitindo que abstrações sejam definidas em diversas camadas. Além disso, é possível, em teoria, ser provar a corretude de funções e, mesmo que na prática isso não se realize, há ferramentas que conseguem usar esta ideia para lhe ajudar a encontrar bugs.</p>
+</li>
+<li>
+<p>Processamento paralelo eficiente: a ausência de efeitos colaterais também implica que funções sem dependências podem ser executadas em paralelo, sem se preocupar com qualquer sincronização, isto é, sem mutexes e variáveis de condição, etc.</p>
+</li>
+<li>
+<p>Avaliação preguiçosa: funções só precisam realmente ser executadas se seus resultados são necessários e o compilador consegue atrasar a execução de funções enquanto possível.</p>
+</li>
+<li>
+<p>Recursão de calda: alguns problemas podem ser descritos muito facilmente como uma recursão que com uma iteração, mas linguagens tradicionais tem um limite no tamanho das pilhas de função; linguagens funcionais conseguem, em certas condições, usar recursão infinita, contornando esta limitação.</p>
+</li>
+<li>
+<p>Funções de ordem superior: funções podem receber outras funções como parâmetro e com isso podemos compor funções, por exemplo para implementar orientação a objetos.</p>
+</li>
+</ul>
+<p>Como já ficou óbvio, há muitas, muitas linguagens de programação por aí e é possível escrever código bom em cada um delas, assim como é possível escrever código ruim em cada uma delas.
+Também é possível escrever usando orientação a objetos ou funcionalmente em cada uma delas, mas embora seja <strong>possível</strong>, há aquelas linguagens que suportam melhor cada um dos paradigmas.
+Dentre estas, há diversas opções de linguagens que podemos usar para estudar o paradigma funcional, por exemplo:</p>
+<ul>
+<li>Scheme</li>
+<li>Lisp</li>
+<li>ML</li>
+<li>F#</li>
+<li>Erlang</li>
+<li>Elixir</li>
+<li>Haskell</li>
+<li>Clojure</li>
+</ul>
+<p>Neste curso, veremos princípios gerais e que, em teoria, poderiam ser aplicados em quaisquer destas linguagens.
+Contudo, como a sintaxe pode variar muito de uma linguagem para outra, precisaremos nos focar em uma única.
+Assim, nosso foco aqui será em Haskell, uma linguagem funcional madura e estável.</p>
 <div class="footnote">
 <hr />
 <ol>

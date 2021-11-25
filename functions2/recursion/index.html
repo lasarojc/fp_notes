@@ -42,15 +42,11 @@
     
     
       
-  
-
 
   
 
 
   
-  
-
 
   
 
@@ -441,7 +437,7 @@
   
     <li class="md-nav__item">
       <a href="../../functions/where_let_in/" class="md-nav__link">
-        Funções Locais
+        Definições Locais
       </a>
     </li>
   
@@ -541,6 +537,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../types/operators/" class="md-nav__link">
+        Operadores
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../types/tuples/" class="md-nav__link">
         Tuplas
       </a>
@@ -557,20 +567,6 @@
     <li class="md-nav__item">
       <a href="../../types/lists/" class="md-nav__link">
         Listas
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../types/operators/" class="md-nav__link">
-        Operadores
       </a>
     </li>
   
@@ -826,6 +822,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7">
@@ -848,6 +846,20 @@
     <li class="md-nav__item">
       <a href="../../types2/userdefined/" class="md-nav__link">
         Novos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types2/lists_again/" class="md-nav__link">
+        Listas
       </a>
     </li>
   
@@ -1027,7 +1039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io.md" class="md-nav__link">
+      <a href="../../io/io/" class="md-nav__link">
         IO
       </a>
     </li>
@@ -1062,40 +1074,79 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Desenvolvimento II
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Desenvolvimento II" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Desenvolvimento II
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../app.md" class="md-nav__link">
-        Tudo junto e misturado
+      <a href="../../development/app/" class="md-nav__link">
+        Uma aplicação
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../project/" class="md-nav__link">
-        Projetos
+      <a href="../../development/project/" class="md-nav__link">
+        Projetos de exemplo
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../comments/" class="md-nav__link">
+      <a href="../../development/comments/" class="md-nav__link">
         Erros comuns
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1171,7 +1222,7 @@
   <!-- Content -->
   <h1 id="recursividade">Recursividade</h1>
 <p>Uma função é dita recursiva quando ela é <strong>definida em termos de si mesma</strong>.</p>
-<p><img alt="" src="drawings/function.drawio-4.svg" /></p>
+<p><img alt="" src="../../drawings/function.drawio-4.svg" /></p>
 <p>Estas funções são muito importantes tanto na matemática, onde são também conhecidas como <strong>recorrências</strong>.
 Por exemplo, vejamos como é definido um exemplo recorrentes de função na computação (<em>pun intended</em>) de forma recursiva, o cálculo do fatorial de um número.
 Considere a seguinte definição.</p>
@@ -1211,7 +1262,7 @@ Como esta invocação será feita para o valor passado como parâmetro menos 1, 
 <p>É importante ficar claro que para cada invocação da função, <span class="arithmatex">\(n\)</span> assume um valor diferente, o que pode fazer parecer que o valor de <span class="arithmatex">\(n\)</span> está mudando, mas isso não poderia estar mais longe da verdade!
 Cada <span class="arithmatex">\(n\)</span> só existe no escopo de uma invocação da função.
 Pictograficamente, <span class="arithmatex">\(n\)</span> só é visível dentro da "caixinha" onde foi associada a um valor.</p>
-<p><img alt="" src="drawings/function.drawio-5.svg" /></p>
+<p><img alt="" src="../../drawings/function.drawio-5.svg" /></p>
 <p>Outra forma absolutamente equivalente de definir a função é usando casamento de padrões, como a seguir.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">fatorialPM</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">1</span>
 <span class="linenos" data-linenos="2 "></span><span class="nf">fatorialPM</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fatorialPM</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>

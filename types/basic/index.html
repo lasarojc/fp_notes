@@ -42,15 +42,11 @@
     
     
       
-  
-
 
   
 
 
   
-  
-
 
   
 
@@ -441,7 +437,7 @@
   
     <li class="md-nav__item">
       <a href="../../functions/where_let_in/" class="md-nav__link">
-        Funções Locais
+        Definições Locais
       </a>
     </li>
   
@@ -597,6 +593,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../operators/" class="md-nav__link">
+        Operadores
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../tuples/" class="md-nav__link">
         Tuplas
       </a>
@@ -613,20 +623,6 @@
     <li class="md-nav__item">
       <a href="../lists/" class="md-nav__link">
         Listas
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../operators/" class="md-nav__link">
-        Operadores
       </a>
     </li>
   
@@ -826,6 +822,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7">
@@ -848,6 +846,20 @@
     <li class="md-nav__item">
       <a href="../../types2/userdefined/" class="md-nav__link">
         Novos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types2/lists_again/" class="md-nav__link">
+        Listas
       </a>
     </li>
   
@@ -1027,7 +1039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io.md" class="md-nav__link">
+      <a href="../../io/io/" class="md-nav__link">
         IO
       </a>
     </li>
@@ -1062,40 +1074,79 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Desenvolvimento II
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Desenvolvimento II" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Desenvolvimento II
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../app.md" class="md-nav__link">
-        Tudo junto e misturado
+      <a href="../../development/app/" class="md-nav__link">
+        Uma aplicação
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../project/" class="md-nav__link">
-        Projetos
+      <a href="../../development/project/" class="md-nav__link">
+        Projetos de exemplo
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../comments/" class="md-nav__link">
+      <a href="../../development/comments/" class="md-nav__link">
         Erros comuns
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1175,6 +1226,7 @@ Algo a se notar é que os <strong>nomes dos tipos são iniciados com letras mai�
 <h2 id="numeros">Números</h2>
 <p>Os tipos básicos para a representação de números em Haskell são apresentados na seguinte tabela.
 Observe que o tipo <code class="highlight"><span class="kt">Integer</span></code> ter precisão arbitrária, ou seja, pode ser usado para representar números com "qualquer" quantidade de dígitos, diferentemente de <code class="highlight"><span class="kt">Int</span></code>, que só consegue representar números em uma faixa específica (64 bits).</p>
+<h6>Tipos numéricos</h6>
 <table>
 <thead>
 <tr>
@@ -1206,6 +1258,7 @@ Observe que o tipo <code class="highlight"><span class="kt">Integer</span></code
 </tr>
 </tbody>
 </table>
+<h6>Operadores</h6>
 <p>Diversos operadores são definidos para os tipos numéricos básicos, como mostra a tabela a seguir.</p>
 <table>
 <thead>
@@ -1243,23 +1296,23 @@ Observe que o tipo <code class="highlight"><span class="kt">Integer</span></code
 </tr>
 <tr>
 <td><code class="highlight"><span class="o">-</span></code></td>
-<td>Inversão de sinal</td>
-<td><code class="highlight"><span class="o">-</span> <span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span></code><sup id="fnref2:negate"><a class="footnote-ref" href="#fn:negate">2</a></sup></td>
+<td>Inversão de sinal<sup id="fnref2:negate"><a class="footnote-ref" href="#fn:negate">2</a></sup></td>
+<td><code class="highlight"><span class="o">-</span> <span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span></code></td>
 </tr>
 <tr>
 <td><code class="highlight"><span class="nf">negate</span></code></td>
-<td>Inversão de sinal</td>
-<td><code class="highlight"><span class="nf">negate</span> <span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span></code><sup id="fnref:negate"><a class="footnote-ref" href="#fn:negate">2</a></sup></td>
+<td>Inversão de sinal<sup id="fnref:negate"><a class="footnote-ref" href="#fn:negate">2</a></sup></td>
+<td><code class="highlight"><span class="nf">negate</span> <span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span></code></td>
 </tr>
 <tr>
 <td><code class="highlight"><span class="nf">quot</span></code></td>
-<td>Divisão inteira, truncado pro 0, i.e., <code class="highlight"><span class="nf">quot</span> <span class="n">a</span> <span class="n">b</span></code> é igual a <span class="arithmatex">\(\lfloor\frac{a}{b}\rfloor\)</span> se <span class="arithmatex">\(a&gt;0\)</span> e <span class="arithmatex">\(\lceil\frac{a}{b}\rceil\)</span> se <span class="arithmatex">\(a&lt;0\)</span></td>
+<td>Divisão inteira, truncado para o 0, i.e., <code class="highlight"><span class="nf">quot</span> <span class="n">a</span> <span class="n">b</span></code> é igual a <span class="arithmatex">\(\lfloor\frac{a}{b}\rfloor\)</span> se <span class="arithmatex">\(a&gt;0\)</span> e <span class="arithmatex">\(\lceil\frac{a}{b}\rceil\)</span> se <span class="arithmatex">\(a&lt;0\)</span></td>
 <td><code class="highlight"><span class="nf">quot</span> <span class="mi">8</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">2</span></code> e <code class="highlight"><span class="nf">quot</span> <span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">)</span> <span class="mi">3</span> <span class="o">==</span> <span class="o">-</span><span class="mi">2</span></code></td>
 </tr>
 <tr>
 <td><code class="highlight"><span class="nf">rem</span></code></td>
 <td>Resto da divisão inteira, tal que <code class="highlight"><span class="p">(</span><span class="n">x</span> <span class="p">`</span><span class="n">quot</span><span class="p">`</span> <span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span> <span class="p">`</span><span class="n">rem</span><span class="p">`</span> <span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="n">x</span></code></td>
-<td><code class="highlight"><span class="nf">rem</span> <span class="mi">8</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">2</span></code></td>
+<td><code class="highlight"><span class="nf">rem</span> <span class="mi">8</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">2</span></code> e <code class="highlight"><span class="nf">rem</span> <span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">)</span> <span class="mi">3</span> <span class="o">==</span> <span class="o">-</span><span class="mi">2</span></code></td>
 </tr>
 <tr>
 <td><code class="highlight"><span class="nf">div</span></code></td>
@@ -1269,17 +1322,19 @@ Observe que o tipo <code class="highlight"><span class="kt">Integer</span></code
 <tr>
 <td><code class="highlight"><span class="nf">mod</span></code></td>
 <td>Módulo do inteiro, tal que  <code class="highlight"><span class="p">(</span><span class="n">x</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span> <span class="p">`</span><span class="n">mod</span><span class="p">`</span> <span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="n">x</span></code></td>
-<td></td>
+<td><code class="highlight"><span class="nf">mod</span> <span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">)</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">1</span></code> e <code class="highlight"><span class="nf">mod</span> <span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">2</span></code></td>
 </tr>
 </tbody>
 </table>
+<h6>Infixo X Prefixo</h6>
 <p>Observe que alguns destes operadores são naturalmente infixos, e.g., <code>+</code>, e outros, prefixos, e.g., <code class="highlight"><span class="nf">rem</span></code>.<sup id="fnref:infix"><a class="footnote-ref" href="#fn:infix">1</a></sup>
-Contudo, ambos podem ser usados da outra forma, como mostrado nos seguintes exemplos.</p>
+Contudo, ambos podem ser usados da outra forma, como mostrado nos seguintes exemplos, em que os operadores infixos são envelopados em por parênteses e os pré-fixos em aspas invertidas simples.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="mi">10</span> <span class="o">+</span> <span class="mi">20</span>
 <span class="linenos" data-linenos="2 "></span><span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">10</span> <span class="mi">20</span>
 <span class="linenos" data-linenos="3 "></span><span class="nf">quot</span> <span class="mi">10</span> <span class="mi">3</span>
 <span class="linenos" data-linenos="4 "></span><span class="mi">10</span> <span class="p">`</span><span class="n">quot</span><span class="p">`</span> <span class="mi">3</span>
 </code></pre></div>
+<h6>Tipos para números</h6>
 <p>Caso você queira ou precise, pode especificar um tipo para um número, por exemplo, <code class="highlight"><span class="mi">20</span> <span class="ow">::</span> <span class="kt">Int</span></code> ou  <code class="highlight"><span class="mi">20</span> <span class="ow">::</span> <span class="kt">Double</span></code>.</p>
 <div class="admonition todo">
 <p class="admonition-title">Exercícios</p>
@@ -1361,8 +1416,8 @@ Exemplos dos dois tipos são apresentados na tabela a seguir.</p>
 </tr>
 </tbody>
 </table>
-<p>O tipo <code>#@hs String</code> é, na verdade, apenas um "apelido" o tipo <strong>lista de caracteres</strong> e, sim sendo, voltaremos a falar de <code class="highlight"><span class="kt">String</span></code> quando estudarmos listas, mais adiante.</p>
-<p>Haskell trabalha com caracteres Unicode, que incluem símbolos e letras em diferentes línguas, números, sinais de pontuação, símbolos, separadores e outros,  caracteres especiais, como emojis e caracteres de controle.
+<p>O tipo <code class="highlight"><span class="kt">String</span></code> é, na verdade, apenas um "apelido" para o tipo <strong>lista de caracteres</strong> e, assim sendo, voltaremos a falar de <code class="highlight"><span class="kt">String</span></code> quando estudarmos listas, mais adiante.</p>
+<p>Haskell trabalha com caracteres Unicode, que incluem símbolos e letras em diferentes línguas, números, sinais de pontuação, separadores e outros caracteres especiais, como emojis e caracteres de controle.
 A seguir, algumas funções de manipulação de caracteres.<sup id="fnref:char"><a class="footnote-ref" href="#fn:char">3</a></sup></p>
 <table>
 <thead>
@@ -1381,7 +1436,7 @@ A seguir, algumas funções de manipulação de caracteres.<sup id="fnref:char">
 <tr>
 <td><code class="highlight"><span class="nf">isControl</span></code></td>
 <td>Testa se é um caracter de controle</td>
-<td><code class="highlight"><span class="nf">isSpace</span> <span class="kt">&#39;\</span><span class="n">t&#39;</span> <span class="o">==</span> <span class="kt">True</span></code></td>
+<td><code class="highlight"><span class="nf">isControl</span> <span class="kt">&#39;\</span><span class="n">t&#39;</span> <span class="o">==</span> <span class="kt">True</span></code></td>
 </tr>
 <tr>
 <td><code class="highlight"><span class="nf">isLetter</span></code></td>

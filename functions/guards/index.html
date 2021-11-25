@@ -42,15 +42,11 @@
     
     
       
-  
-
 
   
 
 
   
-  
-
 
   
 
@@ -446,7 +442,7 @@
   
     <li class="md-nav__item">
       <a href="../where_let_in/" class="md-nav__link">
-        Funções Locais
+        Definições Locais
       </a>
     </li>
   
@@ -546,6 +542,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../types/operators/" class="md-nav__link">
+        Operadores
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../types/tuples/" class="md-nav__link">
         Tuplas
       </a>
@@ -562,20 +572,6 @@
     <li class="md-nav__item">
       <a href="../../types/lists/" class="md-nav__link">
         Listas
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../types/operators/" class="md-nav__link">
-        Operadores
       </a>
     </li>
   
@@ -775,6 +771,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7">
@@ -797,6 +795,20 @@
     <li class="md-nav__item">
       <a href="../../types2/userdefined/" class="md-nav__link">
         Novos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types2/lists_again/" class="md-nav__link">
+        Listas
       </a>
     </li>
   
@@ -976,7 +988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io.md" class="md-nav__link">
+      <a href="../../io/io/" class="md-nav__link">
         IO
       </a>
     </li>
@@ -1011,40 +1023,79 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Desenvolvimento II
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Desenvolvimento II" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Desenvolvimento II
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../app.md" class="md-nav__link">
-        Tudo junto e misturado
+      <a href="../../development/app/" class="md-nav__link">
+        Uma aplicação
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../project/" class="md-nav__link">
-        Projetos
+      <a href="../../development/project/" class="md-nav__link">
+        Projetos de exemplo
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../comments/" class="md-nav__link">
+      <a href="../../development/comments/" class="md-nav__link">
         Erros comuns
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1091,7 +1142,7 @@ Guardas tem a seguinte sintaxe.</p>
 <span class="linenos" data-linenos="4 "></span>    <span class="o">...</span>
 <span class="linenos" data-linenos="5 "></span>    <span class="o">|</span> <span class="o">&lt;</span><span class="n">condicaoM</span><span class="o">&gt;</span> <span class="ow">=</span> <span class="o">&lt;</span><span class="n">definicaoM</span><span class="o">&gt;</span>
 </code></pre></div>
-<p>Especificamente, o exemplo do cálculo do nome dos meses ficaria assim como a seguir.</p>
+<p>Especificamente, o exemplo do cálculo do nome dos meses ficaria como a seguir.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nf">nomeMes</span> <span class="n">m</span>
 <span class="linenos" data-linenos=" 2 "></span>    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">=</span> <span class="s">&quot;JAN&quot;</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">=</span> <span class="s">&quot;FEV&quot;</span>
@@ -1107,7 +1158,7 @@ Guardas tem a seguinte sintaxe.</p>
 <span class="linenos" data-linenos="13 "></span>    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">12</span> <span class="ow">=</span> <span class="s">&quot;DEZ&quot;</span>
 <span class="linenos" data-linenos="14 "></span>    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">13</span> <span class="ow">=</span> <span class="s">&quot;ONZ&quot;</span>
 </code></pre></div>
-<p>Embora no exemplo anterior cada condição seja muito simples, apenas um teste de igualdade, condições podem ser mais complexas, podendo incluir múltiplos testes e computações; a única condição é resulte em um valor booleano.
+<p>Embora no exemplo anterior cada condição seja muito simples, apenas um teste de igualdade, condições podem ser mais complexas, podendo incluir múltiplos testes e computações; a única condição é que resulte em um valor booleano.
 Por exemplo, vejamos uma função que calcula o maior entre três números.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">maiorDeTres</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span>
 <span class="linenos" data-linenos="2 "></span>  <span class="o">|</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">c</span>   <span class="ow">=</span> <span class="n">a</span>
@@ -1164,7 +1215,7 @@ Embora correta, esta definição pode parecer estranha. Uma alternativa é usar 
 <span class="linenos" data-linenos="4 "></span>  <span class="o">|</span> <span class="n">otherwise</span>          <span class="ow">=</span> <span class="n">c</span>
 </code></pre></div>
 <p>De fato, se usarmos o GHCi para obtermos mais informações sobre <code>otherwise</code>, veremos que é uma constante, cujo valor é <code class="highlight"><span class="kt">True</span></code>.
-Isso serve para ilustrar o poder da linguagem, que tem um conjunto reduzido de palavras chave que é estendida usando suas funcionalidades básicas.</p>
+Isso serve para ilustrar o poder da linguagem, que tem um conjunto reduzido de palavras reservadas e que é estendida usando suas funcionalidades básicas.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>Prelude&gt; otherwise
 <span class="linenos" data-linenos="2 "></span>True
 </code></pre></div>

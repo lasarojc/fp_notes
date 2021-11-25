@@ -42,15 +42,11 @@
     
     
       
-  
-
 
   
 
 
   
-  
-
 
   
 
@@ -441,7 +437,7 @@
   
     <li class="md-nav__item">
       <a href="../../functions/where_let_in/" class="md-nav__link">
-        Funções Locais
+        Definições Locais
       </a>
     </li>
   
@@ -541,6 +537,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../types/operators/" class="md-nav__link">
+        Operadores
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../types/tuples/" class="md-nav__link">
         Tuplas
       </a>
@@ -557,20 +567,6 @@
     <li class="md-nav__item">
       <a href="../../types/lists/" class="md-nav__link">
         Listas
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../types/operators/" class="md-nav__link">
-        Operadores
       </a>
     </li>
   
@@ -826,6 +822,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7">
@@ -848,6 +846,20 @@
     <li class="md-nav__item">
       <a href="../../types2/userdefined/" class="md-nav__link">
         Novos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types2/lists_again/" class="md-nav__link">
+        Listas
       </a>
     </li>
   
@@ -1027,7 +1039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io.md" class="md-nav__link">
+      <a href="../../io/io/" class="md-nav__link">
         IO
       </a>
     </li>
@@ -1062,40 +1074,79 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Desenvolvimento II
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Desenvolvimento II" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Desenvolvimento II
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../app.md" class="md-nav__link">
-        Tudo junto e misturado
+      <a href="../app/" class="md-nav__link">
+        Uma aplicação
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../project/" class="md-nav__link">
-        Projetos
+      <a href="../project/" class="md-nav__link">
+        Projetos de exemplo
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../comments/" class="md-nav__link">
+      <a href="../comments/" class="md-nav__link">
         Erros comuns
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1174,10 +1225,10 @@
 <h2 id="modulos">Módulos</h2>
 <p>No primeiro nível de modularização, o código é organizado em módulos, que contém funções e tipos associados.
 Um programa em Haskell é uma coleção de módulos, dentre os quais deve haver um módulo <em><code class="highlight"><span class="kt">Main</span></code></em>, que deve conter uma função <code class="highlight"><span class="nf">main</span></code> e que servirá de ponto de entrada para a execução do programa.
-Se o código for apenas interpretado, **não há a necessidade da presença de uma função main.</p>
+Se o código for apenas interpretado, <strong>não há a necessidade da presença de uma função main</strong>.</p>
 <p>Cada módulo corresponde a um arquivo; o módulo pode <strong>exportar</strong> definições e <strong>importar</strong> definições de outros módulos, do mesmo time ou de bibliotecas de terceiros.
 Todo módulo tem a seguinte estrutura, onde o nome do módulo deve necessariamente começar com uma letra maiúscula.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kr">module</span> <span class="nn">NomeDoMódulo</span> <span class="p">(</span><span class="o">&lt;</span><span class="nf">lista</span> <span class="nf">de</span> <span class="nf">funções</span> <span class="nf">exportadas</span><span class="o">&gt;</span><span class="p">)</span> <span class="kr">where</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kr">module</span> <span class="nn">NomeDoMódulo</span> <span class="p">{(</span><span class="n">lista</span> <span class="n">de</span> <span class="n">funções</span> <span class="n">exportadas</span><span class="p">)}</span> <span class="kr">where</span>
 <span class="linenos" data-linenos="2 "></span>
 <span class="linenos" data-linenos="3 "></span><span class="c1">-- imports: Nome do módulo, seguido pelas funções a serem importadas.</span>
 <span class="linenos" data-linenos="4 "></span><span class="kr">import</span> <span class="nn">Data.Char</span> <span class="p">(</span><span class="nf">toLower</span><span class="p">)</span>
@@ -1240,7 +1291,7 @@ Todo módulo tem a seguinte estrutura, onde o nome do módulo deve necessariamen
 <h6>Prelude</h6>
 <p>Por padrão, o módulo <strong>prelude</strong><sup id="fnref:prelude"><a class="footnote-ref" href="#fn:prelude">2</a></sup> é carregado toda vez que executa o ghci ou compila um programa, a não ser que seja explicitamente indicado em contrário.
 Este módulo contém a definição dos tipos e operadores básicos vistos anteriormente, além de muitos outros, e o GHC.Num é parte do Prelude.
-Uma pequena mas interessante amostra de outros tipos incluídos:</p>
+Uma pequena mas interessante amostra de outros tipos e funções.</p>
 <table>
 <thead>
 <tr>
@@ -1270,14 +1321,6 @@ Uma pequena mas interessante amostra de outros tipos incluídos:</p>
 <td>Escreve um caractere na saida padrão</td>
 </tr>
 <tr>
-<td><code>putString</code></td>
-<td>Escreve uma string na saida padrão</td>
-</tr>
-<tr>
-<td><code>getChar</code></td>
-<td>Lê um caractere da entrada padrão</td>
-</tr>
-<tr>
 <td><code>getString</code></td>
 <td>Lê uma string da entrada padrão</td>
 </tr>
@@ -1298,7 +1341,7 @@ Isto é feito para as bibliotecas padrão da linguagem mas também para contribu
 <p>Dificilmente você escreverá algo de útil sem importar ao menos alguns módulos da biblioteca padrão e para importar os módulos de algum pacote não padrão, você precisa primeiro instalar o pacote e configurá-o para que seja acessível ao compilador ou interpretador, uma tarefa ingrata.
 Considerando que há também diversas versões do compilador que usaremos, o Haskell, e que certos pacotes dependem de versões específicas do Haskell e de outros pacotes, configurações manuais se tornam muito trabalhosas.
 Em vez disso, pode-se usar ferramentas como <strong>Cabal</strong> e <strong>Stack</strong>, que permitem descrever os pacotes as serem instalados e suas respectivas versões, por projeto, e estas gerenciarão as dependências automaticamente em tempo de compilação.</p>
-<p>Há uma certa disputa entre as duas ferramentas, bem formas de se traduzir as informações de uma ferramenta para outra, mas isto está fora do escopo deste material.
+<p>Há uma certa disputa entre as duas ferramentas, bem como formas de se traduzir as informações de uma ferramenta para outra, mas isto está fora do escopo deste material.
 O escopo se resume a simplesmente prover um esqueleto para uso do Stack, que permite a execução de testes automatizados tanto na sua máquina quando nos servidores em que fará a submissão dos seus exercícios.</p>
 <h2 id="esqueleto-de-projeto">Esqueleto de Projeto</h2>
 <p>As listas de exercícios são disponibilizadas via GithubClassroom, o que efetivamente cria um repositório para cada lista, para cada um dos alunos.
@@ -1314,7 +1357,8 @@ O repositório tem uma estrutura similar ao seguinte <a href="https://github.com
 <span class="linenos" data-linenos=" 9 "></span>      |
 <span class="linenos" data-linenos="10 "></span>      +-- Tests.hs
 </code></pre></div>
-<p>Depois de clonar este repositório, da raiz do mesmo, digite <code class="highlight">stack <span class="nb">test</span></code>, a definição do ambiente no arquivo <code>stack.yml</code> será usada para iniciar a execução dos testes especificados em <code>test/Tests.hs</code>, que executam funções em <code>src/Exercise.hs</code>.
+<p>Depois de clonar este repositório, da raiz do mesmo, digite <code class="highlight">stack <span class="nb">test</span></code>. 
+A definição do ambiente no arquivo <code>stack.yml</code> será usada para iniciar a execução dos testes especificados em <code>test/Tests.hs</code>, que executam funções em <code>src/Exercise.hs</code>.
 Use este template para criar novos projetos e seus testes; adicione novas dependências no arquivo <code>stack.yml</code>.</p>
 <div class="footnote">
 <hr />

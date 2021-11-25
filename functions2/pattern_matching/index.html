@@ -42,15 +42,11 @@
     
     
       
-  
-
 
   
 
 
   
-  
-
 
   
 
@@ -441,7 +437,7 @@
   
     <li class="md-nav__item">
       <a href="../../functions/where_let_in/" class="md-nav__link">
-        Funções Locais
+        Definições Locais
       </a>
     </li>
   
@@ -541,6 +537,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../types/operators/" class="md-nav__link">
+        Operadores
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../types/tuples/" class="md-nav__link">
         Tuplas
       </a>
@@ -557,20 +567,6 @@
     <li class="md-nav__item">
       <a href="../../types/lists/" class="md-nav__link">
         Listas
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../types/operators/" class="md-nav__link">
-        Operadores
       </a>
     </li>
   
@@ -833,6 +829,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7">
@@ -855,6 +853,20 @@
     <li class="md-nav__item">
       <a href="../../types2/userdefined/" class="md-nav__link">
         Novos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types2/lists_again/" class="md-nav__link">
+        Listas
       </a>
     </li>
   
@@ -1034,7 +1046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io.md" class="md-nav__link">
+      <a href="../../io/io/" class="md-nav__link">
         IO
       </a>
     </li>
@@ -1069,40 +1081,79 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Desenvolvimento II
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Desenvolvimento II" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Desenvolvimento II
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../app.md" class="md-nav__link">
-        Tudo junto e misturado
+      <a href="../../development/app/" class="md-nav__link">
+        Uma aplicação
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../project/" class="md-nav__link">
-        Projetos
+      <a href="../../development/project/" class="md-nav__link">
+        Projetos de exemplo
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../comments/" class="md-nav__link">
+      <a href="../../development/comments/" class="md-nav__link">
         Erros comuns
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1185,7 +1236,7 @@
   <!-- Content -->
   <h1 id="casamento-de-padroes">Casamento de Padrões</h1>
 <p>Mencionamos anteriormente que quando especificamos a lista de parâmetros formais que uma função recebe, estamos dizendo ao compilador que os parâmetros passados na invocação da função devem ser associados aos parâmetros formais.
-Vamos nos aprofundar nesta ideia, do <strong>casamento de padrões</strong>.</p>
+Em Haskell, este processo acontece por meio de um <strong>casamento de padrões</strong>.</p>
 <h2 id="tipos-de-padrao">Tipos de Padrão</h2>
 <p>O casamento de padrões é o processo pelo qual os valores em uma <strong>expressão</strong> são decompostos e associados aos elementos de um <strong>padrão</strong>.
 Em outras palavras, dada uma expressão e um padrão, é feita uma tentativa de decomposição da expressão de acordo com o especificado pelo padrão.
@@ -1234,13 +1285,13 @@ Para isso, vamos dividir os padrões em alguns tipos e analisar exemplos de cada
 <p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">minhaFunção</span> <span class="err">█</span> <span class="ow">=</span> <span class="s">&quot;Sucesso!&quot;</span>
 </code></pre></div>
 e que você esteja invocando a função no ghci assim como a seguir, mas onde o símbolo ▓ é substituído pelo valor.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">minhaFunção</span> <span class="err">▓</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">minhaFunção</span> <span class="err">▓</span>
 </code></pre></div>
 <p>Por exemplo, para a primeira linha, a função fica assim</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">minhaFunção</span> <span class="mi">10</span> <span class="ow">=</span> <span class="s">&quot;Sucesso!&quot;</span>
 </code></pre></div>
 <p>e a invocação fica assim.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">minhaFunção</span> <span class="mi">10</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">minhaFunção</span> <span class="mi">10</span>
 </code></pre></div>
 <p>Quando a invocação é feita, o ghci pega o valor passado, 10, e tenta casá-lo com o padrão especificado na definição de minhaFunção, 10.
 Neste caso, há um casamento entre o valor e o padrão.</p>

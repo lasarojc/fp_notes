@@ -42,15 +42,11 @@
     
     
       
-  
-
 
   
 
 
   
-  
-
 
   
 
@@ -441,7 +437,7 @@
   
     <li class="md-nav__item">
       <a href="../functions/where_let_in/" class="md-nav__link">
-        Funções Locais
+        Definições Locais
       </a>
     </li>
   
@@ -541,6 +537,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../types/operators/" class="md-nav__link">
+        Operadores
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../types/tuples/" class="md-nav__link">
         Tuplas
       </a>
@@ -557,20 +567,6 @@
     <li class="md-nav__item">
       <a href="../types/lists/" class="md-nav__link">
         Listas
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../types/operators/" class="md-nav__link">
-        Operadores
       </a>
     </li>
   
@@ -772,6 +768,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7">
@@ -794,6 +792,20 @@
     <li class="md-nav__item">
       <a href="../types2/userdefined/" class="md-nav__link">
         Novos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../types2/lists_again/" class="md-nav__link">
+        Listas
       </a>
     </li>
   
@@ -973,7 +985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../io.md" class="md-nav__link">
+      <a href="../io/io/" class="md-nav__link">
         IO
       </a>
     </li>
@@ -1008,40 +1020,79 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Desenvolvimento II
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Desenvolvimento II" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Desenvolvimento II
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../app.md" class="md-nav__link">
-        Tudo junto e misturado
+      <a href="app/" class="md-nav__link">
+        Uma aplicação
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../project/" class="md-nav__link">
-        Projetos
+      <a href="project/" class="md-nav__link">
+        Projetos de exemplo
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../comments/" class="md-nav__link">
+      <a href="comments/" class="md-nav__link">
         Erros comuns
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1087,11 +1138,12 @@
 
   <!-- Content -->
   <h1 id="desenvolvimento-de-software-em-haskell">Desenvolvimento de Software em Haskell</h1>
-<p>O desenvolvimento de software em qualquer paradigma e usando qualquer linguagem, requer organização para que tarefa não gere artefatos de difícil uso e manutenção, pois facilitam o gerenciamento da complexidade inerente dos artefatos de software.</p>
-<p>Um dos pontos principais desta organização é a divisão do código em módulos contendo partes do código com forte associação, como classes que descrevem um domínio de problema, quer fornecem uma funcionalidade, ou que podem, ao menos em teoria, ser usados independentemente de outros módulos.</p>
-<p>A modularização pode acontecer em vários níveis. Por exemplo, um módulo que fornece funcionalidades de manipulação de interfaces gráficas, pode ter um submódulos específicos diferentes placas gráficas, ou uma biblioteca para comunicação entre processos via rede de computadores pode ser dividida em comunicação segura e não segura.</p>
+<p>O desenvolvimento de software, em qualquer paradigma e usando qualquer linguagem, requer organização para que tarefa não gere artefatos de difícil uso e manutenção.</p>
+<p>Um dos pontos principais desta organização é a divisão do código em módulos contendo partes do código com forte associação, como classes que descrevem um domínio de problema, quer fornecem uma funcionalidade, ou que podem, ao menos em teoria, ser usados independentemente de outros módulos.
+Assim, módulos facilitam o gerenciamento da complexidade inerente dos artefatos de software.</p>
+<p>A modularização pode acontecer em vários níveis. Por exemplo, um módulo que fornece funcionalidades de manipulação de interfaces gráficas, pode ter um submódulos específicos para diferentes placas gráficas, ou uma biblioteca para comunicação entre processos via rede de computadores pode ser dividida em comunicação segura e não segura.</p>
 <p>Embora os softwares que desenvolveremos neste curso sejam pequenos e de baixa complexidade, precisamos pensar em modularização tanto para a criação de bons hábitos mas também para usarmos a vasta biblioteca disponível para projetos nesta linguagem.</p>
-<p>Outro aspecto importante do desenvolvimento é são os testes, que aumentam a confiança na corretude do código. Novamente temos opções para o desenvolvimento de testes.</p>
+<p>Outro aspecto importante do desenvolvimento são os testes, que aumentam a confiança na corretude do código. Novamente temos opções para o desenvolvimento de testes.</p>
 
   <!-- Last update of source file -->
 
@@ -1113,7 +1165,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Rodapé">
       
         
-        <a href="../types/operators/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Operadores" rel="prev">
+        <a href="../types/lists/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Listas" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1122,7 +1174,7 @@
               <span class="md-footer__direction">
                 Anterior
               </span>
-              Operadores
+              Listas
             </div>
           </div>
         </a>

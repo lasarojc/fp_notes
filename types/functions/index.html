@@ -42,15 +42,11 @@
     
     
       
-  
-
 
   
 
 
   
-  
-
 
   
 
@@ -441,7 +437,7 @@
   
     <li class="md-nav__item">
       <a href="../../functions/where_let_in/" class="md-nav__link">
-        Funções Locais
+        Definições Locais
       </a>
     </li>
   
@@ -553,6 +549,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../operators/" class="md-nav__link">
+        Operadores
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../tuples/" class="md-nav__link">
         Tuplas
       </a>
@@ -569,20 +579,6 @@
     <li class="md-nav__item">
       <a href="../lists/" class="md-nav__link">
         Listas
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../operators/" class="md-nav__link">
-        Operadores
       </a>
     </li>
   
@@ -782,6 +778,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7">
@@ -804,6 +802,20 @@
     <li class="md-nav__item">
       <a href="../../types2/userdefined/" class="md-nav__link">
         Novos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types2/lists_again/" class="md-nav__link">
+        Listas
       </a>
     </li>
   
@@ -983,7 +995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io.md" class="md-nav__link">
+      <a href="../../io/io/" class="md-nav__link">
         IO
       </a>
     </li>
@@ -1018,40 +1030,79 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Desenvolvimento II
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Desenvolvimento II" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Desenvolvimento II
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../app.md" class="md-nav__link">
-        Tudo junto e misturado
+      <a href="../../development/app/" class="md-nav__link">
+        Uma aplicação
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../project/" class="md-nav__link">
-        Projetos
+      <a href="../../development/project/" class="md-nav__link">
+        Projetos de exemplo
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../comments/" class="md-nav__link">
+      <a href="../../development/comments/" class="md-nav__link">
         Erros comuns
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1098,7 +1149,7 @@
   <!-- Content -->
   <h1 id="tipos-de-funcoes">Tipos de funções</h1>
 <p>Agora que já conhecemos alguns tipos, podemos ver como usá-los na definição de funções.
-Para fazê-lo, devemos usar a seguinte sintaxe, onde o símbolo <code class="highlight"><span class="ow">::</span></code> pode ser lido como <strong>tem tipo</strong> e <code class="highlight"><span class="ow">-&gt;</span></code> como um separador dos tipos de parâmetros formais e do tipo da saída.</p>
+Para fazê-lo, devemos usar a seguinte sintaxe, onde o símbolo <code class="highlight"><span class="ow">::</span></code> pode ser lido como <strong>é do tipo</strong> e <code class="highlight"><span class="ow">-&gt;</span></code> como um separador dos tipos de parâmetros formais e do tipo da saída.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">nomeFuncao</span> <span class="ow">::</span> <span class="n">tipo_arg1</span> <span class="ow">-&gt;</span> <span class="o">...</span> <span class="ow">-&gt;</span> <span class="n">tipo_argN</span> <span class="ow">-&gt;</span> <span class="n">tipo_saida</span>
 <span class="linenos" data-linenos="2 "></span><span class="nf">nomeFuncao</span> <span class="n">arg1</span> <span class="o">...</span> <span class="n">argN</span> <span class="ow">=</span> <span class="o">&lt;</span><span class="n">definicao</span><span class="o">&gt;</span>
 </code></pre></div>
@@ -1109,7 +1160,11 @@ Para fazê-lo, devemos usar a seguinte sintaxe, onde o símbolo <code class="hig
 <span class="linenos" data-linenos="4 "></span>    <span class="o">|</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">=</span> <span class="mi">28</span>
 <span class="linenos" data-linenos="5 "></span>    <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="mi">30</span>
 </code></pre></div>
-<p>Esta definição pode então ser lida como "a função <code class="highlight"><span class="nf">diasMes</span></code> tem tipo que recebe um inteiro como entrada e um inteiro como saída. <code class="highlight"><span class="kt">:</span><span class="n">t</span> <span class="n">diasMes</span></code> confirma o tipo especificado: <code class="highlight"><span class="nf">diasMes</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span></code>.</p>
+<p>Esta definição pode então ser lida como "a função <code class="highlight"><span class="nf">diasMes</span></code> é do tipo que recebe um inteiro como entrada e retorna um inteiro como saída.</p>
+<p>Já uma função que calcula a média de três números reais terá a seguinte definição, incluindo o protótipo </p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">m3n</span> <span class="ow">::</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">m3n</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="ow">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+</code></pre></div>
 <div class="admonition exercise">
 <p class="admonition-title">Exercícios</p>
 <ul>
@@ -1118,13 +1173,6 @@ Para fazê-lo, devemos usar a seguinte sintaxe, onde o símbolo <code class="hig
 </ul>
 <details class="example"><summary>Resolução</summary><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">f2c</span> <span class="ow">::</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span><span class="p">`</span>
 <span class="linenos" data-linenos="2 "></span><span class="nf">f2c</span> <span class="n">x</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">/</span><span class="mf">1.8</span>
-</code></pre></div>
-</details>
-<ul>
-<li>Defina o protótipo da função de media de dois números reais <code class="highlight"><span class="nf">m2n</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span></code></li>
-</ul>
-<details class="example"><summary>Resolução</summary><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">m2n</span> <span class="ow">::</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span> <span class="ow">-&gt;</span> <span class="kt">Float</span>
-<span class="linenos" data-linenos="2 "></span><span class="nf">m2n</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
 </code></pre></div>
 </details>
 <ul>
@@ -1187,13 +1235,13 @@ Para fazê-lo, devemos usar a seguinte sintaxe, onde o símbolo <code class="hig
       
       
         
-        <a href="../tuples/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Tuplas" rel="next">
+        <a href="../operators/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Operadores" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Tuplas
+              Operadores
             </div>
           </div>
           <div class="md-footer__button md-icon">

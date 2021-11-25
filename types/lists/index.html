@@ -42,15 +42,11 @@
     
     
       
-  
-
 
   
 
 
   
-  
-
 
   
 
@@ -441,7 +437,7 @@
   
     <li class="md-nav__item">
       <a href="../../functions/where_let_in/" class="md-nav__link">
-        Funções Locais
+        Definições Locais
       </a>
     </li>
   
@@ -543,6 +539,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../operators/" class="md-nav__link">
+        Operadores
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../tuples/" class="md-nav__link">
         Tuplas
       </a>
@@ -628,20 +638,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../operators/" class="md-nav__link">
-        Operadores
-      </a>
     </li>
   
 
@@ -840,6 +836,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7">
@@ -862,6 +860,20 @@
     <li class="md-nav__item">
       <a href="../../types2/userdefined/" class="md-nav__link">
         Novos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types2/lists_again/" class="md-nav__link">
+        Listas
       </a>
     </li>
   
@@ -1041,7 +1053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io.md" class="md-nav__link">
+      <a href="../../io/io/" class="md-nav__link">
         IO
       </a>
     </li>
@@ -1076,40 +1088,79 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Desenvolvimento II
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Desenvolvimento II" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Desenvolvimento II
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../app.md" class="md-nav__link">
-        Tudo junto e misturado
+      <a href="../../development/app/" class="md-nav__link">
+        Uma aplicação
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../project/" class="md-nav__link">
-        Projetos
+      <a href="../../development/project/" class="md-nav__link">
+        Projetos de exemplo
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../comments/" class="md-nav__link">
+      <a href="../../development/comments/" class="md-nav__link">
         Erros comuns
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1205,11 +1256,11 @@ Já <code class="highlight"><span class="p">[</span><span class="mi">1</span><sp
 <h2 id="listas-x-tuplas">Listas x Tuplas</h2>
 <p>Listas tem duas particularidades que as diferenciam de tuplas.
 Primeiro, enquanto as tuplas <code class="highlight"><span class="p">(</span><span class="mi">1</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">2</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">3</span><span class="ow">::</span><span class="kt">Int</span><span class="p">)</span></code> e <code class="highlight"><span class="p">(</span><span class="mi">1</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">2</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">3</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">4</span><span class="ow">::</span><span class="kt">Int</span><span class="p">)</span></code> tem tipos diferentes, isto é, uma é uma tupla de <strong>três</strong> inteiros e a outra uma tupla de <strong>quatro</strong> inteiros, as listas <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">2</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">3</span><span class="ow">::</span><span class="kt">Int</span><span class="p">]</span></code> e <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">2</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">3</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">4</span><span class="ow">::</span><span class="kt">Int</span><span class="p">]</span></code> tem exatamente o mesmo tipo, <strong>lista de inteiros</strong>, ou mais especificamente, <code class="highlight"><span class="p">[</span><span class="kt">Int</span><span class="p">]</span></code>.
-Ou seja, listas com cardinalidades diferentes, mas com elementos do mesmo tipo, são do mesmo tipo.</p>
+Ou seja, as cardinalidades das tuplas fazem parte do seu tipo mas não das listas e portanto listas com cardinalidades diferentes mas com elementos do mesmo tipo, são do mesmo tipo.</p>
 <p>Segundo, enquanto uma tupla pode ter elementos de tipos diferentes, todos os elementos de uma lista devem ser do mesmo tipo.
 Ou seja, enquanto é possível definir <code class="highlight"><span class="nf">x</span> <span class="ow">=</span> <span class="p">(</span><span class="s">&quot;Joao&quot;</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="kt">True</span><span class="p">)</span></code>, não é possível definir <code class="highlight"><span class="nf">x</span> <span class="ow">=</span> <span class="p">[</span><span class="s">&quot;Joao&quot;</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="kt">True</span><span class="p">]</span></code>.
-Aliás, outra forma de escrever a lista <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">2</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">3</span><span class="ow">::</span><span class="kt">Int</span><span class="p">]</span></code>, enquanto especificando seus tipos, é <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="ow">::</span><span class="p">[</span><span class="kt">Int</span><span class="p">]</span></code>.</p>
-<p>É preciso observar contudo que é possível construir uma lista <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mf">4.2</span><span class="p">]</span></code>, mas mas isto só é possível porquê existe um tipo do qual todos os elementos da lista são derivados, no caso, <code class="highlight"><span class="kt">Fractional</span></code>.
+Aliás, outra forma de escrever a lista <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">2</span><span class="ow">::</span><span class="kt">Int</span><span class="p">,</span><span class="mi">3</span><span class="ow">::</span><span class="kt">Int</span><span class="p">]</span></code>, especificando seu tipo, é <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="ow">::</span><span class="p">[</span><span class="kt">Int</span><span class="p">]</span></code>.</p>
+<p>É preciso observar contudo que é possível construir uma lista <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mf">4.2</span><span class="p">]</span></code>, mas isto só é possível porquê existe um tipo do qual todos os elementos da lista são derivados, no caso, <code class="highlight"><span class="kt">Fractional</span></code>.
 De fato, quando definimos este lista, Haskell automaticamente faz o boxing dos cinco primeiros valores para ponto flutuante.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">z</span> <span class="ow">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mf">4.2</span><span class="p">]</span>
 <span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span> <span class="n">z</span>
@@ -1218,7 +1269,7 @@ De fato, quando definimos este lista, Haskell automaticamente faz o boxing dos c
 <span class="linenos" data-linenos="5 "></span><span class="nf">z</span> <span class="ow">::</span> <span class="kt">Fractional</span> <span class="n">a</span> <span class="ow">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
 </code></pre></div>
 <p>Já a tupla <code class="highlight"><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mf">4.2</span><span class="p">)</span></code> tem elementos com tipos diferentes.<sup id="fnref:edicao"><a class="footnote-ref" href="#fn:edicao">1</a></sup></p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="n">t</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="n">t</span>
 <span class="linenos" data-linenos="2 "></span><span class="nf">t</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Num</span><span class="p">,</span> <span class="kt">Num</span><span class="p">,</span> <span class="kt">Num</span><span class="p">,</span> <span class="kt">Num</span><span class="p">,</span> <span class="kt">Num</span><span class="p">,</span> <span class="kt">Fractional</span><span class="p">)</span>
 </code></pre></div>
 <p>Uma vez diferenciadas das tuplas, estamos livres para explorar outros aspectos das listas, iniciando por como são construídas.</p>
@@ -1226,43 +1277,43 @@ De fato, quando definimos este lista, Haskell automaticamente faz o boxing dos c
 <p>Dado uma lista qualquer, de qualquer tipo, ela pode ser ou <strong>vazia</strong> ou não vazia, sendo que a lista vazia é representada em Haskell por <code class="highlight"><span class="kt">[]</span></code>.
 Listas não vazias são representadas como a concatenação do primeiro elemento da lista com uma lista com os demais elementos, usando o operador de concatenação <code class="highlight"><span class="kt">:</span></code>, ou <strong>cons</strong>.</p>
 <p>Por exemplo, a lista dos números 1, 2 e 3 nesta ordem é construída como <code class="highlight"><span class="mi">1</span><span class="kt">:</span><span class="mi">2</span><span class="kt">:</span><span class="mi">3</span><span class="kt">:[]</span></code>; observe que como o 3 é o último elemento da lista, a lista que vem depois do cons é a lista vazia.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">x</span> <span class="ow">=</span> <span class="mi">1</span><span class="kt">:</span><span class="mi">2</span><span class="kt">:</span><span class="mi">3</span><span class="kt">:[]</span>
-<span class="linenos" data-linenos="2 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">x</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">x</span> <span class="ow">=</span> <span class="mi">1</span><span class="kt">:</span><span class="mi">2</span><span class="kt">:</span><span class="mi">3</span><span class="kt">:[]</span>
+<span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span> <span class="n">x</span>
 <span class="linenos" data-linenos="3 "></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 </code></pre></div>
 <h6>Cabeça e Cauda</h6>
 <p>Estas partes da lista, isto é o primeiro elemento e o restante, são o que chamamos de cabeça (<em>head</em>) e cauda (<em>tail</em>) da lista.
 No exemplo anterior, <code class="highlight"><span class="mi">1</span><span class="kt">:</span><span class="mi">2</span><span class="kt">:</span><span class="mi">3</span><span class="kt">:[]</span></code>, <code class="highlight"><span class="mi">1</span></code> é a cabeça e <code class="highlight"><span class="mi">2</span><span class="kt">:</span><span class="mi">3</span><span class="kt">:[]</span></code> a cauda.
 Haskell inclusive define funções para recuperar estas partes de uma lista qualquer.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">head</span> <span class="n">x</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">head</span> <span class="n">x</span>
 <span class="linenos" data-linenos="2 "></span><span class="mi">1</span>
-<span class="linenos" data-linenos="3 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">tail</span> <span class="n">x</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="n">tail</span> <span class="n">x</span>
 <span class="linenos" data-linenos="4 "></span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 </code></pre></div>
 <p>Dado uma lista de elementos de um tipo qualquer, a cabeça desta lista é um elemento do mesmo tipo e a cauda é lista de elementos do tipo.
 Logo, podemos subdividir a cauda também em uma cabeça e uma cauda, no exemplo, <code class="highlight"><span class="mi">2</span></code> e <code class="highlight"><span class="mi">3</span><span class="kt">:[]</span></code>. </p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">head</span> <span class="p">(</span><span class="n">tail</span> <span class="n">x</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">head</span> <span class="p">(</span><span class="n">tail</span> <span class="n">x</span><span class="p">)</span>
 <span class="linenos" data-linenos="2 "></span><span class="mi">2</span>
-<span class="linenos" data-linenos="3 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">tail</span> <span class="p">(</span><span class="n">tail</span> <span class="n">x</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="n">tail</span> <span class="p">(</span><span class="n">tail</span> <span class="n">x</span><span class="p">)</span>
 <span class="linenos" data-linenos="4 "></span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
 </code></pre></div>
 <p>Podemos aplicar <code class="highlight"><span class="nf">head</span></code> e <code class="highlight"><span class="nf">tail</span></code> mais uma vez na lista, obtendo 3 e <code class="highlight"><span class="kt">[]</span></code> como resultado.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">head</span> <span class="p">(</span><span class="n">tail</span> <span class="p">(</span><span class="n">tail</span> <span class="n">x</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">head</span> <span class="p">(</span><span class="n">tail</span> <span class="p">(</span><span class="n">tail</span> <span class="n">x</span><span class="p">))</span>
 <span class="linenos" data-linenos="2 "></span><span class="mi">3</span>
-<span class="linenos" data-linenos="3 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">tail</span> <span class="p">(</span><span class="n">tail</span> <span class="p">(</span><span class="n">tail</span> <span class="n">x</span><span class="p">))</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="n">tail</span> <span class="p">(</span><span class="n">tail</span> <span class="p">(</span><span class="n">tail</span> <span class="n">x</span><span class="p">))</span>
 <span class="linenos" data-linenos="4 "></span><span class="kt">[]</span>
 </code></pre></div>
 <p>Mas e se formos além? Neste caso estaríamos tentando identificar o primeiro elemento da lista, mas sendo a lista vazia, isto não é possível.
 Tampouco podemos extrair a lista após a cabeça. </p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">head</span> <span class="kt">[]</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">head</span> <span class="kt">[]</span>
 <span class="linenos" data-linenos="2 "></span><span class="o">***</span> <span class="kt">Exception:</span> <span class="kt">Prelude</span><span class="o">.</span><span class="n">head</span><span class="kt">:</span> <span class="n">empty</span> <span class="n">list</span>
-<span class="linenos" data-linenos="3 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">tail</span> <span class="kt">[]</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="n">tail</span> <span class="kt">[]</span>
 <span class="linenos" data-linenos="4 "></span><span class="o">***</span> <span class="kt">Exception:</span> <span class="kt">Prelude</span><span class="o">.</span><span class="n">tail</span><span class="kt">:</span> <span class="n">empty</span> <span class="n">list</span>
 </code></pre></div>
 <p>Logo, qualquer iteração nos elementos de uma lista, geralmente especificada por uma recursão que extrai a cabeça da lista a cada passo, precisa tomar cuidado para não tentar extrair a cabeça da lista vazia, como veremos na sessão sobre recursão aplicada a listas.</p>
 <h6>Um pouco de açúcar sintático</h6>
 <p>A especificação manual de uma lista usando o operador cons não é muito utilizada na prática, sendo a especificação usando colchetes e vírgulas mais comum, como feito nos primeiros exemplos deste capítulo, e é inclusive como o próprio Haskell exibe as listas.
-O efeito final é o mesmo, ficando para você a decisão qual construção usar.</p>
+O efeito final é o mesmo, ficando para você a decisão de qual construção usar.</p>
 <ul>
 <li><code class="highlight"><span class="mi">1</span><span class="kt">:[]</span></code> é igual a <code class="highlight"><span class="p">[</span><span class="mi">1</span><span class="p">]</span></code></li>
 <li><code class="highlight"><span class="mi">2</span><span class="kt">:</span><span class="mi">1</span><span class="kt">:[]</span></code> é igual a <code class="highlight"><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span></code></li>
@@ -1271,13 +1322,13 @@ O efeito final é o mesmo, ficando para você a decisão qual construção usar.
 <h6>Strings</h6>
 <p>Se o açúcar sintático dos colchetes não representa economia em termos de digitação de listas em geral, quando falamos em listas de caracteres a economia é clara e o resultado muito mais agradável. 
 Isto por que para listas de caracteres, como <code class="highlight"><span class="p">[</span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="sc">&#39;b&#39;</span><span class="p">,</span><span class="sc">&#39;c&#39;</span><span class="p">]</span></code>, podemos escrever simplesmente <code class="highlight"><span class="s">&quot;abc&quot;</span></code>, com exatamente o mesmo efeito, e até misturar com o uso de cons.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="s">&quot;abc&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="s">&quot;abc&quot;</span>
 <span class="linenos" data-linenos="2 "></span><span class="s">&quot;abc&quot;</span>
-<span class="linenos" data-linenos="3 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="p">[</span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="sc">&#39;b&#39;</span><span class="p">,</span><span class="sc">&#39;c&#39;</span><span class="p">]</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="p">[</span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="sc">&#39;b&#39;</span><span class="p">,</span><span class="sc">&#39;c&#39;</span><span class="p">]</span>
 <span class="linenos" data-linenos="4 "></span><span class="s">&quot;abc&quot;</span>
-<span class="linenos" data-linenos="5 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="sc">&#39;a&#39;</span><span class="kt">:</span><span class="p">[</span><span class="sc">&#39;b&#39;</span><span class="p">,</span><span class="sc">&#39;c&#39;</span><span class="p">]</span>
+<span class="linenos" data-linenos="5 "></span><span class="o">&gt;</span> <span class="sc">&#39;a&#39;</span><span class="kt">:</span><span class="p">[</span><span class="sc">&#39;b&#39;</span><span class="p">,</span><span class="sc">&#39;c&#39;</span><span class="p">]</span>
 <span class="linenos" data-linenos="6 "></span><span class="s">&quot;abc&quot;</span>
-<span class="linenos" data-linenos="7 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="sc">&#39;a&#39;</span><span class="kt">:</span><span class="s">&quot;bc&quot;</span>
+<span class="linenos" data-linenos="7 "></span><span class="o">&gt;</span> <span class="sc">&#39;a&#39;</span><span class="kt">:</span><span class="s">&quot;bc&quot;</span>
 <span class="linenos" data-linenos="8 "></span><span class="s">&quot;abc&quot;</span>
 </code></pre></div>
 <p>Listas de caracteres tem este tratamento especial porquê correspondem a <strong>strings</strong>, as quais já estamos acostumados as trabalhar usando aspas duplas. Este tipo é tão importante que tem um apelido na linguagem, <code class="highlight"><span class="kt">String</span></code>, e são a forma mais básica de se lidar com texto em Haskell.<sup id="fnref:text"><a class="footnote-ref" href="#fn:text">2</a></sup></p>
@@ -1422,35 +1473,36 @@ Vejamos alguns exemplos:</p>
 </tbody>
 </table>
 <h2 id="enumeracao">Enumeração</h2>
-<p>Para facilitar a vida dos desenvolvedores, Haskell permite a construção de listas por enumeração, bastando para isso especificar o primeiro elemento da lista, opcionalmente o segundo, e o último elemento, isto é <code class="highlight"><span class="p">[</span><span class="o">&lt;</span><span class="n">primE</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">[</span><span class="n">segE</span><span class="p">,]</span><span class="o">..</span><span class="p">,</span><span class="o">&lt;</span><span class="n">ultE</span><span class="o">&gt;</span><span class="p">]</span></code></p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">13</span><span class="o">..</span><span class="mi">23</span><span class="p">]</span>
+<p>Para facilitar a vida dos desenvolvedores, Haskell permite a construção de listas por enumeração, bastando para isso especificar o primeiro elemento da lista, opcionalmente o segundo, e o último elemento, isto é <code class="highlight"><span class="p">[</span><span class="o">&lt;</span><span class="n">primE</span><span class="o">&gt;</span> <span class="p">{,</span><span class="n">segE</span><span class="p">}</span><span class="o">..&lt;</span><span class="n">ultE</span><span class="o">&gt;</span><span class="p">]</span></code>. <sup id="fnref:optional"><a class="footnote-ref" href="#fn:optional">3</a></sup></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">13</span><span class="o">..</span><span class="mi">23</span><span class="p">]</span>
 <span class="linenos" data-linenos="2 "></span><span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">23</span><span class="p">]</span>
 <span class="linenos" data-linenos="3 "></span>
-<span class="linenos" data-linenos="4 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="o">-</span><span class="mi">13</span><span class="o">..</span><span class="mi">14</span><span class="p">]</span>
+<span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span> <span class="p">[</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="o">-</span><span class="mi">13</span><span class="o">..</span><span class="mi">14</span><span class="p">]</span>
 <span class="linenos" data-linenos="5 "></span><span class="p">[</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span><span class="o">-</span><span class="mi">11</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">13</span><span class="p">]</span>
 </code></pre></div>
-<p>Observe que Haskell determinou um passo de incremento igual a <span class="arithmatex">\(13-11 = 2\)</span> no primeiro exemplo e <span class="arithmatex">\(-15 - -13 = 2\)</span> no segundo exemplo, e usou estes passos para gerar as lista.</p>
+<p>Observe que Haskell determinou um passo de incremento igual a <span class="arithmatex">\(13-11 = 2\)</span> no primeiro exemplo e <span class="arithmatex">\((-13) - (-15) = 2\)</span> no segundo exemplo, e usou estes passos para gerar as lista.</p>
 <p>Também é possível definir um passo negativo, como no próximo exemplo.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">9</span><span class="o">..</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">9</span><span class="o">..</span><span class="mi">0</span><span class="p">]</span>
 <span class="linenos" data-linenos="2 "></span><span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
 </code></pre></div>
 <p>Como mencionado, o segundo elemento é opcional na enumeração e caso não especificado, Haskell assume que seja <span class="arithmatex">\(1\)</span>, como no exemplo a seguir.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="p">[</span><span class="mi">11</span><span class="o">..</span><span class="mi">23</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="p">[</span><span class="mi">11</span><span class="o">..</span><span class="mi">23</span><span class="p">]</span>
 <span class="linenos" data-linenos="2 "></span><span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">]</span>
-<span class="linenos" data-linenos="3 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="p">[</span><span class="mf">3.5</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="p">[</span><span class="mf">3.5</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span>
 <span class="linenos" data-linenos="4 "></span><span class="p">[</span><span class="mf">3.5</span><span class="p">,</span><span class="mf">4.5</span><span class="p">,</span><span class="mf">5.5</span><span class="p">,</span><span class="mf">6.5</span><span class="p">,</span><span class="mf">7.5</span><span class="p">,</span><span class="mf">8.5</span><span class="p">,</span><span class="mf">9.5</span><span class="p">,</span><span class="mf">10.5</span><span class="p">]</span>
 </code></pre></div>
 <p>Contudo, não é possível omitir o segundo elemento se a intenção for gerar uma lista com valores decrescentes.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="p">[</span><span class="mi">11</span><span class="o">..</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="p">[</span><span class="mi">11</span><span class="o">..</span><span class="mi">0</span><span class="p">]</span>
 <span class="linenos" data-linenos="2 "></span><span class="kt">[]</span>
 </code></pre></div>
 <p>A enumeração pode ser feita para outros tipos que não sejam numéricos, bastando que exista uma relação de ordem entre os elementos para que Haskell consiga "incrementar" a cada passo.
-Isso existe, por exemplo, entre os caracteres, mas também para tipos definidos pelo desenvolvedor.<sup id="fnref:espaco"><a class="footnote-ref" href="#fn:espaco">3</a></sup></p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="p">[</span><span class="sc">&#39;a&#39;</span><span class="o">..</span><span class="sc">&#39;m&#39;</span><span class="p">]</span>
+Isso existe, por exemplo, entre os caracteres, mas possivelmente para tipos definidos pelo desenvolvedor.<sup id="fnref:espaco"><a class="footnote-ref" href="#fn:espaco">4</a></sup>
+Este ponto será revisto depois que estudarmos tipos algébricos.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="p">[</span><span class="sc">&#39;a&#39;</span><span class="o">..</span><span class="sc">&#39;m&#39;</span><span class="p">]</span>
 <span class="linenos" data-linenos="2 "></span><span class="s">&quot;abcdefghijklm&quot;</span>
 <span class="linenos" data-linenos="3 "></span>
-<span class="linenos" data-linenos="4 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espada</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span> <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Ord</span><span class="p">,</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Enum</span><span class="p">,</span><span class="kt">Show</span><span class="p">)</span>
-<span class="linenos" data-linenos="5 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="p">[</span><span class="kt">Copas</span> <span class="o">..</span><span class="kt">Ouro</span><span class="p">]</span>
+<span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espada</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span> <span class="kr">deriving</span> <span class="p">(</span><span class="kt">Ord</span><span class="p">,</span><span class="kt">Eq</span><span class="p">,</span><span class="kt">Enum</span><span class="p">,</span><span class="kt">Show</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span><span class="o">&gt;</span> <span class="p">[</span><span class="kt">Copas</span> <span class="o">..</span><span class="kt">Ouro</span><span class="p">]</span>
 <span class="linenos" data-linenos="6 "></span><span class="p">[</span><span class="kt">Copas</span><span class="p">,</span><span class="kt">Espada</span><span class="p">,</span><span class="kt">Ouro</span><span class="p">]</span>
 </code></pre></div>
 <div class="admonition exercise">
@@ -1461,7 +1513,7 @@ Isso existe, por exemplo, entre os caracteres, mas também para tipos definidos 
 <details class="example"><summary>Resolução</summary><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">vaiEVolta</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">lista</span> <span class="o">++</span> <span class="n">drop</span> <span class="mi">1</span> <span class="p">(</span><span class="n">reverse</span> <span class="n">lista</span><span class="p">)</span>
 <span class="linenos" data-linenos="2 "></span>    <span class="kr">where</span> <span class="n">lista</span> <span class="ow">=</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="n">n</span><span class="p">]</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">*</span><span class="kt">Main</span><span class="o">&gt;</span> <span class="n">vaiEVolta</span> <span class="mi">3</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">vaiEVolta</span> <span class="mi">3</span>
 <span class="linenos" data-linenos="2 "></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
 </code></pre></div>
 </details>
@@ -1491,7 +1543,8 @@ A seguinte compreensão de conjuntos pode ser lida como o conjunto <span class="
 <p><code class="highlight"><span class="nf">a</span> <span class="ow">=</span> <span class="p">[</span> <span class="n">f</span> <span class="n">x</span> <span class="o">|</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">c</span><span class="p">,</span> <span class="n">p1</span> <span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span>  <span class="n">pn</span> <span class="n">x</span><span class="p">]</span></code></p>
 <p>Uma diferença importante é que enquanto não há ordem nos conjuntos, há ordem nas listas e a construção é feita na ordem da lista original.</p>
 <h6>Listas infinitas</h6>
-<p>Assim como é possível expressar um conjunto infinito usando compreensão de conjuntos, por exemplo o conjunto dos quadrados de todos os números naturais <span class="arithmatex">\(S = \{e^2 | e \in \mathcal{N} \}\)</span>, podemos expressar listas infinitas usando enumeração e compreensão de listas como <code class="highlight"><span class="nf">lq</span> <span class="ow">=</span> <span class="p">[</span><span class="n">e</span><span class="o">**</span><span class="mi">2</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="p">]]</span></code>.</p>
+<p>Assim como é possível expressar um conjunto infinito usando compreensão de conjuntos, por exemplo o conjunto dos quadrados de todos os números naturais <span class="arithmatex">\(S = \{e^2 | e \in \mathcal{N} \}\)</span>, podemos expressar listas infinitas usando enumeração e compreensão de listas como </p>
+<p><code class="highlight"><span class="nf">lq</span> <span class="ow">=</span> <span class="p">[</span><span class="n">e</span><span class="o">**</span><span class="mi">2</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="p">]]</span></code>.</p>
 <p>"Mas como é possível?", você me pergunta, afinal, a memória do computador é finita e portanto não poderia armazenar uma lista infinita.
 Esta é uma das mágicas de Haskell, conhecida como avaliação preguiçosa, e será discutida mais adiante.
 Por enquanto, basta acreditar que, desde que você não tente enumerar todos os elementos, uma lista infinita pode se representada em Haskell.
@@ -1533,7 +1586,7 @@ Isso pode ser feito trivialmente com compreensão de listas.</p>
 <span class="linenos" data-linenos="3 "></span><span class="s">&quot;ABCD,&#39;DASDFA;LKQWOIUR&quot;</span>
 </code></pre></div>
 <p>A lista resultante pode tem tipos complexos como elementos, como no exemplo seguinte, em que compreensão gera uma com tuplas com as versões minúscula e em maiúscula de cada letra encontrada na entrada.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span> <span class="kt">Data</span><span class="o">.</span><span class="kt">Char</span><span class="o">&gt;</span> <span class="p">[</span> <span class="p">(</span><span class="n">toUpper</span> <span class="n">e</span><span class="p">,</span><span class="n">toLower</span> <span class="n">e</span><span class="p">)</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="s">&quot;abCD&quot;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span> <span class="kt">Data</span><span class="o">.</span><span class="kt">Char</span><span class="o">&gt;</span> <span class="p">[</span> <span class="p">(</span><span class="n">toUpper</span> <span class="n">e</span><span class="p">,</span><span class="n">toLower</span> <span class="n">e</span><span class="p">)</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="s">&quot;abCD&quot;</span><span class="p">]</span>
 <span class="linenos" data-linenos="2 "></span><span class="p">[(</span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="sc">&#39;a&#39;</span><span class="p">),(</span><span class="sc">&#39;B&#39;</span><span class="p">,</span><span class="sc">&#39;b&#39;</span><span class="p">),(</span><span class="sc">&#39;C&#39;</span><span class="p">,</span><span class="sc">&#39;c&#39;</span><span class="p">),(</span><span class="sc">&#39;D&#39;</span><span class="p">,</span><span class="sc">&#39;d&#39;</span><span class="p">)]</span>
 </code></pre></div>
 <div class="admonition exercise">
@@ -1551,7 +1604,7 @@ Neste caso, podemos adicionar um teste aos elementos sendo aplicados na constru�
 <span class="linenos" data-linenos="2 "></span><span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">81</span><span class="p">,</span><span class="mi">144</span><span class="p">,</span><span class="mi">225</span><span class="p">,</span><span class="mi">324</span><span class="p">,</span><span class="mi">441</span><span class="p">,</span><span class="mi">576</span><span class="p">,</span><span class="mi">729</span><span class="p">,</span><span class="mi">900</span><span class="p">,</span><span class="mi">1089</span><span class="p">,</span><span class="mi">1296</span><span class="p">,</span><span class="mi">1521</span><span class="p">,</span><span class="mi">1764</span><span class="p">,</span><span class="mi">2025</span><span class="p">,</span><span class="mi">2304</span><span class="p">,</span><span class="mi">2601</span><span class="p">,</span><span class="mi">2916</span><span class="p">,</span><span class="mi">3249</span><span class="p">,</span><span class="mi">3600</span><span class="p">,</span><span class="mi">3969</span><span class="p">,</span><span class="mi">4356</span><span class="p">,</span><span class="mi">4761</span><span class="p">,</span><span class="mi">5184</span><span class="p">,</span><span class="mi">5625</span><span class="p">,</span><span class="mi">6084</span><span class="p">,</span><span class="mi">6561</span><span class="p">,</span><span class="mi">7056</span><span class="p">,</span><span class="mi">7569</span><span class="p">,</span><span class="mi">8100</span><span class="p">,</span><span class="mi">8649</span><span class="p">,</span><span class="mi">9216</span><span class="p">,</span><span class="mi">9801</span><span class="p">]</span>
 </code></pre></div>
 <p>Observe que os predicados em si podem ser tão complexos quanto se queira.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span> <span class="kt">Data</span><span class="o">.</span><span class="kt">Char</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">e</span><span class="o">^</span><span class="mi">2</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">100</span><span class="p">],</span> <span class="n">e</span> <span class="p">`</span><span class="n">mod</span><span class="p">`</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">e</span><span class="o">^</span><span class="mi">2</span> <span class="p">`</span><span class="n">mod</span><span class="p">`</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span> <span class="kt">Data</span><span class="o">.</span><span class="kt">Char</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">e</span><span class="o">^</span><span class="mi">2</span> <span class="o">|</span> <span class="n">e</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">100</span><span class="p">],</span> <span class="n">e</span> <span class="p">`</span><span class="n">mod</span><span class="p">`</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">e</span><span class="o">^</span><span class="mi">2</span> <span class="p">`</span><span class="n">mod</span><span class="p">`</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
 <span class="linenos" data-linenos="2 "></span><span class="p">[</span><span class="mi">36</span><span class="p">,</span><span class="mi">144</span><span class="p">,</span><span class="mi">324</span><span class="p">,</span><span class="mi">576</span><span class="p">,</span><span class="mi">900</span><span class="p">,</span><span class="mi">1296</span><span class="p">,</span><span class="mi">1764</span><span class="p">,</span><span class="mi">2304</span><span class="p">,</span><span class="mi">2916</span><span class="p">,</span><span class="mi">3600</span><span class="p">,</span><span class="mi">4356</span><span class="p">,</span><span class="mi">5184</span><span class="p">,</span><span class="mi">6084</span><span class="p">,</span><span class="mi">7056</span><span class="p">,</span><span class="mi">8100</span><span class="p">,</span><span class="mi">9216</span><span class="p">]</span>
 </code></pre></div>
 <div class="admonition exercise">
@@ -1616,8 +1669,11 @@ Outra possibilidade é a aplicação recursiva, como no seguinte código.</p>
 <li id="fn:text">
 <p>Haskell define também o tipo <code class="highlight"><span class="kt">Text</span></code>, uma forma mais moderna e eficiente de se manipular texto, mas não discutiremos <code class="highlight"><span class="kt">Text</span></code> aqui.&#160;<a class="footnote-backref" href="#fnref:text" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
+<li id="fn:optional">
+<p>Parâmetros especificados entre <code>&lt;&gt;</code> são obrigatórios e entre <code>{}</code> são opcionais.&#160;<a class="footnote-backref" href="#fnref:optional" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
 <li id="fn:espaco">
-<p>No exemplo, observe o espaço entre <code>Copas</code> e <code>..</code>.&#160;<a class="footnote-backref" href="#fnref:espaco" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>No exemplo, observe o espaço entre <code>Copas</code> e <code>..</code>.&#160;<a class="footnote-backref" href="#fnref:espaco" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -1658,13 +1714,13 @@ Outra possibilidade é a aplicação recursiva, como no seguinte código.</p>
       
       
         
-        <a href="../operators/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Operadores" rel="next">
+        <a href="../../development/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Desenvolvimento de Software em Haskell" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Operadores
+              Desenvolvimento de Software em Haskell
             </div>
           </div>
           <div class="md-footer__button md-icon">

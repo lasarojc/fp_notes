@@ -42,15 +42,11 @@
     
     
       
-  
-
 
   
 
 
   
-  
-
 
   
 
@@ -502,7 +498,7 @@
   
     <li class="md-nav__item">
       <a href="../functions/where_let_in/" class="md-nav__link">
-        Funções Locais
+        Definições Locais
       </a>
     </li>
   
@@ -602,6 +598,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../types/operators/" class="md-nav__link">
+        Operadores
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../types/tuples/" class="md-nav__link">
         Tuplas
       </a>
@@ -618,20 +628,6 @@
     <li class="md-nav__item">
       <a href="../types/lists/" class="md-nav__link">
         Listas
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../types/operators/" class="md-nav__link">
-        Operadores
       </a>
     </li>
   
@@ -831,6 +827,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_7">
@@ -853,6 +851,20 @@
     <li class="md-nav__item">
       <a href="../types2/userdefined/" class="md-nav__link">
         Novos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../types2/lists_again/" class="md-nav__link">
+        Listas
       </a>
     </li>
   
@@ -1032,7 +1044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../io.md" class="md-nav__link">
+      <a href="../io/io/" class="md-nav__link">
         IO
       </a>
     </li>
@@ -1067,40 +1079,79 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Desenvolvimento II
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Desenvolvimento II" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Desenvolvimento II
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../app.md" class="md-nav__link">
-        Tudo junto e misturado
+      <a href="../development/app/" class="md-nav__link">
+        Uma aplicação
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../project/" class="md-nav__link">
-        Projetos
+      <a href="../development/project/" class="md-nav__link">
+        Projetos de exemplo
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+            
+          
+            
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../comments/" class="md-nav__link">
+      <a href="../development/comments/" class="md-nav__link">
         Erros comuns
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1186,16 +1237,17 @@
 Ainda assim, é um paradigma que deve ser estudado pois seus pontos fortes tem sido incorporados cada vez mais frequentemente em <em>frameworks</em> e linguagens não necessariamente reconhecidos como funcionais. 
 Por isso, neste curso estudaremos o paradigma funcional de uma forma prática, tentando sempre que possível mostrar diversas aplicações das ideias apresentadas no mundo da programação moderna.</p>
 <h2 id="agradecimentos">Agradecimentos</h2>
-<p>Antes de começarmos nosso estudo, deixo aqui o meu agradecimento aos professores que forneceram o material sobre o qual estas notas de aula são baseadas, Profa. Gina Maira B. Oliveira, Profa. Maria Adriana Vidigal de Lima, e Prof. Henrique Fernandes, da Faculdade de Computação da UFU.</p>
+<p>Antes de começarmos nosso estudo, deixo aqui o meu agradecimento aos professores da Faculdade de Computação da UFU que forneceram o material sobre o qual a primeira versão destas notas de aula foram baseadas: Profa. Gina Maira B. Oliveira, Profa. Maria Adriana Vidigal de Lima, e Prof. Henrique Fernandes.</p>
 <h2 id="convencoes">Convenções</h2>
 <p>Neste documento, usamos diversos recursos visuais com diferentes propósitos.</p>
 <ul>
 <li><em>itálico</em> indica termos em outras línguas, como <em>framework</em> ou <em>middleware</em>. Alguns termos, contudo, são tão corriqueiramente usados que me escapam quando escrevendo e acabam não grafados corretamente.</li>
 <li><strong>negrito</strong> indica a introdução de termos e conceitos importantes, como <strong>mônada</strong> e <strong>função de ordem superior</strong>.</li>
-<li>Apontadores indicam um sítio relacionado ao termo, por exemplo, como criar um repositório no <a href="http://github.com">Github</a>, e cuja leitura é sugerida ao final da aula.</li>
-<li>Notas de rodapé<sup id="fnref:foot"><a class="footnote-ref" href="#fn:foot">1</a></sup> indicam referenciais teóricos importantes, com detalhes da publicação e apontadores para onde a publicação pode ser lida.</li>
+<li>Apontadores indicam um sítio relacionado ao termo, por exemplo, como criar um repositório no <a href="http://github.com">Github</a>.
+A leitura dos conteúdos apontados é sugerida ao final da aula.</li>
+<li>Notas de rodapé<sup id="fnref:foot"><a class="footnote-ref" href="#fn:foot">1</a></sup> indicam referenciais teóricos importantes, com detalhes da publicação e apontadores para onde a publicação pode ser lida. Elas serão, em algum momento, substituídas por referências formais.</li>
 <li>Imagens não autorais são também apontadores para a fonte e tem como texto alternativo as informações da autoria.</li>
-<li>Caixas alinhadas à esquerda são usadas para várias finalidades. Por exemplo, para apresentar exercícios, destacar especificações, apontar tarefas a serem executas por mim. 
+<li>Caixas alinhadas à esquerda são usadas para várias finalidades. Por exemplo, para apresentar exercícios, destacar especificações, apontar tarefas a serem executas por mim.
 Os diversos usos são indicados nos ícones e cores das caixas.</li>
 </ul>
 <div class="admonition exercise">
@@ -1204,17 +1256,27 @@ Os diversos usos são indicados nos ícones e cores das caixas.</li>
 <details class="example"><summary>Resposta</summary><p>Esta é a resposta do exercício.</p>
 </details>
 </div>
-<details class="- info inline end"><summary>Resumo</summary><ul>
-<li>Elementos visuais</li>
-</ul>
-</details>
 <div class="admonition warning">
 <p class="admonition-title">Aviso!</p>
 <p>Este material está em constante evolução.</p>
 </div>
+<details class="- info inline end"><summary>Resumo</summary><ul>
+<li>Elementos visuais</li>
+</ul>
+</details>
 <ul>
 <li>Caixas alinhadas à direita podem ser vistas como um sumário executivo do que está sendo apresentado no texto adjacente.</li>
 </ul>
+<p>Exemplos de código são colocados tanto diretamente dentro de linhas, como em <code class="highlight"><span class="nf">somar</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span></code> quando em blocos separados, se mais longos.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">somar</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">somar</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</code></pre></div>
+<p>Exemplos de invocações de funções são apresentados também como blocos, em que entradas são precedidas por <code class="highlight"><span class="o">&gt;</span></code> mas não as saídas.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">somar</span> <span class="mi">3</span> <span class="mi">4</span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">7</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span>
+<span class="linenos" data-linenos="4 "></span><span class="mi">7</span>
+</code></pre></div>
 <h2 id="referencias">Referências</h2>
 <p>Esta é uma lista não exaustiva de referencial teórico.
 Esta lista será aumentada com o ponteiro de entrada para o material.
@@ -1234,7 +1296,7 @@ A ordem não reflete a ordem de apresentação.</p>
 <p>Organização</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Ativar plugin bibtex e organizar referências.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Reorganizar e agrupar tópicos.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Reorganizar e agrupar tópicos.</li>
 </ul>
 </li>
 <li>
@@ -1368,7 +1430,7 @@ A ordem não reflete a ordem de apresentação.</p>
 </ul>
 </li>
 <li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Controle de fluxo</p>
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Controle de fluxo</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> if-then-else</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> case-of</li>
@@ -1395,7 +1457,7 @@ A ordem não reflete a ordem de apresentação.</p>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Read</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Monads (menção)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> IO</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> GUI</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> GUI (e.g., GLOSS)</li>
 </ul>
 </li>
 <li class="task-list-item">
@@ -1431,8 +1493,8 @@ A ordem não reflete a ordem de apresentação.</p>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Test</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> HSpec</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> quickcheck - <a href="https://www.cs.umd.edu/class/spring2019/cmsc388F/lectures/randomized-testing.html">https://www.cs.umd.edu/class/spring2019/cmsc388F/lectures/randomized-testing.html</a></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> HSpec</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> quickcheck - <a href="https://www.cs.umd.edu/class/spring2019/cmsc388F/lectures/randomized-testing.html">https://www.cs.umd.edu/class/spring2019/cmsc388F/lectures/randomized-testing.html</a></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> quickcheck + Hspec <a href="https://hspec.github.io/quickcheck.html">https://hspec.github.io/quickcheck.html</a></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Test com IO</li>
 </ul>
