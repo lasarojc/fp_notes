@@ -1,7 +1,7 @@
 # Definição Local de Funções
 
-Frequentemente em nossas funções precisamos usar mais de uma vez um valor calculado por outra função.
-No cálculo do índice de massa corporal a seguir, por exemplo, o cálculo do índice `#!hs p / a ^ 2` é feito em três locais diferentes.
+Frequentemente em nossas funções precisamos usar mais de uma vez um valor calculado.
+Na função a seguir, por exemplo, que indica o nível do índice de massa corporal, o cálculo do índice `#!hs p / a^2` é feito em três locais diferentes.
 
 ```hs
 imc p a
@@ -23,7 +23,7 @@ imc p a
 
 Entretanto, a `#!hs aux` é visível para todas as outras funções especificadas no mesmo arquivo, mesmo que não tenham nenhum interesse na mesma. Além disso, se outras funções auxiliares forem necessárias, terão cada uma que usar um nome único.
 Para estes casos, Haskell nos permite fazer definições "locais" das funções auxiliares, isto é, que serão visíveis apenas dentro do escopo da função em que são definidas.
-Isso pode ser feito usando `#!hs where` e `#!hs let in`.
+Isso pode ser feito usando-se `#!hs where` e `#!hs let in`.
 
 ###### `#!hs where`
 As definições usando `#!hs where` são feitas após o bloco em que estas definições são usadas, como no seguinte exemplo.
@@ -94,7 +94,7 @@ Finalmente, note que `#!hs where` pode ser aninhado, isto é, definições locai
 
 ###### `#!hs let ... in`
 `#!hs let ... in` oferece uma outra alternativa em Haskell para fazer definições locais.
-Neste caso, definições que se seguem ao `#!hs let` são visíveis na expressão definida no `#!hs in`, como nas seguintes definições.
+Neste caso, definições que se seguem ao `#!hs let` são visíveis na expressão definida no `#!hs in`.
 
 ```hs
 fib 0 = 0
@@ -112,7 +112,7 @@ areaCilindro r a =
 Nestes exemplos, parece que `#!hs where` e `#!hs let in` são apenas sintaxes diferentes para o mesmo fim, criar definições locais, mas há algumas diferenças fundamentais.
 Primeiro, enquanto o as definições feitas no `#!hs where` são amarradas ao contexto da função em que estão colocadas, podendo ser vistas em quaisquer outras partes da função, por exemplo nas guardas do cálculo do `#!hs imc`, as definições feitas no `#!hs let` são muito mais localizadas, válidas apenas dentro do `#!hs in` correspondente. 
 Segundo, `#!hs let ... in` são expressões e podem aparecer em qualquer lugar onde uma expressão é esperada.
-Por exemplo, eles podem ser usados para definir constantes ou funções literalmente no meio de uma expressão.
+Por exemplo, eles podem ser usados para definir constantes ou funções literalmente no meio de uma expressão maior.
 
 ```hs
 > 2 * (let um = 1 in um + 2) + 3

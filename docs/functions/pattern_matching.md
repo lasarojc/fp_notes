@@ -14,7 +14,7 @@ Quando a seguinte invocação acontece, o valor 3 é associado a `#!hs x` e 4 a 
 7
 ```
 
-Em Haskell, contudo, é possível especificar mais do que uma lista de variáveis como parâmetros formais; é possível especifica padrões a serem casados com os parâmetros passados na invocação.
+Em Haskell, contudo, é possível especificar mais do que uma lista de variáveis como parâmetros formais; é possível especificar padrões a serem casados com os parâmetros passados na invocação.
 Veremos mais adiante como esse **casamento de padrões** é poderoso; por enquanto o usaremos apenas como forma de testar a igualdade dos parâmetros a constantes, como uma alternativa à definição de funções usando guardas.
 
 Neste caso, a função é definida como uma sequência de equações em que são feitas tentativas sucessivas de casar (igualar) os argumentos passados com os parâmetros formais, na ordem das definições.

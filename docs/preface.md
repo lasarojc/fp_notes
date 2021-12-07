@@ -52,6 +52,7 @@ Exemplos de invocações de funções são apresentados também como blocos, em 
 7
 ```
 
+O resultado da computação de uma função é apontado por `⭆`, por exemplo, `1+1 ⭆ 2`.
 
 ## Referências
 Esta é uma lista não exaustiva de referencial teórico.
@@ -126,6 +127,11 @@ A ordem não reflete a ordem de apresentação.
             * [x] Tipos recursivos
                 - [x] Listas
                 - [x] Árvores
+    - [ ] Tipos abstratos de dados
+        - [ ] Fila
+        - [ ] Mapa
+        - [ ] Pilha
+
 
 - Funções
     - [x] Equações simples
@@ -133,7 +139,7 @@ A ordem não reflete a ordem de apresentação.
     - [x] Casamento de padrões
     - [x] where
     - [x] let in
-    - [ ] operadores
+    - [x] operadores
     - [x] Protótipos
         - [x] Inferência - `#!hs :t`
         - [x] Especificação manual
@@ -200,7 +206,7 @@ A ordem não reflete a ordem de apresentação.
     - [ ] Test com IO
 
 
-- [ ] Exercícios/Provas
+- Exercícios/Provas
     * https://www.cantab.net/users/antoni.diller/haskell/questions/quest07.pdf
     * https://exercism.io
     * https://www.cse.chalmers.se/edu/year/2018/course/TDA555/exam.html
@@ -214,3 +220,4 @@ A ordem não reflete a ordem de apresentação.
     - [ ] jogo da velha para demonstrar IO e um pouquinho de IA
     - [ ] torres de hanoi
     - [ ] bomberman
+

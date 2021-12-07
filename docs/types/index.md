@@ -38,7 +38,7 @@ print(type(x))
 Já a linguagem Haskell é o que chamamos de **fortemente tipada**, o que quer dizer que toda variável, constante, e função tem apenas um tipo e este sempre pode ser determinado.
 Além disso, Haskell é **estaticamente tipada**, ou seja, os tipos são determinados em tempo de compilação, em oposição às linguagens dinamicamente tipadas, que determinam o tipo durante a execução do programa.
 
-Para definir o tipo de uma expressão, usa-se após a expressão `#!hs :: <Tipo>`, como nos seguintes exemplos.
+Para definir o tipo de uma expressão, usa-se após `#!hs :: <Tipo>` após a mesma, como nos seguintes exemplos.
 
 ```hs
 > x = 1::Int

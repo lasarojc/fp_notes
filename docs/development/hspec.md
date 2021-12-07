@@ -37,15 +37,25 @@ observe que três funções foram especificadas na importação, e serão o alvo
 Para usar o *framework*, você também precisa importar os módulos que o compõem, ou pelo menos algumas de suas funções.
 Duas das funções importadas na primeira linha são `#!hs it` e `#!hs describe`.
 
-###### It describes
+###### main
 A função `#!hs main` será executada quando os testes forem disparados e, como pode ser visto no final de sua definição, `#!hs main` invoca `#!hs specs`.
+###### do
+`#!hs specs` é iniciada com um `#!hs do`; por enquanto você pode entender esta palavra chave como criando um bloco em que vários `#!hs describe` são especificados.
 
-`#!hs specs` é iniciada com um `#!hs do`; por enquanto você pode entender esta palavra chave como criando um bloco em que vários `#!hs describe` são especificados. Cada describe inicia uma bateria de teste relacionados, especificados em seu proprio bloco `#!hs do`.
+###### It describes
 
-###### Should be
-Cada teste é descrito com um `#!hs it`, que diz o que está sendo testado e testa se o resultado da função é o que deveria ser (*should be*), como no último exemplo, em que se testa se `#!hs soma 0 0` retorna 0 como resultado.
+Cada describe inicia uma bateria de teste relacionados, especificados em seu proprio bloco `#!hs do`.
+A primeira parte do describe é uma string que identifica o grupo de testes, por exemplo pelo nome da função a ser testada.
 
+Cada `#!hs it` define um teste individual.
+A string na definição do `#!hs it` descreve o caso de teste específico, por exemplo, se a entrada é negativa ou inválida.
 
+A segunda parte do `#!hs it` faz a invocação da função sendo testada, com os parâmetros para o teste.
+
+A última parte define o resultado esperado para a invocação, por meio de um `#!hs shouldBe`. Por exemplo, o resultado da soma de 1 e 1 *should be* 2.
+
+###### Outras funcionalidades.
+HSpec permite testes muito mais complexos do que estes exemplos acima, por exemplo testando se erros foram emitidos pela função quando parâmetros inválidos são passados.
 
 
 [^hspec]: https://hspec.github.io

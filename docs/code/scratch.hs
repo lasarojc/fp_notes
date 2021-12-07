@@ -1939,3 +1939,12 @@ fibWhere n = prev + prevPrev
 
 soma2v :: (Int,Int) -> (Int,Int) -> (Int,Int)
 soma2v (x1,y1) (x2,y2) = (x1+x2, y1+y2)
+
+
+(******) :: Int -> Int -> Int
+x ****** y = x + y
+
+-- >>> 1 ****** 2
+-- 3
+
+-- :t (******)

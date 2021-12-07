@@ -4,35 +4,42 @@
 
 https://hackage.haskell.org/package/CheatSheet-1.7/src/CheatSheet.pdf
 
-## Exercícios da Semana 2
 
-###### Parênteses desnecessários
+## Todo `if` tem um `then` e um `else`
+* Diferentemente de outras linguagens, onde o `if` é usado para determinar **se** uma computação deve acontecer e o `else` é um atalho para quando há duas opções, e portanto o `else` não é necessário, em Haskell o `if` é usado para determinar **qual** computação deve acontecer, ou seja, **sempre há duas opções**.
 
-* Todo `if` em um `then` e um `else`
-    * Diferentemente de outras linguagens, onde o `if` é usado para determinar **se** uma computação deve acontecer e o `else` é um atalho para quando há duas opções, e portanto o `else` não é necessário, em Haskell o `if` é usado para determinar **qual** computação deve acontecer, ou seja, **sempre há duas opções**.
+=== "C"
+    ```c
+    if (x > 3)              //If sem else: compila.
+        y = "maior";        //Se x <= 3, y continua com o valor anterior, seja qual for.
+    ```
+=== "Haskell"
+    ```hs
+    let y = if x > 3 
+        then "maior"  -- If sem else: não compila! Qual o valor de `y` se `x <= 3`?
+    ```
 
-    === "C"
-        ```c
-        if (x > 3)              //If sem else: compila.
-            y = "maior";        //Se x <= 3, y continua com o valor anterior, seja qual for.
-        ```
-    === "Haskell"
-        ```hs
-        let y = if x > 3 
-            then "maior"  -- If sem else: não compila! Qual o valor de `y` se `x <= 3`?
-        ```
+Por isso o `if` do Haskell deve ser comparado ao operador ternário do C, não com o `if`.
 
-    Por isso o `if` do Haskell deve ser comparado ao operador ternário do C, não com o `if`.
+=== "C"
+    ```c
+    y = x > 3? "maior": "menor";
+    ```
+=== "Haskell"
+    ```hs
+    let y = if x > 3 then "maior" else "menor"
+    ```
 
-    === "C"
-        ```c
-        y = x > 3? "maior": "menor";
-        ```
-    === "Haskell"
-        ```hs
-        let y = if x > 3 then "maior" else "menor"
-        ```
+## Falta de parênteses
 
+```#!hs
+Prelude> 4/2*2
+4.0
+Prelude> 4/(2*2)
+1.0
+```
+
+## Parênteses desnecessários
 
 * `((b1+b2)/2) * h` -> `(b1+b2)/2 * h`
     * não há dúvida para o compilador que a divisão deve ocorrer primeiro, pois os operadores tem a mesma precedência e ambos são associativos à esquerda.
@@ -63,6 +70,8 @@ https://hackage.haskell.org/package/CheatSheet-1.7/src/CheatSheet.pdf
     infixl 6 +                              -- Infixo com associatividade a esquerda (l) e Precedência 6.
     ```
 
+## Quebra de linha e indentação
+
 * `#!hs maiorDeTres a b c = if a > b && a > c then a else if b > a && b > c then b else c`
     * Difícil leitura.
     * Quebrar linhas.
@@ -85,15 +94,11 @@ https://hackage.haskell.org/package/CheatSheet-1.7/src/CheatSheet.pdf
 
 
 
-## Exercícios da semana 3
-
-### Erros
+## Erros
 Para indicar uma condição de erro, use "error". Por exemplo, em uma solução eu encontrei o seguinte  `#!hs  | otherwise = (99, "error")` mas o ideal seria `#!hs |otherwise = error "mensagem de erro"`.
 
 
-
-## Prova 1
-### Máximo
+## Caso base na recursão
 * Toda recursão deve ter um caso base, senão a recursão não para.
 
 * No seguinte trecho, só temos dois casos. Um `if-then-else` me parece mais legível.
@@ -102,14 +107,7 @@ máximo (x:xs) | (x > máximo xs) = x
               | otherwise = máximo xs
 ```
 
-### Raízes
-* 
-```#!hs
-Prelude> 4/2*2
-4.0
-Prelude> 4/(2*2)
-1.0
-```
+
 
 ### ValorFinal
 * A idade precisa levar mês e dia em consideração.

@@ -147,6 +147,11 @@ nav:
             - Tipos algébricos: types2/algebraic.md
             - Polimorfismo: types2/type_variables.md
 
+        - Desenvolvimento II:
+            - development2/index.md
+            - Filas: development2/queue.md
+            - Pilhas: development2/stack.md
+            - Mapa: development/map.md
 
         - Cálculo λ: lambda/lambda.md
 
@@ -159,7 +164,8 @@ nav:
             - IO: io/io.md
             - Testes: tests/iotest.md
 
-        - Desenvolvimento II: 
-            - Uma aplicação: development/app.md
-            - Projetos de exemplo: development/project.md
-            - Erros comuns: development/comments.md
+        - Desenvolvimento II3: 
+            - Uma aplicação: development3/app.md
+            - Projetos de exemplo: development3/project.md
+
+        - Erros comuns: postface.md

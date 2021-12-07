@@ -66,28 +66,3 @@ Com esta nova definição, nosso teste agora passa com sucesso.
 > quickCheck prop_C2f2C
 +++ OK, passed 100 tests.
 ```
-
-###### HSpec + Quickcheck
-
-???todo "TODO"
-    Descrever o uso de lambda no seguinte código.
-
-```hs
-import Test.Hspec        (Spec, it, shouldBe, describe)
-import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
-import Test.QuickCheck
-
-import Exercise (hello, olá, soma)
-
-main :: IO ()
-main = hspecWith defaultConfig {configFastFail = False} specs
-
-specs :: Spec
-specs = do
-    describe "soma" $ do
-        prop "soma números" $
-          \x y -> soma x y `shouldBe` x + y
-```
-
-
-https://hspec.github.io/quickcheck.html
