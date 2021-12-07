@@ -16,7 +16,7 @@
     
     
       
-        <title>Mais Haskell - Notas de Aula em Programação Funcional</title>
+        <title>HSpec + Quickcheck[^hspec_quickcheck] - Notas de Aula em Programação Funcional</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#para-saber-mais" class="md-skip">
+        <a href="#hspec-quickcheck1" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Mais Haskell
+              HSpec + Quickcheck[^hspec_quickcheck]
             
           </span>
         </div>
@@ -262,14 +262,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       
       
@@ -287,7 +285,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Introdução</a>
+          <a href="../../intro/">Introdução</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -311,7 +309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../haskell/" class="md-nav__link">
+      <a href="../../intro/haskell/" class="md-nav__link">
         Haskell
       </a>
     </li>
@@ -323,21 +321,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../intro/more/" class="md-nav__link">
         Mais Haskell
       </a>
-      
     </li>
   
 
@@ -622,7 +610,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../development/">Desenvolvimento I</a>
+          <a href="../">Desenvolvimento I</a>
           
             <label for="__nav_5">
               <span class="md-nav__icon md-icon"></span>
@@ -646,7 +634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development/modules/" class="md-nav__link">
+      <a href="../modules/" class="md-nav__link">
         Módulos
       </a>
     </li>
@@ -660,7 +648,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development/hspec/" class="md-nav__link">
+      <a href="../hspec/" class="md-nav__link">
         HSpec
       </a>
     </li>
@@ -674,7 +662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development/quickcheck/" class="md-nav__link">
+      <a href="../quickcheck/" class="md-nav__link">
         Quick, Check!
       </a>
     </li>
@@ -942,7 +930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development/map.md" class="md-nav__link">
+      <a href="../map.md" class="md-nav__link">
         Mapa
       </a>
     </li>
@@ -1246,15 +1234,33 @@
 
 
   <!-- Content -->
-  <h1 id="para-saber-mais">Para saber mais</h1>
-<p>Para saber um pouco mais da história do paradigma funcional, os seguintes vídeos são muito úteis.</p>
-<div class="admonition note">
-<p class="admonition-title">Sobre a história das linguagens de programação</p>
-<p><iframe width="560" height="315" src="https://www.youtube.com/embed/wyABTfR9UTU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Sobre porquê PF não é mais comum</p>
-<p><iframe width="560" height="315" src="https://www.youtube.com/embed/QyJZzq0v7Z4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+  <h1 id="hspec-quickcheck1">HSpec + Quickcheck<sup id="fnref:hspec_quickcheck"><a class="footnote-ref" href="#fn:hspec_quickcheck">1</a></sup></h1>
+<p>A combinação de HSpec com Quickcheck é uma ferramenta poderosa na identificação de erros.
+Enquanto o primeiro automatiza os testes, o segundo multiplica a cobertura dos testes.</p>
+<p>Para entender exatamente como estes testes funcionam, você precisa entender funções de ordem superior, que veremos mais adiante. Mas mesmo sem entender a especificação a fundo, é possível usar o seguinte código como modelo para implementar seus testes.</p>
+<p>No caso em específico, a função soma será testada com uma centena de combinações de valores para <code>#hs x</code> e <code class="highlight"><span class="nf">y</span></code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kr">import</span> <span class="nn">Test.Hspec</span>        <span class="p">(</span><span class="kt">Spec</span><span class="p">,</span> <span class="nf">it</span><span class="p">,</span> <span class="nf">shouldBe</span><span class="p">,</span> <span class="nf">describe</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kr">import</span> <span class="nn">Test.Hspec.Runner</span> <span class="p">(</span><span class="nf">configFastFail</span><span class="p">,</span> <span class="nf">defaultConfig</span><span class="p">,</span> <span class="nf">hspecWith</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kr">import</span> <span class="nn">Test.QuickCheck</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="kr">import</span> <span class="nn">Exercise</span> <span class="p">(</span><span class="nf">hello</span><span class="p">,</span> <span class="nf">olá</span><span class="p">,</span> <span class="nf">soma</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nf">main</span> <span class="ow">::</span> <span class="kt">IO</span> <span class="nb">()</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="nf">main</span> <span class="ow">=</span> <span class="n">hspecWith</span> <span class="n">defaultConfig</span> <span class="p">{</span><span class="n">configFastFail</span> <span class="ow">=</span> <span class="kt">False</span><span class="p">}</span> <span class="n">specs</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="nf">specs</span> <span class="ow">::</span> <span class="kt">Spec</span>
+<span class="linenos" data-linenos="11 "></span><span class="nf">specs</span> <span class="ow">=</span> <span class="kr">do</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="n">describe</span> <span class="s">&quot;soma&quot;</span> <span class="o">$</span> <span class="kr">do</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="n">prop</span> <span class="s">&quot;soma números&quot;</span> <span class="o">$</span>
+<span class="linenos" data-linenos="14 "></span>          <span class="nf">\</span><span class="n">x</span> <span class="n">y</span> <span class="ow">-&gt;</span> <span class="n">soma</span> <span class="n">x</span> <span class="n">y</span> <span class="p">`</span><span class="n">shouldBe</span><span class="p">`</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</code></pre></div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:hspec_quickcheck">
+<p><a href="https://hspec.github.io/quickcheck.html">https://hspec.github.io/quickcheck.html</a>&#160;<a class="footnote-backref" href="#fnref:hspec_quickcheck" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
 </div>
 
   <!-- Last update of source file -->
@@ -1273,41 +1279,6 @@
       
         
 <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Rodapé">
-      
-        
-        <a href="../haskell/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Haskell" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Anterior
-              </span>
-              Haskell
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../../functions/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Funções" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Próximo
-              </span>
-              Funções
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
