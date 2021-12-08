@@ -1234,11 +1234,46 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#linha-do-erro" class="md-nav__link">
+    Linha do erro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#falta-de-parenteses" class="md-nav__link">
     Falta de parênteses
   </a>
   
-    <nav class="md-nav" aria-label="Falta de parênteses">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parenteses-desnecessarios" class="md-nav__link">
+    Parênteses desnecessários
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quebra-de-linha-e-indentacao" class="md-nav__link">
+    Quebra de linha e indentação
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#excecoes" class="md-nav__link">
+    Exceções
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caso-base-na-recursao" class="md-nav__link">
+    Caso base na recursão
+  </a>
+  
+    <nav class="md-nav" aria-label="Caso base na recursão">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1301,11 +1336,46 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#linha-do-erro" class="md-nav__link">
+    Linha do erro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#falta-de-parenteses" class="md-nav__link">
     Falta de parênteses
   </a>
   
-    <nav class="md-nav" aria-label="Falta de parênteses">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parenteses-desnecessarios" class="md-nav__link">
+    Parênteses desnecessários
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quebra-de-linha-e-indentacao" class="md-nav__link">
+    Quebra de linha e indentação
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#excecoes" class="md-nav__link">
+    Exceções
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caso-base-na-recursao" class="md-nav__link">
+    Caso base na recursão
+  </a>
+  
+    <nav class="md-nav" aria-label="Caso base na recursão">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1371,79 +1441,102 @@
 </code></pre></div>
 </div>
 </div>
+<h2 id="linha-do-erro">Linha do erro</h2>
+<p>As vezes o compilador aponta uma linha como tendo um erro e você olha para a tal linha por horas sem entender o que há de errado. Talvez ela não esteja errada!
+Acontece que o compilador tenta ao máximo usar o seu código, e por isso às vezes passa por cima de erros e só para quando não dá mais para interpretar o arquivo.
+Por isso, quando o compilador apontar um erro em uma linha, sempre considere as linhas anteriores também como potencialmente problemáticas.</p>
 <h2 id="falta-de-parenteses">Falta de parênteses</h2>
-<p>```#!hs
-Prelude&gt; 4/2*2
-4.0
-Prelude&gt; 4/(2*2)
-1.0
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>## Parênteses desnecessários
-<span class="linenos" data-linenos=" 2 "></span>
-<span class="linenos" data-linenos=" 3 "></span>* `((b1+b2)/2) * h` -&gt; `(b1+b2)/2 * h`
-<span class="linenos" data-linenos=" 4 "></span>    * não há dúvida para o compilador que a divisão deve ocorrer primeiro, pois os operadores tem a mesma precedência e ambos são associativos à esquerda.
-<span class="linenos" data-linenos=" 5 "></span>* `sqrt ((b*b)+ (c*c))`-&gt; sqrt (b*b + c*c)
-<span class="linenos" data-linenos=" 6 "></span>    * não há dúvida para o compilador que a divisão deve ocorrer primeiro, pois os operadores tem precedências diferentes.
-<span class="linenos" data-linenos=" 7 "></span>
-<span class="linenos" data-linenos=" 8 "></span>* Informação sobre precedência e associatividade pode ser derivadas via `#!hs :info`.
-<span class="linenos" data-linenos=" 9 "></span>
-<span class="linenos" data-linenos="10 "></span>    ```hs
-<span class="linenos" data-linenos="11 "></span>    Prelude&gt; :info *
-<span class="linenos" data-linenos="12 "></span>    type Num :: * -&gt; Constraint
-<span class="linenos" data-linenos="13 "></span>    class Num a where
-<span class="linenos" data-linenos="14 "></span>    ...
-<span class="linenos" data-linenos="15 "></span>    (*) :: a -&gt; a -&gt; a
-<span class="linenos" data-linenos="16 "></span>    ...
-<span class="linenos" data-linenos="17 "></span>    infixl 7 *                              -- Infixo com associatividade a esquerda (l) e Precedência 7.
-<span class="linenos" data-linenos="18 "></span>    Prelude&gt; :info /
-<span class="linenos" data-linenos="19 "></span>    type Fractional :: * -&gt; Constraint
-<span class="linenos" data-linenos="20 "></span>    class Num a =&gt; Fractional a where
-<span class="linenos" data-linenos="21 "></span>    (/) :: a -&gt; a -&gt; a
-<span class="linenos" data-linenos="22 "></span>    ...
-<span class="linenos" data-linenos="23 "></span>    infixl 7 /                              -- Infixo com associatividade a esquerda (l) e Precedência 7.
-<span class="linenos" data-linenos="24 "></span>    Prelude&gt; :info +
-<span class="linenos" data-linenos="25 "></span>    type Num :: * -&gt; Constraint
-<span class="linenos" data-linenos="26 "></span>    class Num a where
-<span class="linenos" data-linenos="27 "></span>    (+) :: a -&gt; a -&gt; a
-<span class="linenos" data-linenos="28 "></span>    ...
-<span class="linenos" data-linenos="29 "></span>    infixl 6 +                              -- Infixo com associatividade a esquerda (l) e Precedência 6.
-<span class="linenos" data-linenos="30 "></span>    ```
-<span class="linenos" data-linenos="31 "></span>
-<span class="linenos" data-linenos="32 "></span>## Quebra de linha e indentação
-<span class="linenos" data-linenos="33 "></span>
-<span class="linenos" data-linenos="34 "></span>* `#!hs maiorDeTres a b c = if a &gt; b &amp;&amp; a &gt; c then a else if b &gt; a &amp;&amp; b &gt; c then b else c`
-<span class="linenos" data-linenos="35 "></span>    * Difícil leitura.
-<span class="linenos" data-linenos="36 "></span>    * Quebrar linhas.
-<span class="linenos" data-linenos="37 "></span>
-<span class="linenos" data-linenos="38 "></span>* `#!hs estaoOrdenados a b c = if (a &gt; b &amp;&amp; b &gt; c) then True else False`
-<span class="linenos" data-linenos="39 "></span>    * `#!hs if &lt;cond&gt; then True else False` -&gt; `#!hs &lt;cond&gt;`
-<span class="linenos" data-linenos="40 "></span>    * `#!hs estaoOrdenados a b c = a &gt; b &amp;&amp; b &gt; c`
-<span class="linenos" data-linenos="41 "></span>
-<span class="linenos" data-linenos="42 "></span>* `#!hs sqrt((a^2) + (b^2))`
-<span class="linenos" data-linenos="43 "></span>    * Parênteses só são necessários para deixar explícito o que é parâmetro.
-<span class="linenos" data-linenos="44 "></span>    * `#!hs sqrt((a^2) + (b^2))`
-<span class="linenos" data-linenos="45 "></span>        * Funções e parâmetros são separados por espaço. 
-<span class="linenos" data-linenos="46 "></span>        * `#!hs sqrt ((a^2) + (b^2))`
-<span class="linenos" data-linenos="47 "></span>    * `#!hs sqrt ((a^2) + (b^2))`
-<span class="linenos" data-linenos="48 "></span>        * Operadores tem precedências; potência tem precedência maior que adição
-<span class="linenos" data-linenos="49 "></span>        * `#!hs sqrt (a^2 + b^2)`
-<span class="linenos" data-linenos="50 "></span>    * `#!hs sqrt a^2 + b^2`
-<span class="linenos" data-linenos="51 "></span>        * Funções tem precedência sobre operadores.
-<span class="linenos" data-linenos="52 "></span>        * `#!hs sqrt a^2 + b^2 == (sqrt a^2) + b^2`
-<span class="linenos" data-linenos="53 "></span>
-<span class="linenos" data-linenos="54 "></span>
-<span class="linenos" data-linenos="55 "></span>
-<span class="linenos" data-linenos="56 "></span>## Erros
-<span class="linenos" data-linenos="57 "></span>Para indicar uma condição de erro, use &quot;error&quot;. Por exemplo, em uma solução eu encontrei o seguinte  `#!hs  | otherwise = (99, &quot;error&quot;)` mas o ideal seria `#!hs |otherwise = error &quot;mensagem de erro&quot;`.
-<span class="linenos" data-linenos="58 "></span>
-<span class="linenos" data-linenos="59 "></span>
-<span class="linenos" data-linenos="60 "></span>## Caso base na recursão
-<span class="linenos" data-linenos="61 "></span>* Toda recursão deve ter um caso base, senão a recursão não para.
-<span class="linenos" data-linenos="62 "></span>
-<span class="linenos" data-linenos="63 "></span>* No seguinte trecho, só temos dois casos. Um `if-then-else` me parece mais legível.
-<span class="linenos" data-linenos="64 "></span>```#!hs
-<span class="linenos" data-linenos="65 "></span>máximo (x:xs) | (x &gt; máximo xs) = x
-<span class="linenos" data-linenos="66 "></span>              | otherwise = máximo xs
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="mi">4</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span>
+<span class="linenos" data-linenos="2 "></span><span class="mf">4.0</span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="mi">4</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span><span class="mf">1.0</span>
+</code></pre></div>
+<h2 id="parenteses-desnecessarios">Parênteses desnecessários</h2>
+<ul>
+<li><code>((b1+b2)/2) * h</code> -&gt; <code>(b1+b2)/2 * h</code><ul>
+<li>não há dúvida para o compilador que a divisão deve ocorrer primeiro, pois os operadores tem a mesma precedência e ambos são associativos à esquerda.</li>
+</ul>
+</li>
+<li>
+<p><code>sqrt ((b*b)+ (c*c))</code>-&gt; sqrt (b*b + c*c)</p>
+<ul>
+<li>não há dúvida para o compilador que a divisão deve ocorrer primeiro, pois os operadores tem precedências diferentes.</li>
+</ul>
+</li>
+<li>
+<p>Informação sobre precedência e associatividade pode ser derivadas via <code class="highlight"><span class="kt">:</span><span class="n">info</span></code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">info</span> <span class="o">*</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kr">type</span> <span class="kt">Num</span> <span class="ow">::</span> <span class="o">*</span> <span class="ow">-&gt;</span> <span class="kt">Constraint</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kr">class</span> <span class="kt">Num</span> <span class="n">a</span> <span class="kr">where</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="o">...</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="o">...</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="kr">infixl</span> <span class="mi">7</span> <span class="o">*</span>                              <span class="c1">-- Infixo com associatividade a esquerda (l) e Precedência 7.</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">info</span> <span class="o">/</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="kr">type</span> <span class="kt">Fractional</span> <span class="ow">::</span> <span class="o">*</span> <span class="ow">-&gt;</span> <span class="kt">Constraint</span>
+<span class="linenos" data-linenos="10 "></span><span class="kr">class</span> <span class="kt">Num</span> <span class="n">a</span> <span class="ow">=&gt;</span> <span class="kt">Fractional</span> <span class="n">a</span> <span class="kr">where</span>
+<span class="linenos" data-linenos="11 "></span><span class="p">(</span><span class="o">/</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="linenos" data-linenos="12 "></span><span class="o">...</span>
+<span class="linenos" data-linenos="13 "></span><span class="kr">infixl</span> <span class="mi">7</span> <span class="o">/</span>                              <span class="c1">-- Infixo com associatividade a esquerda (l) e Precedência 7.</span>
+<span class="linenos" data-linenos="14 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">info</span> <span class="o">+</span>
+<span class="linenos" data-linenos="15 "></span><span class="kr">type</span> <span class="kt">Num</span> <span class="ow">::</span> <span class="o">*</span> <span class="ow">-&gt;</span> <span class="kt">Constraint</span>
+<span class="linenos" data-linenos="16 "></span><span class="kr">class</span> <span class="kt">Num</span> <span class="n">a</span> <span class="kr">where</span>
+<span class="linenos" data-linenos="17 "></span><span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="ow">::</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="linenos" data-linenos="18 "></span><span class="o">...</span>
+<span class="linenos" data-linenos="19 "></span><span class="kr">infixl</span> <span class="mi">6</span> <span class="o">+</span>                              <span class="c1">-- Infixo com associatividade a esquerda (l) e Precedência 6.</span>
+</code></pre></div>
+</li>
+</ul>
+<h2 id="quebra-de-linha-e-indentacao">Quebra de linha e indentação</h2>
+<ul>
+<li>
+<p><code class="highlight"><span class="nf">maiorDeTres</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">c</span> <span class="kr">then</span> <span class="n">a</span> <span class="kr">else</span> <span class="kr">if</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">a</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span> <span class="kr">then</span> <span class="n">b</span> <span class="kr">else</span> <span class="n">c</span></code></p>
+<ul>
+<li>Difícil leitura.</li>
+<li>Quebrar linhas.</li>
+</ul>
+</li>
+<li>
+<p><code class="highlight"><span class="nf">estaoOrdenados</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="ow">=</span> <span class="kr">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span><span class="p">)</span> <span class="kr">then</span> <span class="kt">True</span> <span class="kr">else</span> <span class="kt">False</span></code></p>
+<ul>
+<li><code class="highlight"><span class="kr">if</span> <span class="o">&lt;</span><span class="n">cond</span><span class="o">&gt;</span> <span class="kr">then</span> <span class="kt">True</span> <span class="kr">else</span> <span class="kt">False</span></code> -&gt; <code class="highlight"><span class="o">&lt;</span><span class="n">cond</span><span class="o">&gt;</span></code></li>
+<li><code class="highlight"><span class="nf">estaoOrdenados</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">c</span></code></li>
+</ul>
+</li>
+<li>
+<p><code class="highlight"><span class="nf">sqrt</span><span class="p">((</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span></code></p>
+<ul>
+<li>Parênteses só são necessários para deixar explícito o que é parâmetro.</li>
+<li><code class="highlight"><span class="nf">sqrt</span><span class="p">((</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span></code><ul>
+<li>Funções e parâmetros são separados por espaço. </li>
+<li><code class="highlight"><span class="nf">sqrt</span> <span class="p">((</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span></code></li>
+</ul>
+</li>
+<li><code class="highlight"><span class="nf">sqrt</span> <span class="p">((</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span></code><ul>
+<li>Operadores tem precedências; potência tem precedência maior que adição</li>
+<li><code class="highlight"><span class="nf">sqrt</span> <span class="p">(</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span></code></li>
+</ul>
+</li>
+<li><code class="highlight"><span class="nf">sqrt</span> <span class="n">a</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">^</span><span class="mi">2</span></code><ul>
+<li>Funções tem precedência sobre operadores.</li>
+<li><code class="highlight"><span class="nf">sqrt</span> <span class="n">a</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">^</span><span class="mi">2</span> <span class="o">==</span> <span class="p">(</span><span class="n">sqrt</span> <span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span><span class="o">^</span><span class="mi">2</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="excecoes">Exceções</h2>
+<p>Para indicar uma condição de erro, use "error". Por exemplo, em uma solução eu encontrei o seguinte  <code class="highlight"><span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="p">(</span><span class="mi">99</span><span class="p">,</span> <span class="s">&quot;error&quot;</span><span class="p">)</span></code> mas o ideal seria <code class="highlight"><span class="o">|</span><span class="n">otherwise</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;mensagem de erro&quot;</span></code>.</p>
+<h2 id="caso-base-na-recursao">Caso base na recursão</h2>
+<ul>
+<li>
+<p>Toda recursão deve ter um caso base, senão a recursão não para.</p>
+</li>
+<li>
+<p>No seguinte trecho, só temos dois casos. Um <code>if-then-else</code> me parece mais legível.
+<code class="highlight"><span class="nf">máximo</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">máximo</span> <span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">x</span><span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">máximo</span> <span class="n">xs</span></code></p>
+</li>
+</ul>
 <h3 id="valorfinal">ValorFinal</h3>
 <ul>
 <li>A idade precisa levar mês e dia em consideração.</li>
