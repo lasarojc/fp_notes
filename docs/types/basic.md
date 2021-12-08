@@ -27,9 +27,9 @@ Diversos operadores são definidos para os tipos numéricos básicos, como mostr
 | `#!hs -` | Inversão de sinal[^negate] | `#!hs - (-10) ⭆ 10`|
 | `#!hs negate` | Inversão de sinal[^negate] | `#!hs negate (-10) ⭆ 10`|
 | `#!hs quot`| Divisão inteira, truncado para o 0, i.e., `#!hs quot a b` é igual a $\lfloor\frac{a}{b}\rfloor$ se $a>0$ e $\lceil\frac{a}{b}\rceil$ se $a<0$ | `#!hs quot 8 3 ⭆ 2` e `#!hs quot (-8) 3 ⭆ -2` |
-| `#!hs rem`| Resto da divisão inteira, tal que ```#!hs (x `quot` y)*y + (x `rem` y) ⭆ x```| `#!hs rem 8 3 ⭆ 2` e `#!hs rem (-8) 3 ⭆ -2`|
-| `#!hs div`| Resto da divisão, truncado para baixo, i.e., `#!hs div a b` é igual a $\lfloor\frac{a}{b}\rfloor$ | `#!hs div 8 3 ⭆ 2` e `#!hs div (-8) 3 ⭆ -3`|
-| `#!hs mod`| Módulo do inteiro, tal que  ```#!hs (x `div` y)*y + (x `mod` y) ⭆ x```|  `#!hs mod (-8) 3 ⭆ 1` e `#!hs  mod (8) 3 ⭆ 2` |
+| `#!hs rem`| Resto da divisão inteira, tal que `#!hs (quot x y)*y + (rem x y) ⭆ x`| `#!hs rem 8 3 ⭆ 2` e `#!hs rem (-8) 3 ⭆ -2`|
+| `#!hs div`| Divisão inteira, truncado para baixo, i.e., `#!hs div a b` é igual a $\lfloor\frac{a}{b}\rfloor$ | `#!hs div 8 3 ⭆ 2` e `#!hs div (-8) 3 ⭆ -3`|
+| `#!hs mod`| Módulo do inteiro, tal que  `#!hs (div x y)*y + (mod x y) ⭆ x`|  `#!hs mod (-8) 3 ⭆ 1` e `#!hs  mod (8) 3 ⭆ 2` |
 
 
 ###### Infixo X Prefixo
@@ -92,7 +92,7 @@ A seguir, algumas funções de manipulação de caracteres.[^char]
 
 | Função | Descrição| Exemplo|
 |------|------|----|
-|`#!hs isSpace`| Testa se é um espaço em branco ou um dos seguintes caractere de controle `\t`, `\n`, `\r`, `\f` ou `\v` | `#!hs isSpace '\t' ⭆ True`  |
+|`#!hs isSpace`| Testa se é um espaço em branco `#!hs ' '`) ou um dos seguintes caractere de controle `#!hs \t`, `#!hs \n`, `#!hs \r`, `#!hs \f` ou `#!hs \v` | `#!hs isSpace '\t' ⭆ True` e `#!hs isSpace ' ' ⭆ True`  |
 |`#!hs isControl` | Testa se é um caracter de controle | `#!hs isControl '\t' ⭆ True`  |
 |`#!hs isLetter` | Testa se é uma letra | `#!hs isLetter 'A' ⭆ True` e `#!hs isLetter '\t' ⭆ False` |
 |`#!hs isDigit` | Testa se é um dígito | `#!hs isDigit 'A' ⭆ False` e `#!hs isDigit '3' ⭆ True` |

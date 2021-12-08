@@ -30,9 +30,14 @@ Por isso o `if` do Haskell deve ser comparado ao operador ternário do C, não c
     let y = if x > 3 then "maior" else "menor"
     ```
 
+
+## Linha do erro
+As vezes o compilador aponta uma linha como tendo um erro e você olha para a tal linha por horas sem entender o que há de errado. Talvez ela não esteja errada!
+Acontece que o compilador tenta ao máximo usar o seu código, e por isso às vezes passa por cima de erros e só para quando não dá mais para interpretar o arquivo.
+Por isso, quando o compilador apontar um erro em uma linha, sempre considere as linhas anteriores também como potencialmente problemáticas.
 ## Falta de parênteses
 
-```#!hs
+```hs
 Prelude> 4/2*2
 4.0
 Prelude> 4/(2*2)
@@ -94,7 +99,7 @@ Prelude> 4/(2*2)
 
 
 
-## Erros
+## Exceções
 Para indicar uma condição de erro, use "error". Por exemplo, em uma solução eu encontrei o seguinte  `#!hs  | otherwise = (99, "error")` mas o ideal seria `#!hs |otherwise = error "mensagem de erro"`.
 
 
@@ -106,10 +111,3 @@ Para indicar uma condição de erro, use "error". Por exemplo, em uma solução 
 máximo (x:xs) | (x > máximo xs) = x
               | otherwise = máximo xs
 ```
-
-
-
-### ValorFinal
-* A idade precisa levar mês e dia em consideração.
-
-
