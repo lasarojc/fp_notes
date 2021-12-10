@@ -116,12 +116,13 @@ A ordem não reflete a ordem de apresentação.
             - [x] não parametrizado
             - [ ] parametrizado - Variáveis de tipo
         - [ ] Tipos algébricos 
-            * [x] Definição - `#!hs data`
+            * [ ] Definição - `#!hs data`
                 - https://mmhaskell.com/blog/2017/12/24/haskell-data-types-in-5-steps
                 - https://en.wikibooks.org/wiki/Haskell/GADT#Extending_the_language
                 - [x] produto x soma
                 - [x] não parametrizado
                 - [x] parametrizado - Variáveis de tipo
+                - [ ] Record
             * [x] Casamento de padrões
                 - [x] as pattern - `@`
             * [x] Tipos recursivos
