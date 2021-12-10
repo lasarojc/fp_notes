@@ -1948,3 +1948,35 @@ x ****** y = x + y
 -- 3
 
 -- :t (******)
+
+
+
+
+
+{-
+>>> f True True
+True
+
+>>> f False True
+True
+
+>>> f False False
+False
+
+-}
+
+
+
+{-
+
+>>>soma2int 2.0 3.0
+No instance for (Fractional Int) arising from the literal ‘2.0’
+
+>>>soma2int 2 3
+5
+-}
+
+
+soma2int :: Int -> Int -> Int 
+--soma2int :: Num a => a -> a -> a
+soma2int i1 i2 = i1+i2
