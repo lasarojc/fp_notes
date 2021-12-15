@@ -608,7 +608,7 @@
       
         <li class="md-nav__item">
   <a href="#os-operadores" class="md-nav__link">
-    Os operadores (,)
+    Os operadores (,...,)
   </a>
   
 </li>
@@ -1305,7 +1305,7 @@
       
         <li class="md-nav__item">
   <a href="#os-operadores" class="md-nav__link">
-    Os operadores (,)
+    Os operadores (,...,)
   </a>
   
 </li>
@@ -1496,13 +1496,11 @@ Isto é, dado tupla <span class="arithmatex">\(t^1\)</span> e uma tupla <span cl
 <p>Por completude, é preciso mencionar que tuplas podem ter qualquer aridade, inclusive zero.
 Isto é, <code class="highlight"><span class="nb">()</span></code> é uma tupla válida e a única instância de tuplas de aridade zero.
 A utilidade desta tupla, denominada <strong>Unit</strong>, ficará clara mais adiante, quando falarmos sobre entrada e saída.</p>
-<h2 id="os-operadores">Os operadores <code class="highlight"><span class="p">(,)</span></code></h2>
-<details class="todo"><summary>TODO</summary><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="p">(,)</span> <span class="mi">1</span> <span class="mi">2</span>
-<span class="linenos" data-linenos="2 "></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="linenos" data-linenos="3 "></span><span class="o">&gt;</span> <span class="p">(,,)</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
-<span class="linenos" data-linenos="4 "></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-</code></pre></div>
-</details>
+<h2 id="os-operadores">Os operadores <code class="highlight"><span class="p">(,</span><span class="o">...</span><span class="p">,)</span></code></h2>
+<p>Haskell tem várias instâncias de açúcar sintático.
+Relativo a tuplas, Haskell provê uma função para a construção das mesmas, como alternativa à sintaxe usada até agora.
+Por exemplo, para construir a tupla <code class="highlight"><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span></code>, pode se usar <code class="highlight"><span class="p">(,)</span> <span class="mi">1</span> <span class="mi">2</span></code>, e <code>#˜hs (,,,,)</code> em vez de <code class="highlight"><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span></code>.
+Esta possibilidade se estende pelo padrão Haskell2010 até a construção de tuplas com 15 elementos, mas o GHC vai até tuplas com cerca de 50 elementos.</p>
 <div class="footnote">
 <hr />
 <ol>

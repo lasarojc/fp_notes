@@ -1757,7 +1757,15 @@ Outra possibilidade é a aplicação recursiva, como no seguinte código.</p>
 <p class="admonition-title">Exercício</p>
 <ul>
 <li>Explique o que a função acima faz, com um exemplo.</li>
+<li>Dado uma lista <code>l</code>, calcule todas as permutações de seus elementos.</li>
 </ul>
+<div class="admonition example">
+<p class="admonition-title">Resolução</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">permutações</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[[</span><span class="n">a</span><span class="p">]]</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">permutações</span> <span class="kt">[]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">[]</span><span class="p">]</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">permutações</span> <span class="p">(</span><span class="n">h</span><span class="kt">:</span><span class="n">t</span><span class="p">)</span> <span class="ow">=</span> <span class="p">[</span><span class="n">take</span> <span class="n">n</span> <span class="n">permCauda</span> <span class="o">++</span> <span class="p">[</span><span class="n">h</span><span class="p">]</span> <span class="o">++</span> <span class="n">drop</span> <span class="n">n</span> <span class="n">permCauda</span> <span class="o">|</span> <span class="n">n</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">0</span><span class="o">..</span><span class="n">length</span> <span class="n">t</span><span class="p">],</span> <span class="n">permCauda</span> <span class="ow">&lt;-</span> <span class="n">permutações</span> <span class="n">t</span><span class="p">]</span>
+</code></pre></div>
+</div>
 </div>
 <div class="footnote">
 <hr />
