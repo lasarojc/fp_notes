@@ -50,6 +50,7 @@ m3n a b c = (a + b + c)/2
     
     * Aplique a função aos valores 2.0 e 3.0.
     * Aplique a função aos valores 2 e 3.
+    
     * Defina o protótipo da soma de dois números reais `#!hs soma2reais a b = a + b`
     
     ???example "Resolução"

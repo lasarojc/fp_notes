@@ -425,3 +425,11 @@ partitions (x:xs) = [ x:e | e <- partitions xs] ++ partitions xs
 
 !!!exercise "Exercício"
     * Explique o que a função acima faz, com um exemplo.
+    * Dado uma lista `l`, calcule todas as permutações de seus elementos.
+
+    !!!example "Resolução"
+        ```hs
+        permutações :: [a] -> [[a]]
+        permutações [] -> [[]]
+        permutações (h:t) = [take n permCauda ++ [h] ++ drop n permCauda | n <- [0..length t], permCauda <- permutações t]
+        ```

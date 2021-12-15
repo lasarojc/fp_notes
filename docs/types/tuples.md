@@ -224,13 +224,9 @@ A utilidade desta tupla, denominada **Unit**, ficará clara mais adiante, quando
 
 
 
-##  Os operadores `#!hs (,)`
+##  Os operadores `#!hs (,...,)`
 
-???todo "TODO"
-    ```hs
-    > (,) 1 2
-    (1,2)
-    > (,,) 1 2 3
-    (1,2,3)
-    ```
-
+Haskell tem várias instâncias de açúcar sintático.
+Relativo a tuplas, Haskell provê uma função para a construção das mesmas, como alternativa à sintaxe usada até agora.
+Por exemplo, para construir a tupla `#!hs (1,2)`, pode se usar `#!hs (,) 1 2`, e `#˜hs (,,,,)` em vez de `#!hs (1,2,3,4,5)`.
+Esta possibilidade se estende pelo padrão Haskell2010 até a construção de tuplas com 15 elementos, mas o GHC vai até tuplas com cerca de 50 elementos.
