@@ -61,11 +61,14 @@ soma2v' (x1,y1) (x2,y2) = (x1+x2, y1+y2)
 -- >>> prim (1,2,3,4)
 -- 2
 
-prim :: (a, b, c, d) -> b
-prim (_,x,_,_) =  x
+prim4 :: (a, b, c, d) -> b
+prim4 (_,x,_,_) =  x
 
-prim' :: (a,b,c) -> b
-prim' (_,x,_) =  x
+--- >>> prim' (1,2,3)
+-- 2
+
+prim3 :: (a,b,c) -> b
+prim3 (_,x,_) =  x
 
 
 -- >>> f 1

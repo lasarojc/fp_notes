@@ -648,6 +648,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../quickcheck/" class="md-nav__link">
+        Quick, Check!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -663,20 +677,6 @@
         HSpec
       </a>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../quickcheck/" class="md-nav__link">
-        Quick, Check!
-      </a>
     </li>
   
 
@@ -705,15 +705,25 @@
       
         
           
+            
+          
+        
+          
         
           
         
       
       
-        <label class="md-nav__link" for="__nav_6">
-          Funções II
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../functions2/">Funções II</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Funções II" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
@@ -721,6 +731,9 @@
           Funções II
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
           
             
               
@@ -773,6 +786,8 @@
       
         
           
+            
+          
         
           
         
@@ -782,10 +797,16 @@
         
       
       
-        <label class="md-nav__link" for="__nav_7">
-          Tipos II
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../types2/">Tipos II</a>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Tipos II" data-md-level="1">
         <label class="md-nav__title" for="__nav_7">
@@ -795,17 +816,6 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../types2/userdefined/" class="md-nav__link">
-        Novos
-      </a>
-    </li>
-  
-
             
           
             
@@ -814,8 +824,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../types2/lists_again/" class="md-nav__link">
-        Listas
+      <a href="../../types2/userdefined/" class="md-nav__link">
+        Apelidos
       </a>
     </li>
   
@@ -1247,10 +1257,9 @@
 
   <!-- Content -->
   <h1 id="hspec-1">HSpec <sup id="fnref:hspec"><a class="footnote-ref" href="#fn:hspec">1</a></sup></h1>
-<p>Quando desenvolvemos software, é imprescindível que criemos testes para verificar a corretude de nosso código, ou pelo menos ganhar confiança em sua corretude.
-HSpec é um framework que possibilita escrever e executar testes unitários de funções;
-o <em>framework</em> provê uma linguagem de domínio específico para escrever os testes também em Haskell. 
-Usaremos seguinte arquivo <code>test/Tests.hs</code> como exemplo para descrever a linguagem em (muito) alto nível.</p>
+<p>A medida que a complexidade do software aumenta, aumenta também os testes a serem executados no mesmo, tornando a execução manual impraticável.
+HSpec é um framework que possibilita escrever e executar testes unitários de funções de forma automatizada.
+O <em>framework</em> provê uma linguagem de domínio específico para escrever os testes também em Haskell, como demonstrado no seguinte arquivo <code>test/Tests.hs</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kr">import</span> <span class="nn">Test.Hspec</span>        <span class="p">(</span><span class="kt">Spec</span><span class="p">,</span> <span class="nf">it</span><span class="p">,</span> <span class="nf">shouldBe</span><span class="p">,</span> <span class="nf">describe</span><span class="p">)</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="kr">import</span> <span class="nn">Test.Hspec.Runner</span> <span class="p">(</span><span class="nf">configFastFail</span><span class="p">,</span> <span class="nf">defaultConfig</span><span class="p">,</span> <span class="nf">hspecWith</span><span class="p">)</span>
 <span class="linenos" data-linenos=" 3 "></span>
@@ -1282,8 +1291,8 @@ observe que três funções foram especificadas na importação, e serão o alvo
 Duas das funções importadas na primeira linha são <code class="highlight"><span class="nf">it</span></code> e <code class="highlight"><span class="nf">describe</span></code>.</p>
 <h6>main</h6>
 <p>A função <code class="highlight"><span class="nf">main</span></code> será executada quando os testes forem disparados e, como pode ser visto no final de sua definição, <code class="highlight"><span class="nf">main</span></code> invoca <code class="highlight"><span class="nf">specs</span></code>.</p>
-<h6>do</h6>
-<p><code class="highlight"><span class="nf">specs</span></code> é iniciada com um <code class="highlight"><span class="kr">do</span></code>; por enquanto você pode entender esta palavra chave como criando um bloco em que vários <code class="highlight"><span class="nf">describe</span></code> são especificados.</p>
+<p>Por convenção, a função <code class="highlight"><span class="nf">specs</span></code> descreve o conjunto de testes a ser executado.
+Esta função é iniciada com um <code class="highlight"><span class="kr">do</span></code>, que por enquanto você pode entender como criando um <strong>bloco</strong> em que testes individuais são especificados usando  <code class="highlight"><span class="nf">describe</span></code>.</p>
 <h6>It describes</h6>
 <p>Cada describe inicia uma bateria de teste relacionados, especificados em seu proprio bloco <code class="highlight"><span class="kr">do</span></code>.
 A primeira parte do describe é uma string que identifica o grupo de testes, por exemplo pelo nome da função a ser testada.</p>
@@ -1293,6 +1302,7 @@ A string na definição do <code class="highlight"><span class="nf">it</span></c
 <p>A última parte define o resultado esperado para a invocação, por meio de um <code class="highlight"><span class="nf">shouldBe</span></code>. Por exemplo, o resultado da soma de 1 e 1 <em>should be</em> 2.</p>
 <h6>Outras funcionalidades.</h6>
 <p>HSpec permite testes muito mais complexos do que estes exemplos acima, por exemplo testando se erros foram emitidos pela função quando parâmetros inválidos são passados.</p>
+<p>HSpec pode também ser combinado com QuickCheck, mas fazê-lo requer funcionalidades de Haskell ainda não estudadas, então deixaremos este ponto para mais adiante.</p>
 <div class="footnote">
 <hr />
 <ol>
@@ -1322,7 +1332,7 @@ A string na definição do <code class="highlight"><span class="nf">it</span></c
     <nav class="md-footer__inner md-grid" aria-label="Rodapé">
       
         
-        <a href="../modules/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Módulos" rel="prev">
+        <a href="../quickcheck/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Quick, Check!" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1331,20 +1341,20 @@ A string na definição do <code class="highlight"><span class="nf">it</span></c
               <span class="md-footer__direction">
                 Anterior
               </span>
-              Módulos
+              Quick, Check!
             </div>
           </div>
         </a>
       
       
         
-        <a href="../quickcheck/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Quick, Check!" rel="next">
+        <a href="../../functions2/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Funções" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Quick, Check!
+              Funções
             </div>
           </div>
           <div class="md-footer__button md-icon">

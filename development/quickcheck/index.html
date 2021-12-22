@@ -79,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#quickcheck" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -643,11 +648,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../hspec/" class="md-nav__link">
-        HSpec
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Quick, Check!
       </a>
+      
     </li>
   
 
@@ -657,19 +672,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Quick, Check!
+    <li class="md-nav__item">
+      <a href="../hspec/" class="md-nav__link">
+        HSpec
       </a>
-      
     </li>
   
 
@@ -698,15 +705,25 @@
       
         
           
+            
+          
+        
+          
         
           
         
       
       
-        <label class="md-nav__link" for="__nav_6">
-          Funções II
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../functions2/">Funções II</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Funções II" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
@@ -714,6 +731,9 @@
           Funções II
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
           
             
               
@@ -766,6 +786,8 @@
       
         
           
+            
+          
         
           
         
@@ -775,10 +797,16 @@
         
       
       
-        <label class="md-nav__link" for="__nav_7">
-          Tipos II
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../types2/">Tipos II</a>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Tipos II" data-md-level="1">
         <label class="md-nav__title" for="__nav_7">
@@ -788,17 +816,6 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../types2/userdefined/" class="md-nav__link">
-        Novos
-      </a>
-    </li>
-  
-
             
           
             
@@ -807,8 +824,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../types2/lists_again/" class="md-nav__link">
-        Listas
+      <a href="../../types2/userdefined/" class="md-nav__link">
+        Apelidos
       </a>
     </li>
   
@@ -1206,6 +1223,23 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1220,11 +1254,12 @@
        as the main headline.
     -->
 
-  <h1>Quick, Check!</h1>
-
 
   <!-- Content -->
-  <p>Escrever casos de teste individuais é uma tarefa tediosa e à medida que nossas funções  ficam mais complexas, gastaríamos mais e mais tempo escrevendo testes.
+  <h1 id="quickcheck">QuickCheck</h1>
+<p>Quando desenvolvemos software, é imprescindível que o testemos para verificar a corretude de nosso código, ou pelo menos ganhar confiança em sua corretude.
+Executar baterias de testes manualmente a cada modificação é um processo tedioso e que certamente levará a testes não serem executados.
+Além disso, à medida que nossas funções ficam mais complexas, gastaríamos mais e mais tempo definindo e executando testes.
 Uma ferramenta que nos ajuda a fazer isso é a biblioteca <strong>QuickCheck</strong>.
 Para entender como usar a QuickCheck, considere as duas seguintes funções.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">celsius2fahrenheit</span> <span class="n">c</span> <span class="ow">=</span> <span class="n">c</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">32</span> 
@@ -1303,7 +1338,7 @@ Assim, uma estratégia melhor é definir um operador <strong>quase igual</strong
     <nav class="md-footer__inner md-grid" aria-label="Rodapé">
       
         
-        <a href="../hspec/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: HSpec" rel="prev">
+        <a href="../modules/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Módulos" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1312,20 +1347,20 @@ Assim, uma estratégia melhor é definir um operador <strong>quase igual</strong
               <span class="md-footer__direction">
                 Anterior
               </span>
-              HSpec
+              Módulos
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../functions2/pattern_matching/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Padrões" rel="next">
+        <a href="../hspec/" class="md-footer__link md-footer__link--next" aria-label="Próximo: HSpec" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Padrões
+              HSpec
             </div>
           </div>
           <div class="md-footer__button md-icon">

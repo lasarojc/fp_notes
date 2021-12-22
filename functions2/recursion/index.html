@@ -648,8 +648,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development/hspec/" class="md-nav__link">
-        HSpec
+      <a href="../../development/quickcheck/" class="md-nav__link">
+        Quick, Check!
       </a>
     </li>
   
@@ -662,8 +662,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development/quickcheck/" class="md-nav__link">
-        Quick, Check!
+      <a href="../../development/hspec/" class="md-nav__link">
+        HSpec
       </a>
     </li>
   
@@ -695,15 +695,25 @@
       
         
           
+            
+          
+        
+          
         
           
         
       
       
-        <label class="md-nav__link" for="__nav_6">
-          Funções II
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Funções II</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Funções II" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
@@ -711,6 +721,9 @@
           Funções II
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
           
             
               
@@ -817,6 +830,8 @@
       
         
           
+            
+          
         
           
         
@@ -826,10 +841,16 @@
         
       
       
-        <label class="md-nav__link" for="__nav_7">
-          Tipos II
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../types2/">Tipos II</a>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Tipos II" data-md-level="1">
         <label class="md-nav__title" for="__nav_7">
@@ -839,17 +860,6 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../types2/userdefined/" class="md-nav__link">
-        Novos
-      </a>
-    </li>
-  
-
             
           
             
@@ -858,8 +868,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../types2/lists_again/" class="md-nav__link">
-        Listas
+      <a href="../../types2/userdefined/" class="md-nav__link">
+        Apelidos
       </a>
     </li>
   
@@ -1568,10 +1578,119 @@ Uma destas formas é via a seguinte recorrência.</p>
 </details>
 </div>
 <h2 id="recursao-e-listas">Recursão e Listas</h2>
-<p>Funções recursivas são particularmente importantes na manipulação listas, como veremos adiante.</p>
+<p>A recursão é essencial no processamento de listas e, de fato, muitas das funções listadas na seção sobre <a href="../../types/lists/">listas</a> podem e são definidas recursivamente, como a função <code class="highlight"><span class="nf">maximum</span></code>:</p>
+<p><span class="arithmatex">\(maximum~[1,2,3] = max~1 \left( maximum~[2,3] = max~2 \left( maximum~[3] = 3 \right)        \right)\)</span></p>
+<p>Vejamos algumas definições.<sup id="fnref:alt"><a class="footnote-ref" href="#fn:alt">1</a></sup></p>
+<div class="admonition example">
+<p class="admonition-title">maximum</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">maximum&#39;</span> <span class="ow">::</span> <span class="kt">Ord</span> <span class="n">a</span> <span class="ow">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">maximum&#39;</span> <span class="kt">[]</span>    <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;lista vazia&quot;</span>  
+<span class="linenos" data-linenos="3 "></span><span class="nf">maximum&#39;</span> <span class="p">[</span><span class="n">h</span><span class="p">]</span>   <span class="ow">=</span> <span class="n">h</span>
+<span class="linenos" data-linenos="4 "></span><span class="nf">maximum&#39;</span> <span class="p">(</span><span class="n">h</span><span class="kt">:</span><span class="n">t</span><span class="p">)</span> <span class="ow">=</span> <span class="n">max</span> <span class="n">h</span> <span class="p">(</span><span class="n">maximum&#39;</span> <span class="n">t</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">length</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">length&#39;</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">length&#39;</span> <span class="kt">[]</span>     <span class="ow">=</span> <span class="mi">0</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">length&#39;</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">length&#39;</span> <span class="n">xs</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">last</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">last&#39;</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">last&#39;</span> <span class="kt">[]</span>     <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;List is empty&quot;</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">last&#39;</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>    <span class="ow">=</span> <span class="n">x</span>
+<span class="linenos" data-linenos="4 "></span><span class="nf">last&#39;</span> <span class="p">(</span><span class="kr">_</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">last&#39;</span> <span class="n">xs</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">reverse</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">reverse&#39;</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">reverse&#39;</span> <span class="kt">[]</span>     <span class="ow">=</span> <span class="kt">[]</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">reverse&#39;</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">reverse&#39;</span> <span class="n">xs</span> <span class="o">++</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">replicate</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">replicate&#39;</span> <span class="mi">0</span> <span class="n">e</span> <span class="ow">=</span> <span class="kt">[]</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">replicate&#39;</span> <span class="n">x</span> <span class="n">e</span> <span class="ow">=</span> <span class="n">e</span><span class="kt">:</span><span class="n">replicate&#39;</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">e</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">zip</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">zip&#39;</span> <span class="kt">[]</span> <span class="kr">_</span>          <span class="ow">=</span> <span class="kt">[]</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">zip&#39;</span> <span class="kr">_</span> <span class="kt">[]</span>          <span class="ow">=</span> <span class="kt">[]</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">zip&#39;</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="p">(</span><span class="n">y</span><span class="kt">:</span><span class="n">ys</span><span class="p">)</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="kt">:</span> <span class="n">zip&#39;</span> <span class="n">xs</span> <span class="n">ys</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">elem</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">elem&#39;</span> <span class="kr">_</span> <span class="kt">[]</span>     <span class="ow">=</span> <span class="kt">False</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">elem&#39;</span> <span class="n">e</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">e</span> <span class="o">==</span> <span class="n">x</span> <span class="o">||</span> <span class="n">elem&#39;</span> <span class="n">e</span> <span class="n">xs</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">++</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">maisMais</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">maisMais</span> <span class="kt">[]</span> <span class="kt">[]</span>    <span class="ow">=</span> <span class="kt">[]</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">maisMais</span> <span class="kt">[]</span> <span class="n">y</span>     <span class="ow">=</span> <span class="n">y</span>
+<span class="linenos" data-linenos="4 "></span><span class="nf">maisMais</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="kt">:</span> <span class="n">maisMais</span> <span class="n">xs</span> <span class="n">y</span>
+</code></pre></div>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Exercício</p>
+<ul>
+<li>Defina a função <code>take</code></li>
+<li>Defina a função <code>drop</code></li>
+<li>Defina a função <code>união</code> que recebe duas listas sem repetições retorna a concatenação das listas, sem repetições, usando recursividade.</li>
+<li>Defina a função <code>união</code> que recebe duas listas sem repetições retorna a concatenação das listas, sem repetições, usando compreensão de listas.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Ordenação</p>
+<ul>
+<li>
+<p>Selection-sort (<a href="https://www.youtube.com/embed/Ns4TPTC8whw">https://www.youtube.com/embed/Ns4TPTC8whw</a>)</p>
+<ul>
+<li>Defina uma função <code>fr</code> que receba um inteiro <code>i</code> e uma lista de inteiros <code>l</code> e retorne a lista <code>l</code> sem a primeira ocorrência de <code>i</code> em <code>l</code>.</li>
+<li>Defina uma função <code>fm</code> que receba uma lista de inteiros <code>l</code> e retorne o menor inteiro da lista.</li>
+<li>Defina uma função <code>fs</code> que receba uma lista de inteiros <code>l</code>, escolha o menor inteiro <code>m</code> de <code>l</code> e retorne <code>m</code> concatenado a cabeça da lista gerada por <code>fs (fr m l)</code></li>
+</ul>
+</li>
+<li>
+<p>Merge-Sort (<a href="https://www.youtube.com/embed/XaqR3G_NVoo">https://www.youtube.com/embed/XaqR3G_NVoo</a>)</p>
+<ul>
+<li>Defina uma função <code>fd</code> que receba uma lista e retorne suas duas metades em uma dupla: <code class="highlight"><span class="nf">metade</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">11</span><span class="p">]</span> <span class="ow">=</span> <span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">])</span></code></li>
+<li>Defina uma função <code>fu</code> que receba duas listas ordenadas e retorne uma lista ordenada com a união das listas <code class="highlight"><span class="nf">união</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span> <span class="ow">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span></code></li>
+<li>Defina uma função <code>fm</code> que receba uma lista, divida-a na metade usando <code>fd</code>, aplique <code>fm</code> recursivamente em cada metade, e calcule a união das listas resultantes usando <code>fu</code>.</li>
+</ul>
+</li>
+<li>
+<p>Quick-sort</p>
+<ul>
+<li>Defina uma função <code>fp</code> que receba uma lista <code>l</code> de inteiros e retorne retorne uma tripla <code>(p,m1,m2)</code> em que <ul>
+<li><code>p</code> é o primeiro elemento da lista <code>l</code></li>
+<li><code>m1</code> é a lista dos elementos em <code>l</code> menores ou iguais a <code>p</code>, exclusive</li>
+<li><code>m2</code> é a lista dos elementos em <code>l</code> maiores que <code>p</code></li>
+</ul>
+</li>
+<li>Defina uma função <code>fq</code> que recebe uma lista <code>l</code>, calcule <code>(p,m1,m2) = fp l</code> e retorne <code>fq m1</code> concatenado a <code>p</code> concatenado a <code>fq m2</code>.</li>
+</ul>
+</li>
+</ul>
+</div>
 <h2 id="recursao-de-cauda">Recursão de Cauda</h2>
-<p>A recursão de cauda é uma técnica importantíssima para melhorar o desempenho de funções recursivas ao economizar os recursos do sistema, e ao permitir as recursões possam até ser infinitas, como em laços infinitos usados em jogos, por exemplo.
+<p>A recursão de cauda é uma técnica importantíssima para melhorar o desempenho de funções recursivas ao economizar os recursos do sistema e permitir que recursões possam ser até "infinitas", como em laços infinitos usados em jogos, por exemplo.
 Esta técnica será explorada no futuro, uma vez que já estejam confortáveis com recursões não otimizadas.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:alt">
+<p>Todas as funções definidas a seguir tem nome terminado em ``` para evitar colisão com as funções padrão.&#160;<a class="footnote-backref" href="#fnref:alt" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
   <!-- Last update of source file -->
 
@@ -1609,13 +1728,13 @@ Esta técnica será explorada no futuro, uma vez que já estejam confortáveis c
       
       
         
-        <a href="../../types2/userdefined/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Novos" rel="next">
+        <a href="../../types2/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Tipos" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Próximo
               </span>
-              Novos
+              Tipos
             </div>
           </div>
           <div class="md-footer__button md-icon">

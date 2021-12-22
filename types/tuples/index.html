@@ -586,6 +586,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#casamento-de-padroes" class="md-nav__link">
+    Casamento de padrões
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuplas-sao-como-structs" class="md-nav__link">
+    Tuplas são como Structs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#o-tipo-de-um-tupla" class="md-nav__link">
     O tipo de um tupla
   </a>
@@ -711,8 +725,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development/hspec/" class="md-nav__link">
-        HSpec
+      <a href="../../development/quickcheck/" class="md-nav__link">
+        Quick, Check!
       </a>
     </li>
   
@@ -725,8 +739,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development/quickcheck/" class="md-nav__link">
-        Quick, Check!
+      <a href="../../development/hspec/" class="md-nav__link">
+        HSpec
       </a>
     </li>
   
@@ -756,15 +770,25 @@
       
         
           
+            
+          
+        
+          
         
           
         
       
       
-        <label class="md-nav__link" for="__nav_6">
-          Funções II
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../functions2/">Funções II</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Funções II" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
@@ -772,6 +796,9 @@
           Funções II
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
           
             
               
@@ -824,6 +851,8 @@
       
         
           
+            
+          
         
           
         
@@ -833,10 +862,16 @@
         
       
       
-        <label class="md-nav__link" for="__nav_7">
-          Tipos II
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../types2/">Tipos II</a>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Tipos II" data-md-level="1">
         <label class="md-nav__title" for="__nav_7">
@@ -846,17 +881,6 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../types2/userdefined/" class="md-nav__link">
-        Novos
-      </a>
-    </li>
-  
-
             
           
             
@@ -865,8 +889,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../types2/lists_again/" class="md-nav__link">
-        Listas
+      <a href="../../types2/userdefined/" class="md-nav__link">
+        Apelidos
       </a>
     </li>
   
@@ -1283,6 +1307,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#casamento-de-padroes" class="md-nav__link">
+    Casamento de padrões
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuplas-sao-como-structs" class="md-nav__link">
+    Tuplas são como Structs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#o-tipo-de-um-tupla" class="md-nav__link">
     O tipo de um tupla
   </a>
@@ -1364,13 +1402,17 @@ Isto é, </p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">soma2v</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span>
 <span class="linenos" data-linenos="2 "></span><span class="nf">soma2v</span> <span class="n">p1</span> <span class="n">p2</span> <span class="ow">=</span> <span class="p">((</span><span class="n">fst</span> <span class="n">p1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">fst</span> <span class="n">p2</span><span class="p">),</span> <span class="p">(</span><span class="n">snd</span> <span class="n">p1</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">snd</span> <span class="n">p2</span><span class="p">))</span>
 </code></pre></div>
-<p>De forma simplificada, <code class="highlight"><span class="nf">fst</span></code> e <code class="highlight"><span class="nf">snd</span></code> poderiam ser definidos com a seguir.
-Observe que ambas as funções esperam por uma dupla de valores e que uma variável é provida para cada elemento da dupla. Assim, como quando usamos variáveis simples, os argumentos passados para a função são casados com as variáveis e podem ser usados do lado direito da equação.</p>
+<h2 id="casamento-de-padroes">Casamento de padrões</h2>
+<p><strong>Casamento de padrões</strong> pode ser usado para desmembrar uma tupla em suas componentes quando uma função é invocada.
+Isto é, se um argumento formal é especificado como uma tupla, então o parâmetro correspondente, uma tupla, tem suas componentes casadas com as componentes no parâmetro formal.
+De forma simplificada, <code class="highlight"><span class="nf">fst</span></code> e <code class="highlight"><span class="nf">snd</span></code> poderiam ser definidos com a seguir, usando casamento de padrões.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">fst</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="ow">=</span>  <span class="n">x</span>
 <span class="linenos" data-linenos="2 "></span>
 <span class="linenos" data-linenos="3 "></span><span class="nf">snd</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="ow">=</span>  <span class="n">y</span>
 </code></pre></div>
-<p>Sabendo que é possível "desmembrar" a tupla em suas componentes, podemos redefinir a função <code class="highlight"><span class="nf">soma2v</span></code> como se segue, muito mais intuitiva.</p>
+<p>Observe que ambas as funções esperam por uma dupla de valores e que uma variável é provida para cada elemento da dupla. 
+Assim, a dupla passada como argumento para a função e desmembrada em duas variáveis que podem ser usados do lado direito da equação.
+Aplicando a mesma ideia, podemos redefinir a função <code class="highlight"><span class="nf">soma2v</span></code> como se segue, muito mais intuitiva.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">soma2v</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span>
 <span class="linenos" data-linenos="2 "></span><span class="nf">soma2v</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">)</span> <span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">)</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="o">+</span><span class="n">y2</span><span class="p">)</span>
 </code></pre></div>
@@ -1410,7 +1452,7 @@ Não defina um protótipo.</p>
 </code></pre></div>
 </details>
 </div>
-<h6>Tuplas são como Structs</h6>
+<h2 id="tuplas-sao-como-structs">Tuplas são como Structs</h2>
 <p>Tuplas estão para Haskell assim como estruturas estão para outras linguagens. 
 Por exemplo, imagine que se queira armazenar os dados nome, telefone, CPF e endereço de uma pessoa. 
 Poderíamos convencionar que seria usado uma tupla em que cada posição corresponderia a um dos dados.
