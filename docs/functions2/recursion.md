@@ -266,9 +266,95 @@ $$
         A ser implementado
 
 ## Recursão e Listas
-Funções recursivas são particularmente importantes na manipulação listas, como veremos adiante.
+A recursão é essencial no processamento de listas e, de fato, muitas das funções listadas na seção sobre [listas](../types/lists.md) podem e são definidas recursivamente, como a função `#!hs maximum`:
 
+$maximum~[1,2,3] = max~1 \left( maximum~[2,3] = max~2 \left( maximum~[3] = 3 \right)        \right)$
+
+Vejamos algumas definições.[^alt]
+
+[^alt]: Todas as funções definidas a seguir tem nome terminado em `\`` para evitar colisão com as funções padrão.
+
+!!!example "maximum"
+    ```hs
+    maximum' :: Ord a => [a] -> a
+    maximum' []    = error "lista vazia"  
+    maximum' [h]   = h
+    maximum' (h:t) = max h (maximum' t)
+    ```
+
+!!!example "length"
+    ```hs
+    length' :: [a] -> Int
+    length' []     = 0
+    length' (x:xs) = 1 + length' xs
+    ```
+
+!!!example "last"
+    ```hs
+    last' :: [a] -> a
+    last' []     = error "List is empty"
+    last' [x]    = x
+    last' (_:xs) = last' xs
+    ``` 
+
+!!!example "reverse"
+    ```hs
+    reverse' :: [a] -> [a]
+    reverse' []     = []
+    reverse' (x:xs) = reverse' xs ++ [x]
+    ```
+
+!!!example "replicate"
+    ```hs
+    replicate' 0 e = []
+    replicate' x e = e:replicate' (x-1) e
+    ```
+
+!!!example "zip"
+    ```hs
+    zip' [] _          = []
+    zip' _ []          = []
+    zip' (x:xs) (y:ys) = (x,y) : zip' xs ys
+    ```
+
+!!!example "elem"
+    ```hs
+    elem' _ []     = False
+    elem' e (x:xs) = e == x || elem' e xs
+    ```
+
+!!!example "++"
+    ```hs
+    maisMais :: [a] -> [a] -> [a]
+    maisMais [] []    = []
+    maisMais [] y     = y
+    maisMais (x:xs) y = x : maisMais xs y
+    ```
+
+!!!exercise "Exercício"
+     * Defina a função `take`
+     * Defina a função `drop`
+     * Defina a função `união` que recebe duas listas sem repetições retorna a concatenação das listas, sem repetições, usando recursividade.
+     * Defina a função `união` que recebe duas listas sem repetições retorna a concatenação das listas, sem repetições, usando compreensão de listas.
+
+!!!exercise "Ordenação"
+    * Selection-sort (https://www.youtube.com/embed/Ns4TPTC8whw)
+        * Defina uma função `fr` que receba um inteiro `i` e uma lista de inteiros `l` e retorne a lista `l` sem a primeira ocorrência de `i` em `l`.
+        * Defina uma função `fm` que receba uma lista de inteiros `l` e retorne o menor inteiro da lista.
+        * Defina uma função `fs` que receba uma lista de inteiros `l`, escolha o menor inteiro `m` de `l` e retorne `m` concatenado a cabeça da lista gerada por `fs (fr m l)`
+
+    * Merge-Sort (https://www.youtube.com/embed/XaqR3G_NVoo)
+        * Defina uma função `fd` que receba uma lista e retorne suas duas metades em uma dupla: `#!hs metade [1..11] = ([1,2,3,4,5],[6,7,8,9,10,11])`
+        * Defina uma função `fu` que receba duas listas ordenadas e retorne uma lista ordenada com a união das listas `#!hs união [1,3,5,7] [2,4,6,7] = [1,2,3,5,6,7,7]`
+        * Defina uma função `fm` que receba uma lista, divida-a na metade usando `fd`, aplique `fm` recursivamente em cada metade, e calcule a união das listas resultantes usando `fu`.
+
+    * Quick-sort
+        * Defina uma função `fp` que receba uma lista `l` de inteiros e retorne retorne uma tripla `(p,m1,m2)` em que 
+            * `p` é o primeiro elemento da lista `l`
+            * `m1` é a lista dos elementos em `l` menores ou iguais a `p`, exclusive
+            * `m2` é a lista dos elementos em `l` maiores que `p`
+        * Defina uma função `fq` que recebe uma lista `l`, calcule `(p,m1,m2) = fp l` e retorne `fq m1` concatenado a `p` concatenado a `fq m2`.
 
 ## Recursão de Cauda
-A recursão de cauda é uma técnica importantíssima para melhorar o desempenho de funções recursivas ao economizar os recursos do sistema, e ao permitir as recursões possam até ser infinitas, como em laços infinitos usados em jogos, por exemplo.
+A recursão de cauda é uma técnica importantíssima para melhorar o desempenho de funções recursivas ao economizar os recursos do sistema e permitir que recursões possam ser até "infinitas", como em laços infinitos usados em jogos, por exemplo.
 Esta técnica será explorada no futuro, uma vez que já estejam confortáveis com recursões não otimizadas.

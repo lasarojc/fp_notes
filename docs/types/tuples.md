@@ -46,8 +46,10 @@ soma2v :: (Int,Int) -> (Int,Int) -> (Int,Int)
 soma2v p1 p2 = ((fst p1) + (fst p2), (snd p1)+(snd p2))
 ```
 
-De forma simplificada, `#!hs fst` e `#!hs snd` poderiam ser definidos com a seguir.
-Observe que ambas as funções esperam por uma dupla de valores e que uma variável é provida para cada elemento da dupla. Assim, como quando usamos variáveis simples, os argumentos passados para a função são casados com as variáveis e podem ser usados do lado direito da equação.
+## Casamento de padrões
+**Casamento de padrões** pode ser usado para desmembrar uma tupla em suas componentes quando uma função é invocada.
+Isto é, se um argumento formal é especificado como uma tupla, então o parâmetro correspondente, uma tupla, tem suas componentes casadas com as componentes no parâmetro formal.
+De forma simplificada, `#!hs fst` e `#!hs snd` poderiam ser definidos com a seguir, usando casamento de padrões.
 
 ```hs
 fst (x,y) =  x
@@ -55,7 +57,9 @@ fst (x,y) =  x
 snd (x,y) =  y
 ```
 
-Sabendo que é possível "desmembrar" a tupla em suas componentes, podemos redefinir a função `#!hs soma2v` como se segue, muito mais intuitiva.
+Observe que ambas as funções esperam por uma dupla de valores e que uma variável é provida para cada elemento da dupla. 
+Assim, a dupla passada como argumento para a função e desmembrada em duas variáveis que podem ser usados do lado direito da equação.
+Aplicando a mesma ideia, podemos redefinir a função `#!hs soma2v` como se segue, muito mais intuitiva.
 
 ```hs
 soma2v :: (Int,Int) -> (Int,Int) -> (Int,Int)
@@ -113,7 +117,7 @@ O uso de `#!hs _` é na verdade para permitir que o desenvolvedor demonstre que 
         ```
 
 
-###### Tuplas são como Structs
+## Tuplas são como Structs
 Tuplas estão para Haskell assim como estruturas estão para outras linguagens. 
 Por exemplo, imagine que se queira armazenar os dados nome, telefone, CPF e endereço de uma pessoa. 
 Poderíamos convencionar que seria usado uma tupla em que cada posição corresponderia a um dos dados.

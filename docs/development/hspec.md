@@ -1,8 +1,7 @@
 # HSpec [^hspec]
-Quando desenvolvemos software, é imprescindível que criemos testes para verificar a corretude de nosso código, ou pelo menos ganhar confiança em sua corretude.
-HSpec é um framework que possibilita escrever e executar testes unitários de funções;
-o *framework* provê uma linguagem de domínio específico para escrever os testes também em Haskell. 
-Usaremos seguinte arquivo `test/Tests.hs` como exemplo para descrever a linguagem em (muito) alto nível.
+A medida que a complexidade do software aumenta, aumenta também os testes a serem executados no mesmo, tornando a execução manual impraticável.
+HSpec é um framework que possibilita escrever e executar testes unitários de funções de forma automatizada.
+O *framework* provê uma linguagem de domínio específico para escrever os testes também em Haskell, como demonstrado no seguinte arquivo `test/Tests.hs`.
 
 ```hs
 import Test.Hspec        (Spec, it, shouldBe, describe)
@@ -39,8 +38,9 @@ Duas das funções importadas na primeira linha são `#!hs it` e `#!hs describe`
 
 ###### main
 A função `#!hs main` será executada quando os testes forem disparados e, como pode ser visto no final de sua definição, `#!hs main` invoca `#!hs specs`.
-###### do
-`#!hs specs` é iniciada com um `#!hs do`; por enquanto você pode entender esta palavra chave como criando um bloco em que vários `#!hs describe` são especificados.
+
+Por convenção, a função `#!hs specs` descreve o conjunto de testes a ser executado.
+Esta função é iniciada com um `#!hs do`, que por enquanto você pode entender como criando um **bloco** em que testes individuais são especificados usando  `#!hs describe`.
 
 ###### It describes
 
@@ -56,6 +56,8 @@ A última parte define o resultado esperado para a invocação, por meio de um `
 
 ###### Outras funcionalidades.
 HSpec permite testes muito mais complexos do que estes exemplos acima, por exemplo testando se erros foram emitidos pela função quando parâmetros inválidos são passados.
+
+HSpec pode também ser combinado com QuickCheck, mas fazê-lo requer funcionalidades de Haskell ainda não estudadas, então deixaremos este ponto para mais adiante.
 
 
 [^hspec]: https://hspec.github.io

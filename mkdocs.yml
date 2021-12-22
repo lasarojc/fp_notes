@@ -134,16 +134,17 @@ nav:
         - Desenvolvimento I:
             - development/index.md
             - Módulos: development/modules.md
-            - HSpec: development/hspec.md
             - Quick, Check!: development/quickcheck.md
+            - HSpec: development/hspec.md
 
         - Funções II:
+            - functions2/index.md
             - Padrões: functions2/pattern_matching.md
             - Recursão: functions2/recursion.md
 
         - Tipos II:
-            - Novos: types2/userdefined.md
-            - Listas: types2/lists_again.md
+            - types2/index.md
+            - Apelidos: types2/userdefined.md
             - Tipos algébricos: types2/algebraic.md
             - Polimorfismo: types2/type_variables.md
 

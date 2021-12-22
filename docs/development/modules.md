@@ -80,13 +80,17 @@ Módulos podem ter nomes hierarquizados, como `#!hs Números.Complexos.Operaçõ
 
 ###### Exportando funções específicas
 
+???todo "TODO"
+    exemplo
 ###### Importando funções específicas
 
+???todo "TODO"
+    exemplo
 
 
 
 
-###### Prelude
+## Prelude
 Por padrão, o módulo **prelude**[^prelude] é carregado toda vez que executa o ghci ou compila um programa, a não ser que seja explicitamente indicado em contrário.
 Este módulo contém a definição dos tipos e operadores básicos vistos anteriormente, além de muitos outros, e o GHC.Num é parte do Prelude.
 Uma pequena mas interessante amostra de outros tipos e funções.
