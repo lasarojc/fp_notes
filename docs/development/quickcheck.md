@@ -3,7 +3,7 @@
 Quando desenvolvemos software, é imprescindível que o testemos para verificar a corretude de nosso código, ou pelo menos ganhar confiança em sua corretude.
 Executar baterias de testes manualmente a cada modificação é um processo tedioso e que certamente levará a testes não serem executados.
 Além disso, à medida que nossas funções ficam mais complexas, gastaríamos mais e mais tempo definindo e executando testes.
-Uma ferramenta que nos ajuda a fazer isso é a biblioteca **QuickCheck**.
+Uma ferramenta que nos ajuda a fazer nestas tarefas é a biblioteca **QuickCheck**.
 Para entender como usar a QuickCheck, considere as duas seguintes funções.
 
 ```hs
