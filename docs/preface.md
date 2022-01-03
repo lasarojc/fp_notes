@@ -194,9 +194,12 @@ A ordem não reflete a ordem de apresentação.
 
 - [ ] Cálculo Lambda:
     - [ ] Visão geral
-    - [Lambda Calculus - Computerphile](https://www.youtube.com/watch?v=eis11j_iGMs&t=0s)
-    - https://crypto.stanford.edu/~blynn/lambda/
-    - https://youtu.be/3VQ382QG-y4
+        - [Lambda Calculus - Computerphile](https://www.youtube.com/watch?v=eis11j_iGMs&t=0s)
+        - https://crypto.stanford.edu/~blynn/lambda/
+        - https://youtu.be/3VQ382QG-y4
+    - [ ] $\alpha$-transformação
+    - [ ] $\beta$-redução
+    - [ ] $\eta$-redução
     - [ ] transparência referencial - https://takenobu-hs.github.io/downloads/haskell_lazy_evaluation.pdf
     - [ ] idempotência
 
