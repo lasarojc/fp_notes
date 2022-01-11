@@ -158,4 +158,4 @@ Use este template para criar novos projetos e seus testes; adicione novas depend
 
 [^hackage]: https://hackage.haskell.org/packages/browse
 [^prelude]: Prelude: https://hackage.haskell.org/package/base-4.15.0.0/docs/Prelude.html
-[^typeconversion] https://andrew.gibiansky.com/blog/haskell/haskell-typeclasses/#_read
+[^typeconversion]: https://andrew.gibiansky.com/blog/haskell/haskell-typeclasses/#_read
