@@ -1408,11 +1408,10 @@ Por exemplo, lembre-se do problemas discutidos que lidavam com cartas de baralho
 Com <code class="highlight"><span class="kr">data</span></code> é possível fazer algo melhor.</p>
 <h2 id="data"><code class="highlight"><span class="kr">data</span></code></h2>
 <p>Com a palavra reservada <code class="highlight"><span class="kr">data</span></code> é possível definir um novo tipo de dados (em inglês, <em>data</em>).
-O seguinte uso define um tipo para os naipes das cartas de um baralho.</p>
+O seguinte uso define um tipo para os naipes das cartas de um baralho; a equação diz que  <code class="highlight"><span class="kt">Naipe</span></code> (lado esquerdo) é um tipo cujas instâncias assumem <strong>um dos</strong> valores do lado direito, dado que o lado direito é uma disjunção.
+É comum dizer que <code class="highlight"><span class="kt">Naipe</span></code> é uma <strong>enumeração</strong> dos valores à direita da equação.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span>
 </code></pre></div>
-<p>Pela equação seguinte, definimos o tipo de dados <code class="highlight"><span class="kt">Naipe</span></code> (lado esquerdo) como sendo igual a <strong>um dos</strong> valores do lado direito, dado que o lado direito é uma disjunção.
-É comum dizer que <code class="highlight"><span class="kt">Naipe</span></code> é uma <strong>enumeração</strong> dos valores à direita da equação.</p>
 <p>Uma vez definido o tipo, podemos perguntar ao Haskell como ele é interpretado.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&gt;</span> <span class="kr">data</span> <span class="kt">Naipe</span> <span class="ow">=</span> <span class="kt">Copas</span> <span class="o">|</span> <span class="kt">Espadas</span> <span class="o">|</span> <span class="kt">Ouro</span> <span class="o">|</span> <span class="kt">Paus</span> 
 <span class="linenos" data-linenos=" 2 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">i</span> <span class="kt">Naipe</span>
