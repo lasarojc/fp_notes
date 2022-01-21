@@ -11,15 +11,12 @@ Com `#!hs data` é possível fazer algo melhor.
 
 ## `#!hs data`
 Com a palavra reservada `#!hs data` é possível definir um novo tipo de dados (em inglês, *data*).
-O seguinte uso define um tipo para os naipes das cartas de um baralho.
-
+O seguinte uso define um tipo para os naipes das cartas de um baralho; a equação diz que  `#!hs Naipe` (lado esquerdo) é um tipo cujas instâncias assumem **um dos** valores do lado direito, dado que o lado direito é uma disjunção.
+É comum dizer que `#!hs Naipe` é uma **enumeração** dos valores à direita da equação.
 
 ```hs
 data Naipe = Copas | Espadas | Ouro | Paus
 ```
-
-Pela equação seguinte, definimos o tipo de dados `#!hs Naipe` (lado esquerdo) como sendo igual a **um dos** valores do lado direito, dado que o lado direito é uma disjunção.
-É comum dizer que `#!hs Naipe` é uma **enumeração** dos valores à direita da equação.
 
 Uma vez definido o tipo, podemos perguntar ao Haskell como ele é interpretado.
 
