@@ -1,6 +1,6 @@
 # Funções de ordem superior
 Quando estudamos linguagens de programação, é comum denominar como **cidadãos de primeira classe** (do inglês, *first class citizens*) as entidades que podem ser atribuídas a variáveis, passadas como parâmetro, retornadas como resultado ou operadas de forma geral.
-Em Haskell, funções são cidadãs de primeira classe! Vejamos um exemplo em que uma função é associada a uma variável, o que efetivamente torna esta variável uma função!
+Em Haskell, **funções são cidadãs de primeira classe**. Vejamos um exemplo em que uma função é associada a uma variável, o que efetivamente torna esta variável uma função.
 
 ```hs
 Prelude> f x y = x + y
@@ -18,7 +18,7 @@ docs/code/higher_order.hs
 --8<--
 ```
 
-Observe que a função `#!hs operar` tem como primeiro parâmetro formal `#!f`, que é do tipo `#!hs (Int -> Int -> Int)`, isto é, uma função que recebe dois inteiros e retorna um inteiro.
+Observe que a função `#!hs operar` tem como primeiro parâmetro formal `#!hs f`, que é do tipo `#!hs (Int -> Int -> Int)`, isto é, uma função que recebe dois inteiros e retorna um inteiro.
 Esta função `#!hs f` é aplicada aos demais parâmetros de de `#!hs operar` para calcular o resultado.
 
 Funções de alta ordem são úteis em diversas situações, por exemplo, como forma de criar um comportamento configurável no seu código, e são frequentes na biblioteca da linguagem Haskell, dentre as quais destacamos `#!hs map`,  `#!hs filter`,  e diversos tipos de `#!hs fold`.
@@ -33,7 +33,7 @@ docs/code/higher_order3.hs
 --8<--
 ```
 
-Se você observar as funções para as listas perceberá que todas tem uma mesma estrutura.
+Se você observar as funções para as listas, perceberá que todas tem uma mesma estrutura.
 Graças às funções de ordem superior, você pode aproveitar este fato e criar uma função, genérica, que sirva para aplicar qualquer das transformações desejadas.
 
 Como as funções acima, nossa função genérica recebe uma lista de um tipo `#!hs a` e resultará em uma lista de um tipo `#!hs b`.
