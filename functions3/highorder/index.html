@@ -1600,7 +1600,7 @@ Neste caso, consideraremos operador <code>o</code> e um elemento neutro <code>i<
 </tr>
 </table>
 
-<p>Pelas expressões vemos que os operadores são tratados como associativo à direita, no caso de <code class="highlight"><span class="nf">resumir</span><span class="w"></span></code>, e à direita, no caso de <code class="highlight"><span class="nf">resumir&#39;</span><span class="w"></span></code>, e a associatividade tem implicações profundas no cálculo de uma expressão.</p>
+<p>Pelas expressões vemos que os operadores são tratados como associativo à esquerda, no caso de <code class="highlight"><span class="nf">resumir</span><span class="w"></span></code>, e à direita, no caso de <code class="highlight"><span class="nf">resumir&#39;</span><span class="w"></span></code>, e a associatividade tem implicações profundas no cálculo de uma expressão.</p>
 <p>Considere a operação de multiplicação; por ser associativa, isto é, associativa à direita e à esquerda, <span class="arithmatex">\(1*2*3*4 = ((1*2)*3)*4 = 1*(2*(3*4)) = 24\)</span>.</p>
 <p>Agora considere a divisão; por ser associativa à esquerda <span class="arithmatex">\(1/2/3/4 = ((1/2)/3)/4 = (0,5/3)/4 = 0,167/4 = 0.0146 \neq 1/(2/(3/4)) = 1/(2/0,75) = 1/2,67 = 0,375\)</span></p>
 <p>Esta diferença precisa ficar bem clara, pois estas duas funções são usadas muito frequentemente em Haskell, sendo definidas (de forma mais geral) na biblioteca como <code class="highlight"><span class="nf">foldX</span><span class="w"></span></code>.</p>
