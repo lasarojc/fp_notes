@@ -10,9 +10,8 @@
       
       
       
-      
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.10">
     
     
       
@@ -20,10 +19,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.24c991ad.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d6be258b.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -33,25 +32,23 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
-    
     
     
       <link rel="stylesheet" href="../../css/extra.css">
     
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-
   
 
 
   
-
   
 
 
-  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-65TK61CS8M"),document.addEventListener("DOMContentLoaded",function(){"undefined"!=typeof location$&&location$.subscribe(function(t){gtag("config","G-65TK61CS8M",{page_path:t.pathname})})})</script>
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-65TK61CS8M"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&gtag("event","search",{search_term:this.value})}),"undefined"!=typeof location$&&location$.subscribe(function(e){gtag("config","G-65TK61CS8M",{page_path:e.pathname})})})</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-65TK61CS8M"></script>
 
 
@@ -70,9 +67,8 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
     
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
-      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -88,6 +84,13 @@
     <div data-md-component="announce">
       
     </div>
+    
+      <div data-md-component="outdated" hidden>
+        <aside class="md-banner md-banner--warning">
+          
+        </aside>
+      </div>
+    
     
       
 
@@ -146,8 +149,7 @@
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -181,8 +183,7 @@
     
     
       <div class="md-header__source">
-        
-<a href="https://github.com/lasarojc/fp_notes" title="Ir ao repositório" class="md-source" data-md-component="source">
+        <a href="https://github.com/lasarojc/fp_notes" title="Ir ao repositório" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -227,8 +228,7 @@
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/lasarojc/fp_notes" title="Ir ao repositório" class="md-source" data-md-component="source">
+      <a href="https://github.com/lasarojc/fp_notes" title="Ir ao repositório" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -300,7 +300,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -385,7 +384,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -500,7 +498,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -626,7 +623,6 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-            
           
             
               
@@ -721,7 +717,6 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-            
           
             
               
@@ -803,7 +798,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1114,6 +1108,7 @@
       </a>
       
         
+
 <nav class="md-nav md-nav--secondary" aria-label="Índice">
   
   
@@ -1314,6 +1309,7 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Índice">
   
   
@@ -1431,129 +1427,129 @@ As seguintes funções são exemplos de ações que se comunicam com teclado e m
 </thead>
 <tbody>
 <tr>
-<td><code class="highlight"><span class="nf">getChar</span></code></td>
+<td><code class="highlight"><span class="nf">getChar</span><span class="w"></span></code></td>
 <td>Lê um caractere do teclado.</td>
 </tr>
 <tr>
-<td><code class="highlight"><span class="nf">putChar</span></code></td>
+<td><code class="highlight"><span class="nf">putChar</span><span class="w"></span></code></td>
 <td>Escreve um caractere na tela.</td>
 </tr>
 <tr>
-<td><code class="highlight"><span class="nf">getLine</span></code></td>
+<td><code class="highlight"><span class="nf">getLine</span><span class="w"></span></code></td>
 <td>Lê uma linha do teclado.</td>
 </tr>
 <tr>
-<td><code class="highlight"><span class="nf">putStr</span></code></td>
+<td><code class="highlight"><span class="nf">putStr</span><span class="w"></span></code></td>
 <td>Escreve uma string na tela.</td>
 </tr>
 <tr>
-<td><code class="highlight"><span class="nf">putStrLn</span></code></td>
+<td><code class="highlight"><span class="nf">putStrLn</span><span class="w"></span></code></td>
 <td>Escreve uma string na tela e quebra a linha.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="binding"><em>binding</em></h2>
-<p>Uma vez que tenha visto estas funções, é natural que queira escrever algo como <code class="highlight"><span class="nf">nome</span> <span class="ow">=</span> <span class="n">getLine</span></code>, mas isso não terá o efeito que você espera.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">nome</span> <span class="ow">=</span> <span class="n">getLine</span>
-<span class="linenos" data-linenos=" 2 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">nome</span>
-<span class="linenos" data-linenos=" 3 "></span><span class="nf">lalala</span>
-<span class="linenos" data-linenos=" 4 "></span><span class="s">&quot;lalala&quot;</span>
-<span class="linenos" data-linenos=" 5 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">putStr</span> <span class="n">nome</span>
+<p>Uma vez que tenha visto estas funções, é natural que queira escrever algo como <code class="highlight"><span class="nf">nome</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">getLine</span><span class="w"></span></code>, mas isso não terá o efeito que você espera.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nome</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">getLine</span><span class="w"></span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kt">Prelude</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nome</span><span class="w"></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nf">lalala</span><span class="w"></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="s">&quot;lalala&quot;</span><span class="w"></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="kt">Prelude</span><span class="o">&gt;</span><span class="w"> </span><span class="n">putStr</span><span class="w"> </span><span class="n">nome</span><span class="w"></span>
 <span class="linenos" data-linenos=" 6 "></span>
-<span class="linenos" data-linenos=" 7 "></span><span class="o">&lt;</span><span class="n">interactive</span><span class="o">&gt;:</span><span class="mi">11</span><span class="kt">:</span><span class="mi">8</span><span class="kt">:</span> <span class="ne">error</span><span class="kt">:</span>
-<span class="linenos" data-linenos=" 8 "></span>    <span class="err">•</span> <span class="kt">Couldn&#39;t</span> <span class="n">match</span> <span class="kr">type</span> <span class="err">‘</span><span class="kt">IO</span> <span class="kt">String</span><span class="err">’</span> <span class="n">with</span> <span class="err">‘</span><span class="p">[</span><span class="kt">Char</span><span class="p">]</span><span class="err">’</span>
-<span class="linenos" data-linenos=" 9 "></span>      <span class="kt">Expected</span> <span class="kr">type</span><span class="kt">:</span> <span class="kt">String</span>
-<span class="linenos" data-linenos="10 "></span>        <span class="kt">Actual</span> <span class="kr">type</span><span class="kt">:</span> <span class="kt">IO</span> <span class="kt">String</span>
-<span class="linenos" data-linenos="11 "></span>    <span class="err">•</span> <span class="kt">In</span> <span class="n">the</span> <span class="n">first</span> <span class="n">argument</span> <span class="kr">of</span> <span class="err">‘</span><span class="n">putStr</span><span class="err">’</span><span class="p">,</span> <span class="n">namely</span> <span class="err">‘</span><span class="n">nome</span><span class="err">’</span>
-<span class="linenos" data-linenos="12 "></span>      <span class="kt">In</span> <span class="n">the</span> <span class="n">expression</span><span class="kt">:</span> <span class="n">putStr</span> <span class="n">nome</span>
-<span class="linenos" data-linenos="13 "></span>      <span class="kt">In</span> <span class="n">an</span> <span class="n">equation</span> <span class="n">for</span> <span class="err">‘</span><span class="n">it</span><span class="err">’</span><span class="kt">:</span> <span class="n">it</span> <span class="ow">=</span> <span class="n">putStr</span> <span class="n">nome</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="o">&lt;</span><span class="n">interactive</span><span class="o">&gt;:</span><span class="mi">11</span><span class="kt">:</span><span class="mi">8</span><span class="kt">:</span><span class="w"> </span><span class="ne">error</span><span class="kt">:</span><span class="w"></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="w">    </span><span class="err">•</span><span class="w"> </span><span class="kt">Couldn&#39;t</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="err">‘</span><span class="kt">IO</span><span class="w"> </span><span class="kt">String</span><span class="err">’</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="err">‘</span><span class="p">[</span><span class="kt">Char</span><span class="p">]</span><span class="err">’</span><span class="w"></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="w">      </span><span class="kt">Expected</span><span class="w"> </span><span class="kr">type</span><span class="kt">:</span><span class="w"> </span><span class="kt">String</span><span class="w"></span>
+<span class="linenos" data-linenos="10 "></span><span class="w">        </span><span class="kt">Actual</span><span class="w"> </span><span class="kr">type</span><span class="kt">:</span><span class="w"> </span><span class="kt">IO</span><span class="w"> </span><span class="kt">String</span><span class="w"></span>
+<span class="linenos" data-linenos="11 "></span><span class="w">    </span><span class="err">•</span><span class="w"> </span><span class="kt">In</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="kr">of</span><span class="w"> </span><span class="err">‘</span><span class="n">putStr</span><span class="err">’</span><span class="p">,</span><span class="w"> </span><span class="n">namely</span><span class="w"> </span><span class="err">‘</span><span class="n">nome</span><span class="err">’</span><span class="w"></span>
+<span class="linenos" data-linenos="12 "></span><span class="w">      </span><span class="kt">In</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">expression</span><span class="kt">:</span><span class="w"> </span><span class="n">putStr</span><span class="w"> </span><span class="n">nome</span><span class="w"></span>
+<span class="linenos" data-linenos="13 "></span><span class="w">      </span><span class="kt">In</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">equation</span><span class="w"> </span><span class="n">for</span><span class="w"> </span><span class="err">‘</span><span class="n">it</span><span class="err">’</span><span class="kt">:</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">putStr</span><span class="w"> </span><span class="n">nome</span><span class="w"></span>
 </code></pre></div>
-<p>O que aconteceu no exemplo acima foi que a ação <code class="highlight"><span class="nf">getLine</span></code> foi atribuída a <code class="highlight"><span class="nf">nome</span></code>, não uma string.
-Para fazer o que você quer, isto é, executar uma ação e atribuir o seu resultado a uma variável, precisamos usar o operador <code class="highlight"><span class="ow">&lt;-</span></code>.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">nome</span> <span class="ow">&lt;-</span> <span class="n">getLine</span>
-<span class="linenos" data-linenos="2 "></span><span class="nf">lala</span>
-<span class="linenos" data-linenos="3 "></span><span class="kt">Prelude</span><span class="o">&gt;</span> <span class="n">print</span> <span class="n">nome</span>
-<span class="linenos" data-linenos="4 "></span><span class="s">&quot;lala&quot;</span>
+<p>O que aconteceu no exemplo acima foi que a ação <code class="highlight"><span class="nf">getLine</span><span class="w"></span></code> foi atribuída a <code class="highlight"><span class="nf">nome</span><span class="w"></span></code>, não uma string.
+Para fazer o que você quer, isto é, executar uma ação e atribuir o seu resultado a uma variável, precisamos usar o operador <code class="highlight"><span class="ow">&lt;-</span><span class="w"></span></code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">Prelude</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nome</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">getLine</span><span class="w"></span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">lala</span><span class="w"></span>
+<span class="linenos" data-linenos="3 "></span><span class="kt">Prelude</span><span class="o">&gt;</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">nome</span><span class="w"></span>
+<span class="linenos" data-linenos="4 "></span><span class="s">&quot;lala&quot;</span><span class="w"></span>
 </code></pre></div>
-<p>Dizemos que o operador <code class="highlight"><span class="ow">&lt;-</span></code> faz o <em>binding</em> (atrelamento) do valor à variável.</p>
-<h2 id="io"><code class="highlight"><span class="kt">IO</span></code></h2>
-<p>Se explorarmos o tipo das ações veremos que elas não tem retorno como esperaríamos, por exemplo, <code class="highlight"><span class="nf">getLine</span></code> tem tipo  <code class="highlight"><span class="nf">getLine</span> <span class="ow">::</span> <span class="kt">IO</span> <span class="kt">String</span></code>.
-O <code class="highlight"><span class="kt">IO</span></code> no tipo do resultado é um tipo algébrico que encapsula o resultado da ação, mas diferenciar a ação de outras funções que resultem em <code class="highlight"><span class="kt">String</span></code>.</p>
-<p>Todas as ações retornam um <code class="highlight"><span class="kt">IO</span> <span class="n">a</span></code>, onde <code class="highlight"><span class="nf">a</span></code> é uma variável de tipo, mesmo aquelas que não retornam nada de útil, como a ação <code class="highlight"><span class="nf">putChar</span></code>, que resulta em <code class="highlight"><span class="nf">putChar</span> <span class="ow">::</span> <span class="kt">Char</span> <span class="ow">-&gt;</span> <span class="kt">IO</span> <span class="nb">()</span></code>, isto é, o encapsulamento da tupla vazia (também conhecida como <em>Unit</em>).</p>
+<p>Dizemos que o operador <code class="highlight"><span class="ow">&lt;-</span><span class="w"></span></code> faz o <em>binding</em> (atrelamento) do valor à variável.</p>
+<h2 id="io"><code class="highlight"><span class="kt">IO</span><span class="w"></span></code></h2>
+<p>Se explorarmos o tipo das ações veremos que elas não tem retorno como esperaríamos, por exemplo, <code class="highlight"><span class="nf">getLine</span><span class="w"></span></code> tem tipo  <code class="highlight"><span class="nf">getLine</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">IO</span><span class="w"> </span><span class="kt">String</span><span class="w"></span></code>.
+O <code class="highlight"><span class="kt">IO</span><span class="w"></span></code> no tipo do resultado é um tipo algébrico que encapsula o resultado da ação, mas diferenciar a ação de outras funções que resultem em <code class="highlight"><span class="kt">String</span><span class="w"></span></code>.</p>
+<p>Todas as ações retornam um <code class="highlight"><span class="kt">IO</span><span class="w"> </span><span class="n">a</span><span class="w"></span></code>, onde <code class="highlight"><span class="nf">a</span><span class="w"></span></code> é uma variável de tipo, mesmo aquelas que não retornam nada de útil, como a ação <code class="highlight"><span class="nf">putChar</span><span class="w"></span></code>, que resulta em <code class="highlight"><span class="nf">putChar</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Char</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">IO</span><span class="w"> </span><span class="nb">()</span><span class="w"></span></code>, isto é, o encapsulamento da tupla vazia (também conhecida como <em>Unit</em>).</p>
 <p>Mas por quê esta diferenciação? Para marcar funções <strong>impuras</strong> e separá-las das funções <strong>puras</strong>.
 Este estigma de uma função impura serve para que o compilador Haskell determine quando a ação pode executar e quando não pode, sendo que uma função impura só pode executar dentro de outra função impura.
 Isso quer dizer que eu não consigo fazer uma ação de E/S e retornar somente o resultado desta ação, como em </p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">lêNomePura</span> <span class="ow">::</span> <span class="kt">String</span>
-<span class="linenos" data-linenos="2 "></span><span class="nf">lêNomePura</span> <span class="ow">=</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">getLine</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">lêNomePura</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">String</span><span class="w"></span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">lêNomePura</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">getLine</span><span class="w"></span>
 </code></pre></div>
 <p>Na verdade, este código nem compila, pois o que é o resultado da expressão à direita na equação? Na verdade, ela nem é uma expressão.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">getLine</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span><span class="w"> </span><span class="kt">:</span><span class="n">t</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">getLine</span><span class="w"></span>
 <span class="linenos" data-linenos="2 "></span>
-<span class="linenos" data-linenos="3 "></span><span class="o">&lt;</span><span class="n">no</span> <span class="n">location</span> <span class="n">info</span><span class="o">&gt;:</span> <span class="ne">error</span><span class="kt">:</span> <span class="n">not</span> <span class="n">an</span> <span class="n">expression</span><span class="kt">:</span> <span class="err">‘</span><span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">getLine</span><span class="err">’</span>
+<span class="linenos" data-linenos="3 "></span><span class="o">&lt;</span><span class="n">no</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="n">info</span><span class="o">&gt;:</span><span class="w"> </span><span class="ne">error</span><span class="kt">:</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">expression</span><span class="kt">:</span><span class="w"> </span><span class="err">‘</span><span class="n">x</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">getLine</span><span class="err">’</span><span class="w"></span>
 </code></pre></div>
-<p>Uma outra tentativa seria a seguinte. Mas como vimos, este código não executa a ação, apenas dá outro nome para ação <code class="highlight"><span class="nf">getLine</span></code>.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">lêNomeImpura</span> <span class="ow">::</span> <span class="kt">IO</span> <span class="kt">String</span>
-<span class="linenos" data-linenos="2 "></span><span class="nf">lêNomeImpura</span> <span class="ow">=</span> <span class="n">getLine</span>
+<p>Uma outra tentativa seria a seguinte. Mas como vimos, este código não executa a ação, apenas dá outro nome para ação <code class="highlight"><span class="nf">getLine</span><span class="w"></span></code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">lêNomeImpura</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">IO</span><span class="w"> </span><span class="kt">String</span><span class="w"></span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">lêNomeImpura</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">getLine</span><span class="w"></span>
 </code></pre></div>
-<h2 id="do"><code class="highlight"><span class="kr">do</span></code></h2>
+<h2 id="do"><code class="highlight"><span class="kr">do</span><span class="w"></span></code></h2>
 <p>O problema aqui é que você não está descrevendo como um cálculo acontece, mas dizendo ao processo que execute ações.
 Isso está muito mais para o paradigma imperativo que para o funcional.
-E de fato, para executar ações, você precisara usar o modo imperativo do Haskell, usando <code class="highlight"><span class="kr">do</span></code>.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">lêNomeImpura&#39;</span> <span class="ow">::</span> <span class="kt">IO</span> <span class="kt">String</span>
-<span class="linenos" data-linenos="2 "></span><span class="nf">lêNomeImpura&#39;</span> <span class="ow">=</span> <span class="kr">do</span>
-<span class="linenos" data-linenos="3 "></span>                    <span class="n">putStr</span> <span class="s">&quot;Digite o seu nome&quot;</span>
-<span class="linenos" data-linenos="4 "></span>                    <span class="n">getLine</span>
+E de fato, para executar ações, você precisara usar o modo imperativo do Haskell, usando <code class="highlight"><span class="kr">do</span><span class="w"></span></code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">lêNomeImpura&#39;</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">IO</span><span class="w"> </span><span class="kt">String</span><span class="w"></span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">lêNomeImpura&#39;</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="linenos" data-linenos="3 "></span><span class="w">                    </span><span class="n">putStr</span><span class="w"> </span><span class="s">&quot;Digite o seu nome&quot;</span><span class="w"></span>
+<span class="linenos" data-linenos="4 "></span><span class="w">                    </span><span class="n">getLine</span><span class="w"></span>
 </code></pre></div>
-<p>O modo imperativo essencialmente diz que as ações devem ser executadas na ordem em que foram definidas e que o resultado do bloco é o resultado da última ação do bloco, neste exemplo, <code class="highlight"><span class="nf">getLine</span></code>.</p>
-<h2 id="return"><code class="highlight"><span class="nf">return</span></code></h2>
-<p>Nem sempre o resultado será gerado pela última ação, e neste caso você terá que construir o resultado manualmente, como no código a seguir, usando um <code class="highlight"><span class="nf">return</span></code> no final.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">lêNomeImpura&#39;</span> <span class="ow">::</span> <span class="kt">IO</span> <span class="kt">String</span>
-<span class="linenos" data-linenos="2 "></span><span class="nf">lêNomeImpura&#39;</span> <span class="ow">=</span> <span class="kr">do</span>
-<span class="linenos" data-linenos="3 "></span>                    <span class="n">putStr</span> <span class="s">&quot;Digite o seu nome&quot;</span>
-<span class="linenos" data-linenos="4 "></span>                    <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">getLine</span>
-<span class="linenos" data-linenos="5 "></span>                    <span class="n">putStr</span> <span class="s">&quot;Obrigado&quot;</span>
-<span class="linenos" data-linenos="6 "></span>                    <span class="n">return</span> <span class="p">(</span><span class="s">&quot;O nome é : &quot;</span> <span class="o">++</span> <span class="n">x</span><span class="p">)</span>
+<p>O modo imperativo essencialmente diz que as ações devem ser executadas na ordem em que foram definidas e que o resultado do bloco é o resultado da última ação do bloco, neste exemplo, <code class="highlight"><span class="nf">getLine</span><span class="w"></span></code>.</p>
+<h2 id="return"><code class="highlight"><span class="nf">return</span><span class="w"></span></code></h2>
+<p>Nem sempre o resultado será gerado pela última ação, e neste caso você terá que construir o resultado manualmente, como no código a seguir, usando um <code class="highlight"><span class="nf">return</span><span class="w"></span></code> no final.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">lêNomeImpura&#39;</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">IO</span><span class="w"> </span><span class="kt">String</span><span class="w"></span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">lêNomeImpura&#39;</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="linenos" data-linenos="3 "></span><span class="w">                    </span><span class="n">putStr</span><span class="w"> </span><span class="s">&quot;Digite o seu nome&quot;</span><span class="w"></span>
+<span class="linenos" data-linenos="4 "></span><span class="w">                    </span><span class="n">x</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">getLine</span><span class="w"></span>
+<span class="linenos" data-linenos="5 "></span><span class="w">                    </span><span class="n">putStr</span><span class="w"> </span><span class="s">&quot;Obrigado&quot;</span><span class="w"></span>
+<span class="linenos" data-linenos="6 "></span><span class="w">                    </span><span class="n">return</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;O nome é : &quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
-<p>O <code class="highlight"><span class="nf">return</span></code> pode causar confusão, pois ele não faz o que você imagina. O que ele faz é construir um valor do tipo <code class="highlight"><span class="kt">IO</span></code> com o valor passado, e que pode ser usado como resposta para o bloco.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">return</span> <span class="mi">3</span>
-<span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span> <span class="n">x</span>
-<span class="linenos" data-linenos="3 "></span><span class="mi">3</span>
-<span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span> <span class="kt">:</span><span class="n">t</span> <span class="n">x</span>
-<span class="linenos" data-linenos="5 "></span><span class="nf">x</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Monad</span> <span class="n">m</span><span class="p">,</span> <span class="kt">Num</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="n">m</span> <span class="n">a</span>
+<p>O <code class="highlight"><span class="nf">return</span><span class="w"></span></code> pode causar confusão, pois ele não faz o que você imagina. O que ele faz é construir um valor do tipo <code class="highlight"><span class="kt">IO</span><span class="w"></span></code> com o valor passado, e que pode ser usado como resposta para o bloco.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="linenos" data-linenos="2 "></span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"></span>
+<span class="linenos" data-linenos="3 "></span><span class="mi">3</span><span class="w"></span>
+<span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span><span class="w"> </span><span class="kt">:</span><span class="n">t</span><span class="w"> </span><span class="n">x</span><span class="w"></span>
+<span class="linenos" data-linenos="5 "></span><span class="nf">x</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">(</span><span class="kt">Monad</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="kt">Num</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
 </code></pre></div>
 <h2 id="let-in">let <sub>in</sub></h2>
 <p>Frequentemente você precisará intercalar código puro com código não puro, como no exemplo <strong>incorreto</strong> a seguir.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kr">import</span> <span class="nn">Data.Char</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kr">import</span><span class="w"> </span><span class="nn">Data.Char</span><span class="w"></span>
 <span class="linenos" data-linenos="2 "></span>
-<span class="linenos" data-linenos="3 "></span><span class="nf">main</span> <span class="ow">=</span> <span class="kr">do</span>
-<span class="linenos" data-linenos="4 "></span>        <span class="n">putStrLn</span> <span class="s">&quot;Digite seu nome: &quot;</span>
-<span class="linenos" data-linenos="5 "></span>        <span class="n">nome</span> <span class="ow">&lt;-</span> <span class="n">getLine</span>
-<span class="linenos" data-linenos="6 "></span>        <span class="n">nomeMaiúsculo</span> <span class="ow">=</span> <span class="n">map</span> <span class="n">toUpper</span> <span class="n">nome</span>
-<span class="linenos" data-linenos="7 "></span>        <span class="n">nomeMinúsculo</span> <span class="ow">=</span> <span class="n">map</span> <span class="n">toLower</span> <span class="n">nome</span>
-<span class="linenos" data-linenos="8 "></span>        <span class="n">putStrLn</span> <span class="o">$</span> <span class="s">&quot;Olá. Seu nome em letras maiúsculas é &quot;</span> <span class="o">++</span> <span class="n">nomeMaiúsculo</span> <span class="o">++</span> <span class="s">&quot; e em letras minúsculas é &quot;</span> <span class="o">++</span> <span class="n">nomeMinúsculo</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">main</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="linenos" data-linenos="4 "></span><span class="w">        </span><span class="n">putStrLn</span><span class="w"> </span><span class="s">&quot;Digite seu nome: &quot;</span><span class="w"></span>
+<span class="linenos" data-linenos="5 "></span><span class="w">        </span><span class="n">nome</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">getLine</span><span class="w"></span>
+<span class="linenos" data-linenos="6 "></span><span class="w">        </span><span class="n">nomeMaiúsculo</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="n">toUpper</span><span class="w"> </span><span class="n">nome</span><span class="w"></span>
+<span class="linenos" data-linenos="7 "></span><span class="w">        </span><span class="n">nomeMinúsculo</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="n">toLower</span><span class="w"> </span><span class="n">nome</span><span class="w"></span>
+<span class="linenos" data-linenos="8 "></span><span class="w">        </span><span class="n">putStrLn</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="s">&quot;Olá. Seu nome em letras maiúsculas é &quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">nomeMaiúsculo</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">&quot; e em letras minúsculas é &quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">nomeMinúsculo</span><span class="w"></span>
 </code></pre></div>
 <p>Este exemplo, embora se assemelhe ao que outras linguagens fazem, não é correto em Haskell pois o código puro não pode ser invocado de forma imperativa, pois códigos puros são definições de equações, não instruções de execução.
-A forma apropriada para fazer as definições de <code class="highlight"><span class="nf">nomeMaiúsculo</span></code> e <code class="highlight"><span class="nf">nomeMinúsculo</span></code> de forma que sejam usáveis na invocação de <code class="highlight"><span class="nf">putStrLn</span></code> é via <code class="highlight"><span class="kr">let</span></code> e <code class="highlight"><span class="kr">in</span></code>; bom, neste caso, como o contexto do <code class="highlight"><span class="kr">let</span></code> é bem claro, o <code class="highlight"><span class="kr">in</span></code> é omitido.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kr">import</span> <span class="nn">Data.Char</span>
+A forma apropriada para fazer as definições de <code class="highlight"><span class="nf">nomeMaiúsculo</span><span class="w"></span></code> e <code class="highlight"><span class="nf">nomeMinúsculo</span><span class="w"></span></code> de forma que sejam usáveis na invocação de <code class="highlight"><span class="nf">putStrLn</span><span class="w"></span></code> é via <code class="highlight"><span class="kr">let</span><span class="w"></span></code> e <code class="highlight"><span class="kr">in</span><span class="w"></span></code>; bom, neste caso, como o contexto do <code class="highlight"><span class="kr">let</span><span class="w"></span></code> é bem claro, o <code class="highlight"><span class="kr">in</span><span class="w"></span></code> é omitido.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kr">import</span><span class="w"> </span><span class="nn">Data.Char</span><span class="w"></span>
 <span class="linenos" data-linenos="2 "></span>
-<span class="linenos" data-linenos="3 "></span><span class="nf">main</span> <span class="ow">=</span> <span class="kr">do</span>
-<span class="linenos" data-linenos="4 "></span>        <span class="n">putStrLn</span> <span class="s">&quot;Digite seu nome: &quot;</span>
-<span class="linenos" data-linenos="5 "></span>        <span class="n">nome</span> <span class="ow">&lt;-</span> <span class="n">getLine</span>
-<span class="linenos" data-linenos="6 "></span>        <span class="kr">let</span> <span class="n">nomeMaiúsculo</span> <span class="ow">=</span> <span class="n">map</span> <span class="n">toUpper</span> <span class="n">nome</span>
-<span class="linenos" data-linenos="7 "></span>            <span class="n">nomeMinúsculo</span> <span class="ow">=</span> <span class="n">map</span> <span class="n">toLower</span> <span class="n">nome</span>
-<span class="linenos" data-linenos="8 "></span>        <span class="n">putStrLn</span> <span class="o">$</span> <span class="s">&quot;Olá. Seu nome em letras maiúsculas é &quot;</span> <span class="o">++</span> <span class="n">nomeMaiúsculo</span> <span class="o">++</span> <span class="s">&quot; e em letras minúsculas é &quot;</span> <span class="o">++</span> <span class="n">nomeMinúsculo</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">main</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="linenos" data-linenos="4 "></span><span class="w">        </span><span class="n">putStrLn</span><span class="w"> </span><span class="s">&quot;Digite seu nome: &quot;</span><span class="w"></span>
+<span class="linenos" data-linenos="5 "></span><span class="w">        </span><span class="n">nome</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">getLine</span><span class="w"></span>
+<span class="linenos" data-linenos="6 "></span><span class="w">        </span><span class="kr">let</span><span class="w"> </span><span class="n">nomeMaiúsculo</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="n">toUpper</span><span class="w"> </span><span class="n">nome</span><span class="w"></span>
+<span class="linenos" data-linenos="7 "></span><span class="w">            </span><span class="n">nomeMinúsculo</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="n">toLower</span><span class="w"> </span><span class="n">nome</span><span class="w"></span>
+<span class="linenos" data-linenos="8 "></span><span class="w">        </span><span class="n">putStrLn</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="s">&quot;Olá. Seu nome em letras maiúsculas é &quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">nomeMaiúsculo</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="s">&quot; e em letras minúsculas é &quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">nomeMinúsculo</span><span class="w"></span>
 </code></pre></div>
-<h2 id="main"><code class="highlight"><span class="nf">main</span></code></h2>
+<h2 id="main"><code class="highlight"><span class="nf">main</span><span class="w"></span></code></h2>
 <p>Até agora temos usado as funções que escrevemos apenas dentro do GHCi, de modo interpretado, o que demanda uma instalação do interpretador.
 Quando escrevemos um programa para ser executado em outras máquinas, normalmente queremos que ele seja um executável auto-contido, isto é, que execute independentemente de haver ou não um interpretador Haskell em tais máquinas.
 Para isso, devemos <strong>compilar</strong> o programa e gerar um arquivo executável.</p>
-<p>Quando compilamos um programa Haskell, este deve ter uma função <code class="highlight"><span class="nf">main</span></code> (em um módulo que dever explicitamente denominado <code class="highlight"><span class="kt">Main</span></code>, caso tenha mais de um módulo), e que será sempre a função invocada quando o executável for invocado.
-Como ações de E/S só podem ser executadas dentro de outras ações de E/S, a função <code class="highlight"><span class="nf">main</span></code> deve ser uma ação E/S também.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">main</span> <span class="ow">::</span> <span class="kt">IO</span> <span class="nb">()</span>
-<span class="linenos" data-linenos="2 "></span><span class="nf">main</span> <span class="ow">=</span> <span class="kr">do</span>
-<span class="linenos" data-linenos="3 "></span>        <span class="n">putStrLn</span> <span class="s">&quot;Digite seu nome: &quot;</span>
-<span class="linenos" data-linenos="4 "></span>        <span class="n">nome</span> <span class="ow">&lt;-</span> <span class="n">getLine</span>
-<span class="linenos" data-linenos="5 "></span>        <span class="n">putStrLn</span> <span class="o">$</span> <span class="s">&quot;Olá, &quot;</span> <span class="o">++</span> <span class="n">nome</span>
+<p>Quando compilamos um programa Haskell, este deve ter uma função <code class="highlight"><span class="nf">main</span><span class="w"></span></code> (em um módulo que dever explicitamente denominado <code class="highlight"><span class="kt">Main</span><span class="w"></span></code>, caso tenha mais de um módulo), e que será sempre a função invocada quando o executável for invocado.
+Como ações de E/S só podem ser executadas dentro de outras ações de E/S, a função <code class="highlight"><span class="nf">main</span><span class="w"></span></code> deve ser uma ação E/S também.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">main</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">IO</span><span class="w"> </span><span class="nb">()</span><span class="w"></span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">main</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span><span class="w"></span>
+<span class="linenos" data-linenos="3 "></span><span class="w">        </span><span class="n">putStrLn</span><span class="w"> </span><span class="s">&quot;Digite seu nome: &quot;</span><span class="w"></span>
+<span class="linenos" data-linenos="4 "></span><span class="w">        </span><span class="n">nome</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">getLine</span><span class="w"></span>
+<span class="linenos" data-linenos="5 "></span><span class="w">        </span><span class="n">putStrLn</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="s">&quot;Olá, &quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">nome</span><span class="w"></span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>&gt;&gt; ghc --make main.hs
 <span class="linenos" data-linenos="2 "></span>[1 of 1] Compiling Main             ( main.hs, main.o )
@@ -1563,36 +1559,32 @@ Como ações de E/S só podem ser executadas dentro de outras ações de E/S, a 
 <span class="linenos" data-linenos="6 "></span>Asdrubalino
 <span class="linenos" data-linenos="7 "></span>Olá, Asdrubalino
 </code></pre></div>
-<h2 id="do-e-acucar-sintatico"><code class="highlight"><span class="kr">do</span></code> é açúcar sintático</h2>
-<details class="todo"><summary>TODO</summary><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">main</span> <span class="ow">=</span> <span class="kr">do</span> <span class="n">print</span> <span class="s">&quot;lala&quot;</span>
-<span class="linenos" data-linenos="2 "></span>          <span class="n">print</span> <span class="s">&quot;lele&quot;</span>
-<span class="linenos" data-linenos="3 "></span>          <span class="n">print</span> <span class="s">&quot;lili&quot;</span>
+<h2 id="do-e-acucar-sintatico"><code class="highlight"><span class="kr">do</span><span class="w"></span></code> é açúcar sintático</h2>
+<details class="todo">
+<summary>TODO</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">main</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="s">&quot;lala&quot;</span><span class="w"></span>
+<span class="linenos" data-linenos="2 "></span><span class="w">          </span><span class="n">print</span><span class="w"> </span><span class="s">&quot;lele&quot;</span><span class="w"></span>
+<span class="linenos" data-linenos="3 "></span><span class="w">          </span><span class="n">print</span><span class="w"> </span><span class="s">&quot;lili&quot;</span><span class="w"></span>
 <span class="linenos" data-linenos="4 "></span>
-<span class="linenos" data-linenos="5 "></span><span class="nf">main</span> <span class="ow">=</span> <span class="n">print</span> <span class="s">&quot;lala&quot;</span> <span class="o">&gt;&gt;</span> <span class="n">print</span> <span class="s">&quot;lele&quot;</span> <span class="o">&gt;&gt;</span> <span class="n">print</span> <span class="s">&quot;lili&quot;</span>
+<span class="linenos" data-linenos="5 "></span><span class="nf">main</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="s">&quot;lala&quot;</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="s">&quot;lele&quot;</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="s">&quot;lili&quot;</span><span class="w"></span>
 </code></pre></div>
 </details>
 <h2 id="funcoes-uteis">Funções úteis</h2>
 <ul>
-<li><code class="highlight"><span class="nf">sequence_</span> <span class="ow">::</span> <span class="p">[</span><span class="kt">IO</span> <span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">IO</span> <span class="nb">()</span></code></li>
-<li><code class="highlight"><span class="nf">sequence</span>  <span class="ow">::</span> <span class="p">[</span><span class="kt">IO</span> <span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">IO</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span></code> </li>
+<li><code class="highlight"><span class="nf">sequence_</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">[</span><span class="kt">IO</span><span class="w"> </span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">IO</span><span class="w"> </span><span class="nb">()</span><span class="w"></span></code></li>
+<li><code class="highlight"><span class="nf">sequence</span><span class="w">  </span><span class="ow">::</span><span class="w"> </span><span class="p">[</span><span class="kt">IO</span><span class="w"> </span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">IO</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"></span></code> </li>
 </ul>
 
   <!-- Last update of source file -->
 
 
-              
-                
-
-
-              
             </article>
           </div>
         </div>
         
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
     <nav class="md-footer__inner md-grid" aria-label="Rodapé">
       
@@ -1631,31 +1623,30 @@ Como ações de E/S só podem ser executadas dentro de outras ações de E/S, a 
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            Copyright © 2021 Lásaro Camargos
-          </div>
-        
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-            Material for MkDocs
-          </a>
-        
-        
-      </div>
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2021 Lásaro Camargos
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
-  <div class="md-footer-social">
+        <div class="md-social">
+  
     
-      
-      
-      <a href="https://github.com/lasarojc/ds_notes" target="_blank" rel="noopener" title="These notes on Github" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-      </a>
     
-  </div>
-
+    <a href="https://github.com/lasarojc/ds_notes" target="_blank" rel="noopener" title="These notes on Github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
     </div>
   </div>
 </footer>
@@ -1664,10 +1655,10 @@ Como ações de E/S só podem ser executadas dentro de outras ações de E/S, a 
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "navigation.indexes", "navigation.tracking"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../../assets/javascripts/workers/search.e99e714c.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "navigation.indexes", "navigation.tracking"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../../assets/javascripts/workers/search.092fa1f6.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.bc35569b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e3b2bf44.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       

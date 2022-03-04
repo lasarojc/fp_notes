@@ -10,9 +10,8 @@
       
       
       
-      
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.10">
     
     
       
@@ -20,10 +19,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.24c991ad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.d6be258b.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -33,25 +32,23 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
-    
     
     
       <link rel="stylesheet" href="../css/extra.css">
     
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-
   
 
 
   
-
   
 
 
-  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-65TK61CS8M"),document.addEventListener("DOMContentLoaded",function(){"undefined"!=typeof location$&&location$.subscribe(function(t){gtag("config","G-65TK61CS8M",{page_path:t.pathname})})})</script>
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-65TK61CS8M"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&gtag("event","search",{search_term:this.value})}),"undefined"!=typeof location$&&location$.subscribe(function(e){gtag("config","G-65TK61CS8M",{page_path:e.pathname})})})</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-65TK61CS8M"></script>
 
 
@@ -70,9 +67,8 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
     
-    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
-      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -88,6 +84,13 @@
     <div data-md-component="announce">
       
     </div>
+    
+      <div data-md-component="outdated" hidden>
+        <aside class="md-banner md-banner--warning">
+          
+        </aside>
+      </div>
+    
     
       
 
@@ -146,8 +149,7 @@
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -181,8 +183,7 @@
     
     
       <div class="md-header__source">
-        
-<a href="https://github.com/lasarojc/fp_notes" title="Ir ao repositório" class="md-source" data-md-component="source">
+        <a href="https://github.com/lasarojc/fp_notes" title="Ir ao repositório" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -227,8 +228,7 @@
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/lasarojc/fp_notes" title="Ir ao repositório" class="md-source" data-md-component="source">
+      <a href="https://github.com/lasarojc/fp_notes" title="Ir ao repositório" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -300,7 +300,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -387,7 +386,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -502,7 +500,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -628,7 +625,6 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-            
           
             
               
@@ -723,7 +719,6 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-            
           
             
               
@@ -805,7 +800,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
             
           
             
@@ -1218,6 +1212,7 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Índice">
   
   
@@ -1250,76 +1245,90 @@
 <p>No cerne da programação funcional estão as funções. 
 Vejamos então como algumas funções bem simples, como uma função que soma os números de <code>x</code> a <code>y</code>,  podem ser definidas.
 A título de comparação, vejamos primeiro a função em linguagem C.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">int</span> <span class="nf">soma</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="kt">int</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="linenos" data-linenos="3 "></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-<span class="linenos" data-linenos="4 "></span>        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">i</span><span class="p">;</span>
-<span class="linenos" data-linenos="5 "></span>    <span class="k">return</span> <span class="n">total</span><span class="p">;</span>
-<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kt">int</span><span class="w"> </span><span class="nf">soma</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos" data-linenos="3 "></span><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="linenos" data-linenos="4 "></span><span class="w">        </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="linenos" data-linenos="5 "></span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">total</span><span class="p">;</span><span class="w"></span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>Em Haskell, temos diversas opções para obter o mesmo resultado, por exemplo, usando uma função recursiva, cuja definição deve ser clara para você, mesmo se esta for a primeira vez que vê um código em Haskell.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">somaDeAte</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="kr">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span>
-<span class="linenos" data-linenos="2 "></span>                <span class="kr">then</span> <span class="n">x</span> <span class="o">+</span> <span class="n">somaDeAte</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="n">y</span>
-<span class="linenos" data-linenos="3 "></span>                <span class="kr">else</span> <span class="n">x</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">somaDeAte</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
+<span class="linenos" data-linenos="2 "></span><span class="w">                </span><span class="kr">then</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">somaDeAte</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
+<span class="linenos" data-linenos="3 "></span><span class="w">                </span><span class="kr">else</span><span class="w"> </span><span class="n">x</span><span class="w"></span>
 </code></pre></div>
-<p>Observe que a sintaxe do <strong>uso</strong> das funções, contudo, é atípica. Enquanto a função em C é invocada como <code class="highlight"><span class="n">soma</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span></code>, em Haskell, usa-se o nome da função, seguido dos parâmetros, com espaço os separando, isto é:<sup id="fnref:ghci"><a class="footnote-ref" href="#fn:ghci">2</a></sup></p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">somaDeAte</span> <span class="mi">1</span> <span class="mi">10</span>
-<span class="linenos" data-linenos="2 "></span><span class="mi">55</span>
+<p>Observe que a sintaxe do <strong>uso</strong> das funções, contudo, é atípica. Enquanto a função em C é invocada como <code class="highlight"><span class="n">soma</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span><span class="w"></span></code>, em Haskell, usa-se o nome da função, seguido dos parâmetros, com espaço os separando, isto é:<sup id="fnref:ghci"><a class="footnote-ref" href="#fn:ghci">2</a></sup></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span><span class="w"> </span><span class="n">somaDeAte</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">10</span><span class="w"></span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">55</span><span class="w"></span>
 </code></pre></div>
 <p>A definição de funções em Haskell é feita pela especificação de uma ou mais <strong>equações</strong>.
 Na forma mais comum de definição, do lado esquerdo da equação temos o nome da função, iniciado sempre uma <strong>letra minúscula</strong>, e seguido por um ou mais parâmetros formais, todos iniciados também por <strong>letras minúsculas</strong>. 
 A convenção é que funções e parâmetros sejam nomeados usando <a href="TODO">Camel Casing</a>.
 Já do lado direito temos definição do cálculo do resultado.</p>
-<p><code class="highlight"><span class="nf">nomeDaFunção</span> <span class="p">[</span><span class="n">par1</span> <span class="p">[</span><span class="n">par2</span> <span class="p">[</span><span class="n">par2</span><span class="p">]]]</span> <span class="ow">=</span> <span class="n">definição</span></code></p>
+<p><code class="highlight"><span class="nf">nomeDaFunção</span><span class="w"> </span><span class="p">[</span><span class="n">par1</span><span class="w"> </span><span class="p">[</span><span class="n">par2</span><span class="w"> </span><span class="p">[</span><span class="n">par2</span><span class="p">]]]</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">definição</span><span class="w"></span></code></p>
 <p>Por exemplo, consideremos uma função que soma dois números.</p>
 <p><img alt="Função" src="../drawings/function.drawio-3.svg" /></p>
-<p>Em Haskell, ela é definida simplesmente como <code class="highlight"><span class="nf">soma</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span></code> e usada como <code class="highlight"><span class="nf">soma</span> <span class="mi">3</span> <span class="mi">5</span></code>.
-De forma semelhante, uma função que multiplica três números é definida como <code class="highlight"><span class="nf">mult3</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="o">*</span> <span class="n">z</span></code> e invocada como a seguir.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">mult3</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span>
-<span class="linenos" data-linenos="2 "></span><span class="mi">24</span>
+<p>Em Haskell, ela é definida simplesmente como <code class="highlight"><span class="nf">soma</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"></span></code> e usada como <code class="highlight"><span class="nf">soma</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">5</span><span class="w"></span></code>.
+De forma semelhante, uma função que multiplica três números é definida como <code class="highlight"><span class="nf">mult3</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">z</span><span class="w"></span></code> e invocada como a seguir.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span><span class="w"> </span><span class="n">mult3</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">24</span><span class="w"></span>
 </code></pre></div>
-<details class="exercise"><summary>Exercício: Soma</summary><ul>
+<details class="exercise">
+<summary>Exercício: Soma</summary>
+<ul>
 <li>Defina a função soma e use-a, de acordo com a imagem.<sup id="fnref:replit2"><a class="footnote-ref" href="#fn:replit2">1</a></sup></li>
 </ul>
 <p><img alt="Exercício" src="../images/exe1.png" /></p>
 </details>
-<p>Como outro exemplo, definamos uma função que retorna o sucessor de um inteiro como <code class="highlight"><span class="nf">sucessor</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span></code>.
+<p>Como outro exemplo, definamos uma função que retorna o sucessor de um inteiro como <code class="highlight"><span class="nf">sucessor</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span></code>.
 Com estas funções podemos, inclusive, compor funções no melhor estilo <span class="arithmatex">\(g(f(x))\)</span>, por exemplo: </p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span> <span class="n">sucessor</span> <span class="p">(</span><span class="n">soma</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">)</span>
-<span class="linenos" data-linenos="2 "></span><span class="mi">8</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&gt;</span><span class="w"> </span><span class="n">sucessor</span><span class="w"> </span><span class="p">(</span><span class="n">soma</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"></span>
+<span class="linenos" data-linenos="2 "></span><span class="mi">8</span><span class="w"></span>
 <span class="linenos" data-linenos="3 "></span>
-<span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span> <span class="n">sucessor</span> <span class="p">(</span><span class="n">sucessor</span> <span class="p">(</span><span class="n">sucessor</span> <span class="mi">4</span><span class="p">))</span>
-<span class="linenos" data-linenos="5 "></span><span class="mi">7</span>
+<span class="linenos" data-linenos="4 "></span><span class="o">&gt;</span><span class="w"> </span><span class="n">sucessor</span><span class="w"> </span><span class="p">(</span><span class="n">sucessor</span><span class="w"> </span><span class="p">(</span><span class="n">sucessor</span><span class="w"> </span><span class="mi">4</span><span class="p">))</span><span class="w"></span>
+<span class="linenos" data-linenos="5 "></span><span class="mi">7</span><span class="w"></span>
 </code></pre></div>
-<details class="exercise"><summary>Exercício: Composição</summary><ul>
+<details class="exercise">
+<summary>Exercício: Composição</summary>
+<ul>
 <li>Defina uma função que multiplique 3 números, isto é, dados <span class="arithmatex">\(x\)</span>, <span class="arithmatex">\(y\)</span> e <span class="arithmatex">\(z\)</span>, calcule <span class="arithmatex">\(x*y*z\)</span>.</li>
 <li>Calcule <span class="arithmatex">\((1 + (3 * 2 * 3)) + (5 * 3 * 2)\)</span> usando as funções de soma e multiplicação definidas.</li>
 </ul>
-<details class="example"><summary>Resolução</summary><p>Defina as funções</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">soma</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<details class="example">
+<summary>Resolução</summary>
+<p>Defina as funções</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">soma</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
 <span class="linenos" data-linenos="2 "></span>
-<span class="linenos" data-linenos="3 "></span><span class="nf">mult3</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="o">*</span> <span class="n">z</span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">mult3</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">z</span><span class="w"></span>
 </code></pre></div>
-<p>Invoque <code class="highlight"><span class="nf">soma</span> <span class="p">(</span><span class="n">soma</span> <span class="mi">1</span> <span class="p">(</span><span class="n">mult3</span> <span class="mi">3</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">))</span> <span class="p">(</span><span class="n">mult3</span> <span class="mi">5</span> <span class="mi">3</span> <span class="mi">2</span><span class="p">)</span></code>. Observe que os parênteses são necessários para delimitar os parâmetros de cada uma das invocações.</p>
+<p>Invoque <code class="highlight"><span class="nf">soma</span><span class="w"> </span><span class="p">(</span><span class="n">soma</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="n">mult3</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="n">mult3</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span></code>. Observe que os parênteses são necessários para delimitar os parâmetros de cada uma das invocações.</p>
 </details>
 </details>
-<details class="exercise"><summary>Exercício: média de 3 números</summary><ul>
+<details class="exercise">
+<summary>Exercício: média de 3 números</summary>
+<ul>
 <li>Defina uma função que calcule a média de 3 números</li>
 </ul>
-<details class="example"><summary>Resolução</summary><ul>
-<li><code class="highlight"><span class="nf">media</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span></code></li>
+<details class="example">
+<summary>Resolução</summary>
+<ul>
+<li><code class="highlight"><span class="nf">media</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">z</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="w"></span></code></li>
 </ul>
 </details>
 </details>
-<details class="exercise"><summary>Exercício: área das figuras</summary><ul>
+<details class="exercise">
+<summary>Exercício: área das figuras</summary>
+<ul>
 <li>Defina uma função o cálculo da área de cada figura geométrica.</li>
 </ul>
 <p><img alt="figuras" src="../drawings/area.drawio-0.svg" /></p>
-<details class="example"><summary>Resolução</summary><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">areaQuad</span> <span class="n">a</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span>
-<span class="linenos" data-linenos="2 "></span><span class="nf">areaRet</span> <span class="n">a</span> <span class="n">b</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
-<span class="linenos" data-linenos="3 "></span><span class="nf">areaCirc</span> <span class="n">r</span> <span class="ow">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span>
-<span class="linenos" data-linenos="4 "></span><span class="nf">areaTri</span> <span class="n">a</span> <span class="n">h</span> <span class="ow">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">h</span> <span class="p">)</span><span class="o">/</span> <span class="mi">2</span>
-<span class="linenos" data-linenos="5 "></span><span class="nf">areaTra</span> <span class="n">a</span> <span class="n">b</span> <span class="n">h</span> <span class="ow">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="n">h</span>
+<details class="example">
+<summary>Resolução</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nf">areaQuad</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="linenos" data-linenos="2 "></span><span class="nf">areaRet</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
+<span class="linenos" data-linenos="3 "></span><span class="nf">areaCirc</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="w"></span>
+<span class="linenos" data-linenos="4 "></span><span class="nf">areaTri</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="p">)</span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="linenos" data-linenos="5 "></span><span class="nf">areaTra</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">h</span><span class="w"></span>
 </code></pre></div>
 </details>
 </details>
@@ -1338,19 +1347,13 @@ Com estas funções podemos, inclusive, compor funções no melhor estilo <span 
   <!-- Last update of source file -->
 
 
-              
-                
-
-
-              
             </article>
           </div>
         </div>
         
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
     <nav class="md-footer__inner md-grid" aria-label="Rodapé">
       
@@ -1389,31 +1392,30 @@ Com estas funções podemos, inclusive, compor funções no melhor estilo <span 
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            Copyright © 2021 Lásaro Camargos
-          </div>
-        
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-            Material for MkDocs
-          </a>
-        
-        
-      </div>
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2021 Lásaro Camargos
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
-  <div class="md-footer-social">
+        <div class="md-social">
+  
     
-      
-      
-      <a href="https://github.com/lasarojc/ds_notes" target="_blank" rel="noopener" title="These notes on Github" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-      </a>
     
-  </div>
-
+    <a href="https://github.com/lasarojc/ds_notes" target="_blank" rel="noopener" title="These notes on Github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
     </div>
   </div>
 </footer>
@@ -1422,10 +1424,10 @@ Com estas funções podemos, inclusive, compor funções no melhor estilo <span 
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes", "navigation.tracking"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.e99e714c.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "navigation.indexes", "navigation.tracking"], "translations": {"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "search": "../assets/javascripts/workers/search.092fa1f6.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.bc35569b.min.js"></script>
+      <script src="../assets/javascripts/bundle.e3b2bf44.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       
