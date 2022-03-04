@@ -37,8 +37,8 @@ Se você observar as funções para as listas, perceberá que todas tem uma mesm
 Graças às funções de ordem superior, você pode aproveitar este fato e criar uma função, genérica, que sirva para aplicar qualquer das transformações desejadas.
 
 Como as funções acima, nossa função genérica recebe uma lista de um tipo `#!hs a` e resultará em uma lista de um tipo `#!hs b`.
-Por iso, chamemos nossa função de `#!hs mapeie`, pois com ela mapearemos cada valor da lista de entrada para a lista de resultado. 
-Além da lista de entrada, `#!hs mapeie` mas também receberá uma função com tipo `#!hs a -> b`, a ser aplicada nas transformações.
+Por isso, chamemos nossa função de `#!hs mapeie`, pois com ela mapearemos cada valor da lista de entrada para a lista de resultado. 
+Além da lista de entrada, `#!hs mapeie` também receberá uma função com tipo `#!hs a -> b`, a ser aplicada nas transformações.
 
 ```hs
 mapeie :: (a -> b) -> [a] -> [b]
@@ -91,7 +91,7 @@ sum' (n:ns) = n + sum' ns
 ```
 Podemos pensar na função `#!hs sum'` como gerando uma expressão formada pelos elementos da lista mais o valor 0, separados pelo operador `+`, por exemplo, `#!hs sum' [1,2,3] = 1 + 2 + 3 + 0` e `#!hs sum' [7,9,14] = 7 + 9 + 14 + 0`.
 
-Observe que o valor 0 é escolhido como resultado do caso base, 0, pois ele não afeta o somatório, isto é, 0 é o elemento neutro (ou identidade) da adição.
+Observe que o valor 0 é escolhido como resultado do caso base, 0, pois ele não afeta o somatório. Isto é, 0 é o elemento neutro (ou identidade) da adição.
 
 ```hs
 product' :: [Int] -> Int
@@ -101,13 +101,13 @@ product' (n:ns) = n * product' ns
 
 No caso de `#!hs product`, embora a estrutura seja a mesma, alteramos o caso base para 1, o elemento neutro da multiplicação.
 Assim, por mais estranho que possa parecer, o produtório de uma lista vazia é definido como 1.[^product] 
-A expressão gerada pela função é semelhante, isto é, `#!hs product' [1,2,3] = 1 * 2 * 3 * 1` e `#!hs product' [7,9,14] = 7 * 9 * 14 * 1`.
+A expressão gerada pela função é semelhante à do somatório, trocando apenas o + pelo *. Isto é, `#!hs product' [1,2,3] = 1 * 2 * 3 * 1` e `#!hs product' [7,9,14] = 7 * 9 * 14 * 1`.
 
 [^product]: [Why is an empty sum 0 and an empty product 1?](https://www.johndcook.com/blog/2015/04/14/empty-sum-product/)
 
-Podemos então generalizar a função como uma recursão em que o caso genérico é a do operador especificado e o caso base retorna o elemento neutro da operação.
-O tipo da função é claro; ela deve receber um operar, que é uma função que recebe dois inteiros e retorna um inteiro, a lista de inteiros para aplicar o operador, e retornar um resultado também inteiro.
-A recursão consistirá em um caso genérico, que aplica o operador à cabeça da lista e ao resultado da invocação recursivo na cauda, e de um caso base que retorne o elemento neutro da operação. Mas como saber qual é o elemento neutro?
+Podemos então generalizar a função como recebendo um operador, que é uma função que recebe dois inteiros e retorna um inteiro, a lista de inteiros para aplicar o operador, e retornar um resultado também inteiro.
+A função é recursiva, sendo que o caso genérico aplica o operador à cabeça da lista e ao resultado da invocação recursivo na cauda.
+Já o **caso base retorna o elemento neutro** da operação.  Mas como saber qual é o elemento neutro?
 
 ```hs
 resumir :: (Int -> Int -> Int) -> [Int] -> Int
@@ -218,7 +218,7 @@ i     1
 </table>
 
 
-Pelas expressões vemos que os operadores são tratados como associativo à direita, no caso de `#!hs resumir`, e à direita, no caso de `#!hs resumir'`, e a associatividade tem implicações profundas no cálculo de uma expressão.
+Pelas expressões vemos que os operadores são tratados como associativo à direita, no caso de `#!hs resumir`, e à esquerda, no caso de `#!hs resumir'`, e a associatividade tem implicações profundas no cálculo de uma expressão.
 
 Considere a operação de multiplicação; por ser associativa, isto é, associativa à direita e à esquerda, $1*2*3*4 = ((1*2)*3)*4 = 1*(2*(3*4)) = 24$.
 
@@ -230,7 +230,7 @@ Esta diferença precisa ficar bem clara, pois estas duas funções são usadas m
 *Fold* é o termo usado para descrever a operação de dobrar a lista sobre si mesma, combinando os elementos até que só sobre um valor.
 Outro nome usado frequentemente é *reduce*, que inclusive nomeia funções semelhantes em outras linguagens.
 
-Haskell tem várias versões de *fold*, mas as duas mais básicas são `#!hs foldl` e `#!hs foldr`, sendo que diferença no nome vem do fato das funções assumirem que a função passada como parâmetro é associativa a direita (como +, *) ou a esquerda (como +, *, /, -).
+Haskell tem várias versões de *fold*, mas as duas mais básicas são `#!hs foldr` e `#!hs foldl`, sendo que diferença no nome vem do fato das funções assumirem que a função passada como parâmetro é associativa a direita (como +, *) ou a esquerda (como +, *, /, -).
 
 ```hs
 > foldr (+) 0 [1,3,5]
