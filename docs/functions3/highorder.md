@@ -338,7 +338,7 @@ Para mais detalhes, visite http://learnyouahaskell.com/functors-applicative-func
 
 ## `#!hs filter` e `#!hs all`
 A função `#!hs filter` recebe como parâmetros um predicado e uma lista e retorna como resultado um lista com todos os elementos da lista original que satisfazem ao predicado.
-Já função  `#!hs all` retorna a lista dos elementos que satisfazem ao predicado.
+Já função  `#!hs all` retorna true se todos os elementos da lista satisfazem ao predicado.
 
 Estas funções podem ser definidas e usadas como a seguir.
 
@@ -387,8 +387,8 @@ Em outras linguagens, funções são normalmente definidas com sintaxe semelhant
 Isso é verdade para C, Java, Pascal, etc.
 **Currying** é o processo pelo qual uma função deste tipo é transformada em uma função do tipo `#!hs f :: a -> ((b) -> c)`, ou seja, uma função que recebe somente um parâmetro e retorna uma outra função que recebe os demais parâmetros e retorna, ao o mesmo tipo que a primeira função.
 
-O processo pode ser feito para funções mais complexas, exatamente da mesma forma, por exemplo transformando `#!hs f :: (a,b,c) -> d` em `#!hs f :: a -> ((b,c) -> d)`, e também aplicado recursivamente levando, levando a função `#!hs f :: a -> (b -> (c -> d))`, que pode ser simplificado de forma não ambígua para `#!hs f :: a -> b -> c -> d`, que é forma usada pelo Haskell.
-Isso quer dizer que quando você define uma função em Haskell, voce especifica o tipo usando a forma *Curryed*, mesmo que defina a função da forma tradicional.
+O processo pode ser feito para funções mais complexas, exatamente da mesma forma, por exemplo transformando `#!hs f :: (a,b,c) -> d` em `#!hs f :: a -> ((b,c) -> d)`, e também aplicado recursivamente, levando à função `#!hs f :: a -> (b -> (c -> d))`, que pode ser simplificado de forma não ambígua para `#!hs f :: a -> b -> c -> d`, que é forma usada pelo Haskell.
+Isso quer dizer que quando você define uma função em Haskell, você especifica o tipo usando a forma *Curryed*, mesmo que defina a função da forma tradicional.
 Acontece que o próprio Haskell, por baixo dos panos, transforma a sua função no correspondente ao tipo, o que permite que você faça coisas muito legais, como no exemplo a seguir.
 
 ```hs
