@@ -120,7 +120,7 @@ O `#!hs return` pode causar confusão, pois ele não faz o que você imagina. O 
 x :: (Monad m, Num a) => m a
 ```
 
-## let ~in~
+## let ~~in~~
 Frequentemente você precisará intercalar código puro com código não puro, como no exemplo **incorreto** a seguir.
 
 ```hs

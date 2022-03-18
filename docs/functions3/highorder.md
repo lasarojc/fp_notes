@@ -492,7 +492,7 @@ filter even (map floor (map sqrt (filter (>100) (map (2^) [1..10]))))
 ```
 
 ???todo "TODO"
-   Imagem mostrando a resolução e evidenciando a precedência imposta pelos parênteses.
+     Imagem mostrando a resolução e evidenciando a precedência imposta pelos parênteses.
 
 Esta mesma expressão pode ser reescrita trocando-se os parênteses por 
 
@@ -505,9 +505,9 @@ Outro uso interessante está na "inversão" da função `#!hs map`. Esta funçã
 Mas como o `#!hs $`, é possível aplicar um argumento a uma lista de funções!
 
 ```hs
-map f [1,2,3,4] ==> [f 1, f 2, f 3, f 4]
+map f [1,2,3,4] ➠  [f 1, f 2, f 3, f 4]
 
-map ( $ x) [f1, f2, f3, f4] = [f1 $ x, f2 $ x, f3 $ x, f4 $ x]
+map ( $ x) [f1, f2, f3, f4]  ➠ [f1 $ x, f2 $ x, f3 $ x, f4 $ x]
 ```
 
 Por exemplo:
@@ -532,14 +532,7 @@ Em Haskell, a composição de duas funções é feita pelo operador `#!hs .`, po
 ```
 
 ###### Definição
-A definição deste operador é interessante, pois este operador é uma função de ordem superior que recebe duas funções como parâmetro e retorna uma função como resultado, construída como uma abstração lambda.
-
-```hs
-(.) :: (b -> c) -> (a -> b) -> a -> c  
-f . g = \x -> f (g x)
-```
-
-Uma definição alternativa seria a seguinte, onde o tipo do resultado fica mais explícito e em vez da função lambda, usamos uma notação simplificada para gerar a função resposta.
+A definição deste operador é interessante, pois recebe duas funções e retorna uma outra função. Primeiro, vejamos uma versão onde o operando também é passado para a função e em que o tipo do resultado fica bem explícito.
 
 ```hs
 o :: (b -> c) -> (a -> b) -> (a -> c )
@@ -551,6 +544,14 @@ o f g x = f (g x)
 -- >>> fog 3
 169
 ```
+
+Agora vejamos uma outra definição, em que o operando não é passado e o resultado é definido em termos de uam função lambda.
+
+```hs
+(.) :: (b -> c) -> (a -> b) -> a -> c  
+f . g = \x -> f (g x)
+```
+
 
 ###### Simplificação
 Sobre os usos deste operador, veja o exemplo seguinte, onde várias transformações devem ser feitas sobre a mesma lista de valores.
@@ -569,9 +570,12 @@ Este problema pode ser resolvido passando-se uma única função para o `#!hs ma
 ```hs
 > map (\xs -> negate (sum (tail xs))) [[1..5],[3..6],[1..7]]  
 [-14,-15,-27] 
+> map (\xs -> negate $ sum $ tail xs) [[1..5],[3..6],[1..7]]  
+[-14,-15,-27] 
 ```
 
 Embora o uso da função lambda tenha melhorado o desempenho, uma composição das diversas funções tem o mesmo efeito, e um código mais legível.
+Observe que nem é mais necessário especificar o parâmetro xs.
 
 ```hs
 map (negate . sum . tail) [[1..5],[3..6],[1..7]]  
