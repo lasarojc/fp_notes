@@ -227,10 +227,10 @@ def soma(x):
 ```
 
 Por  um lado, efeitos colaterais são essencias para se desempenhar algumas operações, como Entrada/Saída.
-Por exemplo, ao invocar `#!py print` no Python, o terminal tem seu estado alterado, e cada nova invocação altera mais o estado.
-Da mesma forma, ao se invocar `#!c scanf` em um código C, a função acessa o estado do teclado, que dependendo do que o usuário digitou.
+Por exemplo, ao invocar `#!py print` no Python, o terminal tem seu estado alterado, e cada nova invocação altera mais o estado;
+da mesma forma, ao se invocar `#!c scanf` em um código C, a função acessa o estado do teclado, que depende do que o usuário digitou; todas atividades muito úteis.
 Por outro lado, se uma função não tem efeitos colaterais ela pode ser muito mais facilmente testada e até mesmo provada correta, sendo almejadas como blocos de construção.
-Assim, ao mesmo tempo em que precisamos executar operações que causam efeitos colaterais, queremos minimizá-los pois são fontes de indeterminismo e bugs no código.
+Assim, ao mesmo tempo em que precisamos executar operações que causam efeitos colaterais, queremos minimizá-las pois são fonte de indeterminismo e bugs no código.
 
 Linguagens diferentes tomam rumos diferentes com respeito a efeitos colaterais. 
 Enquanto são lugar comum na programação procedimental, ficando totalmente sob responsabilidade do desenvolvedor evitar que causem problemas, na programação funcional são evitados ao tratar variáveis não como áreas de memória alteráveis, mas como incógnitas, como na matemática, evitando que estado seja "acumulado" fora dos parâmetros formais da função. Nas linguagens deste paradigma, ou exceções são feitas para operações que demandam efeitos colaterais, dando origem às linguagens funcionais **não puras**, ou os efeitos colaterais são completamente abolidos, mesmo que às custas de "artifícios", [^monadas] como em Haskell.
@@ -264,7 +264,7 @@ def quads2(x):
 Além disso, há linguagens funcionais que também se enquadram em outros paradigmas e que podem ser consideradas híbridas, ou multi-paradigma.
 
 ## Multi-paradigma
-Muitas linguagens modernas podem ser classificadas ao mesmo tempo em muitos paradigmas, por exemplo, a linguagem Scala é ao mesmo tempo funcional e orientada a objetos, sendo muito difícil usá-la sem fazer uso extensivo de ambos aspectos.
+Muitas linguagens modernas podem ser classificadas ao mesmo tempo em muitos paradigmas. A linguagem Scala, por exemplo, é ao mesmo tempo funcional e orientada a objetos, sendo muito difícil usá-la sem fazer uso extensivo de ambos aspectos.
 
 ```scala
 object HelloWorld {
@@ -286,7 +286,7 @@ Algumas características importantes do paradigma:
 
 * Sem efeitos colaterais: executando um programa, de repente você percebe que uma certa variável tem um valor estranho e fica se perguntando quem foi que atribuiu tal valor; efeitos colaterais são a origem de boa parte dos bugs e eliminá-los, ou ao menos reduzí-los, permite que você identifique rapidamente onde alterações poderiam ter acontecido.
 
-* Camadas de abstração: funções podem ser compostas levando a programas verdadeiramente complexos, permitindo que abstrações sejam definidas em diversas camadas. Além disso, é possível, em teoria, ser provar a corretude de funções e, mesmo que na prática isso não se realize, há ferramentas que conseguem usar esta ideia para lhe ajudar a encontrar bugs.
+* Camadas de abstração: funções podem ser compostas levando a programas verdadeiramente complexos, permitindo que abstrações sejam definidas em diversas camadas. Além disso, é possível, ao menos em teoria, provar-se a corretude de funções e, mesmo que na prática isso não se realize, há ferramentas que conseguem usar esta ideia para lhe ajudar a encontrar bugs.
 
 * Processamento paralelo eficiente: a ausência de efeitos colaterais também implica que funções sem dependências podem ser executadas em paralelo, sem se preocupar com qualquer sincronização, isto é, sem mutexes e variáveis de condição, etc.
 
