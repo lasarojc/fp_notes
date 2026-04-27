@@ -146,7 +146,7 @@ Vejamos alguns exemplos:
 
 
 ## Funções úteis
-A seguir, uma pequena amostra das funções disponíveis na biblioteca padrão do Haskell para manipulação de listas, aplicáveis dependendo do tipo da lista. Por exemplo, `#!s reverse` funciona para qualquer tipo de lista, `#!hs prod` apenas para números.
+A seguir, uma pequena amostra das funções disponíveis na biblioteca padrão do Haskell para manipulação de listas, aplicáveis dependendo do tipo da lista. Por exemplo, `#!hs reverse` funciona para qualquer tipo de lista, `#!hs prod` apenas para números.
 
 |Operador|Operação| Exemplo |
 |----|----|----|
@@ -303,10 +303,10 @@ Dado que strings são apenas listas de Char, estas também podem ser decompostas
 
 ```hs
 resumo :: String -> String
-resumo [] -> "Nada"
-resumo [_] -> "Um"
-resumo [_,_] -> "Dois"
-resumo _ -> "Muitos"
+resumo [] = "Nada"
+resumo [_] = "Um"
+resumo [_,_] = "Dois"
+resumo _ = "Muitos"
 ```
 
 Assim como listas podem ter elementos mais complexos que tipos primitivos, por exemplo tuplas e listas, também os casamentos de padrões aplicados a estas listas serão mais complexos.
@@ -503,7 +503,7 @@ partitions (x:xs) = [ x:e | e <- partitions xs] ++ partitions xs
     !!!example "Resolução"
         ```hs
         permutações :: [a] -> [[a]]
-        permutações [] -> [[]]
+        permutações [] = [[]]
         permutações (h:t) = [take n permCauda ++ [h] ++ drop n permCauda | n <- [0..length t], permCauda <- permutações t]
         ```
 

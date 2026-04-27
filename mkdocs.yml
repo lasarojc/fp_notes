@@ -1,7 +1,7 @@
 
 site_name: Notas de Aula em Programação Funcional
 repo_url: https://github.com/lasarojc/fp_notes 
-site_description: Notas de aula do curso de Sistemas Distribuídos da FACOM/UFU
+site_description: Notas de aula do curso de Programação Funcional da FACOM/UFU
 edit_uri: ""
 
 extra_javascript:
@@ -78,7 +78,7 @@ extra:
 #    - icon: fontawesome/brands/twitter
 #      link: https://twitter.com/...
     - icon: fontawesome/brands/github
-      link: https://github.com/lasarojc/ds_notes 
+      link: https://github.com/lasarojc/fp_notes
       name: These notes on Github
 #    - icon: fontawesome/brands/slack
 #      link: https://slack.knative.dev
@@ -136,6 +136,7 @@ nav:
             - Módulos: development/modules.md
             - Quick, Check!: development/quickcheck.md
             - HSpec: development/hspec.md
+            - QuickCheck e HSpec: development/quickcheck_hspec.md
 
         - Funções II:
             - functions2/index.md
@@ -147,23 +148,19 @@ nav:
             - Apelidos: types2/userdefined.md
             - Tipos algébricos: types2/algebraic.md
             - Polimorfismo: types2/type_variables.md
-
-        - Desenvolvimento II:
-            - development2/index.md
-            - Filas: development2/queue.md
-            - Pilhas: development2/stack.md
-            - Mapa: development/map.md
+            - Typeclasses: types2/typeclass.md
 
         - Cálculo λ: lambda/lambda.md
 
         - Funções III:
+            - functions3/index.md
             - Ordem superior: functions3/highorder.md
             - Que preguiça: functions3/lazy.md
             - Recursão de cauda: functions3/tail_recursion.md
 
         - Entrada e Saída: 
             - IO: io/io.md
-            - Testes: tests/iotest.md
+            - Testes: io/iotest.md
 
         - Desenvolvimento III: 
             - Uma aplicação: development3/app.md

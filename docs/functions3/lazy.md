@@ -134,7 +134,7 @@ O Haskell então gera uma lista de "invocações" da função `fib`, mas não ch
 
 ###### Contras
 Como uma moeda sempre tem duas faces, vejamos o lado ruim da avaliação preguiçosa.
-Em vez de uma função custosa como a Fibonacci recursiva, se construirmos uma lista de somatórios de $2i + 2*+1, 0\leq 1 \leq 100$, ou seja, 0+1, 2+3, 4+5,...
+Em vez de uma função custosa como a Fibonacci recursiva, se construirmos uma lista de somatórios de $2*i+1, 0 \leq i \leq 100$, ou seja, 0+1, 2+3, 4+5,...
 
 ```hs
 *Main> x = [2*i + 2*i + 1 | i <- [0..100]]
@@ -160,7 +160,7 @@ A computação de uma função em Haskell pode ser entendida em termos da **rees
 
 ### Reescrita
 Há diferentes tipos de reescrita em Haskell.
-O tipo mais simples é a **redução** em que uma expressão é substituída por outra, equivalente, mas mais simples. Por exemplo, a expressão `#!hs 2+2` pode ser **reescrita** como `#hs 4`.
+O tipo mais simples é a **redução** em que uma expressão é substituída por outra, equivalente, mas mais simples. Por exemplo, a expressão `#!hs 2+2` pode ser **reescrita** como `#!hs 4`.
 
 Outra forma de reescrita é o **desdobramento** (*unfolding*), em que o lado esquerdo de uma equação é substituído pelo lado direito. Por exemplo, quando invocamos `#!hs 1 + head [1,2,3]`, Haskell tenta achar uma definição da função `#!hs head` que case com a invocação. Suponha que exista uma definição `#!hs head (x:_) = x`; neste caso, `#!hs head (x:_) = x` é reescrito como `1` e `#!hs head [1,2,3]` é reescrito como 1, levando a expressão inicial a ser reduzida a `#!hs 1 + 1`, onde uma redução é aplicada, levando a `#!hs 2`.
 

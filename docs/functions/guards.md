@@ -38,7 +38,6 @@ nomeMes m
     | m == 10 = "OUT"
     | m == 11 = "NOV"
     | m == 12 = "DEZ"
-    | m == 13 = "ONZ"
 ```
 
 Embora no exemplo anterior cada condição seja muito simples, apenas um teste de igualdade, condições podem ser mais complexas, podendo incluir múltiplos testes e computações; a única condição é que resulte em um valor booleano.

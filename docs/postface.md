@@ -32,7 +32,7 @@ Por isso o `if` do Haskell deve ser comparado ao operador ternário do C, não c
 
 
 ## Linha do erro
-As vezes o compilador aponta uma linha como tendo um erro e você olha para a tal linha por horas sem entender o que há de errado. Talvez ela não esteja errada!
+Às vezes o compilador aponta uma linha como tendo um erro e você olha para a tal linha por horas sem entender o que há de errado. Talvez ela não esteja errada!
 Acontece que o compilador tenta ao máximo usar o seu código, e por isso às vezes passa por cima de erros e só para quando não dá mais para interpretar o arquivo.
 Por isso, quando o compilador apontar um erro em uma linha, sempre considere as linhas anteriores também como potencialmente problemáticas.
 ## Falta de parênteses
@@ -49,7 +49,7 @@ Prelude> 4/(2*2)
 * `((b1+b2)/2) * h` -> `(b1+b2)/2 * h`
     * não há dúvida para o compilador que a divisão deve ocorrer primeiro, pois os operadores tem a mesma precedência e ambos são associativos à esquerda.
 * `sqrt ((b*b)+ (c*c))`-> sqrt (b*b + c*c)
-    * não há dúvida para o compilador que a divisão deve ocorrer primeiro, pois os operadores tem precedências diferentes.
+    * não há dúvida para o compilador que a multiplicação deve ocorrer primeiro, pois os operadores tem precedências diferentes.
 
 * Informação sobre precedência e associatividade pode ser derivadas via `#!hs :info`.
 

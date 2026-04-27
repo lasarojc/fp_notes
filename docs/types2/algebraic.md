@@ -1,8 +1,8 @@
 # Tipos de dados algébricos
-Em seções anteriores, vimos que Haskell define diversos [tipos](types.md) de dados, como inteiros, booleanos e strings.
+Em seções anteriores, vimos que Haskell define diversos [tipos](../types/basic.md) de dados, como inteiros, booleanos e strings.
 
 Embora possamos usar os tipos básicos para resolver problemas, pode ser mais fácil usar um vocabulário específico do problema, por exemplo data, nome, direção, etc.
-Neste caso, podemos criar ["apelidos"](types.md) para tipos básicos, usando `#!hs type`.
+Neste caso, podemos criar ["apelidos"](../types/userdefined.md) para tipos básicos, usando `#!hs type`.
 Mas Haskell é mais poderoso que isso e permite que defina tipos novos a partir do zero.[^davesands]
 Por exemplo, lembre-se do problemas discutidos que lidavam com cartas de baralho e como usamos uma dupla de String e Int para representar seus naipes e valores.
 Com `#!hs data` é possível fazer algo melhor.
@@ -41,7 +41,7 @@ corDoNaipe :: Naipe -> String
 corDoNaipe Copas = "Vermelho"
 corDoNaipe Ouro = "Vermelho"
 corDoNaipe Paus = "Preto"
-corDoNaipe Espada = "Preto"
+corDoNaipe Espadas = "Preto"
 ```
 
 Ou, equivalentemente, no seguinte exemplo.
@@ -52,7 +52,7 @@ corDoNaipe n = case n of
                   Copas -> "Vermelho"
                   Ouro -> "Vermelho"
                   Paus -> "Preto"
-                  Espada -> "Preto"
+                  Espadas -> "Preto"
 ```
 
 Mas e o seguinte código?
@@ -63,7 +63,7 @@ corDoNaipe'' n
     | n == Copas = "Vermelho"
     | n == Ouro = "Vermelho"
     | n == Paus = "Preto"
-    | n == Espada = "Preto"
+    | n == Espadas = "Preto"
 ```
 
 Se testá-lo, verá que não funciona. Um efeito semelhante é observado quando fazemos algo mais simples ainda.
@@ -274,9 +274,9 @@ Assim como `#!hs Naipe` pode ser usado em um casamento de padrões, também a de
 
 ```hs
 éFigura :: Valor -> Bool
-éFigura (Número _) -> False
-éFigura Ás -> True  -- Esta definição é desnecessária e usada só pra demonstração.
-éFigura _ -> True
+éFigura (Número _) = False
+éFigura Ás = True  -- Esta definição é desnecessária e usada só pra demonstração.
+éFigura _ = True
 ```
 
 
@@ -404,7 +404,7 @@ corDoNaipe :: Naipe -> String
 corDoNaipe Copas = "Vermelho"
 corDoNaipe Ouro = "Vermelho"
 corDoNaipe Paus = "Preto"
-corDoNaipe Espada = "Preto"
+corDoNaipe Espadas = "Preto"
 ```
 
 Já para tipos que usam construtores, os padrões devem incluir o construtor, como mostram as funções a seguir.
@@ -452,8 +452,8 @@ Isto é, o próprio gerador entende que somente tipos que casem com o construtor
 
 
 ## Notação tipo "record"
-???todo "TODO"
-   Records
+!!! warning "Conteúdo Incompleto"
+    Esta seção sobre Records ainda não foi escrita.
 
 
 ## Maybe
@@ -511,7 +511,7 @@ Usando tipos algébricos, conseguimos representar listas da seguinte forma:
 ```hs
 data Lista a = Vazio | Elemento a (Lista a) deriving (Show)
 
-busca :: a -> Lista a -> Bool
+busca :: Eq a => a -> Lista a -> Bool
 busca _ Vazio = False
 busca e (Elemento x xs)
   | e == x = True

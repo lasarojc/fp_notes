@@ -27,8 +27,8 @@ Usando casamento de padrões, ela ficaria assim:
 ```hs
 nomeMes 1 = "JAN"
 nomeMes 2 = "FEB"
-nomeMes 3 = "ABR"
-nomeMes 4 = "MAR"
+nomeMes 3 = "MAR"
+nomeMes 4 = "ABR"
 nomeMes 5 = "MAI"
 nomeMes 6 = "JUN"
 nomeMes 7 = "JUL"

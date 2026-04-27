@@ -30,10 +30,10 @@ Observe que a sintaxe do **uso** das funções, contudo, é atípica. Enquanto a
 
 A definição de funções em Haskell é feita pela especificação de uma ou mais **equações**.
 Na forma mais comum de definição, do lado esquerdo da equação temos o nome da função, iniciado sempre uma **letra minúscula**, e seguido por um ou mais parâmetros formais, todos iniciados também por **letras minúsculas**. 
-A convenção é que funções e parâmetros sejam nomeados usando [Camel Casing](TODO).
+A convenção é que funções e parâmetros sejam nomeados usando Camel Casing.
 Já do lado direito temos definição do cálculo do resultado.
 
-`#!hs nomeDaFunção [par1 [par2 [par2]]] = definição`
+`#!hs nomeDaFunção [par1 [par2 [par3]]] = definição`
 
 Por exemplo, consideremos uma função que soma dois números.
 

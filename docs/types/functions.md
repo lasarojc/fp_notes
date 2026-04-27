@@ -7,7 +7,7 @@ nomeFuncao :: tipo_arg1 -> ... -> tipo_argN -> tipo_saida
 nomeFuncao arg1 ... argN = <definicao>
 ```
 
-Por exemplo, o **protótipo** da função ``#!hs diaMes``, isto é, a definição dos tipos de entrada e saída da função, fica assim:
+Por exemplo, o **protótipo** da função ``#!hs diasMes``, isto é, a definição dos tipos de entrada e saída da função, fica assim:
 
 ```hs
 diasMes :: Int -> Int
@@ -23,7 +23,7 @@ Já uma função que calcula a média de três números reais terá a seguinte d
     
 ```hs 
 m3n :: Float -> Float -> Float -> Float
-m3n a b c = (a + b + c)/2
+m3n a b c = (a + b + c)/3
 ```
 
 

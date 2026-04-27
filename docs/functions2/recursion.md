@@ -185,7 +185,7 @@ int collatz(int n, int i){
           if (f_n_i_menos_1 % 2 == 0)
                return f_n_i_menos_1 /2;
           else
-               f_n_i_menos_1 * 3 + 1;
+               return f_n_i_menos_1 * 3 + 1;
 }
 
 bool converge(int n) {
@@ -237,8 +237,6 @@ Mais tarde veremos como tornar esta função muito mais eficiente, como na vers�
           * Use um contador para limitar o número de recursões e, no caso do limite ser alcançado, emita um erro.
 
     ???example "Resolução"
-          * Use um contador para limitar o número de recursões e, no caso do limite ser alcançado, emita um erro.
-
           ```hs
           --8<--
           docs/code/collatz2.hs
@@ -262,8 +260,8 @@ $$
 !!!exercise "Binomial"
     Implemente uma função recursiva que calcule $\binom{n}{k}$
 
-    ???example "Resolução"
-        A ser implementado
+    !!! warning "Resolução não disponível"
+        A resolução deste exercício ainda não foi escrita.
 
 ## Recursão e Listas
 A recursão é essencial no processamento de listas e, de fato, muitas das funções listadas na seção sobre [listas](../types/lists.md) podem e são definidas recursivamente, como a função `#!hs maximum`:

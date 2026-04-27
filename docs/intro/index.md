@@ -24,7 +24,7 @@ A não ambiguidade das linguagens de programação vem do fato de terem sintaxe 
     A sintaxe de uma linguagem descreve o que constitui um programa estruturalmente correto e é definida por uma gramática.
 
 !!!note "Semântica"
-    O significado de um programa é definido por sua semântica, ou seja, por regras que definem como as instruções especificado devem ser interpretadas.
+    O significado de um programa é definido por sua semântica, ou seja, por regras que definem como as instruções especificadas devem ser interpretadas.
 
 Serem precisas não quer dizer que as linguagens sejam simples, como demonstra claramente a seguinte imagem, um programa "hello world" na linguagem [Piet](https://dangermouse.net/esoteric/piet.html).
 
@@ -199,7 +199,7 @@ Um programa funcional consiste basicamente justaposição de funções, ligando 
 Neste sentido, podemos dividir as funções em **puras** e com **efeitos colaterais**.
 
 
-###### Efeito colateral
+### Efeito colateral
 Dizemos que uma função é **pura** quando ela depende somente dos parâmetros passados para calcular o seu resultado, ou seja, funções puras são como na matemática, mapeiam uma mesma entrada em **exatamente** uma mesma saída.
 Por exemplo, as seguintes funções, definidas em Erlang, calculam `#!erlang A+B`, `#!erlang A*C` e `#!erlang (A+B)*(A+B)` e, independentemente de quantas vezes você o fizer, `#!erlang add(2,3)` sempre retornará `5`.
 
@@ -226,7 +226,7 @@ def soma(x):
     return acc
 ```
 
-Por  um lado, efeitos colaterais são essencias para se desempenhar algumas operações, como Entrada/Saída.
+Por  um lado, efeitos colaterais são essenciais para se desempenhar algumas operações, como Entrada/Saída.
 Por exemplo, ao invocar `#!py print` no Python, o terminal tem seu estado alterado, e cada nova invocação altera mais o estado;
 da mesma forma, ao se invocar `#!c scanf` em um código C, a função acessa o estado do teclado, que depende do que o usuário digitou; todas atividades muito úteis.
 Por outro lado, se uma função não tem efeitos colaterais ela pode ser muito mais facilmente testada e até mesmo provada correta, sendo almejadas como blocos de construção.
@@ -292,7 +292,7 @@ Algumas características importantes do paradigma:
 
 * Avaliação preguiçosa: funções só precisam realmente ser executadas se seus resultados são necessários e o compilador consegue atrasar a execução de funções enquanto possível.
 
-* Recursão de calda: alguns problemas podem ser descritos muito facilmente como uma recursão que com uma iteração, mas linguagens tradicionais tem um limite no tamanho das pilhas de função; linguagens funcionais conseguem, em certas condições, usar recursão infinita, contornando esta limitação.
+* Recursão de cauda: alguns problemas podem ser descritos muito facilmente como uma recursão que com uma iteração, mas linguagens tradicionais tem um limite no tamanho das pilhas de função; linguagens funcionais conseguem, em certas condições, usar recursão infinita, contornando esta limitação.
 
 * Funções de ordem superior: funções podem receber outras funções como parâmetro e com isso podemos compor funções, por exemplo para implementar orientação a objetos.
 

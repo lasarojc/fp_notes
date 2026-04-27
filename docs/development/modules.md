@@ -80,12 +80,13 @@ Módulos podem ter nomes hierarquizados, como `#!hs Números.Complexos.Operaçõ
 
 ###### Exportando funções específicas
 
-???todo "TODO"
-    exemplo
+!!! warning "Conteúdo Incompleto"
+    Esta seção ainda não foi escrita.
+
 ###### Importando funções específicas
 
-???todo "TODO"
-    exemplo
+!!! warning "Conteúdo Incompleto"
+    Esta seção ainda não foi escrita.
 
 
 
@@ -102,7 +103,7 @@ Uma pequena mas interessante amostra de outros tipos e funções.
 |`Semigroup` | Uma classe em que vale a associatividade |
 |`Monoid`| Monóide em que há um elemento identidade |
 |`putChar`| Escreve um caractere na saida padrão |
-|`getString`| Lê uma string da entrada padrão |
+|`getLine`| Lê uma string da entrada padrão |
 
 Estes exemplos servem para mostrar como o módulo mais básico do Haskell é diverso e como a sua biblioteca é mais diversa ainda.
 Além do Prelude, centenas de outros módulos estão disponíveis na Web, de compiladores a geradores de gráficos 3D, de transformadas rápidas de Fourier a *message brokers*, em repositórios como o Hackage.[^hackage]
@@ -122,7 +123,7 @@ Prelude Data.Complex> x
 Módulos podem ser agrupados em **pacotes** e disponibilizados como bibliotecas para outros desenvolvedores.
 Isto é feito para as bibliotecas padrão da linguagem mas também para contribuições de desenvolvedores independentes.
 
-Dificilmente você escreverá algo de útil sem importar ao menos alguns módulos da biblioteca padrão e para importar os módulos de algum pacote não padrão, você precisa primeiro instalar o pacote e configurá-o para que seja acessível ao compilador ou interpretador, uma tarefa ingrata.
+Dificilmente você escreverá algo de útil sem importar ao menos alguns módulos da biblioteca padrão e para importar os módulos de algum pacote não padrão, você precisa primeiro instalar o pacote e configurá-lo para que seja acessível ao compilador ou interpretador, uma tarefa ingrata.
 Considerando que há também diversas versões do compilador que usaremos, o Haskell, e que certos pacotes dependem de versões específicas do Haskell e de outros pacotes, configurações manuais se tornam muito trabalhosas.
 Em vez disso, pode-se usar ferramentas como **Cabal** e **Stack**, que permitem descrever os pacotes as serem instalados e suas respectivas versões, por projeto, e estas gerenciarão as dependências automaticamente em tempo de compilação.
 

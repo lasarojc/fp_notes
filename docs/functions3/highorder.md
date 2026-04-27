@@ -169,7 +169,7 @@ resumir' o i [1,2,3]
 
 <tr>
 
-<td> Expressão </>
+<td> Expressão </td>
 
 <td> 
 
@@ -376,7 +376,7 @@ Observe as seguintes invocações.
 False
 
 > all (>10) [11..15]
-False
+True
 ```
 
 

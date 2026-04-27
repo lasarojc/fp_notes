@@ -216,7 +216,7 @@ A primeira definição usa somente constantes como padrão.
 Esta definição está correta, mas é mais complexa do que o necessário, já que somente a primeira equação resulta em `#!hs True`.
 
 ```hs
-(&&) Bool -> Bool -> Bool
+(&&) :: Bool -> Bool -> Bool
 True && True = True
 True && False = False
 False && True = False
@@ -227,7 +227,7 @@ Uma versão simplificada pelo uso de padrões curinga, seria a seguinte.
 Observe como ela é mais legível.
 
 ```hs
-(&&) Bool -> Bool -> Bool
+(&&) :: Bool -> Bool -> Bool
 True && True = True
 _ && _ = False
 ```
@@ -235,7 +235,7 @@ _ && _ = False
 Finalmente, uma terceira versão que usa um padrão variável e um curinga também poderia ser usada.
 
 ```hs
-(&&) Bool -> Bool -> Bool
+(&&) :: Bool -> Bool -> Bool
 True && b = b
 False && _ = False
 ```
@@ -252,17 +252,14 @@ snd (_,y) =  y
 
 !!!exercise "Exercício"
     * Seguindo os moldes da definição do operador `&&`, defina o operador lógico ou `||` de três formas diferentes.
-    * Seguindo os moldes da definição do operador `&&`, defina o operador lógico ou `||` de três formas diferentes.
     * Defina 3 funções, usando `if`-`then`-`else`, guardas e casamento de padrões, que calculem os números da série de Fibonacci, a saber
 
         * Fib(1) = 1
         * Fib(2) = 1
         * Fib(n) = Fib(n-1) + Fib(n-2)
 
-        ???example "Resolução"
-            ```hs
-            Surprise!
-            ```
+        !!! warning "Resolução não disponível"
+            A resolução deste exercício ainda não foi escrita.
 
 ###### `#!hs case-of`
 Esta estrutura se assemelha ao `switch` de linguagens como C e Java, e tem a seguinte sintaxe, onde os padrões devem estar perfeitamente alinhados.
@@ -294,18 +291,18 @@ nome_mes m
     | m == 3 = "MAR"
     ...
     | m == 11 = "NOV"
-    | otherwise "DEZ"
+    | otherwise = "DEZ"
 ```
 
 Usando `case`-`of`, a
 
 ```hs
 nomeMes m = case m of 1 -> "JAN"
-                 m of 2 ->  "FEB"
-                 m of 3 -> "MAR"
-                 ...
-                 m of 11 -> "NOV"
-                 m of 12 -> "DEZ"
+                      2 ->  "FEB"
+                      3 -> "MAR"
+                      ...
+                      11 -> "NOV"
+                      12 -> "DEZ"
 ```
 
 

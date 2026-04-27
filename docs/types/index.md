@@ -38,7 +38,7 @@ print(type(x))
 Já a linguagem Haskell é o que chamamos de **fortemente tipada**, o que quer dizer que toda variável, constante, e função tem apenas um tipo e este sempre pode ser determinado.
 Além disso, Haskell é **estaticamente tipada**, ou seja, os tipos são determinados em tempo de compilação, em oposição às linguagens dinamicamente tipadas, que determinam o tipo durante a execução do programa.
 
-Para definir o tipo de uma expressão, usa-se após `#!hs :: <Tipo>` após a mesma, como nos seguintes exemplos.
+Para definir o tipo de uma expressão, usa-se `#!hs :: <Tipo>` após a mesma, como nos seguintes exemplos.
 
 ```hs
 > x = 1::Int
@@ -57,6 +57,6 @@ y :: Integer
 z :: Double
 ```
 
-Acontece que se se olharmos novamente para os exemplos de código em Haskell vistos no capítulo anterior, veremos que em lugar algum foram definidos tipos; isto é possível porquê Haskell consegue **inferir** os tipos dos dados de forma muito acurada, olhando para as funções que manipulam os dados. Por exemplo, na pela definição da função `#!hs quad x = x*x`, Haskell sabe que `#!hs x` precisa ser operável com `*`, logo, precisa ser um número.
+Acontece que se se olharmos novamente para os exemplos de código em Haskell vistos no capítulo anterior, veremos que em lugar algum foram definidos tipos; isto é possível porquê Haskell consegue **inferir** os tipos dos dados de forma muito acurada, olhando para as funções que manipulam os dados. Por exemplo, na definição da função `#!hs quad x = x*x`, Haskell sabe que `#!hs x` precisa ser operável com `*`, logo, precisa ser um número.
 
 Apesar da capacidade de inferência do Haskell, frequentemente especificamos tipos, principalmente para funções, mais como uma forma de facilitar a leitura e manutenção do código e para indicar sua intenção ao compilador, que irá testar se os tipos indicados podem ser satisfeitos pelo código e lhe informar caso contrário.

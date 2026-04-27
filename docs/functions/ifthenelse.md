@@ -35,7 +35,7 @@ Esta estrutura tem a seguinte sintaxe, em que a definição True é usada caso a
 if <condição> then <definição True> else <definição False>
 ```
 
-Por exemplo, veja podemos calcular o maior de dois números com a seguinte definição.
+Por exemplo, vejamos como podemos calcular o maior de dois números com a seguinte definição.
 
 ```hs
 maior x y = if x > y then x

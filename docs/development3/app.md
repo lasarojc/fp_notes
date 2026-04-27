@@ -1,10 +1,4 @@
-# Tudo junto e misturado
+# Uma Aplicação
 
-???todo "TODO"
-    Escrever
-
-```hs
----8<---
-docs/code/loop.hs
----8<---
-```
+!!! warning "Conteúdo Incompleto"
+    Esta seção ainda não foi escrita.

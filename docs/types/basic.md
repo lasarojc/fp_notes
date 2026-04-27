@@ -4,7 +4,7 @@ Algo a se notar é que os **nomes dos tipos são iniciados com letras maiúscula
 
 ## Números
 Os tipos básicos para a representação de números em Haskell são apresentados na seguinte tabela.
-Observe que o tipo `#!hs Integer` ter precisão arbitrária, ou seja, pode ser usado para representar números com "qualquer" quantidade de dígitos, diferentemente de `#!hs Int`, que só consegue representar números em uma faixa específica (64 bits).
+Observe que o tipo `#!hs Integer` tem precisão arbitrária, ou seja, pode ser usado para representar números com "qualquer" quantidade de dígitos, diferentemente de `#!hs Int`, que só consegue representar números em uma faixa específica (64 bits).
 
 ###### Tipos numéricos
 | Tipo |        Descrição       | Valores|
@@ -53,9 +53,8 @@ quot 10 3
 ###### Tipos para números
 Caso você queira ou precise, pode especificar um tipo para um número, por exemplo, `#!hs 20 :: Int` ou  `#!hs 20 :: Double`.
 
-!!!todo "Exercícios"
-    * Usar todos os operadores
-    * Evidenciar diferenças entrem quot/rem e div/mod.
+!!! warning "Exercícios"
+    Os exercícios desta seção ainda não foram adicionados.
 
 ## Booleanos
 Para representação de valores lógicos, Haskell define o tipo `#!hs Bool`.

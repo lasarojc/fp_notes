@@ -8,7 +8,7 @@ A versão de 98 foi um marco da linguagem, sendo uma versão considerada estáve
 Nesta época surgiu o Glasgow Haskell Compiler (GHC), que se tornou o compilador Haskell "padrão".
 A versão seguinte da linguagem começou a ser especificada em 2006 e anunciada em 2009, a Haskell 2010. Dentre os principais avanços desta versão está a possibilidade de interagir com código escrito em outras linguagens, via a *foreign function interface* (FFI).
 
-Mas chega de história e vamos colocar a mão na massa vendo alguns exemplos linguagem.
+Mas chega de história e vamos colocar a mão na massa vendo alguns exemplos da linguagem.
 
 ###### Exemplos simples
 Para pequenos experimentos e exercícios, podemos usar o [Repl.It](https://replit.com/languages/haskell)[^repl] para ter acesso a um interpretador Haskell sem a necessidade de instalação.

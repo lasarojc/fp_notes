@@ -1,3 +1,4 @@
+# Typeclasses
 
 ## :type e :info
 
@@ -59,4 +60,7 @@ infixl 6 +
 
 ```
 
-Também vemos que o estas definições são parde do GHC.Num, mas o que é o GHC.Num?
+Também vemos que o estas definições são parte do GHC.Num, mas o que é o GHC.Num?
+
+!!! warning "Conteúdo Incompleto"
+    Esta seção ainda não foi concluída.

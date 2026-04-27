@@ -8,10 +8,8 @@ soma2n a b = a + b
 
 Muitas vezes estes tipos simples precisam ser associados para significar algo de mais alto nível. Por exemplo, seja a função `soma2v` que soma as coordenadas `x` e `y` de 2 pontos representando dois vetores. Como poderíamos definir tal função, já que o resultado deve ter informação tanto sobre a coordenada `x` quanto `y` do resultado?
 
-```hs
-soma2v :: Int -> Int -> Int -> Int -> ██████
-soma2v x1 y1 x2 y2 = █████
-```
+!!! warning "Conteúdo Incompleto"
+    Esta parte ainda não foi escrita.
 
 A resposta está no uso de tipos estruturados, que agregam outros tipos.
 No caso, a solução ideal para o par ordenado está na forma de uma **tupla** de dois elementos.
@@ -19,10 +17,8 @@ Tuplas são geralmente representadas usando a sintaxe `#!hs (Elem1, Elem2, ... ,
 Assim, a função `#!hs soma2v` pode ser redefinida como a seguir.
 Observe que a função define claramente que as tuplas terão 2 elementos e qual a variável associada a cada um dos pontos.
 
-```hs
-soma2v :: (Int,Int) -> (Int,Int) -> (Int,Int)
-soma2v p1 p2 = █████
-```
+!!! warning "Conteúdo Incompleto"
+    Esta parte ainda não foi escrita.
 
 Para acessar as diferentes coordenadas dentro das tuplas podemos usar as funções `#!hs fst` e `#!hs snd`,[^prelude] abreviações para *first* e *second* e que retornam o primeiro e o segundo elemento de uma tupla de dois elementos, um par, respectivamente.
 Isto é, 
@@ -184,7 +180,7 @@ Os tipos das componentes de uma tupla podem ter qualquer tipo válido, inclusive
 
 ## Ordem entre tuplas
 Dado duas tuplas com mesmo tipo (mesmo tamanho e tipo de suas componentes), podemos compará-las lexicograficamente.
-Isto quer dizer que uma tupla $t_1$ é menor que uma tupla $t_2$ se, considerando posições da esquerda para a direita. 
+Isto quer dizer que uma tupla $t_1$ é menor que uma tupla $t_2$ se, a comparação considera os elementos da esquerda para a direita. 
 Isto é, dado tupla $t^1$ e uma tupla $t^2$, se o primeiro elemento da tupla $t^1$ é menor que o primeiro elemento da tupla $t^2$, então $t^1 < t^2$. Caso o primeiro elemento de $t^2$ seja menor, então $t^2 < t^1$. E caso os primeiros elementos sejam iguais, a avaliação é repetida para os segundos elementos e assim sucessivamente.
 
 ```hs
